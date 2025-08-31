@@ -13,6 +13,8 @@ public class SceneBootstrap : MonoBehaviour
             if (!SceneManager.GetSceneByName(s).isLoaded)
             {
                 yield return SceneManager.LoadSceneAsync(s, LoadSceneMode.Additive);
+                yield return null; // one frame so Awake/Start on Score register
+                FindFirstObjectByType<ViewButtonsAuto>()?.Rebuild();
             }
         }
 

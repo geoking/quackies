@@ -5,15 +5,24 @@ public class BoardCameraRegister : MonoBehaviour
     [SerializeField] string key = "Player";
     [SerializeField] Camera cam;
 
-    void Awake()
+    public void Initialize(string newKey, Camera overrideCam = null)
     {
-        if (cam == null) cam = Camera.main;
-        // If AppShell isn’t loaded yet, we'll try again on Start
-        if (ViewSwitcher.Instance != null) ViewSwitcher.Instance.Register(key, cam);
+        key = newKey;
+        if (overrideCam != null) cam = overrideCam;
+        Register();
     }
 
-    void Start()
+    void Awake()
     {
-        if (ViewSwitcher.Instance != null) ViewSwitcher.Instance.Register(key, cam);
+        if (!cam) cam = GetComponentInChildren<Camera>();
+        Register();
+    }
+
+    void Register()
+    {
+        if (ViewSwitcher.Instance != null && cam != null)
+        {
+            ViewSwitcher.Instance.Register(key, cam);
+        }
     }
 }

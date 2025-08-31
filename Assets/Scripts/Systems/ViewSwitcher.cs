@@ -5,6 +5,8 @@ public class ViewSwitcher : MonoBehaviour
 {
     public static ViewSwitcher Instance { get; private set; }
     readonly Dictionary<string, Camera> _cams = new();
+    public IReadOnlyCollection<string> Keys => _cams.Keys;
+
 
     void Awake()
     {
