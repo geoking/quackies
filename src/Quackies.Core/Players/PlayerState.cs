@@ -45,9 +45,9 @@ namespace Quackies.Core.Players
 
         public string PlayerId { get; }
 
-        public Bag Bag { get; }
+        public Bag Bag { get; private set; }
 
-        public CauldronState Cauldron { get; }
+        public CauldronState Cauldron { get; private set; }
 
         public int VictoryPoints { get; private set; }
 
@@ -148,6 +148,18 @@ namespace Quackies.Core.Players
                 appliedBuyingPower,
                 appliedRubies,
                 explodedRewardChoice);
+        }
+
+        public void StartNextRound(Bag bag)
+        {
+            if (bag == null)
+            {
+                throw new ArgumentNullException(nameof(bag));
+            }
+
+            Bag = bag;
+            Cauldron = new CauldronState();
+            BuyingPowerAvailableThisRound = 0;
         }
     }
 }
