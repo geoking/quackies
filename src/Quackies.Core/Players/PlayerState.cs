@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Quackies.Core.Bags;
+using Quackies.Core.Cauldrons;
 using Quackies.Core.Randomness;
+using Quackies.Core.Rewards;
 using Quackies.Core.Rounds;
 using Quackies.Core.Tokens;
 
@@ -10,31 +11,49 @@ namespace Quackies.Core.Players
 {
     public sealed class PlayerState
     {
-        private readonly List<PlacedToken> _drawnTokens;
-
         public PlayerState(Bag bag)
+            : this("Player 1", bag, new CauldronState())
         {
+        }
+
+        public PlayerState(string playerId, Bag bag)
+            : this(playerId, bag, new CauldronState())
+        {
+        }
+
+        public PlayerState(string playerId, Bag bag, CauldronState cauldron)
+        {
+            if (string.IsNullOrWhiteSpace(playerId))
+            {
+                throw new ArgumentException("Player id is required.", nameof(playerId));
+            }
+
             if (bag == null)
             {
                 throw new ArgumentNullException(nameof(bag));
             }
 
+            if (cauldron == null)
+            {
+                throw new ArgumentNullException(nameof(cauldron));
+            }
+
+            PlayerId = playerId;
             Bag = bag;
-            _drawnTokens = new List<PlacedToken>();
+            Cauldron = cauldron;
         }
+
+        public string PlayerId { get; }
 
         public Bag Bag { get; }
 
-        public int CurrentCauldronPosition { get; private set; }
+        public CauldronState Cauldron { get; }
 
-        public int WhiteChipTotal { get; private set; }
+        public int VictoryPoints { get; private set; }
 
-        public bool HasExploded { get; private set; }
+        public int Rubies { get; private set; }
 
-        public IReadOnlyList<PlacedToken> DrawnTokens
-        {
-            get { return new ReadOnlyCollection<PlacedToken>(_drawnTokens); }
-        }
+        public int BuyingPowerAvailableThisRound { get; private set; }
 
         public DrawResult DrawToken(IRandomSource random)
         {
@@ -43,40 +62,92 @@ namespace Quackies.Core.Players
                 throw new ArgumentNullException(nameof(random));
             }
 
-            if (HasExploded)
+            if (Cauldron.HasExploded)
             {
                 throw new InvalidOperationException("Cannot draw another token after the player has exploded.");
             }
 
+            if (Cauldron.IsStopped)
+            {
+                throw new InvalidOperationException("Cannot draw another token after the player has stopped.");
+            }
+
             var token = Bag.DrawToken(random);
+            var placedToken = Cauldron.PlaceToken(token);
             var events = new List<DrawEvent>
             {
                 new DrawEvent(DrawEventType.TokenDrawn, $"Drew {token}.")
             };
 
-            CurrentCauldronPosition += token.Value;
-            _drawnTokens.Add(new PlacedToken(token, CurrentCauldronPosition));
-
             if (token.Color == TokenColor.White)
             {
-                WhiteChipTotal += token.Value;
-                events.Add(new DrawEvent(DrawEventType.WhiteChipTotalChanged, $"White chip total is now {WhiteChipTotal}."));
+                events.Add(new DrawEvent(DrawEventType.WhiteChipTotalChanged, $"White chip total is now {Cauldron.WhiteChipTotal}."));
             }
 
-            HasExploded = WhiteChipTotal > 7;
-
-            if (HasExploded)
+            if (Cauldron.HasExploded)
             {
                 events.Add(new DrawEvent(DrawEventType.Explosion, "The cauldron exploded."));
             }
 
             return new DrawResult(
                 token,
-                CurrentCauldronPosition,
-                WhiteChipTotal,
-                HasExploded,
+                placedToken,
+                Cauldron.CurrentPosition,
+                Cauldron.WhiteChipTotal,
+                Cauldron.HasExploded,
                 Bag.Count,
                 events);
+        }
+
+        public void StopRound()
+        {
+            Cauldron.Stop();
+        }
+
+        public AppliedEndRoundRewardResult ApplyEndRoundReward(
+            EndRoundRewardResult reward,
+            ExplodedRewardChoice? explodedRewardChoice = null)
+        {
+            if (reward == null)
+            {
+                throw new ArgumentNullException(nameof(reward));
+            }
+
+            var appliedVictoryPoints = 0;
+            var appliedBuyingPower = 0;
+            var appliedRubies = reward.HasRuby ? 1 : 0;
+
+            if (reward.PlayerExploded)
+            {
+                if (!explodedRewardChoice.HasValue)
+                {
+                    throw new InvalidOperationException("Exploded players must choose victory points or buying power.");
+                }
+
+                if (explodedRewardChoice.Value == ExplodedRewardChoice.TakeVictoryPoints)
+                {
+                    appliedVictoryPoints = reward.VictoryPoints;
+                }
+                else
+                {
+                    appliedBuyingPower = reward.BuyingPower;
+                }
+            }
+            else
+            {
+                appliedVictoryPoints = reward.VictoryPoints;
+                appliedBuyingPower = reward.BuyingPower;
+            }
+
+            VictoryPoints += appliedVictoryPoints;
+            BuyingPowerAvailableThisRound += appliedBuyingPower;
+            Rubies += appliedRubies;
+
+            return new AppliedEndRoundRewardResult(
+                appliedVictoryPoints,
+                appliedBuyingPower,
+                appliedRubies,
+                explodedRewardChoice);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Quackies.Core.Cauldrons;
 using Quackies.Core.Tokens;
 
 namespace Quackies.Core.Rounds
@@ -9,6 +10,7 @@ namespace Quackies.Core.Rounds
     {
         public DrawResult(
             Token drawnToken,
+            PlacedToken placedToken,
             int newCauldronPosition,
             int whiteChipTotal,
             bool hasExploded,
@@ -25,7 +27,13 @@ namespace Quackies.Core.Rounds
                 throw new ArgumentNullException(nameof(events));
             }
 
+            if (placedToken == null)
+            {
+                throw new ArgumentNullException(nameof(placedToken));
+            }
+
             DrawnToken = drawnToken;
+            PlacedToken = placedToken;
             NewCauldronPosition = newCauldronPosition;
             WhiteChipTotal = whiteChipTotal;
             HasExploded = hasExploded;
@@ -34,6 +42,8 @@ namespace Quackies.Core.Rounds
         }
 
         public Token DrawnToken { get; }
+
+        public PlacedToken PlacedToken { get; }
 
         public int NewCauldronPosition { get; }
 
