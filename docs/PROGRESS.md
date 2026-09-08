@@ -59,6 +59,27 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   Native mouse automation was unavailable; callback and hit-test evidence is
   distinct from a physical touch or native mouse test.
 
+### 6. Match settings and complete history
+
+- Published immutable zero/one starting-ruby settings, fixed nine-chip starting
+  reference and full actor-attributed history. CLI uses the same setup and Normal
+  AI, displays history, handles EOF and leaves round advancement to the human.
+- Published tests separately: 11 focused cases and the full 71-test Release suite
+  pass, including real CLI processes and retained history beyond 80 entries.
+
+### 7. Inspectable scoreboard and opponent pot
+
+- Published the supplied `board.png` with live scores, round marker, player counter
+  art, separate tied counters and correct 50-point laps. Zero starts in the seal
+  book rather than covering a numbered score space.
+- Added a header Scoreboard button and a tappable rival pot / View CPU pot button.
+  The full-screen pot continues updating during AI play; both screens have Back.
+- Validation: rebuilt saved scene, inspected iPad mini captures, scoreboard
+  raycast/pointer callback, open/back callbacks, live CPU updates and score laps.
+  No missing scripts, compilation/runtime errors, or text overflow in the
+  inspected CPU view. Original image bytes remain unchanged. These are Editor
+  checks; physical touch/device validation is separate.
+
 ## In progress
 
 - Fourteen fortune cards now have implementations; their two dedicated regression
@@ -68,8 +89,8 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   The tests included 112 full matches across the 14 implemented cards with no
   explosions. Flask use requires a safe next draw and a round-weighted remaining
   bag threshold (over 50% in round one, falling to over 15% in round nine).
-- Fix action/text visibility and replace live bag contents with a fixed starting
-  reference. Add the live scoreboard and an enlarged opponent-pot view next.
+- Keep Draw/Stop/Flask in stable positions and use the supplied flask artwork.
+  Continue action/text checks and bind the starting reference to Core's fixed bag.
 - Add settings for Normal difficulty, starting ruby house rules and test tubes,
   plus a complete AI-history pane. Keep the CLI on the same match API.
 - Complete the test-tube variant, remaining fortune cards and full-match audit.
@@ -78,7 +99,7 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 
 ## Next checkpoints
 
-1. Readable controls, fixed starting-bag reference and inspectable score/AI boards.
+1. Stable artwork controls, fixed starting-bag reference and fortune display.
 2. Settings, AI history and matching CLI support.
 3. Complete fortune cards and test-tube rules, with separate regression commits.
 4. Legacy-prototype cleanup, full-match checks, iPad/iOS and extensibility review.

@@ -25,18 +25,27 @@ Updated: 8 September 2026. Read this alongside `PROGRESS.md` and
 - Core settings support starting with zero or one ruby; the official default
   remains one. Core exposes a fixed starting bag and full structured history.
   CLI uses those settings, Normal AI, recent history and human round advancement.
-  Source checkpoint: `985c092`; focused settings/history tests are pending.
+  Source checkpoint: `985c092`; tests checkpoint `22096a0` passes all 11 focused
+  regressions and the complete 71-test Release suite, including real CLI checks.
 - User checkpoint `cd3ed90` saved the action visibility and text-layout changes.
   Fresh runtime verification of all dynamic layouts is still required.
+- Checkpoint `60949b4` adds the live artwork scoreboard and full-screen CPU pot.
+  Open Scoreboard from the header, or tap the rival pot / View CPU pot button.
+  Both have an explicit Back button. Verified iPad mini screenshots, live CPU
+  updates, score laps, tied counters, scoreboard hit testing, open/back callbacks,
+  no text overflow in the inspected CPU view, no missing scripts or console errors.
+  Zero-point markers sit inside the seal book, away from numbered scoring spaces.
 
 ## Work in progress now
 
-1. Unity worker: add a full-screen CPU pot and a live scoreboard using `board.png`,
-   with visible open/back controls, player counters and the round marker.
-2. Core worker: regression tests for starting settings, immutable starting bags,
-   complete detached history and CLI input behavior.
+1. Unity worker: stable Draw/Stop/Flask slots with artwork; visible disabled states;
+   explicit empty fortune state while the deck remains incomplete; bind the fixed
+   bag reference to Core's immutable starting contents. Compiling checkpoint next.
+2. Core worker: ordinary rats from round two and four fortune definitions:
+   A Good Start, Rat Infestation, Rats Are Your Friends, Wheel and Deal.
+   Source commit first, focused tests in the following checkpoint.
 3. Lead: review, publish each checkpoint and maintain this handoff. Next Unity
-   change is fixed-position draw/stop/flask controls using the supplied flask art.
+   review is fixed-position draw/stop/flask controls using the supplied flask art.
 
 Workers may have stopped after a usage interruption. Check live agent status and
 the working tree before restarting work; saved files are more reliable than an
