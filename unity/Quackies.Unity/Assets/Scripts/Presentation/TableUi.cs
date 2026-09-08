@@ -50,7 +50,9 @@ namespace Quackies.Unity.Presentation
             label.color = color;
             label.fontStyle = bold ? FontStyles.Bold : FontStyles.Normal;
             label.raycastTarget = false;
-            label.overflowMode = TextOverflowModes.Ellipsis;
+            // Never silently remove part of a Core-provided label. Callers that host
+            // dynamic content size their text area or make it scrollable.
+            label.overflowMode = TextOverflowModes.Overflow;
             label.textWrappingMode = TextWrappingModes.Normal;
             return label;
         }

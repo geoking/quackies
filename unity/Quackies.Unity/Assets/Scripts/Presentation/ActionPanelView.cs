@@ -12,7 +12,7 @@ namespace Quackies.Unity.Presentation
     {
         [SerializeField] private RectTransform content;
         [SerializeField] private TMP_Text heading;
-        [SerializeField] private float rowHeight = 50f;
+        [SerializeField] private float rowHeight = 60f;
 
         public void Configure(RectTransform listContent, TMP_Text title)
         {
@@ -26,7 +26,17 @@ namespace Quackies.Unity.Presentation
             if (actions == null || actions.Count == 0)
             {
                 heading.text = busy ? "Opponent is brewing…" : "Waiting for the next phase";
-                content.sizeDelta = new Vector2(content.sizeDelta.x, rowHeight);
+                AddHint(busy ? "The opponent is taking a paced turn." : "No additional choices are available.");
+                return;
+            }
+
+            var nonPrimaryCount = 0;
+            foreach (var action in actions)
+                if (!IsPrimary(action.Kind)) nonPrimaryCount++;
+            if (nonPrimaryCount == 0)
+            {
+                heading.text = "Brewing controls";
+                AddHint("Draw or stop below");
                 return;
             }
 
@@ -40,6 +50,9 @@ namespace Quackies.Unity.Presentation
                     action.Kind == GameActionKind.Choose ? TableTheme.Raised : TableTheme.Panel, TableTheme.Ink);
                 var label = button.GetComponentInChildren<TMP_Text>();
                 label.fontSize = 13;
+                label.enableAutoSizing = true;
+                label.fontSizeMin = 10;
+                label.fontSizeMax = 13;
                 label.overflowMode = TextOverflowModes.Overflow;
                 label.textWrappingMode = TextWrappingModes.Normal;
                 TableUi.Place(button.GetComponent<RectTransform>(), 0, y, content.rect.width, rowHeight - 6);
@@ -48,6 +61,17 @@ namespace Quackies.Unity.Presentation
                 y += rowHeight;
             }
             content.sizeDelta = new Vector2(content.sizeDelta.x, Mathf.Max(rowHeight, y));
+        }
+
+        private void AddHint(string text)
+        {
+            var hint = TableUi.Text("Hint", content, text, 15, TableTheme.Muted, true);
+            hint.alignment = TextAlignmentOptions.Center;
+            hint.enableAutoSizing = true;
+            hint.fontSizeMin = 11;
+            hint.fontSizeMax = 15;
+            TableUi.Place(hint.rectTransform, 0, 38, content.rect.width, 40);
+            content.sizeDelta = new Vector2(content.sizeDelta.x, 88);
         }
 
         public void RenderPrimary(Transform parent, IReadOnlyList<GameAction> actions, Action<GameAction> onAction, bool busy)

@@ -44,6 +44,8 @@ namespace Quackies.Unity
         private readonly BalancedPolicy opponentPolicy = new BalancedPolicy();
         private MatchSession session;
         private bool opponentIsActing;
+        private string startingBagSummary;
+        private int startingInventoryCount;
 
         public void Configure(QuackiesArtCatalog art, PotView human, PotView opponent,
             ActionPanelView actionPanel, Transform footer, ReferenceModal referenceModal,
@@ -103,6 +105,10 @@ namespace Quackies.Unity
         private void NewMatch()
         {
             session = MatchSession.Create(new SeededRandomSource(startingSeed));
+            var openingView = session.GetSnapshot(HumanId);
+            var openingHuman = openingView.Players.First(player => player.Id == HumanId);
+            startingBagSummary = FormatBag(openingView);
+            startingInventoryCount = openingHuman.InventoryCount;
             Refresh();
             StartCoroutine(AdvanceOpponent());
         }
@@ -158,7 +164,7 @@ namespace Quackies.Unity
             phaseText.text = FriendlyPhase(view.Phase);
             statusText.text = Status(view, human);
             logText.text = view.RecentLog.Count == 0 ? string.Empty : view.RecentLog[view.RecentLog.Count - 1];
-            bagContentsText.text = BagSummary(view, human);
+            bagContentsText.text = "STARTING BAG  " + startingBagSummary + "     INVENTORY " + startingInventoryCount;
             var art = catalog.GetFortuneCardSprite(view.EventTitle);
             eventArtwork.sprite = art != null ? art : catalog.CardBack;
             eventArtwork.preserveAspect = true;
@@ -190,17 +196,18 @@ namespace Quackies.Unity
                 var winners = view.WinnerIds.Count == 0 ? "No winner" : string.Join(" & ", view.WinnerIds);
                 return "Match complete · " + winners;
             }
-            if (human != null && human.Exploded) return "Your pot exploded. Resolve the available choice.";
-            return "Choose an available action. Ingredient effects can add more choices.";
+            if (view.Phase == MatchPhase.Shopping) return "Choose a shop action.";
+            if (human != null && human.Exploded) return "Your pot exploded. Choose an action.";
+            return "Choose an action below.";
         }
 
-        private static string BagSummary(MatchView view, PlayerView human)
+        private static string FormatBag(MatchView view)
         {
             var chips = view.OwnBag.GroupBy(token => token.Color)
                 .OrderBy(group => group.Key)
                 .Select(group => group.Key + " " + string.Join("/", group.GroupBy(token => token.Value)
                     .OrderBy(values => values.Key).Select(values => values.Key + "×" + values.Count()).ToArray()));
-            return "OWN BAG  " + string.Join("  ·  ", chips.ToArray()) + "     INVENTORY " + human.InventoryCount;
+            return string.Join("  ·  ", chips.ToArray());
         }
     }
 }

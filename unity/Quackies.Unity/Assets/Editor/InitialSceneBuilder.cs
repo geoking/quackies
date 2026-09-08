@@ -118,10 +118,13 @@ namespace Quackies.Unity.Editor
             var actionPanel = BuildActions(root, out var footer);
             var status = TableUi.Text("Status", root, "Choose an available action.", 16, TableTheme.Ink, false);
             status.alignment = TextAlignmentOptions.Center;
-            TableUi.Place(status.rectTransform, 702, 590, 411, 26);
+            TableUi.Place(status.rectTransform, 702, 590, 411, 24);
             var log = TableUi.Text("Game Log", root, "", 13, TableTheme.Muted, false);
             log.alignment = TextAlignmentOptions.TopLeft;
-            TableUi.Place(log.rectTransform, 702, 616, 411, 20);
+            log.enableAutoSizing = true;
+            log.fontSizeMin = 9;
+            log.fontSizeMax = 13;
+            TableUi.Place(log.rectTransform, 702, 616, 411, 64);
             BuildIngredientShelf(root, catalog, presenter);
             var modal = BuildModal(root);
             presenter.Configure(catalog, human, opponent, actionPanel, footer, modal, round, phase, status, log,
@@ -175,18 +178,23 @@ namespace Quackies.Unity.Editor
             var panel = Panel("Action Scroll", root, 864, 370, 249, 212, TableTheme.Panel);
             var heading = TableUi.Text("Heading", panel, "Available actions", 15, TableTheme.Gold, true);
             heading.alignment = TextAlignmentOptions.Center;
-            TableUi.Place(heading.rectTransform, 10, 10, 229, 25);
+            heading.enableAutoSizing = true;
+            heading.fontSizeMin = 10;
+            heading.fontSizeMax = 15;
+            TableUi.Place(heading.rectTransform, 10, 7, 229, 42);
             var scroll = panel.gameObject.AddComponent<ScrollRect>();
             scroll.horizontal = false;
             var viewport = TableUi.Image("Viewport", panel, Color.clear);
-            viewport.gameObject.AddComponent<Mask>().showMaskGraphic = false;
-            TableUi.Place(viewport.rectTransform, 10, 40, 229, 162);
+            viewport.gameObject.AddComponent<RectMask2D>();
+            // Two complete 60-point rows are clearer than a clipped third row;
+            // further Core-issued choices remain available through scrolling.
+            TableUi.Place(viewport.rectTransform, 10, 54, 229, 120);
             var content = TableUi.Rect("Content", viewport.transform);
             content.anchorMin = new Vector2(0, 1);
             content.anchorMax = new Vector2(1, 1);
             content.pivot = new Vector2(.5f, 1);
             content.anchoredPosition = Vector2.zero;
-            content.sizeDelta = new Vector2(0, 50);
+            content.sizeDelta = new Vector2(0, 60);
             scroll.viewport = viewport.rectTransform;
             scroll.content = content;
             scroll.movementType = ScrollRect.MovementType.Clamped;
@@ -203,7 +211,7 @@ namespace Quackies.Unity.Editor
         private static void BuildIngredientShelf(RectTransform root, QuackiesArtCatalog catalog, MatchPresenter presenter)
         {
             var shelf = Panel("Ingredient Reference", root, 20, 632, 655, 48, TableTheme.Raised);
-            var label = TableUi.Text("Label", shelf, "INGREDIENT REFERENCES", 11, TableTheme.Muted, true);
+            var label = TableUi.Text("Label", shelf, "INGREDIENTS", 11, TableTheme.Muted, true);
             TableUi.Place(label.rectTransform, 8, 15, 112, 18);
             var colors = new[] { TokenColor.Green, TokenColor.Blue, TokenColor.Red, TokenColor.Yellow, TokenColor.Purple, TokenColor.Black };
             for (var index = 0; index < colors.Length; index++)
