@@ -164,12 +164,31 @@ namespace Quackies.Core.Match
             player.Droplet = Math.Min(player.Droplet + spaces, Rules.Track.LastChipPosition);
         }
 
-        internal bool TryGiveSupplyChip(PlayerRoundState player, TokenColor color, int value)
+        internal bool TryGiveSupplyChip(PlayerRoundState player, TokenColor color, int value, bool addToCurrentBag = false)
         {
             var definition = Rules.ShopChips.SingleOrDefault(chip => chip.Color == color && chip.Value == value);
             if (definition == null || definition.AvailableFromRound > Round || _supply[definition] == 0) return false;
             _supply[definition]--;
-            player.Inventory.Add(new Token(color, value));
+            var chip = new Token(color, value);
+            player.Inventory.Add(chip);
+            if (addToCurrentBag) player.Bag.Add(chip);
+            return true;
+        }
+
+        internal bool CanTakeSupplyChip(TokenColor color, int value)
+        {
+            var definition = Rules.ShopChips.SingleOrDefault(chip => chip.Color == color && chip.Value == value);
+            return definition != null && definition.AvailableFromRound <= Round && _supply[definition] > 0;
+        }
+
+        internal bool RemoveInventoryChip(PlayerRoundState player, TokenColor color, int value)
+        {
+            var chip = player.Inventory.FirstOrDefault(candidate => candidate.Color == color && candidate.Value == value);
+            if (chip == null) return false;
+            player.Inventory.Remove(chip);
+            player.Bag.Remove(chip);
+            var definition = Rules.ShopChips.SingleOrDefault(candidate => candidate.Color == color && candidate.Value == value);
+            if (definition != null) _supply[definition]++;
             return true;
         }
 
@@ -220,6 +239,7 @@ namespace Quackies.Core.Match
         internal void FinishRubySpendingIfReady()
         {
             if (!_players.All(player => player.RubiesDone)) return;
+            _currentEvent?.OnRoundEnded(new RoundEventContext(this));
             Phase = Round == 9 ? MatchPhase.Finished : MatchPhase.RoundComplete;
             AddLog(Round == 9 ? "The match is complete." : $"Round {Round} is complete.");
         }
@@ -227,7 +247,7 @@ namespace Quackies.Core.Match
         private IEnumerable<GameAction> ChoiceActions(PlayerRoundState player)
         {
             var choice = player.Choices.Peek();
-            return choice.Options.Select(option => new GameAction($"choose:{choice.Sequence}:{option.Id}", GameActionKind.Choose,
+            return choice.Options.Where(option => option.IsAvailable()).Select(option => new GameAction($"choose:{choice.Sequence}:{option.Id}", GameActionKind.Choose,
                 option.Label, choice.Title, option.Color, option.Value));
         }
 
@@ -316,7 +336,17 @@ namespace Quackies.Core.Match
                 player.RatPosition = Math.Min(player.Droplet + player.TemporaryRatCount, Rules.Track.LastChipPosition);
             }
             Phase = MatchPhase.Brewing;
+            _currentEvent?.OnBrewingStarted(new RoundEventContext(this));
         }
+
+        internal void NotifyChipPlaced(PlayerRoundState player, Token chip, ChipPlacementSource source) =>
+            _currentEvent?.OnChipPlaced(new RoundEventContext(this), player.Id, chip, source);
+
+        internal void NotifyPlayerStopped(PlayerRoundState player) =>
+            _currentEvent?.OnPlayerStopped(new RoundEventContext(this), player.Id);
+
+        internal void NotifyEvaluationStarted() => _currentEvent?.OnEvaluationStarted(new RoundEventContext(this));
+        internal void NotifyEvaluationComplete() => _currentEvent?.OnEvaluationComplete(new RoundEventContext(this));
 
         private static int CountRatTails(int trailingPoints, int leadingPoints)
         {

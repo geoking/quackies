@@ -62,11 +62,13 @@ namespace Quackies.Core.Match
     }
     internal sealed class ChoiceOption
     {
-        internal ChoiceOption(string id, string label, Action apply, TokenColor? color = null, int value = 0)
-        { Id = id; Label = label; Apply = apply; Color = color; Value = value; }
+        internal ChoiceOption(string id, string label, Action apply, TokenColor? color = null, int value = 0,
+            Func<bool>? isAvailable = null)
+        { Id = id; Label = label; Apply = apply; Color = color; Value = value; IsAvailable = isAvailable ?? (() => true); }
         internal string Id { get; }
         internal string Label { get; }
         internal Action Apply { get; }
+        internal Func<bool> IsAvailable { get; }
         internal TokenColor? Color { get; }
         internal int Value { get; }
     }

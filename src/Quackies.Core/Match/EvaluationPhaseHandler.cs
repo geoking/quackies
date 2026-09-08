@@ -8,10 +8,13 @@ namespace Quackies.Core.Match
     internal sealed class EvaluationPhaseHandler
     {
         private readonly MatchSession _session;
+        private bool _eventCompletionApplied;
         internal EvaluationPhaseHandler(MatchSession session) { _session = session; }
 
         internal void Begin()
         {
+            _eventCompletionApplied = false;
+            _session.NotifyEvaluationStarted();
             foreach (var player in _session.Players)
                 player.ScoringSpaceAtStop = _session.Rules.Track.ScoringSpace(player.Position);
             ApplyBonusDie();
@@ -24,6 +27,12 @@ namespace Quackies.Core.Match
         internal void FinishIfReady()
         {
             if (_session.Players.Any(player => player.Choices.Count > 0 || !player.RewardResolved)) return;
+            if (!_eventCompletionApplied)
+            {
+                _eventCompletionApplied = true;
+                _session.NotifyEvaluationComplete();
+                if (_session.Players.Any(player => player.Choices.Count > 0)) return;
+            }
             _session.EnterShopping();
         }
 

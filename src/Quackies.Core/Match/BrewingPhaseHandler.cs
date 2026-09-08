@@ -31,12 +31,13 @@ namespace Quackies.Core.Match
                     var index = _session.Random.NextInt(player.Bag.Count);
                     var chip = player.Bag[index];
                     player.Bag.RemoveAt(index);
-                    PlaceChip(player, chip, resolveIngredient: true, mayExplode: true);
+                    PlaceChip(player, chip, resolveIngredient: true, mayExplode: true, ChipPlacementSource.BagDraw);
                     break;
                 case GameActionKind.Stop:
                     player.MayUseFlask = false;
                     player.Stopped = true;
                     _session.AddLog($"{player.Name} stopped at physical position {player.Position}.");
+                    _session.NotifyPlayerStopped(player);
                     break;
                 case GameActionKind.UseFlask:
                     UseFlask(player);
@@ -46,7 +47,8 @@ namespace Quackies.Core.Match
             }
         }
 
-        internal void PlaceChip(PlayerRoundState player, Token chip, bool resolveIngredient, bool mayExplode)
+        internal void PlaceChip(PlayerRoundState player, Token chip, bool resolveIngredient, bool mayExplode,
+            ChipPlacementSource source = ChipPlacementSource.IngredientSelection)
         {
             var position = Math.Min(player.Position + chip.Value, _session.Rules.Track.LastChipPosition);
             player.Pot.Add(new PlacedChip(chip, position));
@@ -60,9 +62,15 @@ namespace Quackies.Core.Match
                 player.Stopped = true;
                 player.MayUseFlask = false;
                 _session.AddLog($"{player.Name}'s pot exploded with a white total of {player.WhiteTotal}.");
+                _session.NotifyPlayerStopped(player);
             }
             if (resolveIngredient) _session.Rules.Ingredients[chip.Color].OnPlaced(new IngredientContext(_session, player), chip);
-            if (player.Position >= _session.Rules.Track.LastChipPosition) player.Stopped = true;
+            _session.NotifyChipPlaced(player, chip, source);
+            if (player.Position >= _session.Rules.Track.LastChipPosition && !player.Stopped)
+            {
+                player.Stopped = true;
+                _session.NotifyPlayerStopped(player);
+            }
         }
 
         private static void UseFlask(PlayerRoundState player)

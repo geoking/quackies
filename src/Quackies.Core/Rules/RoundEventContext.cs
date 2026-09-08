@@ -26,17 +26,27 @@ namespace Quackies.Core.Rules
         public int Points(string playerId) => _session.Player(playerId).Points;
         public int Rubies(string playerId) => _session.Player(playerId).Rubies;
         public int RatSteps(string playerId) => _session.Player(playerId).TemporaryRatCount;
+        public IReadOnlyList<Token> Bag(string playerId) => new ReadOnlyCollection<Token>(_session.Player(playerId).Bag.ToList());
         public void GainPoints(string playerId, int amount) => _session.GainPoints(_session.Player(playerId), amount);
         public void GainRubies(string playerId, int amount) => _session.GainRubies(_session.Player(playerId), amount);
         public void AdvanceDroplet(string playerId, int spaces) => _session.AdvanceDroplet(_session.Player(playerId), spaces);
-        public bool TryGiveChip(string playerId, TokenColor color, int value) => _session.TryGiveSupplyChip(_session.Player(playerId), color, value);
+        public bool TryGiveChip(string playerId, TokenColor color, int value) =>
+            _session.TryGiveSupplyChip(_session.Player(playerId), color, value, addToCurrentBag: true);
+        public bool CanGiveChip(TokenColor color, int value) => _session.CanTakeSupplyChip(color, value);
+        public IReadOnlyList<ShopChipDefinition> AvailableChips(int value) =>
+            new ReadOnlyCollection<ShopChipDefinition>(_session.Rules.ShopChips
+                .Where(chip => chip.Value == value && chip.AvailableFromRound <= Round && _session.Remaining(chip) > 0).ToList());
+
+        public bool RemoveFromBag(string playerId, TokenColor color, int value) =>
+            _session.RemoveInventoryChip(_session.Player(playerId), color, value);
 
         public void OfferChoice(string playerId, string title, params RoundEventChoice[] choices)
         {
             if (choices == null || choices.Length == 0) throw new ArgumentException("An event choice needs at least one option.", nameof(choices));
             var player = _session.Player(playerId);
             _session.Offer(player, title, choices.Select(choice => new ChoiceOption(
-                choice.Id, choice.Label, () => choice.Apply(this, playerId), choice.Color, choice.Value)).ToArray());
+                choice.Id, choice.Label, () => choice.Apply(this, playerId), choice.Color, choice.Value,
+                () => choice.IsAvailable(this))).ToArray());
         }
     }
 
@@ -44,7 +54,8 @@ namespace Quackies.Core.Rules
     {
         private readonly Action<RoundEventContext, string> _apply;
 
-        public RoundEventChoice(string id, string label, Action<RoundEventContext, string> apply, TokenColor? color = null, int value = 0)
+        public RoundEventChoice(string id, string label, Action<RoundEventContext, string> apply, TokenColor? color = null,
+            int value = 0, Func<RoundEventContext, bool>? isAvailable = null)
         {
             if (string.IsNullOrWhiteSpace(id)) throw new ArgumentException("A choice needs a stable ID.", nameof(id));
             Id = id;
@@ -52,12 +63,15 @@ namespace Quackies.Core.Rules
             _apply = apply ?? throw new ArgumentNullException(nameof(apply));
             Color = color;
             Value = value;
+            _isAvailable = isAvailable ?? (_ => true);
         }
 
         public string Id { get; }
         public string Label { get; }
         public TokenColor? Color { get; }
         public int Value { get; }
+        private readonly Func<RoundEventContext, bool> _isAvailable;
+        internal bool IsAvailable(RoundEventContext context) => _isAvailable(context);
         internal void Apply(RoundEventContext context, string playerId) => _apply(context, playerId);
     }
 }
