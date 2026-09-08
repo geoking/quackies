@@ -123,6 +123,24 @@ Fortune gifts are distinct from purchased chips and do not consume purchase slot
 
 ## Clarifications and verification questions
 
+### Optional test-tube cauldron side
+
+The user has requested this base-game variant as a settings option. The
+[publisher rules, page 8](https://www.schmidtspiele.de/files/Retail/72dpi_PNG/88220_Quack_rules_english_2024.pdf)
+describe a second droplet starting on the leftmost test tube. Each awarded or
+purchased droplet advance can be assigned to either the pot or the test-tube
+track. Moving on the tube track immediately grants the new space's bonus;
+granted chips enter the bag immediately. Normal explosion rules still apply.
+
+The supplied artwork shows these rewards after the empty starting tube:
+ruby, 1 point, blue 1, 2 points, black 1, 2 points, red 2, 3 points, purple 1,
+3 points, yellow 4, 4 points. The implementation must honor finite chip supply,
+per-step choices for multi-step advances and the end of the track. The second
+droplet never changes the potion's starting space. The standard game continues
+to use only the pot droplet while this setting is off.
+
+### Fortune timing
+
 The publisher's supplementary clarification is authoritative that card-driven
 draws cannot cause explosions, even if white totals exceed the usual limit.
 Therefore Strong Ingredient can place a protected white chip after stopping.

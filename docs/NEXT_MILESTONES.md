@@ -4,6 +4,12 @@ The full target remains all nine rounds of base-game Set 1, human versus AI.
 Complete one bounded step, validate it, and publish it before starting the next.
 The lead owns Git; workers report ready files and pause writes during staging.
 
+Latest priority: repair action/text visibility and show only a fixed starting-bag
+reference; then the live scoreboard and enlarged opponent pot. Normal AI now
+declines explosion risks and conserves its flask. Add settings and a full AI log,
+and implement the optional test-tube rules before any new ingredient-book sets.
+Keep the CLI aligned with the same match settings, actions and observations.
+
 1. **Repair the current table.** Author a background camera. Align the human and
    opponent markers with their actual printed spaces. Keep the tabletop fitted
    after changes in Game view size. Verify the saved scene at iPad mini resolution.

@@ -61,14 +61,24 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 
 ## In progress
 
-- Improve shopping readability, add the live victory-point board and an enlarged
-  opponent-pot view. Complete the other fortune cards and full-match audit.
+- Fourteen fortune cards now have implementations; their two dedicated regression
+  suites passed 16 tests in total. The default deck is still empty while the last
+  ten cards are completed, which explains the current blank fortune panel.
+- Published Normal AI's safe-draw policy separately from six regression tests.
+  The tests included 112 full matches across the 14 implemented cards with no
+  explosions. Flask use requires a safe next draw and a round-weighted remaining
+  bag threshold (over 50% in round one, falling to over 15% in round nine).
+- Fix action/text visibility and replace live bag contents with a fixed starting
+  reference. Add the live scoreboard and an enlarged opponent-pot view next.
+- Add settings for Normal difficulty, starting ruby house rules and test tubes,
+  plus a complete AI-history pane. Keep the CLI on the same match API.
+- Complete the test-tube variant, remaining fortune cards and full-match audit.
 - iOS export support is installed. The selected command-line developer tools do
   not include an iPhone SDK, so a signed device build is not currently verified.
 
 ## Next checkpoints
 
-1. Repeatable scene builder and playable Unity round.
-2. Complete fortune cards, rule tests and legacy-prototype cleanup.
-3. Complete rules and deterministic full-match validation with fortune cards.
-4. iPad layout, iOS export, and extensibility review.
+1. Readable controls, fixed starting-bag reference and inspectable score/AI boards.
+2. Settings, AI history and matching CLI support.
+3. Complete fortune cards and test-tube rules, with separate regression commits.
+4. Legacy-prototype cleanup, full-match checks, iPad/iOS and extensibility review.

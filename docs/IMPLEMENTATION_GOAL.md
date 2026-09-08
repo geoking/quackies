@@ -45,6 +45,30 @@ readable size, with an obvious way back to the human pot. A camera must render t
 background so the Game view has no "No cameras rendering" warning. Verify chip,
 droplet and rat alignment on both pot sizes against the printed physical spaces.
 
+## Latest playtest requirements
+
+- Fix blank action panels, clipped controls and overflowing text before adding
+  more visual features. All content must remain readable through suitable
+  layout, wrapping, resizing or scrolling; truncation alone is not a fix.
+- Populate the active fortune panel and its reference view when the complete
+  deck is enabled. Keep CLI behavior in step with the same MatchSession API.
+- Normal is the only current AI difficulty. It must decline any potentially
+  explosive draw and use its flask only when a safe next draw is restored.
+  Conserve flasks more in early rounds: the remaining-bag threshold falls from
+  more than 50% in round one to more than 15% in round nine.
+- Add a settings pane: Normal difficulty, a start-with-one-ruby option (off by
+  default for the user's house rules), and the optional test-tube cauldron side.
+  Settings apply to a new match; the Core's official default remains one ruby.
+- Implement the test-tube variant's second droplet and every printed reward,
+  including the choice of which droplet to advance. Do this before additional
+  ingredient-book sets. Display the uncropped board when enabled.
+- Add a separate scrollable AI-history pane with the whole match history,
+  including draws, flask use, stops, explosions and purchases.
+- Replace the live bag display with a fixed starting-game bag reference.
+  Never show remaining bag composition to the human through the interface.
+- Prioritize the live scoreboard and clickable opponent pot with clear return
+  controls alongside the current visual bugs.
+
 ## Evidence required before completion
 
 - Focused tests for rules, invalid actions, state ownership, and extension points.
