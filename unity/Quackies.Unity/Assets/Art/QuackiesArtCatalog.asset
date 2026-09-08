@@ -133,12 +133,14 @@ MonoBehaviour:
     Sprite: {fileID: -1312407018, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
   human:
     Cauldron: {fileID: -1630003096, guid: 3ec50d4dc7ab1594da010470a2596315, type: 3}
+    Counter: {fileID: -1523247094, guid: 0d58e6b20884a7b4e9969f5001271776, type: 3}
     Droplet: {fileID: -578948572, guid: 6ab87306a4ebd40449f0b12d5adea515, type: 3}
     Rat: {fileID: -1879915380, guid: 98b9bdd8cedb2a94c99b58dd95587d12, type: 3}
     FullFlask: {fileID: -439071828, guid: 11e818928dfadd34babae29ec4d475ec, type: 3}
     EmptyFlask: {fileID: -1096694069, guid: 11e818928dfadd34babae29ec4d475ec, type: 3}
   opponent:
     Cauldron: {fileID: -116885702, guid: 3fec6413b1999c84dbeb30000b97d8d0, type: 3}
+    Counter: {fileID: -291915937, guid: 7ab0102653dc3184d877d027103159eb, type: 3}
     Droplet: {fileID: 672217229, guid: f5bd5597d70b1084f94c9f687f6cd2e6, type: 3}
     Rat: {fileID: -1023224038, guid: df7491fc2b2be9d44810ab12d2f318ec, type: 3}
     FullFlask: {fileID: -418042035, guid: 417a1fc57e1223f479b29828a5600cdb, type: 3}

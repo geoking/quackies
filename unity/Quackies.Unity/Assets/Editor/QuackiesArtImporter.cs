@@ -150,6 +150,7 @@ namespace Quackies.Unity.Editor
             return new QuackiesArtCatalog.PlayerArt
             {
                 Cauldron = pot,
+                Counter = ImportFull(folder + "counter.png"),
                 Droplet = ImportFull(folder + "droplet.png"),
                 Rat = ImportFull(folder + "rat.png"),
                 EmptyFlask = flaskFaces[0],

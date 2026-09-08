@@ -39,6 +39,7 @@ namespace Quackies.Unity.Art
         public sealed class PlayerArt
         {
             public Sprite Cauldron;
+            public Sprite Counter;
             public Sprite Droplet;
             public Sprite Rat;
             public Sprite FullFlask;
@@ -62,6 +63,8 @@ namespace Quackies.Unity.Art
 
         public Sprite HumanCauldron => human.Cauldron;
         public Sprite OpponentCauldron => opponent.Cauldron;
+        public Sprite HumanCounter => human.Counter;
+        public Sprite OpponentCounter => opponent.Counter;
         public Sprite HumanDroplet => human.Droplet;
         public Sprite OpponentDroplet => opponent.Droplet;
         public Sprite HumanRat => human.Rat;

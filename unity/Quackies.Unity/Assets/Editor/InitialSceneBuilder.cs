@@ -109,11 +109,22 @@ namespace Quackies.Unity.Editor
             var presenterObject = new GameObject("Match Presenter", typeof(RectTransform), typeof(MatchPresenter));
             presenterObject.transform.SetParent(root, false);
             var presenter = presenterObject.GetComponent<MatchPresenter>();
+            var scoreButton = TableUi.Button("Open Scoreboard", header, "Scoreboard", TableTheme.Gold, TableTheme.Background);
+            TableUi.Place(scoreButton.GetComponent<RectTransform>(), 790, 14, 156, 48);
             var restart = TableUi.Button("Restart", header, "Restart", TableTheme.Raised, TableTheme.Ink);
             TableUi.Place(restart.GetComponent<RectTransform>(), 967, 14, 106, 48);
 
             var human = BuildPot("Your Pot", root, catalog, true, 20, 112, 655, 510, out var bagContents);
             var opponent = BuildPot("Rival Pot", root, catalog, false, 702, 112, 411, 242, out _);
+            var rivalPanelImage = opponent.GetComponent<Image>();
+            rivalPanelImage.raycastTarget = true;
+            var inspectOpponentSurface = opponent.gameObject.AddComponent<Button>();
+            inspectOpponentSurface.targetGraphic = rivalPanelImage;
+            var navigation = inspectOpponentSurface.navigation;
+            navigation.mode = Navigation.Mode.None;
+            inspectOpponentSurface.navigation = navigation;
+            var inspectOpponent = TableUi.Button("Inspect Rival Pot", opponent.transform, "View CPU pot", TableTheme.Gold, TableTheme.Background);
+            TableUi.Place(inspectOpponent.GetComponent<RectTransform>(), 16, 184, 162, 44);
             var eventButton = BuildEventCard(root, catalog, out var eventArtwork, out var eventTitle);
             var actionPanel = BuildActions(root, out var footer);
             var status = TableUi.Text("Status", root, "Choose an available action.", 16, TableTheme.Ink, false);
@@ -127,13 +138,16 @@ namespace Quackies.Unity.Editor
             TableUi.Place(log.rectTransform, 702, 616, 411, 64);
             BuildIngredientShelf(root, catalog, presenter);
             var modal = BuildModal(root);
+            var scoreboard = BuildScoreboard(root, catalog);
+            var opponentInspection = BuildOpponentInspection(root, catalog);
             presenter.Configure(catalog, human, opponent, actionPanel, footer, modal, round, phase, status, log,
-                bagContents, restart, eventButton, eventArtwork, eventTitle);
+                bagContents, restart, eventButton, eventArtwork, eventTitle, scoreboard, opponentInspection,
+                scoreButton, inspectOpponent, inspectOpponentSurface);
             return presenter;
         }
 
         private static PotView BuildPot(string name, RectTransform root, QuackiesArtCatalog catalog, bool human,
-            float x, float y, float width, float height, out TMP_Text bagContents)
+            float x, float y, float width, float height, out TMP_Text bagContents, bool compactOpponent = true)
         {
             var panel = Panel(name, root, x, y, width, height, TableTheme.Panel);
             var summary = TableUi.Text("Summary", panel, name, human ? 17 : 14, TableTheme.Ink, true);
@@ -147,8 +161,9 @@ namespace Quackies.Unity.Editor
             }
             var image = TableUi.Image("Cauldron", panel, Color.white, human ? catalog.HumanCauldron : catalog.OpponentCauldron);
             image.preserveAspect = true;
-            TableUi.Place(image.rectTransform, human ? 10 : 76, human ? 94 : 47, human ? width - 20 : width - 152,
-                human ? height - 104 : height - 57);
+            var compact = !human && compactOpponent;
+            TableUi.Place(image.rectTransform, human ? 10 : compact ? 188 : 10, human ? 94 : compact ? 47 : 52,
+                human ? width - 20 : compact ? width - 204 : width - 20, human ? height - 104 : compact ? 145 : height - 64);
             // Preserve the placed rectangle while aligning the Image's preserve-aspect
             // calculation with the centred marker layer and catalog fitted rectangle.
             var imageRect = image.rectTransform;
@@ -247,6 +262,61 @@ namespace Quackies.Unity.Editor
             modal.Configure(shade.gameObject, art, heading, detail, close, closeOnShade);
             shade.gameObject.SetActive(false);
             return modal;
+        }
+
+        private static ScoreboardView BuildScoreboard(RectTransform root, QuackiesArtCatalog catalog)
+        {
+            var shade = TableUi.Image("Scoreboard Screen", root, new Color(.02f, .04f, .04f, .96f));
+            TableUi.Fill(shade.rectTransform);
+            shade.raycastTarget = true;
+            var card = Panel("Scoreboard Card", shade.rectTransform, 35, 18, 1063, 708, TableTheme.Panel);
+            var heading = TableUi.Text("Heading", card, "LIVE SCOREBOARD", 28, TableTheme.Gold, true);
+            heading.alignment = TextAlignmentOptions.Center;
+            TableUi.Place(heading.rectTransform, 260, 18, 570, 40);
+            var board = TableUi.Image("Victory Point Board", card, Color.white, catalog.RoundBoard);
+            board.preserveAspect = true;
+            TableUi.Place(board.rectTransform, 275, 75, 748, 537);
+            var markers = TableUi.Rect("Board Markers", board.transform);
+            TableUi.Fill(markers);
+            var humanCounter = TableUi.Image("Human Score Counter", markers, Color.white, catalog.HumanCounter);
+            var opponentCounter = TableUi.Image("Opponent Score Counter", markers, Color.white, catalog.OpponentCounter);
+            var roundCounter = TableUi.Image("Round Counter", markers, Color.white, catalog.RoundMarker);
+            humanCounter.preserveAspect = opponentCounter.preserveAspect = roundCounter.preserveAspect = true;
+            var scores = Panel("Score Summary", card, 28, 100, 220, 360, TableTheme.Raised);
+            var humanLabel = TableUi.Text("Human Score", scores, "YOU\n0 VP", 29, TableTheme.Ink, true);
+            humanLabel.alignment = TextAlignmentOptions.Center;
+            TableUi.Place(humanLabel.rectTransform, 16, 45, 188, 82);
+            var opponentLabel = TableUi.Text("Opponent Score", scores, "CPU\n0 VP", 29, TableTheme.Ink, true);
+            opponentLabel.alignment = TextAlignmentOptions.Center;
+            TableUi.Place(opponentLabel.rectTransform, 16, 158, 188, 82);
+            var roundLabel = TableUi.Text("Round", scores, "ROUND 1 / 9", 18, TableTheme.Gold, true);
+            roundLabel.alignment = TextAlignmentOptions.Center;
+            TableUi.Place(roundLabel.rectTransform, 16, 282, 188, 40);
+            var back = TableUi.Button("Back to Your Pot", card, "Back to your pot", TableTheme.Gold, TableTheme.Background);
+            TableUi.Place(back.GetComponent<RectTransform>(), 405, 638, 253, 46);
+            var view = card.gameObject.AddComponent<ScoreboardView>();
+            view.Configure(shade.gameObject, catalog, board, markers, humanCounter, opponentCounter, roundCounter,
+                humanLabel, opponentLabel, roundLabel, back);
+            shade.gameObject.SetActive(false);
+            return view;
+        }
+
+        private static PotInspectionModal BuildOpponentInspection(RectTransform root, QuackiesArtCatalog catalog)
+        {
+            var shade = TableUi.Image("CPU Pot Screen", root, new Color(.02f, .04f, .04f, .96f));
+            TableUi.Fill(shade.rectTransform);
+            shade.raycastTarget = true;
+            var card = Panel("CPU Pot Card", shade.rectTransform, 35, 18, 1063, 708, TableTheme.Panel);
+            var heading = TableUi.Text("Heading", card, "CPU — FULL POT", 28, TableTheme.Gold, true);
+            heading.alignment = TextAlignmentOptions.Center;
+            TableUi.Place(heading.rectTransform, 150, 18, 763, 40);
+            var pot = BuildPot("CPU Pot Inspection", card, catalog, false, 52, 72, 959, 535, out _, false);
+            var back = TableUi.Button("Back to Your Pot", card, "Back to your pot", TableTheme.Gold, TableTheme.Background);
+            TableUi.Place(back.GetComponent<RectTransform>(), 405, 638, 253, 46);
+            var view = card.gameObject.AddComponent<PotInspectionModal>();
+            view.Configure(shade.gameObject, pot, heading, back);
+            shade.gameObject.SetActive(false);
+            return view;
         }
 
         private static RectTransform Panel(string name, Transform parent, float x, float y, float width, float height, Color color)

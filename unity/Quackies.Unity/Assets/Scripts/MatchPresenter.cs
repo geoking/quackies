@@ -28,6 +28,8 @@ namespace Quackies.Unity
         [SerializeField] private ActionPanelView actions;
         [SerializeField] private Transform primaryActions;
         [SerializeField] private ReferenceModal modal;
+        [SerializeField] private ScoreboardView scoreboard;
+        [SerializeField] private PotInspectionModal opponentInspection;
         [SerializeField] private TMP_Text roundText;
         [SerializeField] private TMP_Text phaseText;
         [SerializeField] private TMP_Text statusText;
@@ -35,6 +37,9 @@ namespace Quackies.Unity
         [SerializeField] private TMP_Text bagContentsText;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button eventButton;
+        [SerializeField] private Button scoreboardButton;
+        [SerializeField] private Button inspectOpponentButton;
+        [SerializeField] private Button inspectOpponentSurface;
         [SerializeField] private Image eventArtwork;
         [SerializeField] private TMP_Text eventTitle;
 
@@ -50,7 +55,9 @@ namespace Quackies.Unity
         public void Configure(QuackiesArtCatalog art, PotView human, PotView opponent,
             ActionPanelView actionPanel, Transform footer, ReferenceModal referenceModal,
             TMP_Text roundLabel, TMP_Text phaseLabel, TMP_Text statusLabel, TMP_Text gameLog,
-            TMP_Text bagLabel, Button restart, Button activeEvent, Image activeEventArtwork, TMP_Text activeEventTitle)
+            TMP_Text bagLabel, Button restart, Button activeEvent, Image activeEventArtwork, TMP_Text activeEventTitle,
+            ScoreboardView scoreView, PotInspectionModal opponentView, Button openScoreboard, Button openOpponent,
+            Button openOpponentSurface)
         {
             catalog = art;
             humanPot = human;
@@ -67,6 +74,11 @@ namespace Quackies.Unity
             eventButton = activeEvent;
             eventArtwork = activeEventArtwork;
             eventTitle = activeEventTitle;
+            scoreboard = scoreView;
+            opponentInspection = opponentView;
+            scoreboardButton = openScoreboard;
+            inspectOpponentButton = openOpponent;
+            inspectOpponentSurface = openOpponentSurface;
         }
 
         private void Awake()
@@ -75,6 +87,9 @@ namespace Quackies.Unity
             if (!HasBindings()) return;
             restartButton.onClick.AddListener(Restart);
             eventButton.onClick.AddListener(ShowActiveEvent);
+            scoreboardButton.onClick.AddListener(ShowScoreboard);
+            inspectOpponentButton.onClick.AddListener(ShowOpponentPot);
+            inspectOpponentSurface.onClick.AddListener(ShowOpponentPot);
             NewMatch();
         }
 
@@ -102,6 +117,18 @@ namespace Quackies.Unity
 
         public void CloseModal() => modal.Close();
 
+        public void ShowScoreboard()
+        {
+            if (scoreboard != null) scoreboard.Show();
+        }
+
+        public void ShowOpponentPot()
+        {
+            if (session == null || opponentInspection == null) return;
+            var opponent = session.GetSnapshot(HumanId).Players.FirstOrDefault(player => player.Id == AiId);
+            opponentInspection.Show(opponent);
+        }
+
         private void NewMatch()
         {
             session = MatchSession.Create(new SeededRandomSource(startingSeed));
@@ -118,7 +145,9 @@ namespace Quackies.Unity
             return catalog != null && humanPot != null && opponentPot != null && actions != null
                 && primaryActions != null && modal != null && roundText != null && phaseText != null
                 && statusText != null && logText != null && restartButton != null && eventButton != null
-                && eventArtwork != null && eventTitle != null && bagContentsText != null;
+                && eventArtwork != null && eventTitle != null && bagContentsText != null && scoreboard != null
+                && opponentInspection != null && scoreboardButton != null && inspectOpponentButton != null
+                && inspectOpponentSurface != null;
         }
 
         private void ExecuteHumanAction(GameAction action)
@@ -159,6 +188,8 @@ namespace Quackies.Unity
             var opponent = view.Players.FirstOrDefault(player => player.Id == AiId);
             if (human != null) humanPot.Render(human);
             if (opponent != null) opponentPot.Render(opponent);
+            if (opponent != null && opponentInspection.IsOpen) opponentInspection.Render(opponent);
+            if (human != null && opponent != null) scoreboard.Render(view, human, opponent);
 
             roundText.text = "ROUND " + view.Round + " / 9";
             phaseText.text = FriendlyPhase(view.Phase);
