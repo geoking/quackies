@@ -4,8 +4,9 @@ The full target remains all nine rounds of base-game Set 1, human versus AI.
 Complete one bounded step, validate it, and publish it before starting the next.
 The lead owns Git; workers report ready files and pause writes during staging.
 
-Latest priority: repair action/text visibility and show only a fixed starting-bag
-reference; then the live scoreboard and enlarged opponent pot. Normal AI now
+Latest priority: the live scoreboard and full-screen opponent pot, then stable
+draw/stop/flask controls with artwork and the active fortune view. Continue to
+verify action/text visibility and show only a fixed starting-bag reference. Normal AI now
 declines explosion risks and conserves its flask. Add settings and a full AI log,
 and implement the optional test-tube rules before any new ingredient-book sets.
 Keep the CLI aligned with the same match settings, actions and observations.
@@ -30,3 +31,5 @@ Keep the CLI aligned with the same match settings, actions and observations.
 For each step, explain the changed behavior in the commit body and record the
 validation in PROGRESS.md. Preserve all original art image bytes. Keep future
 ingredient sets and cards outside the Unity presentation layer.
+Keep HANDOFF.md current at checkpoints so the user can continue after a usage
+interruption; prepare it before the last 1% whenever limits permit.

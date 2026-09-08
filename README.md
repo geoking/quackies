@@ -4,6 +4,8 @@ A Unity tabletop game for one human and one AI, targeting iPad mini landscape.
 Development is in progress: the nine-round match foundation and initial table
 are playable, while the complete fortune deck and board inspection views are
 being added. See [progress](docs/PROGRESS.md) and [next milestones](docs/NEXT_MILESTONES.md).
+For the latest completed work, work in progress and known gaps, read the
+[handoff](docs/HANDOFF.md).
 
 ## Open the playable scene
 
@@ -42,6 +44,10 @@ Run the CLI:
 ```sh
 dotnet run --project src/Quackies.Cli/Quackies.Cli.csproj
 ```
+
+Add `-- --starting-rubies 0` to use the no-starting-ruby house rule. The CLI
+defaults to the official one ruby, uses Normal AI, shows recent action history
+and waits for the human to advance each round.
 
 After changing Core code, update the DLL used by Unity:
 
