@@ -51,11 +51,28 @@ namespace Quackies.Core.Match
             switch (face)
             {
                 case 0:
-                case 1: player.Points += 1; break;
-                case 2: player.Points += 2; break;
-                case 3: player.Rubies += 1; break;
-                case 4: _session.TryGiveSupplyChip(player, TokenColor.Orange, 1, addRewardChipToCurrentBag); break;
-                case 5: _session.AdvanceDroplet(player, 1); break;
+                case 1:
+                    _session.AddLog(player.Id, $"{player.Name} rolled the die: 1 victory point.");
+                    _session.GainPoints(player, 1);
+                    break;
+                case 2:
+                    _session.AddLog(player.Id, $"{player.Name} rolled the die: 2 victory points.");
+                    _session.GainPoints(player, 2);
+                    break;
+                case 3:
+                    _session.AddLog(player.Id, $"{player.Name} rolled the die: 1 ruby.");
+                    _session.GainRubies(player, 1);
+                    break;
+                case 4:
+                    var received = _session.TryGiveSupplyChip(player, TokenColor.Orange, 1, addRewardChipToCurrentBag);
+                    _session.AddLog(player.Id, received
+                        ? $"{player.Name} rolled the die: Orange 1 chip."
+                        : $"{player.Name} rolled the die: Orange 1 chip, but the supply was empty.");
+                    break;
+                case 5:
+                    _session.AddLog(player.Id, $"{player.Name} rolled the die: advance droplet 1 space.");
+                    _session.AdvanceDroplet(player, 1);
+                    break;
                 default: throw new ArgumentOutOfRangeException(nameof(face));
             }
         }
@@ -72,7 +89,7 @@ namespace Quackies.Core.Match
         private void ApplyScoringRubies()
         {
             foreach (var player in _session.Players)
-                if (player.ScoringSpaceAtStop!.HasRuby) player.Rubies++;
+                if (player.ScoringSpaceAtStop!.HasRuby) _session.GainRubies(player, 1);
         }
 
         private void ResolvePointsAndCoins()
@@ -85,6 +102,7 @@ namespace Quackies.Core.Match
                     player.Points += scoring.Points;
                     player.Coins = scoring.Coins;
                     player.RewardResolved = true;
+                    _session.AddLog(player.Id, $"{player.Name} evaluated physical scoring space {scoring.Position}: {scoring.Points} point(s), {scoring.Coins} coin(s).");
                     continue;
                 }
 
@@ -94,11 +112,13 @@ namespace Quackies.Core.Match
                         player.Points += scoring.Points;
                         player.Coins = 0;
                         player.RewardResolved = true;
+                        _session.AddLog(player.Id, $"{player.Name} chose {scoring.Points} point(s) after exploding.");
                     }),
                     new ChoiceOption("take-coins", $"Take {scoring.Coins} coin(s) for shopping", () =>
                     {
                         player.Coins = scoring.Coins;
                         player.RewardResolved = true;
+                        _session.AddLog(player.Id, $"{player.Name} chose {scoring.Coins} shopping coin(s) after exploding.");
                     }));
             }
         }

@@ -42,7 +42,7 @@ namespace Quackies.Core.Rules
             _session.RemoveInventoryChip(_session.Player(playerId), color, value);
         public bool ScoringSpaceHasRuby(string playerId) => _session.ScoringSpace(_session.Player(playerId)).HasRuby;
         public void AdvanceLastChip(string playerId, int spaces) => _session.AdvanceLastChip(_session.Player(playerId), spaces);
-        public void RefillFlask(string playerId) => _session.Player(playerId).FlaskFull = true;
+        public void RefillFlask(string playerId) => _session.RefillFlask(_session.Player(playerId));
         public void SetExplosionThreshold(string playerId, int threshold) => _session.SetExplosionThreshold(_session.Player(playerId), threshold);
         public void SetBonusDieRolls(int rolls) => _session.SetBonusDieRolls(rolls);
         public void RollDie(string playerId) => _session.RollDie(_session.Player(playerId), addRewardChipToCurrentBag: true);

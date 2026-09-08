@@ -32,17 +32,21 @@ namespace Quackies.Core.Match
                 case GameActionKind.MoveDroplet:
                     player.Rubies -= 2;
                     _session.AdvanceDroplet(player, 1);
+                    _session.AddLog(player.Id, $"{player.Name} spent 2 rubies to move their droplet.");
                     break;
                 case GameActionKind.RefillFlask:
                     player.Rubies -= 2;
                     player.FlaskFull = true;
+                    _session.AddLog(player.Id, $"{player.Name} spent 2 rubies to refill their flask.");
                     break;
                 case GameActionKind.ConvertRubies:
                     player.Rubies -= 2;
                     player.Points++;
+                    _session.AddLog(player.Id, $"{player.Name} converted 2 rubies to 1 victory point.");
                     break;
                 case GameActionKind.FinishRubySpending:
                     player.RubiesDone = true;
+                    _session.AddLog(player.Id, $"{player.Name} finished ruby spending.");
                     _session.FinishRubySpendingIfReady();
                     break;
                 default:

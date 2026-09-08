@@ -36,7 +36,7 @@ namespace Quackies.Core.Match
                 case GameActionKind.Stop:
                     player.MayUseFlask = false;
                     player.Stopped = true;
-                    _session.AddLog($"{player.Name} stopped at physical position {player.Position}.");
+                    _session.AddLog(player.Id, $"{player.Name} stopped at physical position {player.Position}.");
                     _session.NotifyPlayerStopped(player);
                     break;
                 case GameActionKind.UseFlask:
@@ -54,14 +54,15 @@ namespace Quackies.Core.Match
             player.Pot.Add(new PlacedChip(chip, position));
             player.MayUseFlask = chip.Color == TokenColor.White;
             if (chip.Color == TokenColor.White) player.WhiteTotal += chip.Value;
-            _session.AddLog($"{player.Name} placed {chip} at physical position {position}.");
+            var placement = source == ChipPlacementSource.BagDraw ? "drew and placed" : "placed";
+            _session.AddLog(player.Id, $"{player.Name} {placement} {chip} at physical position {position}.");
 
             if (mayExplode && player.WhiteTotal > player.ExplosionThreshold)
             {
                 player.Exploded = true;
                 player.Stopped = true;
                 player.MayUseFlask = false;
-                _session.AddLog($"{player.Name}'s pot exploded with a white total of {player.WhiteTotal}.");
+                _session.AddLog(player.Id, $"{player.Name}'s pot exploded with a white total of {player.WhiteTotal}.");
                 _session.NotifyPlayerStopped(player);
             }
             if (resolveIngredient) _session.Rules.Ingredients[chip.Color].OnPlaced(new IngredientContext(_session, player), chip);
@@ -73,7 +74,7 @@ namespace Quackies.Core.Match
             }
         }
 
-        private static void UseFlask(PlayerRoundState player)
+        private void UseFlask(PlayerRoundState player)
         {
             var last = player.Pot[player.Pot.Count - 1];
             player.Pot.RemoveAt(player.Pot.Count - 1);
@@ -81,6 +82,7 @@ namespace Quackies.Core.Match
             player.WhiteTotal -= last.Token.Value;
             player.FlaskFull = false;
             player.MayUseFlask = false;
+            _session.AddLog(player.Id, $"{player.Name} used their flask to return {last.Token} to the bag.");
         }
     }
 }

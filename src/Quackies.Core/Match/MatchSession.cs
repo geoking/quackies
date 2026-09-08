@@ -20,7 +20,8 @@ namespace Quackies.Core.Match
         private readonly List<PlayerRoundState> _players;
         private readonly Dictionary<ShopChipDefinition, int> _supply;
         private readonly List<IRoundEventRule> _eventDeck;
-        private readonly List<string> _log = new List<string>();
+        private readonly List<MatchLogEntry> _history = new List<MatchLogEntry>();
+        private readonly IReadOnlyList<Token> _startingBag;
         private readonly Dictionary<string, GameActionKind> _roundNineCommits = new Dictionary<string, GameActionKind>(StringComparer.Ordinal);
         private readonly BrewingPhaseHandler _brewing;
         private readonly EvaluationPhaseHandler _evaluation;
@@ -30,15 +31,17 @@ namespace Quackies.Core.Match
         private long _nextChoiceSequence;
         private int _bonusDieRolls = 1;
 
-        private MatchSession(IRandomSource random, RuleSet rules)
+        private MatchSession(IRandomSource random, RuleSet rules, MatchSettings settings)
         {
             Random = random ?? throw new ArgumentNullException(nameof(random));
             Rules = rules ?? throw new ArgumentNullException(nameof(rules));
+            Settings = settings ?? throw new ArgumentNullException(nameof(settings));
             _players = new List<PlayerRoundState>
             {
-                new PlayerRoundState("human", "Human"),
-                new PlayerRoundState("ai", "AI")
+                new PlayerRoundState("human", "Human", settings.StartingRubies),
+                new PlayerRoundState("ai", "AI", settings.StartingRubies)
             };
+            _startingBag = MatchView.Freeze(_players[0].Inventory.Select(chip => new Token(chip.Color, chip.Value)));
             _supply = rules.ShopChips.ToDictionary(chip => chip, chip => chip.Stock);
             _eventDeck = rules.RoundEvents.ToList();
             _brewing = new BrewingPhaseHandler(this);
@@ -49,10 +52,14 @@ namespace Quackies.Core.Match
         }
 
         public static MatchSession Create(IRandomSource random, RuleSet? rules = null) =>
-            new MatchSession(random, rules ?? RuleSet.SetOne());
+            new MatchSession(random, rules ?? RuleSet.SetOne(), MatchSettings.Standard);
+
+        public static MatchSession Create(IRandomSource random, MatchSettings settings, RuleSet? rules = null) =>
+            new MatchSession(random, rules ?? RuleSet.SetOne(), settings);
 
         public int Round { get; private set; }
         public MatchPhase Phase { get; private set; }
+        public MatchSettings Settings { get; }
         internal IRandomSource Random { get; }
         internal RuleSet Rules { get; }
         internal IReadOnlyList<PlayerRoundState> Players => _players;
@@ -74,7 +81,7 @@ namespace Quackies.Core.Match
 
             return new MatchView(Round, Phase, viewer.Id, _currentEvent?.Id ?? string.Empty,
                 _currentEvent?.Title ?? string.Empty, _currentEvent?.Description ?? string.Empty,
-                playerViews, viewer.Bag.ToArray(), offers, _log.TakeLast(16), winners,
+                playerViews, viewer.Bag.ToArray(), _startingBag, offers, _history, winners,
                 _roundNineCommits.Count > 0);
         }
 
@@ -141,36 +148,51 @@ namespace Quackies.Core.Match
 
         internal PlayerRoundState OpponentOf(PlayerRoundState player) => _players.Single(candidate => candidate != player);
 
-        internal void AddLog(string message)
+        internal void AddLog(string message) => AddLog(string.Empty, message);
+
+        internal void AddLog(string actorId, string message)
         {
-            _log.Add(message);
-            if (_log.Count > 80) _log.RemoveRange(0, _log.Count - 80);
+            _history.Add(new MatchLogEntry(Round, actorId, message));
         }
 
         internal void GainPoints(PlayerRoundState player, int amount)
         {
             if (amount < 0) throw new ArgumentOutOfRangeException(nameof(amount));
             player.Points += amount;
+            if (amount > 0) AddLog(player.Id, $"{player.Name} gained {amount} victory point(s).");
         }
 
         internal void GainRubies(PlayerRoundState player, int amount)
         {
             if (amount < 0) throw new ArgumentOutOfRangeException(nameof(amount));
             player.Rubies += amount;
+            if (amount > 0) AddLog(player.Id, $"{player.Name} gained {amount} ruby/rubies.");
         }
 
         internal void AdvanceDroplet(PlayerRoundState player, int spaces)
         {
             if (spaces < 0) throw new ArgumentOutOfRangeException(nameof(spaces));
+            var previous = player.Droplet;
             player.Droplet = Math.Min(player.Droplet + spaces, Rules.Track.LastChipPosition);
+            if (player.Droplet > previous) AddLog(player.Id, $"{player.Name} advanced their droplet {player.Droplet - previous} space(s).");
         }
 
         internal void AdvanceLastChip(PlayerRoundState player, int spaces)
         {
             if (spaces < 0) throw new ArgumentOutOfRangeException(nameof(spaces));
             if (player.Pot.Count == 0) throw new InvalidOperationException("There is no placed chip to advance.");
+            var previous = player.Pot[player.Pot.Count - 1].Position;
             player.Pot[player.Pot.Count - 1].Position = Math.Min(player.Pot[player.Pot.Count - 1].Position + spaces,
                 Rules.Track.LastChipPosition);
+            var advanced = player.Pot[player.Pot.Count - 1].Position - previous;
+            if (advanced > 0) AddLog(player.Id, $"{player.Name}'s last chip advanced {advanced} extra space(s).");
+        }
+
+        internal void RefillFlask(PlayerRoundState player)
+        {
+            if (player.FlaskFull) return;
+            player.FlaskFull = true;
+            AddLog(player.Id, $"{player.Name}'s flask refilled.");
         }
 
         internal TrackSpaceView ScoringSpace(PlayerRoundState player) =>
@@ -180,6 +202,7 @@ namespace Quackies.Core.Match
         {
             if (threshold < 0) throw new ArgumentOutOfRangeException(nameof(threshold));
             player.ExplosionThreshold = threshold;
+            AddLog(player.Id, $"{player.Name}'s explosion threshold is {threshold} this round.");
         }
 
         internal void SetBonusDieRolls(int rolls)
@@ -200,6 +223,7 @@ namespace Quackies.Core.Match
             var chip = new Token(color, value);
             player.Inventory.Add(chip);
             if (addToCurrentBag) player.Bag.Add(chip);
+            AddLog(player.Id, $"{player.Name} received {chip}.");
             return true;
         }
 
@@ -217,6 +241,7 @@ namespace Quackies.Core.Match
             player.Bag.Remove(chip);
             var definition = Rules.ShopChips.SingleOrDefault(candidate => candidate.Color == color && candidate.Value == value);
             if (definition != null) _supply[definition]++;
+            AddLog(player.Id, $"{player.Name} removed {chip} from their bag.");
             return true;
         }
 
@@ -279,14 +304,16 @@ namespace Quackies.Core.Match
                 option.Label, choice.Title, option.Color, option.Value));
         }
 
-        private static void ExecuteChoice(PlayerRoundState player, GameAction action)
+        private void ExecuteChoice(PlayerRoundState player, GameAction action)
         {
             var choice = player.Choices.Dequeue();
             var prefix = $"choose:{choice.Sequence}:";
             if (!action.Id.StartsWith(prefix, StringComparison.Ordinal))
                 throw new InvalidOperationException("That choice belongs to an earlier decision.");
             var optionId = action.Id.Substring(prefix.Length);
-            choice.Options.Single(option => string.Equals(option.Id, optionId, StringComparison.Ordinal)).Apply();
+            var option = choice.Options.Single(candidate => string.Equals(candidate.Id, optionId, StringComparison.Ordinal));
+            AddLog(player.Id, $"{player.Name} chose: {option.Label}.");
+            option.Apply();
         }
 
         private void ContinueAfterChoice()
@@ -407,8 +434,10 @@ namespace Quackies.Core.Match
             {
                 foreach (var player in _players)
                 {
-                    player.Points += player.Coins / 5;
+                    var converted = player.Coins / 5;
+                    player.Points += converted;
                     player.Coins %= 5;
+                    if (converted > 0) AddLog(player.Id, $"{player.Name} converted coins to {converted} victory point(s).");
                 }
                 EnterRubySpending();
                 return;

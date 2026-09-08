@@ -30,6 +30,7 @@ namespace Quackies.Core.Match
             {
                 player.ShoppingDone = true;
                 player.Coins = 0;
+                _session.AddLog(player.Id, $"{player.Name} finished shopping.");
                 _session.FinishShoppingIfReady();
                 return;
             }
@@ -42,7 +43,7 @@ namespace Quackies.Core.Match
             player.PurchasedColors.Add(definition.Color);
             player.PurchaseCount++;
             _session.TakeFromSupply(definition);
-            _session.AddLog($"{player.Name} bought {definition.Color} {definition.Value}.");
+            _session.AddLog(player.Id, $"{player.Name} bought {definition.Color} {definition.Value} for {definition.Price} coin(s).");
         }
     }
 }

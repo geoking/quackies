@@ -8,7 +8,7 @@ namespace Quackies.Core.Match
     /// <summary>Session-owned state. A chip remains in Inventory while in Bag, Pot or a temporary selection.</summary>
     internal sealed class PlayerRoundState
     {
-        internal PlayerRoundState(string id, string name)
+        internal PlayerRoundState(string id, string name, int startingRubies = 1)
         {
             Id = id; Name = name;
             Inventory.AddRange(Enumerable.Range(0, 4).Select(_ => new Token(TokenColor.White, 1)));
@@ -16,6 +16,7 @@ namespace Quackies.Core.Match
             Inventory.Add(new Token(TokenColor.White, 3));
             Inventory.Add(new Token(TokenColor.Orange, 1));
             Inventory.Add(new Token(TokenColor.Green, 1));
+            Rubies = startingRubies;
         }
         internal string Id { get; }
         internal string Name { get; }
@@ -25,7 +26,7 @@ namespace Quackies.Core.Match
         internal readonly Queue<PendingChoice> Choices = new Queue<PendingChoice>();
         internal readonly HashSet<TokenColor> PurchasedColors = new HashSet<TokenColor>();
         internal int Points, Coins, Droplet, RatPosition, WhiteTotal, PurchaseCount;
-        internal int Rubies = 1;
+        internal int Rubies;
         internal bool FlaskFull = true;
         internal bool Stopped, Exploded, ShoppingDone, RubiesDone;
         internal bool MayUseFlask;

@@ -3,10 +3,22 @@ using Quackies.Core.Match;
 using Quackies.Core.Randomness;
 
 var seed = Environment.TickCount;
-var session = MatchSession.Create(new SeededRandomSource(seed));
-var opponent = new BalancedPolicy();
+int startingRubies;
+try
+{
+    startingRubies = ReadStartingRubies(args);
+}
+catch (ArgumentException exception)
+{
+    Console.Error.WriteLine(exception.Message);
+    Console.Error.WriteLine("Usage: Quackies.Cli [--starting-rubies 0|1]");
+    Environment.ExitCode = 2;
+    return;
+}
+var session = MatchSession.Create(new SeededRandomSource(seed), new MatchSettings(startingRubies));
+var opponent = new NormalPolicy();
 
-Console.WriteLine($"Quackies · nine-round Set 1 match · seed {seed}");
+Console.WriteLine($"Quackies · nine-round Set 1 match · seed {seed} · starting rubies {startingRubies}");
 Console.WriteLine("Choose an action number, or q to quit.\n");
 
 while (session.GetSnapshot("human").Phase != MatchPhase.Finished)
@@ -25,6 +37,11 @@ while (session.GetSnapshot("human").Phase != MatchPhase.Finished)
         Console.WriteLine($"{index + 1}. {actions[index].Label}");
     Console.Write("> ");
     var input = Console.ReadLine();
+    if (input == null)
+    {
+        Console.WriteLine("Input closed. Quitting.");
+        return;
+    }
     if (string.Equals(input, "q", StringComparison.OrdinalIgnoreCase)) return;
     if (!int.TryParse(input, out var selected) || selected < 1 || selected > actions.Count)
     {
@@ -44,6 +61,7 @@ static void AdvanceOpponent(MatchSession session, IPlayerPolicy policy)
     {
         var actions = session.GetLegalActions("ai");
         if (actions.Count == 0) return;
+        if (actions.All(action => action.Kind == GameActionKind.NextRound)) return;
         session.Execute("ai", policy.Choose(session.GetSnapshot("ai"), actions));
     }
     throw new InvalidOperationException("Opponent exceeded the action safety limit.");
@@ -56,5 +74,30 @@ static void Show(MatchView view)
     foreach (var player in view.Players)
         Console.WriteLine($"{player.Name}: {player.VictoryPoints} VP, {player.Rubies} rubies, pot {player.Position}, white {player.WhiteTotal}, bag {player.BagCount}" +
             (player.Exploded ? " · EXPLODED" : player.Stopped ? " · stopped" : string.Empty));
+    foreach (var entry in view.History.TakeLast(5))
+        Console.WriteLine($"  R{entry.Round} {(string.IsNullOrEmpty(entry.ActorId) ? "match" : entry.ActorId)}: {entry.Message}");
     Console.WriteLine();
+}
+
+static int ReadStartingRubies(string[] arguments)
+{
+    for (var index = 0; index < arguments.Length; index++)
+    {
+        const string prefix = "--starting-rubies=";
+        if (arguments[index].StartsWith(prefix, StringComparison.Ordinal))
+            return ParseStartingRubies(arguments[index].Substring(prefix.Length));
+        if (arguments[index] == "--starting-rubies")
+        {
+            if (index + 1 >= arguments.Length)
+                throw new ArgumentException("--starting-rubies requires a value of 0 or 1.");
+            return ParseStartingRubies(arguments[index + 1]);
+        }
+    }
+    return MatchSettings.Standard.StartingRubies;
+}
+
+static int ParseStartingRubies(string value)
+{
+    if (value == "0" || value == "1") return int.Parse(value);
+    throw new ArgumentException("--starting-rubies must be 0 or 1.");
 }
