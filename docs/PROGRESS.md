@@ -30,13 +30,39 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   still empty; it is **not yet the complete base game**. Fortune-card implementation,
   broader rule tests and legacy-prototype cleanup are the next Core milestone.
 
+### 3. Reusable artwork import
+
+- Published the art catalogue, sprite import recipe and generated sprite metadata.
+- Validation: Unity compiled and built the catalogue; all 102 original source
+  image hashes are unchanged.
+
+### 4. First fortune implementation and separate tests
+
+- Published lifecycle hooks plus six preparation cards in a Core-only commit.
+- Published seven focused fortune tests separately: gifts in the current bag,
+  shared-supply exhaustion, stale choices, returned chips, tied rewards and unlocks.
+- Validation: solution build has zero warnings/errors; full Core suite is 45/45.
+- The partial fortune batch remains opt-in until the complete 24-card deck is ready.
+
+### 5. Saved playable table
+
+- Added the repeatable scene builder, clear-background camera, iPad layout,
+  human/AI pots, legal-action controls, reference modal and restart.
+- Corrected the human image pivot so droplet and chip markers align with the
+  preserve-aspect artwork. Fresh iPad-resolution inspection verified droplet 0
+  and a green chip on physical space 1. No missing scripts or camera warning.
+- Verified Draw/Stop through the real scene's button callbacks. A purchase-button
+  raycast and pointer-click handler bought green 1: coins 4 → 0, inventory 9 → 10,
+  shared stock 13 → 12. Book open/close and Restart callbacks passed.
+- Rebuilt the scene from Edit mode and verified one presenter and one camera.
+- Unity compilation and the subsequent runtime console check reported no errors.
+  Native mouse automation was unavailable; callback and hit-test evidence is
+  distinct from a physical touch or native mouse test.
+
 ## In progress
 
-- Unity compiles successfully with the new Core DLL. The scene builder has saved
-  and opened `QuackiesInitialScene` in Play Mode using the supplied artwork.
-- Visual inspection found layout/marker alignment issues being corrected before
-  publishing the Unity milestone. Scene reload, controls and iPad layout are under
-  verification; this progress entry does not claim those checks are complete.
+- Improve shopping readability, add the live victory-point board and an enlarged
+  opponent-pot view. Complete the other fortune cards and full-match audit.
 - iOS export support is installed. The selected command-line developer tools do
   not include an iPhone SDK, so a signed device build is not currently verified.
 
