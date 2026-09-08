@@ -16,7 +16,8 @@ namespace Quackies.Core.Bags
                 new Token(TokenColor.White, 2),
                 new Token(TokenColor.White, 2),
                 new Token(TokenColor.White, 3),
-                new Token(TokenColor.Orange, 1)
+                new Token(TokenColor.Orange, 1),
+                new Token(TokenColor.Green, 1)
             });
         }
 

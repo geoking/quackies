@@ -14,18 +14,35 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 - Validation: reviewed the brief and configuration; documentation checkpoint
   contains no runtime changes and makes no claim that the game is playable.
 
+### 2. Compiling match foundation
+
+- Added a Unity-independent nine-round session with separate brewing, evaluation,
+  shopping and ruby-spending handlers, immutable observations and legal actions.
+- Added the physical 54-space board, Set 1 ingredient handlers, finite chip stocks,
+  prices and unlocks, flask, explosions, round-six white chip and round-nine
+  simultaneous draw commitments. Shopping follows start-player order.
+- Added an observation-only AI policy and moved the CLI onto the match API.
+- Protected chained choices against stale commands and froze evaluation rewards
+  before droplet bonuses can change an empty pot's position.
+- Validation: solution build passed with zero warnings/errors; all 38 tests passed,
+  including 128 complete deterministic matches across 64 seeds without fortunes.
+- This checkpoint establishes the match foundation. The default fortune deck is
+  still empty; it is **not yet the complete base game**. Fortune-card implementation,
+  broader rule tests and legacy-prototype cleanup are the next Core milestone.
+
 ## In progress
 
-- Core observation/action contracts, board and ingredient abstractions, and AI
-  policy have partial implementation in the working tree.
-- Art catalog and importer plus UI primitives have partial implementation.
-- Full match session, complete fortune-card coverage, scene assembly, and runtime
-  validation remain unfinished. Partial files are not included in the first
-  documentation checkpoint.
+- Unity compiles successfully with the new Core DLL. The scene builder has saved
+  and opened `QuackiesInitialScene` in Play Mode using the supplied artwork.
+- Visual inspection found layout/marker alignment issues being corrected before
+  publishing the Unity milestone. Scene reload, controls and iPad layout are under
+  verification; this progress entry does not claim those checks are complete.
+- iOS export support is installed. The selected command-line developer tools do
+  not include an iPhone SDK, so a signed device build is not currently verified.
 
 ## Next checkpoints
 
-1. Compiling core session and focused rule tests.
-2. Repeatable scene builder and playable Unity round.
-3. Complete rules and deterministic full-match validation.
+1. Repeatable scene builder and playable Unity round.
+2. Complete fortune cards, rule tests and legacy-prototype cleanup.
+3. Complete rules and deterministic full-match validation with fortune cards.
 4. iPad layout, iOS export, and extensibility review.

@@ -17,7 +17,7 @@ public sealed class GameFacadeTests
 
         Assert.Equal(GamePhase.Drawing, snapshot.Phase);
         Assert.Equal("Player 1", snapshot.CurrentPlayer.PlayerId);
-        Assert.Equal(8, snapshot.CurrentPlayer.RemainingBagCount);
+        Assert.Equal(9, snapshot.CurrentPlayer.RemainingBagCount);
         Assert.Equal(0, snapshot.CurrentPlayer.Cauldron.CurrentPosition);
         Assert.NotNull(snapshot.CurrentRewardSpace);
     }
@@ -101,7 +101,7 @@ public sealed class GameFacadeTests
         Assert.Equal(GamePhase.Drawing, nextRound.Phase);
         Assert.Equal(0, nextRound.CurrentPlayer.Cauldron.CurrentPosition);
         Assert.Empty(nextRound.CurrentPlayer.Cauldron.PlacedTokens);
-        Assert.Equal(8, nextRound.CurrentPlayer.RemainingBagCount);
+        Assert.Equal(9, nextRound.CurrentPlayer.RemainingBagCount);
         Assert.Equal(0, nextRound.CurrentPlayer.BuyingPowerAvailableThisRound);
     }
 
