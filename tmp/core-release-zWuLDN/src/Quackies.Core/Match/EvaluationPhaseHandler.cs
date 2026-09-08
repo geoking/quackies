@@ -8,13 +8,10 @@ namespace Quackies.Core.Match
     internal sealed class EvaluationPhaseHandler
     {
         private readonly MatchSession _session;
-        private bool _eventCompletionApplied;
         internal EvaluationPhaseHandler(MatchSession session) { _session = session; }
 
         internal void Begin()
         {
-            _eventCompletionApplied = false;
-            _session.NotifyEvaluationStarted();
             foreach (var player in _session.Players)
                 player.ScoringSpaceAtStop = _session.Rules.Track.ScoringSpace(player.Position);
             ApplyBonusDie();
@@ -27,12 +24,6 @@ namespace Quackies.Core.Match
         internal void FinishIfReady()
         {
             if (_session.Players.Any(player => player.Choices.Count > 0 || !player.RewardResolved)) return;
-            if (!_eventCompletionApplied)
-            {
-                _eventCompletionApplied = true;
-                _session.NotifyEvaluationComplete();
-                if (_session.Players.Any(player => player.Choices.Count > 0)) return;
-            }
             _session.EnterShopping();
         }
 
@@ -42,19 +33,18 @@ namespace Quackies.Core.Match
             if (eligible.Length == 0) return;
             var furthestScoringPosition = eligible.Max(player => player.ScoringSpaceAtStop!.Position);
             foreach (var player in eligible.Where(candidate => candidate.ScoringSpaceAtStop!.Position == furthestScoringPosition))
-                for (var roll = 0; roll < _session.BonusDieRolls; roll++) RollDie(player, addRewardChipToCurrentBag: false);
+                ApplyDieFace(player, _session.Random.NextInt(6));
         }
 
-        internal void RollDie(PlayerRoundState player, bool addRewardChipToCurrentBag)
+        private void ApplyDieFace(PlayerRoundState player, int face)
         {
-            var face = _session.Random.NextInt(6);
             switch (face)
             {
                 case 0:
                 case 1: player.Points += 1; break;
                 case 2: player.Points += 2; break;
                 case 3: player.Rubies += 1; break;
-                case 4: _session.TryGiveSupplyChip(player, TokenColor.Orange, 1, addRewardChipToCurrentBag); break;
+                case 4: _session.TryGiveSupplyChip(player, TokenColor.Orange, 1); break;
                 case 5: _session.AdvanceDroplet(player, 1); break;
                 default: throw new ArgumentOutOfRangeException(nameof(face));
             }

@@ -28,7 +28,6 @@ namespace Quackies.Core.Match
         private readonly RubySpendingPhaseHandler _rubySpending;
         private IRoundEventRule? _currentEvent;
         private long _nextChoiceSequence;
-        private int _bonusDieRolls = 1;
 
         private MatchSession(IRandomSource random, RuleSet rules)
         {
@@ -165,58 +164,12 @@ namespace Quackies.Core.Match
             player.Droplet = Math.Min(player.Droplet + spaces, Rules.Track.LastChipPosition);
         }
 
-        internal void AdvanceLastChip(PlayerRoundState player, int spaces)
-        {
-            if (spaces < 0) throw new ArgumentOutOfRangeException(nameof(spaces));
-            if (player.Pot.Count == 0) throw new InvalidOperationException("There is no placed chip to advance.");
-            player.Pot[player.Pot.Count - 1].Position = Math.Min(player.Pot[player.Pot.Count - 1].Position + spaces,
-                Rules.Track.LastChipPosition);
-        }
-
-        internal TrackSpaceView ScoringSpace(PlayerRoundState player) =>
-            player.ScoringSpaceAtStop ?? Rules.Track.ScoringSpace(player.Position);
-
-        internal void SetExplosionThreshold(PlayerRoundState player, int threshold)
-        {
-            if (threshold < 0) throw new ArgumentOutOfRangeException(nameof(threshold));
-            player.ExplosionThreshold = threshold;
-        }
-
-        internal void SetBonusDieRolls(int rolls)
-        {
-            if (rolls < 1) throw new ArgumentOutOfRangeException(nameof(rolls));
-            _bonusDieRolls = rolls;
-        }
-
-        internal int BonusDieRolls => _bonusDieRolls;
-        internal void RollDie(PlayerRoundState player, bool addRewardChipToCurrentBag) =>
-            _evaluation.RollDie(player, addRewardChipToCurrentBag);
-
-        internal bool TryGiveSupplyChip(PlayerRoundState player, TokenColor color, int value, bool addToCurrentBag = false)
+        internal bool TryGiveSupplyChip(PlayerRoundState player, TokenColor color, int value)
         {
             var definition = Rules.ShopChips.SingleOrDefault(chip => chip.Color == color && chip.Value == value);
             if (definition == null || definition.AvailableFromRound > Round || _supply[definition] == 0) return false;
             _supply[definition]--;
-            var chip = new Token(color, value);
-            player.Inventory.Add(chip);
-            if (addToCurrentBag) player.Bag.Add(chip);
-            return true;
-        }
-
-        internal bool CanTakeSupplyChip(TokenColor color, int value)
-        {
-            var definition = Rules.ShopChips.SingleOrDefault(chip => chip.Color == color && chip.Value == value);
-            return definition != null && definition.AvailableFromRound <= Round && _supply[definition] > 0;
-        }
-
-        internal bool RemoveInventoryChip(PlayerRoundState player, TokenColor color, int value)
-        {
-            var chip = player.Inventory.FirstOrDefault(candidate => candidate.Color == color && candidate.Value == value);
-            if (chip == null) return false;
-            player.Inventory.Remove(chip);
-            player.Bag.Remove(chip);
-            var definition = Rules.ShopChips.SingleOrDefault(candidate => candidate.Color == color && candidate.Value == value);
-            if (definition != null) _supply[definition]++;
+            player.Inventory.Add(new Token(color, value));
             return true;
         }
 
@@ -267,7 +220,6 @@ namespace Quackies.Core.Match
         internal void FinishRubySpendingIfReady()
         {
             if (!_players.All(player => player.RubiesDone)) return;
-            _currentEvent?.OnRoundEnded(new RoundEventContext(this));
             Phase = Round == 9 ? MatchPhase.Finished : MatchPhase.RoundComplete;
             AddLog(Round == 9 ? "The match is complete." : $"Round {Round} is complete.");
         }
@@ -275,7 +227,7 @@ namespace Quackies.Core.Match
         private IEnumerable<GameAction> ChoiceActions(PlayerRoundState player)
         {
             var choice = player.Choices.Peek();
-            return choice.Options.Where(option => option.IsAvailable()).Select(option => new GameAction($"choose:{choice.Sequence}:{option.Id}", GameActionKind.Choose,
+            return choice.Options.Select(option => new GameAction($"choose:{choice.Sequence}:{option.Id}", GameActionKind.Choose,
                 option.Label, choice.Title, option.Color, option.Value));
         }
 
@@ -334,7 +286,6 @@ namespace Quackies.Core.Match
             if (round < 1 || round > 9) throw new ArgumentOutOfRangeException(nameof(round));
             Round = round;
             Phase = MatchPhase.Preparation;
-            _bonusDieRolls = 1;
             _roundNineCommits.Clear();
             foreach (var player in _players)
             {
@@ -365,17 +316,7 @@ namespace Quackies.Core.Match
                 player.RatPosition = Math.Min(player.Droplet + player.TemporaryRatCount, Rules.Track.LastChipPosition);
             }
             Phase = MatchPhase.Brewing;
-            _currentEvent?.OnBrewingStarted(new RoundEventContext(this));
         }
-
-        internal void NotifyChipPlaced(PlayerRoundState player, Token chip, ChipPlacementSource source) =>
-            _currentEvent?.OnChipPlaced(new RoundEventContext(this), player.Id, chip, source);
-
-        internal void NotifyPlayerStopped(PlayerRoundState player) =>
-            _currentEvent?.OnPlayerStopped(new RoundEventContext(this), player.Id);
-
-        internal void NotifyEvaluationStarted() => _currentEvent?.OnEvaluationStarted(new RoundEventContext(this));
-        internal void NotifyEvaluationComplete() => _currentEvent?.OnEvaluationComplete(new RoundEventContext(this));
 
         private static int CountRatTails(int trailingPoints, int leadingPoints)
         {

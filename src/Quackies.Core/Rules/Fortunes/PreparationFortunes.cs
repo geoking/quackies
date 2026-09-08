@@ -5,7 +5,7 @@ using Quackies.Core.Tokens;
 namespace Quackies.Core.Rules.Fortunes
 {
     /// <summary>Stateless Set 1 fortune definitions implemented by the preparation batch.</summary>
-    public static class SetOneFortunes
+    public static partial class SetOneFortunes
     {
         public static IEnumerable<IRoundEventRule> CreatePreparationBatch()
         {
