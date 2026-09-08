@@ -39,6 +39,12 @@ landscape layout at 2266 x 1488, and a repeatable menu item:
 `Quackies/Build and Play Initial Scene`. Re-running scene construction must not
 duplicate objects. Keep editor tooling outside the player build.
 
+Show a live victory-point board, reachable from a clear score button or a small
+clickable board preview. Make the opponent's small pot clickable to inspect at a
+readable size, with an obvious way back to the human pot. A camera must render the
+background so the Game view has no "No cameras rendering" warning. Verify chip,
+droplet and rat alignment on both pot sizes against the printed physical spaces.
+
 ## Evidence required before completion
 
 - Focused tests for rules, invalid actions, state ownership, and extension points.
@@ -64,8 +70,9 @@ Use at most two concurrent workers, no nested delegation, and concise handoffs.
 ### Visible progress on GitHub
 
 The user authorizes regular commits and pushes to geoking/quackies on
-`codex/initial-playable-scene`. Commit coherent milestones instead of waiting for
-the entire game. Track completed work, validation, and the next checkpoint in
+`codex/initial-playable-scene`. Commit each coherent Core change, then its unit
+tests separately, and each compiling Unity change separately. Explain what
+changed and why in each commit. Track completed work, validation, and the next checkpoint in
 docs/PROGRESS.md. The lead owns staging and pushes; workers own bounded code
 changes. Keep main and unrelated pre-existing modifications untouched.
 

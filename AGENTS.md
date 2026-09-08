@@ -33,8 +33,11 @@ untested completion claims. Escalate a specific hard problem, not a whole task.
 
 Preserve pre-existing work and unrelated changes. The user has authorized regular
 progress commits and pushes to GitHub. The lead owns Git operations: use the
-`codex/initial-playable-scene` branch, commit small coherent milestones, run the
-checks appropriate to each change, and push each checkpoint so progress is visible.
+`codex/initial-playable-scene` branch, commit each small coherent Core change,
+then its unit tests as a separate commit, and each compiling Unity change as its
+own checkpoint. Run appropriate checks and push each checkpoint immediately.
+Use clear commit subjects and bodies explaining the problem and resulting
+behavior. Do not collect unrelated Core, tests and Unity changes into one commit.
 Workers must not stage or commit files. Keep unrelated pre-existing modifications
 out of these commits. Do not force-push or merge to main without a request.
 Record completed milestones and validation in docs/PROGRESS.md. Prefer tested
