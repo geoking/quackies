@@ -59,7 +59,7 @@ public sealed class NormalPolicyTests
     [Fact]
     public void NeverExplodesAndFinishesAcrossEveryImplementedFortune()
     {
-        var cards = SetOneFortunes.CreatePreparationBatch().Concat(SetOneFortunes.CreateOngoingBatch());
+        var cards = ImplementedFortunes();
         foreach (var card in cards)
         for (var seed = 0; seed < 8; seed++)
         {
@@ -83,6 +83,45 @@ public sealed class NormalPolicyTests
             Assert.Equal(9, match.Round);
         }
     }
+
+    [Fact]
+    public void FinishesMixedFortuneMatchesWithoutExplosionsOrRepeatedCards()
+    {
+        for (var seed = 0; seed < 32; seed++)
+        {
+            var match = MatchSession.Create(new SeededRandomSource(seed), RuleSet.SetOne(ImplementedFortunes()));
+            var policy = new NormalPolicy();
+            var titles = new Dictionary<int, string>();
+            for (var step = 0; step < 2000 && match.Phase != MatchPhase.Finished; step++)
+            {
+                var view = match.GetSnapshot("human");
+                titles[view.Round] = view.EventTitle;
+                var acted = false;
+                foreach (var id in new[] { "human", "ai" })
+                {
+                    var legal = match.GetLegalActions(id);
+                    if (legal.Count == 0) continue;
+                    match.Execute(id, policy.Choose(match.GetSnapshot(id), legal));
+                    Assert.All(match.GetSnapshot(id).Players, player =>
+                        Assert.False(player.Exploded, $"Normal exploded in mixed deck: seed {seed}, round {match.Round}."));
+                    acted = true;
+                }
+                Assert.True(acted, $"Mixed deck stalled: seed {seed}, round {match.Round}.");
+            }
+            Assert.Equal(MatchPhase.Finished, match.Phase);
+            Assert.Equal(9, match.Round);
+            Assert.Equal(9, titles.Count);
+            Assert.All(titles.Values, title => Assert.False(string.IsNullOrWhiteSpace(title)));
+            Assert.Equal(9, titles.Values.Distinct().Count());
+        }
+    }
+
+    private static IEnumerable<IRoundEventRule> ImplementedFortunes() =>
+        SetOneFortunes.CreatePreparationBatch()
+            .Concat(SetOneFortunes.CreateOngoingBatch())
+            .Concat(SetOneFortunes.CreateRatBatch())
+            .Concat(SetOneFortunes.CreateInteractiveBatch())
+            .Concat(SetOneFortunes.CreateFinalBatch());
 
     private static MatchSession Create(IRandomSource? random = null) =>
         MatchSession.Create(random ?? new SequenceRandom(), RuleSet.SetOne(Array.Empty<IRoundEventRule>()));
