@@ -60,11 +60,13 @@
     <Compile Include="Assets/Scripts/Presentation/TableTheme.cs" />
     <Compile Include="Assets/Scripts/GamePresenter.cs" />
     <Compile Include="Assets/Scripts/Presentation/ReferenceModal.cs" />
+    <Compile Include="Assets/Scripts/Presentation/DiceResultsView.cs" />
     <Compile Include="Assets/Scripts/Presentation/SafeArea.cs" />
     <Compile Include="Assets/Scripts/Presentation/PotView.cs" />
     <Compile Include="Assets/Scripts/Presentation/IngredientBookButton.cs" />
     <Compile Include="Assets/Scripts/Presentation/PotInspectionModal.cs" />
     <Compile Include="Assets/Scripts/Presentation/FittedViewport.cs" />
+    <Compile Include="Assets/Scripts/Presentation/MatchSettingsView.cs" />
     <Compile Include="Assets/Scripts/MatchPresenter.cs" />
     <Compile Include="Assets/Scripts/Presentation/PrimaryActionsView.cs" />
     <Compile Include="Assets/Scripts/Presentation/TableUi.cs" />
