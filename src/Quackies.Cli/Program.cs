@@ -7,11 +7,12 @@ int startingRubies;
 try
 {
     startingRubies = ReadStartingRubies(args);
+    seed = ReadSeed(args, seed);
 }
 catch (ArgumentException exception)
 {
     Console.Error.WriteLine(exception.Message);
-    Console.Error.WriteLine("Usage: Quackies.Cli [--starting-rubies 0|1]");
+    Console.Error.WriteLine("Usage: Quackies.Cli [--starting-rubies 0|1] [--seed integer]");
     Environment.ExitCode = 2;
     return;
 }
@@ -100,4 +101,26 @@ static int ParseStartingRubies(string value)
 {
     if (value == "0" || value == "1") return int.Parse(value);
     throw new ArgumentException("--starting-rubies must be 0 or 1.");
+}
+
+static int ReadSeed(string[] arguments, int fallback)
+{
+    for (var index = 0; index < arguments.Length; index++)
+    {
+        const string prefix = "--seed=";
+        if (arguments[index].StartsWith(prefix, StringComparison.Ordinal))
+            return ParseSeed(arguments[index].Substring(prefix.Length));
+        if (arguments[index] == "--seed")
+        {
+            if (index + 1 >= arguments.Length) throw new ArgumentException("--seed requires an integer value.");
+            return ParseSeed(arguments[index + 1]);
+        }
+    }
+    return fallback;
+}
+
+static int ParseSeed(string value)
+{
+    if (int.TryParse(value, out var seed)) return seed;
+    throw new ArgumentException("--seed must be an integer.");
 }
