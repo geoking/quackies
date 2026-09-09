@@ -416,6 +416,7 @@ namespace Quackies.Core.Match
 
         internal void OfferBagSelection(PlayerRoundState player, int count, string title, bool optional)
         {
+            if (player.Position >= Rules.Track.LastChipPosition) return;
             var candidates = new List<Token>();
             for (var index = 0; index < count && player.Bag.Count > 0; index++)
             {
