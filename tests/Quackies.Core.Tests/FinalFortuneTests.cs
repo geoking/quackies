@@ -131,7 +131,7 @@ public sealed class FinalFortuneTests
     }
 
     [Fact]
-    public void StrongIngredientChipContributesToDeferredColorEvaluation()
+    public void StrongIngredientChipDoesNotCarryOutDeferredGreenAction()
     {
         var match = CreateMatch("strong-ingredient", new FixedRandom(0, 8, 0, 0, 0, 0));
         ExecuteKind(match, "human", GameActionKind.Stop);
@@ -139,7 +139,37 @@ public sealed class FinalFortuneTests
         ExecuteColor(match, "human", TokenColor.Green, 1);
         ExecuteSuffix(match, "ai", ":fortune-none");
 
-        Assert.Equal(2, Player(match, "human").Rubies);
+        Assert.Equal(1, Player(match, "human").Rubies);
+    }
+
+    [Theory]
+    [InlineData(TokenColor.Purple)]
+    [InlineData(TokenColor.Black)]
+    public void StrongIngredientChipIsExcludedFromPurpleAndBlackEvaluationCounts(TokenColor color)
+    {
+        var baseline = RuleSet.SetOne(Array.Empty<IRoundEventRule>());
+        var shop = baseline.ShopChips
+            .Select(chip => chip.Color == color && chip.Value == 1
+                ? new ShopChipDefinition(chip.Color, chip.Value, chip.Price, chip.Stock, 1)
+                : chip)
+            .ToArray();
+        var strong = SetOneFortunes.CreateFinalBatch().Single(candidate => candidate.Id == "strong-ingredient");
+        var rules = new RuleSet(baseline.Track, baseline.Ingredients.Values, shop,
+            new IRoundEventRule[] { new GiveHumanChip(color, 1), strong });
+        var random = new FixedRandom(0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 3);
+        var match = MatchSession.Create(random, rules);
+        FinishRoundAndAdvance(match);
+        var before = Player(match, "human");
+        ExecuteKind(match, "human", GameActionKind.Stop);
+        ExecuteKind(match, "ai", GameActionKind.Stop);
+        ExecuteSuffix(match, "ai", ":fortune-none");
+
+        ExecuteColor(match, "human", color, 1);
+
+        var human = Player(match, "human");
+        Assert.Equal(before.VictoryPoints, human.VictoryPoints);
+        Assert.Equal(before.DropletPosition, human.DropletPosition);
+        Assert.Equal(before.Rubies + 1, human.Rubies);
     }
 
     [Fact]
@@ -295,6 +325,15 @@ public sealed class FinalFortuneTests
         {
             for (var index = 0; index < _count; index++) context.TryGiveChip("human", TokenColor.Blue, 1);
         }
+    }
+
+    private sealed class GiveHumanChip : RoundEventRule
+    {
+        private readonly TokenColor _color;
+        private readonly int _value;
+        internal GiveHumanChip(TokenColor color, int value) : base("give-human-chip", "Give chip", "Test setup.")
+        { _color = color; _value = value; }
+        public override void OnRevealed(RoundEventContext context) => context.TryGiveChip("human", _color, _value);
     }
 
     private sealed class NoOpEvent : RoundEventRule
