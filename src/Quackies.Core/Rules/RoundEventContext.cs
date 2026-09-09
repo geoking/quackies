@@ -25,7 +25,7 @@ namespace Quackies.Core.Rules
         public IReadOnlyList<string> PlayerIds { get; }
         public int Points(string playerId) => _session.Player(playerId).Points;
         public int Rubies(string playerId) => _session.Player(playerId).Rubies;
-        public int RatSteps(string playerId) => _session.Player(playerId).TemporaryRatCount;
+        public int RatSteps(string playerId) => _session.RatStepsForCurrentRound(_session.Player(playerId));
         public int WhiteTotal(string playerId) => _session.Player(playerId).WhiteTotal;
         public IReadOnlyList<Token> Bag(string playerId) => new ReadOnlyCollection<Token>(_session.Player(playerId).Bag.ToList());
         public void GainPoints(string playerId, int amount) => _session.GainPoints(_session.Player(playerId), amount);
@@ -34,6 +34,10 @@ namespace Quackies.Core.Rules
         public bool TryGiveChip(string playerId, TokenColor color, int value) =>
             _session.TryGiveSupplyChip(_session.Player(playerId), color, value, addToCurrentBag: true);
         public bool CanGiveChip(TokenColor color, int value) => _session.CanTakeSupplyChip(color, value);
+        public bool CanExchangeRubyForChip(string playerId, TokenColor color, int value) =>
+            _session.CanExchangeRubyForSupplyChip(_session.Player(playerId), color, value);
+        public bool TryExchangeRubyForChip(string playerId, TokenColor color, int value) =>
+            _session.TryExchangeRubyForSupplyChip(_session.Player(playerId), color, value);
         public IReadOnlyList<ShopChipDefinition> AvailableChips(int value) =>
             new ReadOnlyCollection<ShopChipDefinition>(_session.Rules.ShopChips
                 .Where(chip => chip.Value == value && chip.AvailableFromRound <= Round && _session.Remaining(chip) > 0).ToList());
@@ -45,6 +49,8 @@ namespace Quackies.Core.Rules
         public void RefillFlask(string playerId) => _session.RefillFlask(_session.Player(playerId));
         public void SetExplosionThreshold(string playerId, int threshold) => _session.SetExplosionThreshold(_session.Player(playerId), threshold);
         public void SetBonusDieRolls(int rolls) => _session.SetBonusDieRolls(rolls);
+        public void SetRatSteps(string playerId, int steps) =>
+            _session.SetRatStepsForCurrentRound(_session.Player(playerId), steps);
         public void RollDie(string playerId) => _session.RollDie(_session.Player(playerId), addRewardChipToCurrentBag: true);
 
         public void OfferChoice(string playerId, string title, params RoundEventChoice[] choices)

@@ -233,6 +233,22 @@ namespace Quackies.Core.Match
             return definition != null && definition.AvailableFromRound <= Round && _supply[definition] > 0;
         }
 
+        internal bool CanExchangeRubyForSupplyChip(PlayerRoundState player, TokenColor color, int value) =>
+            player.Rubies > 0 && CanTakeSupplyChip(color, value);
+
+        internal bool TryExchangeRubyForSupplyChip(PlayerRoundState player, TokenColor color, int value)
+        {
+            if (!CanExchangeRubyForSupplyChip(player, color, value)) return false;
+            player.Rubies--;
+            if (TryGiveSupplyChip(player, color, value, addToCurrentBag: true))
+            {
+                AddLog(player.Id, $"{player.Name} exchanged 1 ruby for a {color} {value} chip.");
+                return true;
+            }
+            player.Rubies++;
+            return false;
+        }
+
         internal bool RemoveInventoryChip(PlayerRoundState player, TokenColor color, int value)
         {
             var chip = player.Inventory.FirstOrDefault(candidate => candidate.Color == color && candidate.Value == value);
@@ -243,6 +259,19 @@ namespace Quackies.Core.Match
             if (definition != null) _supply[definition]++;
             AddLog(player.Id, $"{player.Name} removed {chip} from their bag.");
             return true;
+        }
+
+        internal int RatStepsForCurrentRound(PlayerRoundState player)
+        {
+            if (player.RatStepEntitlement.HasValue) return player.RatStepEntitlement.Value;
+            if (Round < 2) return 0;
+            return CountRatTails(player.Points, _players.Max(candidate => candidate.Points));
+        }
+
+        internal void SetRatStepsForCurrentRound(PlayerRoundState player, int steps)
+        {
+            if (steps < 0) throw new ArgumentOutOfRangeException(nameof(steps));
+            player.RatStepEntitlement = steps;
         }
 
         internal int Remaining(ShopChipDefinition chip) => _supply[chip];
@@ -385,10 +414,9 @@ namespace Quackies.Core.Match
 
         private void FinishPreparation()
         {
-            var leaderPoints = _players.Max(player => player.Points);
             foreach (var player in _players)
             {
-                player.TemporaryRatCount = CountRatTails(player.Points, leaderPoints);
+                player.TemporaryRatCount = RatStepsForCurrentRound(player);
                 player.RatPosition = Math.Min(player.Droplet + player.TemporaryRatCount, Rules.Track.LastChipPosition);
             }
             Phase = MatchPhase.Brewing;
