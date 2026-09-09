@@ -74,28 +74,6 @@ namespace Quackies.Unity.Presentation
             content.sizeDelta = new Vector2(content.sizeDelta.x, 88);
         }
 
-        public void RenderPrimary(Transform parent, IReadOnlyList<GameAction> actions, Action<GameAction> onAction, bool busy)
-        {
-            TableUi.Clear(parent);
-            var primaries = new List<GameAction>();
-            if (actions != null)
-                foreach (var action in actions)
-                    if (IsPrimary(action.Kind)) primaries.Add(action);
-            if (primaries.Count == 0) return;
-            var width = 180f;
-            var total = primaries.Count * width + (primaries.Count - 1) * 12f;
-            var start = (1133f - total) * .5f;
-            for (var i = 0; i < primaries.Count; i++)
-            {
-                var action = primaries[i];
-                var button = TableUi.Button("Primary_" + action.Id, parent, ActionLabel(action),
-                    action.Kind == GameActionKind.Stop ? TableTheme.Red : TableTheme.Gold, TableTheme.Background);
-                TableUi.Place(button.GetComponent<RectTransform>(), start + i * (width + 12), 0, width, 54);
-                button.interactable = !busy;
-                button.onClick.AddListener(() => onAction(action));
-            }
-        }
-
         private static bool IsPrimary(GameActionKind kind)
         {
             return kind == GameActionKind.Draw || kind == GameActionKind.Stop || kind == GameActionKind.UseFlask;

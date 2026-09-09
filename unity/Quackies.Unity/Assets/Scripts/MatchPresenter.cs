@@ -26,7 +26,7 @@ namespace Quackies.Unity
         [SerializeField] private PotView humanPot;
         [SerializeField] private PotView opponentPot;
         [SerializeField] private ActionPanelView actions;
-        [SerializeField] private Transform primaryActions;
+        [SerializeField] private PrimaryActionsView primaryActions;
         [SerializeField] private ReferenceModal modal;
         [SerializeField] private ScoreboardView scoreboard;
         [SerializeField] private PotInspectionModal opponentInspection;
@@ -53,7 +53,7 @@ namespace Quackies.Unity
         private int startingInventoryCount;
 
         public void Configure(QuackiesArtCatalog art, PotView human, PotView opponent,
-            ActionPanelView actionPanel, Transform footer, ReferenceModal referenceModal,
+            ActionPanelView actionPanel, PrimaryActionsView footer, ReferenceModal referenceModal,
             TMP_Text roundLabel, TMP_Text phaseLabel, TMP_Text statusLabel, TMP_Text gameLog,
             TMP_Text bagLabel, Button restart, Button activeEvent, Image activeEventArtwork, TMP_Text activeEventTitle,
             ScoreboardView scoreView, PotInspectionModal opponentView, Button openScoreboard, Button openOpponent,
@@ -106,7 +106,10 @@ namespace Quackies.Unity
         {
             if (session == null || catalog == null) return;
             var view = session.GetSnapshot(HumanId);
-            modal.Show(view.EventTitle, view.EventDescription, catalog.GetFortuneCardSprite(view.EventTitle));
+            var hasActiveEvent = !string.IsNullOrWhiteSpace(view.EventTitle) || !string.IsNullOrWhiteSpace(view.EventDescription);
+            modal.Show(hasActiveEvent ? view.EventTitle : "No fortune card",
+                hasActiveEvent ? view.EventDescription : "There is no active fortune card for this round.",
+                hasActiveEvent ? catalog.GetFortuneCardSprite(view.EventTitle) : catalog.CardBack);
         }
 
         public void ShowIngredientBook(TokenColor color)
@@ -133,9 +136,8 @@ namespace Quackies.Unity
         {
             session = MatchSession.Create(new SeededRandomSource(startingSeed));
             var openingView = session.GetSnapshot(HumanId);
-            var openingHuman = openingView.Players.First(player => player.Id == HumanId);
-            startingBagSummary = FormatBag(openingView);
-            startingInventoryCount = openingHuman.InventoryCount;
+            startingBagSummary = FormatBag(openingView.StartingBag);
+            startingInventoryCount = openingView.StartingBag.Count;
             Refresh();
             StartCoroutine(AdvanceOpponent());
         }
@@ -199,10 +201,10 @@ namespace Quackies.Unity
             var art = catalog.GetFortuneCardSprite(view.EventTitle);
             eventArtwork.sprite = art != null ? art : catalog.CardBack;
             eventArtwork.preserveAspect = true;
-            eventTitle.text = string.IsNullOrEmpty(view.EventTitle) ? "Active fortune" : view.EventTitle;
+            eventTitle.text = string.IsNullOrEmpty(view.EventTitle) ? "No fortune card" : view.EventTitle;
             var legal = session.GetLegalActions(HumanId);
             actions.Render(legal, ExecuteHumanAction, false);
-            actions.RenderPrimary(primaryActions, legal, ExecuteHumanAction, false);
+            primaryActions.Render(legal, ExecuteHumanAction, false, human != null && human.FlaskFull);
         }
 
         private static string FriendlyPhase(MatchPhase phase)
@@ -232,9 +234,9 @@ namespace Quackies.Unity
             return "Choose an action below.";
         }
 
-        private static string FormatBag(MatchView view)
+        private static string FormatBag(System.Collections.Generic.IEnumerable<Quackies.Core.Tokens.Token> bag)
         {
-            var chips = view.OwnBag.GroupBy(token => token.Color)
+            var chips = bag.GroupBy(token => token.Color)
                 .OrderBy(group => group.Key)
                 .Select(group => group.Key + " " + string.Join("/", group.GroupBy(token => token.Value)
                     .OrderBy(values => values.Key).Select(values => values.Key + "×" + values.Count()).ToArray()));

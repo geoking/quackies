@@ -126,7 +126,7 @@ namespace Quackies.Unity.Editor
             var inspectOpponent = TableUi.Button("Inspect Rival Pot", opponent.transform, "View CPU pot", TableTheme.Gold, TableTheme.Background);
             TableUi.Place(inspectOpponent.GetComponent<RectTransform>(), 16, 184, 162, 44);
             var eventButton = BuildEventCard(root, catalog, out var eventArtwork, out var eventTitle);
-            var actionPanel = BuildActions(root, out var footer);
+            var actionPanel = BuildActions(root, catalog, out var footer);
             var status = TableUi.Text("Status", root, "Choose an available action.", 16, TableTheme.Ink, false);
             status.alignment = TextAlignmentOptions.Center;
             TableUi.Place(status.rectTransform, 702, 590, 411, 24);
@@ -179,7 +179,7 @@ namespace Quackies.Unity.Editor
         private static Button BuildEventCard(RectTransform root, QuackiesArtCatalog catalog, out Image artwork, out TMP_Text title)
         {
             var panel = Panel("Fortune", root, 702, 370, 150, 212, TableTheme.Raised);
-            var button = TableUi.Button("Active Fortune", panel, "Active\nfortune card", Color.white, TableTheme.Background);
+            var button = TableUi.Button("Active Fortune", panel, "No\nfortune card", Color.white, TableTheme.Background);
             artwork = button.GetComponent<Image>();
             artwork.sprite = catalog.CardBack;
             artwork.preserveAspect = true;
@@ -188,7 +188,7 @@ namespace Quackies.Unity.Editor
             return button;
         }
 
-        private static ActionPanelView BuildActions(RectTransform root, out Transform footer)
+        private static ActionPanelView BuildActions(RectTransform root, QuackiesArtCatalog catalog, out PrimaryActionsView footer)
         {
             var panel = Panel("Action Scroll", root, 864, 370, 249, 212, TableTheme.Panel);
             var heading = TableUi.Text("Heading", panel, "Available actions", 15, TableTheme.Gold, true);
@@ -219,7 +219,35 @@ namespace Quackies.Unity.Editor
 
             var footerRect = TableUi.Rect("Primary Actions", root);
             TableUi.Place(footerRect, 0, 690, 1133, 54);
-            footer = footerRect;
+            var draw = TableUi.Button("Draw", footerRect, "Draw a chip", TableTheme.Gold, TableTheme.Background);
+            var stop = TableUi.Button("Stop", footerRect, "Stop brewing", TableTheme.Red, TableTheme.Background);
+            var flask = TableUi.Button("Flask", footerRect, "Use flask", TableTheme.Raised, TableTheme.Ink);
+            TableUi.Place(draw.GetComponent<RectTransform>(), 284, 0, 180, 54);
+            TableUi.Place(stop.GetComponent<RectTransform>(), 476, 0, 180, 54);
+            TableUi.Place(flask.GetComponent<RectTransform>(), 668, 0, 180, 54);
+
+            // The supplied components have no separate bag illustration.  A small pouch
+            // with the familiar orange chip peeking out gives the fixed Draw slot a clear,
+            // board-game-like draw affordance without making or changing source art.
+            var drawBag = TableUi.Image("Draw Bag", draw.transform, TableTheme.Raised);
+            TableUi.Place(drawBag.rectTransform, 10, 22, 38, 22);
+            var drawBagTie = TableUi.Image("Draw Bag Tie", draw.transform, TableTheme.Teal);
+            TableUi.Place(drawBagTie.rectTransform, 21, 14, 16, 9);
+            var drawChip = TableUi.Image("Draw Bag Chip", draw.transform, Color.white,
+                catalog.GetTokenSprite(TokenColor.Orange, 1));
+            drawChip.preserveAspect = true;
+            TableUi.Place(drawChip.rectTransform, 20, 9, 20, 20);
+            var flaskIcon = TableUi.Image("Flask Artwork", flask.transform, Color.white, catalog.HumanEmptyFlask);
+            flaskIcon.preserveAspect = true;
+            TableUi.Place(flaskIcon.rectTransform, 10, 7, 40, 40);
+            var drawLabel = draw.GetComponentInChildren<TMP_Text>();
+            var stopLabel = stop.GetComponentInChildren<TMP_Text>();
+            var flaskLabel = flask.GetComponentInChildren<TMP_Text>();
+            TableUi.Place(drawLabel.rectTransform, 52, 0, 120, 54);
+            TableUi.Place(stopLabel.rectTransform, 4, 0, 172, 54);
+            TableUi.Place(flaskLabel.rectTransform, 48, 0, 124, 54);
+            footer = footerRect.gameObject.AddComponent<PrimaryActionsView>();
+            footer.Configure(catalog, draw, stop, flask, flaskIcon, drawLabel, stopLabel, flaskLabel);
             return result;
         }
 
