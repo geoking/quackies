@@ -117,6 +117,19 @@ namespace Quackies.Core.Match
                     continue;
                 }
 
+                if (_session.Round == 9)
+                {
+                    // Explosion still permits only one reward. With no future
+                    // shopping, settle the better point outcome automatically.
+                    var convertedCoins = scoring.Coins / 5;
+                    var finalPoints = Math.Max(scoring.Points, convertedCoins);
+                    player.Points += finalPoints;
+                    player.Coins = 0;
+                    player.RewardResolved = true;
+                    _session.AddLog(player.Id, $"{player.Name}'s exploded final pot earned {finalPoints} victory point(s): the better of {scoring.Points} printed point(s) or {convertedCoins} point(s) from {scoring.Coins} coins at five per point.");
+                    continue;
+                }
+
                 _session.Offer(player, "Exploded pot reward",
                     new ChoiceOption("take-points", $"Take {scoring.Points} victory point(s)", () =>
                     {
