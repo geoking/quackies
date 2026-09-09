@@ -15,50 +15,45 @@ checkpoints; push each, preserve unrelated files, no merge/force push.
 
 ## Current published state
 
-- MatchSession implements nine-round Set1, finite supply, unlocks, flask, rats,
-  evaluation and Normal AI. Core remains Unity-independent.
-- Normal AI avoids risky draws, conserves flask according to round. Testsc3334f1
-  cover every available fortune batch plus32 mixed-deck nine-round matches.
-- Twenty-three fortune cards implemented. **Default deck remains empty.**
-  A Second Chance is missing; Strong Ingredient needs the correction below.
-- Well Stirred7993bca/tests5da103a: first placed white can return without flask,
-  including a white selected through blue; no repeated offer after redrawing.
-- Strong Ingrediente3c9bba/testseafab38: sequential final previews in start-player
-  order, protected placement, skips exploded/full/empty players. Immediate action
-  suppressed. Its own deferred ingredient effect is still incorrectly enabled.
-- Full-pot blue45991dd/testsa210bca: no further blue-selected placement at52,
-  including nested blue. Spoon scoring remains unchanged.
-- Final-round source14cecc3/testsfe02c97: safe pots get rawVP + floor(coins/5);
-  exploded pots automatically get max(rawVP,floor(coins/5)), no choice/shopping.
-  Ten tests pass. Earlier rounds retain the strategic explosion choice.
-- Unity: fixed primary controls/starting bag, live scoreboard/full CPU pot,
-  settingsb9967eb (Normal, zero-ruby default, pending settings Apply & restart),
-  dice2b093f3 (actual Core outcomes/art, round-labelled review), fortune caption
-  a41f413 (title below unobstructed artwork, clickable full reference).
-- Latest combined focused run:27 tests pass (10 final-fortune,10 scoring,7 AI).
-  Then2 full-pot blue tests passed separately. Run full suite at next Core milestone.
-- Unity currently embeds Core6a4294c, so recent rules fixes require a DLL sync.
+- All 24 Set 1 fortunes are implemented and enabled by default (81e280d).
+  Explicit empty decks remain available for isolated fixtures. Sessions reveal
+  nine distinct cards. CLI seed support is 3e0f638; default-deck tests 0bcb742.
+- Final-round scoring 14cecc3 / tests fe02c97 automatically resolves the best
+  single exploded reward; safe pots receive printed VP plus floor(coins / 5).
+- Well Stirred includes blue-selected whites. Strong Ingredient suppresses its
+  own immediate/deferred action (dd0c274 / 67ae4ba). Second Chance protects its
+  opening five placements and offers one restart (5a89d48 / 5efc452).
+- Blue full-pot boundary 45991dd / a210bca prevents extra clamped placements.
+- Full Core suite: 129 tests pass; build has zero warnings/errors. Normal AI:
+  192 single-card complete matches and 32 mixed-deck matches. Published CLI smoke
+  with seed 0 reveals Rat Infestation, offers legal actions and exits cleanly.
+- Unity contains the new full-deck Core DLL. Recompile and scene rebuild pass.
+  Settings, dice, scoreboard, CPU pot, primary controls, fixed bag reference and
+  readable fortune caption are published. Header phase wrapping fixed in 61c9f33.
 
-## Next work, in order
+## Remaining integration work
 
-1. Correct Strong Ingredient's deferred effect. Publisher Herb Witches p4 says
-   the placed chip's action is not carried out, not merely its immediate action.
-   Keep physical position and white total; exclude this chip's own green ruby or
-   purple/black evaluation contribution. Preserve earlier chips' last-two physical
-   positions. Root chose this direct reading; prior green-benefit test must change.
-   A per-placement effect-enabled flag can reset naturally when the bag resets.
-2. Implement A Second Chance: brewing-start snapshot, first five actual placements,
-   protection for the card-driven draws, one keep/restart choice after placement
-   choices drain, restart without repeating preparation/round-six setup. Restore
-   flask from brewing-start state. See updated worker /tmp handoff if available.
-3. Enable all24 in standard RuleSet.SetOne. Old focused fixtures should explicitly
-   opt out with an empty deck. Verify no repeated cards and complete AI matches.
-4. Sync published Core, compile Unity, verify active fortune art and long choices,
-   settings/dice and full nine-round interaction, restart/rebuild, iPad layout.
-   Fix pending header phase wrap (SHOPPING currently broke across two lines).
-5. Complete rules/architecture audit and supported iOS export attempt. Report
-   Editor success, iOS export and physical-device evidence separately. No device
-   install/public release requested. Do not mark complete with missing evidence.
+1. Finish the live Unity full-match probe. Temporary harness:
+   /tmp/QuackiesUnityFullMatchProbe.cs; report:
+   /tmp/quackies-unity-full-match-probe.txt. Terra is launching it after the latest
+   DLL rebuild. Check live agent/process state before resuming; do not restart a
+   still-running probe based only on a stale file. It uses NormalPolicy for human
+   decisions and dispatches matching real Button pointer events, alongside the
+   existing Normal AI. Verify nine distinct fortunes, final score, settings
+   restart, references/long choices, scoreboard/CPU return and runtime errors.
+2. Capture and inspect the active fortune/full table and final results at iPad
+   mini proportions. Existing temporary image paths below are earlier checks;
+   do not describe them as proof of full-deck completion.
+3. Attempt iOS export with the new DLL, using the initial scene and an ignored
+   Builds/iOS output. iOS module is installed. Report toolchain failure accurately
+   if export fails; no signing/install/device test or public release requested.
+4. Update this handoff, progress and README with actual final evidence. Audit
+   requirements before marking the goal complete. Do not merge main.
+
+The rules sweep is recorded in RULES_AUDIT.md, including corrected boundaries and
+explicit Second Chance timing interpretations. Core must remain independent of
+Unity. Pre-existing prototype compatibility types are retained; current gameplay
+uses MatchSession exclusively.
 
 ## Ownership and recovery
 
@@ -83,3 +78,6 @@ local HEAD with canonical remote commit. Large scene payloads are chunked.
 Usage exhausted before the previous window could save this update. The current
 window has resumed; check usage between checkpoints and save before it is near
 exhaustion. Quota is not grounds to mark the goal complete.
+
+Latest window reached 87% usage before this checkpoint; save probe state and
+results before the next interruption. No Core/CLI/test edits remain unpublished.

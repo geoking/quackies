@@ -62,9 +62,12 @@ session-owned capability with a clear reset point rather than storing mutable
 fields in a shared rule object. Extend a context when a legitimate new effect
 needs it, and test that capability without either front end.
 
-The default fortune deck is currently empty while the complete 24-card deck is
-implemented. Partial batches are opt-in test fixtures. Their existence must not
-be described as complete base-game coverage.
+The standard Set 1 deck contains all 24 fortune cards, drawn without replacement.
+Pass an explicit empty deck for isolated rule fixtures. BrewingRestartState owns
+Second Chance’s snapshot and one-time restart decision; the event’s pre-placement
+hook protects its opening draws. Placed chips track whether their ingredient
+effect is enabled, allowing Strong Ingredient to suppress immediate and deferred
+actions while retaining physical position and white value.
 
 ### Opponent policy
 

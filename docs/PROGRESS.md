@@ -156,3 +156,20 @@ The milestone remains incomplete. Main has not been merged.
   pumpkin face and Continue. Root spotted a wrapped SHOPPING header behind it;
   a bounded header fix is pending review. No physical-device claims.
 - A Second Chance, full deck activation and final Unity integration remain open.
+
+### 12. Complete fortune deck and Unity integration
+
+- Strong deferred-effect correction dd0c274 / tests 67ae4ba suppresses the
+  selected chip’s own green/purple/black action; fourteen card regressions pass.
+- A Second Chance 5a89d48 / tests 5efc452 adds protected opening placements and
+  a one-time restart after ingredient choices finish, with a dedicated snapshot.
+- Standard deck 81e280d enables all 24 cards. CLI 3e0f638 supports reproducible
+  seeds; tests 0bcb742 cover uniqueness, atlas order and nine distinct reveals.
+  The full solution passes 129 tests with zero build warnings/errors. Normal AI
+  coverage includes 192 single-card matches and 32 mixed-deck matches.
+- Published CLI smoke with seed 0 reveals Rat Infestation, runs legal Normal AI
+  decisions, offers human Draw/Stop and exits cleanly on q.
+- Header 61c9f33 keeps Shopping/Round Complete on one line in verified iPad-aspect
+  captures. Final Core DLL is synced into Unity; recompile and scene rebuild pass.
+- Full nine-round Unity pointer interaction probe and iOS export remain pending.
+  The goal is active; no physical-device validation or main merge is claimed.

@@ -1,9 +1,9 @@
 # Quackies
 
 A Unity tabletop game for one human and one AI, targeting iPad mini landscape.
-Development is in progress: the nine-round match foundation and initial table
-are playable, while the complete fortune deck and board inspection views are
-being added. See [progress](docs/PROGRESS.md) and [next milestones](docs/NEXT_MILESTONES.md).
+The complete base-game Set 1 fortune deck, Normal AI, board inspection, match
+settings and dice results are implemented. Final Editor integration and iOS
+export checks are in progress. See [progress](docs/PROGRESS.md) and [next milestones](docs/NEXT_MILESTONES.md).
 For the latest completed work, work in progress and known gaps, read the
 [handoff](docs/HANDOFF.md).
 
@@ -16,7 +16,11 @@ Open `unity/Quackies.Unity` with Unity **6000.6.0f1**. From Edit mode, invoke:
 That menu rebuilds and saves `Assets/Scenes/QuackiesInitialScene.unity`, then
 enters Play mode. Stop Play mode before rebuilding. Draw or stop using the bottom
 buttons; use the available actions to resolve choices, buy chips and continue.
-Ingredient buttons open the supplied book artwork. Restart begins a fresh match.
+Ingredient buttons open the supplied book artwork; the active fortune opens its
+full card. Scoreboard and the rival pot open larger inspection views. Dice reopens
+the current round’s results. Settings shows Normal AI and the starting-ruby option
+(off by default in Unity); Apply & restart begins a match with that setup.
+Restart begins a fresh match. Final-round coins convert at five per victory point.
 
 ## Projects
 
@@ -47,7 +51,8 @@ dotnet run --project src/Quackies.Cli/Quackies.Cli.csproj
 
 Add `-- --starting-rubies 0` to use the no-starting-ruby house rule. The CLI
 defaults to the official one ruby, uses Normal AI, shows recent action history
-and waits for the human to advance each round.
+and waits for the human to advance each round. Add `--seed 0` for a repeatable
+fortune sequence. All 24 fortune cards are enabled in standard Core and CLI games.
 
 After changing Core code, update the DLL used by Unity:
 

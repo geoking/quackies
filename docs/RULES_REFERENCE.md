@@ -157,10 +157,9 @@ Details requiring an explicit, documented interpretation during final audit:
 
 - Second Chance timing when a fifth placement also opens a blue/yellow choice,
   and flask availability after restarting.
-- Whether the suppressed Strong Ingredient chip contributes to its own deferred
-  color-count benefit; source says its action is not performed, without spelling
-  out every deferred-count interaction. Do not silently treat an implementation
-  interpretation as a separately verified publisher ruling.
+- Strong Ingredient now suppresses its own deferred green/purple/black action
+  contribution as well as its immediate effect. Its physical position still
+  changes which earlier chips are among the last two (see RULES_AUDIT.md).
 - Limits on repeated Wheel and Deal exchanges: supplied card describes one
   ruby/one chip, without an explicit repeat clause. Use a single exchange unless
   a stronger source establishes otherwise.
