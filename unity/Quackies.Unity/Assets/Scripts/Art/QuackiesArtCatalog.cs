@@ -56,6 +56,7 @@ namespace Quackies.Unity.Art
         [SerializeField] private Sprite cardBack;
         [SerializeField] private Sprite fortuneCardsAtlas;
         [SerializeField] private Sprite die;
+        [SerializeField] private Sprite[] dieFaces = Array.Empty<Sprite>();
         [Tooltip("Physical spaces in draw order, measured from the cropped sprite's bottom-left. The last entry is the spoon scoring space.")]
         [SerializeField] private Vector2[] potSpaces = Array.Empty<Vector2>();
         [Tooltip("Chip diameter relative to the cauldron sprite's width.")]
@@ -78,6 +79,7 @@ namespace Quackies.Unity.Art
         public Sprite CardBack => cardBack;
         public Sprite FortuneCardsAtlas => fortuneCardsAtlas;
         public Sprite Die => die;
+        public Sprite GetDieFace(int face) => face >= 0 && face < dieFaces.Length ? dieFaces[face] : null;
         public float PotChipWidth => potChipWidth;
 
         /// <summary>A copy protects the authored alignment data from a view accidentally changing it.</summary>
@@ -156,7 +158,7 @@ namespace Quackies.Unity.Art
         /// </summary>
         public void Configure(TokenArt[] tokenArt, BookArt[] bookArt, FortuneArt[] fortuneArt,
             PlayerArt humanArt, PlayerArt opponentArt, Sprite board, Sprite marker,
-            Sprite back, Sprite atlas, Sprite dice, Vector2[] anchors)
+            Sprite back, Sprite atlas, Sprite dice, Sprite[] diceFaces, Vector2[] anchors)
         {
             tokens = tokenArt;
             books = bookArt;
@@ -168,6 +170,7 @@ namespace Quackies.Unity.Art
             cardBack = back;
             fortuneCardsAtlas = atlas;
             die = dice;
+            dieFaces = diceFaces ?? Array.Empty<Sprite>();
             potSpaces = anchors;
         }
 #endif

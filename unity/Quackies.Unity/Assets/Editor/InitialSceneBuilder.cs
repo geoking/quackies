@@ -104,17 +104,19 @@ namespace Quackies.Unity.Editor
             TableUi.Place(round.rectTransform, 400, 18, 155, 40);
             var phase = TableUi.Text("Phase", header, "BREWING", 18, TableTheme.Teal, true);
             phase.alignment = TextAlignmentOptions.Center;
-            TableUi.Place(phase.rectTransform, 560, 22, 145, 34);
+            TableUi.Place(phase.rectTransform, 555, 22, 100, 34);
 
             var presenterObject = new GameObject("Match Presenter", typeof(RectTransform), typeof(MatchPresenter));
             presenterObject.transform.SetParent(root, false);
             var presenter = presenterObject.GetComponent<MatchPresenter>();
             var scoreButton = TableUi.Button("Open Scoreboard", header, "Scoreboard", TableTheme.Gold, TableTheme.Background);
-            TableUi.Place(scoreButton.GetComponent<RectTransform>(), 716, 17, 142, 44);
+            TableUi.Place(scoreButton.GetComponent<RectTransform>(), 660, 17, 116, 44);
+            var diceButton = TableUi.Button("Open Dice Results", header, "Dice", TableTheme.Raised, TableTheme.Ink);
+            TableUi.Place(diceButton.GetComponent<RectTransform>(), 784, 17, 80, 44);
             var settingsButton = TableUi.Button("Open Settings", header, "Settings", TableTheme.Raised, TableTheme.Ink);
-            TableUi.Place(settingsButton.GetComponent<RectTransform>(), 868, 17, 112, 44);
+            TableUi.Place(settingsButton.GetComponent<RectTransform>(), 874, 17, 110, 44);
             var restart = TableUi.Button("Restart", header, "Restart", TableTheme.Raised, TableTheme.Ink);
-            TableUi.Place(restart.GetComponent<RectTransform>(), 990, 17, 83, 44);
+            TableUi.Place(restart.GetComponent<RectTransform>(), 994, 17, 79, 44);
 
             var human = BuildPot("Your Pot", root, catalog, true, 20, 112, 655, 510, out var bagContents);
             var opponent = BuildPot("Rival Pot", root, catalog, false, 702, 112, 411, 242, out _);
@@ -143,9 +145,10 @@ namespace Quackies.Unity.Editor
             var scoreboard = BuildScoreboard(root, catalog);
             var opponentInspection = BuildOpponentInspection(root, catalog);
             var settings = BuildSettings(root);
+            var diceResults = BuildDiceResults(root, catalog);
             presenter.Configure(catalog, human, opponent, actionPanel, footer, modal, round, phase, status, log,
                 bagContents, restart, eventButton, eventArtwork, eventTitle, scoreboard, opponentInspection,
-                scoreButton, inspectOpponent, inspectOpponentSurface, settings, settingsButton);
+                scoreButton, inspectOpponent, inspectOpponentSurface, settings, settingsButton, diceResults, diceButton);
             return presenter;
         }
 
@@ -342,6 +345,35 @@ namespace Quackies.Unity.Editor
             TableUi.Place(back.GetComponent<RectTransform>(), 499, 548, 145, 48);
             var view = card.gameObject.AddComponent<MatchSettingsView>();
             view.Configure(shade.gameObject, current, next, rubyToggle.GetComponentInChildren<TMP_Text>(), rubyToggle, apply, back, closeOnShade);
+            shade.gameObject.SetActive(false);
+            return view;
+        }
+
+        private static DiceResultsView BuildDiceResults(RectTransform root, QuackiesArtCatalog catalog)
+        {
+            var shade = TableUi.Image("Dice Results Screen", root, new Color(.02f, .04f, .04f, .96f));
+            TableUi.Fill(shade.rectTransform);
+            shade.raycastTarget = true;
+            var closeOnShade = shade.gameObject.AddComponent<Button>();
+            closeOnShade.targetGraphic = shade;
+            var card = Panel("Dice Results Card", shade.rectTransform, 210, 100, 713, 544, TableTheme.Panel);
+            var heading = TableUi.Text("Heading", card, "BONUS DIE RESULTS", 27, TableTheme.Gold, true);
+            heading.alignment = TextAlignmentOptions.Center;
+            TableUi.Place(heading.rectTransform, 38, 24, 637, 38);
+            var earnedBy = TableUi.Text("Earned by", card, "", 17, TableTheme.Ink, true);
+            earnedBy.alignment = TextAlignmentOptions.Center;
+            TableUi.Place(earnedBy.rectTransform, 54, 77, 605, 54);
+            var face = TableUi.Image("Latest Die Face", card, Color.white);
+            face.preserveAspect = true;
+            TableUi.Place(face.rectTransform, 48, 153, 240, 240);
+            var outcomes = Panel("Dice Outcome List", card, 320, 153, 345, 240, TableTheme.Raised);
+            var results = TableUi.Text("Results", outcomes, "", 17, TableTheme.Ink, false);
+            results.alignment = TextAlignmentOptions.MidlineLeft;
+            TableUi.Place(results.rectTransform, 20, 20, 305, 200);
+            var continueButton = TableUi.Button("Continue", card, "Continue", TableTheme.Gold, TableTheme.Background);
+            TableUi.Place(continueButton.GetComponent<RectTransform>(), 274, 448, 165, 48);
+            var view = card.gameObject.AddComponent<DiceResultsView>();
+            view.Configure(shade.gameObject, catalog, face, heading, earnedBy, results, continueButton, closeOnShade);
             shade.gameObject.SetActive(false);
             return view;
         }

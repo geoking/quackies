@@ -150,6 +150,13 @@ MonoBehaviour:
   cardBack: {fileID: 2106981370, guid: 1fea5b36b22a0f04da2e4dd42bb01eba, type: 3}
   fortuneCardsAtlas: {fileID: -1500890118, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
   die: {fileID: 1123105115, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  dieFaces:
+  - {fileID: 2074329098, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  - {fileID: -1649108492, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  - {fileID: 883973580, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  - {fileID: -892330941, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  - {fileID: -251749105, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  - {fileID: 1689925541, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
   potSpaces:
   - {x: 0.50784683, y: 0.5038298}
   - {x: 0.43126178, y: 0.46553192}

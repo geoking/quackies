@@ -31,6 +31,7 @@ namespace Quackies.Unity
         [SerializeField] private ScoreboardView scoreboard;
         [SerializeField] private PotInspectionModal opponentInspection;
         [SerializeField] private MatchSettingsView settingsView;
+        [SerializeField] private DiceResultsView diceResults;
         [SerializeField] private TMP_Text roundText;
         [SerializeField] private TMP_Text phaseText;
         [SerializeField] private TMP_Text statusText;
@@ -40,6 +41,7 @@ namespace Quackies.Unity
         [SerializeField] private Button eventButton;
         [SerializeField] private Button scoreboardButton;
         [SerializeField] private Button settingsButton;
+        [SerializeField] private Button diceButton;
         [SerializeField] private Button inspectOpponentButton;
         [SerializeField] private Button inspectOpponentSurface;
         [SerializeField] private Image eventArtwork;
@@ -56,13 +58,15 @@ namespace Quackies.Unity
         // The house-rule UI intentionally begins at zero. MatchSettings.Standard
         // remains Core's published one-ruby default for non-UI callers.
         private int nextMatchStartingRubies;
+        private int lastObservedDieSequence;
 
         public void Configure(QuackiesArtCatalog art, PotView human, PotView opponent,
             ActionPanelView actionPanel, PrimaryActionsView footer, ReferenceModal referenceModal,
             TMP_Text roundLabel, TMP_Text phaseLabel, TMP_Text statusLabel, TMP_Text gameLog,
             TMP_Text bagLabel, Button restart, Button activeEvent, Image activeEventArtwork, TMP_Text activeEventTitle,
             ScoreboardView scoreView, PotInspectionModal opponentView, Button openScoreboard, Button openOpponent,
-            Button openOpponentSurface, MatchSettingsView matchSettingsView, Button openSettings)
+            Button openOpponentSurface, MatchSettingsView matchSettingsView, Button openSettings,
+            DiceResultsView diceResultView, Button openDiceResults)
         {
             catalog = art;
             humanPot = human;
@@ -86,6 +90,8 @@ namespace Quackies.Unity
             inspectOpponentSurface = openOpponentSurface;
             settingsView = matchSettingsView;
             settingsButton = openSettings;
+            diceResults = diceResultView;
+            diceButton = openDiceResults;
         }
 
         private void Awake()
@@ -96,6 +102,7 @@ namespace Quackies.Unity
             eventButton.onClick.AddListener(ShowActiveEvent);
             scoreboardButton.onClick.AddListener(ShowScoreboard);
             settingsButton.onClick.AddListener(ShowSettings);
+            diceButton.onClick.AddListener(ShowDiceResults);
             inspectOpponentButton.onClick.AddListener(ShowOpponentPot);
             inspectOpponentSurface.onClick.AddListener(ShowOpponentPot);
             NewMatch();
@@ -147,8 +154,15 @@ namespace Quackies.Unity
                 setting => nextMatchStartingRubies = setting, ApplySettingsAndRestart);
         }
 
+        public void ShowDiceResults()
+        {
+            if (session == null || diceResults == null) return;
+            diceResults.ShowReview(session.GetSnapshot(HumanId));
+        }
+
         private void NewMatch()
         {
+            lastObservedDieSequence = 0;
             session = MatchSession.Create(new SeededRandomSource(startingSeed),
                 new MatchSettings(nextMatchStartingRubies));
             var openingView = session.GetSnapshot(HumanId);
@@ -165,7 +179,8 @@ namespace Quackies.Unity
                 && statusText != null && logText != null && restartButton != null && eventButton != null
                 && eventArtwork != null && eventTitle != null && bagContentsText != null && scoreboard != null
                 && opponentInspection != null && scoreboardButton != null && inspectOpponentButton != null
-                && inspectOpponentSurface != null && settingsView != null && settingsButton != null;
+                && inspectOpponentSurface != null && settingsView != null && settingsButton != null
+                && diceResults != null && diceButton != null;
         }
 
         private void ApplySettingsAndRestart()
@@ -227,6 +242,12 @@ namespace Quackies.Unity
             var legal = session.GetLegalActions(HumanId);
             actions.Render(legal, ExecuteHumanAction, false);
             primaryActions.Render(legal, ExecuteHumanAction, false, human != null && human.FlaskFull);
+            var newDieRolls = view.DieRolls.Where(roll => roll.Sequence > lastObservedDieSequence).ToArray();
+            if (newDieRolls.Length > 0)
+            {
+                lastObservedDieSequence = newDieRolls[newDieRolls.Length - 1].Sequence;
+                diceResults.ShowNew(view, newDieRolls);
+            }
         }
 
         private static string FriendlyPhase(MatchPhase phase)

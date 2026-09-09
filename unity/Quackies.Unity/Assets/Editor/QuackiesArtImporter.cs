@@ -77,6 +77,7 @@ namespace Quackies.Unity.Editor
             var back = ImportFull("back_of_card.jpg");
             var atlas = ImportFull("cards.jpg", 4096);
             var die = ImportFull("dice.png");
+            var dieFaces = BuildDieFaces();
             var anchors = PotCentersFromTop.Select(point =>
                 new Vector2(point.x / PotSourceWidth, 1f - point.y / PotCropHeight)).ToArray();
 
@@ -86,7 +87,7 @@ namespace Quackies.Unity.Editor
                 catalog = ScriptableObject.CreateInstance<QuackiesArtCatalog>();
                 AssetDatabase.CreateAsset(catalog, CatalogPath);
             }
-            catalog.Configure(tokens, books, fortunes, human, opponent, board, marker, back, atlas, die, anchors);
+            catalog.Configure(tokens, books, fortunes, human, opponent, board, marker, back, atlas, die, dieFaces, anchors);
             EditorUtility.SetDirty(catalog);
             AssetDatabase.SaveAssets();
             return catalog;
@@ -177,6 +178,34 @@ namespace Quackies.Unity.Editor
             var sprites = ImportSlices("cards.jpg", slices, 4096);
             return FortuneTitles.Select((title, index) => new QuackiesArtCatalog.FortuneArt
                 { Title = title, Sprite = sprites[index] }).ToArray();
+        }
+
+        private static Sprite[] BuildDieFaces()
+        {
+            var importer = GetTextureImporter("dice.png");
+            importer.GetSourceTextureWidthAndHeight(out var width, out var height);
+            var cellWidth = width / 3f;
+            var cellHeight = height / 3f;
+            const float inset = 12f;
+            // The first row is intentionally blank. These rectangles retain each printed
+            // die face while removing the atlas gutters. Face order mirrors Core exactly.
+            var rects = new[]
+            {
+                DieFaceRect(0, 1), // face 0: 1 VP
+                DieFaceRect(2, 1), // face 1: 1 VP
+                DieFaceRect(1, 1), // face 2: 2 VP
+                DieFaceRect(0, 2), // face 3: ruby
+                DieFaceRect(2, 2), // face 4: orange 1
+                DieFaceRect(1, 2)  // face 5: droplet
+            };
+            return ImportSlices("dice.png", rects, 2048);
+
+            Slice DieFaceRect(int column, int rowFromTop)
+            {
+                var rect = new Rect(column * cellWidth + inset, height - (rowFromTop + 1) * cellHeight + inset,
+                    cellWidth - inset * 2f, cellHeight - inset * 2f);
+                return new Slice("Quackies_DieFace_" + column + "_" + rowFromTop, rect);
+            }
         }
 
         private readonly struct Slice
