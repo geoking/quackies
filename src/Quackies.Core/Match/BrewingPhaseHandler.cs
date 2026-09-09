@@ -50,6 +50,7 @@ namespace Quackies.Core.Match
         internal void PlaceChip(PlayerRoundState player, Token chip, bool resolveIngredient, bool mayExplode,
             ChipPlacementSource source = ChipPlacementSource.IngredientSelection)
         {
+            mayExplode = mayExplode && _session.CanExplodeOnPlacement(player, chip, source);
             var position = Math.Min(player.Position + chip.Value, _session.Rules.Track.LastChipPosition);
             player.Pot.Add(new PlacedChip(chip, position, resolveIngredient));
             player.MayUseFlask = chip.Color == TokenColor.White;

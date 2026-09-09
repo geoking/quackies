@@ -18,6 +18,7 @@ namespace Quackies.Core.Rules
         string Description { get; }
         void OnRevealed(RoundEventContext context);
         void OnBrewingStarted(RoundEventContext context);
+        bool CanExplodeOnPlacement(RoundEventContext context, string playerId, Tokens.Token chip, ChipPlacementSource source);
         void OnChipPlaced(RoundEventContext context, string playerId, Tokens.Token chip, ChipPlacementSource source);
         void OnPlayerStopped(RoundEventContext context, string playerId);
         void OnEvaluationStarted(RoundEventContext context);
@@ -39,6 +40,8 @@ namespace Quackies.Core.Rules
         public string Description { get; }
         public virtual void OnRevealed(RoundEventContext context) { }
         public virtual void OnBrewingStarted(RoundEventContext context) { }
+        public virtual bool CanExplodeOnPlacement(RoundEventContext context, string playerId, Tokens.Token chip,
+            ChipPlacementSource source) => true;
         public virtual void OnChipPlaced(RoundEventContext context, string playerId, Tokens.Token chip, ChipPlacementSource source) { }
         public virtual void OnPlayerStopped(RoundEventContext context, string playerId) { }
         public virtual void OnEvaluationStarted(RoundEventContext context) { }

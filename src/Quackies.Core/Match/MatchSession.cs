@@ -125,7 +125,7 @@ namespace Quackies.Core.Match
             if (player.Choices.Count > 0)
             {
                 ExecuteChoice(player, legal);
-                ContinueAfterChoice();
+                ContinueAfterChoice(player);
             }
             else
             {
@@ -390,6 +390,32 @@ namespace Quackies.Core.Match
             OfferNext();
         }
 
+        internal void CaptureBrewingStart(PlayerRoundState player) =>
+            player.BrewingRestart = new BrewingRestartState(player);
+
+        internal void RecordBrewingRestartPlacement(PlayerRoundState player, int requiredPlacements, string title)
+        {
+            var restart = player.BrewingRestart ??
+                throw new InvalidOperationException("No brewing-start state was captured for this player.");
+            restart.RecordPlacement(requiredPlacements, title);
+            TryOfferPendingBrewingRestart(player);
+        }
+
+        private void TryOfferPendingBrewingRestart(PlayerRoundState player)
+        {
+            var restart = player.BrewingRestart;
+            if (restart == null || !restart.Pending || player.Choices.Count > 0) return;
+            var title = restart.ChoiceTitle;
+            restart.MarkOffered();
+            Offer(player, title,
+                new ChoiceOption("keep-pot", "Keep your current pot", () => { }),
+                new ChoiceOption("restart-brewing", "Start this brewing round again", () =>
+                {
+                    restart.Restore(player);
+                    AddLog(player.Id, $"{player.Name} restarted their brewing round from its opening state.");
+                }));
+        }
+
         internal int RatStepsForCurrentRound(PlayerRoundState player)
         {
             if (player.RatStepEntitlement.HasValue) return player.RatStepEntitlement.Value;
@@ -475,8 +501,9 @@ namespace Quackies.Core.Match
             option.Apply();
         }
 
-        private void ContinueAfterChoice()
+        private void ContinueAfterChoice(PlayerRoundState player)
         {
+            TryOfferPendingBrewingRestart(player);
             if (_players.Any(player => player.Choices.Count > 0)) return;
             if (Phase == MatchPhase.Preparation) FinishPreparation();
             else if (Phase == MatchPhase.Brewing) FinishBrewingIfReady();
@@ -556,6 +583,9 @@ namespace Quackies.Core.Match
 
         internal void NotifyChipPlaced(PlayerRoundState player, Token chip, ChipPlacementSource source) =>
             _currentEvent?.OnChipPlaced(new RoundEventContext(this), player.Id, chip, source);
+
+        internal bool CanExplodeOnPlacement(PlayerRoundState player, Token chip, ChipPlacementSource source) =>
+            _currentEvent?.CanExplodeOnPlacement(new RoundEventContext(this), player.Id, chip, source) ?? true;
 
         internal void NotifyPlayerStopped(PlayerRoundState player) =>
             _currentEvent?.OnPlayerStopped(new RoundEventContext(this), player.Id);

@@ -35,6 +35,7 @@ namespace Quackies.Core.Match
         internal int ExplosionThreshold = 7;
         internal int TemporaryRatCount;
         internal int? RatStepEntitlement;
+        internal BrewingRestartState? BrewingRestart;
         internal int Position => Pot.Count == 0 ? Math.Max(Droplet, RatPosition) : Pot[Pot.Count - 1].Position;
 
         internal void ResetRound()
@@ -44,6 +45,7 @@ namespace Quackies.Core.Match
             Stopped = Exploded = ShoppingDone = RubiesDone = MayUseFlask = RewardResolved = false;
             ScoringSpaceAtStop = null;
             RatStepEntitlement = null;
+            BrewingRestart = null;
             ExplosionThreshold = 7; RatPosition = Droplet;
         }
         internal int Count(TokenColor color) => Pot.Count(c => c.IngredientEffectEnabled && c.Token.Color == color);

@@ -9,8 +9,26 @@ namespace Quackies.Core.Rules.Fortunes
     {
         public static IEnumerable<IRoundEventRule> CreateFinalBatch()
         {
+            yield return new ASecondChance();
             yield return new WellStirred();
             yield return new StrongIngredient();
+        }
+
+        private sealed class ASecondChance : RoundEventRule
+        {
+            internal ASecondChance() : base("a-second-chance", "A Second Chance",
+                "After your first five placements, choose once to keep your pot or restart this brewing round.") { }
+
+            public override void OnBrewingStarted(RoundEventContext context)
+            {
+                foreach (var playerId in context.PlayerIds) context.CaptureBrewingStart(playerId);
+            }
+
+            public override bool CanExplodeOnPlacement(RoundEventContext context, string playerId, Token chip,
+                ChipPlacementSource source) => context.BrewingRestartUsed(playerId) || context.PlacementCount(playerId) >= 5;
+
+            public override void OnChipPlaced(RoundEventContext context, string playerId, Token chip,
+                ChipPlacementSource source) => context.RecordBrewingRestartPlacement(playerId, 5, Title);
         }
 
         private sealed class WellStirred : RoundEventRule

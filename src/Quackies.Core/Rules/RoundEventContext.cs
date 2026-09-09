@@ -36,6 +36,8 @@ namespace Quackies.Core.Rules
         }
         public int RatSteps(string playerId) => _session.RatStepsForCurrentRound(_session.Player(playerId));
         public int WhiteTotal(string playerId) => _session.Player(playerId).WhiteTotal;
+        public int PlacementCount(string playerId) => _session.Player(playerId).BrewingRestart?.PlacementCount ?? 0;
+        public bool BrewingRestartUsed(string playerId) => _session.Player(playerId).BrewingRestart?.Used ?? false;
         public bool TryUseOnce(string playerId, string capabilityId) =>
             _session.TryUseOnceThisRound(_session.Player(playerId), capabilityId);
         public bool TryUseOnce(string capabilityId) => _session.TryUseOnceThisRound(capabilityId);
@@ -76,6 +78,9 @@ namespace Quackies.Core.Rules
             _session.RollDie(_session.Player(playerId), DieRollReason.Fortune, addRewardChipToCurrentBag: true);
         public void OfferSequentialFortuneBagSelections(IEnumerable<string> playerIds, int count, string title) =>
             _session.OfferSequentialFortuneBagSelections(playerIds.Select(_session.Player), count, title);
+        public void CaptureBrewingStart(string playerId) => _session.CaptureBrewingStart(_session.Player(playerId));
+        public void RecordBrewingRestartPlacement(string playerId, int requiredPlacements, string title) =>
+            _session.RecordBrewingRestartPlacement(_session.Player(playerId), requiredPlacements, title);
 
         public void OfferChoice(string playerId, string title, params RoundEventChoice[] choices)
         {
