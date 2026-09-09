@@ -46,14 +46,17 @@ namespace Quackies.Core.Match
             RatStepEntitlement = null;
             ExplosionThreshold = 7; RatPosition = Droplet;
         }
-        internal int Count(TokenColor color) => Pot.Count(c => c.Token.Color == color);
-        internal int CountInLast(TokenColor color, int count) => Pot.Skip(Math.Max(0, Pot.Count - count)).Count(c => c.Token.Color == color);
+        internal int Count(TokenColor color) => Pot.Count(c => c.IngredientEffectEnabled && c.Token.Color == color);
+        internal int CountInLast(TokenColor color, int count) => Pot.Skip(Math.Max(0, Pot.Count - count))
+            .Count(c => c.IngredientEffectEnabled && c.Token.Color == color);
     }
     internal sealed class PlacedChip
     {
-        internal PlacedChip(Token token, int position) { Token = token; Position = position; }
+        internal PlacedChip(Token token, int position, bool ingredientEffectEnabled = true)
+        { Token = token; Position = position; IngredientEffectEnabled = ingredientEffectEnabled; }
         internal Token Token { get; }
         internal int Position { get; set; }
+        internal bool IngredientEffectEnabled { get; }
     }
     internal sealed class PendingChoice
     {

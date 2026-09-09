@@ -51,7 +51,7 @@ namespace Quackies.Core.Match
             ChipPlacementSource source = ChipPlacementSource.IngredientSelection)
         {
             var position = Math.Min(player.Position + chip.Value, _session.Rules.Track.LastChipPosition);
-            player.Pot.Add(new PlacedChip(chip, position));
+            player.Pot.Add(new PlacedChip(chip, position, resolveIngredient));
             player.MayUseFlask = chip.Color == TokenColor.White;
             if (chip.Color == TokenColor.White) player.WhiteTotal += chip.Value;
             var placement = source == ChipPlacementSource.BagDraw ? "drew and placed" : "placed";
