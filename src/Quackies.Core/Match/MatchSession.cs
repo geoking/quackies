@@ -21,6 +21,7 @@ namespace Quackies.Core.Match
         private readonly Dictionary<ShopChipDefinition, int> _supply;
         private readonly List<IRoundEventRule> _eventDeck;
         private readonly List<MatchLogEntry> _history = new List<MatchLogEntry>();
+        private readonly List<DieRollView> _dieRolls = new List<DieRollView>();
         private readonly IReadOnlyList<Token> _startingBag;
         private readonly Dictionary<string, GameActionKind> _roundNineCommits = new Dictionary<string, GameActionKind>(StringComparer.Ordinal);
         private readonly BrewingPhaseHandler _brewing;
@@ -81,7 +82,7 @@ namespace Quackies.Core.Match
 
             return new MatchView(Round, Phase, viewer.Id, _currentEvent?.Id ?? string.Empty,
                 _currentEvent?.Title ?? string.Empty, _currentEvent?.Description ?? string.Empty,
-                playerViews, viewer.Bag.ToArray(), _startingBag, offers, _history, winners,
+                playerViews, viewer.Bag.ToArray(), _startingBag, offers, _history, _dieRolls, winners,
                 _roundNineCommits.Count > 0);
         }
 
@@ -212,8 +213,14 @@ namespace Quackies.Core.Match
         }
 
         internal int BonusDieRolls => _bonusDieRolls;
-        internal void RollDie(PlayerRoundState player, bool addRewardChipToCurrentBag) =>
-            _evaluation.RollDie(player, addRewardChipToCurrentBag);
+        internal void RollDie(PlayerRoundState player, DieRollReason reason, bool addRewardChipToCurrentBag) =>
+            _evaluation.RollDie(player, reason, addRewardChipToCurrentBag);
+
+        internal void RecordDieRoll(PlayerRoundState player, int face, DieRollReason reason, bool rewardApplied,
+            string description)
+        {
+            _dieRolls.Add(new DieRollView(_dieRolls.Count + 1, Round, player.Id, face, reason, rewardApplied, description));
+        }
 
         internal bool TryGiveSupplyChip(PlayerRoundState player, TokenColor color, int value, bool addToCurrentBag = false)
         {

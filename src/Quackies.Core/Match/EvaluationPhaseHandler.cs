@@ -42,39 +42,50 @@ namespace Quackies.Core.Match
             if (eligible.Length == 0) return;
             var furthestScoringPosition = eligible.Max(player => player.ScoringSpaceAtStop!.Position);
             foreach (var player in eligible.Where(candidate => candidate.ScoringSpaceAtStop!.Position == furthestScoringPosition))
-                for (var roll = 0; roll < _session.BonusDieRolls; roll++) RollDie(player, addRewardChipToCurrentBag: false);
+                for (var roll = 0; roll < _session.BonusDieRolls; roll++)
+                    RollDie(player, DieRollReason.RoundBonus, addRewardChipToCurrentBag: false);
         }
 
-        internal void RollDie(PlayerRoundState player, bool addRewardChipToCurrentBag)
+        internal void RollDie(PlayerRoundState player, DieRollReason reason, bool addRewardChipToCurrentBag)
         {
             var face = _session.Random.NextInt(6);
+            var rewardApplied = true;
+            string description;
             switch (face)
             {
                 case 0:
                 case 1:
-                    _session.AddLog(player.Id, $"{player.Name} rolled the die: 1 victory point.");
+                    description = "1 victory point";
+                    _session.AddLog(player.Id, $"{player.Name} rolled the die: {description}.");
                     _session.GainPoints(player, 1);
                     break;
                 case 2:
-                    _session.AddLog(player.Id, $"{player.Name} rolled the die: 2 victory points.");
+                    description = "2 victory points";
+                    _session.AddLog(player.Id, $"{player.Name} rolled the die: {description}.");
                     _session.GainPoints(player, 2);
                     break;
                 case 3:
-                    _session.AddLog(player.Id, $"{player.Name} rolled the die: 1 ruby.");
+                    description = "1 ruby";
+                    _session.AddLog(player.Id, $"{player.Name} rolled the die: {description}.");
                     _session.GainRubies(player, 1);
                     break;
                 case 4:
-                    var received = _session.TryGiveSupplyChip(player, TokenColor.Orange, 1, addRewardChipToCurrentBag);
-                    _session.AddLog(player.Id, received
+                    description = "Orange 1 chip";
+                    rewardApplied = _session.TryGiveSupplyChip(player, TokenColor.Orange, 1, addRewardChipToCurrentBag);
+                    _session.AddLog(player.Id, rewardApplied
                         ? $"{player.Name} rolled the die: Orange 1 chip."
                         : $"{player.Name} rolled the die: Orange 1 chip, but the supply was empty.");
                     break;
                 case 5:
+                    description = "Advance droplet 1 space";
+                    var previousDroplet = player.Droplet;
                     _session.AddLog(player.Id, $"{player.Name} rolled the die: advance droplet 1 space.");
                     _session.AdvanceDroplet(player, 1);
+                    rewardApplied = player.Droplet > previousDroplet;
                     break;
                 default: throw new ArgumentOutOfRangeException(nameof(face));
             }
+            _session.RecordDieRoll(player, face, reason, rewardApplied, description);
         }
 
         private void ApplyIngredientEvaluation()

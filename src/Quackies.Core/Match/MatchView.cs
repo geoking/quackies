@@ -12,11 +12,13 @@ namespace Quackies.Core.Match
     {
         internal MatchView(int round, MatchPhase phase, string viewerId, string eventId, string eventTitle, string eventDescription,
             IEnumerable<PlayerView> players, IEnumerable<Token> ownBag, IEnumerable<Token> startingBag, IEnumerable<ShopOffer> shop,
-            IEnumerable<MatchLogEntry> history, IEnumerable<string> winnerIds, bool awaitingSimultaneousDecision)
+            IEnumerable<MatchLogEntry> history, IEnumerable<DieRollView> dieRolls, IEnumerable<string> winnerIds,
+            bool awaitingSimultaneousDecision)
         {
             Round = round; Phase = phase; ViewerId = viewerId; EventId = eventId; EventTitle = eventTitle; EventDescription = eventDescription;
             Players = Freeze(players); OwnBag = Freeze(ownBag); StartingBag = Freeze(startingBag); ShopOffers = Freeze(shop);
-            History = Freeze(history); RecentLog = Freeze(History.TakeLast(16).Select(entry => entry.Message)); WinnerIds = Freeze(winnerIds);
+            History = Freeze(history); RecentLog = Freeze(History.TakeLast(16).Select(entry => entry.Message));
+            DieRolls = Freeze(dieRolls); WinnerIds = Freeze(winnerIds);
             AwaitingSimultaneousDecision = awaitingSimultaneousDecision;
         }
         public int Round { get; }
@@ -31,6 +33,7 @@ namespace Quackies.Core.Match
         public IReadOnlyList<ShopOffer> ShopOffers { get; }
         public IReadOnlyList<MatchLogEntry> History { get; }
         public IReadOnlyList<string> RecentLog { get; }
+        public IReadOnlyList<DieRollView> DieRolls { get; }
         public IReadOnlyList<string> WinnerIds { get; }
         public bool AwaitingSimultaneousDecision { get; }
         internal static IReadOnlyList<T> Freeze<T>(IEnumerable<T> values) => new ReadOnlyCollection<T>(values.ToList());

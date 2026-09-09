@@ -51,7 +51,8 @@ namespace Quackies.Core.Rules
         public void SetBonusDieRolls(int rolls) => _session.SetBonusDieRolls(rolls);
         public void SetRatSteps(string playerId, int steps) =>
             _session.SetRatStepsForCurrentRound(_session.Player(playerId), steps);
-        public void RollDie(string playerId) => _session.RollDie(_session.Player(playerId), addRewardChipToCurrentBag: true);
+        public void RollDie(string playerId) =>
+            _session.RollDie(_session.Player(playerId), DieRollReason.Fortune, addRewardChipToCurrentBag: true);
 
         public void OfferChoice(string playerId, string title, params RoundEventChoice[] choices)
         {
