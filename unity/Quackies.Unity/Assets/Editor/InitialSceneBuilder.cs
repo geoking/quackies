@@ -98,13 +98,17 @@ namespace Quackies.Unity.Editor
             var title = TableUi.Text("Title", header, "QUACKIES", 34, TableTheme.Gold, true);
             TableUi.Place(title.rectTransform, 20, 10, 300, 42);
             var subtitle = TableUi.Text("Subtitle", header, "THE QUACKS OF QUEDLINBURG", 14, TableTheme.Muted, true);
-            TableUi.Place(subtitle.rectTransform, 23, 48, 380, 22);
+            TableUi.Place(subtitle.rectTransform, 23, 48, 350, 22);
             var round = TableUi.Text("Round", header, "ROUND 1 / 9", 22, TableTheme.Ink, true);
             round.alignment = TextAlignmentOptions.Center;
-            TableUi.Place(round.rectTransform, 400, 18, 155, 40);
+            TableUi.Place(round.rectTransform, 380, 18, 155, 40);
             var phase = TableUi.Text("Phase", header, "BREWING", 18, TableTheme.Teal, true);
             phase.alignment = TextAlignmentOptions.Center;
-            TableUi.Place(phase.rectTransform, 555, 22, 100, 34);
+            phase.enableAutoSizing = true;
+            phase.fontSizeMin = 11;
+            phase.fontSizeMax = 18;
+            phase.textWrappingMode = TextWrappingModes.NoWrap;
+            TableUi.Place(phase.rectTransform, 535, 22, 120, 34);
 
             var presenterObject = new GameObject("Match Presenter", typeof(RectTransform), typeof(MatchPresenter));
             presenterObject.transform.SetParent(root, false);
