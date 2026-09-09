@@ -72,6 +72,130 @@ public sealed class FinalFortuneTests
         Assert.Equal(2, Player(match, "human").WhiteTotal);
     }
 
+    [Fact]
+    public void StrongIngredientPlacesAWhiteChipWithoutExplodingAboveTheThreshold()
+    {
+        var match = CreateMatch("strong-ingredient", new FixedRandom(0, 0, 0, 0, 0, 2, 0));
+        ExecuteKind(match, "ai", GameActionKind.Stop);
+        for (var draw = 0; draw < 5; draw++) ExecuteKind(match, "human", GameActionKind.Draw);
+        Assert.Equal(7, Player(match, "human").WhiteTotal);
+        ExecuteKind(match, "human", GameActionKind.Stop);
+
+        ExecuteColor(match, "human", TokenColor.White, 2);
+        ExecuteSuffix(match, "ai", ":fortune-none");
+
+        var human = Player(match, "human");
+        Assert.Equal(9, human.WhiteTotal);
+        Assert.False(human.Exploded);
+        Assert.Equal(6, human.PlacedChips.Count);
+    }
+
+    [Fact]
+    public void StrongIngredientChoicesResolveSequentiallyInRoundStartOrder()
+    {
+        var baseline = RuleSet.SetOne(Array.Empty<IRoundEventRule>());
+        var strong = SetOneFortunes.CreateFinalBatch().Single(candidate => candidate.Id == "strong-ingredient");
+        var rules = new RuleSet(baseline.Track, baseline.Ingredients.Values, baseline.ShopChips,
+            new IRoundEventRule[] { new NoOpEvent(), strong });
+        var match = MatchSession.Create(new ZeroRandom(), rules);
+        FinishRoundAndAdvance(match);
+
+        ExecuteKind(match, "human", GameActionKind.Stop);
+        ExecuteKind(match, "ai", GameActionKind.Stop);
+
+        Assert.Equal(2, match.Round);
+        Assert.Contains(match.GetLegalActions("ai"), action => action.Id.EndsWith(":fortune-none", StringComparison.Ordinal));
+        Assert.Empty(match.GetLegalActions("human"));
+        ExecuteSuffix(match, "ai", ":fortune-none");
+        Assert.Contains(match.GetLegalActions("human"), action => action.Id.EndsWith(":fortune-none", StringComparison.Ordinal));
+    }
+
+    [Fact]
+    public void StrongIngredientSuppressesThePlacedChipsImmediateIngredientAbility()
+    {
+        var baseline = RuleSet.SetOne(Array.Empty<IRoundEventRule>());
+        var strong = SetOneFortunes.CreateFinalBatch().Single(candidate => candidate.Id == "strong-ingredient");
+        var rules = new RuleSet(baseline.Track, baseline.Ingredients.Values, baseline.ShopChips,
+            new IRoundEventRule[] { new GiveHumanBlue(), strong });
+        var random = new FixedRandom(0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0);
+        var match = MatchSession.Create(random, rules);
+        FinishRoundAndAdvance(match);
+        ExecuteKind(match, "human", GameActionKind.Stop);
+        ExecuteKind(match, "ai", GameActionKind.Stop);
+        ExecuteSuffix(match, "ai", ":fortune-none");
+
+        ExecuteColor(match, "human", TokenColor.Blue, 1);
+
+        Assert.DoesNotContain(match.GetLegalActions("human"), action => action.ChoiceTitle.Contains("Crow skull", StringComparison.Ordinal));
+        Assert.Single(Player(match, "human").PlacedChips);
+    }
+
+    [Fact]
+    public void StrongIngredientChipContributesToDeferredColorEvaluation()
+    {
+        var match = CreateMatch("strong-ingredient", new FixedRandom(0, 8, 0, 0, 0, 0));
+        ExecuteKind(match, "human", GameActionKind.Stop);
+        ExecuteKind(match, "ai", GameActionKind.Stop);
+        ExecuteColor(match, "human", TokenColor.Green, 1);
+        ExecuteSuffix(match, "ai", ":fortune-none");
+
+        Assert.Equal(2, Player(match, "human").Rubies);
+    }
+
+    [Fact]
+    public void StrongIngredientDoesNotStackAChipOnAnAlreadyFullPot()
+    {
+        var spaces = new[]
+        {
+            new TrackSpaceView(0, 0, 0, false),
+            new TrackSpaceView(1, 1, 0, false),
+            new TrackSpaceView(2, 35, 15, false)
+        };
+        var baseline = RuleSet.SetOne(Array.Empty<IRoundEventRule>());
+        var strong = SetOneFortunes.CreateFinalBatch().Single(candidate => candidate.Id == "strong-ingredient");
+        var rules = new RuleSet(new BoardTrack(spaces), baseline.Ingredients.Values, baseline.ShopChips, new[] { strong });
+        var match = MatchSession.Create(new ZeroRandom(), rules);
+
+        ExecuteKind(match, "ai", GameActionKind.Stop);
+        ExecuteKind(match, "human", GameActionKind.Draw);
+
+        Assert.Empty(match.GetLegalActions("human"));
+        Assert.Contains(match.GetLegalActions("ai"), action => action.Id.EndsWith(":fortune-none", StringComparison.Ordinal));
+        ExecuteSuffix(match, "ai", ":fortune-none");
+        var human = Player(match, "human");
+        Assert.Single(human.PlacedChips);
+        Assert.Equal(2, human.ScoringSpace.Position);
+    }
+
+    [Fact]
+    public void StrongIngredientOffersNoFortuneSelectionWhenBothPotsExploded()
+    {
+        var match = CreateMatch("strong-ingredient", new ZeroRandom());
+        for (var draw = 0; draw < 6; draw++) ExecuteKind(match, "human", GameActionKind.Draw);
+        for (var draw = 0; draw < 6; draw++) ExecuteKind(match, "ai", GameActionKind.Draw);
+
+        Assert.Equal(MatchPhase.Evaluation, match.Phase);
+        Assert.All(match.GetSnapshot("human").Players, player => Assert.True(player.Exploded));
+        Assert.All(new[] { "human", "ai" }, playerId =>
+            Assert.DoesNotContain(match.GetLegalActions(playerId), action => action.ChoiceTitle == "Strong Ingredient"));
+    }
+
+    [Fact]
+    public void SequentialFortuneSelectionSkipsPlayersWhoseBagsAreEmpty()
+    {
+        var baseline = RuleSet.SetOne(Array.Empty<IRoundEventRule>());
+        var rules = new RuleSet(baseline.Track, baseline.Ingredients.Values, baseline.ShopChips,
+            new IRoundEventRule[] { new EmptyBagSelectionEvent() });
+        var match = MatchSession.Create(new ZeroRandom(), rules);
+
+        ExecuteKind(match, "human", GameActionKind.Stop);
+        ExecuteKind(match, "ai", GameActionKind.Stop);
+
+        Assert.NotEqual(MatchPhase.Brewing, match.Phase);
+        Assert.All(new[] { "human", "ai" }, playerId =>
+            Assert.DoesNotContain(match.GetLegalActions(playerId), action => action.ChoiceTitle == "Empty bag selection"));
+    }
+
     private static MatchSession CreateMatch(string cardId, IRandomSource random)
     {
         var baseline = RuleSet.SetOne(Array.Empty<IRoundEventRule>());
@@ -92,6 +216,12 @@ public sealed class FinalFortuneTests
     private static void ExecuteSuffix(MatchSession match, string playerId, string suffix)
     {
         var action = match.GetLegalActions(playerId).Single(candidate => candidate.Id.EndsWith(suffix, StringComparison.Ordinal));
+        match.Execute(playerId, action);
+    }
+
+    private static void ExecuteColor(MatchSession match, string playerId, TokenColor color, int value)
+    {
+        var action = match.GetLegalActions(playerId).First(candidate => candidate.Color == color && candidate.Value == value);
         match.Execute(playerId, action);
     }
 
@@ -121,6 +251,32 @@ public sealed class FinalFortuneTests
         internal GiveHumanBlue() : base("give-human-blue", "Give blue", "Test setup.") { }
         public override void OnRevealed(RoundEventContext context) =>
             context.TryGiveChip("human", TokenColor.Blue, 1);
+    }
+
+    private sealed class NoOpEvent : RoundEventRule
+    {
+        internal NoOpEvent() : base("no-op", "No event", "Test setup.") { }
+    }
+
+    private sealed class EmptyBagSelectionEvent : RoundEventRule
+    {
+        internal EmptyBagSelectionEvent() : base("empty-bag-selection", "Empty bag selection", "Test setup.") { }
+        public override void OnRevealed(RoundEventContext context)
+        {
+            foreach (var playerId in context.PlayerIds)
+            {
+                for (var count = 0; count < 4; count++) context.RemoveFromBag(playerId, TokenColor.White, 1);
+                for (var count = 0; count < 2; count++) context.RemoveFromBag(playerId, TokenColor.White, 2);
+                context.RemoveFromBag(playerId, TokenColor.White, 3);
+                context.RemoveFromBag(playerId, TokenColor.Orange, 1);
+                context.RemoveFromBag(playerId, TokenColor.Green, 1);
+            }
+        }
+        public override void OnPlayerStopped(RoundEventContext context, string playerId)
+        {
+            if (context.AllPlayersFinishedBrewing && context.TryUseOnce(Id))
+                context.OfferSequentialFortuneBagSelections(context.PlayerIdsInStartOrder, 5, Title);
+        }
     }
 
     private sealed class ZeroRandom : IRandomSource
