@@ -29,22 +29,28 @@ The lead publishes small source, test and Unity checkpoints separately.
 - Rat/exchange fortunes7c59849: A Good Start, Rat Infestation, Rats Are Your Friends,
   Wheel and Deal; ordinary rats start in round two. All nine rat tests pass.
 - Typed die observations6a4294c: actual face, recipient, reason, outcome and history.
-  Core already resolves dice rewards; Unity presentation is being added.
+  Core already resolves dice rewards; Unity presentation is published in2b093f3.
 - Settings paneb9967eb: Normal only, starting-ruby house default off, current versus
   next setup, Back, Apply & restart. Editor verified pending toggles preserve the
   current match and applying starts both players with the chosen setup.
 
+- Interactive cards02cd162: Less Is More, An Opportunistic Moment, Schadenfreude.
+  Tests556a3a9: 18 focused cases / 98 full Core tests pass, including die outcomes.
+- Dice UI2b093f3: mapped supplied faces, actual rewards, recipients/reasons,
+  round labels, Continue and current-round review with all-exploded explanation.
+  Clean Unity compile/build and Editor Orange 1 reward presentation verified.
+
 ## In progress
 
-1. Core worker: remaining six fortunes and focused tests. First group is Less Is
-   More, An Opportunistic Moment and Schadenfreude; then A Second Chance, Well
-   Stirred and Strong Ingredient. Enable all 24 in ordinary games when complete.
-2. Unity worker: actual die-result display using the supplied six face images,
-   recipients, Continue and review controls. Never reroll or award rewards in UI.
-3. Lead: review/publish checkpoints, then verify the integrated nine-round game,
-   fortune choices/artwork, settings and die outcomes at iPad mini proportions.
+1. Complete A Second Chance, Well Stirred and Strong Ingredient, then enable the
+   full 24-card deck. Worker complete_fortunes owns Core/CLI and non-AI tests.
+   Check /tmp/quackies-final-fortunes-handoff.md if present before re-exploring.
+2. Worker settings_and_dice owns Editor validation; confirm it has stopped before
+   taking over. Dice source and scene are already committed and pushed.
+3. Extend all-card Normal AI simulations and verify integrated nine-round Unity
+   fortune choices/artwork, settings, dice, restart/rebuild and iPad readability.
 
-The default fortune deck is still empty. Eighteen cards are implemented, and the
+The default fortune deck is still empty. Twenty-one cards are implemented; the
 empty fortune view is only an explicit fallback, not completed fortune gameplay.
 
 ## Completion and later work
@@ -73,3 +79,17 @@ If Unity MCP tools are absent, the installed CLI still reaches the Editor:
 use positional arguments, for example `command menu 'Quackies/Build Initial Scene'`.
 Build Core from a published snapshot when another worker has unfinished edits;
 the DLL must match the presenter's API. Current dice-capable snapshot is6a4294c.
+
+### Latest interruption checkpoint
+
+Usage reached 95% on September 9 after publishing2b093f3; both workers were asked
+for immediate saved handoffs and a safe stop. No completion claim is justified.
+Generated Assembly-CSharp.csproj modifications remain outside our checkpoints.
+Check working files and live-agent messages for any work saved after this note.
+
+Shell push authentication is unavailable; GitHub connector publishing works.
+Saved /tmp/quackies-publish-helper.js and /tmp/quackies-publish-extract-command.txt
+contain the root's publishing helper if session stores are lost. It publishes an
+already committed HEAD through GitHub, verifies identical trees, then aligns the
+local branch with the canonical remote commit. It now chunks large scene output
+to prevent truncation. Never stage worker/unrelated files indiscriminately.

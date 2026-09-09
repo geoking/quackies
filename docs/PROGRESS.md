@@ -80,26 +80,44 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   inspected CPU view. Original image bytes remain unchanged. These are Editor
   checks; physical touch/device validation is separate.
 
-## In progress
+### 8. Stable controls and current match settings
 
-- Fourteen fortune cards now have implementations; their two dedicated regression
-  suites passed 16 tests in total. The default deck is still empty while the last
-  ten cards are completed, which explains the current blank fortune panel.
-- Published Normal AI's safe-draw policy separately from six regression tests.
-  The tests included 112 full matches across the 14 implemented cards with no
-  explosions. Flask use requires a safe next draw and a round-weighted remaining
-  bag threshold (over 50% in round one, falling to over 15% in round nine).
-- Keep Draw/Stop/Flask in stable positions and use the supplied flask artwork.
-  Continue action/text checks and bind the starting reference to Core's fixed bag.
-- Add settings for Normal difficulty, starting ruby house rules and test tubes,
-  plus a complete AI-history pane. Keep the CLI on the same match API.
-- Complete the test-tube variant, remaining fortune cards and full-match audit.
-- iOS export support is installed. The selected command-line developer tools do
-  not include an iPhone SDK, so a signed device build is not currently verified.
+- User checkpoint783cad3 preserved fixed Draw/Stop/Flask positions, flask artwork,
+  fixed starting-bag reference and nine rat-fortune tests. Editor pointer-handler
+  checks verified draws, flask return and stopping without moving controls.
+- Settings paneb9967eb shows Normal AI and current versus next starting-ruby setup.
+  House default is off; toggling preserves the current game until Apply & restart.
+  Applying starts both players with the selected ruby count. Unity compiled cleanly.
+- The user explicitly deferred test tubes and the separate AI-history pane.
 
-## Next checkpoints
+### 9. Preview fortunes and observable dice
 
-1. Stable artwork controls, fixed starting-bag reference and fortune display.
-2. Settings, AI history and matching CLI support.
-3. Complete fortune cards and test-tube rules, with separate regression commits.
-4. Legacy-prototype cleanup, full-match checks, iPad/iOS and extensibility review.
+- Rat cards7c59849 and interactive cards02cd162 bring implementation coverage to
+  21 of 24 cards. The latter adds Less Is More, An Opportunistic Moment and
+  Schadenfreude through non-destructive previews and atomic supply exchanges.
+- Typed die observations6a4294c expose face, recipient, reason, applied outcome and
+  immutable history. Tests556a3a9 cover all six faces, tied eligibility, explosions,
+  unavailable rewards, previews and stock changes: 18 focused cases, 98 total pass.
+- Unity checkpoint2b093f3 displays actual Core dice results with supplied art,
+  recipient/reason, round labels, Continue and current-round review. Both-exploded
+  rounds have an explicit no-bonus explanation. Includes Core DLL6a4294c.
+- Validation: Unity compiled without errors, scene rebuilt, and an Editor bonus
+  result showed AI Orange 1 with the correct pumpkin face. Continue only closes
+  the overlay. Source dice image bytes are unchanged. Physical-device evidence
+  remains separate and has not been obtained.
+
+## In progress and next checkpoints
+
+1. Complete A Second Chance, Well Stirred and Strong Ingredient with focused
+   regressions. The default fortune deck remains empty until all 24 are ready.
+2. Enable the full deck and extend complete-match Normal AI coverage beyond the
+   existing 112 matches across 14 cards. Keep CLI behavior aligned with Core.
+3. Sync the published Core into Unity; verify fortune artwork/choices, dice,
+   settings, all nine rounds, restart/rebuild and readable iPad mini layout.
+4. Review architecture/legacy prototype and attempt supported iOS export. Unity
+   iOS support is installed; the selected developer tools previously lacked an
+   iPhone SDK. Editor success does not establish a signed build or device test.
+
+Usage reached 95% during the September 9 review. Source, tests and Unity changes
+above were separately committed and pushed; see HANDOFF.md before resuming.
+The milestone remains incomplete. Main has not been merged.
