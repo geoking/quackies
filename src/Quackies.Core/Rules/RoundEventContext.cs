@@ -19,17 +19,26 @@ namespace Quackies.Core.Rules
         {
             _session = session;
             PlayerIds = new ReadOnlyCollection<string>(session.Players.Select(player => player.Id).ToList());
+            PlayerIdsInStartOrder = new ReadOnlyCollection<string>(session.PlayersInStartOrder().Select(player => player.Id).ToList());
         }
 
         public int Round => _session.Round;
         public IReadOnlyList<string> PlayerIds { get; }
+        public IReadOnlyList<string> PlayerIdsInStartOrder { get; }
+        public bool AllPlayersFinishedBrewing => _session.Players.All(player => player.Stopped || player.Exploded);
         public int Points(string playerId) => _session.Player(playerId).Points;
         public int Rubies(string playerId) => _session.Player(playerId).Rubies;
         public bool Exploded(string playerId) => _session.Player(playerId).Exploded;
+        public bool CanPlaceFortuneChip(string playerId)
+        {
+            var player = _session.Player(playerId);
+            return player.Bag.Count > 0 && player.Position < _session.Rules.Track.LastChipPosition;
+        }
         public int RatSteps(string playerId) => _session.RatStepsForCurrentRound(_session.Player(playerId));
         public int WhiteTotal(string playerId) => _session.Player(playerId).WhiteTotal;
         public bool TryUseOnce(string playerId, string capabilityId) =>
             _session.TryUseOnceThisRound(_session.Player(playerId), capabilityId);
+        public bool TryUseOnce(string capabilityId) => _session.TryUseOnceThisRound(capabilityId);
         public IReadOnlyList<Token> Bag(string playerId) => new ReadOnlyCollection<Token>(_session.Player(playerId).Bag.ToList());
         public IReadOnlyList<Token> PreviewBag(string playerId, int count) =>
             _session.PreviewBag(_session.Player(playerId), count);
@@ -65,6 +74,8 @@ namespace Quackies.Core.Rules
             _session.SetRatStepsForCurrentRound(_session.Player(playerId), steps);
         public void RollDie(string playerId) =>
             _session.RollDie(_session.Player(playerId), DieRollReason.Fortune, addRewardChipToCurrentBag: true);
+        public void OfferSequentialFortuneBagSelections(IEnumerable<string> playerIds, int count, string title) =>
+            _session.OfferSequentialFortuneBagSelections(playerIds.Select(_session.Player), count, title);
 
         public void OfferChoice(string playerId, string title, params RoundEventChoice[] choices)
         {

@@ -322,6 +322,13 @@ namespace Quackies.Core.Match
             return _roundCapabilitiesUsed.Add($"{player.Id}:{capabilityId}");
         }
 
+        internal bool TryUseOnceThisRound(string capabilityId)
+        {
+            if (string.IsNullOrWhiteSpace(capabilityId))
+                throw new ArgumentException("A round capability needs a stable ID.", nameof(capabilityId));
+            return _roundCapabilitiesUsed.Add($"match:{capabilityId}");
+        }
+
         internal void ReturnLastPlacedChip(PlayerRoundState player)
         {
             if (player.Pot.Count == 0) throw new InvalidOperationException("There is no placed chip to return.");
@@ -333,6 +340,54 @@ namespace Quackies.Core.Match
             player.Stopped = false;
             player.MayUseFlask = false;
             AddLog(player.Id, $"{player.Name} returned {last.Token} to the bag without using their flask.");
+        }
+
+        internal void OfferSequentialFortuneBagSelections(IEnumerable<PlayerRoundState> orderedPlayers, int count, string title)
+        {
+            if (orderedPlayers == null) throw new ArgumentNullException(nameof(orderedPlayers));
+            if (count < 0) throw new ArgumentOutOfRangeException(nameof(count));
+            var remainingPlayers = new Queue<PlayerRoundState>(orderedPlayers);
+
+            void OfferNext()
+            {
+                if (remainingPlayers.Count == 0) return;
+                var player = remainingPlayers.Dequeue();
+                var candidates = new List<Token>();
+                for (var index = 0; index < count && player.Bag.Count > 0; index++)
+                {
+                    var bagIndex = Random.NextInt(player.Bag.Count);
+                    candidates.Add(player.Bag[bagIndex]);
+                    player.Bag.RemoveAt(bagIndex);
+                }
+                if (candidates.Count == 0)
+                {
+                    OfferNext();
+                    return;
+                }
+
+                var options = new List<ChoiceOption>();
+                for (var index = 0; index < candidates.Count; index++)
+                {
+                    var selectedIndex = index;
+                    var selected = candidates[index];
+                    options.Add(new ChoiceOption($"fortune-bag-{index}", $"Place {selected}", () =>
+                    {
+                        for (var candidateIndex = 0; candidateIndex < candidates.Count; candidateIndex++)
+                            if (candidateIndex != selectedIndex) player.Bag.Add(candidates[candidateIndex]);
+                        _brewing.PlaceChip(player, selected, resolveIngredient: false, mayExplode: false,
+                            ChipPlacementSource.FortuneCard);
+                        OfferNext();
+                    }, selected.Color, selected.Value));
+                }
+                options.Add(new ChoiceOption("fortune-none", "Return all previewed chips", () =>
+                {
+                    player.Bag.AddRange(candidates);
+                    OfferNext();
+                }));
+                Offer(player, title, options.ToArray());
+            }
+
+            OfferNext();
         }
 
         internal int RatStepsForCurrentRound(PlayerRoundState player)

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Quackies.Core.Tokens;
 
 namespace Quackies.Core.Rules.Fortunes
@@ -9,6 +10,7 @@ namespace Quackies.Core.Rules.Fortunes
         public static IEnumerable<IRoundEventRule> CreateFinalBatch()
         {
             yield return new WellStirred();
+            yield return new StrongIngredient();
         }
 
         private sealed class WellStirred : RoundEventRule
@@ -26,6 +28,21 @@ namespace Quackies.Core.Rules.Fortunes
                     new RoundEventChoice("return-white", $"Return {chip} to your bag",
                         (round, id) => round.ReturnLastPlacedChip(id)),
                     new RoundEventChoice("keep-white", $"Keep {chip} in your pot", (round, id) => { }));
+            }
+        }
+
+        private sealed class StrongIngredient : RoundEventRule
+        {
+            internal StrongIngredient() : base("strong-ingredient", "Strong Ingredient",
+                "In start-player order, each non-exploded player may preview up to five chips and place one final chip.") { }
+
+            public override void OnPlayerStopped(RoundEventContext context, string playerId)
+            {
+                if (!context.AllPlayersFinishedBrewing || !context.TryUseOnce(Id)) return;
+                var eligible = context.PlayerIdsInStartOrder
+                    .Where(id => !context.Exploded(id) && context.CanPlaceFortuneChip(id))
+                    .ToArray();
+                context.OfferSequentialFortuneBagSelections(eligible, 5, Title);
             }
         }
     }
