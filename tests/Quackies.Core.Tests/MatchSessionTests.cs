@@ -15,7 +15,7 @@ public sealed class MatchSessionTests
     [Fact]
     public void MatchStartsWithAuthoritativeTwoPlayerSetup()
     {
-        var match = MatchSession.Create(new FixedRandomSource());
+        var match = MatchSession.Create(new FixedRandomSource(), RuleSet.SetOne(Array.Empty<IRoundEventRule>()));
         var view = match.GetSnapshot("human");
 
         Assert.Equal(1, view.Round);
@@ -61,7 +61,8 @@ public sealed class MatchSessionTests
     [Fact]
     public void WhiteTotalAboveSevenExplodesAndRubyStillApplies()
     {
-        var match = MatchSession.Create(new FixedRandomSource(0, 0, 0, 0, 0, 0, 0));
+        var match = MatchSession.Create(new FixedRandomSource(0, 0, 0, 0, 0, 0, 0),
+            RuleSet.SetOne(Array.Empty<IRoundEventRule>()));
         Execute(match, "ai", "stop");
         for (var draw = 0; draw < 6; draw++) Execute(match, "human", "draw");
 
@@ -78,7 +79,7 @@ public sealed class MatchSessionTests
     [Fact]
     public void EvaluationFreezesScoringSpaceBeforeDieMovesDroplet()
     {
-        var match = MatchSession.Create(new FixedRandomSource(5, 5));
+        var match = MatchSession.Create(new FixedRandomSource(5, 5), RuleSet.SetOne(Array.Empty<IRoundEventRule>()));
 
         Execute(match, "human", "stop");
         Execute(match, "ai", "stop");
@@ -132,7 +133,7 @@ public sealed class MatchSessionTests
     [Fact]
     public void RoundNineHoldsDrawUntilOtherActivePlayerCommits()
     {
-        var match = MatchSession.Create(new FixedRandomSource());
+        var match = MatchSession.Create(new FixedRandomSource(), RuleSet.SetOne(Array.Empty<IRoundEventRule>()));
         AdvanceToRound(match, 9);
         var before = match.GetSnapshot("human").Players.Single(player => player.Id == "human");
 
@@ -152,7 +153,7 @@ public sealed class MatchSessionTests
     [Fact]
     public void RoundSixAddsOneWhiteOneOnlyOnce()
     {
-        var match = MatchSession.Create(new FixedRandomSource());
+        var match = MatchSession.Create(new FixedRandomSource(), RuleSet.SetOne(Array.Empty<IRoundEventRule>()));
 
         AdvanceToRound(match, 6);
 

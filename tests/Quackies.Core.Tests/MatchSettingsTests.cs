@@ -84,7 +84,7 @@ public sealed class MatchSettingsTests
     [Fact]
     public void CliLeavesCompletedRoundAdvanceToHumanAndQuitsCleanlyAtEndOfInput()
     {
-        var result = RunCli("2\n1\n1\n");
+        var result = RunCli("2\n1\n1\n", "--seed", "0");
 
         Assert.Equal(0, result.ExitCode);
         Assert.Contains("starting rubies 1", result.StandardOutput, StringComparison.Ordinal);

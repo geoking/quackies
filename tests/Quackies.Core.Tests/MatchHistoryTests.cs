@@ -41,7 +41,7 @@ public sealed class MatchHistoryTests
     [Fact]
     public void HistoryIsAFullDetachedImmutableRecordBeyondEightyEntries()
     {
-        var match = MatchSession.Create(new ZeroRandom());
+        var match = MatchSession.Create(new ZeroRandom(), RuleSet.SetOne(Array.Empty<IRoundEventRule>()));
         var openingSnapshot = match.GetSnapshot("human");
 
         PlayCompleteMatchByStoppingImmediately(match);
