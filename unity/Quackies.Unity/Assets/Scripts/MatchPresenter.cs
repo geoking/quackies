@@ -30,6 +30,7 @@ namespace Quackies.Unity
         [SerializeField] private ReferenceModal modal;
         [SerializeField] private ScoreboardView scoreboard;
         [SerializeField] private PotInspectionModal opponentInspection;
+        [SerializeField] private MatchSettingsView settingsView;
         [SerializeField] private TMP_Text roundText;
         [SerializeField] private TMP_Text phaseText;
         [SerializeField] private TMP_Text statusText;
@@ -38,6 +39,7 @@ namespace Quackies.Unity
         [SerializeField] private Button restartButton;
         [SerializeField] private Button eventButton;
         [SerializeField] private Button scoreboardButton;
+        [SerializeField] private Button settingsButton;
         [SerializeField] private Button inspectOpponentButton;
         [SerializeField] private Button inspectOpponentSurface;
         [SerializeField] private Image eventArtwork;
@@ -51,13 +53,16 @@ namespace Quackies.Unity
         private bool opponentIsActing;
         private string startingBagSummary;
         private int startingInventoryCount;
+        // The house-rule UI intentionally begins at zero. MatchSettings.Standard
+        // remains Core's published one-ruby default for non-UI callers.
+        private int nextMatchStartingRubies;
 
         public void Configure(QuackiesArtCatalog art, PotView human, PotView opponent,
             ActionPanelView actionPanel, PrimaryActionsView footer, ReferenceModal referenceModal,
             TMP_Text roundLabel, TMP_Text phaseLabel, TMP_Text statusLabel, TMP_Text gameLog,
             TMP_Text bagLabel, Button restart, Button activeEvent, Image activeEventArtwork, TMP_Text activeEventTitle,
             ScoreboardView scoreView, PotInspectionModal opponentView, Button openScoreboard, Button openOpponent,
-            Button openOpponentSurface)
+            Button openOpponentSurface, MatchSettingsView matchSettingsView, Button openSettings)
         {
             catalog = art;
             humanPot = human;
@@ -79,6 +84,8 @@ namespace Quackies.Unity
             scoreboardButton = openScoreboard;
             inspectOpponentButton = openOpponent;
             inspectOpponentSurface = openOpponentSurface;
+            settingsView = matchSettingsView;
+            settingsButton = openSettings;
         }
 
         private void Awake()
@@ -88,6 +95,7 @@ namespace Quackies.Unity
             restartButton.onClick.AddListener(Restart);
             eventButton.onClick.AddListener(ShowActiveEvent);
             scoreboardButton.onClick.AddListener(ShowScoreboard);
+            settingsButton.onClick.AddListener(ShowSettings);
             inspectOpponentButton.onClick.AddListener(ShowOpponentPot);
             inspectOpponentSurface.onClick.AddListener(ShowOpponentPot);
             NewMatch();
@@ -132,9 +140,17 @@ namespace Quackies.Unity
             opponentInspection.Show(opponent);
         }
 
+        public void ShowSettings()
+        {
+            if (session == null || settingsView == null) return;
+            settingsView.Show(session.Settings.StartingRubies, nextMatchStartingRubies,
+                setting => nextMatchStartingRubies = setting, ApplySettingsAndRestart);
+        }
+
         private void NewMatch()
         {
-            session = MatchSession.Create(new SeededRandomSource(startingSeed));
+            session = MatchSession.Create(new SeededRandomSource(startingSeed),
+                new MatchSettings(nextMatchStartingRubies));
             var openingView = session.GetSnapshot(HumanId);
             startingBagSummary = FormatBag(openingView.StartingBag);
             startingInventoryCount = openingView.StartingBag.Count;
@@ -149,7 +165,13 @@ namespace Quackies.Unity
                 && statusText != null && logText != null && restartButton != null && eventButton != null
                 && eventArtwork != null && eventTitle != null && bagContentsText != null && scoreboard != null
                 && opponentInspection != null && scoreboardButton != null && inspectOpponentButton != null
-                && inspectOpponentSurface != null;
+                && inspectOpponentSurface != null && settingsView != null && settingsButton != null;
+        }
+
+        private void ApplySettingsAndRestart()
+        {
+            if (settingsView != null) settingsView.Close();
+            Restart();
         }
 
         private void ExecuteHumanAction(GameAction action)

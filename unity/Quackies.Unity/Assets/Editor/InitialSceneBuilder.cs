@@ -101,18 +101,20 @@ namespace Quackies.Unity.Editor
             TableUi.Place(subtitle.rectTransform, 23, 48, 380, 22);
             var round = TableUi.Text("Round", header, "ROUND 1 / 9", 22, TableTheme.Ink, true);
             round.alignment = TextAlignmentOptions.Center;
-            TableUi.Place(round.rectTransform, 420, 18, 170, 40);
+            TableUi.Place(round.rectTransform, 400, 18, 155, 40);
             var phase = TableUi.Text("Phase", header, "BREWING", 18, TableTheme.Teal, true);
             phase.alignment = TextAlignmentOptions.Center;
-            TableUi.Place(phase.rectTransform, 600, 22, 180, 34);
+            TableUi.Place(phase.rectTransform, 560, 22, 145, 34);
 
             var presenterObject = new GameObject("Match Presenter", typeof(RectTransform), typeof(MatchPresenter));
             presenterObject.transform.SetParent(root, false);
             var presenter = presenterObject.GetComponent<MatchPresenter>();
             var scoreButton = TableUi.Button("Open Scoreboard", header, "Scoreboard", TableTheme.Gold, TableTheme.Background);
-            TableUi.Place(scoreButton.GetComponent<RectTransform>(), 790, 14, 156, 48);
+            TableUi.Place(scoreButton.GetComponent<RectTransform>(), 716, 17, 142, 44);
+            var settingsButton = TableUi.Button("Open Settings", header, "Settings", TableTheme.Raised, TableTheme.Ink);
+            TableUi.Place(settingsButton.GetComponent<RectTransform>(), 868, 17, 112, 44);
             var restart = TableUi.Button("Restart", header, "Restart", TableTheme.Raised, TableTheme.Ink);
-            TableUi.Place(restart.GetComponent<RectTransform>(), 967, 14, 106, 48);
+            TableUi.Place(restart.GetComponent<RectTransform>(), 990, 17, 83, 44);
 
             var human = BuildPot("Your Pot", root, catalog, true, 20, 112, 655, 510, out var bagContents);
             var opponent = BuildPot("Rival Pot", root, catalog, false, 702, 112, 411, 242, out _);
@@ -140,9 +142,10 @@ namespace Quackies.Unity.Editor
             var modal = BuildModal(root);
             var scoreboard = BuildScoreboard(root, catalog);
             var opponentInspection = BuildOpponentInspection(root, catalog);
+            var settings = BuildSettings(root);
             presenter.Configure(catalog, human, opponent, actionPanel, footer, modal, round, phase, status, log,
                 bagContents, restart, eventButton, eventArtwork, eventTitle, scoreboard, opponentInspection,
-                scoreButton, inspectOpponent, inspectOpponentSurface);
+                scoreButton, inspectOpponent, inspectOpponentSurface, settings, settingsButton);
             return presenter;
         }
 
@@ -290,6 +293,57 @@ namespace Quackies.Unity.Editor
             modal.Configure(shade.gameObject, art, heading, detail, close, closeOnShade);
             shade.gameObject.SetActive(false);
             return modal;
+        }
+
+        private static MatchSettingsView BuildSettings(RectTransform root)
+        {
+            var shade = TableUi.Image("Settings Screen", root, new Color(.02f, .04f, .04f, .96f));
+            TableUi.Fill(shade.rectTransform);
+            shade.raycastTarget = true;
+            var closeOnShade = shade.gameObject.AddComponent<Button>();
+            closeOnShade.targetGraphic = shade;
+
+            var card = Panel("Settings Card", shade.rectTransform, 190, 54, 753, 636, TableTheme.Panel);
+            var heading = TableUi.Text("Heading", card, "MATCH SETTINGS", 28, TableTheme.Gold, true);
+            heading.alignment = TextAlignmentOptions.Center;
+            TableUi.Place(heading.rectTransform, 44, 24, 665, 38);
+            var note = TableUi.Text("Apply note", card,
+                "Changes are saved for your next new match. This match keeps its current setup.", 16, TableTheme.Muted, false);
+            note.alignment = TextAlignmentOptions.Center;
+            TableUi.Place(note.rectTransform, 54, 74, 645, 44);
+
+            var opponentPanel = Panel("Opponent", card, 54, 137, 645, 120, TableTheme.Raised);
+            var opponentHeading = TableUi.Text("Opponent heading", opponentPanel, "OPPONENT", 15, TableTheme.Gold, true);
+            TableUi.Place(opponentHeading.rectTransform, 20, 15, 190, 25);
+            var normalLabel = TableUi.Text("Normal AI", opponentPanel, "Normal AI", 21, TableTheme.Ink, true);
+            TableUi.Place(normalLabel.rectTransform, 20, 48, 155, 33);
+            var normalDescription = TableUi.Text("Normal AI description", opponentPanel,
+                "Normal never risks an explosion: it stops when any remaining chip could explode its pot.", 15, TableTheme.Muted, false);
+            TableUi.Place(normalDescription.rectTransform, 178, 46, 442, 50);
+
+            var currentPanel = Panel("Current match settings", card, 54, 278, 300, 106, TableTheme.Raised);
+            var current = TableUi.Text("Current match", currentPanel, "CURRENT MATCH", 16, TableTheme.Ink, true);
+            TableUi.Place(current.rectTransform, 18, 17, 264, 72);
+            var nextPanel = Panel("Next match settings", card, 399, 278, 300, 106, TableTheme.Raised);
+            var next = TableUi.Text("Next new match", nextPanel, "NEXT NEW MATCH", 16, TableTheme.Ink, true);
+            TableUi.Place(next.rectTransform, 18, 17, 264, 72);
+
+            var rubyHeading = TableUi.Text("Ruby setting heading", card, "HOUSE RULE", 15, TableTheme.Gold, true);
+            TableUi.Place(rubyHeading.rectTransform, 54, 413, 220, 24);
+            var rubyDescription = TableUi.Text("Ruby setting description", card,
+                "Choose whether each player begins the next new match with one ruby.", 16, TableTheme.Ink, false);
+            TableUi.Place(rubyDescription.rectTransform, 54, 444, 400, 44);
+            var rubyToggle = TableUi.Button("Starting Ruby Toggle", card, "Start with 1 ruby: OFF", TableTheme.Raised, TableTheme.Ink);
+            TableUi.Place(rubyToggle.GetComponent<RectTransform>(), 474, 435, 225, 54);
+
+            var apply = TableUi.Button("Apply and Restart", card, "Apply & restart", TableTheme.Gold, TableTheme.Background);
+            TableUi.Place(apply.GetComponent<RectTransform>(), 269, 548, 215, 48);
+            var back = TableUi.Button("Back", card, "Back", TableTheme.Raised, TableTheme.Ink);
+            TableUi.Place(back.GetComponent<RectTransform>(), 499, 548, 145, 48);
+            var view = card.gameObject.AddComponent<MatchSettingsView>();
+            view.Configure(shade.gameObject, current, next, rubyToggle.GetComponentInChildren<TMP_Text>(), rubyToggle, apply, back, closeOnShade);
+            shade.gameObject.SetActive(false);
+            return view;
         }
 
         private static ScoreboardView BuildScoreboard(RectTransform root, QuackiesArtCatalog catalog)
