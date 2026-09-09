@@ -1,5 +1,18 @@
 # Initial playable Quackies
 
+## Current completion milestone — 9 September 2026
+
+The user selected a workable nine-round base-game Set 1 match with the full
+fortune deck, accessible Normal-AI/starting-ruby settings, and visible,
+rules-correct dice rewards as this goal's stopping point. Preserve the iPad
+layout, board inspection, shopping and fixed controls. Verify the complete
+playable flow before marking the goal complete. Merging to main is a later action.
+
+The user explicitly deferred optional test-tube rules to the next goal. Other
+additional features, including the separate AI-history pane, remain backlog work
+and must not be described as implemented. This milestone update takes precedence
+over older test-tube requirements below.
+
 ## Leading requirement: readable, adaptable architecture
 
 Build a complete base-game, ingredient Set 1 match for one human and one AI,
