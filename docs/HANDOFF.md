@@ -1,95 +1,85 @@
 # Quackies handoff
 
-Updated: 9 September 2026. Goal remains active. See IMPLEMENTATION_GOAL.md for
-the current stopping point and RULES_REFERENCE.md for the complete base rules.
+Updated: 9 September 2026, after the full-pot checkpoint. Goal remains active.
+Read IMPLEMENTATION_GOAL.md for scope, RULES_REFERENCE.md for primary rules, and
+PROGRESS.md for validation. Test tubes and separate AI-history UI are deferred.
 
-## Run and review
+## Run and workflow
 
-Branch: `codex/initial-playable-scene`, repository `geoking/quackies`.
-Open `unity/Quackies.Unity` in Unity 6000.6.0f1. From Edit mode choose
-**Quackies → Build and Play Initial Scene**. Core checks: `dotnet test Quackies.sln`.
-CLI house rule: `dotnet run --project src/Quackies.Cli -- --starting-rubies 0`.
-The lead publishes small source, test and Unity checkpoints separately.
+Branch codex/initial-playable-scene; GitHub geoking/quackies. Open
+unity/Quackies.Unity in Unity6000.6.0f1. From Edit mode choose
+**Quackies → Build and Play Initial Scene**. Run Core checks with
+`dotnet test Quackies.sln`; CLI supports `--starting-rubies 0`.
+Root owns Git: small Core source, separate tests, separate compiling Unity
+checkpoints; push each, preserve unrelated files, no merge/force push.
 
-## Completed and published
+## Current published state
 
-- Nine-round match foundation, Set 1 ingredients, finite supply, shopping, flask,
-  scoring, round-six chip and round-nine commitments; immutable actions/views.
-- Saved iPad table, preserved source art, aligned pot markers and background camera.
-- Normal AI avoids potentially explosive draws and conserves its flask. Six
-  regressions include 112 complete matches across the first 14 fortune cards.
-- Settings/history API985c092 and tests22096a0: fixed starting bags, full detached
-  history and CLI behavior. All 71 tests passed at that checkpoint.
-- Scoreboard and full-screen CPU pot60949b4: live scores and round, tied counters,
-  fifty-point laps, open/back controls and live enlarged CPU pot. Editor verified.
-- User checkpoint783cad3 includes fixed Draw/Stop/Flask slots, flask artwork and
-  composed bag motif, fixed StartingBag binding and nine rat-fortune tests.
-  Root pointer-handler checks verified drawing, flask return and stopping without
-  replacing/moving controls, with no text overflow after the Stop-label fix.
-- Rat/exchange fortunes7c59849: A Good Start, Rat Infestation, Rats Are Your Friends,
-  Wheel and Deal; ordinary rats start in round two. All nine rat tests pass.
-- Typed die observations6a4294c: actual face, recipient, reason, outcome and history.
-  Core already resolves dice rewards; Unity presentation is published in2b093f3.
-- Settings paneb9967eb: Normal only, starting-ruby house default off, current versus
-  next setup, Back, Apply & restart. Editor verified pending toggles preserve the
-  current match and applying starts both players with the chosen setup.
+- MatchSession implements nine-round Set1, finite supply, unlocks, flask, rats,
+  evaluation and Normal AI. Core remains Unity-independent.
+- Normal AI avoids risky draws, conserves flask according to round. Testsc3334f1
+  cover every available fortune batch plus32 mixed-deck nine-round matches.
+- Twenty-three fortune cards implemented. **Default deck remains empty.**
+  A Second Chance is missing; Strong Ingredient needs the correction below.
+- Well Stirred7993bca/tests5da103a: first placed white can return without flask,
+  including a white selected through blue; no repeated offer after redrawing.
+- Strong Ingrediente3c9bba/testseafab38: sequential final previews in start-player
+  order, protected placement, skips exploded/full/empty players. Immediate action
+  suppressed. Its own deferred ingredient effect is still incorrectly enabled.
+- Full-pot blue45991dd/testsa210bca: no further blue-selected placement at52,
+  including nested blue. Spoon scoring remains unchanged.
+- Final-round source14cecc3/testsfe02c97: safe pots get rawVP + floor(coins/5);
+  exploded pots automatically get max(rawVP,floor(coins/5)), no choice/shopping.
+  Ten tests pass. Earlier rounds retain the strategic explosion choice.
+- Unity: fixed primary controls/starting bag, live scoreboard/full CPU pot,
+  settingsb9967eb (Normal, zero-ruby default, pending settings Apply & restart),
+  dice2b093f3 (actual Core outcomes/art, round-labelled review), fortune caption
+  a41f413 (title below unobstructed artwork, clickable full reference).
+- Latest combined focused run:27 tests pass (10 final-fortune,10 scoring,7 AI).
+  Then2 full-pot blue tests passed separately. Run full suite at next Core milestone.
+- Unity currently embeds Core6a4294c, so recent rules fixes require a DLL sync.
 
-- Interactive cards02cd162: Less Is More, An Opportunistic Moment, Schadenfreude.
-  Tests556a3a9: 18 focused cases / 98 full Core tests pass, including die outcomes.
-- Dice UI2b093f3: mapped supplied faces, actual rewards, recipients/reasons,
-  round labels, Continue and current-round review with all-exploded explanation.
-  Clean Unity compile/build and Editor Orange 1 reward presentation verified.
+## Next work, in order
 
-## In progress
+1. Correct Strong Ingredient's deferred effect. Publisher Herb Witches p4 says
+   the placed chip's action is not carried out, not merely its immediate action.
+   Keep physical position and white total; exclude this chip's own green ruby or
+   purple/black evaluation contribution. Preserve earlier chips' last-two physical
+   positions. Root chose this direct reading; prior green-benefit test must change.
+   A per-placement effect-enabled flag can reset naturally when the bag resets.
+2. Implement A Second Chance: brewing-start snapshot, first five actual placements,
+   protection for the card-driven draws, one keep/restart choice after placement
+   choices drain, restart without repeating preparation/round-six setup. Restore
+   flask from brewing-start state. See updated worker /tmp handoff if available.
+3. Enable all24 in standard RuleSet.SetOne. Old focused fixtures should explicitly
+   opt out with an empty deck. Verify no repeated cards and complete AI matches.
+4. Sync published Core, compile Unity, verify active fortune art and long choices,
+   settings/dice and full nine-round interaction, restart/rebuild, iPad layout.
+   Fix pending header phase wrap (SHOPPING currently broke across two lines).
+5. Complete rules/architecture audit and supported iOS export attempt. Report
+   Editor success, iOS export and physical-device evidence separately. No device
+   install/public release requested. Do not mark complete with missing evidence.
 
-1. Complete A Second Chance, Well Stirred and Strong Ingredient, then enable the
-   full 24-card deck. Worker complete_fortunes owns Core/CLI and non-AI tests.
-   Check /tmp/quackies-final-fortunes-handoff.md if present before re-exploring.
-2. Worker settings_and_dice owns Editor validation; confirm it has stopped before
-   taking over. Dice source and scene are already committed and pushed.
-3. Extend all-card Normal AI simulations and verify integrated nine-round Unity
-   fortune choices/artwork, settings, dice, restart/rebuild and iPad readability.
+## Ownership and recovery
 
-The default fortune deck is still empty. Twenty-one cards are implemented; the
-empty fortune view is only an explicit fallback, not completed fortune gameplay.
+Workers complete_fortunes (Sol/high) owns Core exceptAI, CLI and focused card tests;
+settings_and_dice (Terra/high) owns Unity and is sole Editor mutator. Workers do
+not delegate or commit. Check live agents and Git status after interruptions.
+Unrelated generated Assembly-CSharp.csproj changes must stay out of checkpoints.
 
-## Completion and later work
+Unity MCP tools are available again. Use `capture_game_view` with source=screen
+in Play mode for overlay UI; screenshot/camera omits it. Verified source=screen
+captures are Assets/Temp/Quackies/dice-reward-validation.png and
+fortune-caption-validation.png (both at1133×744). Root visually inspected the die
+reward. If tools disappear, /Users/george/.unity/bin/unity connects via CLI;
+commands take positional arguments. Editor was stopped at the last handoff.
 
-This milestone needs a working full fortune deck, settings and visible dice,
-including ties, double-roll fortunes, empty orange supply and all-exploded rounds.
-Resolve the timing questions in RULES_REFERENCE.md and verify full matches,
-restart/rebuild, readable long choices and compilation/runtime errors. Keep the
-CLI on the same Core and consolidate the obsolete prototype engine. Attempt an
-iOS export if supported; device validation is separate and has not been performed.
+Shell push authentication fails; GitHub connector publishing works. Session stores
+publishCheckpointJs/checkpointExtractChunkedCmd contain helpers. If lost, load
+/tmp/quackies-publish-helper.js and /tmp/quackies-publish-extract-command.txt.
+They publish already committed HEAD via GitHub, verify identical trees, and align
+local HEAD with canonical remote commit. Large scene payloads are chunked.
 
-The user explicitly deferred test tubes to the next goal. The separate AI-history
-pane and further features remain backlog work. Do not merge to main without a
-separate request or claim these deferred features are implemented.
-
-## Resume after interruption
-
-Check Git status and live agents first; prior workers may have stopped at a usage
-limit. Preserve user commits and generated project-file changes. The lead owns
-Git, and only one worker mutates Unity at a time. Check usage between milestones,
-save this handoff before the last 1% where possible, and do not claim completion
-merely because a limit is near.
-
-If Unity MCP tools are absent, the installed CLI still reaches the Editor:
-`/Users/george/.unity/bin/unity command editor_status --json`. Registered commands
-use positional arguments, for example `command menu 'Quackies/Build Initial Scene'`.
-Build Core from a published snapshot when another worker has unfinished edits;
-the DLL must match the presenter's API. Current dice-capable snapshot is6a4294c.
-
-### Latest interruption checkpoint
-
-Usage reached 95% on September 9 after publishing2b093f3; both workers were asked
-for immediate saved handoffs and a safe stop. No completion claim is justified.
-Generated Assembly-CSharp.csproj modifications remain outside our checkpoints.
-Check working files and live-agent messages for any work saved after this note.
-
-Shell push authentication is unavailable; GitHub connector publishing works.
-Saved /tmp/quackies-publish-helper.js and /tmp/quackies-publish-extract-command.txt
-contain the root's publishing helper if session stores are lost. It publishes an
-already committed HEAD through GitHub, verifies identical trees, then aligns the
-local branch with the canonical remote commit. It now chunks large scene output
-to prevent truncation. Never stage worker/unrelated files indiscriminately.
+Usage exhausted before the previous window could save this update. The current
+window has resumed; check usage between checkpoints and save before it is near
+exhaustion. Quota is not grounds to mark the goal complete.

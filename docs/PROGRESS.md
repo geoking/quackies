@@ -141,3 +141,18 @@ The milestone remains incomplete. Main has not been merged.
 - Reconfirmed Unity connection to Quackies.Unity6000.6.0f1, stopped/ready, no current
   console errors. Current settings/dice views pass text overflow checks. These
   checks precede the final fortune DLL integration.
+
+### 11. Strong Ingredient, full-pot rules and fortune readability
+
+- Stronge3c9bba/testseafab38 adds protected final selection in start-player order,
+  with full/empty/exploded exclusions. Ten final-fortune tests passed;27 combined
+  fortune/scoring/AI checks passed. Audit identified a follow-up: its own deferred
+  ingredient bonus must also be suppressed under the publisher wording.
+- Full-pot fix45991dd/testsa210bca prevents direct or nested blue selections after
+  reaching52. Two targeted regressions passed and retain spoon scoring.
+- Captiona41f413 separates the active fortune title from the supplied image.
+  Unity compiled, rebuilt and the full-reference pointer callback passed.
+- Verified composited die capture shows round1 AI Orange1 reward with matching
+  pumpkin face and Continue. Root spotted a wrapped SHOPPING header behind it;
+  a bounded header fix is pending review. No physical-device claims.
+- A Second Chance, full deck activation and final Unity integration remain open.
