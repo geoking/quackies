@@ -185,12 +185,22 @@ namespace Quackies.Unity.Editor
         private static Button BuildEventCard(RectTransform root, QuackiesArtCatalog catalog, out Image artwork, out TMP_Text title)
         {
             var panel = Panel("Fortune", root, 702, 370, 150, 212, TableTheme.Raised);
-            var button = TableUi.Button("Active Fortune", panel, "No\nfortune card", Color.white, TableTheme.Background);
-            artwork = button.GetComponent<Image>();
+            artwork = TableUi.Image("Active Fortune", panel, Color.white, catalog.CardBack);
             artwork.sprite = catalog.CardBack;
             artwork.preserveAspect = true;
-            title = button.GetComponentInChildren<TMP_Text>();
-            TableUi.Place(button.GetComponent<RectTransform>(), 12, 12, 126, 188);
+            artwork.raycastTarget = true;
+            var button = artwork.gameObject.AddComponent<Button>();
+            button.targetGraphic = artwork;
+            var navigation = button.navigation;
+            navigation.mode = Navigation.Mode.None;
+            button.navigation = navigation;
+            TableUi.Place(artwork.rectTransform, 12, 10, 126, 158);
+            title = TableUi.Text("Fortune Caption", panel, "No fortune card", 12, TableTheme.Ink, true);
+            title.alignment = TextAlignmentOptions.Center;
+            title.enableAutoSizing = true;
+            title.fontSizeMin = 9;
+            title.fontSizeMax = 12;
+            TableUi.Place(title.rectTransform, 12, 174, 126, 28);
             return button;
         }
 
