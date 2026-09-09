@@ -196,6 +196,39 @@ public sealed class FinalFortuneTests
             Assert.DoesNotContain(match.GetLegalActions(playerId), action => action.ChoiceTitle == "Empty bag selection"));
     }
 
+    [Fact]
+    public void BlueDrawThatFillsThePotDoesNotOfferAnotherPlacement()
+    {
+        var baseline = RuleSet.SetOne(Array.Empty<IRoundEventRule>());
+        var rules = new RuleSet(ShortTrack(lastChipPosition: 1), baseline.Ingredients.Values, baseline.ShopChips,
+            new IRoundEventRule[] { new GiveHumanBlue(1) });
+        var match = MatchSession.Create(new FixedRandom(0, 9, 0), rules);
+        ExecuteKind(match, "ai", GameActionKind.Stop);
+
+        ExecuteKind(match, "human", GameActionKind.Draw);
+
+        Assert.DoesNotContain(match.GetLegalActions("human"), action => action.ChoiceTitle.Contains("Crow skull", StringComparison.Ordinal));
+        Assert.Single(Player(match, "human").PlacedChips);
+        Assert.Equal(2, Player(match, "human").ScoringSpace.Position);
+    }
+
+    [Fact]
+    public void BlueSelectedByBlueThatFillsThePotDoesNotNestAnotherSelection()
+    {
+        var baseline = RuleSet.SetOne(Array.Empty<IRoundEventRule>());
+        var rules = new RuleSet(ShortTrack(lastChipPosition: 2), baseline.Ingredients.Values, baseline.ShopChips,
+            new IRoundEventRule[] { new GiveHumanBlue(2) });
+        var match = MatchSession.Create(new FixedRandom(0, 9, 9, 0), rules);
+        ExecuteKind(match, "ai", GameActionKind.Stop);
+        ExecuteKind(match, "human", GameActionKind.Draw);
+
+        ExecuteColor(match, "human", TokenColor.Blue, 1);
+
+        Assert.DoesNotContain(match.GetLegalActions("human"), action => action.ChoiceTitle.Contains("Crow skull", StringComparison.Ordinal));
+        Assert.Equal(2, Player(match, "human").PlacedChips.Count);
+        Assert.Equal(3, Player(match, "human").ScoringSpace.Position);
+    }
+
     private static MatchSession CreateMatch(string cardId, IRandomSource random)
     {
         var baseline = RuleSet.SetOne(Array.Empty<IRoundEventRule>());
@@ -246,11 +279,22 @@ public sealed class FinalFortuneTests
         ExecuteKind(match, "human", GameActionKind.NextRound);
     }
 
+    private static BoardTrack ShortTrack(int lastChipPosition)
+    {
+        var spaces = Enumerable.Range(0, lastChipPosition + 2)
+            .Select(position => new TrackSpaceView(position, position == lastChipPosition + 1 ? 35 : position,
+                position == lastChipPosition + 1 ? 15 : 0, false));
+        return new BoardTrack(spaces);
+    }
+
     private sealed class GiveHumanBlue : RoundEventRule
     {
-        internal GiveHumanBlue() : base("give-human-blue", "Give blue", "Test setup.") { }
-        public override void OnRevealed(RoundEventContext context) =>
-            context.TryGiveChip("human", TokenColor.Blue, 1);
+        private readonly int _count;
+        internal GiveHumanBlue(int count = 1) : base("give-human-blue", "Give blue", "Test setup.") => _count = count;
+        public override void OnRevealed(RoundEventContext context)
+        {
+            for (var index = 0; index < _count; index++) context.TryGiveChip("human", TokenColor.Blue, 1);
+        }
     }
 
     private sealed class NoOpEvent : RoundEventRule
