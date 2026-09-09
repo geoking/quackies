@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Quackies.Core.Rules.Fortunes;
 using Quackies.Core.Rules.Ingredients;
 using Quackies.Core.Tokens;
 
@@ -74,7 +75,8 @@ namespace Quackies.Core.Rules
                 new ShopChipDefinition(TokenColor.Purple, 1, 9, 15, 3),
                 new ShopChipDefinition(TokenColor.Black, 1, 10, 18, 1)
             };
-            return new RuleSet(BoardTrack.Standard(), SetOneIngredients.Create(), chips, roundEvents);
+            return new RuleSet(BoardTrack.Standard(), SetOneIngredients.Create(), chips,
+                roundEvents ?? SetOneFortunes.CreateAll());
         }
     }
 }
