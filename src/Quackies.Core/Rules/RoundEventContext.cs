@@ -25,9 +25,12 @@ namespace Quackies.Core.Rules
         public IReadOnlyList<string> PlayerIds { get; }
         public int Points(string playerId) => _session.Player(playerId).Points;
         public int Rubies(string playerId) => _session.Player(playerId).Rubies;
+        public bool Exploded(string playerId) => _session.Player(playerId).Exploded;
         public int RatSteps(string playerId) => _session.RatStepsForCurrentRound(_session.Player(playerId));
         public int WhiteTotal(string playerId) => _session.Player(playerId).WhiteTotal;
         public IReadOnlyList<Token> Bag(string playerId) => new ReadOnlyCollection<Token>(_session.Player(playerId).Bag.ToList());
+        public IReadOnlyList<Token> PreviewBag(string playerId, int count) =>
+            _session.PreviewBag(_session.Player(playerId), count);
         public void GainPoints(string playerId, int amount) => _session.GainPoints(_session.Player(playerId), amount);
         public void GainRubies(string playerId, int amount) => _session.GainRubies(_session.Player(playerId), amount);
         public void AdvanceDroplet(string playerId, int spaces) => _session.AdvanceDroplet(_session.Player(playerId), spaces);
@@ -38,6 +41,11 @@ namespace Quackies.Core.Rules
             _session.CanExchangeRubyForSupplyChip(_session.Player(playerId), color, value);
         public bool TryExchangeRubyForChip(string playerId, TokenColor color, int value) =>
             _session.TryExchangeRubyForSupplyChip(_session.Player(playerId), color, value);
+        public bool HasHigherChip(TokenColor color, int value) => _session.HasHigherSupplyChip(color, value);
+        public bool CanUpgradeBagChip(string playerId, TokenColor color, int value) =>
+            _session.CanUpgradeBagChip(_session.Player(playerId), color, value);
+        public bool TryUpgradeBagChip(string playerId, TokenColor color, int value) =>
+            _session.TryUpgradeBagChip(_session.Player(playerId), color, value);
         public IReadOnlyList<ShopChipDefinition> AvailableChips(int value) =>
             new ReadOnlyCollection<ShopChipDefinition>(_session.Rules.ShopChips
                 .Where(chip => chip.Value == value && chip.AvailableFromRound <= Round && _session.Remaining(chip) > 0).ToList());

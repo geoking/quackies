@@ -256,6 +256,52 @@ namespace Quackies.Core.Match
             return false;
         }
 
+        internal IReadOnlyList<Token> PreviewBag(PlayerRoundState player, int count)
+        {
+            if (count < 0) throw new ArgumentOutOfRangeException(nameof(count));
+            var remaining = player.Bag.ToList();
+            var preview = new List<Token>();
+            while (preview.Count < count && remaining.Count > 0)
+            {
+                var index = Random.NextInt(remaining.Count);
+                preview.Add(remaining[index]);
+                remaining.RemoveAt(index);
+            }
+            AddLog(player.Id, $"{player.Name} previewed {preview.Count} chip(s) from their bag.");
+            return MatchView.Freeze(preview);
+        }
+
+        internal bool HasHigherSupplyChip(TokenColor color, int value) => NextSupplyChip(color, value) != null;
+
+        internal bool CanUpgradeBagChip(PlayerRoundState player, TokenColor color, int value)
+        {
+            var next = NextSupplyChip(color, value);
+            return next != null && next.AvailableFromRound <= Round && _supply[next] > 0 &&
+                player.Bag.Any(chip => chip.Color == color && chip.Value == value);
+        }
+
+        internal bool TryUpgradeBagChip(PlayerRoundState player, TokenColor color, int value)
+        {
+            var next = NextSupplyChip(color, value);
+            if (next == null || !CanUpgradeBagChip(player, color, value)) return false;
+            var oldChip = player.Bag.First(chip => chip.Color == color && chip.Value == value);
+            var oldDefinition = Rules.ShopChips.SingleOrDefault(chip => chip.Color == color && chip.Value == value);
+            player.Bag.Remove(oldChip);
+            player.Inventory.Remove(oldChip);
+            if (oldDefinition != null) _supply[oldDefinition]++;
+            _supply[next]--;
+            var upgraded = new Token(next.Color, next.Value);
+            player.Inventory.Add(upgraded);
+            player.Bag.Add(upgraded);
+            AddLog(player.Id, $"{player.Name} exchanged {oldChip} for {upgraded}.");
+            return true;
+        }
+
+        private ShopChipDefinition? NextSupplyChip(TokenColor color, int value) => Rules.ShopChips
+            .Where(chip => chip.Color == color && chip.Value > value)
+            .OrderBy(chip => chip.Value)
+            .FirstOrDefault();
+
         internal bool RemoveInventoryChip(PlayerRoundState player, TokenColor color, int value)
         {
             var chip = player.Inventory.FirstOrDefault(candidate => candidate.Color == color && candidate.Value == value);
