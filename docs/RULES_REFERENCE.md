@@ -167,3 +167,13 @@ Details requiring an explicit, documented interpretation during final audit:
 
 These questions must remain visible until reviewed; ordinary component data and
 the other card effects do not depend on resolving them.
+
+## Final-round reward presentation
+
+The publisher's base rules keep the explosion choice between evaluation D and E
+and allow repeated five-coin conversions in the final round. Quackies automatically
+resolves the optimal final outcome, as requested: a safe pot earns printed VP plus
+floor(coins / 5); an exploded pot earns max(printed VP, floor(coins / 5)), never both.
+No purchase or redundant points/coins decision is shown in round nine. Earlier
+rounds preserve the strategic exploded-pot choice. Ruby conversion remains the
+separate two-rubies-per-point end-of-round action.

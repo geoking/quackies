@@ -121,3 +121,23 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 Usage reached 95% during the September 9 review. Source, tests and Unity changes
 above were separately committed and pushed; see HANDOFF.md before resuming.
 The milestone remains incomplete. Main has not been merged.
+
+### 10. Final-round scoring and Well Stirred
+
+- Published final-round source14cecc3 and testsfe02c97. Safe pots already converted
+  coins automatically and skipped shopping. Exploded final pots now automatically
+  receive the better of printed VP or floor(coins / 5), preserving the rule that
+  explosion earns only one reward. Ten focused tests verify rounding, no shopping,
+  no double conversion and unchanged earlier-round choices.
+- Published Well Stirred7993bca and tests5da103a. The first placed white, including
+  one selected through blue, can return without spending the flask; redrawing does
+  not repeat the ability. Three focused tests pass. Twenty-two cards are implemented.
+- Normal AI coverage now includes every available fortune batch plus 32 complete
+  mixed-deck matches. All seven policy tests pass; further final cards remain
+  subject to the same simulations when added.
+- A bounded publisher-rule audit found an additional full-pot blue-selection edge:
+  a blue chip reaching physical space52 must not queue another placement. This
+  fix and its regression tests are assigned with the remaining two fortune cards.
+- Reconfirmed Unity connection to Quackies.Unity6000.6.0f1, stopped/ready, no current
+  console errors. Current settings/dice views pass text overflow checks. These
+  checks precede the final fortune DLL integration.
