@@ -28,6 +28,8 @@ namespace Quackies.Core.Rules
         public bool Exploded(string playerId) => _session.Player(playerId).Exploded;
         public int RatSteps(string playerId) => _session.RatStepsForCurrentRound(_session.Player(playerId));
         public int WhiteTotal(string playerId) => _session.Player(playerId).WhiteTotal;
+        public bool TryUseOnce(string playerId, string capabilityId) =>
+            _session.TryUseOnceThisRound(_session.Player(playerId), capabilityId);
         public IReadOnlyList<Token> Bag(string playerId) => new ReadOnlyCollection<Token>(_session.Player(playerId).Bag.ToList());
         public IReadOnlyList<Token> PreviewBag(string playerId, int count) =>
             _session.PreviewBag(_session.Player(playerId), count);
@@ -52,6 +54,8 @@ namespace Quackies.Core.Rules
 
         public bool RemoveFromBag(string playerId, TokenColor color, int value) =>
             _session.RemoveInventoryChip(_session.Player(playerId), color, value);
+        public void ReturnLastPlacedChip(string playerId) =>
+            _session.ReturnLastPlacedChip(_session.Player(playerId));
         public bool ScoringSpaceHasRuby(string playerId) => _session.ScoringSpace(_session.Player(playerId)).HasRuby;
         public void AdvanceLastChip(string playerId, int spaces) => _session.AdvanceLastChip(_session.Player(playerId), spaces);
         public void RefillFlask(string playerId) => _session.RefillFlask(_session.Player(playerId));

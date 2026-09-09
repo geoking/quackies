@@ -24,6 +24,7 @@ namespace Quackies.Core.Match
         private readonly List<DieRollView> _dieRolls = new List<DieRollView>();
         private readonly IReadOnlyList<Token> _startingBag;
         private readonly Dictionary<string, GameActionKind> _roundNineCommits = new Dictionary<string, GameActionKind>(StringComparer.Ordinal);
+        private readonly HashSet<string> _roundCapabilitiesUsed = new HashSet<string>(StringComparer.Ordinal);
         private readonly BrewingPhaseHandler _brewing;
         private readonly EvaluationPhaseHandler _evaluation;
         private readonly ShoppingPhaseHandler _shopping;
@@ -314,6 +315,26 @@ namespace Quackies.Core.Match
             return true;
         }
 
+        internal bool TryUseOnceThisRound(PlayerRoundState player, string capabilityId)
+        {
+            if (string.IsNullOrWhiteSpace(capabilityId))
+                throw new ArgumentException("A round capability needs a stable ID.", nameof(capabilityId));
+            return _roundCapabilitiesUsed.Add($"{player.Id}:{capabilityId}");
+        }
+
+        internal void ReturnLastPlacedChip(PlayerRoundState player)
+        {
+            if (player.Pot.Count == 0) throw new InvalidOperationException("There is no placed chip to return.");
+            var last = player.Pot[player.Pot.Count - 1];
+            player.Pot.RemoveAt(player.Pot.Count - 1);
+            player.Bag.Add(last.Token);
+            if (last.Token.Color == TokenColor.White) player.WhiteTotal -= last.Token.Value;
+            player.Exploded = false;
+            player.Stopped = false;
+            player.MayUseFlask = false;
+            AddLog(player.Id, $"{player.Name} returned {last.Token} to the bag without using their flask.");
+        }
+
         internal int RatStepsForCurrentRound(PlayerRoundState player)
         {
             if (player.RatStepEntitlement.HasValue) return player.RatStepEntitlement.Value;
@@ -445,6 +466,7 @@ namespace Quackies.Core.Match
             Phase = MatchPhase.Preparation;
             _bonusDieRolls = 1;
             _roundNineCommits.Clear();
+            _roundCapabilitiesUsed.Clear();
             foreach (var player in _players)
             {
                 if (round == 6) player.Inventory.Add(new Token(TokenColor.White, 1));
