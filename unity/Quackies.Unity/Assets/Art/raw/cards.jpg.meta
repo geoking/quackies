@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -56,7 +56,9 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationMethod: 0
   spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -72,7 +74,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -109,6 +111,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -121,7 +136,7 @@ TextureImporter:
         width: 3310
         height: 5146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,11 +149,561 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_01
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 4155.8
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0b08379191745919452c7bb6cc8d3d
+      internalID: -2085148227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_02
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 4155.8
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 924c0d003a66e4b8fab1b73b4e8c6620
+      internalID: -188217927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_03
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 4155.8
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff9ed291ba93646aea82f6af5855c528
+      internalID: -980250149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_04
+      rect:
+        serializedVersion: 2
+        x: 2022
+        y: 4155.8
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d777f088d85fb4897a4638093f191859
+      internalID: 677025524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_05
+      rect:
+        serializedVersion: 2
+        x: 2684
+        y: 4155.8
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63401a890fe2c4d78852681e5675ba12
+      internalID: -1596777469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_06
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 3126.6
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e6c6351e115b4a05ba577d105c5a3dc
+      internalID: -2059286425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_07
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 3126.6
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60679ccf2fa344057908a332f6959795
+      internalID: 1693412528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_08
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 3126.6
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c795fbc3f5b094d9fae0aa1ca83f1ac1
+      internalID: -1220004750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_09
+      rect:
+        serializedVersion: 2
+        x: 2022
+        y: 3126.6
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d03354e11ab6e420e9c8b29b59622439
+      internalID: 721459819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_10
+      rect:
+        serializedVersion: 2
+        x: 2684
+        y: 3126.6
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05a6e9febd7643dc902cefaadf5780f
+      internalID: 1290445620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_11
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 2097.4001
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9336902ee81b6499894503f3ee1cf943
+      internalID: 713366757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_12
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 2097.4001
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56cdbb6aab3041f3b2c82b7275f7b7b
+      internalID: -450150296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_13
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 2097.4001
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be37616ce3344ae9999e7c2cd41a445
+      internalID: 347218080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_14
+      rect:
+        serializedVersion: 2
+        x: 2022
+        y: 2097.4001
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6bc7fa7cba664ceda3d0ea1d95b842e
+      internalID: 1454864734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_15
+      rect:
+        serializedVersion: 2
+        x: 2684
+        y: 2097.4001
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a4b227d9c3e245439a94ade1a4bb140
+      internalID: 1464774910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_16
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 1068.2002
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f4dfd6d66b194fce96c2eaace5d0e2a
+      internalID: 1421622345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_17
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 1068.2002
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ba342b342b4432f80ab8797c0980c8
+      internalID: 133353204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_18
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1068.2002
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4caf4b087d77748cb80d18cb21c7058f
+      internalID: 987302990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_19
+      rect:
+        serializedVersion: 2
+        x: 2022
+        y: 1068.2002
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd64a085326024364b5605603e653a0d
+      internalID: -1425042995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_20
+      rect:
+        serializedVersion: 2
+        x: 2684
+        y: 1068.2002
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0edd72d8107204b508d39d1cc55cacd3
+      internalID: 1052342997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_21
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 39.000244
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27210ff4cdfcf4065bd5759392aaea44
+      internalID: -213289722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_22
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 39.000244
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9deb756ee923b49f1a4c04d5adc59669
+      internalID: 2074809532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_23
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 39.000244
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c4b76c13a79432c8a531c43524c55d
+      internalID: 1892510595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_Fortune_24
+      rect:
+        serializedVersion: 2
+        x: 2022
+        y: 39.000244
+        width: 584
+        height: 950.19995
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10447ea0b9a8a44968a9d24aeac62fa9
+      internalID: -1312407018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quackies_FullImage
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 3310
+        height: 5146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ad00429cf86413c805b8b7a5eddb7f
+      internalID: -1500890118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ebb4bb953e051404483911d518d7003a
     internalID: 0
     vertices: []
     indices: 
@@ -148,6 +713,31 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Quackies_Fortune_01: -2085148227
+      Quackies_Fortune_02: -188217927
+      Quackies_Fortune_03: -980250149
+      Quackies_Fortune_04: 677025524
+      Quackies_Fortune_05: -1596777469
+      Quackies_Fortune_06: -2059286425
+      Quackies_Fortune_07: 1693412528
+      Quackies_Fortune_08: -1220004750
+      Quackies_Fortune_09: 721459819
+      Quackies_Fortune_10: 1290445620
+      Quackies_Fortune_11: 713366757
+      Quackies_Fortune_12: -450150296
+      Quackies_Fortune_13: 347218080
+      Quackies_Fortune_14: 1454864734
+      Quackies_Fortune_15: 1464774910
+      Quackies_Fortune_16: 1421622345
+      Quackies_Fortune_17: 133353204
+      Quackies_Fortune_18: 987302990
+      Quackies_Fortune_19: -1425042995
+      Quackies_Fortune_20: 1052342997
+      Quackies_Fortune_21: -213289722
+      Quackies_Fortune_22: 2074809532
+      Quackies_Fortune_23: 1892510595
+      Quackies_Fortune_24: -1312407018
+      Quackies_FullImage: -1500890118
       cards_0: 7024648501981196136
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

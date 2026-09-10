@@ -1,0 +1,10 @@
+name = "core_worker"
+description = "Implement a bounded Quackies rules-engine change and focused tests."
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+developer_instructions = """
+Follow AGENTS.md and the assigned architecture contract. Do not spawn subagents.
+Own only assigned files. Keep authoritative rules independent of Unity and the
+AI policy. Verify rules against the project reference; report unresolved facts.
+Save incremental progress. Return changes, test results, and remaining issues.
+"""

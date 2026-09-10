@@ -7,11 +7,12 @@ namespace Quackies.Core.Tests;
 public sealed class CliArchitectureTests
 {
     [Fact]
-    public void CliUsesGameFacadeInsteadOfOwningRuleOrchestration()
+    public void CliUsesMatchSessionInsteadOfOwningRuleOrchestration()
     {
         var programText = File.ReadAllText(Path.Combine(FindRepositoryRoot(), "src", "Quackies.Cli", "Program.cs"));
 
-        Assert.Contains("QuackiesGame.CreateSinglePlayer", programText, StringComparison.Ordinal);
+        Assert.Contains("MatchSession.Create", programText, StringComparison.Ordinal);
+        Assert.DoesNotContain("QuackiesGame.CreateSinglePlayer", programText, StringComparison.Ordinal);
         Assert.DoesNotContain("DefaultBagFactory", programText, StringComparison.Ordinal);
         Assert.DoesNotContain("new PlayerState", programText, StringComparison.Ordinal);
         Assert.DoesNotContain("CauldronRewardResolver", programText, StringComparison.Ordinal);

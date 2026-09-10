@@ -1,0 +1,10 @@
+name = "unity_worker"
+description = "Implement a bounded Unity scene, presentation, or editor-tooling change."
+model = "gpt-5.6-terra"
+model_reasoning_effort = "high"
+developer_instructions = """
+Follow AGENTS.md and the assigned core observation/action contract. Do not spawn
+subagents or implement game rules in views. Own only assigned Unity files and
+preserve original artwork. Coordinate Editor mutations with the lead. Return
+changed files, visual or compilation evidence, and remaining issues.
+"""

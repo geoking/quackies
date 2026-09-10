@@ -1,0 +1,163 @@
+{
+  "observedUtc": "2026-09-10T06:46:27.2390050Z",
+  "screen": {
+    "width": 2182,
+    "height": 1402,
+    "ratio": 1.556348
+  },
+  "authoredViewport": {
+    "width": 1133.0,
+    "height": 744.0,
+    "ratio": 1.522849
+  },
+  "safeParentRect": {
+    "width": 1133.0,
+    "height": 744.0
+  },
+  "viewportRect": {
+    "width": 1133.0,
+    "height": 744.0
+  },
+  "viewportLocalScale": {
+    "x": 1.0,
+    "y": 1.0
+  },
+  "viewportLossyScale": {
+    "x": 1.0,
+    "y": 1.0
+  },
+  "physicalViewport": {
+    "width": 1133.0,
+    "height": 744.0,
+    "ratio": 1.522849
+  },
+  "canvas": {
+    "renderMode": "ScreenSpaceOverlay",
+    "rootRectWidth": 1133.0,
+    "rootRectHeight": 744.0,
+    "lossyScaleX": 1.0,
+    "lossyScaleY": 1.0,
+    "pixelRect": {
+      "x": 0.0,
+      "y": 0.0,
+      "width": 1133.0,
+      "height": 744.0
+    },
+    "scaleFactor": 1.0
+  },
+  "viewportWorldCorners": [
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 744.0,
+      "z": 0.0
+    },
+    {
+      "x": 1133.0,
+      "y": 744.0,
+      "z": 0.0
+    },
+    {
+      "x": 1133.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  ],
+  "viewportScreenCorners": [
+    {
+      "x": 0.0,
+      "y": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 744.0
+    },
+    {
+      "x": 1133.0,
+      "y": 744.0
+    },
+    {
+      "x": 1133.0,
+      "y": 0.0
+    }
+  ],
+  "primaryButtons": [
+    {
+      "name": "Draw",
+      "screenCorners": [
+        {
+          "x": 284.0,
+          "y": 0.0
+        },
+        {
+          "x": 284.0,
+          "y": 54.0
+        },
+        {
+          "x": 464.0,
+          "y": 54.0
+        },
+        {
+          "x": 464.0,
+          "y": 0.0
+        }
+      ],
+      "allCornersInsideViewport": true
+    },
+    {
+      "name": "Stop",
+      "screenCorners": [
+        {
+          "x": 476.0,
+          "y": 0.0
+        },
+        {
+          "x": 476.0,
+          "y": 54.0
+        },
+        {
+          "x": 656.0,
+          "y": 54.0
+        },
+        {
+          "x": 656.0,
+          "y": 0.0
+        }
+      ],
+      "allCornersInsideViewport": true
+    },
+    {
+      "name": "Flask",
+      "screenCorners": [
+        {
+          "x": 668.0,
+          "y": 0.0
+        },
+        {
+          "x": 668.0,
+          "y": 54.0
+        },
+        {
+          "x": 848.0,
+          "y": 54.0
+        },
+        {
+          "x": 848.0,
+          "y": 0.0
+        }
+      ],
+      "allCornersInsideViewport": true
+    }
+  ],
+  "allPrimaryButtonsInsideViewport": true,
+  "captureTargetTexture": {
+    "width": 1133,
+    "height": 744,
+    "ratio": 1.522849
+  },
+  "captureInterpretation": "CaptureCommands source=screen reads PlayModeView.m_TargetTexture; this 1133x744 target is the native GameView capture size. Screen reports the focused Editor GUI backbuffer (2182x1402), not the capture target."
+}

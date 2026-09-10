@@ -1,0 +1,215 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423246c90638b43cc9f9ca66a1519779, type: 3}
+  m_Name: QuackiesArtCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Quackies.Unity.Art.QuackiesArtCatalog
+  tokens:
+  - Color: 0
+    Value: 1
+    Sprite: {fileID: -307724740, guid: b9d1e014b34a8a74ab0b8ee03caad3cf, type: 3}
+  - Color: 0
+    Value: 2
+    Sprite: {fileID: 64315953, guid: d070e53da1ded6b42a9aaac94bfed1fa, type: 3}
+  - Color: 0
+    Value: 3
+    Sprite: {fileID: 1009245800, guid: 378cb50f995469540bb806deb2d239c2, type: 3}
+  - Color: 1
+    Value: 1
+    Sprite: {fileID: -535686252, guid: a4e2d9d1bc590264e903bf0f4074a530, type: 3}
+  - Color: 2
+    Value: 1
+    Sprite: {fileID: 1985905138, guid: e4ce509da09d6cb499a3192620609ccf, type: 3}
+  - Color: 2
+    Value: 2
+    Sprite: {fileID: -782632433, guid: 897ccf9a0337b2645b46c5ac00a79700, type: 3}
+  - Color: 2
+    Value: 4
+    Sprite: {fileID: -1554963922, guid: 097015cd4596f56479b6c48e17e2971b, type: 3}
+  - Color: 3
+    Value: 1
+    Sprite: {fileID: 1234605933, guid: 4b54861f884cb8a488e805e2b094f950, type: 3}
+  - Color: 3
+    Value: 2
+    Sprite: {fileID: 50364959, guid: 7ed0142d426755d4184284c1550e18e6, type: 3}
+  - Color: 3
+    Value: 4
+    Sprite: {fileID: 198714941, guid: 49db9eb567192414ea5a65a070268403, type: 3}
+  - Color: 4
+    Value: 1
+    Sprite: {fileID: -376709433, guid: 82678632f9b02ca4ea5500ffce006e93, type: 3}
+  - Color: 4
+    Value: 2
+    Sprite: {fileID: -568938835, guid: f4b955575d5d45740a7b37c895ba9c15, type: 3}
+  - Color: 4
+    Value: 4
+    Sprite: {fileID: 1828792236, guid: 06c341fec5e13704db049a700de0131e, type: 3}
+  - Color: 5
+    Value: 1
+    Sprite: {fileID: -199608780, guid: 01be93067fe7a0641b36c791c4371251, type: 3}
+  - Color: 5
+    Value: 2
+    Sprite: {fileID: 90738264, guid: e94f46dc471d72144bba694607d5b471, type: 3}
+  - Color: 5
+    Value: 4
+    Sprite: {fileID: 1510015923, guid: c1cdd5329e1f4fd4db119ae5609f8914, type: 3}
+  - Color: 6
+    Value: 1
+    Sprite: {fileID: 1029229138, guid: 6af23052b71f69f47855ec7dc6ffd25b, type: 3}
+  - Color: 7
+    Value: 1
+    Sprite: {fileID: -471909764, guid: 4f085d094b020c14a9f6538994692e8e, type: 3}
+  books:
+  - Color: 1
+    Sprite: {fileID: 800006972, guid: 16b8ebcf82fe5944f9ebf20dea36c7b3, type: 3}
+  - Color: 2
+    Sprite: {fileID: 452062496, guid: 7d6b531c0c1b9dc4dbc756144d7ee716, type: 3}
+  - Color: 3
+    Sprite: {fileID: -1317250930, guid: c9ee09f02a4a8ca42aeb689f16000fe3, type: 3}
+  - Color: 4
+    Sprite: {fileID: -871087240, guid: 64b38de9b23a08642b8592c18219d958, type: 3}
+  - Color: 5
+    Sprite: {fileID: 303425693, guid: b0c5ac26c06e9d04bb7d5ba588d5f833, type: 3}
+  - Color: 6
+    Sprite: {fileID: -1959468219, guid: 593c81bee9df54a49bca12f1fbed44c3, type: 3}
+  - Color: 7
+    Sprite: {fileID: -1536684972, guid: 2216c14b77b1f6b4c910f5fcc0345ae8, type: 3}
+  fortunes:
+  - Title: A Second Chance
+    Sprite: {fileID: -2085148227, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Just in Time
+    Sprite: {fileID: -188217927, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Well Stirred
+    Sprite: {fileID: -980250149, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Lucky Devil
+    Sprite: {fileID: 677025524, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: It's Shining Extra Bright
+    Sprite: {fileID: -1596777469, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Seasoned Perfectly
+    Sprite: {fileID: -2059286425, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Less Is More
+    Sprite: {fileID: 1693412528, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: The Pot Is Full
+    Sprite: {fileID: -1220004750, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Choose Wisely
+    Sprite: {fileID: 721459819, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Living in Luxury
+    Sprite: {fileID: 1290445620, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: An Opportunistic Moment
+    Sprite: {fileID: 713366757, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Roll the Die
+    Sprite: {fileID: -450150296, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Pumpkin Patch Party
+    Sprite: {fileID: 347218080, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: You Only Get to Choose One
+    Sprite: {fileID: 1454864734, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Strong Ingredient
+    Sprite: {fileID: 1464774910, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Magic Potion
+    Sprite: {fileID: 1421622345, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: A Good Start
+    Sprite: {fileID: 133353204, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Rat Infestation
+    Sprite: {fileID: 987302990, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Rats Are Your Friends
+    Sprite: {fileID: -1425042995, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Charity
+    Sprite: {fileID: 1052342997, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: The Pot Is Filling Up
+    Sprite: {fileID: -213289722, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Wheel and Deal
+    Sprite: {fileID: 2074809532, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Beginner's Bonus
+    Sprite: {fileID: 1892510595, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  - Title: Schadenfreude
+    Sprite: {fileID: -1312407018, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  human:
+    Cauldron: {fileID: -1630003096, guid: 3ec50d4dc7ab1594da010470a2596315, type: 3}
+    Counter: {fileID: -1523247094, guid: 0d58e6b20884a7b4e9969f5001271776, type: 3}
+    Droplet: {fileID: -578948572, guid: 6ab87306a4ebd40449f0b12d5adea515, type: 3}
+    Rat: {fileID: -1879915380, guid: 98b9bdd8cedb2a94c99b58dd95587d12, type: 3}
+    FullFlask: {fileID: -439071828, guid: 11e818928dfadd34babae29ec4d475ec, type: 3}
+    EmptyFlask: {fileID: -1096694069, guid: 11e818928dfadd34babae29ec4d475ec, type: 3}
+  opponent:
+    Cauldron: {fileID: -116885702, guid: 3fec6413b1999c84dbeb30000b97d8d0, type: 3}
+    Counter: {fileID: -291915937, guid: 7ab0102653dc3184d877d027103159eb, type: 3}
+    Droplet: {fileID: 672217229, guid: f5bd5597d70b1084f94c9f687f6cd2e6, type: 3}
+    Rat: {fileID: -1023224038, guid: df7491fc2b2be9d44810ab12d2f318ec, type: 3}
+    FullFlask: {fileID: -418042035, guid: 417a1fc57e1223f479b29828a5600cdb, type: 3}
+    EmptyFlask: {fileID: -933585441, guid: 417a1fc57e1223f479b29828a5600cdb, type: 3}
+  roundBoard: {fileID: -421302498, guid: ac4c5f241019a3449ba77ae0f94d6920, type: 3}
+  roundMarker: {fileID: -1250576906, guid: 19bcb1001a018864487b6c05851f98dd, type: 3}
+  cardBack: {fileID: 2106981370, guid: 1fea5b36b22a0f04da2e4dd42bb01eba, type: 3}
+  fortuneCardsAtlas: {fileID: -1500890118, guid: d395b0fc13a863e44aaee7630d900a26, type: 3}
+  die: {fileID: 1123105115, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  dieFaces:
+  - {fileID: 2074329098, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  - {fileID: -1649108492, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  - {fileID: 883973580, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  - {fileID: -892330941, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  - {fileID: -251749105, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  - {fileID: 1689925541, guid: 08a7d6f50a8b3ca44a9bdd2607295163, type: 3}
+  potSpaces:
+  - {x: 0.50784683, y: 0.5038298}
+  - {x: 0.43126178, y: 0.46553192}
+  - {x: 0.3722536, y: 0.532766}
+  - {x: 0.41368487, y: 0.6246809}
+  - {x: 0.4965474, y: 0.63829786}
+  - {x: 0.5756434, y: 0.60595745}
+  - {x: 0.6227244, y: 0.52425534}
+  - {x: 0.60138106, y: 0.42297873}
+  - {x: 0.53609544, y: 0.35659575}
+  - {x: 0.45260516, y: 0.34297872}
+  - {x: 0.36974263, y: 0.3693617}
+  - {x: 0.29943502, y: 0.43404254}
+  - {x: 0.2693032, y: 0.532766}
+  - {x: 0.2856246, y: 0.63234043}
+  - {x: 0.34588826, y: 0.71489364}
+  - {x: 0.42435655, y: 0.75234044}
+  - {x: 0.50973004, y: 0.75234044}
+  - {x: 0.5888261, y: 0.7285106}
+  - {x: 0.658506, y: 0.6782979}
+  - {x: 0.70558697, y: 0.5906383}
+  - {x: 0.7206529, y: 0.48765957}
+  - {x: 0.6967985, y: 0.38723403}
+  - {x: 0.63904583, y: 0.3131915}
+  - {x: 0.5655995, y: 0.2519149}
+  - {x: 0.48085374, y: 0.23319149}
+  - {x: 0.39296925, y: 0.23914893}
+  - {x: 0.30947897, y: 0.2774468}
+  - {x: 0.24105461, y: 0.3455319}
+  - {x: 0.19334589, y: 0.4374468}
+  - {x: 0.173258, y: 0.5438298}
+  - {x: 0.18957941, y: 0.64425534}
+  - {x: 0.2259887, y: 0.7446808}
+  - {x: 0.29190207, y: 0.81276596}
+  - {x: 0.37539235, y: 0.8544681}
+  - {x: 0.46076584, y: 0.86723405}
+  - {x: 0.5467671, y: 0.8629787}
+  - {x: 0.6277464, y: 0.83404255}
+  - {x: 0.6999372, y: 0.7770213}
+  - {x: 0.7614564, y: 0.7080851}
+  - {x: 0.79912114, y: 0.6204255}
+  - {x: 0.81544256, y: 0.5208511}
+  - {x: 0.80728185, y: 0.41702127}
+  - {x: 0.77715003, y: 0.3174468}
+  - {x: 0.72190833, y: 0.23574468}
+  - {x: 0.650973, y: 0.17446809}
+  - {x: 0.5725047, y: 0.13021277}
+  - {x: 0.48399246, y: 0.10893617}
+  - {x: 0.39673573, y: 0.116595745}
+  - {x: 0.3088512, y: 0.14553191}
+  - {x: 0.23289391, y: 0.2068085}
+  - {x: 0.16886377, y: 0.2851064}
+  - {x: 0.12429378, y: 0.38212767}
+  - {x: 0.1042059, y: 0.49106383}
+  - {x: 0.11299435, y: 0.6519149}
+  potChipWidth: 0.0527307

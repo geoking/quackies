@@ -1,0 +1,39 @@
+{
+  "status": "completed",
+  "buildId": "build_efd32565b70e",
+  "result": "Succeeded",
+  "platform": "iOS",
+  "outputPath": "/Users/george/Repos/quackies/unity/Quackies.Unity/Builds/iOS",
+  "totalSizeBytes": 1253117964,
+  "buildTimeMs": 45149,
+  "buildStartedAt": "2026-09-10T06:36:46.1235720Z",
+  "buildEndedAt": "2026-09-10T06:37:31.2734310Z",
+  "totalWarnings": 5,
+  "totalErrors": 0,
+  "errors": [],
+  "warnings": [
+    {
+      "message": "Pipeline: No RuntimePipelineConfig asset found (Project Settings > Pipeline > Runtime). Pipeline will be disabled in Player builds."
+    },
+    {
+      "message": "Shader warning in 'TextMeshPro/Mobile/Distance Field': #pragma enable_d3d11_debug_symbols has been deprecated, instead please use #pragma enable_debug_symbols at line 84"
+    },
+    {
+      "message": "/Users/george/Repos/quackies/unity/Quackies.Unity/Library/Bee/artifacts/iOS/il2cppOutput/cpp: [Unity.TextMeshPro] - System.Void TMPro.TMP_TextParsingUtilities::.cctor() - Method was given it's own cpp file because it is large and costly to compile"
+    },
+    {
+      "message": "/Users/george/Repos/quackies/unity/Quackies.Unity/Library/Bee/artifacts/iOS/il2cppOutput/cpp: [Unity.TextMeshPro] - System.Void TMPro.TextMeshPro::GenerateTextMesh() - Method was given it's own cpp file because it is large and costly to compile"
+    },
+    {
+      "message": "/Users/george/Repos/quackies/unity/Quackies.Unity/Library/Bee/artifacts/iOS/il2cppOutput/cpp: [Unity.TextMeshPro] - System.Void TMPro.TextMeshProUGUI::GenerateTextMesh() - Method was given it's own cpp file because it is large and costly to compile"
+    }
+  ],
+  "sceneFiles": [
+    {
+      "path": "/Users/george/Repos/quackies/unity/Quackies.Unity/Builds/iOS/Data/level0",
+      "role": "Scene",
+      "sizeBytes": 88976
+    }
+  ],
+  "evidenceNote": "Summary derived from the complete local Unity build report; full output file, packed asset and step inventories omitted."
+}
