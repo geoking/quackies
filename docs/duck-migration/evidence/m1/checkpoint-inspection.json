@@ -1,0 +1,19 @@
+{
+  "sceneCheckpoint": "42e51b33f95d9ca8d9a727b860bd5947b539c4f7",
+  "artCheckpoint": "ff2c41bd8a2308d770a0a207aa6044a692ff1827",
+  "capturePixels": [
+    1133,
+    744
+  ],
+  "sha256": {
+    "unity/Quackies.Unity/Assets/Editor/DuckStyleTestSceneBuilder.cs": "f16582de5ad3dc0557f3f92dc64c77684500fa87333ffba400079e2550e019cd",
+    "unity/Quackies.Unity/Assets/Scripts/Presentation/DuckStylePreview.cs": "6229a0f153965147e556d52a2f1ebd64c0bf5678dcd1fd5605630ec23b329a01",
+    "unity/Quackies.Unity/Assets/Scripts/Presentation/DuckStyleEllipse.cs": "21ecf9d8fbcb53da92cd38de909f8b3d6702a1275a912e825e6604caabcabf86",
+    "unity/Quackies.Unity/Assets/Scenes/DuckStyleTestScene.unity": "e9c8997e59406e1c41f4fca76367d2202a78b178ff84704db5495c9e2b031dc8",
+    "docs/duck-migration/evidence/m1/duck-style-native.png": "d465b7654005e059e1281ed11a90ec309d50e2c727a856c0482ccb0b05e27f08",
+    "docs/duck-migration/evidence/m1/unity-qa.json": "25c4f03fb3942bcc9cca17c23507c0aeff91dae0b7934a80080a1856ebf23ecb"
+  },
+  "assetHashesStillMatch": true,
+  "protectedBaselinePathsUnchanged": true,
+  "preExistingSettingsHashPreserved": true
+}

@@ -1,0 +1,49 @@
+{
+  "scene": "Assets/Scenes/DuckStyleTestScene.unity",
+  "capturedUtc": "2026-09-10T16:09:19Z",
+  "artSourceCheckpoint": "ff2c41b",
+  "sceneSources": [
+    "Assets/Editor/DuckStyleTestSceneBuilder.cs",
+    "Assets/Scripts/Presentation/DuckStylePreview.cs",
+    "Assets/Scripts/Presentation/DuckStyleEllipse.cs"
+  ],
+  "capture": {
+    "path": "Assets/Temp/DuckStyleM1/duck-style-final-native.png",
+    "source": "screen",
+    "requestedPixels": "1133x744",
+    "playModeViewTargetTexture": "1133x744",
+    "note": "The target dimensions were read by reflection from PlayModeView.GetMainPlayModeView().m_TargetTexture, rather than Screen.width/height."
+  },
+  "compile": {
+    "command": "unity command recompile; unity command recompile_status; unity command get_console_logs",
+    "result": "completed",
+    "failed": false,
+    "consoleMessagesAfterFinalBuild": 0,
+    "finalRender": "code-native DuckStyleEllipse geometry with 14pt board indices"
+  },
+  "deterministicRebuild": {
+    "command": "Quackies/Build Duck Style Test run twice",
+    "indexedCellObjects": 54,
+    "indices": "unique 0-53",
+    "roundedBends": 5,
+    "representativeSeedMarkerObjects": 9,
+    "ellipseGraphics": 66,
+    "duplicates": false
+  },
+  "layout": {
+    "runtimeBoundsCheck": "cells=54; allVisible=True at the 1133x744 target",
+    "textOverflowCheck": "Canvas.ForceUpdateCanvases plus TMP ForceMeshUpdate: textOverflow=0",
+    "trail": "six winding rows with five alternating-end rounded connections"
+  },
+  "previewInteraction": {
+    "initial": "3 visible seeds; resting marker Space 04; duck Space 00; Twigs 12",
+    "explore": "EventSystem.RaycastAll hit the real Explore button; pointer click changed to 5 visible seeds and resting marker Space 06",
+    "reset": "pointer click restored 3 visible seeds and resting marker Space 04; duck Space 00 and Twigs 12 stayed unchanged",
+    "restingData": "DuckStylePreview reads BoardTrack.Standard().ScoringSpace(placedSeedCount)"
+  },
+  "integrity": {
+    "classicSceneAndRawArtDiff": "none",
+    "buildSettings": "unchanged by this builder",
+    "preExistingProjectSettingsDiff": "only the already-present preloaded-assets removal remains"
+  }
+}

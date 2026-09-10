@@ -1,55 +1,48 @@
 # Duck migration status
 
-**M0 complete — paused for the user's reaction.** M1 has not started.
-Updated 10 September 2026. Branch: `codex/duck-game-milestone-0`.
+**M1 complete — awaiting the user's style feedback.** The user accepted M0 and
+authorized M1 on 10 September 2026. Branch: `codex/duck-game-milestone-0`.
 
-## What changed
+## Completed work
 
-- Created and published a new branch from merged playable baseline `74e40cf`.
-- Reconciled the design chat through Revision 4 into [PLAN.md](PLAN.md): agreed
-  duck vocabulary, winding trail, daily route versus persistent nest, unchanged
-  rules initially and a separately approved shelter experiment later.
-- Wrote the [three-asset brief](ASSET_BRIEF.md) for M1: playmat, happy duck, seeds.
-- Recorded the actual Core/API/CLI/Unity boundaries and compatibility risks in
-  [BASELINE.md](BASELINE.md), with current build/test/tool evidence.
-- Kept the existing worker settings and checkpoint workflow, adding the requested
-  pause for feedback at every milestone.
+- Original playmat, happy duck and seed assets generated, inspected and published
+  in `ff2c41b`, with prompts and import metadata in [ASSET_MANIFEST.md](ASSET_MANIFEST.md).
+- Separate `DuckStyleTestScene.unity` implemented with a complete 54-position
+  winding trail, duck start, representative seed encounters, resting preview,
+  nest-score and resource placeholders, and Explore/Reset preview controls,
+  published in `42e51b3`.
+- Final Unity compile completed without errors; the captured console was empty.
+  The native 1133 × 744 view contains all 54 cells, five rounded bends and no TMP
+  text overflow. Repeat construction produced no duplicate cells.
+- Explore changed three seeds/rest space 4 to five seeds/rest space 6; Reset
+  restored the initial example. The duck stayed at space 0 and nest score at
+  Twigs 12. The final scene uses code-native ellipses and 14pt space indices.
+- [Native screenshot and validation](evidence/m1/README.md) are saved for review.
+  The preview was left in Play mode at its reset state.
 
-No gameplay or artwork changed. The existing Unity settings preload removal is
-still present and excluded from commits. No asset generation, scene rebuilding,
-rule changes, main merge or release was performed.
+This is an isolated visual preview. It does not create a MatchSession, implement
+M2 terminology support, or change game rules. The original playable scene, Core,
+CLI, raw art and shipping scene list remain unchanged. Preserve the pre-existing
+ProjectSettings preload removal and keep it out of commits.
 
-## M0 acceptance
+## Review gate
 
-| Requirement | Evidence |
-| --- | --- |
-| Recover agreed plan and amendments | PLAN.md source/provenance and shared terminology |
-| Inspect real architecture, clients, effects, AI and persistence | BASELINE.md Core/CLI/Unity map and compatibility findings |
-| New branch from verified current state | Baseline hash, origin comparison and workspace record |
-| Preserve unrelated work | Recorded settings patch/hash; file remains uncommitted |
-| Current baseline checks | Build: 0 warnings/errors; tests: 129 passed; CLI smoke exits cleanly |
-| Verify Unity project | Connected 6000.6.0f1, correct checkout and clean saved initial scene, no captured errors |
-| Verify art capability without generating a batch | Available imagegen tool/skill recorded; no invocation or billed fallback |
-| Repository-specific plan, asset brief and worker assignments | PLAN.md, ASSET_BRIEF.md and retained .codex role configuration |
-| Regular visible progress | Plan/art checkpoint `bc55369`; baseline/evidence checkpoint follows in branch history |
-| Pause and request reaction | This is the review boundary; do not begin M1 until the user responds |
+Show the final native GameView capture and pause for the user's reaction before
+M2. The user is judging the
+happy cartoon direction, the full winding trail, and duck/seed readability at
+actual use sizes. Further artwork and a shelter experiment remain later work.
 
-## Smallest next task, after feedback
+## Earlier milestone
 
-M1: generate the three style assets, then have one Unity owner create a separate
-`DuckStyleTestScene.unity` with a full 54-position winding placeholder trail,
-duck at its start, representative seed encounters ahead, a resting preview and
-resource/button samples. Capture at the actual 1133 × 744 GameView target and
-ask how the happy cartoon direction feels before doing terminology or gameplay
-integration. Use placeholders for Twigs, Pond pennies, Feathers and nest art.
-
-The proposed 6 × 9 trail is a readability experiment. Release title, shelter
-density/reward values and polished nest growth are still undecided. The first
-playable duck version must retain current mechanics.
+M0 completed with a clean solution build, 129 passing tests and a CLI smoke.
+Its repository map and evidence are in [BASELINE.md](BASELINE.md); plan/art brief
+checkpoint `bc55369`, baseline/review checkpoint `824fa5d`. The user accepted that
+milestone. The current gradual roadmap remains [PLAN.md](PLAN.md).
 
 ## Resume without repeated discovery
 
-Read this file, PLAN.md and BASELINE.md. Inspect live Git/Editor state before
-mutations. The current code baseline and tests are already recorded; repeat
-checks only for new changes or a specific concern. Lead owns Git; workers never
-stage/commit and only one owner may mutate the connected Unity Editor.
+Wait for the user's reaction; do not begin M2 automatically. When resuming,
+inspect live Git and Editor state, then read this file and the evidence. Retain
+one Editor owner and small worker briefs. Do not repeat unchanged Core tests for
+this visual-only milestone. Lead owns Git and pushes coherent checkpoints; no
+main merge or release is authorized.

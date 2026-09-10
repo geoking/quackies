@@ -2,7 +2,8 @@
 
 The active priority is now the gradual duck migration. See
 [its plan](duck-migration/PLAN.md) and [review status](duck-migration/STATUS.md).
-M0 is complete; pause for feedback before the M1 art experiment. The items below
+M0 was accepted and M1's visual-test milestone is complete. Pause for feedback
+on the Unity style preview before M2 terminology work. The items below
 remain backlog and are not authorization to start additional work now.
 
 The agreed initial playable milestone is complete. All 24 Set 1 fortunes are

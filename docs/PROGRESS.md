@@ -214,3 +214,31 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 - M0 is complete and paused for the user's reaction. No duck art, gameplay or
   later milestone has been implemented. Current evidence and next task are in
   [duck-migration/STATUS.md](duck-migration/STATUS.md).
+
+### 15. Duck migration M1 — original art and Unity style test (10 September 2026)
+
+- After the user accepted M0, generated exactly three original assets: calm
+  wetland playmat, happy duck and seed encounter. Native outputs were copied
+  unchanged; prompts, dimensions, alpha checks and stable Unity metadata are
+  published with the art in `ff2c41b`.
+- Published the separate DuckStyleTestScene and builder in `42e51b3`. It shows
+  all 54 indexed spaces on a six-row winding trail with five rounded bends,
+  fixed seed examples, a permanent starting duck, separate resting preview and
+  placeholder nest/resources. Clean code-native ellipses and 14pt indices support
+  readability at the 1133 × 744 iPad mini aspect.
+- Unity compilation completed without errors; the final captured console had
+  no messages. Repeat construction retained 54 unique cells without duplicates.
+  All cell bounds fit the native viewport and TMP reported zero text overflows.
+- Real EventSystem pointer callbacks exercised Explore and Reset. Three
+  seeds/rest space 4 changed to five/rest space 6, then reset. Duck space 0 and
+  Twigs 12 stayed fixed; next-space rewards come from BoardTrack.Standard().
+- The final native screenshot, QA and checkpoint hashes are tracked in
+  [duck-migration/evidence/m1](duck-migration/evidence/m1/README.md). The preview
+  was left in Play mode at reset for the user's review.
+- Core, CLI, tests, original playable scene, raw art, Core DLL and build scene
+  list match the M0 baseline. The pre-existing ProjectSettings modification is
+  preserved and excluded from commits. No new full-match run or iOS/device test
+  is claimed for this visual-only milestone; the 129-test M0 result is unchanged
+  historical evidence.
+- M1 is complete and paused for the user's style reaction. M2 terminology,
+  additional artwork and the later shelter experiment have not started.

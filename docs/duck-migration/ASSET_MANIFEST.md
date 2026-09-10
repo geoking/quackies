@@ -26,8 +26,10 @@ No checkerboard was baked into either character/icon image.
 
 All three were visually inspected at source size: the duck is complete and happy,
 the three seeds have a clear silhouette, and the playmat leaves a quiet centre.
-The final acceptance check is their appearance at actual Unity gameplay size;
-source inspection alone does not establish scene readability.
+Their appearance at actual Unity size has also been inspected in the
+[native M1 capture](evidence/m1/duck-style-native.png), with the complete trail,
+small encounter overlays and larger samples. [Scene QA](evidence/m1/README.md)
+records the checks. The user's style acceptance is still pending.
 
 Generation sources:
 

@@ -2,7 +2,9 @@
 
 ## Current scope and source
 
-Work on **M0 only**, then pause for the user's reaction. The current branch is
+The user accepted M0 and authorized **M1 only** on 10 September 2026. Complete
+the three-asset Unity visual test, then pause for the user's reaction before M2.
+The current branch is
 `codex/duck-game-milestone-0`, created from merged playable commit
 `74e40cfe04995d813428c3ff8390461235928a44` on 10 September 2026.
 
@@ -95,7 +97,8 @@ either/or restriction. Feathers retain their separate final conversion.
 | M5 — Shelter experiment | Only after a specific choice: separately selectable fewer/more rewarding shelters | Compare with unchanged rules; verify safe/exhausted stop, passing and ordinary spaces; review balance |
 | M6 — Migration review | Review clients, AI, compatibility, assets, tests and remaining issues | Tested branch ready for the user's merge decision; no automatic merge |
 
-The M1 filenames and builder are proposed additions, not existing implementation.
+The M1 scene and builder are now implemented; see [STATUS.md](STATUS.md) for
+their review evidence and the current feedback gate.
 Keep `QuackiesInitialScene.unity`, its builder and source art usable throughout.
 Do not add the style-test scene to shipping build settings by default.
 

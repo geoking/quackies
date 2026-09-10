@@ -1,13 +1,17 @@
 # Quackies handoff
 
-## Current task: duck migration M0
+## Current task: duck migration M1
 
 The playable baseline below has been merged into main as `74e40cf`. New work is
 on `codex/duck-game-milestone-0`. Read [the migration plan](duck-migration/PLAN.md),
 [status](duck-migration/STATUS.md) and [baseline](duck-migration/BASELINE.md) for
-the current scope and evidence. Stop after M0 for the user's reaction; generated
-art and the separate Unity style scene belong to M1. Existing game code and art
-are unchanged in M0. Preserve the pre-existing ProjectSettings preload removal.
+the current scope and evidence. The user accepted M0 and authorized M1. Three
+generated assets are published in `ff2c41b`; the separate DuckStyleTestScene and
+builder are published in `42e51b3`. M1 is complete: compile, native 1133 × 744
+layout, repeat construction and Explore/Reset checks passed. See the
+[screenshot and QA](duck-migration/evidence/m1/README.md). The preview was left
+in Play mode at reset. Pause for the user's reaction before M2. Preserve
+the original playable game and pre-existing ProjectSettings preload removal.
 
 ## Completed playable baseline
 

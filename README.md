@@ -1,9 +1,11 @@
 # Quackies
 
-The duck-theme migration is starting on `codex/duck-game-milestone-0`.
+The duck-theme migration is on `codex/duck-game-milestone-0`.
 See its [plan](docs/duck-migration/PLAN.md) and
-[milestone status](docs/duck-migration/STATUS.md). M0 preserves the playable game
-below and establishes the baseline before the first art experiment.
+[milestone status](docs/duck-migration/STATUS.md). The separate M1 style preview
+uses three original duck assets and a complete winding trail. From Edit mode,
+choose **Quackies → Build and Play Duck Style Test** to explore its fixed visual
+examples. It does not start a match; the original playable game remains below.
 
 A Unity tabletop game for one human and one AI, targeting iPad mini landscape.
 The complete base-game Set 1 fortune deck, Normal AI, board inspection, match
