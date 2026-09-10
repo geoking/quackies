@@ -106,21 +106,27 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   the overlay. Source dice image bytes are unchanged. Physical-device evidence
   remains separate and has not been obtained.
 
-## In progress and next checkpoints
+## Current remaining work
 
-1. Complete A Second Chance, Well Stirred and Strong Ingredient with focused
-   regressions. The default fortune deck remains empty until all 24 are ready.
-2. Enable the full deck and extend complete-match Normal AI coverage beyond the
-   existing 112 matches across 14 cards. Keep CLI behavior aligned with Core.
-3. Sync the published Core into Unity; verify fortune artwork/choices, dice,
-   settings, all nine rounds, restart/rebuild and readable iPad mini layout.
-4. Review architecture/legacy prototype and attempt supported iOS export. Unity
-   iOS support is installed; the selected developer tools previously lacked an
-   iPhone SDK. Editor success does not establish a signed build or device test.
+The complete Set 1 deck is enabled by default, the published Core suite has 129
+passing tests, and the published Core DLL is integrated into Unity. Commit
+d40d4e4 is the latest Unity scene checkpoint.
 
-Usage reached 95% during the September 9 review. Source, tests and Unity changes
-above were separately committed and pushed; see HANDOFF.md before resuming.
-The milestone remains incomplete. Main has not been merged.
+1. Complete the full nine-round Unity interaction probe against the d40d4e4
+   scene, including fortune choices, dice, settings restart, references,
+   scoreboard/opponent-pot return, final score and runtime-error checks.
+2. Capture and inspect the active fortune, full table and final-results views at
+   iPad mini proportions. These checks must be recorded as new evidence; no new
+   UI completion claim is made here.
+3. Attempt the supported iOS export and report any toolchain limitation. An
+   export, if successful, does not establish signing, installation or device
+   validation.
+4. Perform the final completion audit and update the durable handoff records
+   with the actual Unity and export evidence. Keep the goal active until those
+   checks pass; do not merge to main.
+
+The milestone remains incomplete. Test-tube rules and the separate AI-history
+pane remain deferred to a future goal. Main has not been merged.
 
 ### 10. Final-round scoring and Well Stirred
 

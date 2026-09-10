@@ -1,6 +1,7 @@
 # Quackies handoff
 
-Updated: 9 September 2026, after the full-pot checkpoint. Goal remains active.
+Updated: 10 September 2026, after Unity scene checkpoint d40d4e4. Goal remains
+active.
 Read IMPLEMENTATION_GOAL.md for scope, RULES_REFERENCE.md for primary rules, and
 PROGRESS.md for validation. Test tubes and separate AI-history UI are deferred.
 
@@ -33,22 +34,18 @@ checkpoints; push each, preserve unrelated files, no merge/force push.
 
 ## Remaining integration work
 
-1. Finish the live Unity full-match probe. Temporary harness:
-   /tmp/QuackiesUnityFullMatchProbe.cs; report:
-   /tmp/quackies-unity-full-match-probe.txt. Terra is launching it after the latest
-   DLL rebuild. Check live agent/process state before resuming; do not restart a
-   still-running probe based only on a stale file. It uses NormalPolicy for human
-   decisions and dispatches matching real Button pointer events, alongside the
-   existing Normal AI. Verify nine distinct fortunes, final score, settings
-   restart, references/long choices, scoreboard/CPU return and runtime errors.
-2. Capture and inspect the active fortune/full table and final results at iPad
-   mini proportions. Existing temporary image paths below are earlier checks;
-   do not describe them as proof of full-deck completion.
-3. Attempt iOS export with the new DLL, using the initial scene and an ignored
-   Builds/iOS output. iOS module is installed. Report toolchain failure accurately
-   if export fails; no signing/install/device test or public release requested.
-4. Update this handoff, progress and README with actual final evidence. Audit
-   requirements before marking the goal complete. Do not merge main.
+1. Finish the live nine-round Unity interaction probe on scene checkpoint
+   d40d4e4. Terra is creating the durable ignored
+   `Temp/QuackiesValidation/` harness after the temporary `/tmp` probe vanished
+   during reboot. Verify nine distinct fortunes, final score, settings restart,
+   references/long choices, scoreboard/opponent-pot return and runtime errors.
+2. Capture and inspect the active fortune, full table and final-results views at
+   iPad mini proportions. No new UI completion claim is recorded until those
+   checks produce durable evidence.
+3. Attempt iOS export with the integrated DLL and report any toolchain limitation;
+   no signing, installation or physical-device validation is implied.
+4. Update this handoff, progress and README with actual final evidence, then
+   audit requirements before marking the goal complete. Do not merge main.
 
 The rules sweep is recorded in RULES_AUDIT.md, including corrected boundaries and
 explicit Second Chance timing interpretations. Core must remain independent of
@@ -62,16 +59,15 @@ settings_and_dice (Terra/high) owns Unity and is sole Editor mutator. Workers do
 not delegate or commit. Check live agents and Git status after interruptions.
 Unrelated generated Assembly-CSharp.csproj changes must stay out of checkpoints.
 
-Unity MCP tools are available again. Use `capture_game_view` with source=screen
-in Play mode for overlay UI; screenshot/camera omits it. Verified source=screen
-captures are Assets/Temp/Quackies/dice-reward-validation.png and
-fortune-caption-validation.png (both at1133×744). Root visually inspected the die
-reward. If tools disappear, /Users/george/.unity/bin/unity connects via CLI;
-commands take positional arguments. Editor was stopped at the last handoff.
+Unity MCP is currently unavailable. The CLI connector can reach the Unity Editor;
+the Editor was stopped and ready as of 06:13 UTC. Use the durable validation
+harness under `Temp/QuackiesValidation/` when Terra finishes it. Existing image
+captures are earlier checks and do not prove the full-deck interaction flow.
 
-Shell push authentication fails; GitHub connector publishing works. Session stores
-publishCheckpointJs/checkpointExtractChunkedCmd contain helpers. If lost, load
-/tmp/quackies-publish-helper.js and /tmp/quackies-publish-extract-command.txt.
+Shell push authentication fails; GitHub connector publishing works. Durable
+helpers are `Temp/QuackiesValidation/publish-helper.js` and
+`Temp/QuackiesValidation/publish-extract.txt`; root also retains the publish
+helper and extraction command in its session stores.
 They publish already committed HEAD via GitHub, verify identical trees, and align
 local HEAD with canonical remote commit. Large scene payloads are chunked.
 
