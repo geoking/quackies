@@ -1,5 +1,10 @@
 # Quackies
 
+The duck-theme migration is starting on `codex/duck-game-milestone-0`.
+See its [plan](docs/duck-migration/PLAN.md) and
+[milestone status](docs/duck-migration/STATUS.md). M0 preserves the playable game
+below and establishes the baseline before the first art experiment.
+
 A Unity tabletop game for one human and one AI, targeting iPad mini landscape.
 The complete base-game Set 1 fortune deck, Normal AI, board inspection, match
 settings and dice results are implemented. The initial playable milestone is

@@ -1,5 +1,10 @@
 # Future Quackies milestones
 
+The active priority is now the gradual duck migration. See
+[its plan](duck-migration/PLAN.md) and [review status](duck-migration/STATUS.md).
+M0 is complete; pause for feedback before the M1 art experiment. The items below
+remain backlog and are not authorization to start additional work now.
+
 The agreed initial playable milestone is complete. All 24 Set 1 fortunes are
 enabled by default; 129 Core tests, a nine-round Unity interaction run, native
 iPad-aspect inspection and iOS export provide the recorded validation. See

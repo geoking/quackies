@@ -1,5 +1,16 @@
 # Quackies handoff
 
+## Current task: duck migration M0
+
+The playable baseline below has been merged into main as `74e40cf`. New work is
+on `codex/duck-game-milestone-0`. Read [the migration plan](duck-migration/PLAN.md),
+[status](duck-migration/STATUS.md) and [baseline](duck-migration/BASELINE.md) for
+the current scope and evidence. Stop after M0 for the user's reaction; generated
+art and the separate Unity style scene belong to M1. Existing game code and art
+are unchanged in M0. Preserve the pre-existing ProjectSettings preload removal.
+
+## Completed playable baseline
+
 Updated: 10 September 2026, after the full Unity match and iOS export.
 The agreed initial playable milestone is complete.
 Read IMPLEMENTATION_GOAL.md for scope, RULES_REFERENCE.md for primary rules, and

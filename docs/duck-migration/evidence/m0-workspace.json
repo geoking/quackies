@@ -1,0 +1,22 @@
+{
+  "baselineCommit": "74e40cfe04995d813428c3ff8390461235928a44",
+  "baselineBranch": "main",
+  "featureBranch": "codex/duck-game-milestone-0",
+  "baselineMatchesFetchedOriginMain": true,
+  "preExistingChange": {
+    "path": "unity/Quackies.Unity/ProjectSettings/ProjectSettings.asset",
+    "description": "Removes the generated InputSystem_Actions preloadedAssets entry; preserves the empty list. Present before M0.",
+    "sha256": "bd3fb139bac5aa51048d7e8cf69f6010f6e8df5b02dc20c5b419b49b0dd6cbcb",
+    "includedInMigrationCommits": false
+  },
+  "imageGeneration": {
+    "tool": "image_gen.imagegen",
+    "advertisedCallableInSession": true,
+    "generationInvoked": false,
+    "quotaOrOutputNotTested": true,
+    "separateBilledApiUsed": false,
+    "skillAvailable": true
+  },
+  "unityIntegrationCheckout": "/Users/george/Repos/quackies/unity/Quackies.Unity",
+  "workingAgreement": "Retain model roles and at most two workers; lead owns Git and a single agent owns Editor mutations. One Sol/high worker used for M0 Core/CLI audit; lead handled Unity read-only inspection and planning."
+}

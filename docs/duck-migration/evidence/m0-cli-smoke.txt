@@ -1,0 +1,20 @@
+Command: dotnet run --no-build --project src/Quackies.Cli -- --seed 0 --starting-rubies 0
+Input: q\n
+Exit code: 0
+
+Quackies · nine-round Set 1 match · seed 0 · starting rubies 0
+Choose an action number, or q to quit.
+
+Round 1/9 · Brewing
+Fortune: Rat Infestation
+Human: 0 VP, 0 rubies, pot 0, white 0, bag 9
+AI: 0 VP, 0 rubies, pot 8, white 7, bag 4 · stopped
+  R1 ai: AI drew and placed White 3 at physical position 4.
+  R1 ai: AI drew and placed White 1 at physical position 5.
+  R1 ai: AI drew and placed White 1 at physical position 6.
+  R1 ai: AI drew and placed White 2 at physical position 8.
+  R1 ai: AI stopped at physical position 8.
+
+1. Draw a chip
+2. Stop brewing
+> 

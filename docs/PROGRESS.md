@@ -192,3 +192,25 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 - Unity recompile status reports completed, failed=false, no errors. The final
   acceptance review passed for the agreed initial playable scope. Test tubes,
   AI-history UI and device validation remain future work; main is not merged.
+
+### 14. Duck migration M0 — baseline and plan (10 September 2026)
+
+- The initial playable branch was subsequently merged into main as `74e40cf`.
+  Created `codex/duck-game-milestone-0` from that verified current baseline,
+  preserving the pre-existing Unity ProjectSettings preload removal.
+- Published the duck migration plan and three-asset M1 brief in `bc55369`.
+  The plan incorporates the design chat's Revision 4 vocabulary and game identity,
+  a winding trail, duck as permanent start, temporary lily-pad assistance and
+  the distinction between a daily resting spot and persistent scored nest.
+- Current baseline: `dotnet build Quackies.sln` passed with 0 warnings/errors;
+  `dotnet test Quackies.sln --no-build` passed all 129 cases. The CLI smoke with
+  seed 0 and starting rubies 0 displayed legal actions and exited successfully.
+- Unity read-only inspection verified 6000.6.0f1, the correct shared checkout,
+  saved initial scene, one MatchPresenter, iOS target and no captured console
+  errors. No fresh Unity compile, full match or export was needed for M0.
+- The audit records Core-originated text, enum/action identity and fortune-title
+  artwork coupling. There is no playable save/replay format. The recommended
+  shared vocabulary preserves identifiers and rules while serving both clients.
+- M0 is complete and paused for the user's reaction. No duck art, gameplay or
+  later milestone has been implemented. Current evidence and next task are in
+  [duck-migration/STATUS.md](duck-migration/STATUS.md).

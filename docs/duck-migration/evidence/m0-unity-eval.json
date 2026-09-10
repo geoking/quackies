@@ -1,0 +1,35 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var s = UnityEngine.SceneManagement.SceneManager.GetActiveScene(); return new { scene=s.path, dirty=s.isDirty, roots=s.GetRootGameObjects().Select(x => x.name).ToArray(), presenters=UnityEngine.Object.FindObjectsByType<Quackies.Unity.MatchPresenter>(UnityEngine.FindObjectsInactive.Include).Length, target=UnityEditor.EditorUserBuildSettings.activeBuildTarget.ToString(), compiling=UnityEditor.EditorApplication.isCompiling };"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "scene": "Assets/Scenes/QuackiesInitialScene.unity",
+        "dirty": false,
+        "roots": [
+          "Event System",
+          "Tabletop Background Camera",
+          "Quackies Table"
+        ],
+        "presenters": 1,
+        "target": "iOS",
+        "compiling": false
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/george/Repos/quackies/unity/Quackies.Unity"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

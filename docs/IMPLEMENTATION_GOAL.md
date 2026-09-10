@@ -1,5 +1,11 @@
 # Initial playable Quackies
 
+This document describes the completed playable baseline, merged into main as
+`74e40cf`. The current gradual duck migration is defined in
+[duck-migration/PLAN.md](duck-migration/PLAN.md), starting with M0 and pausing for
+feedback at each milestone. The baseline rules remain the reference for unchanged
+mechanics during that migration.
+
 ## Current completion milestone — 9 September 2026
 
 The user selected a workable nine-round base-game Set 1 match with the full
