@@ -2,9 +2,9 @@
 
 A Unity tabletop game for one human and one AI, targeting iPad mini landscape.
 The complete base-game Set 1 fortune deck, Normal AI, board inspection, match
-settings and dice results are implemented. The full Unity interaction probe and
-iOS export have completed; final acceptance remains conditional on the
-screen-aspect assessment and audit. See
+settings and dice results are implemented. The initial playable milestone is
+complete, with a full nine-round Unity interaction check, native iPad-aspect
+review and successful iOS export. See
 [progress](docs/PROGRESS.md) and [next milestones](docs/NEXT_MILESTONES.md).
 For the latest completed work, work in progress and known gaps, read the
 [handoff](docs/HANDOFF.md).
