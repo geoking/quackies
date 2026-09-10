@@ -106,28 +106,6 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   the overlay. Source dice image bytes are unchanged. Physical-device evidence
   remains separate and has not been obtained.
 
-## Current remaining work
-
-The complete Set 1 deck is enabled by default, the published Core suite has 129
-passing tests, and the published Core DLL is integrated into Unity. Commit
-d40d4e4 is the latest Unity scene checkpoint.
-
-1. Complete the full nine-round Unity interaction probe against the d40d4e4
-   scene, including fortune choices, dice, settings restart, references,
-   scoreboard/opponent-pot return, final score and runtime-error checks.
-2. Capture and inspect the active fortune, full table and final-results views at
-   iPad mini proportions. These checks must be recorded as new evidence; no new
-   UI completion claim is made here.
-3. Attempt the supported iOS export and report any toolchain limitation. An
-   export, if successful, does not establish signing, installation or device
-   validation.
-4. Perform the final completion audit and update the durable handoff records
-   with the actual Unity and export evidence. Keep the goal active until those
-   checks pass; do not merge to main.
-
-The milestone remains incomplete. Test-tube rules and the separate AI-history
-pane remain deferred to a future goal. Main has not been merged.
-
 ### 10. Final-round scoring and Well Stirred
 
 - Published final-round source14cecc3 and testsfe02c97. Safe pots already converted
@@ -177,5 +155,40 @@ pane remain deferred to a future goal. Main has not been merged.
   decisions, offers human Draw/Stop and exits cleanly on q.
 - Header 61c9f33 keeps Shopping/Round Complete on one line in verified iPad-aspect
   captures. Final Core DLL is synced into Unity; recompile and scene rebuild pass.
-- Full nine-round Unity pointer interaction probe and iOS export remain pending.
-  The goal is active; no physical-device validation or main merge is claimed.
+- At this checkpoint, the full nine-round Unity pointer interaction probe and
+  iOS export remained pending; those items were completed in the 10 September
+  validation recorded above. No physical-device validation or main merge is
+  claimed.
+
+### 13. Initial playable milestone validation (10 September 2026)
+
+- The complete Set 1 deck is enabled by default. The Core suite last confirmed
+  129 tests passing on 10 September, and final-round scoring remains automatic.
+  The Unity continuation fix after the 48-action cap is covered by the full-match
+  validation, not counted as a Core test. Test-tube rules and the separate
+  AI-history pane remain deferred to a future goal.
+- The reusable `tools/validation/QuackiesUnityFullMatchProbe.cs` harness
+  completed a nine-round live Unity match on the scene published in b2861ad using
+  pointer callbacks and the Core Normal driver. Human scored 43 VP and AI
+  scored 42 VP; all nine fortunes were distinct.
+- The durable report records successful settings restart, dice results, fortune
+  references, readable choice labels, scoreboard/opponent-pot navigation and
+  final-score presentation. Runtime console evidence is scoped to 0 new errors
+  since cursor 4; it is not a general clean-console claim.
+- Canonical evidence is tracked under `tools/validation/evidence/2026-09-10/`:
+  the full report, native and resized screenshots, and the extracted iOS build
+  summary. Ignored local Temp reports are supplementary, not the durable record.
+- The saved-scene and continuation-fix validation is published in b2861ad
+  (with d40d4e4 as its source scene checkpoint), and the export serialization is
+  published in a48e0c8. The iOS export succeeded to
+  `unity/Quackies.Unity/Builds/iOS` for the initial
+  scene, with 0 errors and 5 Unity warnings. This is export evidence only; no
+  signed build, installation or physical-device test is claimed.
+- The native GameView capture target and Canvas were verified at 1133×744,
+  the same aspect ratio as 2266×1488. All primary-button corners fit inside the
+  viewport, and the native capture was visually reviewed. The connector's
+  Screen.width/height reflected the Editor GUI surface, explaining the earlier
+  dimension discrepancy; `viewport-check.json` records the authoritative target.
+- Unity recompile status reports completed, failed=false, no errors. The final
+  acceptance review passed for the agreed initial playable scope. Test tubes,
+  AI-history UI and device validation remain future work; main is not merged.

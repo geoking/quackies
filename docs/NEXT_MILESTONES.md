@@ -1,25 +1,21 @@
-# Next playable milestones
+# Future Quackies milestones
 
-The complete base-game Set 1 deck is enabled by default, the published Core
-suite has 129 passing tests, and Unity is at scene checkpoint d40d4e4. The goal
-remains active until the final integration evidence is recorded.
+The agreed initial playable milestone is complete. All 24 Set 1 fortunes are
+enabled by default; 129 Core tests, a nine-round Unity interaction run, native
+iPad-aspect inspection and iOS export provide the recorded validation. See
+[the evidence](../tools/validation/evidence/2026-09-10/README.md).
 
-1. **Prove the full Unity match.** Run the nine-round interaction probe on the
-   latest scene, covering fortune choices, dice, settings restart, references,
-   scoreboard/opponent-pot return, final score and runtime errors.
-2. **Inspect final presentation.** Capture the active fortune, full table and
-   final-results views at iPad mini proportions, recording fresh evidence for
-   visuals, settings and readable controls.
-3. **Attempt iOS export.** Use the supported project configuration and report
-   toolchain limitations accurately. Export evidence remains separate from
-   signing, installation and physical-device validation.
-4. **Complete the audit.** Update the durable progress and handoff records with
-   the actual results, then decide whether the acceptance criteria are met.
+Future work, requiring a new selected scope:
 
-Test-tube rules and the separate AI-history pane remain future-goal work.
+1. **Test-tube rules.** Add the second droplet, every printed reward and the choice
+   of which droplet advances, with the full board displayed when enabled.
+2. **AI-history pane.** Present the existing match history in a separate scrollable
+   view, including draws, flask use, stops, explosions and purchases.
+3. **Physical iPad validation.** Compile and sign the exported Xcode project, then
+   measure touch behavior, performance and memory on the intended iPad mini.
+4. **Compatibility cleanup.** Consolidate the retained prototype API when its
+   callers can migrate; continue implementing new gameplay through MatchSession.
 
-For each step, explain the changed behavior in the commit body and record the
-validation in PROGRESS.md. Preserve all original art image bytes. Keep future
-ingredient sets and cards outside the Unity presentation layer.
-Keep HANDOFF.md current at checkpoints so the user can continue after a usage
-interruption; prepare it before the last 1% whenever limits permit.
+Continue small reviewed source, test and Unity checkpoints; push each and record
+validation in PROGRESS.md. Preserve the supplied artwork and keep rules outside
+Unity presentation code. No new goal, main merge or release is started here.

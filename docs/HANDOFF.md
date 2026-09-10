@@ -1,7 +1,7 @@
 # Quackies handoff
 
-Updated: 10 September 2026, after Unity scene checkpoint d40d4e4. Goal remains
-active.
+Updated: 10 September 2026, after the full Unity match and iOS export.
+The agreed initial playable milestone is complete.
 Read IMPLEMENTATION_GOAL.md for scope, RULES_REFERENCE.md for primary rules, and
 PROGRESS.md for validation. Test tubes and separate AI-history UI are deferred.
 
@@ -31,21 +31,34 @@ checkpoints; push each, preserve unrelated files, no merge/force push.
 - Unity contains the new full-deck Core DLL. Recompile and scene rebuild pass.
   Settings, dice, scoreboard, CPU pot, primary controls, fixed bag reference and
   readable fortune caption are published. Header phase wrapping fixed in 61c9f33.
+- The saved-scene and continuation-fix validation is published in b2861ad (with
+  d40d4e4 as its source scene checkpoint). The validation report at
+  `tools/validation/evidence/2026-09-10/full-match-report.txt` records a full nine-round
+  pointer-callback-driven match: Human 43 VP, AI 42 VP, nine distinct fortunes,
+  settings restart, dice, references, readable choices and scoreboard/opponent-pot
+  navigation all passed. Core last confirmed 129 tests passing on 10 September;
+  the 48-action continuation fix is Unity validation evidence, separate from the
+  Core test count. Final-round scoring is automatic; all 24 fortunes remain
+  enabled by default.
+- Canonical evidence is tracked under `tools/validation/evidence/2026-09-10/`.
+  It includes the full report, native/resized screenshots and extracted iOS build
+  summary. Runtime console evidence is 0 new errors since cursor 4. The completed
+  Unity recompile status also reports no compilation errors.
+- Export serialization is published in a48e0c8. iOS export succeeded to
+  `Builds/iOS` for the initial scene with 0 errors and 5 Unity warnings. No
+  signed build, installation or physical-device test is claimed.
 
-## Remaining integration work
+## Completion and future work
 
-1. Finish the live nine-round Unity interaction probe on scene checkpoint
-   d40d4e4. Terra is creating the durable ignored
-   `Temp/QuackiesValidation/` harness after the temporary `/tmp` probe vanished
-   during reboot. Verify nine distinct fortunes, final score, settings restart,
-   references/long choices, scoreboard/opponent-pot return and runtime errors.
-2. Capture and inspect the active fortune, full table and final-results views at
-   iPad mini proportions. No new UI completion claim is recorded until those
-   checks produce durable evidence.
-3. Attempt iOS export with the integrated DLL and report any toolchain limitation;
-   no signing, installation or physical-device validation is implied.
-4. Update this handoff, progress and README with actual final evidence, then
-   audit requirements before marking the goal complete. Do not merge main.
+The final native GameView target, Canvas pixel rect and fitted tabletop were
+verified at 1133×744, the iPad mini aspect. Draw, Stop and Flask corners are all
+inside the viewport. See `tools/validation/evidence/2026-09-10/viewport-check.json`
+and `initial-scene-native.png`. Screen.width/height in the connector's Editor GUI
+context described a different surface; the capture target resolves that mismatch.
+
+The full acceptance review is recorded in the evidence README. Test-tube rules,
+the separate AI-history pane and physical-device validation remain future work.
+No Xcode signing, installation, main merge or public release was performed.
 
 The rules sweep is recorded in RULES_AUDIT.md, including corrected boundaries and
 explicit Second Chance timing interpretations. Core must remain independent of
@@ -54,26 +67,18 @@ uses MatchSession exclusively.
 
 ## Ownership and recovery
 
-Workers complete_fortunes (Sol/high) owns Core exceptAI, CLI and focused card tests;
-settings_and_dice (Terra/high) owns Unity and is sole Editor mutator. Workers do
-not delegate or commit. Check live agents and Git status after interruptions.
-Unrelated generated Assembly-CSharp.csproj changes must stay out of checkpoints.
+Root owns Git and coordinates the Unity validation work. Check live agent and
+Git status before resuming; preserve unrelated changes and do not merge main.
+Test-tube rules and the separate AI-history pane remain deferred to a future goal.
 
-Unity MCP is currently unavailable. The CLI connector can reach the Unity Editor;
-the Editor was stopped and ready as of 06:13 UTC. Use the durable validation
-harness under `Temp/QuackiesValidation/` when Terra finishes it. Existing image
-captures are earlier checks and do not prove the full-deck interaction flow.
+Unity MCP is currently unavailable. Use the CLI connector and inspect live agent
+state before resuming. The reusable validation harness is tracked at
+`tools/validation/QuackiesUnityFullMatchProbe.cs`; local run output is under
+`Temp/QuackiesValidation/`, with canonical evidence under
+`tools/validation/evidence/2026-09-10/`. Do not describe the recorded GameView
+captures as physical-device evidence.
 
-Shell push authentication fails; GitHub connector publishing works. Durable
-helpers are `Temp/QuackiesValidation/publish-helper.js` and
-`Temp/QuackiesValidation/publish-extract.txt`; root also retains the publish
-helper and extraction command in its session stores.
-They publish already committed HEAD via GitHub, verify identical trees, and align
-local HEAD with canonical remote commit. Large scene payloads are chunked.
-
-Usage exhausted before the previous window could save this update. The current
-window has resumed; check usage between checkpoints and save before it is near
-exhaustion. Quota is not grounds to mark the goal complete.
-
-Latest window reached 87% usage before this checkpoint; save probe state and
-results before the next interruption. No Core/CLI/test edits remain unpublished.
+Shell push authentication fails; GitHub connector publishing works. The lead
+publishes committed checkpoints without force-pushing and verifies that local
+and remote trees match. Temporary publishing helpers are session conveniences;
+do not rely on ignored Temp files surviving a reboot or cleanup.

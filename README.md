@@ -2,8 +2,10 @@
 
 A Unity tabletop game for one human and one AI, targeting iPad mini landscape.
 The complete base-game Set 1 fortune deck, Normal AI, board inspection, match
-settings and dice results are implemented. Final Editor integration and iOS
-export checks are in progress. See [progress](docs/PROGRESS.md) and [next milestones](docs/NEXT_MILESTONES.md).
+settings and dice results are implemented. The full Unity interaction probe and
+iOS export have completed; final acceptance remains conditional on the
+screen-aspect assessment and audit. See
+[progress](docs/PROGRESS.md) and [next milestones](docs/NEXT_MILESTONES.md).
 For the latest completed work, work in progress and known gaps, read the
 [handoff](docs/HANDOFF.md).
 
@@ -63,5 +65,8 @@ After changing Core code, update the DLL used by Unity:
 Let Unity finish importing before using Play mode. Original artwork under
 `Assets/Art/raw` is preserved; sprite cropping is stored in import metadata.
 
-The project targets iPad in landscape. Editor checks and an iOS export do not
-establish physical-device compatibility; device validation is tracked separately.
+The project targets iPad in landscape. The live GameView render target and
+Canvas were verified at 1133×744 (the same aspect as 2266×1488); see the
+[recorded evidence](tools/validation/evidence/2026-09-10/README.md). The iOS export
+succeeded with 0 errors and 5 warnings. Xcode compilation, signing, installation
+and physical-device testing remain separate work.
