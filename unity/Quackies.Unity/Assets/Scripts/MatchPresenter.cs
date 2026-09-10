@@ -217,6 +217,13 @@ namespace Quackies.Unity
             }
             opponentIsActing = false;
             Refresh();
+            // The paced batch can end after its defensive 48-action cap while
+            // legal AI work remains, including work unlocked by human input
+            // during its last yield. Re-check after clearing the guard so that
+            // cap is a continuation boundary rather than a stalled match.
+            var remaining = session.GetLegalActions(AiId);
+            if (remaining != null && remaining.Any(action => action.Kind != GameActionKind.NextRound))
+                StartCoroutine(AdvanceOpponent());
         }
 
         private void Refresh()
