@@ -1,0 +1,48 @@
+[
+  {
+    "name": "duck_happy_v1",
+    "path": "unity/Quackies.Unity/Assets/Art/DuckTheme/Characters/duck_happy_v1.png",
+    "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-88aea203-55b0-417a-8b21-f49045be6ae4.png",
+    "mode": "RGBA",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "6e32f75ea3f64a22a1c9a196bb987f8e3dd8ba4c9e80342e37b05b0c5722dc8b",
+    "transparentPixels": 1009425,
+    "partialAlphaPixels": 561208,
+    "alphaBounds": [
+      49,
+      19,
+      1234,
+      1230
+    ]
+  },
+  {
+    "name": "duck_playmat_v1",
+    "path": "unity/Quackies.Unity/Assets/Art/DuckTheme/Backgrounds/duck_playmat_v1.png",
+    "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-ae96b09b-14b0-4bf5-bc8f-5b392287392d.png",
+    "mode": "RGB",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "87559207788a18ab805d93c5f4b4520e50a9e446c9883aeedb5be922237b6c59",
+    "transparentPixels": 0,
+    "partialAlphaPixels": 0,
+    "alphaBounds": null
+  },
+  {
+    "name": "encounter_seeds_v1",
+    "path": "unity/Quackies.Unity/Assets/Art/DuckTheme/Encounters/encounter_seeds_v1.png",
+    "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-ebd6b1ba-86c4-47b2-a499-9c224e00e24e.png",
+    "mode": "RGBA",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "362d067db28644cfad87f2f83141fed6bab95a64b32b97011dca6966e4b67696",
+    "transparentPixels": 875980,
+    "partialAlphaPixels": 695246,
+    "alphaBounds": [
+      0,
+      53,
+      1224,
+      1199
+    ]
+  }
+]
