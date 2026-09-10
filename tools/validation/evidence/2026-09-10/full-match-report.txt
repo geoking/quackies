@@ -1,0 +1,792 @@
+state=complete
+time=2026-09-10T06:35:47.1105890Z
+round=9
+phase=Finished
+fortune_titles=1: Strong Ingredient | 2: Pumpkin Patch Party | 3: Well Stirred | 4: Seasoned Perfectly | 5: Living in Luxury | 6: Lucky Devil | 7: The Pot Is Full | 8: You Only Get to Choose One | 9: Rat Infestation
+max_choice_label_length=31
+checks=
+PASS MatchPresenter session binding exists
+PASS presenter located in live saved scene
+PASS Enabled live button exists: Open Settings
+PASS Live EventSystem exists for pointer dispatch
+PASS Settings screen opened through pointer handler
+PASS Enabled live button exists: Starting Ruby Toggle
+PASS Live EventSystem exists for pointer dispatch
+PASS Enabled live button exists: Apply and Restart
+PASS Live EventSystem exists for pointer dispatch
+PASS Settings apply started the replacement match with one ruby
+PASS Both live players received the selected starting ruby
+PASS settings toggle applied only by new-match restart
+PASS Enabled live button exists: Active Fortune
+PASS Live EventSystem exists for pointer dispatch
+PASS Active fortune reference has a readable heading
+PASS Enabled live button exists: Close
+PASS Live EventSystem exists for pointer dispatch
+PASS Active fortune reference closes through its Close button
+PASS active fortune artwork/title reference opened and closed
+PASS Enabled live button exists: Open Scoreboard
+PASS Live EventSystem exists for pointer dispatch
+PASS Scoreboard exposes live human score text
+PASS Enabled live button exists: Back to Your Pot
+PASS Live EventSystem exists for pointer dispatch
+PASS Scoreboard returns through its Back button
+PASS scoreboard open/back uses live UI buttons
+PASS Enabled live button exists: Inspect Rival Pot
+PASS Live EventSystem exists for pointer dispatch
+PASS CPU inspection displays its full-pot heading
+PASS Enabled live button exists: Back to Your Pot
+PASS Live EventSystem exists for pointer dispatch
+PASS CPU pot returns through its Back button
+PASS CPU pot open/back uses live UI buttons
+PASS active-fortune screenshot was requested while live table was visible
+PASS Round 1 has an active fortune title
+PASS Fortune caption matches Core title in round 1
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for use-flask
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for stop
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:1:fortune-bag-1
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (13 chars): Place Green 1
+PASS Live EventSystem exists for pointer dispatch
+PASS Dice overlay has a rendered result heading
+PASS dice results rendered and dismissed through Continue
+PASS Enabled live button exists: Continue
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for buy:blue:1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for buy:orange:1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-shopping
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-ruby-spending
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for next-round
+PASS Live EventSystem exists for pointer dispatch
+PASS Round 2 has an active fortune title
+PASS Fortune caption matches Core title in round 2
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for stop
+PASS Live EventSystem exists for pointer dispatch
+PASS Dice overlay has a rendered result heading
+PASS dice results rendered and dismissed through Continue
+PASS Enabled live button exists: Continue
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for buy:blue:2
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-shopping
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-ruby-spending
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for next-round
+PASS Live EventSystem exists for pointer dispatch
+PASS Round 3 has an active fortune title
+PASS Fortune caption matches Core title in round 3
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:4:return-white
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (26 chars): Return White 1 to your bag
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:6:none
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (26 chars): Return all previewed chips
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for stop
+PASS Live EventSystem exists for pointer dispatch
+PASS Dice overlay has a rendered result heading
+PASS dice results rendered and dismissed through Continue
+PASS Enabled live button exists: Continue
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for buy:blue:1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for buy:orange:1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-shopping
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for refill-flask
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-ruby-spending
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for next-round
+PASS Live EventSystem exists for pointer dispatch
+PASS Round 4 has an active fortune title
+PASS Fortune caption matches Core title in round 4
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:8:bag-0
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (12 chars): Place Blue 1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:9:none
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (26 chars): Return all previewed chips
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for use-flask
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for stop
+PASS Live EventSystem exists for pointer dispatch
+PASS Dice overlay has a rendered result heading
+PASS dice results rendered and dismissed through Continue
+PASS Enabled live button exists: Continue
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for buy:blue:2
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for buy:orange:1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-shopping
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-ruby-spending
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for next-round
+PASS Live EventSystem exists for pointer dispatch
+PASS Round 5 has an active fortune title
+PASS Fortune caption matches Core title in round 5
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:11:bag-0
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (14 chars): Place Orange 1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:12:bag-0
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (12 chars): Place Blue 1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:13:bag-0
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (14 chars): Place Orange 1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for stop
+PASS Live EventSystem exists for pointer dispatch
+PASS Dice overlay has a rendered result heading
+PASS dice results rendered and dismissed through Continue
+PASS Enabled live button exists: Continue
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for buy:red:4
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-shopping
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-ruby-spending
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for next-round
+PASS Live EventSystem exists for pointer dispatch
+PASS Round 6 has an active fortune title
+PASS Fortune caption matches Core title in round 6
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:17:none
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (26 chars): Return all previewed chips
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:18:none
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (26 chars): Return all previewed chips
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:19:bag-1
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (12 chars): Place Blue 2
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:20:bag-1
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (13 chars): Place Green 1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for stop
+PASS Live EventSystem exists for pointer dispatch
+PASS Dice overlay has a rendered result heading
+PASS dice results rendered and dismissed through Continue
+PASS Enabled live button exists: Continue
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for buy:green:4
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-shopping
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for refill-flask
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-ruby-spending
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for next-round
+PASS Live EventSystem exists for pointer dispatch
+PASS Round 7 has an active fortune title
+PASS Fortune caption matches Core title in round 7
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for use-flask
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:25:bag-1
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (13 chars): Place Green 4
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for stop
+PASS Live EventSystem exists for pointer dispatch
+PASS Dice overlay has a rendered result heading
+PASS dice results rendered and dismissed through Continue
+PASS Enabled live button exists: Continue
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for buy:yellow:4
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-shopping
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-ruby-spending
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for next-round
+PASS Live EventSystem exists for pointer dispatch
+PASS Round 8 has an active fortune title
+PASS Fortune caption matches Core title in round 8
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:26:blue-2
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (18 chars): Take a Blue 2 chip
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:28:none
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (26 chars): Return all previewed chips
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:30:apply
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (31 chars): Return the preceding white chip
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:31:none
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (26 chars): Return all previewed chips
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:32:bag-1
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (13 chars): Place Green 1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:34:bag-0
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (11 chars): Place Red 4
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for stop
+PASS Live EventSystem exists for pointer dispatch
+PASS Dice overlay has a rendered result heading
+PASS dice results rendered and dismissed through Continue
+PASS Enabled live button exists: Continue
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for buy:blue:4
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for buy:orange:1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-shopping
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for refill-flask
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-ruby-spending
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for next-round
+PASS Live EventSystem exists for pointer dispatch
+PASS Round 9 has an active fortune title
+PASS Fortune caption matches Core title in round 9
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:42:bag-0
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (12 chars): Place Blue 2
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:43:bag-0
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (11 chars): Place Red 4
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:44:bag-1
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (14 chars): Place Orange 1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:49:bag-0
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (14 chars): Place Yellow 4
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:52:bag-0
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (14 chars): Place Orange 1
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for choose:54:none
+PASS Core choice text reaches its live action button
+PASS Core choice text does not overflow its action-button label
+PASS readable Core choice (26 chars): Return all previewed chips
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for use-flask
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for draw
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for stop
+PASS Live EventSystem exists for pointer dispatch
+PASS Dice overlay has a rendered result heading
+PASS dice results rendered and dismissed through Continue
+PASS Enabled live button exists: Continue
+PASS Live EventSystem exists for pointer dispatch
+PASS Normal policy selected a live human action
+PASS Live UI contains enabled button for finish-ruby-spending
+PASS Live EventSystem exists for pointer dispatch
+PASS Nine rounds exposed nine active fortunes
+PASS All nine active fortunes were unique
+PASS At least one Core die result reached the Unity presentation
+PASS Core-issued choice labels remained readable in the action list
+PASS final score: Human 43 VP; AI 42 VP; winner human
+PASS Enabled live button exists: Open Scoreboard
+PASS Live EventSystem exists for pointer dispatch
+PASS Final live scoreboard opened
+PASS Enabled live button exists: Back to Your Pot
+PASS Live EventSystem exists for pointer dispatch
+PASS Final scoreboard returns to the table through its Back button
+PASS final screenshot capture acknowledged
+actions=
+pointer human Normal policy finish-shopping via Action_finish-shopping
+pointer human Normal policy finish-ruby-spending via Action_finish-ruby-spending
+pointer human Normal policy next-round via Action_next-round
+observed fortune 5: Living in Luxury
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:11:bag-0 via Action_choose:11:bag-0
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:12:bag-0 via Action_choose:12:bag-0
+pointer human Normal policy choose:13:bag-0 via Action_choose:13:bag-0
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy stop via Stop
+pointer dice continue via Continue
+pointer human Normal policy buy:red:4 via Action_buy:red:4
+pointer human Normal policy finish-shopping via Action_finish-shopping
+pointer human Normal policy finish-ruby-spending via Action_finish-ruby-spending
+pointer human Normal policy next-round via Action_next-round
+observed fortune 6: Lucky Devil
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:17:none via Action_choose:17:none
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:18:none via Action_choose:18:none
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:19:bag-1 via Action_choose:19:bag-1
+pointer human Normal policy choose:20:bag-1 via Action_choose:20:bag-1
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy stop via Stop
+pointer dice continue via Continue
+pointer human Normal policy buy:green:4 via Action_buy:green:4
+pointer human Normal policy finish-shopping via Action_finish-shopping
+pointer human Normal policy refill-flask via Action_refill-flask
+pointer human Normal policy finish-ruby-spending via Action_finish-ruby-spending
+pointer human Normal policy next-round via Action_next-round
+observed fortune 7: The Pot Is Full
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy use-flask via Flask
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:25:bag-1 via Action_choose:25:bag-1
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy stop via Stop
+pointer dice continue via Continue
+pointer human Normal policy buy:yellow:4 via Action_buy:yellow:4
+pointer human Normal policy finish-shopping via Action_finish-shopping
+pointer human Normal policy finish-ruby-spending via Action_finish-ruby-spending
+pointer human Normal policy next-round via Action_next-round
+observed fortune 8: You Only Get to Choose One
+pointer human Normal policy choose:26:blue-2 via Action_choose:26:blue-2
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:28:none via Action_choose:28:none
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:30:apply via Action_choose:30:apply
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:31:none via Action_choose:31:none
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:32:bag-1 via Action_choose:32:bag-1
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:34:bag-0 via Action_choose:34:bag-0
+pointer human Normal policy draw via Draw
+pointer human Normal policy stop via Stop
+pointer dice continue via Continue
+pointer human Normal policy buy:blue:4 via Action_buy:blue:4
+pointer human Normal policy buy:orange:1 via Action_buy:orange:1
+pointer human Normal policy finish-shopping via Action_finish-shopping
+pointer human Normal policy refill-flask via Action_refill-flask
+pointer human Normal policy finish-ruby-spending via Action_finish-ruby-spending
+pointer human Normal policy next-round via Action_next-round
+observed fortune 9: Rat Infestation
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:42:bag-0 via Action_choose:42:bag-0
+pointer human Normal policy choose:43:bag-0 via Action_choose:43:bag-0
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:44:bag-1 via Action_choose:44:bag-1
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:49:bag-0 via Action_choose:49:bag-0
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:52:bag-0 via Action_choose:52:bag-0
+pointer human Normal policy draw via Draw
+pointer human Normal policy choose:54:none via Action_choose:54:none
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy draw via Draw
+pointer human Normal policy use-flask via Flask
+pointer human Normal policy draw via Draw
+pointer human Normal policy stop via Stop
+pointer dice continue via Continue
+pointer human Normal policy finish-ruby-spending via Action_finish-ruby-spending
+pointer final scoreboard open via Open Scoreboard
+pointer final scoreboard back via Back to Your Pot
