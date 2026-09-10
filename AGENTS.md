@@ -2,7 +2,8 @@
 
 ## Product and architecture
 
-Follow docs/IMPLEMENTATION_GOAL.md for the full deliverable. Read
+Follow docs/duck-migration/PLAN.md for the current duck migration. The completed
+playable baseline is documented in docs/IMPLEMENTATION_GOAL.md. Read
 docs/ARCHITECTURE.md before changing component boundaries. Readable, adaptable
 architecture is the leading requirement. Core rules must never depend on Unity.
 Do not simplify the agreed complete base-game scope to satisfy prototype tests.
@@ -33,7 +34,7 @@ untested completion claims. Escalate a specific hard problem, not a whole task.
 
 Preserve pre-existing work and unrelated changes. The user has authorized regular
 progress commits and pushes to GitHub. The lead owns Git operations: use the
-`codex/initial-playable-scene` branch, commit each small coherent Core change,
+`codex/duck-game-milestone-0` branch for this migration, commit each small coherent Core change,
 then its unit tests as a separate commit, and each compiling Unity change as its
 own checkpoint. Run appropriate checks and push each checkpoint immediately.
 Use clear commit subjects and bodies explaining the problem and resulting
@@ -45,3 +46,9 @@ code checkpoints; if a work-in-progress checkpoint is needed, label it honestly
 and record the known failing checks. Do not describe a partial milestone as the
 complete playable game. No physical-device install or public release is requested.
 A successful Editor run, iOS export, and device test are distinct evidence.
+
+Stop at each completed migration milestone and ask the user how they feel about
+the result before starting the next one. M0 establishes the baseline and plan;
+M1 is the first generated-art and Unity visual test. Preserve existing mechanics
+through the first playable duck version. Ask before adding rule or balance
+changes; presentation choices within the selected milestone may proceed.
