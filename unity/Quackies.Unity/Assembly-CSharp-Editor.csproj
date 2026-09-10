@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Editor/QuackiesArtImporter.cs" />
+    <Compile Include="Assets/Editor/DuckStyleTestSceneBuilder.cs" />
     <Compile Include="Assets/Editor/InitialSceneBuilder.cs" />
   </ItemGroup>
   <ItemGroup>

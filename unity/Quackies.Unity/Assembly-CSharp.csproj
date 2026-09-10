@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/Presentation/ScoreboardView.cs" />
     <Compile Include="Assets/Scripts/Art/QuackiesArtCatalog.cs" />
+    <Compile Include="Assets/Scripts/Presentation/DuckStyleEllipse.cs" />
     <Compile Include="Assets/Scripts/Presentation/ActionPanelView.cs" />
     <Compile Include="Assets/Scripts/Presentation/TableTheme.cs" />
     <Compile Include="Assets/Scripts/GamePresenter.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets/Scripts/Presentation/MatchSettingsView.cs" />
     <Compile Include="Assets/Scripts/MatchPresenter.cs" />
     <Compile Include="Assets/Scripts/Presentation/PrimaryActionsView.cs" />
+    <Compile Include="Assets/Scripts/Presentation/DuckStylePreview.cs" />
     <Compile Include="Assets/Scripts/Presentation/TableUi.cs" />
   </ItemGroup>
   <ItemGroup>
