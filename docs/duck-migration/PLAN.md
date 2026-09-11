@@ -3,10 +3,19 @@
 ## Current scope and source
 
 The user accepted M0 and authorized **M1 only** on 10 September 2026. On 11
-September the first M1 style was rejected as a visual direction. M1 is now an
-image-only art redirection: generate three concept sheets, inspect them, and
-pause for the user's reaction. This does not authorize Unity import, source or
-settings changes, M2, or a rules change.
+September the first M1 style was rejected as a visual direction. The subsequent
+duck tiles and three-biome style were approved. The current V3 image-only pass
+refines one strongly coloured seed tile and the board's placement/reward/rest
+clarity. Preserve the current Pond penny and Twig values; the user confirmed
+eight resting spots, rounding half of the 15 original ruby spots upward.
+Pause again for image review. No Unity import, source/settings changes or M2
+are authorized by this pass.
+
+The user explicitly approved precise typesetting over generated artwork after
+the first labelled image skipped positions and corrupted reward values. Keep
+the approved illustrated scenery; construct the exact review-image pads,
+numbers, reward tabs and eight rest markers from verified track data. This
+static design rendering is outside Unity and does not alter the rules engine.
 The current branch is
 `codex/duck-game-milestone-0`, created from merged playable commit
 `74e40cfe04995d813428c3ff8390461235928a44` on 10 September 2026.
@@ -29,14 +38,18 @@ end the day worn out.
 
 - Goofy, flat cartoon tabletop art: ducks should read as tangible cardboard
   player tiles or tokens, with oversized bills and eyes and original artwork.
-  Player ducks differ in colour and styling. This concept sheet explores four
+  Player ducks differ in colour and styling. The approved V2 sheet explores four
   identities; it does not change the current human-versus-AI player count.
-  Encounter tokens should also feel physical; category-specific
-  silhouettes are welcome where they improve recognition.
+  Encounter tokens also feel physical, with one consistent silhouette per
+  category and unmistakable category colour. For V3, seeds use the rounded
+  triangle with a solid orange face and thick darker orange border.
 - The board is illustrated artwork with one continuous, readable winding path
   across three connected biome loops. Bridges make the region transitions clear;
   there are no unintended branches or shortcuts. Irregular illustrated spaces
-  and inviting rest places replace a rigid repeated-circle treatment.
+  and inviting rest places replace a rigid repeated-circle treatment. Every
+  numbered space has an obvious token placement well and an attached reward
+  strip that remains readable when a tile covers the well. Decorative paths and
+  rocks must not look like extra playable spaces.
 - Biomes are a proposed design direction, not approved rule changes: a pleasant
   pond/grassland beginning, a lush comfortable middle with many inviting rests,
   and a barren unpleasant final region with rare exceptionally cosy havens.
@@ -102,7 +115,7 @@ either/or restriction. Feathers retain their separate final conversion.
 | Milestone | Bounded work | Evidence and pause |
 | --- | --- | --- |
 | M0 — Baseline | Inspect actual API, CLI, Unity, rules, AI and persistence; preserve dirty work; branch; run existing checks; record tools, risks, plan and art brief | Repository map and current evidence; ask for reaction |
-| M1 — Art redirection | Generate and inspect three concept sheets outside Unity: four player duck tiles, seed encounter tile study and illustrated three-biome board | Image review only; preserve V1 as superseded technical evidence and ask how the new direction feels |
+| M1 — Art redirection | Preserve approved duck tiles/biome style; refine one coloured seed shape and board placement wells, exact rewards and eight assigned resting spots | Image review only; inspect count/value legibility and ask how the result feels before Unity work |
 | M2 — Terminology | Add the smallest shared display contract in `src/Quackies.Core`; adapt `src/Quackies.Cli` and expose the same definitions to Unity | Duck CLI, preserved classic identities, same numerical results and legal actions for identical seeds/actions; ask about wording |
 | M3 — Playable duck table | Connect a separate duck presentation to `MatchSession`; add essential shelter, feather, nest and catch-up visuals | Complete game with Explore, Settle down, exhaustion, rewards, market, next-day reset and retained nest score; ask for a playtest reaction |
 | M4 — Essential art | Complete encounter icons and original help text; finish modest journey/result animations and UI | Readability at actual sizes, safe/worn-out endings, consistent assets and accurate previews; ask about feel |
@@ -169,9 +182,19 @@ concept sheet is not a count proof.
 
 Keep Twigs beside a nest, label pennies as **Spend today**, and show the resting
 preview separately from the nest score. These are rules-neutral clarity choices.
-The proposed reward intent is modest rewards anywhere in the first biome,
-medium ordinary or generous rewards at good middle rests, and small ordinary or
-exceptional good rests in the final biome, so distance alone need not pay. No
-numeric table, timing, AI or balance implementation is approved. Extend the old
-M5 shelter experiment later to biome rewards, preserve the unchanged baseline,
-and require an explicit rules specification and playtest gate first.
+The latest request explicitly retains the current Quacks Pond penny/Twig table,
+superseding the earlier biome-dependent reward curve for this design. That
+earlier idea remains a future experiment only. V3 uses eight clearly assigned
+resting spaces, proposed at physical indices 5,13,20,28,34,40,46,52: a subset of
+the original ruby positions, distributed 2/3/3 across the illustrated regions.
+The count is confirmed; their illustrated placement awaits review. Each rest
+frames its own token well and has an attached feather marker; scenery nearby
+must not imply a separate resting space. No extra Penny/Twig bonuses are added.
+
+The board retains start0 and numbered spaces1–53. Ordinary encounter placement
+ends at52; space53 is the existing final scoring space. Rewards and the resting
+spot are read from the next empty scoring space. The exact source table and
+original ruby flags are in [the V3 data audit](concepts/2026-09-11-v3/track-data.md).
+Core still has all 15 original ruby positions: the image-only selection does
+not itself implement the eight-rest rule profile. No new reward amount, timing,
+AI or balance code is part of this review.

@@ -1,8 +1,9 @@
 # Duck migration status
 
-**M1 revision — images ready; stopped for user review.** On 11 September 2026 the user rejected
-the first M1 style. The V1 Unity prototype remains technically valid evidence
-but its visual direction is superseded. Branch: `codex/duck-game-milestone-0`.
+**M1 V3 — placement and reward clarity in progress.** The user approved the V2
+duck tiles and three-biome art style, and requested stronger seed colour, one
+seed shape, visible exact board rewards and eight clearly assigned resting
+spots. Branch: `codex/duck-game-milestone-0`.
 
 ## Completed work
 
@@ -15,9 +16,14 @@ but its visual direction is superseded. Branch: `codex/duck-game-milestone-0`.
   tiles, a seed encounter tile study, and an illustrated three-biome board.
   Exact prompts, native output dimensions and hashes accompany the images.
   The plan revision is published in `d0ac497`.
-- The proposed biome reward direction is concept only. Existing rules remain
-  unchanged; new values, timing and AI effects are unspecified. Future work needs an
-  explicit specification and playtest gate extending the shelter experiment.
+- V3 preserves the existing Penny/Twig table. The proposed biome reward curve
+  is deferred; the latest direction is eight illustrated rests, rounded up from
+  15 ruby spaces, with unchanged printed Penny/Twig values. Source rules are
+  unchanged. [Track audit](concepts/2026-09-11-v3/track-data.md) records the data.
+- The user approved precise typesetting over generated scenery after the first
+  labelled board image skipped/mislabelled spaces and rewards. That image is
+  excluded as a final deliverable. The static renderer is being prepared from
+  the verified data; no Unity integration is in progress.
 
 This pass generated concept images only, outside Unity, with no Editor calls.
 Source, Unity assets, packages and shipping scene list remain unchanged. Preserve the pre-existing
@@ -25,7 +31,7 @@ ProjectSettings preload removal and keep it out of commits.
 
 ## Review gate
 
-The three concept sheets have been inspected. Wait for the user's reaction; do not import
+Inspect the V3 seed and board images, then wait for the user's reaction; do not import
 them into Unity, alter source/settings, or start M2. The existing 54 logical
 positions and next-scoring-space semantics remain the baseline; the illustrated
 mapping is not count proof.

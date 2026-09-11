@@ -12,7 +12,12 @@ Explore/Reset checks passed, but the style is superseded. The bounded task
 is complete: three new concept sheets are generated, inspected and saved under
 [duck-migration/concepts/2026-09-11](duck-migration/concepts/2026-09-11/README.md):
 four distinct player duck tiles, a seed encounter tile study, and an illustrated
-three-biome board. Stopped for the user's image review. Do not import into Unity,
+three-biome board. The user then approved the ducks/biome style and requested
+a V3 clarity pass: one strongly coloured seed shape, explicit tile wells, exact
+current reward values and eight assigned rests. V3 is in progress under
+`duck-migration/concepts/2026-09-11-v3/`. Precise static typesetting over generated
+scenery is explicitly approved; the first fully generated label attempt was
+inaccurate. Stop for another image review when V3 is ready. Do not import into Unity,
 change source/settings, implement biome rewards, or start M2. Preserve the
 original playable game and pre-existing ProjectSettings preload removal.
 
