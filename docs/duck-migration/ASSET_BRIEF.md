@@ -1,9 +1,12 @@
 # Duck art brief
 
-## Current experiment: M1 V4 board refinement, 11 September 2026
+## Current experiment: M1 V5 painted board refinement, 11 September 2026
 
 Keep the approved V2 duck tiles, V3 seed tile and three-biome art style. Refine
-only the board design outside Unity, then stop for image review. The
+only the board design outside Unity, then stop for image review. Keep the exact
+user-selected exec-56f99a5a background with the oasis at the far top right. Match
+the bubbly spaces and full illustrated legend in exec-88b1f5df, whose numerical
+content remains a rejected source. V4’s flat repeated well shapes are superseded. The
 older V1 prompts and manifest remain historical evidence in
 [ASSET_MANIFEST.md](ASSET_MANIFEST.md); they are not the current brief.
 
@@ -21,10 +24,10 @@ coin/twig icons with exact reward amounts in the bottom row of each space.
 | --- | --- | --- |
 | Existing `duck-player-tiles-v2.png` | Approved four-player identity sheet; retain unchanged | No new generation needed |
 | Existing `seed-tile-v3.png` | Approved orange rounded triangular seed tile; retain unchanged | No new generation needed |
-| `three-biome-board-v4.jpg` | Incomplete starting nest, unnumbered token wells, coin/twig icon rewards and eight clearly linked shelters | Generated landscape with precise static typesetting; consistent geometry at 11, 44 and 53 |
+| `three-biome-board-v5.jpg` | Incomplete starting nest, unnumbered token wells, coin/twig icon rewards and eight clearly linked shelters | Selected landscape plus painted component sprites and precise type; bubbly contours, textured cream faces, full leafy feather frames |
 
 Save the new sheets and prompts under
-`docs/duck-migration/concepts/2026-09-11-v4/`. Approved token images remain
+`docs/duck-migration/concepts/2026-09-11-v5/`. Approved token images remain
 in their original folders. These are design review images, not Unity imports.
 
 Use the exact current [track data](concepts/2026-09-11-v3/track-data.md): separate
@@ -33,21 +36,25 @@ in layout data. Preserve all Pond penny/Twig pairs, including repeats and zeros.
 Print coin icon + amount and twig icon + amount; zero Twigs are omitted, with
 the coin pair centered. The nest replaces the dock and start overlay without text.
 Eight rests were confirmed by the user; illustrate them at 5,13,20,28,34,40,46,52 with a leafy
-frame/feather medallion attached to that exact pad. Do not invent a biome reward
+wreath and prominent white feather attached to that exact pad. Do not invent a biome reward
 curve. Every rest needs an adjacent recognizable shelter and a short entry spur
 to its exact pad. Give 40 a modest log/rock shade shelter while retaining the
-more lush cave at 46; align the upper oasis with rest 52, not final space 53.
+more lush cave at 46. Keep the oasis in the far upper right as explicitly selected;
+connect rest 52 toward it without moving the oasis or obscuring final space 53.
 Runtime rules remain unchanged during this image review.
 
 The sheets demonstrate visual language only; they do not implement a playable
-game. Leave out buttons and runtime controls. Use a small printed key to explain
-the placement well, Pond pennies, Twigs and rest marker, plus the existing rule
-to score the next empty space. Check visible labels and counts against the
+game. Leave out buttons and runtime controls. Restore the full playful illustrated lower-border key: a painted empty pad +
+TILE HERE, large painted coin + Pond pennies, twig bundle + Twigs, leafy white
+feather + REST, then a dashed arrow + Score the next empty space. Use generous
+icons, playful lettering and slim vertical separators, as in the preferred reference. Check visible labels and counts against the
 source table; a correct prompt alone does not establish a correct image.
 
 The user approved a combined workflow after the first labelled generation was
-inaccurate: imagegen supplies clean illustrated scenery, and precise typesetting
-places all 53 unnumbered wells, reward pairs and eight rest markers. Preserve a
+inaccurate. For V5, retain the chosen scenery and let imagegen supply blank
+painted stones, leafy rest frames and resource icons. Composite exactly 53 wells
+from those sprites and typeset exact rewards and legend text; no flat SVG well
+substitute. Keep native sheets and reproducible crop metadata. Preserve a
 reproducible static renderer and inspect its exported image. Do not regenerate
 the approved duck sheet. No Unity call is part of this process.
 
@@ -61,7 +68,7 @@ boundary change is part of this M1 revision.
 ## Repository placement and provenance
 
 Use the built-in `image_gen.imagegen` tool. Keep native concept outputs and
-their exact generation/refinement prompts under `concepts/2026-09-11-v4/`, outside
+their exact generation/refinement prompts under `concepts/2026-09-11-v5/`, outside
 Unity. The attached duck is style inspiration, not artwork to trace. Inspect
 the actual outputs before declaring the concepts ready for user review.
 

@@ -1,0 +1,8 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in background extraction",
+  "referenced_image_paths": [
+    "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-747a4cf5-7b55-4057-989a-204313de072e.png"
+  ],
+  "prompt": "Use case: background-extraction.\nInput image1 is the EXACT EDIT TARGET. Remove ONLY the gray checkerboard background and replace it with REAL FULLY TRANSPARENT PIXELS / an alpha channel. Preserve the nine painted components unchanged: shapes, colors, textures, white feather paint, cream stone faces, golden coin, twigs, positions, proportions, empty reward capsules, exact 3x3 layout. This is a background removal task, not a redraw.\nCritical output requirement: a transparent-background PNG cutout sheet. Checkerboard MUST NOT be painted in the resulting image; no gray checks, no white backdrop, no colored backdrop. Empty spaces and gutters between objects must be genuinely transparent, showing any background used later. All WHITE feather and CREAM stone painted areas remain fully opaque. Preserve clean antialiased component edges. No labels, no text, no new objects, no drop shadow extending into the gutters. One square sheet of the same nine separate isolated components on real transparent background."
+}

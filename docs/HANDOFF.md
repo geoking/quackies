@@ -27,7 +27,12 @@ V4 is finished and inspected: [board and review notes](duck-migration/concepts/2
 The final renderer/image/QA checkpoint is `a66c8d3`. All 53 reward rows are
 preserved, five zero-Twig rows show only coins, and eight distinct shelters
 connect to their green pads with duck-footprint trails. Stopped for the user's
-review. Do not import into Unity,
+review. The user then preferred the untouched upper-right-oasis background
+(exec-56f99a5a) and the earlier bubbly spaces/full illustrated legend
+(exec-88b1f5df), finding the typeset V4 treatment less attractive. V5 is in
+progress with painted component sprites plus exact text; see its review folder
+under `duck-migration/concepts/2026-09-11-v5/`. Finish and inspect the image,
+then stop for feedback. Do not import into Unity,
 change source/settings, implement biome rewards, or start M2. Preserve the
 original playable game and pre-existing ProjectSettings preload removal.
 

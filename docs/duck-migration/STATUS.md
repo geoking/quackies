@@ -1,9 +1,10 @@
 # Duck migration status
 
-**M1 V4 — board ready; stopped for user review.** Tokens are accepted. The user requested
-an incomplete starting nest without text, no position badges, coin/twig icon
-rewards (omit zero Twigs), tidier spaces 11/44/53 and a visible shelter beside
-every rest. Branch: `codex/duck-game-milestone-0`.
+**M1 V5 — painted board refinement in progress.** The user prefers the original
+upper-right-oasis background (exec-56f99a5a) and the bubbly painted wells/full
+illustrated legend of exec-88b1f5df. V4’s flattened typeset well treatment is
+superseded. Use painted components with precise reward text, preserving all
+prior numerical and image-only constraints. Branch: `codex/duck-game-milestone-0`.
 
 ## Completed work
 
@@ -43,7 +44,7 @@ ProjectSettings preload removal and keep it out of commits.
 
 ## Review gate
 
-The V4 image is finished and inspected. Wait for the user's reaction. Do not import the
+Finish and inspect V5, then wait for the user’s reaction. Do not import the
 images into Unity, alter source/settings, or start M2. The existing 54 logical
 positions and next-scoring-space semantics remain the baseline. The verified
 static mapping does not establish Unity behavior.

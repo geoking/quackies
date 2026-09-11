@@ -1,0 +1,17 @@
+{
+  "preferredBackground": {
+    "source": "exec-56f99a5a-4837-453e-a2b1-248752a05830.png",
+    "file": "board-art-v5.png",
+    "sha256": "fb8b475429070f317420983d53870f7a212a722a170ed77ee61c52ed4849c452",
+    "copiedUnchanged": true,
+    "decision": "User explicitly selected this nest/shelter composition with oasis at far upper right; preserve pixels."
+  },
+  "spaceAndLegendStyle": {
+    "source": "exec-88b1f5df-89f4-407a-8ed5-c8bd6baf0607.png",
+    "file": "bubbly-style-reference.png",
+    "sha256": "214d3cf87c7bba00dd5eb3b52b87bafdded8e165cad063c156fc5b61978a1388",
+    "copiedUnchanged": true,
+    "use": "Bubbly painted stones, leafy white feather rest frames, playful full illustrated footer. Style reference only; its numbering and rewards are not authoritative."
+  },
+  "workflow": "Generate blank painted components, place exactly53 via verified layout, typeset icons and exact reward values. Preserve prior nest/noindices/zeroTwigs/8rests decisions."
+}
