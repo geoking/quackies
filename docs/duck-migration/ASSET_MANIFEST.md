@@ -1,4 +1,8 @@
-# M1 generated asset manifest
+# Historical M1 V1 generated asset manifest
+
+This V1 style was rejected on 11 September 2026. Retain this record as historical
+provenance. See [PLAN.md](PLAN.md) for approved tokens and
+[the current board selection](concepts/2026-09-12-approved/README.md).
 
 Created 10 September 2026 with the built-in **image_gen.imagegen** tool, one
 generation per asset. No separately billed API, manual raster editing or original
@@ -29,7 +33,8 @@ the three seeds have a clear silhouette, and the playmat leaves a quiet centre.
 Their appearance at actual Unity size has also been inspected in the
 [native M1 capture](evidence/m1/duck-style-native.png), with the complete trail,
 small encounter overlays and larger samples. [Scene QA](evidence/m1/README.md)
-records the checks. The user's style acceptance is still pending.
+records the checks. Those technical checks remain valid historical evidence;
+the user subsequently rejected this visual style.
 
 Generation sources:
 

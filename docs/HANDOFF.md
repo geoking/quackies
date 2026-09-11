@@ -1,63 +1,32 @@
 # Quackies handoff
 
-## Current task: duck migration M1 art redirection
+## Current task: plan updated; wait for the user's next command
 
-The playable baseline below has been merged into main as `74e40cf`. New work is
-on `codex/duck-game-milestone-0`. Read [the migration plan](duck-migration/PLAN.md),
-[status](duck-migration/STATUS.md) and [baseline](duck-migration/BASELINE.md) for
-the current scope and evidence. The user accepted M0 and authorized M1, then
-rejected the V1 visual style on 11 September 2026. V1 remains historical
-evidence: compile, native 1133 × 744 layout, repeat construction and
-Explore/Reset checks passed, but the style is superseded. The earlier bounded
-art task is complete: three new concept sheets were generated, inspected and
-saved under
-[duck-migration/concepts/2026-09-11](duck-migration/concepts/2026-09-11/README.md):
-four distinct player duck tiles, a seed encounter tile study, and an illustrated
-three-biome board. The user then approved the ducks/biome style and requested
-a V3 clarity pass: one strongly coloured seed shape, explicit tile wells, exact
-current reward values and eight assigned rests. V3 was completed for
-review: [images and review notes](duck-migration/concepts/2026-09-11-v3/README.md).
-Precise static typesetting over generated scenery is explicitly approved; the
-first fully generated label attempt was inaccurate. Final board, renderer and
-QA are published in `47434dc`. All 53 numbered pads and reward pairs and eight
-rest markers passed static checks and the final image was visually inspected.
-The user accepted the tokens and requested a V4 board-only refinement: incomplete
-starting nest, no visible position/start labels, icon rewards with zero Twigs
-omitted, corrected geometry at 11/44/53 and an obvious shelter beside every rest.
-V4 is finished and inspected: [board and review notes](duck-migration/concepts/2026-09-11-v4/README.md).
-The final renderer/image/QA checkpoint is `a66c8d3`. All 53 reward rows are
-preserved, five zero-Twig rows show only coins, and eight distinct shelters
-connect to their green pads with duck-footprint trails. Stopped for the user's
-review. The user then preferred the untouched upper-right-oasis background
-(exec-56f99a5a) and the earlier bubbly spaces/full illustrated legend
-(exec-88b1f5df), finding the typeset V4 treatment less attractive. V5 is finished
-with painted component sprites plus exact text: [finished board and notes](duck-migration/concepts/2026-09-11-v5/README.md).
-The image/renderer/QA checkpoint is `db76c1c`. All 53 reward groups fit their
-painted capsules using measured Marker Felt glyph bounds; lead checked the full
-board and label close-ups. The user likes the V5 style but rejected its painted
-spaces’ alignment with the paths. V6 is historical review evidence at
-checkpoint `94fd3bb`; V7 is historical review evidence at checkpoint `9ee73e0`;
-V8 is historical review evidence at checkpoint `93f7a47`; V9 is historical
-review evidence at checkpoint `72ffdf3`. V10 targets broadly equal route widths,
-initially about 120px and later 140–150px clear on the 1536px reference canvas,
-by pulling interior foliage back while preserving dense barriers. Two bounded
-corrections were applied: general corridor compaction and a lower-grotto
-compaction. Manual samples measured meadow 110–140px, wetland 100–145px,
-desert-left 120–160px, below-oasis 130–170px, and lower-grotto sides
-110–130px/right and 115–135px/left, with about ±10px uncertainty. These samples
-do not certify all 53 positions. It also has the dramatic rocky wasteland
-crossing with grounded timber/rope bridge and sweeping approaches. No tiles,
-tokens, numbers, reward text or legend belong in this base image. The selected
-V10 native candidate is 1536 × 1024. The requested 3072 × 2048
-master remains unresolved after two built-in attempts; no resampling was applied.
-V10 is ready for image review. It has no overlay, so 53-space fit and exact
-indexed alignment remain unresolved.
-A CLI/API fallback requires explicit user authorization and a locally configured
-`OPENAI_API_KEY`; no key is available. Do not import into Unity,
-change source/settings, implement biome
-rewards, or start M2. Unity positioning was discussed only, not authorized.
-Preserve the original playable game and pre-existing ProjectSettings preload
-removal.
+Updated 12 September 2026. Work is on `codex/duck-game-milestone-0`, based on
+merged playable baseline `74e40cf`. The user accepted the duck/seed designs and
+explicitly selected **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b**, the first V10
+board candidate. Use [the approved board](duck-migration/concepts/2026-09-12-approved/board-art-approved.png)
+and its [selection record](duck-migration/concepts/2026-09-12-approved/README.md),
+not the later clearance-corrected V10 image.
+
+The [consolidated plan](duck-migration/PLAN.md) now records the **Most Rested
+Duck reward** and shared start-of-Day **World Events**, preserving baseline
+mechanics. It defines the illustrated board with separate, precisely positioned
+wells/rewards/tokens and the design philosophy for future token categories.
+These are documentation decisions; the runtime has not been migrated.
+
+Read [status](duck-migration/STATUS.md) for remaining validation and the stop
+gate. Exact 53-space fit, token clearance, eight-shelter/15-reward representation
+and the detailed 3072 × 2048 master remain outstanding. The selected board is
+1536 × 1024; a passing audit of a different V10 image is not evidence for it.
+Historical image iterations remain in [PROGRESS.md](PROGRESS.md) and their
+concept folders.
+
+**Stop after this documentation checkpoint.** Do not generate art, import into
+Unity, alter source/settings, construct scenes or start the next milestone
+until the user commands it. Preserve the original playable game and the
+pre-existing ProjectSettings preload removal. Regular coherent commits/pushes
+remain authorized; no automatic main merge or release.
 
 ## Completed playable baseline
 
@@ -66,16 +35,17 @@ The agreed initial playable milestone is complete.
 Read IMPLEMENTATION_GOAL.md for scope, RULES_REFERENCE.md for primary rules, and
 PROGRESS.md for validation. Test tubes and separate AI-history UI are deferred.
 
-## Run and workflow
+## Baseline run and workflow
 
-Branch codex/initial-playable-scene; GitHub geoking/quackies. Open
-unity/Quackies.Unity in Unity6000.6.0f1. From Edit mode choose
+The completed baseline was developed on codex/initial-playable-scene;
+current migration work uses codex/duck-game-milestone-0. GitHub: geoking/quackies.
+Open unity/Quackies.Unity in Unity6000.6.0f1. From Edit mode choose
 **Quackies → Build and Play Initial Scene**. Run Core checks with
 `dotnet test Quackies.sln`; CLI supports `--starting-rubies 0`.
 Root owns Git: small Core source, separate tests, separate compiling Unity
 checkpoints; push each, preserve unrelated files, no merge/force push.
 
-## Current published state
+## Baseline published state — 10 September 2026
 
 - All 24 Set 1 fortunes are implemented and enabled by default (81e280d).
   Explicit empty decks remain available for isolated fixtures. Sessions reveal
@@ -132,8 +102,9 @@ Root owns Git and coordinates the Unity validation work. Check live agent and
 Git status before resuming; preserve unrelated changes and do not merge main.
 Test-tube rules and the separate AI-history pane remain deferred to a future goal.
 
-Unity MCP is currently unavailable. Use the CLI connector and inspect live agent
-state before resuming. The reusable validation harness is tracked at
+Unity MCP was unavailable at the baseline handoff. Inspect live connector and
+agent state when Unity work is next authorized; prefer the Unity connector
+before UI automation. The reusable validation harness is tracked at
 `tools/validation/QuackiesUnityFullMatchProbe.cs`; local run output is under
 `Temp/QuackiesValidation/`, with canonical evidence under
 `tools/validation/evidence/2026-09-10/`. Do not describe the recorded GameView

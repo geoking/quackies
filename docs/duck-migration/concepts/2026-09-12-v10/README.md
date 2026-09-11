@@ -1,6 +1,11 @@
 # V10 — wider token routes and a dramatic wasteland crossing
 
-[Review the revised base board](board-art-v10.png).
+**Selection update, 12 September 2026:** the user chose the first V10 candidate,
+exec-9d44cb08, now saved as [the approved board](../2026-09-12-approved/README.md).
+The following notes and passing width audit describe the later alternative
+exec-bada2b21; they do not establish clearance for the approved image.
+
+[View the historical clearance-corrected alternative](board-art-v10.png).
 
 The meadow's interior planting is more compact, leaving wider open ground on
 both sides. The wetland's returning bank and the desert's shelter edges were

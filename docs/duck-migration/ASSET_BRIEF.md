@@ -1,108 +1,52 @@
-# Duck art brief
+# Duck art production brief
 
-## Current experiment: M1 V5 painted board refinement, 11 September 2026
+Updated 12 September 2026. The accepted board, token philosophy and overlay
+requirements are defined once in [PLAN.md](PLAN.md). Use that decision record
+for visual direction and [STATUS.md](STATUS.md) for the current gate.
 
-Keep the approved V2 duck tiles, V3 seed tile and three-biome art style. Refine
-only the board design outside Unity, then stop for image review. Keep the exact
-user-selected exec-56f99a5a background with the oasis at the far top right. Match
-the bubbly spaces and full illustrated legend in exec-88b1f5df, whose numerical
-content remains a rejected source. V4’s flat repeated well shapes are superseded. The
-older V1 prompts and manifest remain historical evidence in
-[ASSET_MANIFEST.md](ASSET_MANIFEST.md); they are not the current brief.
+The canonical base is [the user-selected exec-9d44cb08 image](concepts/2026-09-12-approved/board-art-approved.png),
+with [selection and provenance](concepts/2026-09-12-approved/README.md).
+V2 player ducks and the V3 seed are approved; V5 components supply the painted
+well/icon style. Earlier layouts and the V1 style test are historical references.
+No art generation or Unity import is authorized by this documentation update.
 
-Use flat goofy tabletop cartoon art with tangible cardboard token/tile presence,
-oversized bills and eyes, clear silhouettes and original artwork. Four player
-ducks need distinct colours and distinct styling. Encounter tokens should feel
-physical, with category-specific silhouettes where useful. The board should be
-illustrated, with a continuous readable winding path through three connected
-biomes: pleasant pond/grassland, lush comfortable middle, and barren unpleasant
-final region. Bridges, token wells, reward values and individual rest places
-must be legible. The latest request removes visible position numbers and uses
-coin/twig icons with exact reward amounts in the bottom row of each space.
+## Production method after work resumes
 
-| Proposed asset | Purpose and composition | Suggested source / background |
-| --- | --- | --- |
-| Existing `duck-player-tiles-v2.png` | Approved four-player identity sheet; retain unchanged | No new generation needed |
-| Existing `seed-tile-v3.png` | Approved orange rounded triangular seed tile; retain unchanged | No new generation needed |
-| `three-biome-board-v5.jpg` | Incomplete starting nest, unnumbered token wells, coin/twig icon rewards and eight clearly linked shelters | Selected landscape plus painted component sprites and precise type; bubbly contours, textured cream faces, full leafy feather frames |
+- Keep the selected scenery separate from placement wells, reward rows, rest
+  markers, tokens and legend. Reuse painted components where suitable; author
+  exact text and values from verified data. Preserve editable overlay positions
+  so alignment can be reviewed against the actual painted route.
+- Use the common token size budget from PLAN.md. Check silhouettes, category
+  colour, contrast, strength overlays, alpha edges and occupied-well reward
+  readability at the actual human-board and opponent-inspection sizes.
+- Inspect native outputs before declaring them usable. Record prompts or source,
+  version, dimensions, file hash, alpha findings and intended use. A resolution
+  requested in a prompt is not evidence of delivered resolution.
+- Keep native source files and reproducible crop/overlay metadata outside Unity
+  until import is authorized. Preserve `Assets/Art/raw`, catalog references and
+  stable `.meta` identities when replacing assets.
+- Use original artwork. The user's duck reference inspires a cartoon character;
+  do not trace it. Original game assets provide rule/component references, not
+  artwork to imitate through image generation.
 
-Save the new sheets and prompts under
-`docs/duck-migration/concepts/2026-09-11-v5/`. Approved token images remain
-in their original folders. These are design review images, not Unity imports.
-
-Use the exact current [track data](concepts/2026-09-11-v3/track-data.md): separate
-duck start 0, spaces 1–53, last encounter 52, final scoring 53. Retain indices only
-in layout data. Preserve all Pond penny/Twig pairs, including repeats and zeros.
-Print coin icon + amount and twig icon + amount; zero Twigs are omitted, with
-the coin pair centered. The nest replaces the dock and start overlay without text.
-Eight rests were confirmed by the user; illustrate them at 5,13,20,28,34,40,46,52 with a leafy
-wreath and prominent white feather attached to that exact pad. Do not invent a biome reward
-curve. Every rest needs an adjacent recognizable shelter and a short entry spur
-to its exact pad. Give 40 a modest log/rock shade shelter while retaining the
-more lush cave at 46. Keep the oasis in the far upper right as explicitly selected;
-connect rest 52 toward it without moving the oasis or obscuring final space 53.
-Runtime rules remain unchanged during this image review.
-
-The sheets demonstrate visual language only; they do not implement a playable
-game. Leave out buttons and runtime controls. Restore the full playful illustrated lower-border key: a painted empty pad +
-TILE HERE, large painted coin + Pond pennies, twig bundle + Twigs, leafy white
-feather + REST, then a dashed arrow + Score the next empty space. Use generous
-icons, playful lettering and slim vertical separators, as in the preferred reference. Check visible labels and counts against the
-source table; a correct prompt alone does not establish a correct image.
-
-The user approved a combined workflow after the first labelled generation was
-inaccurate. For V5, retain the chosen scenery and let imagegen supply blank
-painted stones, leafy rest frames and resource icons. Composite exactly 53 wells
-from those sprites and typeset exact rewards and legend text; no flat SVG well
-substitute. Keep native sheets and reproducible crop metadata. Preserve a
-reproducible static renderer and inspect its exported image. Do not regenerate
-the approved duck sheet. No Unity call is part of this process.
-
-## Later implementation boundary
-
-If approved later, use illustrated board artwork with invisible indexed anchors
-and hitboxes layered over it. Do not redraw the board as a rigid programmatic
-grid and do not infer rules from painted spaces. No Unity import or component
-boundary change is part of this M1 revision.
-
-## Repository placement and provenance
-
-Use the built-in `image_gen.imagegen` tool. Keep native concept outputs and
-their exact generation/refinement prompts under `concepts/2026-09-11-v5/`, outside
-Unity. The attached duck is style inspiration, not artwork to trace. Inspect
-the actual outputs before declaring the concepts ready for user review.
-
-Possible future Unity import roots, relative to `unity/Quackies.Unity`, after
-a separate request to implement the reviewed direction:
+Possible later import roots, relative to `unity/Quackies.Unity`:
 
 - `Assets/Art/DuckTheme/Backgrounds/`
 - `Assets/Art/DuckTheme/Characters/`
 - `Assets/Art/DuckTheme/Encounters/`
 
-For later production assets, record prompts, version, output path, actual
-dimensions and alpha checks in the asset manifest. Keep `.meta` files stable
-on later replacements. Preserve `Assets/Art/raw` and all current
-catalog references. Original game art is reference for rule data only; do not
-feed it into the generator to imitate its illustration or board composition.
+## Remaining asset work
 
-The existing M1 scene and builder remain historical V1 evidence. Do not modify
-them during this image-only gate.
+After authorization, prepare the other encounter categories, resource icons,
+scored nest, shelter marker, lily-pad crossing/landing pad and Water flask.
+Develop the **Most Rested Duck reward** presentation and **World Events** with
+original event art and explanations mapped to existing mechanics. Keep player
+duck identities distinct from Companion duck encounters.
 
-## Later assets, after the style review
+Essential journey/result poses belong to the playable presentation. Elaborate
+nest-growth stages, decorative variants and animation polish can follow.
+Numeric strengths remain overlays. Artwork never silently changes a rule.
 
-Essential M3/M4 work: obstacle, tailwind, signpost, splash, nesting reeds,
-companion duck and wildflower icons; feather, twig and Pond penny icons; base
-scored nest; shelter marker; one reusable lily-pad crossing and landing marker;
-simple happy/worn-out duck result poses; water flask and Lucky find treatment;
-original Pond happenings presentation. Numeric strengths remain UI overlays.
-
-Keep the scored nest distinct from the daily shelter/resting spot. Nest growth
-stages, elaborate animations and additional decorative variants are later polish.
-Shelter art does not approve or implement a new shelter reward rule.
-
-## M1 revision gate
-
-- Inspect the refined board at useful size, then pause for the user's
-  reaction. No Unity import, editor call, source/settings change or M2 starts.
-- Treat the previous V1 Unity screenshot and compile checks as superseded style
-  evidence: technically valid, visually rejected.
+The [asset manifest](ASSET_MANIFEST.md) retains historical V1 provenance; each
+subsequent concept folder records its own sources. The selected image's
+production resolution and exact token fit remain outstanding as listed in PLAN.md.

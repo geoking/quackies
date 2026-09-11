@@ -1,0 +1,25 @@
+{
+  "selectedOn": "2026-09-12",
+  "status": "User-approved base-board art direction; implementation remains paused",
+  "selectedGeneration": "exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b.png",
+  "nativeSource": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b.png",
+  "artifact": "board-art-approved.png",
+  "sha256": "121c064ae0d14b8883e3420c6ed8f081167e1c0927a6a5010ce5307d2982a7f9",
+  "bytes": 3132901,
+  "nativeDimensions": [
+    1536,
+    1024
+  ],
+  "copyMethod": "Byte-identical copy; no new generation, editing or resampling",
+  "generationPrompt": "../2026-09-12-v10/prompt.json",
+  "selectionNote": "User explicitly selected the first V10 candidate. Later clearance-corrected V10 candidates are historical alternatives, not the approved board.",
+  "validationLimits": {
+    "artDirectionApproved": true,
+    "all53SpacesPlaced": false,
+    "tokenClearanceVerified": false,
+    "unityImported": false,
+    "ipadReadabilityVerified": false,
+    "requested3072x2048MasterDelivered": false,
+    "priorAudit": "The later passing corridor audit applies to exec-bada2b21, not this image. The selected image has recorded narrow corridor risks for the future overlay fit pass."
+  }
+}

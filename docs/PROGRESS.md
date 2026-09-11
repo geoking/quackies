@@ -441,3 +441,33 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   review. The dramatic bridge approaches passed visual inspection. The 3072 ×
   2048 master remains unresolved; do not claim exact 53-space fit or
   Unity/runtime evidence.
+
+### 25. M1 art selection and consolidated plan (12 September 2026)
+
+- The user approved **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b**, the first V10
+  candidate. Saved its exact native PNG and provenance in
+  [the approved-board folder](duck-migration/concepts/2026-09-12-approved/README.md).
+  This explicit choice supersedes the later V10 candidate as the art reference;
+  the later image's passing sampled audit does not transfer to the selected one.
+- Consolidated [PLAN.md](duck-migration/PLAN.md), removing repeated iteration
+  notes and gates. Retained approved duck/seed references, defined the layered
+  board and precise overlays, and documented a reusable physical-token philosophy:
+  one silhouette per category, strong colour plus recognizable imagery, common
+  fit, uncluttered faces and separate strength/state overlays.
+- Renamed bonus-die presentation to **Most Rested Duck reward**, a small bonus
+  using current eligibility, tied leaders and outcomes. Fortune presentation
+  becomes **World Events**, one situation shared by all ducks at each Day's
+  start, retaining existing reveal-time and later choices/effects.
+- Aligned STATUS, ASSET_BRIEF and the current HANDOFF with this decision. Marked
+  V1 provenance and later V10 art/audit explicitly historical. Recorded exact
+  53-space fit, selected-image clearance, production resolution and the
+  eight-shelter/15-reward representation as remaining integration work.
+- Validation: checked reward/event wording against Core and received a focused
+  independent documentation review; checked changed-document links, obsolete
+  terminology, selected-image SHA-256 and whitespace. The native 1536 × 1024
+  image is byte-identical to the user-selected source. Core, tests and Unity
+  files were not changed; the pre-existing ProjectSettings hash is preserved
+  and excluded from the checkpoint. No runtime tests, image generation,
+  resizing, Unity calls or imports were performed for this documentation change.
+- Stop here at the user's request. The next milestone and Unity construction
+  await the user's command; regular checkpoint publication remains authorized.

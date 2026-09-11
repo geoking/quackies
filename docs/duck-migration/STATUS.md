@@ -1,109 +1,53 @@
 # Duck migration status
 
-**M1 V10 — route-width/bridge candidate ready for image review.**
-V9 is historical review evidence at checkpoint `72ffdf3`.
-The user likes V5’s painted style but rejects its spaces’ alignment
-with the painted paths.
-V10 keeps V9’s distinctions/barriers. The original target was about 120px clear;
-the later generation target was 140–150px. Bounded manual samples on the final
-candidate measured meadow 110–140px, wetland 100–145px, desert-left 120–160px,
-below-oasis 130–170px, lower-grotto right 110–130px and left 115–135px, with
-about ±10px uncertainty. These are sampled ranges, not all-53 certification.
-The wasteland crossing now spans a deeper rocky gap with a grounded
-timber/rope bridge and sweeping open approaches. Preserve LEFT/RIGHT/DOWN
-meadow entries, eight shelters, nest, oasis and broad routes. The selected V10
-native candidate measures 1536 × 1024. The requested
-3072 × 2048 master remains unresolved after two built-in attempts. V8’s
-distinctions were cooler teal/sage damp banks
-and reeds versus warm sunny open grasslands, broad short-grass route, taller soft
-grasses, meadow flowers and leafy deciduous cover around the three existing
-shelters. Preserve the desert composition, far-upper-right oasis, nest, eight
-shelters, bridges, left access to the upper meadow shelter, blocked shortcuts
-and broad corridors. Dense meadow grasses/shrubs/trees and a wetland
-reed/willow thicket block the apparent shortcuts while leaving the main route
-and shelter pockets open.
-This image contains no tiles, tokens, numbers, reward text or legend. Branch:
-`codex/duck-game-milestone-0`.
+Updated 12 September 2026. **M1 art selection is approved; work is paused at
+the user's request after a documentation checkpoint.**
 
-## Completed work
+## Current accepted direction
 
-- V1 generated assets and the separate `DuckStyleTestScene.unity` are retained
-  as historical evidence in `ff2c41b`, `42e51b3` and
-  [the M1 evidence](evidence/m1/README.md). Technical checks passed, but the
-  style was rejected.
-- Three selected concept sheets are generated, inspected and saved under
-  [concepts/2026-09-11](concepts/2026-09-11/README.md): four distinct player duck
-  tiles, a seed encounter tile study, and an illustrated three-biome board.
-  Exact prompts, native output dimensions and hashes accompany the images.
-  The plan revision is published in `d0ac497`.
-- V3 preserves the existing Penny/Twig table. The proposed biome reward curve
-  is deferred; the latest direction is eight illustrated rests, rounded up from
-  15 ruby spaces, with unchanged printed Penny/Twig values. Source rules are
-  unchanged. [Track audit](concepts/2026-09-11-v3/track-data.md) records the data.
-- The user approved precise typesetting over generated scenery after the first
-  labelled board image skipped/mislabelled spaces and rewards. That image is
-  excluded as a final deliverable. The finished static renderer uses the
-  verified data: all 53 numbered spaces and reward pairs, eight rest markers,
-  bounds and non-overlap checks passed. The final 3072 × 2048 JPEG was visually
-  inspected for readable labels and visible rest medallions.
-- [V3 images and review notes](concepts/2026-09-11-v3/README.md) are ready.
-  Data/brief checkpoint: `63b4ceb`; seed and clean background: `8990e3e`;
-  final board, renderer and QA: `47434dc`.
-- [V4 board and review notes](concepts/2026-09-11-v4/README.md) contain the
-  incomplete nest, unnumbered wells, coin/twig reward rows and eight distinct
-  shelters linked by duck-footprint trails. Brief/data: `d5aebab`; native
-  generated artwork: `d4523f5`; final renderer, JPEG and QA: `a66c8d3`.
-  All 53 reward rows match the existing table, zero Twigs are omitted on the
-  first five rows, and geometry/bounds checks pass. Lead visual inspection of
-  the final 3072 × 2048 JPEG passed; its overlay style was subsequently superseded.
-- [V5 finished labelled board](concepts/2026-09-11-v5/README.md) combines the
-  unchanged selected background with painted bubbly stones, full leafy white
-  feather rest frames and the larger illustrated legend. Brief/references:
-  `f05432f`; painted components: `cd32631`; final image/renderer/QA: `db76c1c`.
-  All 53 reward rows match the current table. Measured numeral bounds fit inside
-  the painted capsules; zero-Twig rows and eight rests are correct. Full image
-  and label close-ups passed lead visual inspection. The user likes its painted
-  appearance but rejected the alignment of its spaces with the illustrated
-  paths.
+- The user selected **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b**, the first V10
+  candidate. Its exact native image is now the [approved base board](concepts/2026-09-12-approved/board-art-approved.png);
+  [selection/provenance](concepts/2026-09-12-approved/README.md) distinguishes it
+  from the later clearance-corrected alternatives.
+- The V2 duck tiles and V3 orange seed token are approved. V5's bubbly painted
+  wells, icons and footer remain the overlay style reference. Its old placement
+  coordinates were rejected and must not be reused unchanged.
+- The [consolidated plan](PLAN.md) defines the layered tabletop board, category
+  shapes/colours, readable future tokens and exact reward overlays.
+- Bonus-die presentation becomes **Most Rested Duck reward**, a small end-of-day
+  bonus. Fortune cards become **World Events**, one shared situation revealed
+  at the start of each Day. Existing eligibility, outcomes and event mechanics
+  remain the initial rules baseline. These names are planned, not implemented.
 
-V5 remains historical evidence and is superseded as the current visual review;
-its static QA does not prove path alignment. V6 is saved under
-`concepts/2026-09-11-v6/` and was visually inspected as a review candidate. It
-has no overlay, so 53-space fit, reward placement and exact indexed alignment
-remain unresolved. Keep the full rules baseline and do not infer a Unity
-position map from this image.
+## Evidence and remaining work
 
-V6 is historical review evidence at checkpoint `94fd3bb`; its visual inspection
-does not establish overlay alignment. V7 is historical review evidence at
-checkpoint `9ee73e0`; V8 is historical review evidence at checkpoint `93f7a47`.
-V9 is historical evidence; V10 is saved under
-`concepts/2026-09-12-v10/` and is ready as a reviewable image checkpoint. It has no overlay, so 53-space fit, reward placement
-and exact indexed alignment remain unresolved. A CLI/API fallback requires explicit user authorization and a local
-`OPENAI_API_KEY`; no key is configured. No fallback or resampling was applied.
+The approved board has no tiles or labels. Exact 53-space alignment, shelter
+mapping, token clearance and iPad readability remain unverified. The V10 audit
+that passed sampled widths applies to a later image, **exec-bada2b21**, not the
+user-selected **exec-9d44cb08**. Its initial narrow-corridor findings remain
+relevant to the eventual layout pass.
 
-This pass generated concept images only, outside Unity, with no Editor calls.
-Source, Unity assets, packages and shipping scene list remain unchanged. Preserve the pre-existing
-ProjectSettings preload removal and keep it out of commits.
+The approved native image is 1536 × 1024. The requested detailed 3072 × 2048
+master is still outstanding; no resampling or separately billed API fallback
+was performed. An earlier API-workflow question remains unanswered.
 
-## Review gate
+Eight scenic shelters are approved. Core retains 15 ruby scoring positions;
+resolve their visual representation before playable integration. The unchanged
+Penny/Twig table and next-empty-space semantics remain authoritative.
 
-V10 is ready for the user’s reaction.
-Do not import images into Unity, alter
-source/settings, or start M2. Unity positioning was discussed only, not
-authorized. The existing 54 logical positions and next-scoring-space semantics
-remain the baseline; this base image does not establish Unity behavior.
+M0 was accepted with a clean build, 129 passing tests and a CLI smoke:
+[baseline evidence](BASELINE.md). V1's technical Unity checks remain historical
+evidence of a rejected visual style: [M1 evidence](evidence/m1/README.md).
+V2–V10 concept folders and [PROGRESS.md](../PROGRESS.md) preserve subsequent
+image iterations and their validation; they are not current Unity evidence.
 
-## Earlier milestone
+## Resume gate
 
-M0 completed with a clean solution build, 129 passing tests and a CLI smoke.
-Its repository map and evidence are in [BASELINE.md](BASELINE.md); plan/art brief
-checkpoint `bc55369`, baseline/review checkpoint `824fa5d`. The user accepted that
-milestone. The current gradual roadmap remains [PLAN.md](PLAN.md).
+Wait for the user's command. No Unity calls/imports, scene construction, code
+changes, further image generation or next milestone follow this plan update.
+When authorized, read PLAN.md and inspect live Git/Editor state before acting;
+use the accepted board reference, not the highest-numbered generated image.
 
-## Resume without repeated discovery
-
-Wait for the user's reaction; do not begin M2 automatically. When resuming,
-inspect live Git and Editor state, then read this file and the evidence. Retain
-one Editor owner and small worker briefs. Do not repeat unchanged Core tests for
-this visual-only milestone. Lead owns Git and pushes coherent checkpoints; no
-main merge or release is authorized.
+Branch: `codex/duck-game-milestone-0`. Lead owns small commits/pushes and must
+preserve the pre-existing ProjectSettings preload removal. No main merge or
+release is authorized. The playable baseline remains usable and unchanged.
