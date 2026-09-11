@@ -1,0 +1,8 @@
+{
+  "mode": "built-in image_gen.imagegen",
+  "edit": {
+    "id": "three-biome-board-v2",
+    "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-c85d1b2a-2298-41ed-9ec3-2b15931b909c.png",
+    "prompt": "Make one small local correction to this board. Keep the entire board artwork, all three biomes, bridges, scale, colours, style, middle and right paths EXACTLY as they are. ONLY modify the TOP ARC OF THE LEFTMOST POND PATH to open that closed ring into a U.\nIn the first biome, remove the short horizontal/diagonal run of three stepping patches above the pond, approximately x=175 to 405, y=190 to 280 in this 1536x1024 image. These are the grey flat stone and tan/grey patches connecting the large tan start clearing near the upper-left to the upper-right leg. Replace this small top connection with continuous unbroken thick green grass, reeds and flowers. No stepping patches, gaps, faint trail or walkable connection may remain across the TOP of the pond.\nPreserve the large tan starting clearing at approximately (125,240). It must now connect ONLY DOWNWARD along the left edge of the pond. The journey goes down the left edge, around the bottom, up the right edge, and into the first wooden bridge. Preserve that entire lower U and the bridge's approach on the right. The top-left starting clearing and top-right bridge approach must be separated by at least a few stepping-patch widths of green vegetation.\nAll other regions and every other element are unchanged. No text, numbers, arrows, symbols, player pieces, labels or additional routes. This is a surgical removal of the top shortcut on the leftmost loop, NOT a redesign."
+  }
+}

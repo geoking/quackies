@@ -8,10 +8,11 @@ on `codex/duck-game-milestone-0`. Read [the migration plan](duck-migration/PLAN.
 the current scope and evidence. The user accepted M0 and authorized M1, then
 rejected the V1 visual style on 11 September 2026. V1 remains historical
 evidence: compile, native 1133 × 744 layout, repeat construction and
-Explore/Reset checks passed, but the style is superseded. The bounded task is
-to inspect three new concept sheets under `duck-migration/concepts/2026-09-11/`:
+Explore/Reset checks passed, but the style is superseded. The bounded task
+is complete: three new concept sheets are generated, inspected and saved under
+[duck-migration/concepts/2026-09-11](duck-migration/concepts/2026-09-11/README.md):
 four distinct player duck tiles, a seed encounter tile study, and an illustrated
-three-biome board. Pause after image inspection. Do not import into Unity,
+three-biome board. Stopped for the user's image review. Do not import into Unity,
 change source/settings, implement biome rewards, or start M2. Preserve the
 original playable game and pre-existing ProjectSettings preload removal.
 

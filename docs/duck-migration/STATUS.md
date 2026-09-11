@@ -1,6 +1,6 @@
 # Duck migration status
 
-**M1 revision — concepts in progress.** On 11 September 2026 the user rejected
+**M1 revision — images ready; stopped for user review.** On 11 September 2026 the user rejected
 the first M1 style. The V1 Unity prototype remains technically valid evidence
 but its visual direction is superseded. Branch: `codex/duck-game-milestone-0`.
 
@@ -10,21 +10,22 @@ but its visual direction is superseded. Branch: `codex/duck-game-milestone-0`.
   as historical evidence in `ff2c41b`, `42e51b3` and
   [the M1 evidence](evidence/m1/README.md). Technical checks passed, but the
   style was rejected.
-- Current work is limited to three concept sheets under
-  `concepts/2026-09-11/`: four distinct player duck tiles, a seed encounter
-  tile study, and an illustrated three-biome board.
+- Three selected concept sheets are generated, inspected and saved under
+  [concepts/2026-09-11](concepts/2026-09-11/README.md): four distinct player duck
+  tiles, a seed encounter tile study, and an illustrated three-biome board.
+  Exact prompts, native output dimensions and hashes accompany the images.
+  The plan revision is published in `d0ac497`.
 - The proposed biome reward direction is concept only. Existing rules remain
   unchanged; new values, timing and AI effects are unspecified. Future work needs an
   explicit specification and playtest gate extending the shelter experiment.
 
-This is an isolated visual preview. It does not create a MatchSession, implement
-M2 terminology support, or change game rules. The original playable scene, Core,
-CLI, raw art and shipping scene list remain unchanged. Preserve the pre-existing
+This pass generated concept images only, outside Unity, with no Editor calls.
+Source, Unity assets, packages and shipping scene list remain unchanged. Preserve the pre-existing
 ProjectSettings preload removal and keep it out of commits.
 
 ## Review gate
 
-Inspect the three concept sheets and pause for the user's reaction. Do not import
+The three concept sheets have been inspected. Wait for the user's reaction; do not import
 them into Unity, alter source/settings, or start M2. The existing 54 logical
 positions and next-scoring-space semantics remain the baseline; the illustrated
 mapping is not count proof.

@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-11",
+  "mode": "built-in image_gen.imagegen",
+  "unityImported": false,
+  "files": [
+    {
+      "file": "duck-player-tiles-v2.png",
+      "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-82fca942-30c4-4641-a6a1-bb5305030d00.png",
+      "pixels": [
+        1448,
+        1086
+      ],
+      "sha256": "5920eb50a9e2af383607c5de3e4a55a8677d68b5f9087f7d1078a54e1288d21d",
+      "copiedWithoutEditing": true
+    },
+    {
+      "file": "seed-tiles-v2.png",
+      "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-5d2dcda1-20e3-43fb-82e0-535b74da7fe2.png",
+      "pixels": [
+        1774,
+        887
+      ],
+      "sha256": "9f45861d160f081b4cd677919847c7669d9679f891ed083421e0f9d66158ffe8",
+      "copiedWithoutEditing": true
+    },
+    {
+      "file": "three-biome-board-v2.png",
+      "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-e3fe3116-ace6-410e-9dc8-07c1893f6b17.png",
+      "pixels": [
+        1536,
+        1024
+      ],
+      "sha256": "0ef563706a8511627a34770445daf3aa9827ea463c896580d8c14496a4567d13",
+      "copiedWithoutEditing": true
+    }
+  ],
+  "review": {
+    "duckTiles": "Four complete cut-edge player tiles with distinct colours, expressions and head shapes.",
+    "seedTiles": "Three complete outer-shape alternatives for one category; clean opaque presentation background.",
+    "board": "Three distinct biomes, two bridges, and an open path from pond to the final cosy spring; inspected visually.",
+    "limits": "Concept images only. Exact indexed mapping, reward values, material production and tablet-size usability are not validated.",
+    "generationCalls": 3,
+    "refinementCalls": 3,
+    "codeOrUnityChanges": false
+  }
+}

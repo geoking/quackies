@@ -242,3 +242,25 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   historical evidence.
 - M1 is complete and paused for the user's style reaction. M2 terminology,
   additional artwork and the later shelter experiment have not started.
+
+### 16. M1 art redirection — image review (11 September 2026)
+
+- The user rejected the V1 visual direction and requested tangible tabletop
+  duck/encounter tiles and an illustrated board across three biomes. Revised
+  the plan, art brief and current handoff in `d0ac497`; V1 technical evidence
+  remains historical and is not recorded as style acceptance.
+- Generated and inspected three selected concept sheets: four distinct player
+  duck tiles, three seed-category tile silhouettes, and a board travelling from
+  a pleasant pond through lush meadow to wasteland with rare cosy refuges.
+- Used three built-in image-generation calls and three targeted edits. Cleaned
+  the seed background and clarified the board path and pond starting point.
+  Native selected PNGs, exact prompts and inspection hashes are saved in
+  [concepts/2026-09-11](duck-migration/concepts/2026-09-11/README.md).
+- Captured the qualitative biome reward idea without inventing values or
+  changing rules. Exact mapping and balance need later specification and review.
+- No Unity import or Editor call occurred. Source, Unity Assets, packages and
+  shipping build list match the start-of-turn checkpoint `567bbd5`; the existing
+  ProjectSettings change retains its M0 hash and is excluded from commits.
+  No code tests were warranted for this documentation and concept-image pass.
+- Stopped after image inspection for the user's review. No M2 or implementation
+  of the new board has begun.
