@@ -1,0 +1,27 @@
+{
+  "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-721927c8-19ba-425f-93f9-733ad6a1b015.png",
+  "file": "board-art-v4.png",
+  "pixels": [
+    1536,
+    1024
+  ],
+  "bytes": 2874331,
+  "sha256": "a001ef104a6ad61fe8b6d1d354a4fd247434481ec6e8de041528b69c7609a561",
+  "mode": "built-in image_gen.imagegen edit",
+  "copiedUnchanged": true,
+  "visualInspection": "Incomplete nest; eight recognizable shelters across pond/meadow/wasteland; no printed text or token wells. Precise pad-to-shelter entry markers are added in the static overlay.",
+  "iterations": [
+    {
+      "file": "exec-56f99a5a-4837-453e-a2b1-248752a05830.png",
+      "result": "Initial nest and eight shelters; some shelter alignment incorrect."
+    },
+    {
+      "file": "exec-911998a2-4703-4d27-9482-4a79731a1e0a.png",
+      "result": "Moved oasis; meadow fern shelter was lost; not selected."
+    },
+    {
+      "file": "exec-721927c8-19ba-425f-93f9-733ad6a1b015.png",
+      "result": "Restored distinct fern and stone shelters; selected background."
+    }
+  ]
+}
