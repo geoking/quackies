@@ -2,10 +2,12 @@
 
 The duck-theme migration is on `codex/duck-game-milestone-0`.
 See its [plan](docs/duck-migration/PLAN.md) and
-[milestone status](docs/duck-migration/STATUS.md). The separate M1 style preview
-uses three original duck assets and a complete winding trail. From Edit mode,
-choose **Quackies → Build and Play Duck Style Test** to explore its fixed visual
-examples. It does not start a match; the original playable game remains below.
+[milestone status](docs/duck-migration/STATUS.md). The first M1 Unity style
+preview passed technical checks but was rejected visually on 11 September 2026.
+The current M1 revision is image-only: four distinct cardboard duck tiles, a
+seed encounter tile study and an illustrated three-biome board are being
+reviewed outside Unity. The original playable game remains below; no M2 or rule
+change is authorized by the concept direction.
 
 A Unity tabletop game for one human and one AI, targeting iPad mini landscape.
 The complete base-game Set 1 fortune deck, Normal AI, board inspection, match

@@ -2,9 +2,10 @@
 
 The active priority is now the gradual duck migration. See
 [its plan](duck-migration/PLAN.md) and [review status](duck-migration/STATUS.md).
-M0 was accepted and M1's visual-test milestone is complete. Pause for feedback
-on the Unity style preview before M2 terminology work. The items below
-remain backlog and are not authorization to start additional work now.
+M0 was accepted. M1's first Unity style preview passed technical checks but was
+rejected visually on 11 September; the bounded revision is three concept sheets
+for user review. Pause after image inspection. The items below remain backlog
+and are not authorization to start additional work now.
 
 The agreed initial playable milestone is complete. All 24 Set 1 fortunes are
 enabled by default; 129 Core tests, a nine-round Unity interaction run, native
@@ -21,6 +22,12 @@ Future work, requiring a new selected scope:
    measure touch behavior, performance and memory on the intended iPad mini.
 4. **Compatibility cleanup.** Consolidate the retained prototype API when its
    callers can migrate; continue implementing new gameplay through MatchSession.
+
+5. **Biome reward experiment.** Extend the old shelter experiment only after an
+   explicit rules specification: preserve the unchanged baseline and compare
+   proposed first, middle and final biome reward profiles through playtesting.
+   The current art direction does not approve numeric rewards, timing, AI or
+   balance changes.
 
 Continue small reviewed source, test and Unity checkpoints; push each and record
 validation in PROGRESS.md. Preserve the supplied artwork and keep rules outside

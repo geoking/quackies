@@ -2,8 +2,11 @@
 
 ## Current scope and source
 
-The user accepted M0 and authorized **M1 only** on 10 September 2026. Complete
-the three-asset Unity visual test, then pause for the user's reaction before M2.
+The user accepted M0 and authorized **M1 only** on 10 September 2026. On 11
+September the first M1 style was rejected as a visual direction. M1 is now an
+image-only art redirection: generate three concept sheets, inspect them, and
+pause for the user's reaction. This does not authorize Unity import, source or
+settings changes, M2, or a rules change.
 The current branch is
 `codex/duck-game-milestone-0`, created from merged playable commit
 `74e40cfe04995d813428c3ff8390461235928a44` on 10 September 2026.
@@ -24,12 +27,21 @@ Explore the wetlands, discover helpful encounters and build the biggest,
 cosiest nest in the pond. Settle somewhere comfortable, or push your luck and
 end the day worn out.
 
-- Happy, colourful cartoon art: expressive ducks, rounded shapes, clear outlines,
-  soft shading and playful wetlands. A colourful playmat is a suitable first
-  experiment. Exhaustion should look sleepily fed up or comically muddy.
-- One continuous trail winds back and forth with rounded bends. Its layout is
-  inspired by a winding board path, without adding ladders, snakes or shortcuts
-  between visually adjacent rows. Preserve every physical track position.
+- Goofy, flat cartoon tabletop art: ducks should read as tangible cardboard
+  player tiles or tokens, with oversized bills and eyes and original artwork.
+  Player ducks differ in colour and styling. This concept sheet explores four
+  identities; it does not change the current human-versus-AI player count.
+  Encounter tokens should also feel physical; category-specific
+  silhouettes are welcome where they improve recognition.
+- The board is illustrated artwork with one continuous, readable winding path
+  across three connected biome loops. Bridges make the region transitions clear;
+  there are no unintended branches or shortcuts. Irregular illustrated spaces
+  and inviting rest places replace a rigid repeated-circle treatment.
+- Biomes are a proposed design direction, not approved rule changes: a pleasant
+  pond/grassland beginning, a lush comfortable middle with many inviting rests,
+  and a barren unpleasant final region with rare exceptionally cosy havens.
+  This replaces the quiet-background-only art brief: the path and rest places
+  belong in the illustration, while precise positions remain data in software.
 - The duck is the permanent starting marker. It stays there while encounters
   are drawn and placed ahead to build today's route.
 - Lily-pad shortcuts provide the existing temporary catch-up assistance. Show
@@ -90,17 +102,17 @@ either/or restriction. Feathers retain their separate final conversion.
 | Milestone | Bounded work | Evidence and pause |
 | --- | --- | --- |
 | M0 — Baseline | Inspect actual API, CLI, Unity, rules, AI and persistence; preserve dirty work; branch; run existing checks; record tools, risks, plan and art brief | Repository map and current evidence; ask for reaction |
-| M1 — Style test | Generate only playmat, happy duck and seed icon; assemble a separate `Assets/Scenes/DuckStyleTestScene.unity` through a new Editor builder | Native iPad-aspect Unity screenshot, full placeholder trail, representative labels, button and encounter sizes; ask how the style feels |
+| M1 — Art redirection | Generate and inspect three concept sheets outside Unity: four player duck tiles, seed encounter tile study and illustrated three-biome board | Image review only; preserve V1 as superseded technical evidence and ask how the new direction feels |
 | M2 — Terminology | Add the smallest shared display contract in `src/Quackies.Core`; adapt `src/Quackies.Cli` and expose the same definitions to Unity | Duck CLI, preserved classic identities, same numerical results and legal actions for identical seeds/actions; ask about wording |
 | M3 — Playable duck table | Connect a separate duck presentation to `MatchSession`; add essential shelter, feather, nest and catch-up visuals | Complete game with Explore, Settle down, exhaustion, rewards, market, next-day reset and retained nest score; ask for a playtest reaction |
 | M4 — Essential art | Complete encounter icons and original help text; finish modest journey/result animations and UI | Readability at actual sizes, safe/worn-out endings, consistent assets and accurate previews; ask about feel |
-| M5 — Shelter experiment | Only after a specific choice: separately selectable fewer/more rewarding shelters | Compare with unchanged rules; verify safe/exhausted stop, passing and ordinary spaces; review balance |
+| M5 — Shelter/biome reward experiment | Only after an explicit rules specification: compare shelter density and proposed biome reward profiles as selectable experiments | Preserve the old shelter comparison and unchanged baseline; verify safe/exhausted stop, passing and ordinary spaces; review balance |
 | M6 — Migration review | Review clients, AI, compatibility, assets, tests and remaining issues | Tested branch ready for the user's merge decision; no automatic merge |
 
-The M1 scene and builder are now implemented; see [STATUS.md](STATUS.md) for
-their review evidence and the current feedback gate.
-Keep `QuackiesInitialScene.unity`, its builder and source art usable throughout.
-Do not add the style-test scene to shipping build settings by default.
+The original M1 scene and builder remain superseded visual-prototype evidence;
+see [STATUS.md](STATUS.md). Keep `QuackiesInitialScene.unity`, its builder and
+source art usable throughout. Do not add new concepts to Unity or alter the
+shipping build settings at this gate.
 
 ## Implementation boundaries
 
@@ -116,11 +128,13 @@ contract. Preserve action IDs, enums, fields, assembly names and serialized
 bindings. Do not derive rules from translated text or duplicate token-name tables
 in CLI and Unity. The detailed baseline audit records the existing coupling.
 
-For the new trail, generate coordinates by physical index independently of
-`QuackiesArtCatalog`'s existing cauldron-art anchors. The standard board has 54
-indexed spaces (0–53), with last encounter position 52 and scoring space 53.
-Drive the resting preview from Core's scoring space after the last encounter;
-never use the encounter's own position as its reward index.
+For any later board implementation, retain the standard 54 indexed spaces
+(0–53), with last encounter position 52 and scoring space 53. The current
+next-scoring-space semantics remain the baseline until rules are approved.
+Illustrated artwork should sit above invisible indexed anchors and hitboxes; the
+image concept is not proof of an exact space count or mapping. Drive the resting
+preview from Core's scoring space after the last encounter; never use the
+encounter's own position as its reward index.
 
 Separate presentation identity from the optional M5 rule profile. Preserve the
 current API and tests while introducing narrowly tested display changes. Keep
@@ -148,12 +162,16 @@ The release title is undecided. Keep repository, namespaces, assembly and bundle
 identifiers as Quackies. Shelter density and 2-feather safe / 1-feather exhausted
 rewards are unapproved experiment candidates, not requirements.
 
-Use the M1 preview to test a **6 × 9 winding placeholder trail**, accounting for
-all 54 indexed spaces. Rounded bends and subtle row guides should make order
-clear. Exact arrangement may change after the readability test.
+Use the three concept sheets to test the intended visual language: four distinct
+player duck tiles, a seed encounter tile study, and a three-biome illustrated
+board. The later board mapping must account for all 54 indexed spaces, but the
+concept sheet is not a count proof.
 
 Keep Twigs beside a nest, label pennies as **Spend today**, and show the resting
 preview separately from the nest score. These are rules-neutral clarity choices.
-Use placeholders for those displays during M1; do not generate the whole asset
-pack before the first style reaction. Test tubes and AI-history UI remain outside
-this migration's currently selected milestone.
+The proposed reward intent is modest rewards anywhere in the first biome,
+medium ordinary or generous rewards at good middle rests, and small ordinary or
+exceptional good rests in the final biome, so distance alone need not pay. No
+numeric table, timing, AI or balance implementation is approved. Extend the old
+M5 shelter experiment later to biome rewards, preserve the unchanged baseline,
+and require an explicit rules specification and playtest gate first.

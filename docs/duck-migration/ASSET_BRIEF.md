@@ -1,61 +1,68 @@
 # Duck art brief
 
-## First experiment: M1, after the M0 review
+## Current experiment: M1 art redirection, 11 September 2026
 
-Generate three separate original raster assets and show them in a separate
-Unity scene. The available `image_gen.imagegen` tool is the intended generator;
-it is callable in this session, but no generation or quota test is part of M0.
-Read the imagegen skill when starting generation. Do not silently use a separate
-billed image API. Keep generation bounded to the three assets below.
+Generate three original raster concept sheets outside Unity and stop for user
+review after inspection. This replaces the rejected M1 visual direction. The
+older V1 prompts and manifest remain historical evidence in
+[ASSET_MANIFEST.md](ASSET_MANIFEST.md); they are not the current brief.
 
-Happy cartoon wetlands: warm cream duck, orange bill/feet, rounded silhouettes,
-clear outlines, soft shading, mint/teal water and fresh green plants. Use a direct
-overhead board with a slightly angled character illustration if that makes its
-face more expressive. Keep viewpoint, outline weight and light direction
-consistent. Exhaustion is sleepy or comically muddy, never distressed.
+Use flat goofy tabletop cartoon art with tangible cardboard token/tile presence,
+oversized bills and eyes, clear silhouettes and original artwork. Four player
+ducks need distinct colours and distinct styling. Encounter tokens should feel
+physical, with category-specific silhouettes where useful. The board should be
+illustrated, with a continuous readable winding path through three connected
+biomes: pleasant pond/grassland, lush comfortable middle, and barren unpleasant
+final region. Bridges, irregular spaces and rest places must be legible. Do not
+paint a final numeric track mapping into the concept sheet.
 
 | Proposed asset | Purpose and composition | Suggested source / background |
 | --- | --- | --- |
-| `duck_playmat_v1.png` | Calm colourful table/playmat surroundings; quiet central area for the code-built trail and panels | Approximately 2304 × 1536 landscape or nearest supported size; opaque, crop-safe edges |
-| `duck_happy_v1.png` | Readable starting-marker duck, facing toward the trail; simple silhouette and visible face | 1024 × 1024 square source; transparent surrounding area |
-| `encounter_seeds_v1.png` | One clear cluster of seeds, recognisable inside a small encounter token | 1024 × 1024 square source; transparent surrounding area |
+| `duck-player-tiles-v2.png` | Four-player sheet: four distinct cardboard duck tiles, varied colour and styling | Landscape sheet; each tile readable in isolation and visibly original |
+| `seed-tiles-v2.png` | Seed encounter token design study with physical edge/material and optional category silhouette variants | Square or landscape study sheet; seed identity readable at small size |
+| `three-biome-board-v2.png` | Illustrated board study showing one continuous path, three connected biome loops, bridges and irregular rest spaces | Landscape board concept; no generated UI text or exact numbered mapping |
 
-These are source-size targets, not assumptions about generator output support.
-Unity's real test viewport is **1133 × 744** (same aspect as 2266 × 1488).
-Check icons at actual intended use: roughly 28–36 logical units on the full
-trail, with a larger sample beside it. Adjust the layout if the duck and values
-cannot be distinguished; do not shorten the complete board to hide the problem.
+Save the three sheets under `docs/duck-migration/concepts/2026-09-11/` with the
+filenames above. These are concept references, not Unity-ready imports.
 
-No generated text, exact track, numbers, token values, rewards, buttons or logos.
-Unity constructs the full 0–53 path, labels, markers and buttons. Start with a
-6 × 9 winding layout with rounded bends, then refine its spacing in the Editor.
-Generated scenery should surround that route, not impose baked-in rule spaces.
+No generated UI text, exact numbered track, token values, buttons or logos. The
+concept board may show visual rest places, but it must not imply approved reward
+numbers, timing, AI or balance. Existing 54 logical positions and
+next-scoring-space semantics remain the baseline until a later rules approval.
 
-The duck remains at the start while representative seed encounters lie ahead.
-Show a separate resting-preview highlight and placeholder Twigs, Spend today:
-Pond pennies, and Feathers labels. M1 demonstrates style and scale, not working
-rule changes. A representative Explore button may illustrate interaction state;
-it must not imply the separate style scene is already the full playable game.
+The sheets demonstrate visual language only; they do not implement a playable
+game. Leave out runtime highlights, resource labels and controls. The board's
+painted route and resting places are the focus of this image review.
+
+## Later implementation boundary
+
+If approved later, use illustrated board artwork with invisible indexed anchors
+and hitboxes layered over it. Do not redraw the board as a rigid programmatic
+grid and do not infer rules from painted spaces. No Unity import or component
+boundary change is part of this M1 revision.
 
 ## Repository placement and provenance
 
-Proposed Unity import roots, relative to `unity/Quackies.Unity`:
+Use the built-in `image_gen.imagegen` tool. Keep native concept outputs and
+their exact generation/refinement prompts under `concepts/2026-09-11/`, outside
+Unity. The attached duck is style inspiration, not artwork to trace. Inspect
+the actual outputs before declaring the concepts ready for user review.
+
+Possible future Unity import roots, relative to `unity/Quackies.Unity`, after
+a separate request to implement the reviewed direction:
 
 - `Assets/Art/DuckTheme/Backgrounds/`
 - `Assets/Art/DuckTheme/Characters/`
 - `Assets/Art/DuckTheme/Encounters/`
 
-Store prompts, version, output path, actual dimensions and alpha checks in
-`docs/duck-migration/ASSET_MANIFEST.md` when assets are generated. Keep `.meta`
-files stable on later replacements. Preserve `Assets/Art/raw` and all current
+For later production assets, record prompts, version, output path, actual
+dimensions and alpha checks in the asset manifest. Keep `.meta` files stable
+on later replacements. Preserve `Assets/Art/raw` and all current
 catalog references. Original game art is reference for rule data only; do not
 feed it into the generator to imitate its illustration or board composition.
 
-M1's proposed additions are a `DuckStyleTestSceneBuilder.cs` under
-`Assets/Editor` and `Assets/Scenes/DuckStyleTestScene.unity`. Reuse suitable layout
-helpers and safe-area fitting. Keep the existing scene builder and build list.
-Capture the actual GameView target texture at native dimensions; the connector's
-`Screen.width/height` can instead reflect the focused Editor GUI surface.
+The existing M1 scene and builder remain historical V1 evidence. Do not modify
+them during this image-only gate.
 
 ## Later assets, after the style review
 
@@ -69,11 +76,9 @@ Keep the scored nest distinct from the daily shelter/resting spot. Nest growth
 stages, elaborate animations and additional decorative variants are later polish.
 Shelter art does not approve or implement a new shelter reward rule.
 
-## M1 review evidence
+## M1 revision gate
 
-- Three assets imported and attributed in the manifest; alpha/framing verified.
-- Complete winding placeholder trail readable at the native iPad mini aspect.
-- Duck, seed, numeric overlay, representative text and control inspected at size.
-- Duck/start, placed route, resting preview and persistent nest score distinguishable.
-- Unity compiles; existing playable scene and source art remain intact.
-- Show the actual Unity screenshot and pause for the user's reaction before M2.
+- Inspect all three concept sheets at useful size and pause for the user's
+  reaction. No Unity import, editor call, source/settings change or M2 starts.
+- Treat the previous V1 Unity screenshot and compile checks as superseded style
+  evidence: technically valid, visually rejected.

@@ -1,24 +1,21 @@
 # Duck migration status
 
-**M1 complete — awaiting the user's style feedback.** The user accepted M0 and
-authorized M1 on 10 September 2026. Branch: `codex/duck-game-milestone-0`.
+**M1 revision — concepts in progress.** On 11 September 2026 the user rejected
+the first M1 style. The V1 Unity prototype remains technically valid evidence
+but its visual direction is superseded. Branch: `codex/duck-game-milestone-0`.
 
 ## Completed work
 
-- Original playmat, happy duck and seed assets generated, inspected and published
-  in `ff2c41b`, with prompts and import metadata in [ASSET_MANIFEST.md](ASSET_MANIFEST.md).
-- Separate `DuckStyleTestScene.unity` implemented with a complete 54-position
-  winding trail, duck start, representative seed encounters, resting preview,
-  nest-score and resource placeholders, and Explore/Reset preview controls,
-  published in `42e51b3`.
-- Final Unity compile completed without errors; the captured console was empty.
-  The native 1133 × 744 view contains all 54 cells, five rounded bends and no TMP
-  text overflow. Repeat construction produced no duplicate cells.
-- Explore changed three seeds/rest space 4 to five seeds/rest space 6; Reset
-  restored the initial example. The duck stayed at space 0 and nest score at
-  Twigs 12. The final scene uses code-native ellipses and 14pt space indices.
-- [Native screenshot and validation](evidence/m1/README.md) are saved for review.
-  The preview was left in Play mode at its reset state.
+- V1 generated assets and the separate `DuckStyleTestScene.unity` are retained
+  as historical evidence in `ff2c41b`, `42e51b3` and
+  [the M1 evidence](evidence/m1/README.md). Technical checks passed, but the
+  style was rejected.
+- Current work is limited to three concept sheets under
+  `concepts/2026-09-11/`: four distinct player duck tiles, a seed encounter
+  tile study, and an illustrated three-biome board.
+- The proposed biome reward direction is concept only. Existing rules remain
+  unchanged; new values, timing and AI effects are unspecified. Future work needs an
+  explicit specification and playtest gate extending the shelter experiment.
 
 This is an isolated visual preview. It does not create a MatchSession, implement
 M2 terminology support, or change game rules. The original playable scene, Core,
@@ -27,10 +24,10 @@ ProjectSettings preload removal and keep it out of commits.
 
 ## Review gate
 
-Show the final native GameView capture and pause for the user's reaction before
-M2. The user is judging the
-happy cartoon direction, the full winding trail, and duck/seed readability at
-actual use sizes. Further artwork and a shelter experiment remain later work.
+Inspect the three concept sheets and pause for the user's reaction. Do not import
+them into Unity, alter source/settings, or start M2. The existing 54 logical
+positions and next-scoring-space semantics remain the baseline; the illustrated
+mapping is not count proof.
 
 ## Earlier milestone
 
