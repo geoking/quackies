@@ -406,3 +406,20 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   inspected the corrected image, including reopened shelter access pockets, and
   marked it ready for user review. No exact 53-space fit or Unity verification is
   claimed.
+
+### 23. M1 V9 — bridge/style review candidate (11 September 2026)
+
+- V8 is retained as historical evidence at checkpoint `93f7a47`. The user wants
+  bridges integrated into the scene and a clean high-resolution sweep to reduce
+  iterative grain. V9 preserves the wetland/grassland/desert distinctions,
+  shortcut barriers, LEFT/RIGHT/DOWN meadow entries, eight shelters, nest,
+  oasis, broad routes and blank footer.
+- Bridge treatment is specified as grounded earth/stone abutments, open walk-on
+  approaches and contact shadows, with wet moss on the wetland bridge and drier
+  stone/wood on the desert bridge. V9 is under
+  `duck-migration/concepts/2026-09-11-v9/`; selected native candidate measures
+  1536 × 1024 and was visually inspected as a reviewable bridge/style checkpoint.
+  The requested 3072 × 2048 master remains unresolved after two built-in
+  attempts. No resampling was applied; a CLI/API fallback requires explicit user
+  authorization and a local `OPENAI_API_KEY`, which is not configured. Do not
+  claim 53-space fit or Unity/runtime evidence.

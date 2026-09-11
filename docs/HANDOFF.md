@@ -36,15 +36,20 @@ The image/renderer/QA checkpoint is `db76c1c`. All 53 reward groups fit their
 painted capsules using measured Marker Felt glyph bounds; lead checked the full
 board and label close-ups. The user likes the V5 style but rejected its painted
 spaces’ alignment with the paths. V6 is historical review evidence at
-checkpoint `94fd3bb`; V7 is historical review evidence at checkpoint `9ee73e0`.
-V8 distinguishes cooler teal/sage wetland banks and reeds from warm sunny open
-grasslands, blocks apparent shortcuts with dense meadow/wetland thickets, and
-retains the desert, shelters, left access, nest, bridges, oasis and broad future
+checkpoint `94fd3bb`; V7 is historical review evidence at checkpoint `9ee73e0`;
+V8 is historical review evidence at checkpoint `93f7a47`. V9 preserves the
+cooler teal/sage wetland banks and warm sunny open grasslands while sweeping
+bridge integration and image quality. Bridges should have grounded bank
+abutments, open approaches and contact shadows, with mossy wetland treatment and
+drier desert treatment. It retains the dense meadow/wetland barriers,
+desert, shelters, left access, nest, bridges, oasis and broad future
 tile corridors. No tiles, tokens, numbers, reward text or legend belong in this
-base image. Lead visually inspected the corrected V8 PNG, including the reopened
-upper-left, middle-right and bottom-down shelter access pockets, and it is ready
-for user review. It has no overlay, so 53-space fit and exact indexed alignment
-remain unresolved. Do not import into Unity,
+base image. The selected V9 native candidate is 1536 × 1024 and was visually
+inspected as a reviewable bridge/style checkpoint. The requested 3072 × 2048
+master remains unresolved after two built-in attempts; no resampling was applied. It
+has no overlay, so 53-space fit and exact indexed alignment remain unresolved.
+A CLI/API fallback requires explicit user authorization and a locally configured
+`OPENAI_API_KEY`; no key is available. Do not import into Unity,
 change source/settings, implement biome
 rewards, or start M2. Unity positioning was discussed only, not authorized.
 Preserve the original playable game and pre-existing ProjectSettings preload

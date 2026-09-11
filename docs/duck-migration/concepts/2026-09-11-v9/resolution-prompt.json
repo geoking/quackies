@@ -1,0 +1,11 @@
+{
+  "mode": "built-in image_gen",
+  "intent": "edit",
+  "requestedDimensions": [
+    3072,
+    2048
+  ],
+  "source": "exec-e17fce4f-174e-4af6-ad9d-f654c7bd1d4f.png",
+  "reason": "Initial tool output remained1536x1024 despite a3072x2048 request.",
+  "prompt": "Create a HIGH RESOLUTION version of this exact image. Required OUTPUT PIXEL DIMENSIONS: 3072 pixels wide by 2048 pixels high. Landscape 3:2. The prior output was only 1536x1024; this task specifically requires a larger native raster, NOT that same output size with a claim of being high-res. Render at 3072x2048.\n\nPreserve this exact board composition and design, including the new bridge abutments and natural approach paths. Resolve leaf, grass, rock, water and wood edges clearly at the higher resolution. Clean high-quality digital painted cartoon illustration, smooth intentional strokes, no grain, speckle, blurring or sharpened halos. Keep every shelter and all three short meadow shelter accesses; preserve the dense interior barriers and broad outer routes, biome colours, nest, bridges, oasis and blank footer. No new elements, text or tile overlays. No redesign. Return one finished high-resolution PNG with the complete board at 3072x2048."
+}
