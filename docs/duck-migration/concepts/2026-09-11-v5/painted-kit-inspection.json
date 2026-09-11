@@ -1,0 +1,259 @@
+{
+  "input": {
+    "path": "painted-kit-native.png",
+    "sha256": "9c2c09349b1a45f1a1d43e028d8a2c8e481b1a68e55b7cf57e00f899fc5c645a",
+    "width": 1254,
+    "height": 1254,
+    "channels": 3
+  },
+  "output": {
+    "path": "painted-kit.png",
+    "sha256": "47f5998bb0d930f1acbf8b7d7760a316ce6f1437dbb4d1a1797173ada7e293a9",
+    "width": 1254,
+    "height": 1254,
+    "channels": 4,
+    "cropBounds": {
+      "x": 0,
+      "y": 0,
+      "width": 1254,
+      "height": 1254
+    }
+  },
+  "matteRule": {
+    "minChannel": 115,
+    "maxChannel": 215,
+    "maxRgbSpread": 18,
+    "connectivity": "8-neighbor from atlas and per-cell boundaries",
+    "selectedPixels": 615427
+  },
+  "componentCleanup": {
+    "rowEdges": [
+      0,
+      385,
+      835,
+      1254
+    ],
+    "colEdges": [
+      0,
+      418,
+      836,
+      1254
+    ],
+    "regions": [
+      {
+        "grid": "0,0",
+        "componentCount": 44,
+        "retainedPixels": 102162
+      },
+      {
+        "grid": "0,1",
+        "componentCount": 58,
+        "retainedPixels": 101840
+      },
+      {
+        "grid": "0,2",
+        "componentCount": 35,
+        "retainedPixels": 102651
+      },
+      {
+        "grid": "1,0",
+        "componentCount": 37,
+        "retainedPixels": 134031
+      },
+      {
+        "grid": "1,1",
+        "componentCount": 44,
+        "retainedPixels": 130225
+      },
+      {
+        "grid": "1,2",
+        "componentCount": 57,
+        "retainedPixels": 128562
+      },
+      {
+        "grid": "2,0",
+        "componentCount": 41,
+        "retainedPixels": 97038
+      },
+      {
+        "grid": "2,1",
+        "componentCount": 106,
+        "retainedPixels": 55135
+      },
+      {
+        "grid": "2,2",
+        "componentCount": 49,
+        "retainedPixels": 105445
+      }
+    ]
+  },
+  "alpha": {
+    "zero": 615427,
+    "full": 957089,
+    "other": 0,
+    "zeroFraction": 0.39136453937511606
+  },
+  "preservedRgb": {
+    "mismatches": 0,
+    "verified": true
+  },
+  "retainedOpaqueCenters": [
+    {
+      "name": "creamFace",
+      "x": 210,
+      "y": 140,
+      "rgb": [
+        254,
+        224,
+        171
+      ],
+      "alpha": 255,
+      "opaque": true
+    },
+    {
+      "name": "whiteFeather",
+      "x": 340,
+      "y": 550,
+      "rgb": [
+        239,
+        239,
+        244
+      ],
+      "alpha": 255,
+      "opaque": true
+    },
+    {
+      "name": "coin",
+      "x": 210,
+      "y": 1045,
+      "rgb": [
+        253,
+        233,
+        93
+      ],
+      "alpha": 255,
+      "opaque": true
+    },
+    {
+      "name": "twigs",
+      "x": 627,
+      "y": 1045,
+      "rgb": [
+        231,
+        150,
+        78
+      ],
+      "alpha": 255,
+      "opaque": true
+    },
+    {
+      "name": "whiteFeatherBottomRight",
+      "x": 1060,
+      "y": 1000,
+      "rgb": [
+        254,
+        254,
+        253
+      ],
+      "alpha": 255,
+      "opaque": true
+    }
+  ],
+  "nontransparentComponentsByGrid": [
+    {
+      "grid": "0,0",
+      "bounds": {
+        "x": 25,
+        "y": 28,
+        "width": 354,
+        "height": 333,
+        "opaquePixels": 102162
+      }
+    },
+    {
+      "grid": "0,1",
+      "bounds": {
+        "x": 444,
+        "y": 27,
+        "width": 359,
+        "height": 338,
+        "opaquePixels": 101840
+      }
+    },
+    {
+      "grid": "0,2",
+      "bounds": {
+        "x": 873,
+        "y": 30,
+        "width": 356,
+        "height": 334,
+        "opaquePixels": 102651
+      }
+    },
+    {
+      "grid": "1,0",
+      "bounds": {
+        "x": 6,
+        "y": 401,
+        "width": 412,
+        "height": 419,
+        "opaquePixels": 134031
+      }
+    },
+    {
+      "grid": "1,1",
+      "bounds": {
+        "x": 434,
+        "y": 402,
+        "width": 402,
+        "height": 424,
+        "opaquePixels": 130225
+      }
+    },
+    {
+      "grid": "1,2",
+      "bounds": {
+        "x": 848,
+        "y": 408,
+        "width": 399,
+        "height": 412,
+        "opaquePixels": 128562
+      }
+    },
+    {
+      "grid": "2,0",
+      "bounds": {
+        "x": 40,
+        "y": 862,
+        "width": 348,
+        "height": 352,
+        "opaquePixels": 97038
+      }
+    },
+    {
+      "grid": "2,1",
+      "bounds": {
+        "x": 456,
+        "y": 885,
+        "width": 351,
+        "height": 316,
+        "opaquePixels": 55135
+      }
+    },
+    {
+      "grid": "2,2",
+      "bounds": {
+        "x": 853,
+        "y": 857,
+        "width": 383,
+        "height": 367,
+        "opaquePixels": 105445
+      }
+    }
+  ],
+  "caveats": [
+    "Checker matte pixels are removed only when boundary-connected under the neutral-gray threshold.",
+    "No redraw, resampling, recoloring, or RGB alteration was performed.",
+    "Output retains the full atlas crop; component bounds are atlas coordinates."
+  ]
+}
