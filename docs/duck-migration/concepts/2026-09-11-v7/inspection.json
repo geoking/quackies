@@ -1,0 +1,37 @@
+{
+  "status": "lead visually inspected; pending user review",
+  "mode": "built-in image_gen edit",
+  "nativeOutput": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-19c3301c-14d5-4103-bbbe-907a287ef122.png",
+  "artifact": "board-art-v7.png",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "bytes": 3228019,
+  "sha256": "f03c11643fa2a6ecfc9faaf981134c5bcfba591463a242fa1c0be10ed0bce221",
+  "reference": "docs/duck-migration/concepts/2026-09-11-v6/board-art-v6.png",
+  "referenceSha256": "70fd4eb84848aedb60010f5c4858d83a7b7668c4b80db10faaff962a171bef63",
+  "visualInspection": {
+    "biomeDistinction": "cool teal wetland with damp sedges versus warm sunny grassland with taller seed heads and meadow flowers; warm sandy desert retained",
+    "upperMeadowShelter": "grassy left-facing entrance retained",
+    "sheltersByBiome": [
+      2,
+      3,
+      3
+    ],
+    "nest": "unfinished, upper-left",
+    "oasis": "far upper-right",
+    "bridges": 2,
+    "tilesNumbersTextLegend": "absent",
+    "footer": "blank cream",
+    "corridors": "main route geometry retained; exact token fit and alignment still unvalidated"
+  },
+  "scope": {
+    "unityCalls": false,
+    "unityImports": false,
+    "coreRuleChanges": false,
+    "tileAlignmentResolved": false,
+    "userAcceptance": "pending"
+  },
+  "preservedPreexistingProjectSettingsSha256": "bd3fb139bac5aa51048d7e8cf69f6010f6e8df5b02dc20c5b419b49b0dd6cbcb"
+}

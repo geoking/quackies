@@ -375,3 +375,19 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   or import was authorized, and no Core, source/settings, gameplay, M2 or rules
   changes occurred. The full existing rules baseline and review gate remain in
   force.
+
+### 21. M1 V7 — biome distinction revision (11 September 2026)
+
+- V6 is retained as historical evidence at checkpoint `94fd3bb`. The user wants
+  the middle grasslands distinguished from wetlands: cooler teal/sage damp banks
+  and reeds versus warm sunny open grasslands with broad short-grass route,
+  taller soft grasses, flowers and leafy cover around the three shelters.
+- V7 preserves the desert composition, far-upper-right oasis, nest,
+  eight shelters in the 2/3/3 distribution, bridges, left access to the upper
+  meadow shelter and broad future tile corridors. It contains no tiles, text or
+  legend. The generated image is under
+  `duck-migration/concepts/2026-09-11-v7/`; lead visually inspected it and
+  marked it ready for user review. V7 has no overlay, so 53-space fit, reward
+  placement and exact indexed alignment remain unresolved.
+- No overlay, Unity positioning/import, Core, source/settings, gameplay, M2 or
+  rules changes are authorized. The full rules baseline and review gate remain.

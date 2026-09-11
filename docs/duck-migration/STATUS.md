@@ -1,13 +1,14 @@
 # Duck migration status
 
-**M1 V6 — base-board revision generated and visually inspected; ready for user
-review.** The user likes V5’s painted style but rejects its spaces’ alignment with the painted
-paths. The current image-only request edits the base board only: the upper
-shelter in the middle meadow island should connect to the route on the left;
-pond routes should use flattened grass/riverside verge, meadow routes softer
-moss/clover, and desert routes retained sand, with room for future token spaces.
-Preserve the far-upper-right oasis, nest, eight shelters and bridges. This image
-contains no tiles, tokens, numbers, reward text or legend. Branch:
+**M1 V7 — base-board revision generated and visually inspected; ready for user
+review.** The user likes V5’s painted style but rejects its spaces’ alignment
+with the painted paths.
+V7 distinguishes wetlands from middle grasslands: cooler teal/sage damp banks
+and reeds versus warm sunny open grasslands, broad short-grass route, taller soft
+grasses, meadow flowers and leafy deciduous cover around the three existing
+shelters. Preserve the desert composition, far-upper-right oasis, nest, eight
+shelters, bridges, left access to the upper meadow shelter and broad corridors.
+This image contains no tiles, tokens, numbers, reward text or legend. Branch:
 `codex/duck-game-milestone-0`.
 
 ## Completed work
@@ -58,13 +59,19 @@ has no overlay, so 53-space fit, reward placement and exact indexed alignment
 remain unresolved. Keep the full rules baseline and do not infer a Unity
 position map from this image.
 
+V6 is historical review evidence at checkpoint `94fd3bb`; its visual inspection
+does not establish overlay alignment. V7 is saved under
+`concepts/2026-09-11-v7/` and was visually inspected as a review candidate. It
+has no overlay, so 53-space fit, reward placement and exact indexed alignment
+remain unresolved.
+
 This pass generated concept images only, outside Unity, with no Editor calls.
 Source, Unity assets, packages and shipping scene list remain unchanged. Preserve the pre-existing
 ProjectSettings preload removal and keep it out of commits.
 
 ## Review gate
 
-V6 is ready for the user’s reaction. Do not import images into Unity, alter
+V7 is ready for the user’s reaction. Do not import images into Unity, alter
 source/settings, or start M2. Unity positioning was discussed only, not
 authorized. The existing 54 logical positions and next-scoring-space semantics
 remain the baseline; this base image does not establish Unity behavior.

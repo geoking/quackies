@@ -6,16 +6,16 @@ The user accepted M0 and authorized **M1 only** on 10 September 2026. On 11
 September the first M1 style was rejected as a visual direction. The subsequent
 duck tiles and three-biome style were approved, and the V3 seed token is now
 accepted. V5’s painted style remains preferred, but its painted spaces did not
-align convincingly with the illustrated paths. The current V6 image-only pass
-therefore edits the base board only: preserve the far-upper-right oasis, nest,
-eight shelters and bridges, connect the upper shelter in the middle meadow
-island to the route on the left, and try softer biome-specific routes with room
-for future token spaces. Use flattened grass/riverside verge in the pond,
-moss/clover in the meadow and retained sand in the desert. Do not add tiles,
-tokens, numbers, reward text or a legend. Preserve the current Pond penny and
-Twig values and the full rules baseline. Pause for image review; Unity
-positioning was discussed only and no Unity import, source/settings changes or
-M2 are authorized by this pass.
+align convincingly with the illustrated paths. The V7 image-only pass edits the
+base board only: distinguish the middle grasslands from wetlands with cooler
+teal/sage damp banks and reeds, versus warm sunny open grasslands with a broad
+short-grass route, taller soft grasses, meadow flowers and leafy deciduous cover
+around the three existing shelters. Preserve the desert composition,
+far-upper-right oasis, nest, eight shelters and bridges, the upper middle-meadow
+shelter’s left access, and broad corridors for future token spaces. Do not add
+tiles, tokens, numbers, reward text or a legend. Preserve the full rules
+baseline. Pause for image review; Unity positioning was discussed only and no
+Unity import, source/settings changes or M2 are authorized by this pass.
 
 The user explicitly approved precise typesetting over generated artwork after
 the first labelled image skipped positions and corrupted reward values. For a
@@ -24,7 +24,7 @@ reuse the painted stone/leaf/icon components in the preferred earlier
 style, compose the 53 wells from those components, then typeset reward rows and
 the full illustrated legend from verified track data. The early labelled-board
 reference is for style, not numerical data. Position indices remain internal and
-are not printed. V6 is only the background edit described above; no overlay is
+are not printed. V7 is only the background edit described above; no overlay is
 being composed in this pass. Static design rendering is outside Unity and does
 not alter the rules engine.
 The current branch is
@@ -189,9 +189,10 @@ identifiers as Quackies. Shelter density and 2-feather safe / 1-feather exhauste
 rewards are unapproved experiment candidates, not requirements.
 
 Retain the approved four-player duck identity sheet and V3 seed tile. Review
-the V6 base board for route readability and shelter connections; it has no
-playable tiles or labels. Preserve the V5 three-biome style as visual context,
-but do not treat the V6 image as a mapping of the 54 indexed source positions.
+the V7 base board for biome distinction, route readability and shelter
+connections; it has no playable tiles or labels. Preserve the V5 three-biome
+style as visual context, but do not treat the V7 image as a mapping of the 54
+indexed source positions.
 Static image checks do not establish Unity behaviour.
 
 Keep Twigs beside a nest, label pennies as **Spend today**, and show the resting
@@ -205,7 +206,7 @@ The count is confirmed; their illustrated placement awaits review. Each rest
 frames its own token well and has an attached feather marker; scenery nearby
 must not imply a separate resting space. No extra Penny/Twig bonuses are added.
 
-The rules baseline retains internal start 0 and spaces 1–53; this V6 base image
+The rules baseline retains internal start 0 and spaces 1–53; this V7 base image
 has no visible index badges.
 Each reward row uses a gold coin icon and amount, then a twig icon and amount.
 For zero Twigs, omit both twig icon and zero and center the coin pair. Use the

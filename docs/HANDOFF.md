@@ -35,14 +35,14 @@ with painted component sprites plus exact text: [finished board and notes](duck-
 The image/renderer/QA checkpoint is `db76c1c`. All 53 reward groups fit their
 painted capsules using measured Marker Felt glyph bounds; lead checked the full
 board and label close-ups. The user likes the V5 style but rejected its painted
-spaces’ alignment with the paths. A V6 base-board image-only revision is ready:
-it connects the upper middle-meadow shelter to the route on the left and uses
-softer pond grass/riverside-verge and meadow moss/clover routes while retaining
-desert sand, preserve the far-upper-right oasis, nest, eight shelters and
-bridges, and leave room for future token spaces. No tiles, tokens, numbers,
-reward text or legend belong in this base image. Lead visually inspected the
-generated PNG and it is ready for user review. It has no overlay, so 53-space
-fit and exact indexed alignment remain unresolved. Do not import into Unity,
+spaces’ alignment with the paths. V6 is historical review evidence at
+checkpoint `94fd3bb`. V7 distinguishes cooler teal/sage wetland
+banks and reeds from warm sunny open grasslands, while retaining the existing
+desert, existing shelters, left access, nest, bridges, oasis and broad future
+tile corridors. No tiles, tokens, numbers, reward text or legend belong in this
+base image. Lead visually inspected the generated V7 PNG and it is ready for
+user review. It has no overlay, so 53-space fit and exact indexed alignment
+remain unresolved. Do not import into Unity,
 change source/settings, implement biome
 rewards, or start M2. Unity positioning was discussed only, not authorized.
 Preserve the original playable game and pre-existing ProjectSettings preload
