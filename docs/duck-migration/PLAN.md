@@ -6,20 +6,24 @@ The user accepted M0 and authorized **M1 only** on 10 September 2026. On 11
 September the first M1 style was rejected as a visual direction. The subsequent
 duck tiles and three-biome style were approved, and the V3 seed token is now
 accepted. V5’s painted style remains preferred, but its painted spaces did not
-align convincingly with the illustrated paths. The V9 image-only pass edits the
-base board only: preserve V8’s blocked shortcuts and three open meadow entries,
-then sweep bridge integration and image quality using a clean high-resolution
-render. Bridges should have earth/stone bank abutments, open walk-on approaches,
-grounded supports/contact shadows, wet moss on the wetland bridge and drier
-stone/wood on the desert bridge. Preserve the cool wetlands, warm grasslands,
-desert, eight shelters, nest, oasis and broad routes.
+align convincingly with the illustrated paths. The V10 image-only pass edits the
+base board only: keep usable route widths broadly equal across all three islands,
+initially targeting about 120px clear width on the 1536px reference canvas;
+the later generation target was 140–150px. After general corridor compaction
+and one lower-grotto compaction, bounded manual samples measured meadow
+110–140px, wetland 100–145px, desert-left 120–160px, below-oasis 130–170px,
+and the lower-grotto sides 110–130px/right and 115–135px/left. These are
+sampled estimates with about ±10px uncertainty, not all-53 certification.
+The wasteland crossing now has a deeper rocky gap and
+grounded timber/rope bridge, open deck ends and sweeping approaches from the
+meadow's upward lane to the desert's downward lane. Preserve the cool wetlands, warm
+grasslands, desert, eight shelters, nest, oasis and broad routes.
 The selected candidate measures 1536 × 1024; the requested 3072 × 2048 master
 remains unresolved after two built-in attempts. Enlargement alone would not add
 the requested detail. Do not add tiles, text or a legend. No Unity import,
 source/settings change or M2 is authorized.
 
-The earlier V8 image-only pass edited the
-base board to distinguish the middle grasslands from wetlands with cooler
+Earlier image-only passes distinguished the middle grasslands from wetlands with cooler
 teal/sage damp banks and reeds, versus warm sunny open grasslands with a broad
 short-grass route, taller soft grasses, meadow flowers and leafy deciduous cover
 around the three existing shelters. V8 added dense tall meadow grasses and
@@ -40,7 +44,7 @@ reuse the painted stone/leaf/icon components in the preferred earlier
 style, compose the 53 wells from those components, then typeset reward rows and
 the full illustrated legend from verified track data. The early labelled-board
 reference is for style, not numerical data. Position indices remain internal and
-are not printed. V9 is only the background edit described above; no overlay is
+are not printed. V10 is only the background edit described above; no overlay is
 being composed in this pass. Static design rendering is outside Unity and does
 not alter the rules engine.
 The current branch is
@@ -205,9 +209,9 @@ identifiers as Quackies. Shelter density and 2-feather safe / 1-feather exhauste
 rewards are unapproved experiment candidates, not requirements.
 
 Retain the approved four-player duck identity sheet and V3 seed tile. Review
-the V9 base board for biome distinction, route readability and shelter
+the V10 base board for biome distinction, route readability and shelter
 connections; it has no playable tiles or labels. Preserve the V5 three-biome
-style as visual context, but do not treat the V9 image as a mapping of the 54
+style as visual context, but do not treat the V10 image as a mapping of the 54
 indexed source positions.
 Static image checks do not establish Unity behaviour.
 
@@ -222,7 +226,7 @@ The count is confirmed; their illustrated placement awaits review. Each rest
 frames its own token well and has an attached feather marker; scenery nearby
 must not imply a separate resting space. No extra Penny/Twig bonuses are added.
 
-The rules baseline retains internal start 0 and spaces 1–53; this V9 base image
+The rules baseline retains internal start 0 and spaces 1–53; this V10 base image
 has no visible index badges.
 Each reward row uses a gold coin icon and amount, then a twig icon and amount.
 For zero Twigs, omit both twig icon and zero and center the coin pair. Use the

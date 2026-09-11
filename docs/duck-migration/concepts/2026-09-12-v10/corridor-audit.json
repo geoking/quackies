@@ -1,0 +1,128 @@
+{
+  "date": "2026-09-12",
+  "kind": "read-only manual visual clearance audit",
+  "auditStage": "selected locally corrected candidate, with the rejected first-candidate findings retained below",
+  "candidate": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-bada2b21-249e-4e04-b81f-493acaf5d0d5.png",
+  "candidateSha256": "71fd44e243bed3c7ebcff2b06ecd8ea966c73d987522268e1cf7fa6f0a109b14",
+  "rejectedFirstCandidate": {
+    "candidate": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b.png",
+    "status": "rejected-fails-clearance-audit",
+    "hardFailures": ["wasteland inner-left at the log/chasm pinch: 80–95px", "wasteland outer-right at upper oasis: 55–75px", "wasteland outer-right behind lower grotto: 65–85px"],
+    "repeatedRisks": "Both meadow-side corridors were only 80–105px around the three shelter masses.",
+    "correctionRequested": "Compact central scenic masses and create 140–150px design corridors; terminate the token route in a broad clearing below the oasis rather than behind the upper oasis. The required right-of-lower-grotto route remains in scope."
+  },
+  "referenceCanvas": { "width": 1536, "height": 1024 },
+  "basis": {
+    "ordinaryWell": { "width": 76, "height": 72 },
+    "largestRestSprite": { "width": 96, "height": 96 },
+    "minimumUsableClearance": 96,
+    "initialDesignTarget": 120,
+    "laterGenerationTarget": [140, 150],
+    "targetNote": "The original target was approximately 120px; the correction request asked generation for 140–150px corridors to leave visual margin above the 96px footprint requirement.",
+    "uncertainty": "±10 px. Ranges are approximate visual evidence between painted obstacle/foliage edges, not pixel-exact certified minima, image segmentation, or future placement coordinates."
+  },
+  "scope": {
+    "evaluated": "Open painted corridor width at three representative heights in each of six vertical lanes, selected bottom bends, bridge end joins, shelters, meadow spurs, and barrier density.",
+    "excluded": "No 53-anchor mapping, no old V5 coordinates, no token placement certification, and no bridge-deck width check; bridges are connectors only."
+  },
+  "transects": [
+    {
+      "lane": "wetland-outer-left",
+      "side": "outer bank between frame/reeds and pond edge",
+      "samples": [
+        { "height": "upper", "y": 240, "clearRange": [120, 140], "status": "passes-96", "edgeNotes": "Frame-side reeds and upper pond/reed boundary." },
+        { "height": "middle", "y": 480, "clearRange": [115, 135], "status": "passes-96", "edgeNotes": "Arched shelter foliage now sits well inside the outer grass lane." },
+        { "height": "lower", "y": 700, "clearRange": [125, 145], "status": "passes-96", "edgeNotes": "Open grass between lower pond reeds and outer foliage." }
+      ]
+    },
+    {
+      "lane": "wetland-inner-right",
+      "side": "between pond/reed mass and river-bank rocks",
+      "samples": [
+        { "height": "upper", "y": 240, "clearRange": [105, 125], "status": "passes-96", "edgeNotes": "Reed tips count as barriers; minor flowers do not." },
+        { "height": "middle", "y": 480, "clearRange": [100, 120], "status": "passes-96", "edgeNotes": "Pond shoulder and bank stones leave a visible token-width grass strip." },
+        { "height": "lower", "y": 700, "clearRange": [115, 135], "status": "passes-96", "edgeNotes": "Broader approach above the lower bend." }
+      ]
+    },
+    {
+      "lane": "meadow-left",
+      "side": "between river-bank rocks and the three central shelter/spur masses",
+      "samples": [
+        { "height": "upper", "y": 245, "clearRange": [115, 135], "status": "passes-96", "edgeNotes": "Upper wheat shelter is compacted away from the river-bank edge." },
+        { "height": "middle", "y": 440, "clearRange": [110, 130], "status": "passes-96", "edgeNotes": "Stone-shelter/wheat fringe retains clear separation from the river bank." },
+        { "height": "lower", "y": 680, "clearRange": [120, 140], "status": "passes-96", "edgeNotes": "Lower approach opens after the third shelter spur." }
+      ]
+    },
+    {
+      "lane": "meadow-right",
+      "side": "between central shelter/spur masses and the cliff-side green edge",
+      "samples": [
+        { "height": "upper", "y": 245, "clearRange": [120, 140], "status": "passes-96", "edgeNotes": "Upper shelter foliage and cliff-side border have a broad grass separation." },
+        { "height": "middle", "y": 440, "clearRange": [115, 135], "status": "passes-96", "edgeNotes": "Middle stone shelter's right fringe is set back from the cliff-side border." },
+        { "height": "lower", "y": 680, "clearRange": [120, 140], "status": "passes-96", "edgeNotes": "Lower branch/reed spur remains compact and distinct from the border." }
+      ]
+    },
+    {
+      "lane": "wasteland-inner-left",
+      "side": "between chasm wall and central wasteland barriers",
+      "samples": [
+        { "height": "upper", "y": 245, "clearRange": [140, 160], "status": "passes-96", "edgeNotes": "Broad open sand after the suspension-bridge join." },
+        { "height": "middle", "y": 450, "clearRange": [120, 140], "status": "passes-96", "edgeNotes": "Compacted log shelter and chasm-wall rocks leave a clear corridor." },
+        { "height": "lower", "y": 680, "clearRange": [125, 145], "status": "passes-96", "edgeNotes": "Open sand before the lower grotto cluster." }
+      ]
+    },
+    {
+      "lane": "wasteland-outer-right",
+      "side": "token route below the upper oasis, then right of the lower grotto; decorative upper-water strip is excluded",
+      "samples": [
+        { "height": "upper", "y": 280, "clearRange": [150, 170], "status": "passes-96", "edgeNotes": "Broad token-capable clearing below the oasis; the narrow decorative water-side strip above it is excluded." },
+        { "height": "middle", "y": 450, "clearRange": [130, 150], "status": "passes-96", "edgeNotes": "Open sand continues past the compact log shelter." },
+        { "height": "lower", "y": 680, "clearRange": [110, 130], "status": "passes-96", "edgeNotes": "Required route right of the compacted lower grotto now has a visibly open sand strip to the frame." }
+      ]
+    }
+  ],
+  "bottomBends": [
+    { "area": "wetland outer bend", "approximateCenter": [180, 790], "clearRange": [125, 145], "status": "passes-96" },
+    { "area": "wetland inner/river bend", "approximateCenter": [420, 790], "clearRange": [110, 130], "status": "passes-96" },
+    { "area": "meadow lower-left bend", "approximateCenter": [650, 790], "clearRange": [120, 140], "status": "passes-96" },
+    { "area": "meadow lower-right bend", "approximateCenter": [900, 790], "clearRange": [120, 140], "status": "passes-96" },
+    { "area": "wasteland lower inner bend", "approximateCenter": [1130, 800], "clearRange": [125, 145], "status": "passes-96" },
+    { "area": "wasteland lower outer bend", "approximateCenter": [1430, 800], "clearRange": [120, 140], "status": "passes-96", "edgeNotes": "Genuine outer-bottom sand bend, below the lower grotto. The separate required grotto-right pinch is measured in the outer-right lower transect." }
+  ],
+  "bridgeApproaches": [
+    { "bridge": "wetland-to-meadow wooden bridge", "wetlandJoin": "continuous", "meadowJoin": "continuous", "joinClearance": [115, 135], "status": "passes-96", "note": "Deck intentionally excluded from placement clearance." },
+    { "bridge": "meadow-to-wasteland suspension bridge", "meadowJoin": "continuous", "wastelandJoin": "continuous", "joinClearance": [120, 140], "status": "passes-96", "note": "The physical chasm crossing reads strongly and both open-end joins meet the footprint threshold." }
+  ],
+  "shelters": {
+    "count": 8,
+    "observed": [
+      { "biome": "wetland", "approximateCenter": [220, 440], "type": "reed arch" },
+      { "biome": "wetland", "approximateCenter": [345, 585], "type": "willow-root bed" },
+      { "biome": "meadow", "approximateCenter": [750, 315], "type": "wheat canopy" },
+      { "biome": "meadow", "approximateCenter": [780, 450], "type": "stone shelter" },
+      { "biome": "meadow", "approximateCenter": [785, 640], "type": "branch canopy" },
+      { "biome": "wasteland", "approximateCenter": [1400, 150], "type": "upper oasis" },
+      { "biome": "wasteland", "approximateCenter": [1200, 445], "type": "log shelter" },
+      { "biome": "wasteland", "approximateCenter": [1300, 700], "type": "lower grotto" }
+    ]
+  },
+  "meadowSpurs": {
+    "count": 3,
+    "observed": ["upper wheat-canopy fringe", "middle stone-shelter/wheat fringe", "lower branch-canopy/reed fringe"],
+    "barrierAssessment": "All three are visually dense and distinct, and now read as a near-continuous central spine through overlapping or near-contiguous foliage. Both side corridors retain conservative 96px-plus clearance; no broad cross-through is visible."
+  },
+  "denseBarriers": [
+    "Wetland reed and pond edges remain the narrowest wetland visual edges but retain >=100px at conservative estimate.",
+    "Meadow shelter foliage forms a continuous central barrier while preserving both side corridors.",
+    "The compacted lower grotto preserves the required right-side route; its left-side chasm-to-grotto clearance is visually about 115–135px and its right-side frame clearance about 110–130px."
+  ],
+  "result": {
+    "status": "passes-manual-clearance-audit",
+    "reason": "All selected-candidate transects, bottom bends, and bridge end joins have conservative lower estimates >=96px. The smallest sampled lower estimate is 100px at the wetland inner-right middle cross-section; the corrected lower-grotto left/right clearances are about 115–135px and 110–130px respectively.",
+    "openIssues": [
+      "This is approximate manual visual evidence with ±10px uncertainty, not pixel-exact certified minima, deterministic segmentation, or a 53-anchor placement certification.",
+      "The broad clearing below the upper oasis is token-capable; the narrow decorative water-side strip above it remains intentionally excluded from the route.",
+      "The target was ~120px, so the wetland inner-right middle sample has only a small visual margin above the 96px footprint threshold."
+    ]
+  }
+}

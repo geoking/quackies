@@ -1,13 +1,18 @@
 # Duck migration status
 
-**M1 V9 — bridge/style review candidate at 1536 × 1024; resolution pending.**
+**M1 V10 — route-width/bridge candidate ready for image review.**
+V9 is historical review evidence at checkpoint `72ffdf3`.
 The user likes V5’s painted style but rejects its spaces’ alignment
 with the painted paths.
-V9 preserves V8’s distinctions and barriers while sweeping bridge integration and
-image quality: wetland bridges use mossy earth/stone abutments and grounded
-supports; the desert bridge uses drier stone/wood. Keep open approaches and the
-three meadow entries LEFT/RIGHT/DOWN, eight shelters, nest, oasis and broad
-corridors. The selected native candidate measures 1536 × 1024. The requested
+V10 keeps V9’s distinctions/barriers. The original target was about 120px clear;
+the later generation target was 140–150px. Bounded manual samples on the final
+candidate measured meadow 110–140px, wetland 100–145px, desert-left 120–160px,
+below-oasis 130–170px, lower-grotto right 110–130px and left 115–135px, with
+about ±10px uncertainty. These are sampled ranges, not all-53 certification.
+The wasteland crossing now spans a deeper rocky gap with a grounded
+timber/rope bridge and sweeping open approaches. Preserve LEFT/RIGHT/DOWN
+meadow entries, eight shelters, nest, oasis and broad routes. The selected V10
+native candidate measures 1536 × 1024. The requested
 3072 × 2048 master remains unresolved after two built-in attempts. V8’s
 distinctions were cooler teal/sage damp banks
 and reeds versus warm sunny open grasslands, broad short-grass route, taller soft
@@ -71,10 +76,9 @@ position map from this image.
 V6 is historical review evidence at checkpoint `94fd3bb`; its visual inspection
 does not establish overlay alignment. V7 is historical review evidence at
 checkpoint `9ee73e0`; V8 is historical review evidence at checkpoint `93f7a47`.
-V9 is saved under `concepts/2026-09-11-v9/`; the selected candidate was visually
-inspected and is ready as a reviewable bridge/style checkpoint. It has no
-overlay, so 53-space fit, reward placement and exact indexed alignment remain
-unresolved. A CLI/API fallback requires explicit user authorization and a local
+V9 is historical evidence; V10 is saved under
+`concepts/2026-09-12-v10/` and is ready as a reviewable image checkpoint. It has no overlay, so 53-space fit, reward placement
+and exact indexed alignment remain unresolved. A CLI/API fallback requires explicit user authorization and a local
 `OPENAI_API_KEY`; no key is configured. No fallback or resampling was applied.
 
 This pass generated concept images only, outside Unity, with no Editor calls.
@@ -83,7 +87,7 @@ ProjectSettings preload removal and keep it out of commits.
 
 ## Review gate
 
-V9 is ready for the user’s reaction, with resolution still pending.
+V10 is ready for the user’s reaction.
 Do not import images into Unity, alter
 source/settings, or start M2. Unity positioning was discussed only, not
 authorized. The existing 54 logical positions and next-scoring-space semantics

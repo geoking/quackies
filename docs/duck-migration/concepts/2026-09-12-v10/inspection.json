@@ -1,0 +1,58 @@
+{
+  "status": "design visually inspected; bounded manual corridor audit passed; pending user review",
+  "mode": "built-in image_gen edit plus general clearance and local grotto corrections",
+  "nativeOutput": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-bada2b21-249e-4e04-b81f-493acaf5d0d5.png",
+  "artifact": "board-art-v10.png",
+  "actualDimensions": [
+    1536,
+    1024
+  ],
+  "bytes": 2902352,
+  "sha256": "71fd44e243bed3c7ebcff2b06ecd8ea966c73d987522268e1cf7fa6f0a109b14",
+  "reference": "../2026-09-11-v9/board-art-v9.png",
+  "firstCandidate": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b.png",
+  "visualInspection": {
+    "bridge": "dramatic timber-and-rope crossing over deeper cleft; supported ends and grassy/sandy approaches",
+    "clearanceChange": "compacted interior scenery and widened main routes across the islands; bounded manual samples compared with96px largest rest frame",
+    "meadowAccess": [
+      "upper:left",
+      "middle:right",
+      "lower:down"
+    ],
+    "barriers": "central planting and wetland nest-to-bridge block retained",
+    "sheltersByBiome": [
+      2,
+      3,
+      3
+    ],
+    "nest": "unfinished upper-left",
+    "oasis": "far upper-right, with main path ending in a broad clearing below",
+    "tilesNumbersTextLegend": "absent",
+    "footer": "blank cream",
+    "grottoCorrection": "lower desert grotto compacted; required right-hand route approximately110\u2013130px and left clearance115\u2013135px in manual audit"
+  },
+  "resolutionFinding": "Native1536x1024. Prior3072x2048 master remains unresolved; no resampling or API fallback.",
+  "scope": {
+    "unityCalls": false,
+    "unityImports": false,
+    "coreRuleChanges": false,
+    "all53PositionsValidated": false,
+    "userAcceptance": "pending"
+  },
+  "preservedPreexistingProjectSettingsSha256": "bd3fb139bac5aa51048d7e8cf69f6010f6e8df5b02dc20c5b419b49b0dd6cbcb",
+  "intermediateWideningCandidate": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-2c092fe9-214b-4635-9592-768281dfa475.png",
+  "corridorAudit": {
+    "file": "corridor-audit.json",
+    "method": "manual visual cross-sections, bends and bridge joins; approximately\u00b110px uncertainty",
+    "largestReferenceFrame": [
+      96,
+      96
+    ],
+    "meadowEstimatedWidthRange": [
+      110,
+      140
+    ],
+    "smallestSampledLowerEstimate": 100,
+    "limitations": "No deterministic pixel-clearance guarantee, no all53placement proof, bridges serve as connectors rather than tile locations."
+  }
+}

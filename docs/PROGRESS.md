@@ -423,3 +423,21 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   attempts. No resampling was applied; a CLI/API fallback requires explicit user
   authorization and a local `OPENAI_API_KEY`, which is not configured. Do not
   claim 53-space fit or Unity/runtime evidence.
+
+### 24. M1 V10 — route-width and wasteland bridge review candidate (12 September 2026)
+
+- V9 is retained as historical evidence at checkpoint `72ffdf3`. The user wants
+  broadly equal usable widths across all three islands. The original target was
+  about 120px; the later generation target was 140–150px. General corridor
+  compaction and one lower-grotto compaction were applied. Bounded manual samples
+  measured meadow 110–140px, wetland 100–145px, desert-left 120–160px,
+  below-oasis 130–170px and lower-grotto sides 110–130px/right and 115–135px/left,
+  with about ±10px uncertainty. These samples do not certify all 53 positions.
+- The wasteland crossing now spans a deeper rocky gap with a grounded
+  timber/rope bridge, open deck ends and sweeping approaches from the meadow's
+  upward lane to the desert's downward lane. Preserve the LEFT/RIGHT/DOWN meadow
+  entries, nest, oasis, shelters, broad routes and no overlay/text/legend.
+- V10 is under `duck-migration/concepts/2026-09-12-v10/` and is ready for image
+  review. The dramatic bridge approaches passed visual inspection. The 3072 ×
+  2048 master remains unresolved; do not claim exact 53-space fit or
+  Unity/runtime evidence.
