@@ -5,24 +5,28 @@
 The user accepted M0 and authorized **M1 only** on 10 September 2026. On 11
 September the first M1 style was rejected as a visual direction. The subsequent
 duck tiles and three-biome style were approved, and the V3 seed token is now
-accepted. The current V5 image-only pass restores the user’s preferred painted
-character: bubbly stone wells, lush feather frames and a larger illustrated
-legend. Preserve the selected background with its far top-right oasis unchanged.
-The previous V4 overlay was too flat and uniform. Retain an incomplete
-nest at the start, no visible position numbers, icon-based reward rows, consistent
-tile geometry (especially 11, 44 and 53), and a distinct shelter beside each rest.
-Preserve the current Pond penny and Twig values; the user confirmed
-eight resting spots, rounding half of the 15 original ruby spots upward.
-Pause again for image review. No Unity import, source/settings changes or M2
-are authorized by this pass.
+accepted. V5’s painted style remains preferred, but its painted spaces did not
+align convincingly with the illustrated paths. The current V6 image-only pass
+therefore edits the base board only: preserve the far-upper-right oasis, nest,
+eight shelters and bridges, connect the upper shelter in the middle meadow
+island to the route on the left, and try softer biome-specific routes with room
+for future token spaces. Use flattened grass/riverside verge in the pond,
+moss/clover in the meadow and retained sand in the desert. Do not add tiles,
+tokens, numbers, reward text or a legend. Preserve the current Pond penny and
+Twig values and the full rules baseline. Pause for image review; Unity
+positioning was discussed only and no Unity import, source/settings changes or
+M2 are authorized by this pass.
 
 The user explicitly approved precise typesetting over generated artwork after
-the first labelled image skipped positions and corrupted reward values. Keep
-the user-selected background unchanged. Generate blank painted stone/leaf/icon
-components in the preferred earlier style, compose the 53 wells from those
-components, then typeset reward rows and the full illustrated legend from verified
-track data. The early labelled-board reference is for style, not numerical data. Position indices remain internal and are not printed. This
-static design rendering is outside Unity and does not alter the rules engine.
+the first labelled image skipped positions and corrupted reward values. For a
+later authorized tile-overlay pass, use the accepted revised background,
+reuse the painted stone/leaf/icon components in the preferred earlier
+style, compose the 53 wells from those components, then typeset reward rows and
+the full illustrated legend from verified track data. The early labelled-board
+reference is for style, not numerical data. Position indices remain internal and
+are not printed. V6 is only the background edit described above; no overlay is
+being composed in this pass. Static design rendering is outside Unity and does
+not alter the rules engine.
 The current branch is
 `codex/duck-game-milestone-0`, created from merged playable commit
 `74e40cfe04995d813428c3ff8390461235928a44` on 10 September 2026.
@@ -185,22 +189,24 @@ identifiers as Quackies. Shelter density and 2-feather safe / 1-feather exhauste
 rewards are unapproved experiment candidates, not requirements.
 
 Retain the approved four-player duck identity sheet and V3 seed tile. Review
-the V5 three-biome board with painted bubbly wells and icon reward rows. Validate the static layout
-against all 54 indexed source positions, including the separate start, before
-any later Unity mapping. Static image checks do not establish Unity behaviour.
+the V6 base board for route readability and shelter connections; it has no
+playable tiles or labels. Preserve the V5 three-biome style as visual context,
+but do not treat the V6 image as a mapping of the 54 indexed source positions.
+Static image checks do not establish Unity behaviour.
 
 Keep Twigs beside a nest, label pennies as **Spend today**, and show the resting
 preview separately from the nest score. These are rules-neutral clarity choices.
 The latest request explicitly retains the current Quacks Pond penny/Twig table,
 superseding the earlier biome-dependent reward curve for this design. That
-earlier idea remains a future experiment only. V5 retains eight clearly assigned
+earlier idea remains a future experiment only. V5 retained eight clearly assigned
 resting spaces, proposed at physical indices 5,13,20,28,34,40,46,52: a subset of
 the original ruby positions, distributed 2/3/3 across the illustrated regions.
 The count is confirmed; their illustrated placement awaits review. Each rest
 frames its own token well and has an attached feather marker; scenery nearby
 must not imply a separate resting space. No extra Penny/Twig bonuses are added.
 
-The board retains internal start 0 and spaces 1–53, with no visible index badges.
+The rules baseline retains internal start 0 and spaces 1–53; this V6 base image
+has no visible index badges.
 Each reward row uses a gold coin icon and amount, then a twig icon and amount.
 For zero Twigs, omit both twig icon and zero and center the coin pair. Use the
 same usable pad/reward geometry with modest painted contour variations; no

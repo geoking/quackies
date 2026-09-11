@@ -356,3 +356,22 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   unchanged. No Unity calls/imports, new game rules or device checks occurred.
 - Stopped for review of the finished labelled image. No M2 or implementation
   work has begun, and user style acceptance is pending.
+
+### 20. M1 V6 — base-board route revision (11 September 2026)
+
+- The user likes V5’s painted style but rejected the alignment of painted spaces
+  with the illustrated paths. The current bounded pass edits only the base board:
+  connect the upper shelter in the middle meadow island to the route on the left,
+  use softer pond grass/riverside-verge and meadow moss/clover routes while
+  retaining desert sand, and leave room for future token spaces.
+- Preserve the selected far-upper-right oasis, nest, eight shelters in the 2/3/3
+  biome distribution and both bridges. The base image has no tiles, tokens,
+  numbers, reward text or legend. V5 alignment QA remains historical and is not
+  carried forward as proof of this revision.
+- Root saved the generated image and inspection notes under
+  `duck-migration/concepts/2026-09-11-v6/`; lead visually inspected it and
+  marked it ready for user review. V6 has no overlay, so 53-space fit, reward
+  placement and exact indexed alignment remain unresolved. No Unity positioning
+  or import was authorized, and no Core, source/settings, gameplay, M2 or rules
+  changes occurred. The full existing rules baseline and review gate remain in
+  force.

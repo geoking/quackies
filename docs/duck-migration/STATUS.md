@@ -1,10 +1,14 @@
 # Duck migration status
 
-**M1 V5 — painted board ready; stopped for user review.** The user prefers the original
-upper-right-oasis background (exec-56f99a5a) and the bubbly painted wells/full
-illustrated legend of exec-88b1f5df. V4’s flattened typeset well treatment is
-superseded. Use painted components with precise reward text, preserving all
-prior numerical and image-only constraints. Branch: `codex/duck-game-milestone-0`.
+**M1 V6 — base-board revision generated and visually inspected; ready for user
+review.** The user likes V5’s painted style but rejects its spaces’ alignment with the painted
+paths. The current image-only request edits the base board only: the upper
+shelter in the middle meadow island should connect to the route on the left;
+pond routes should use flattened grass/riverside verge, meadow routes softer
+moss/clover, and desert routes retained sand, with room for future token spaces.
+Preserve the far-upper-right oasis, nest, eight shelters and bridges. This image
+contains no tiles, tokens, numbers, reward text or legend. Branch:
+`codex/duck-game-milestone-0`.
 
 ## Completed work
 
@@ -43,7 +47,16 @@ prior numerical and image-only constraints. Branch: `codex/duck-game-milestone-0
   `f05432f`; painted components: `cd32631`; final image/renderer/QA: `db76c1c`.
   All 53 reward rows match the current table. Measured numeral bounds fit inside
   the painted capsules; zero-Twig rows and eight rests are correct. Full image
-  and label close-ups passed lead visual inspection. User acceptance is pending.
+  and label close-ups passed lead visual inspection. The user likes its painted
+  appearance but rejected the alignment of its spaces with the illustrated
+  paths.
+
+V5 remains historical evidence and is superseded as the current visual review;
+its static QA does not prove path alignment. V6 is saved under
+`concepts/2026-09-11-v6/` and was visually inspected as a review candidate. It
+has no overlay, so 53-space fit, reward placement and exact indexed alignment
+remain unresolved. Keep the full rules baseline and do not infer a Unity
+position map from this image.
 
 This pass generated concept images only, outside Unity, with no Editor calls.
 Source, Unity assets, packages and shipping scene list remain unchanged. Preserve the pre-existing
@@ -51,10 +64,10 @@ ProjectSettings preload removal and keep it out of commits.
 
 ## Review gate
 
-V5 is finished and inspected; wait for the user’s reaction. Do not import the
-images into Unity, alter source/settings, or start M2. The existing 54 logical
-positions and next-scoring-space semantics remain the baseline. The verified
-static mapping does not establish Unity behavior.
+V6 is ready for the user’s reaction. Do not import images into Unity, alter
+source/settings, or start M2. Unity positioning was discussed only, not
+authorized. The existing 54 logical positions and next-scoring-space semantics
+remain the baseline; this base image does not establish Unity behavior.
 
 ## Earlier milestone
 

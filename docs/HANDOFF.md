@@ -8,8 +8,9 @@ on `codex/duck-game-milestone-0`. Read [the migration plan](duck-migration/PLAN.
 the current scope and evidence. The user accepted M0 and authorized M1, then
 rejected the V1 visual style on 11 September 2026. V1 remains historical
 evidence: compile, native 1133 × 744 layout, repeat construction and
-Explore/Reset checks passed, but the style is superseded. The bounded task
-is complete: three new concept sheets are generated, inspected and saved under
+Explore/Reset checks passed, but the style is superseded. The earlier bounded
+art task is complete: three new concept sheets were generated, inspected and
+saved under
 [duck-migration/concepts/2026-09-11](duck-migration/concepts/2026-09-11/README.md):
 four distinct player duck tiles, a seed encounter tile study, and an illustrated
 three-biome board. The user then approved the ducks/biome style and requested
@@ -33,9 +34,19 @@ review. The user then preferred the untouched upper-right-oasis background
 with painted component sprites plus exact text: [finished board and notes](duck-migration/concepts/2026-09-11-v5/README.md).
 The image/renderer/QA checkpoint is `db76c1c`. All 53 reward groups fit their
 painted capsules using measured Marker Felt glyph bounds; lead checked the full
-board and label close-ups. Stopped for the user's review. Do not import into Unity,
-change source/settings, implement biome rewards, or start M2. Preserve the
-original playable game and pre-existing ProjectSettings preload removal.
+board and label close-ups. The user likes the V5 style but rejected its painted
+spaces’ alignment with the paths. A V6 base-board image-only revision is ready:
+it connects the upper middle-meadow shelter to the route on the left and uses
+softer pond grass/riverside-verge and meadow moss/clover routes while retaining
+desert sand, preserve the far-upper-right oasis, nest, eight shelters and
+bridges, and leave room for future token spaces. No tiles, tokens, numbers,
+reward text or legend belong in this base image. Lead visually inspected the
+generated PNG and it is ready for user review. It has no overlay, so 53-space
+fit and exact indexed alignment remain unresolved. Do not import into Unity,
+change source/settings, implement biome
+rewards, or start M2. Unity positioning was discussed only, not authorized.
+Preserve the original playable game and pre-existing ProjectSettings preload
+removal.
 
 ## Completed playable baseline
 
