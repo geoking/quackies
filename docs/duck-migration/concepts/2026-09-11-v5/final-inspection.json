@@ -1,0 +1,126 @@
+{
+  "date": "2026-09-11",
+  "scope": "M1 V5 finished labelled board image; stopped for user review",
+  "method": "User-selected background unchanged; built-in generated painted components prepared as an RGBA atlas; precise static bitmap composition and measured glyph typesetting",
+  "checkpoints": {
+    "briefAndReferences": "f05432f",
+    "paintedComponents": "cd32631",
+    "finalImageRendererQA": "db76c1c"
+  },
+  "artifacts": {
+    "three-biome-board-v5.jpg": {
+      "sha256": "03f8a58904ccabd7b50cb16d5a13a1222efb68d9be902969df87b2afdeaf0f40",
+      "bytes": 4820862
+    },
+    "board-art-v5.png": {
+      "sha256": "fb8b475429070f317420983d53870f7a212a722a170ed77ee61c52ed4849c452",
+      "bytes": 3076282
+    },
+    "bubbly-style-reference.png": {
+      "sha256": "214d3cf87c7bba00dd5eb3b52b87bafdded8e165cad063c156fc5b61978a1388",
+      "bytes": 3317593
+    },
+    "painted-kit-native.png": {
+      "sha256": "9c2c09349b1a45f1a1d43e028d8a2c8e481b1a68e55b7cf57e00f899fc5c645a",
+      "bytes": 2393374
+    },
+    "painted-kit.png": {
+      "sha256": "47f5998bb0d930f1acbf8b7d7760a316ce6f1437dbb4d1a1797173ada7e293a9",
+      "bytes": 3653384
+    },
+    "render-board.mjs": {
+      "sha256": "8d8959e1e8d4b1a220567a126e216ceba2fc3cf8a9f52524c50bb4124846ec49",
+      "bytes": 20808
+    },
+    "layout.json": {
+      "sha256": "1e75bbb66a9866b6d950b10793d6e00bceaf929e8cb8c9005e3c3df6e3e23928",
+      "bytes": 3556
+    },
+    "tile-atlas-v5.json": {
+      "sha256": "d11e78e1feca0dc86a5a419c87563ca773dd2e2e10840177a5f5c6f8290d8189",
+      "bytes": 824
+    },
+    "typeset-qa.json": {
+      "sha256": "89b7ecf9ef6b5d7b88c193df925ac8c0fe82822f63702d6ad8abde40bb5628b7",
+      "bytes": 42023
+    },
+    "extract-painted-kit.mjs": {
+      "sha256": "083f4e5b0c8d1073900860d42535662328dc6dbf26ffc5a13c26aa6d4b44b33f",
+      "bytes": 8564
+    },
+    "painted-kit-inspection.json": {
+      "sha256": "fb39f102a62812018dc1cf826d68c3cdad55aaecdc1496b43d5ba89076f38cc8",
+      "bytes": 4745
+    },
+    "track-data.json": {
+      "sha256": "9ad2758fdc9f8c601e6d49701c72d7deeff3ae972ae811cce8a16bac786a9fad",
+      "bytes": 4839
+    }
+  },
+  "export": {
+    "sourceDimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "atlasDimensions": {
+      "width": 1254,
+      "height": 1254
+    },
+    "outputDimensions": {
+      "width": 3072,
+      "height": 2048
+    },
+    "format": "jpeg",
+    "jpegQuality": 98,
+    "chromaSubsampling": "4:4:4",
+    "backgroundPreservedAs": "unmodified selected background plus bitmap atlas and SVG text overlay"
+  },
+  "validation": {
+    "allStaticChecksPassed": true,
+    "independentRewardComparison": "All53 rows match the verified V3 source table; track-data unchanged",
+    "selectedBackground": "Exact hash match to user-selected exec-56f99a5a; oasis remains at far top right",
+    "zeroTwigRows": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "restIndices": [
+      5,
+      13,
+      20,
+      28,
+      34,
+      40,
+      46,
+      52
+    ],
+    "typography": {
+      "fontSize": 11,
+      "measuredUniqueValues": 34,
+      "innerInset": {
+        "horizontal": 6,
+        "vertical": 3
+      },
+      "outsideCapsules": []
+    },
+    "visualReview": "Lead inspected the full final board and label close-ups. Painted bubbly spaces, full leafy white-feather frames and larger illustrated legend are present; no index/start/SCORE labels; final numerals are clear of capsule outlines. User style acceptance pending."
+  },
+  "preservation": {
+    "comparisonCheckpoint": "fcbedf6",
+    "unchangedPaths": [
+      "src",
+      "tests",
+      "unity/Quackies.Unity/Assets",
+      "unity/Quackies.Unity/Packages",
+      "unity/Quackies.Unity/ProjectSettings/EditorBuildSettings.asset"
+    ],
+    "preExistingProjectSettingsSHA256": "bd3fb139bac5aa51048d7e8cf69f6010f6e8df5b02dc20c5b419b49b0dd6cbcb",
+    "approvedTokenImages": "unchanged",
+    "unityEditorCalls": 0,
+    "unityImports": 0,
+    "gameplayChanges": 0
+  },
+  "limits": "Image-only evidence, not a Unity runtime, iOS export or device test. Core retains its original15 ruby flags; no new balance profile implemented."
+}

@@ -321,3 +321,38 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   method, prompts, files and validation. No Unity calls/imports, game-rule
   changes, iOS export or device test occurred. Stopped for user review; M2 and
   gameplay experiments have not begun.
+
+### 19. M1 V5 — painted spaces with precise typography (11 September 2026)
+
+- The user preferred the first nest/shelter background (exec-56f99a5a), with
+  the oasis at the far upper right, and the bubbly stone spaces and full legend
+  in the earlier generated labelled-board attempt (exec-88b1f5df). V4's flat
+  repeated well treatment was superseded. Saved both references and the revised
+  brief in `f05432f`; the earlier image remains a style reference, not rule data.
+- Kept the selected background pixels unchanged. Generated a nine-component
+  painted kit: three ordinary stone variants, three leafy white-feather rest
+  variants and three illustrated resource/legend icons. The native output and
+  a background-extraction retry were opaque; deterministic matte extraction
+  prepared the components for the agreed static compositing workflow.
+- Published native and RGBA component atlases, extraction script and inspection
+  evidence in `cd32631`. All RGB channels remain unchanged; opaque stone and
+  feather samples and nine complete sprite bounds were verified. A solid-dark
+  preview confirmed clean silhouettes and complete foliage.
+- Published the final bitmap composition, layout, atlas metadata, JPEG and QA
+  in `db76c1c`. Painted wells replace the flat SVG shapes; the larger footer
+  restores matching icons, separators, playful Marker Felt lettering and a
+  dashed scoring arrow. Internal indices, start labels and SCORE badges remain
+  absent. All 53 existing reward rows and eight rest positions are retained.
+- Measured actual numeral glyph bounds and bearings for centered reward groups,
+  with a 6px horizontal / 3px vertical inset inside their painted capsules.
+  All 53 measured groups pass containment checks; zero-Twig rows 1–5 show only
+  centered coins. Source row comparison, atlas alpha/crops, pad bounds and
+  non-overlap checks pass. Lead visually inspected the final full board and
+  close-ups of the longest reward rows and coin-only start rows.
+- [V5 review notes](duck-migration/concepts/2026-09-11-v5/README.md) preserve
+  prompts, method and hashes. Source, tests, Unity assets/packages and shipping
+  scene list match starting checkpoint `fcbedf6`; the pre-existing settings
+  hash is preserved and excluded from commits. Approved token images are
+  unchanged. No Unity calls/imports, new game rules or device checks occurred.
+- Stopped for review of the finished labelled image. No M2 or implementation
+  work has begun, and user style acceptance is pending.

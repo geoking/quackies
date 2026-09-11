@@ -4,10 +4,10 @@ The duck-theme migration is on `codex/duck-game-milestone-0`.
 See its [plan](docs/duck-migration/PLAN.md) and
 [milestone status](docs/duck-migration/STATUS.md). The first M1 Unity style
 preview passed technical checks but was rejected visually on 11 September 2026.
-The user approved the duck and seed tokens and the three-biome style. The V4
-board review adds an incomplete starting nest, unnumbered wells, coin/twig icon
-rewards and eight visibly linked shelters using illustrated scenery and precise
-static typesetting. The [board and review notes](docs/duck-migration/concepts/2026-09-11-v4/README.md)
+The user approved the duck and seed tokens and selected the background with its
+oasis in the far upper right. V5 restores painted bubbly spaces, full leafy
+rest frames and the larger illustrated legend, with precise coin/twig rewards.
+The [board and review notes](docs/duck-migration/concepts/2026-09-11-v5/README.md)
 remain outside Unity. The original playable game remains below; no M2 or
 game-code change is authorized by the image review.
 

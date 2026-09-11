@@ -4,9 +4,10 @@ The active priority is now the gradual duck migration. See
 [its plan](duck-migration/PLAN.md) and [review status](duck-migration/STATUS.md).
 M0 was accepted. M1's first Unity style preview passed technical checks but was
 rejected visually on 11 September. The user approved the V2 ducks/biome style;
-the V3 tokens are now accepted. The V4 board-only review adds an incomplete nest,
-icon rewards, unnumbered wells and eight visibly linked shelters, retaining all
-current Penny/Twig values. Pause after
+the V3 tokens are now accepted. The V5 board-only review combines the selected
+upper-right-oasis artwork with bubbly painted wells, full leafy rest frames,
+an illustrated legend and exact reward typography. The incomplete nest, all 53
+spaces, eight rests and current Penny/Twig values remain. Pause after
 image inspection. The items below remain backlog
 and are not authorization to start additional work now.
 

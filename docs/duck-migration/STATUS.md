@@ -1,6 +1,6 @@
 # Duck migration status
 
-**M1 V5 — painted board refinement in progress.** The user prefers the original
+**M1 V5 — painted board ready; stopped for user review.** The user prefers the original
 upper-right-oasis background (exec-56f99a5a) and the bubbly painted wells/full
 illustrated legend of exec-88b1f5df. V4’s flattened typeset well treatment is
 superseded. Use painted components with precise reward text, preserving all
@@ -36,7 +36,14 @@ prior numerical and image-only constraints. Branch: `codex/duck-game-milestone-0
   generated artwork: `d4523f5`; final renderer, JPEG and QA: `a66c8d3`.
   All 53 reward rows match the existing table, zero Twigs are omitted on the
   first five rows, and geometry/bounds checks pass. Lead visual inspection of
-  the final 3072 × 2048 JPEG passed; user acceptance is pending.
+  the final 3072 × 2048 JPEG passed; its overlay style was subsequently superseded.
+- [V5 finished labelled board](concepts/2026-09-11-v5/README.md) combines the
+  unchanged selected background with painted bubbly stones, full leafy white
+  feather rest frames and the larger illustrated legend. Brief/references:
+  `f05432f`; painted components: `cd32631`; final image/renderer/QA: `db76c1c`.
+  All 53 reward rows match the current table. Measured numeral bounds fit inside
+  the painted capsules; zero-Twig rows and eight rests are correct. Full image
+  and label close-ups passed lead visual inspection. User acceptance is pending.
 
 This pass generated concept images only, outside Unity, with no Editor calls.
 Source, Unity assets, packages and shipping scene list remain unchanged. Preserve the pre-existing
@@ -44,7 +51,7 @@ ProjectSettings preload removal and keep it out of commits.
 
 ## Review gate
 
-Finish and inspect V5, then wait for the user’s reaction. Do not import the
+V5 is finished and inspected; wait for the user’s reaction. Do not import the
 images into Unity, alter source/settings, or start M2. The existing 54 logical
 positions and next-scoring-space semantics remain the baseline. The verified
 static mapping does not establish Unity behavior.
