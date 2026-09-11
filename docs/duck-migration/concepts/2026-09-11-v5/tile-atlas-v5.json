@@ -1,0 +1,16 @@
+{
+  "atlas": "painted-kit.png",
+  "source": "painted-kit-inspection.json: nontransparentComponentsByGrid",
+  "sourceDimensions": { "width": 1254, "height": 1254 },
+  "crops": {
+    "regularA": { "left": 25, "top": 28, "width": 354, "height": 333 },
+    "regularB": { "left": 444, "top": 27, "width": 359, "height": 338 },
+    "regularC": { "left": 873, "top": 30, "width": 356, "height": 334 },
+    "restA": { "left": 6, "top": 401, "width": 412, "height": 419 },
+    "restB": { "left": 434, "top": 402, "width": 402, "height": 424 },
+    "restC": { "left": 848, "top": 408, "width": 399, "height": 412 },
+    "coin": { "left": 40, "top": 862, "width": 348, "height": 352 },
+    "twig": { "left": 456, "top": 885, "width": 351, "height": 316 },
+    "restIcon": { "left": 853, "top": 857, "width": 383, "height": 367 }
+  }
+}

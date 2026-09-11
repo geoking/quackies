@@ -1,0 +1,27 @@
+{
+  "version": 5,
+  "referenceCanvas": { "width": 1536, "height": 1024 },
+  "renderCanvas": { "width": 3072, "height": 2048 },
+  "boardArea": { "x": 20, "y": 40, "width": 1496, "height": 890 },
+  "legendArea": { "x": 54, "y": 944, "width": 1428, "height": 58 },
+  "tile": { "wellWidth": 76, "wellHeight": 50, "rewardHeight": 22, "restSpriteWidth": 96, "restSpriteHeight": 96, "restSpriteTopOffset": 35, "source": "painted tile atlas; no synthetic pad SVG", "capsules": { "regular": { "left": 6, "top": 50, "width": 64, "height": 20 }, "rest": { "left": 16, "top": 62, "width": 64, "height": 19 } } },
+  "internalStartAnchor": { "index": 0, "x": 115, "y": 125, "presentation": "background-only incomplete nest; no overlay" },
+  "spaces": [
+    { "index": 1, "x": 115, "y": 231 }, { "index": 2, "x": 115, "y": 309 }, { "index": 3, "x": 115, "y": 387 }, { "index": 4, "x": 115, "y": 465 }, { "index": 5, "x": 115, "y": 543 }, { "index": 6, "x": 115, "y": 621 }, { "index": 7, "x": 115, "y": 699 }, { "index": 8, "x": 155, "y": 777 }, { "index": 9, "x": 245, "y": 842 }, { "index": 10, "x": 335, "y": 842 }, { "index": 11, "x": 425, "y": 772 }, { "index": 12, "x": 430, "y": 699 }, { "index": 13, "x": 430, "y": 621 }, { "index": 14, "x": 430, "y": 543 }, { "index": 15, "x": 430, "y": 465 }, { "index": 16, "x": 430, "y": 387 }, { "index": 17, "x": 430, "y": 309 }, { "index": 18, "x": 430, "y": 231 },
+    { "index": 19, "x": 600, "y": 231 }, { "index": 20, "x": 600, "y": 309 }, { "index": 21, "x": 600, "y": 387 }, { "index": 22, "x": 600, "y": 465 }, { "index": 23, "x": 600, "y": 543 }, { "index": 24, "x": 600, "y": 621 }, { "index": 25, "x": 600, "y": 699 }, { "index": 26, "x": 630, "y": 777 }, { "index": 27, "x": 720, "y": 842 }, { "index": 28, "x": 810, "y": 842 }, { "index": 29, "x": 895, "y": 777 }, { "index": 30, "x": 915, "y": 699 }, { "index": 31, "x": 915, "y": 621 }, { "index": 32, "x": 915, "y": 543 }, { "index": 33, "x": 915, "y": 465 }, { "index": 34, "x": 915, "y": 387 }, { "index": 35, "x": 915, "y": 309 }, { "index": 36, "x": 915, "y": 231 },
+    { "index": 37, "x": 1080, "y": 231 }, { "index": 38, "x": 1080, "y": 309 }, { "index": 39, "x": 1080, "y": 387 }, { "index": 40, "x": 1080, "y": 465 }, { "index": 41, "x": 1080, "y": 543 }, { "index": 42, "x": 1080, "y": 621 }, { "index": 43, "x": 1080, "y": 699 }, { "index": 44, "x": 1120, "y": 777 }, { "index": 45, "x": 1250, "y": 845 }, { "index": 46, "x": 1385, "y": 777 }, { "index": 47, "x": 1420, "y": 699 }, { "index": 48, "x": 1420, "y": 621 }, { "index": 49, "x": 1420, "y": 543 }, { "index": 50, "x": 1420, "y": 465 }, { "index": 51, "x": 1420, "y": 387 }, { "index": 52, "x": 1420, "y": 309 }, { "index": 53, "x": 1420, "y": 231, "role": "scoring-only" }
+  ],
+  "rests": [5, 13, 20, 28, 34, 40, 46, 52],
+  "chevrons": [{ "x": 510, "y": 165, "angle": 0 }, { "x": 975, "y": 165, "angle": 0 }],
+  "shelterConnectors": [
+    { "index": 5, "path": [[151, 534], [186, 513], [205, 506]] },
+    { "index": 13, "path": [[392, 611], [365, 602], [350, 600]] },
+    { "index": 20, "path": [[640, 304], [715, 302], [758, 305]] },
+    { "index": 28, "path": [[810, 816], [800, 755], [785, 690]] },
+    { "index": 34, "path": [[878, 398], [855, 439], [830, 470]] },
+    { "index": 40, "path": [[1118, 455], [1162, 455], [1188, 455]] },
+    { "index": 46, "path": [[1348, 758], [1322, 737], [1305, 722]] },
+    { "index": 52, "path": [[1458, 297], [1470, 260], [1450, 210]] }
+  ],
+  "atlas": { "file": "painted-tile-kit-v5.png", "metadata": "tile-atlas-v5.json", "required": true }
+}
