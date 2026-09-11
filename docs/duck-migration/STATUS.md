@@ -1,6 +1,6 @@
 # Duck migration status
 
-**M1 V4 — board refinement in progress.** Tokens are accepted. The user requested
+**M1 V4 — board ready; stopped for user review.** Tokens are accepted. The user requested
 an incomplete starting nest without text, no position badges, coin/twig icon
 rewards (omit zero Twigs), tidier spaces 11/44/53 and a visible shelter beside
 every rest. Branch: `codex/duck-game-milestone-0`.
@@ -29,6 +29,13 @@ every rest. Branch: `codex/duck-game-milestone-0`.
 - [V3 images and review notes](concepts/2026-09-11-v3/README.md) are ready.
   Data/brief checkpoint: `63b4ceb`; seed and clean background: `8990e3e`;
   final board, renderer and QA: `47434dc`.
+- [V4 board and review notes](concepts/2026-09-11-v4/README.md) contain the
+  incomplete nest, unnumbered wells, coin/twig reward rows and eight distinct
+  shelters linked by duck-footprint trails. Brief/data: `d5aebab`; native
+  generated artwork: `d4523f5`; final renderer, JPEG and QA: `a66c8d3`.
+  All 53 reward rows match the existing table, zero Twigs are omitted on the
+  first five rows, and geometry/bounds checks pass. Lead visual inspection of
+  the final 3072 × 2048 JPEG passed; user acceptance is pending.
 
 This pass generated concept images only, outside Unity, with no Editor calls.
 Source, Unity assets, packages and shipping scene list remain unchanged. Preserve the pre-existing
@@ -36,7 +43,7 @@ ProjectSettings preload removal and keep it out of commits.
 
 ## Review gate
 
-Finish and inspect the V4 board, then wait for the user's reaction. Do not import the
+The V4 image is finished and inspected. Wait for the user's reaction. Do not import the
 images into Unity, alter source/settings, or start M2. The existing 54 logical
 positions and next-scoring-space semantics remain the baseline. The verified
 static mapping does not establish Unity behavior.

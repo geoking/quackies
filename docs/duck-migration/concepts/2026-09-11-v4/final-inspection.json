@@ -1,0 +1,88 @@
+{
+  "date": "2026-09-11",
+  "scope": "M1 V4 static board review; stopped for user feedback",
+  "method": "Built-in imagegen edits plus user-approved precise SVG/Sharp typesetting",
+  "checkpoints": {
+    "briefAndData": "d5aebab",
+    "nativeArtwork": "d4523f5",
+    "finalImageRendererQA": "a66c8d3"
+  },
+  "artifacts": {
+    "board-art-v4.png": {
+      "sha256": "a001ef104a6ad61fe8b6d1d354a4fd247434481ec6e8de041528b69c7609a561",
+      "bytes": 2874331
+    },
+    "three-biome-board-v4.jpg": {
+      "sha256": "aacb4ce9272f67fe7cf4953ea287ad972038fe08e1a069496d6a66c88f5f9955",
+      "bytes": 3757049
+    },
+    "render-board.mjs": {
+      "sha256": "df8b73c229249463732b8783466a0e502e16f1f7e25cc57705d9db3d7a5620e5",
+      "bytes": 17928
+    },
+    "layout.json": {
+      "sha256": "d2c2238e4028c5f5fcc99ec749b4653a21e17d92738d92691fae6e88daa277c6",
+      "bytes": 3445
+    },
+    "track-data.json": {
+      "sha256": "9ad2758fdc9f8c601e6d49701c72d7deeff3ae972ae811cce8a16bac786a9fad",
+      "bytes": 4839
+    },
+    "typeset-qa.json": {
+      "sha256": "0c41a761dd251ea04c1b9b07d3d0bb284be5379ab320b86ba9a943e5c22ab0ea",
+      "bytes": 9166
+    }
+  },
+  "export": {
+    "sourceDimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "outputDimensions": {
+      "width": 3072,
+      "height": 2048
+    },
+    "format": "jpeg",
+    "jpegQuality": 98,
+    "chromaSubsampling": "4:4:4",
+    "backgroundPreservedAs": "single background layer with SVG typesetting overlay"
+  },
+  "validation": {
+    "allStaticChecksPassed": true,
+    "independentComparisonWithV3Rewards": "all 53 rows match; track-data copy unchanged",
+    "zeroTwigRows": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "restIndices": [
+      5,
+      13,
+      20,
+      28,
+      34,
+      40,
+      46,
+      52
+    ],
+    "visualReview": "Lead inspected final JPEG: incomplete nest, no visible index/start/SCORE labels, fitted icon rewards, clear placement wells, eight distinct shelters and footprint links, arrows on bridge decks. User acceptance pending."
+  },
+  "preservation": {
+    "comparisonCheckpoint": "49ab002",
+    "unchangedPaths": [
+      "src",
+      "tests",
+      "unity/Quackies.Unity/Assets",
+      "unity/Quackies.Unity/Packages",
+      "unity/Quackies.Unity/ProjectSettings/EditorBuildSettings.asset"
+    ],
+    "preExistingProjectSettingsSHA256": "bd3fb139bac5aa51048d7e8cf69f6010f6e8df5b02dc20c5b419b49b0dd6cbcb",
+    "approvedTokens": "unchanged",
+    "unityEditorCalls": 0,
+    "unityImports": 0,
+    "gameplayChanges": 0
+  },
+  "limits": "Static image review only; no new Unity runtime, iOS export, device or gameplay evidence. Core retains original 15 ruby flags."
+}

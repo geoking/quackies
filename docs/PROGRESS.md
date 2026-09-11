@@ -293,3 +293,31 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   pre-existing ProjectSettings change retains its M0 hash and is excluded.
 - Stopped for the user's reaction. Static-image checks are not a new Unity,
   iOS export or device test; no M2 work has begun.
+
+### 18. M1 V4 — nest, icon rewards and shelter trails (11 September 2026)
+
+- The user accepted the tokens and requested another board-only review.
+  Published the revised brief and unchanged data in `d5aebab`: incomplete
+  starting nest, no index/start labels, coin/twig reward icons, zero-Twig
+  omission, consistent geometry at 11/44/53 and a visible shelter at every rest.
+- Three built-in image edits produced the selected nest/shelter background.
+  An alignment attempt displaced a meadow shelter; a focused edit restored
+  the distinct fern and stone shelters before selection. Native artwork,
+  exact prompts and provenance are published in `d4523f5`.
+- Published the final static renderer, layout, JPEG and QA in `a66c8d3`.
+  All 53 internal route anchors and existing reward pairs are retained; five
+  zero-Twig rows show a centered coin pair. Eight green rest pads have feather
+  markers and duck-footprint entry trails to recognizable shelters. Bridge
+  arrows clarify direction after removing visible indices.
+- Static checks passed for 53 reward rows, five zero-Twig omissions, eight
+  rests/entry trails, uniform 11/44/53 geometry, bounds and non-overlap. Lead
+  visually inspected the final 3072 × 2048 JPEG for the nest, icon rows, shelter
+  association, restrained footprints and unobstructed placement wells.
+- Reward data is identical to the verified V3 audit. Source, tests, Unity
+  assets/packages and shipping scene list match starting checkpoint `49ab002`.
+  The pre-existing ProjectSettings preload removal retains its M0 hash and was
+  excluded from every checkpoint. Approved token images remain unchanged.
+- [V4 review notes](duck-migration/concepts/2026-09-11-v4/README.md) record the
+  method, prompts, files and validation. No Unity calls/imports, game-rule
+  changes, iOS export or device test occurred. Stopped for user review; M2 and
+  gameplay experiments have not begun.

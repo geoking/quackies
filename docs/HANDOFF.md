@@ -14,8 +14,8 @@ is complete: three new concept sheets are generated, inspected and saved under
 four distinct player duck tiles, a seed encounter tile study, and an illustrated
 three-biome board. The user then approved the ducks/biome style and requested
 a V3 clarity pass: one strongly coloured seed shape, explicit tile wells, exact
-current reward values and eight assigned rests. V3 is complete and stopped for
-feedback: [images and review notes](duck-migration/concepts/2026-09-11-v3/README.md).
+current reward values and eight assigned rests. V3 was completed for
+review: [images and review notes](duck-migration/concepts/2026-09-11-v3/README.md).
 Precise static typesetting over generated scenery is explicitly approved; the
 first fully generated label attempt was inaccurate. Final board, renderer and
 QA are published in `47434dc`. All 53 numbered pads and reward pairs and eight
@@ -23,8 +23,11 @@ rest markers passed static checks and the final image was visually inspected.
 The user accepted the tokens and requested a V4 board-only refinement: incomplete
 starting nest, no visible position/start labels, icon rewards with zero Twigs
 omitted, corrected geometry at 11/44/53 and an obvious shelter beside every rest.
-V4 is in progress under `duck-migration/concepts/2026-09-11-v4/`. Finish and
-inspect the static image, then stop for review. Do not import into Unity,
+V4 is finished and inspected: [board and review notes](duck-migration/concepts/2026-09-11-v4/README.md).
+The final renderer/image/QA checkpoint is `a66c8d3`. All 53 reward rows are
+preserved, five zero-Twig rows show only coins, and eight distinct shelters
+connect to their green pads with duck-footprint trails. Stopped for the user's
+review. Do not import into Unity,
 change source/settings, implement biome rewards, or start M2. Preserve the
 original playable game and pre-existing ProjectSettings preload removal.
 
