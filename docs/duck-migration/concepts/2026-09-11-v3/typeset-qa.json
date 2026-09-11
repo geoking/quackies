@@ -1,0 +1,100 @@
+{
+  "renderer": "static image-only SVG overlay",
+  "referenceCanvas": {
+    "width": 1536,
+    "height": 1024
+  },
+  "requestedOutput": {
+    "width": 3072,
+    "height": 2048
+  },
+  "background": "/Users/george/Repos/quackies/docs/duck-migration/concepts/2026-09-11-v3/board-art-v3.png",
+  "output": "/Users/george/Repos/quackies/docs/duck-migration/concepts/2026-09-11-v3/three-biome-board-v3.jpg",
+  "outputFormat": "jpeg",
+  "checks": {
+    "printedNumbers": {
+      "expected": 53,
+      "actual": 53,
+      "unique": 53,
+      "exact": true
+    },
+    "coreIndices": {
+      "expected": "0–53 contiguous",
+      "actual": "0–53",
+      "exact": true
+    },
+    "encounterPositions": {
+      "expected": "1–52",
+      "actual": "1–52",
+      "exact": true
+    },
+    "terminalScoring": {
+      "expected": 53,
+      "actual": "scoring-only",
+      "exact": true
+    },
+    "rewards": {
+      "source": "track-data.json",
+      "spacesChecked": 53,
+      "mismatches": [],
+      "exact": true
+    },
+    "rests": {
+      "expected": [
+        5,
+        13,
+        20,
+        28,
+        34,
+        40,
+        46,
+        52
+      ],
+      "actual": [
+        5,
+        13,
+        20,
+        28,
+        34,
+        40,
+        46,
+        52
+      ],
+      "count": 8,
+      "originalRubySubset": true,
+      "exact": true
+    },
+    "tileBodies": {
+      "regular": {
+        "width": 84,
+        "height": 64
+      },
+      "outOfBounds": [],
+      "overlaps": [],
+      "exact": true
+    },
+    "legend": {
+      "area": {
+        "x": 84,
+        "y": 944,
+        "width": 1368,
+        "height": 58
+      },
+      "separateFromBoard": true
+    }
+  },
+  "errors": [],
+  "passed": true,
+  "render": {
+    "sourceDimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "outputDimensions": {
+      "width": 3072,
+      "height": 2048
+    },
+    "format": "jpeg",
+    "backgroundPreservedAs": "single background layer with SVG typesetting overlay"
+  }
+}
