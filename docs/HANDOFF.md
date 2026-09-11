@@ -14,10 +14,13 @@ is complete: three new concept sheets are generated, inspected and saved under
 four distinct player duck tiles, a seed encounter tile study, and an illustrated
 three-biome board. The user then approved the ducks/biome style and requested
 a V3 clarity pass: one strongly coloured seed shape, explicit tile wells, exact
-current reward values and eight assigned rests. V3 is in progress under
-`duck-migration/concepts/2026-09-11-v3/`. Precise static typesetting over generated
-scenery is explicitly approved; the first fully generated label attempt was
-inaccurate. Stop for another image review when V3 is ready. Do not import into Unity,
+current reward values and eight assigned rests. V3 is complete and stopped for
+feedback: [images and review notes](duck-migration/concepts/2026-09-11-v3/README.md).
+Precise static typesetting over generated scenery is explicitly approved; the
+first fully generated label attempt was inaccurate. Final board, renderer and
+QA are published in `47434dc`. All 53 numbered pads and reward pairs and eight
+rest markers passed static checks and the final image was visually inspected.
+Wait for the user's image review. Do not import into Unity,
 change source/settings, implement biome rewards, or start M2. Preserve the
 original playable game and pre-existing ProjectSettings preload removal.
 

@@ -1,0 +1,11 @@
+{
+  "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-88b1f5df-89f4-407a-8ed5-c8bd6baf0607.png",
+  "status": "excluded from final deliverables",
+  "observedExamples": [
+    "Numbered space 26 is absent.",
+    "Numbered space 48 appears twice.",
+    "Space 15 displays P14 instead of the source P15.",
+    "Space 11 has no reward strip."
+  ],
+  "resolution": "The user explicitly approved precise typesetting over generated scenery."
+}

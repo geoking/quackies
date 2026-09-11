@@ -50,7 +50,7 @@ end the day worn out.
   numbered space has an obvious token placement well and an attached reward
   strip that remains readable when a tile covers the well. Decorative paths and
   rocks must not look like extra playable spaces.
-- Biomes are a proposed design direction, not approved rule changes: a pleasant
+- The approved biome art direction is a pleasant
   pond/grassland beginning, a lush comfortable middle with many inviting rests,
   and a barren unpleasant final region with rare exceptionally cosy havens.
   This replaces the quiet-background-only art brief: the path and rest places
@@ -175,10 +175,10 @@ The release title is undecided. Keep repository, namespaces, assembly and bundle
 identifiers as Quackies. Shelter density and 2-feather safe / 1-feather exhausted
 rewards are unapproved experiment candidates, not requirements.
 
-Use the three concept sheets to test the intended visual language: four distinct
-player duck tiles, a seed encounter tile study, and a three-biome illustrated
-board. The later board mapping must account for all 54 indexed spaces, but the
-concept sheet is not a count proof.
+Retain the approved four-player duck identity sheet. Review the V3 single seed
+tile and the precisely labelled three-biome board. Validate the static layout
+against all 54 indexed source positions, including the separate start, before
+any later Unity mapping. Static image checks do not establish Unity behaviour.
 
 Keep Twigs beside a nest, label pennies as **Spend today**, and show the resting
 preview separately from the nest score. These are rules-neutral clarity choices.

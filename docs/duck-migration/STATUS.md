@@ -1,6 +1,6 @@
 # Duck migration status
 
-**M1 V3 — placement and reward clarity in progress.** The user approved the V2
+**M1 V3 — images ready; stopped for user review.** The user approved the V2
 duck tiles and three-biome art style, and requested stronger seed colour, one
 seed shape, visible exact board rewards and eight clearly assigned resting
 spots. Branch: `codex/duck-game-milestone-0`.
@@ -22,8 +22,13 @@ spots. Branch: `codex/duck-game-milestone-0`.
   unchanged. [Track audit](concepts/2026-09-11-v3/track-data.md) records the data.
 - The user approved precise typesetting over generated scenery after the first
   labelled board image skipped/mislabelled spaces and rewards. That image is
-  excluded as a final deliverable. The static renderer is being prepared from
-  the verified data; no Unity integration is in progress.
+  excluded as a final deliverable. The finished static renderer uses the
+  verified data: all 53 numbered spaces and reward pairs, eight rest markers,
+  bounds and non-overlap checks passed. The final 3072 × 2048 JPEG was visually
+  inspected for readable labels and visible rest medallions.
+- [V3 images and review notes](concepts/2026-09-11-v3/README.md) are ready.
+  Data/brief checkpoint: `63b4ceb`; seed and clean background: `8990e3e`;
+  final board, renderer and QA: `47434dc`.
 
 This pass generated concept images only, outside Unity, with no Editor calls.
 Source, Unity assets, packages and shipping scene list remain unchanged. Preserve the pre-existing
@@ -31,10 +36,10 @@ ProjectSettings preload removal and keep it out of commits.
 
 ## Review gate
 
-Inspect the V3 seed and board images, then wait for the user's reaction; do not import
-them into Unity, alter source/settings, or start M2. The existing 54 logical
-positions and next-scoring-space semantics remain the baseline; the illustrated
-mapping is not count proof.
+Image inspection is complete; wait for the user's reaction. Do not import the
+images into Unity, alter source/settings, or start M2. The existing 54 logical
+positions and next-scoring-space semantics remain the baseline. The verified
+static mapping does not establish Unity behavior.
 
 ## Earlier milestone
 

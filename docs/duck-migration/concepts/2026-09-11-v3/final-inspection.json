@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-11",
+  "scope": "M1 V3 static image review only; stopped for user feedback",
+  "method": "Native generated seed and background; user-approved precise SVG typesetting over the background with Sharp",
+  "checkpoints": {
+    "dataAndBrief": "63b4ceb",
+    "nativeGeneratedArt": "8990e3e",
+    "finalBoardRendererAndQA": "47434dc"
+  },
+  "artifacts": {
+    "three-biome-board-v3.jpg": {
+      "sha256": "731af25aa8fbcbb1226ae1b951ef20125af28ae26498e52390be82a3d6f091dd",
+      "bytes": 4206725
+    },
+    "seed-tile-v3.png": {
+      "sha256": "d94d5c5b5a2085dc25cd89d62cdeda3e643d592250fc87f4424bb99beb424b93",
+      "bytes": 1913688
+    },
+    "board-art-v3.png": {
+      "sha256": "0bd484ca047ee8e5ef09dcad745e51e87fa71b51df77f87eeab10e547fa40016",
+      "bytes": 3079303
+    },
+    "render-board.mjs": {
+      "sha256": "5fa0dc158f15b4cd23b3101936a7b0b1733240d2661ff2d306f0a5ed113dd5c9",
+      "bytes": 15653
+    },
+    "layout.json": {
+      "sha256": "15667d2d3718b1bb12bad0ed20f15861a57064b7c1439842e3b8bfcfb669c608",
+      "bytes": 2669
+    },
+    "track-data.json": {
+      "sha256": "9ad2758fdc9f8c601e6d49701c72d7deeff3ae972ae811cce8a16bac786a9fad",
+      "bytes": 4839
+    },
+    "typeset-qa.json": {
+      "sha256": "4b5e06da6ec39ccff9cf53e600bf4efb0d52f5812b2e344e290d12778fd10bad",
+      "bytes": 1987
+    }
+  },
+  "boardExport": {
+    "width": 3072,
+    "height": 2048,
+    "format": "JPEG",
+    "quality": 98,
+    "chromaSubsampling": "4:4:4",
+    "losslessReproduction": "node render-board.mjs --output three-biome-board-v3.png"
+  },
+  "validation": {
+    "staticChecksPassed": true,
+    "numberedSpaces": 53,
+    "exactRewardPairs": 53,
+    "separateDuckStart": 0,
+    "finalScoringSpace": 53,
+    "restSpaces": [
+      5,
+      13,
+      20,
+      28,
+      34,
+      40,
+      46,
+      52
+    ],
+    "independentCoreRewardArrayComparison": "passed",
+    "leadVisualInspection": "Final PNG and JPEG inspected; reward labels fit their strips and all eight rest medallions are visible"
+  },
+  "preservation": {
+    "comparisonCheckpoint": "4866fb2",
+    "unchangedPaths": [
+      "src",
+      "tests",
+      "unity/Quackies.Unity/Assets",
+      "unity/Quackies.Unity/Packages",
+      "unity/Quackies.Unity/ProjectSettings/EditorBuildSettings.asset"
+    ],
+    "preExistingProjectSettingsSHA256": "bd3fb139bac5aa51048d7e8cf69f6010f6e8df5b02dc20c5b419b49b0dd6cbcb",
+    "unityEditorCalls": 0,
+    "unityImports": 0,
+    "gameplayChanges": 0
+  },
+  "reviewPending": "User assessment of seed colour/shape, placement clarity, exact rewards and eight illustrated rest locations. Core retains 15 ruby flags; no biome reward curve is implemented."
+}

@@ -21,7 +21,7 @@ reward labels; the earlier unnumbered concept constraint is superseded.
 | --- | --- | --- |
 | Existing `duck-player-tiles-v2.png` | Approved four-player identity sheet; retain unchanged | No new generation needed |
 | `seed-tile-v3.png` | One rounded triangular seed tile, solid orange face, thick darker orange rim, golden seed art and strength1 | One physical cardboard token on a neutral opaque background |
-| `three-biome-board-v3.png` | Approved landscape with explicit token wells, current Penny/Twig values and eight tied resting spaces | High-resolution image with clearly separate placement area, position number and attached reward strip |
+| `three-biome-board-v3.jpg` | Approved landscape with explicit token wells, current Penny/Twig values and eight tied resting spaces | High-resolution image with clearly separate placement area, position number and attached reward strip |
 
 Save the new sheets and prompts under
 `docs/duck-migration/concepts/2026-09-11-v3/`. The approved V2 duck sheet remains
@@ -90,7 +90,7 @@ Shelter art does not approve or implement a new shelter reward rule.
 
 ## M1 revision gate
 
-- Inspect all three concept sheets at useful size and pause for the user's
+- Inspect the new seed tile and precisely labelled board at useful size, then pause for the user's
   reaction. No Unity import, editor call, source/settings change or M2 starts.
 - Treat the previous V1 Unity screenshot and compile checks as superseded style
   evidence: technically valid, visually rejected.

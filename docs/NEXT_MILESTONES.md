@@ -3,8 +3,10 @@
 The active priority is now the gradual duck migration. See
 [its plan](duck-migration/PLAN.md) and [review status](duck-migration/STATUS.md).
 M0 was accepted. M1's first Unity style preview passed technical checks but was
-rejected visually on 11 September; the bounded revision is three concept sheets
-for user review. Pause after image inspection. The items below remain backlog
+rejected visually on 11 September. The user approved the V2 ducks/biome style;
+the V3 image review refines a single orange seed tile and a precisely labelled
+board with eight assigned rests and unchanged Penny/Twig values. Pause after
+image inspection. The items below remain backlog
 and are not authorization to start additional work now.
 
 The agreed initial playable milestone is complete. All 24 Set 1 fortunes are

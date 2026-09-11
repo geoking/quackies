@@ -264,3 +264,32 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   No code tests were warranted for this documentation and concept-image pass.
 - Stopped after image inspection for the user's review. No M2 or implementation
   of the new board has begun.
+
+### 17. M1 V3 — exact board labels and eight rests (11 September 2026)
+
+- The user approved the duck tiles and three-biome art style, requested one
+  strongly coloured seed shape and explicit placement/reward labels, and chose
+  eight resting spots. Data and revised brief are published in `63b4ceb`.
+- Generated one orange rounded triangular seed tile and clean illustrated
+  board scenery; native outputs and inspection records are in `8990e3e`.
+  The fully generated labelled-board attempt had numbering/reward errors and
+  was excluded. The user explicitly approved precise static typesetting.
+- Published the final board, renderer, layout and QA in `47434dc`. The image
+  contains start 0, spaces 1–53, exact existing Pond penny/Twig rewards, and
+  visible rests at 5, 13, 20, 28, 34, 40, 46 and 52. Space 53 remains the final
+  scoring space; the current game scores the next empty space.
+- Source data was independently compared with both Core reward arrays. Checks
+  passed for 53 unique numbered spaces, 53 exact reward pairs, eight selected
+  original ruby indices, bounds and non-overlap. The final 3072 × 2048 image was
+  visually inspected for reward-strip fit and visible rest medallions.
+- The published review image uses quality-98 JPEG with 4:4:4 chroma sampling;
+  the lossless PNG exceeded the publisher's transport capacity. The renderer
+  can reproduce either format. Prompts, hashes, data and reproduction notes are
+  in [the V3 review folder](duck-migration/concepts/2026-09-11-v3/README.md).
+- No Unity imports, Editor calls or gameplay changes occurred. Core still has
+  15 ruby flags; the eight rests are an image-only design pending review.
+  The proposed biome reward curve remains deferred. Source, tests, Unity
+  assets/packages and build scene list match checkpoint `4866fb2`; the
+  pre-existing ProjectSettings change retains its M0 hash and is excluded.
+- Stopped for the user's reaction. Static-image checks are not a new Unity,
+  iOS export or device test; no M2 work has begun.
