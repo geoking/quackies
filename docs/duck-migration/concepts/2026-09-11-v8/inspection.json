@@ -1,0 +1,44 @@
+{
+  "status": "lead visually inspected; pending user review",
+  "mode": "built-in image_gen edit, followed by targeted shelter-access correction",
+  "nativeOutput": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-1c705057-89ef-49e5-a6b8-b4b63f82975b.png",
+  "intermediateOutput": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-6e8f13ff-30e3-4bfd-b4da-1414b83dc068.png",
+  "artifact": "board-art-v8.png",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "bytes": 3037088,
+  "sha256": "75244df770e5c1b8091892988aa926f33ac46bfc7862dd10d85ca2e3705c09b6",
+  "reference": "docs/duck-migration/concepts/2026-09-11-v7/board-art-v7.png",
+  "referenceSha256": "f03c11643fa2a6ecfc9faaf981134c5bcfba591463a242fa1c0be10ed0bce221",
+  "visualInspection": {
+    "meadowBarrier": "connected dense tall grass and leafy shrubs fill gaps behind and between shelters; outer U route remains open",
+    "wetlandBarrier": "dense reeds and willow growth separate nest from bridge directly, retaining down-and-around route",
+    "meadowShelterAccess": [
+      "upper: left",
+      "middle: right",
+      "lower: down"
+    ],
+    "biomeDistinction": "cool teal wetland; warm sunny green grassland; warm sandy desert retained",
+    "sheltersByBiome": [
+      2,
+      3,
+      3
+    ],
+    "nest": "unfinished, upper-left",
+    "oasis": "far upper-right",
+    "bridges": 2,
+    "tilesNumbersTextLegend": "absent",
+    "footer": "blank cream",
+    "corridors": "main route geometry retained; exact token fit and alignment still unvalidated"
+  },
+  "scope": {
+    "unityCalls": false,
+    "unityImports": false,
+    "coreRuleChanges": false,
+    "tileAlignmentResolved": false,
+    "userAcceptance": "pending"
+  },
+  "preservedPreexistingProjectSettingsSha256": "bd3fb139bac5aa51048d7e8cf69f6010f6e8df5b02dc20c5b419b49b0dd6cbcb"
+}

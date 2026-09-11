@@ -1,13 +1,16 @@
 # Duck migration status
 
-**M1 V7 — base-board revision generated and visually inspected; ready for user
+**M1 V8 — base-board revision generated and visually inspected; ready for user
 review.** The user likes V5’s painted style but rejects its spaces’ alignment
 with the painted paths.
-V7 distinguishes wetlands from middle grasslands: cooler teal/sage damp banks
+V8 distinguishes wetlands from middle grasslands: cooler teal/sage damp banks
 and reeds versus warm sunny open grasslands, broad short-grass route, taller soft
 grasses, meadow flowers and leafy deciduous cover around the three existing
 shelters. Preserve the desert composition, far-upper-right oasis, nest, eight
-shelters, bridges, left access to the upper meadow shelter and broad corridors.
+shelters, bridges, left access to the upper meadow shelter, blocked shortcuts
+and broad corridors. Dense meadow grasses/shrubs/trees and a wetland
+reed/willow thicket block the apparent shortcuts while leaving the main route
+and shelter pockets open.
 This image contains no tiles, tokens, numbers, reward text or legend. Branch:
 `codex/duck-game-milestone-0`.
 
@@ -60,9 +63,10 @@ remain unresolved. Keep the full rules baseline and do not infer a Unity
 position map from this image.
 
 V6 is historical review evidence at checkpoint `94fd3bb`; its visual inspection
-does not establish overlay alignment. V7 is saved under
-`concepts/2026-09-11-v7/` and was visually inspected as a review candidate. It
-has no overlay, so 53-space fit, reward placement and exact indexed alignment
+does not establish overlay alignment. V7 is historical review evidence at
+checkpoint `9ee73e0`. V8 is saved under `concepts/2026-09-11-v8/` and was
+visually inspected as a review candidate after reopening the three shelter
+access pockets. It has no overlay, so 53-space fit, reward placement and exact indexed alignment
 remain unresolved.
 
 This pass generated concept images only, outside Unity, with no Editor calls.
@@ -71,7 +75,7 @@ ProjectSettings preload removal and keep it out of commits.
 
 ## Review gate
 
-V7 is ready for the user’s reaction. Do not import images into Unity, alter
+V8 is ready for the user’s reaction. Do not import images into Unity, alter
 source/settings, or start M2. Unity positioning was discussed only, not
 authorized. The existing 54 logical positions and next-scoring-space semantics
 remain the baseline; this base image does not establish Unity behavior.

@@ -391,3 +391,18 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   placement and exact indexed alignment remain unresolved.
 - No overlay, Unity positioning/import, Core, source/settings, gameplay, M2 or
   rules changes are authorized. The full rules baseline and review gate remain.
+
+### 22. M1 V8 — shortcut-blocking revision (11 September 2026)
+
+- V7 is retained as historical evidence at checkpoint `9ee73e0`. The user wants
+  the middle island’s apparent shortcuts blocked with dense tall meadow grasses,
+  small leafy shrubs and trees, while keeping the main U route and all shelter
+  entry pockets open. A reed/willow thicket should also block the direct nest to
+  first-bridge shortcut while preserving the downward route and returning lane.
+- Preserve the cool wetland, warm grassland and desert distinctions, eight
+  shelters in the 2/3/3 distribution, nest, bridges, oasis, left access to the
+  upper meadow shelter, broad corridors, blank footer and no tiles/text/legend.
+  V8 is saved under `duck-migration/concepts/2026-09-11-v8/`; lead visually
+  inspected the corrected image, including reopened shelter access pockets, and
+  marked it ready for user review. No exact 53-space fit or Unity verification is
+  claimed.

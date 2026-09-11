@@ -6,11 +6,15 @@ The user accepted M0 and authorized **M1 only** on 10 September 2026. On 11
 September the first M1 style was rejected as a visual direction. The subsequent
 duck tiles and three-biome style were approved, and the V3 seed token is now
 accepted. V5’s painted style remains preferred, but its painted spaces did not
-align convincingly with the illustrated paths. The V7 image-only pass edits the
+align convincingly with the illustrated paths. The V8 image-only pass edits the
 base board only: distinguish the middle grasslands from wetlands with cooler
 teal/sage damp banks and reeds, versus warm sunny open grasslands with a broad
 short-grass route, taller soft grasses, meadow flowers and leafy deciduous cover
-around the three existing shelters. Preserve the desert composition,
+around the three existing shelters. Add dense tall meadow grasses, small leafy
+shrubs and trees to block apparent shortcuts while keeping the main U route and
+shelter entry pockets open; use a reed/willow thicket to block the nest-to-bridge
+shortcut while keeping the nest’s downward route and returning lane open.
+Preserve the desert composition,
 far-upper-right oasis, nest, eight shelters and bridges, the upper middle-meadow
 shelter’s left access, and broad corridors for future token spaces. Do not add
 tiles, tokens, numbers, reward text or a legend. Preserve the full rules
@@ -24,7 +28,7 @@ reuse the painted stone/leaf/icon components in the preferred earlier
 style, compose the 53 wells from those components, then typeset reward rows and
 the full illustrated legend from verified track data. The early labelled-board
 reference is for style, not numerical data. Position indices remain internal and
-are not printed. V7 is only the background edit described above; no overlay is
+are not printed. V8 is only the background edit described above; no overlay is
 being composed in this pass. Static design rendering is outside Unity and does
 not alter the rules engine.
 The current branch is
@@ -189,9 +193,9 @@ identifiers as Quackies. Shelter density and 2-feather safe / 1-feather exhauste
 rewards are unapproved experiment candidates, not requirements.
 
 Retain the approved four-player duck identity sheet and V3 seed tile. Review
-the V7 base board for biome distinction, route readability and shelter
+the V8 base board for biome distinction, route readability and shelter
 connections; it has no playable tiles or labels. Preserve the V5 three-biome
-style as visual context, but do not treat the V7 image as a mapping of the 54
+style as visual context, but do not treat the V8 image as a mapping of the 54
 indexed source positions.
 Static image checks do not establish Unity behaviour.
 
@@ -206,7 +210,7 @@ The count is confirmed; their illustrated placement awaits review. Each rest
 frames its own token well and has an attached feather marker; scenery nearby
 must not imply a separate resting space. No extra Penny/Twig bonuses are added.
 
-The rules baseline retains internal start 0 and spaces 1–53; this V7 base image
+The rules baseline retains internal start 0 and spaces 1–53; this V8 base image
 has no visible index badges.
 Each reward row uses a gold coin icon and amount, then a twig icon and amount.
 For zero Twigs, omit both twig icon and zero and center the coin pair. Use the

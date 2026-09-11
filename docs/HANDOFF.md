@@ -36,12 +36,14 @@ The image/renderer/QA checkpoint is `db76c1c`. All 53 reward groups fit their
 painted capsules using measured Marker Felt glyph bounds; lead checked the full
 board and label close-ups. The user likes the V5 style but rejected its painted
 spaces’ alignment with the paths. V6 is historical review evidence at
-checkpoint `94fd3bb`. V7 distinguishes cooler teal/sage wetland
-banks and reeds from warm sunny open grasslands, while retaining the existing
-desert, existing shelters, left access, nest, bridges, oasis and broad future
+checkpoint `94fd3bb`; V7 is historical review evidence at checkpoint `9ee73e0`.
+V8 distinguishes cooler teal/sage wetland banks and reeds from warm sunny open
+grasslands, blocks apparent shortcuts with dense meadow/wetland thickets, and
+retains the desert, shelters, left access, nest, bridges, oasis and broad future
 tile corridors. No tiles, tokens, numbers, reward text or legend belong in this
-base image. Lead visually inspected the generated V7 PNG and it is ready for
-user review. It has no overlay, so 53-space fit and exact indexed alignment
+base image. Lead visually inspected the corrected V8 PNG, including the reopened
+upper-left, middle-right and bottom-down shelter access pockets, and it is ready
+for user review. It has no overlay, so 53-space fit and exact indexed alignment
 remain unresolved. Do not import into Unity,
 change source/settings, implement biome
 rewards, or start M2. Unity positioning was discussed only, not authorized.
