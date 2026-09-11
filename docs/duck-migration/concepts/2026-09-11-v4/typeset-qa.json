@@ -1,0 +1,455 @@
+{
+  "renderer": "static image-only SVG overlay",
+  "version": 4,
+  "referenceCanvas": {
+    "width": 1536,
+    "height": 1024
+  },
+  "requestedOutput": {
+    "width": 3072,
+    "height": 2048
+  },
+  "background": "/Users/george/Repos/quackies/docs/duck-migration/concepts/2026-09-11-v4/board-art-v4.png",
+  "output": "/Users/george/Repos/quackies/docs/duck-migration/concepts/2026-09-11-v4/three-biome-board-v4.jpg",
+  "outputFormat": "jpeg",
+  "checks": {
+    "visibleIndices": {
+      "expected": 0,
+      "actual": 0,
+      "exact": true
+    },
+    "startOverlay": {
+      "expected": "none; background-only incomplete nest",
+      "actual": "none",
+      "exact": true
+    },
+    "internalAnchors": {
+      "expected": 53,
+      "actual": 53,
+      "unique": 53,
+      "exact": true
+    },
+    "coreIndices": {
+      "expected": "0–53 contiguous",
+      "actual": "0–53",
+      "exact": true
+    },
+    "encounterPositions": {
+      "expected": "1–52",
+      "actual": "1–52",
+      "exact": true
+    },
+    "terminalScoring": {
+      "expected": 53,
+      "actual": "scoring-only",
+      "exact": true
+    },
+    "rewards": {
+      "source": "track-data.json",
+      "rowsChecked": 53,
+      "rows": [
+        {
+          "internalAnchor": 1,
+          "pondPennies": 1,
+          "twigs": 0
+        },
+        {
+          "internalAnchor": 2,
+          "pondPennies": 2,
+          "twigs": 0
+        },
+        {
+          "internalAnchor": 3,
+          "pondPennies": 3,
+          "twigs": 0
+        },
+        {
+          "internalAnchor": 4,
+          "pondPennies": 4,
+          "twigs": 0
+        },
+        {
+          "internalAnchor": 5,
+          "pondPennies": 5,
+          "twigs": 0
+        },
+        {
+          "internalAnchor": 6,
+          "pondPennies": 6,
+          "twigs": 1
+        },
+        {
+          "internalAnchor": 7,
+          "pondPennies": 7,
+          "twigs": 1
+        },
+        {
+          "internalAnchor": 8,
+          "pondPennies": 8,
+          "twigs": 1
+        },
+        {
+          "internalAnchor": 9,
+          "pondPennies": 9,
+          "twigs": 1
+        },
+        {
+          "internalAnchor": 10,
+          "pondPennies": 10,
+          "twigs": 2
+        },
+        {
+          "internalAnchor": 11,
+          "pondPennies": 11,
+          "twigs": 2
+        },
+        {
+          "internalAnchor": 12,
+          "pondPennies": 12,
+          "twigs": 2
+        },
+        {
+          "internalAnchor": 13,
+          "pondPennies": 13,
+          "twigs": 2
+        },
+        {
+          "internalAnchor": 14,
+          "pondPennies": 14,
+          "twigs": 3
+        },
+        {
+          "internalAnchor": 15,
+          "pondPennies": 15,
+          "twigs": 3
+        },
+        {
+          "internalAnchor": 16,
+          "pondPennies": 15,
+          "twigs": 3
+        },
+        {
+          "internalAnchor": 17,
+          "pondPennies": 16,
+          "twigs": 3
+        },
+        {
+          "internalAnchor": 18,
+          "pondPennies": 16,
+          "twigs": 4
+        },
+        {
+          "internalAnchor": 19,
+          "pondPennies": 17,
+          "twigs": 4
+        },
+        {
+          "internalAnchor": 20,
+          "pondPennies": 17,
+          "twigs": 4
+        },
+        {
+          "internalAnchor": 21,
+          "pondPennies": 18,
+          "twigs": 4
+        },
+        {
+          "internalAnchor": 22,
+          "pondPennies": 18,
+          "twigs": 5
+        },
+        {
+          "internalAnchor": 23,
+          "pondPennies": 19,
+          "twigs": 5
+        },
+        {
+          "internalAnchor": 24,
+          "pondPennies": 19,
+          "twigs": 5
+        },
+        {
+          "internalAnchor": 25,
+          "pondPennies": 20,
+          "twigs": 5
+        },
+        {
+          "internalAnchor": 26,
+          "pondPennies": 20,
+          "twigs": 6
+        },
+        {
+          "internalAnchor": 27,
+          "pondPennies": 21,
+          "twigs": 6
+        },
+        {
+          "internalAnchor": 28,
+          "pondPennies": 21,
+          "twigs": 6
+        },
+        {
+          "internalAnchor": 29,
+          "pondPennies": 22,
+          "twigs": 7
+        },
+        {
+          "internalAnchor": 30,
+          "pondPennies": 22,
+          "twigs": 7
+        },
+        {
+          "internalAnchor": 31,
+          "pondPennies": 23,
+          "twigs": 7
+        },
+        {
+          "internalAnchor": 32,
+          "pondPennies": 23,
+          "twigs": 8
+        },
+        {
+          "internalAnchor": 33,
+          "pondPennies": 24,
+          "twigs": 8
+        },
+        {
+          "internalAnchor": 34,
+          "pondPennies": 24,
+          "twigs": 8
+        },
+        {
+          "internalAnchor": 35,
+          "pondPennies": 25,
+          "twigs": 9
+        },
+        {
+          "internalAnchor": 36,
+          "pondPennies": 25,
+          "twigs": 9
+        },
+        {
+          "internalAnchor": 37,
+          "pondPennies": 26,
+          "twigs": 9
+        },
+        {
+          "internalAnchor": 38,
+          "pondPennies": 26,
+          "twigs": 10
+        },
+        {
+          "internalAnchor": 39,
+          "pondPennies": 27,
+          "twigs": 10
+        },
+        {
+          "internalAnchor": 40,
+          "pondPennies": 27,
+          "twigs": 10
+        },
+        {
+          "internalAnchor": 41,
+          "pondPennies": 28,
+          "twigs": 11
+        },
+        {
+          "internalAnchor": 42,
+          "pondPennies": 28,
+          "twigs": 11
+        },
+        {
+          "internalAnchor": 43,
+          "pondPennies": 29,
+          "twigs": 11
+        },
+        {
+          "internalAnchor": 44,
+          "pondPennies": 29,
+          "twigs": 12
+        },
+        {
+          "internalAnchor": 45,
+          "pondPennies": 30,
+          "twigs": 12
+        },
+        {
+          "internalAnchor": 46,
+          "pondPennies": 30,
+          "twigs": 12
+        },
+        {
+          "internalAnchor": 47,
+          "pondPennies": 31,
+          "twigs": 12
+        },
+        {
+          "internalAnchor": 48,
+          "pondPennies": 31,
+          "twigs": 13
+        },
+        {
+          "internalAnchor": 49,
+          "pondPennies": 32,
+          "twigs": 13
+        },
+        {
+          "internalAnchor": 50,
+          "pondPennies": 32,
+          "twigs": 13
+        },
+        {
+          "internalAnchor": 51,
+          "pondPennies": 33,
+          "twigs": 14
+        },
+        {
+          "internalAnchor": 52,
+          "pondPennies": 33,
+          "twigs": 14
+        },
+        {
+          "internalAnchor": 53,
+          "pondPennies": 35,
+          "twigs": 15
+        }
+      ],
+      "mismatches": [],
+      "exact": true
+    },
+    "zeroTwigOmissions": {
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "actual": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "exact": true
+    },
+    "rests": {
+      "expected": [
+        5,
+        13,
+        20,
+        28,
+        34,
+        40,
+        46,
+        52
+      ],
+      "actual": [
+        5,
+        13,
+        20,
+        28,
+        34,
+        40,
+        46,
+        52
+      ],
+      "count": 8,
+      "originalRubySubset": true,
+      "exact": true
+    },
+    "shelterConnectors": {
+      "expectedRestAnchors": [
+        5,
+        13,
+        20,
+        28,
+        34,
+        40,
+        46,
+        52
+      ],
+      "actualRestAnchors": [
+        5,
+        13,
+        20,
+        28,
+        34,
+        40,
+        46,
+        52
+      ],
+      "count": 8,
+      "presentation": "warm ochre duck footprints; 5–6 px three-toed prints at 14 px intervals; no connector line or crossbar",
+      "exact": true
+    },
+    "tileBodies": {
+      "regular": {
+        "width": 86,
+        "wellHeight": 48,
+        "rewardHeight": 20
+      },
+      "outOfBounds": [],
+      "overlaps": [],
+      "exact": true
+    },
+    "consistencyAnchors": {
+      "anchors": [
+        {
+          "index": 11,
+          "wellWidth": 86,
+          "wellHeight": 48,
+          "rewardHeight": 20,
+          "fullSize": true
+        },
+        {
+          "index": 44,
+          "wellWidth": 86,
+          "wellHeight": 48,
+          "rewardHeight": 20,
+          "fullSize": true
+        },
+        {
+          "index": 53,
+          "wellWidth": 86,
+          "wellHeight": 48,
+          "rewardHeight": 20,
+          "fullSize": true
+        }
+      ],
+      "exact": true
+    },
+    "legend": {
+      "labels": [
+        "Pond pennies",
+        "Twigs",
+        "Rest"
+      ],
+      "instruction": "Score the next empty space.",
+      "area": {
+        "x": 84,
+        "y": 944,
+        "width": 1368,
+        "height": 58
+      },
+      "separateFromBoard": true
+    }
+  },
+  "errors": [],
+  "passed": true,
+  "render": {
+    "sourceDimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "outputDimensions": {
+      "width": 3072,
+      "height": 2048
+    },
+    "format": "jpeg",
+    "jpegQuality": 98,
+    "chromaSubsampling": "4:4:4",
+    "backgroundPreservedAs": "single background layer with SVG typesetting overlay"
+  }
+}
