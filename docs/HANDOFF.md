@@ -20,7 +20,11 @@ Precise static typesetting over generated scenery is explicitly approved; the
 first fully generated label attempt was inaccurate. Final board, renderer and
 QA are published in `47434dc`. All 53 numbered pads and reward pairs and eight
 rest markers passed static checks and the final image was visually inspected.
-Wait for the user's image review. Do not import into Unity,
+The user accepted the tokens and requested a V4 board-only refinement: incomplete
+starting nest, no visible position/start labels, icon rewards with zero Twigs
+omitted, corrected geometry at 11/44/53 and an obvious shelter beside every rest.
+V4 is in progress under `duck-migration/concepts/2026-09-11-v4/`. Finish and
+inspect the static image, then stop for review. Do not import into Unity,
 change source/settings, implement biome rewards, or start M2. Preserve the
 original playable game and pre-existing ProjectSettings preload removal.
 

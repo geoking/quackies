@@ -1,9 +1,9 @@
 # Duck migration status
 
-**M1 V3 — images ready; stopped for user review.** The user approved the V2
-duck tiles and three-biome art style, and requested stronger seed colour, one
-seed shape, visible exact board rewards and eight clearly assigned resting
-spots. Branch: `codex/duck-game-milestone-0`.
+**M1 V4 — board refinement in progress.** Tokens are accepted. The user requested
+an incomplete starting nest without text, no position badges, coin/twig icon
+rewards (omit zero Twigs), tidier spaces 11/44/53 and a visible shelter beside
+every rest. Branch: `codex/duck-game-milestone-0`.
 
 ## Completed work
 
@@ -36,7 +36,7 @@ ProjectSettings preload removal and keep it out of commits.
 
 ## Review gate
 
-Image inspection is complete; wait for the user's reaction. Do not import the
+Finish and inspect the V4 board, then wait for the user's reaction. Do not import the
 images into Unity, alter source/settings, or start M2. The existing 54 logical
 positions and next-scoring-space semantics remain the baseline. The verified
 static mapping does not establish Unity behavior.

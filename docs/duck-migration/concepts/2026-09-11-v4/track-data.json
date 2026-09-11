@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-11",
+  "status": "verified source transcription; presentation proposal is image-only",
+  "source": {
+    "track": "src/Quackies.Core/Rules/BoardTrack.cs:23-32",
+    "spaceView": "src/Quackies.Core/Match/MatchView.cs:79-86",
+    "placementGuard": "src/Quackies.Core/Match/BrewingPhaseHandler.cs:17-18,54",
+    "scoringLookup": "src/Quackies.Core/Rules/BoardTrack.cs:18-20",
+    "evaluation": "src/Quackies.Core/Match/EvaluationPhaseHandler.cs:17-22,57-86",
+    "migrationBaseline": "docs/duck-migration/PLAN.md:132-135"
+  },
+  "physicalSpaceCount": 54,
+  "indices": {
+    "first": 0,
+    "last": 53,
+    "start": { "index": 0, "reason": "Permanent duck/droplet start; not an encounter placement space." },
+    "encounterPlacement": { "first": 1, "last": 52, "count": 52 },
+    "scoringOnly": { "index": 53, "count": 1, "reason": "ScoringSpace(lastChipPosition) returns position + 1; LastChipPosition is 52." }
+  },
+  "rubyPositions": [5, 9, 13, 16, 20, 24, 28, 30, 34, 36, 40, 42, 46, 50, 52],
+  "rubyCount": 15,
+  "spaces": [
+    {"index":0,"coins":0,"points":0,"ruby":false}, {"index":1,"coins":1,"points":0,"ruby":false}, {"index":2,"coins":2,"points":0,"ruby":false}, {"index":3,"coins":3,"points":0,"ruby":false}, {"index":4,"coins":4,"points":0,"ruby":false}, {"index":5,"coins":5,"points":0,"ruby":true},
+    {"index":6,"coins":6,"points":1,"ruby":false}, {"index":7,"coins":7,"points":1,"ruby":false}, {"index":8,"coins":8,"points":1,"ruby":false}, {"index":9,"coins":9,"points":1,"ruby":true}, {"index":10,"coins":10,"points":2,"ruby":false}, {"index":11,"coins":11,"points":2,"ruby":false},
+    {"index":12,"coins":12,"points":2,"ruby":false}, {"index":13,"coins":13,"points":2,"ruby":true}, {"index":14,"coins":14,"points":3,"ruby":false}, {"index":15,"coins":15,"points":3,"ruby":false}, {"index":16,"coins":15,"points":3,"ruby":true}, {"index":17,"coins":16,"points":3,"ruby":false},
+    {"index":18,"coins":16,"points":4,"ruby":false}, {"index":19,"coins":17,"points":4,"ruby":false}, {"index":20,"coins":17,"points":4,"ruby":true}, {"index":21,"coins":18,"points":4,"ruby":false}, {"index":22,"coins":18,"points":5,"ruby":false}, {"index":23,"coins":19,"points":5,"ruby":false},
+    {"index":24,"coins":19,"points":5,"ruby":true}, {"index":25,"coins":20,"points":5,"ruby":false}, {"index":26,"coins":20,"points":6,"ruby":false}, {"index":27,"coins":21,"points":6,"ruby":false}, {"index":28,"coins":21,"points":6,"ruby":true}, {"index":29,"coins":22,"points":7,"ruby":false},
+    {"index":30,"coins":22,"points":7,"ruby":true}, {"index":31,"coins":23,"points":7,"ruby":false}, {"index":32,"coins":23,"points":8,"ruby":false}, {"index":33,"coins":24,"points":8,"ruby":false}, {"index":34,"coins":24,"points":8,"ruby":true}, {"index":35,"coins":25,"points":9,"ruby":false},
+    {"index":36,"coins":25,"points":9,"ruby":true}, {"index":37,"coins":26,"points":9,"ruby":false}, {"index":38,"coins":26,"points":10,"ruby":false}, {"index":39,"coins":27,"points":10,"ruby":false}, {"index":40,"coins":27,"points":10,"ruby":true}, {"index":41,"coins":28,"points":11,"ruby":false},
+    {"index":42,"coins":28,"points":11,"ruby":true}, {"index":43,"coins":29,"points":11,"ruby":false}, {"index":44,"coins":29,"points":12,"ruby":false}, {"index":45,"coins":30,"points":12,"ruby":false}, {"index":46,"coins":30,"points":12,"ruby":true}, {"index":47,"coins":31,"points":12,"ruby":false},
+    {"index":48,"coins":31,"points":13,"ruby":false}, {"index":49,"coins":32,"points":13,"ruby":false}, {"index":50,"coins":32,"points":13,"ruby":true}, {"index":51,"coins":33,"points":14,"ruby":false}, {"index":52,"coins":33,"points":14,"ruby":true}, {"index":53,"coins":35,"points":15,"ruby":false}
+  ],
+  "imageOnlyShelterProposal": {
+    "label": "Illustration-only half-count candidates; does not alter Core ruby rules",
+    "regionPartition": {"start":"0 (separate start)","first":"1-18","middle":"19-36","last":"37-53"},
+    "sourceRubyCountsByRegion": {"first":4,"middle":6,"last":5},
+    "eightShelters": {"indices":[5,13,20,28,34,40,46,52],"byRegion":[2,3,3],"selectionStatus":"user-confirmed image design choice pending visual review"},
+    "mappingRule": "Every selected shelter remains tied to its listed physical tile index; selection is a visual concept only and must not remove or relocate source ruby rewards."
+  },
+  "issues": [
+    "Index 0 is the permanent duck/droplet start, not an encounter placement. Ordinary encounter positions are 1-52 (numbered 1-53 in the board presentation); index 53 is scoring-only.",
+    "The confirmed 8-shelter subset is an image design choice pending visual review and does not implement a Core rules change.",
+    "Original ruby rewards and proposed shelter/resting illustrations are separate concepts; the selected visual shelters remain tied to original ruby indices."
+  ]
+}
