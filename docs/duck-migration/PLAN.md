@@ -1,197 +1,202 @@
-# Duck migration plan
+# Quackies overall plan
 
-Updated 12 September 2026. This is the current decision record. Iteration history
-and validation live in [STATUS.md](STATUS.md), [PROGRESS.md](../PROGRESS.md)
-and the individual concept folders.
+Updated 13 September 2026. This is the accepted direction following the user's
+approval of the full-screen Dream view, shared nest levels, Feather trails and
+Dawn Delivery. It supersedes the earlier presentation-only migration.
+Historical decisions and evidence remain in [PROGRESS.md](../PROGRESS.md).
 
-**13 September design discussion:** the user is exploring 50 spaces, resting
-on the final occupied space, Sleep score, a dream phase and stronger next-Day
-bonuses. See [the critique and two presentation concepts](concepts/2026-09-13-dream-study/README.md).
-These proposed rule changes are under review; the baseline below has not been
-rewritten as an approved rules specification, and Unity work remains paused.
+## What we are building
 
-## Current decision and stopping point
+A complete nine-Day tabletop game for iPad mini landscape, initially one human
+versus Normal AI. Ducks explore a shared world by Day, then dream at Night.
+Twigs build their nests and determine the winner. Each duck has its own bag,
+route state and score; shared World Events affect the same world.
 
-The user approved **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b** as the base board.
-Its exact native image is [saved here](concepts/2026-09-12-approved/board-art-approved.png),
-with [selection and provenance](concepts/2026-09-12-approved/README.md).
-This is the first V10 candidate, selected ahead of the later clearance revisions.
-The approved duck tiles and seed remain the token references.
+The selected [three-biome board](concepts/2026-09-12-approved/board-art-approved.png),
+[V2 duck tiles](concepts/2026-09-11/duck-player-tiles-v2.png) and
+[V3 seed](concepts/2026-09-11-v3/seed-tile-v3.png) remain the art references.
+The **full-screen nest and Dream mat, Concept B**, is the chosen layout direction:
+[view concept](concepts/2026-09-13-dream-study/concept-b-nest-mat.png).
+A clear **View adventure** button returns to the board. The integrated tray is
+a historical alternative, not the default.
 
-This checkpoint consolidates the plan only. **Stop after saving and publishing
-it; wait for the user's command before Unity work, further art generation or
-the next milestone.** Art approval does not establish exact space fit or a
-playable duck scene.
+This checkpoint updates the plan, generates the other token concepts and explains
+the build sequence. It does not implement rules, modify the CLI or import into
+Unity. New token art still needs the user's visual reaction.
 
-Work remains on `codex/duck-game-milestone-0`, based on the completed playable
-baseline `74e40cfe04995d813428c3ff8390461235928a44`. Keep its scene, builder
-and source art usable. Regular commits and pushes are authorized; main merge
-and release require separate user decisions.
+## The short build sequence
 
-## Game identity and scope
+1. **Finish the rules sheet.** Define all 50 rewards, shelter locations, prices,
+   event changes and end-of-game details using the accepted direction below.
+2. **Upgrade Core and the CLI.** Reuse the existing engine, implement the new
+   rules in small tested pieces, and play complete games in the text client.
+3. **Build the Unity table.** Fit all 50 spaces to the selected artwork and
+   build the spacious Dream screen, nest display and token catalogue.
+4. **Connect and play the full game.** Run all nine Days with the human and AI,
+   including rest, dreams, upgrades, deliveries and the final result.
+5. **Balance and finish.** Test whether players can recover from falling behind,
+   tune rewards, inspect iPad readability, polish feedback and verify the iOS export.
 
-Quackies is a playful tabletop game about ducks exploring a shared world and
-building the biggest, cosiest nest. Explore for helpful encounters, settle
-down, or push your luck and end the day worn out. Accumulated Twigs determine
-the result; reaching the end of the trail does not automatically win.
+Stop for feedback at each milestone. These are future steps, not permission
+to start implementation automatically after this art/planning checkpoint.
 
-Preserve the complete base game, ingredient Book Set 1, one human versus Normal
-AI, nine Days and all 24 active fortune effects. Keep legal choices, exhaustion,
-flask recovery, catch-up, evaluation, finite market, upgrades, unlocks, late-day
-rules, final conversions and ties. Include Normal AI and starting-Feather
-settings; target iPad mini landscape. Test tubes and separate AI-history UI
-remain deferred. See [the full baseline](../IMPLEMENTATION_GOAL.md) and
-[its evidence](BASELINE.md).
+## Accepted game rules and presentation
 
-All ducks inhabit the same world while retaining their own bag, trail state,
-resources and nest score. Theme changes preserve strengths, starting bags,
-prices, supply, thresholds, effect timing, legal actions and Normal AI decisions.
-Use original explanations for existing effects. New balance rules require an
-explicit agreed specification.
+### Adventure and resting
 
-### Most Rested Duck reward
+Use **50 playable/scorable spaces plus the separate starting nest**. The duck
+rests and receives the rewards of its final occupied encounter space, not the
+next empty space. Keep rewards readable when both encounter and duck occupy it.
+The nest has no printed zero or start label; position indices stay in data.
 
-Rename the bonus dice roll **Most Rested Duck reward**, framed as a small
-end-of-day bonus. Initially retain the current rule: the duck furthest along
-the physical scoring track among those who are not worn out qualifies; every
-tied leader rolls. This happens as evaluation begins, before encounter
-evaluation and normal scoring. A World Event can retain its existing
-modification to the number of rolls.
+Author a new 50-row Sleep/Twig/Feather table. The old 53-row table is a reference,
+not target data to truncate or relabel. Keep eight clearly linked shelters,
+distributed 2/3/3 across the biomes, and remap their indices to the new route.
+The original 15 ruby flags do not define this new profile.
 
-Keep the six existing die faces: 1 Twig, 1 Twig, 2 Twigs, 1 Feather, a
-strength-1 Seed, or one Trail upgrade, including supply and maximum-position
-restrictions. The theme does not add a rest-quality statistic or use illustrated
-shelter quality as a tie-breaker. A smaller or different bonus is a future
-balance decision, not part of this rename.
+Sleep reflects comfort as well as distance. A candidate reward curve gives
+exposed wasteland less Sleep than a nearer comfortable shelter, while Twigs
+reward exploration separately; confirm the curve in the 50-row table. The intended
+wasteland haven rewards are two Feathers at the earlier havens and three at the
+end. “Shelter” and “haven” refer to the same marked resting-place concept.
+Exact amounts elsewhere, indices, prices and the complete reward curve
+are the next rules-sheet milestone.
 
-### World Events
+The duck marks its effective start during exploration and follows the completed
+route when drawing ends. It settles or flops down on its final occupied space.
+Its pose reflects Core's outcome. Next Day starts from its permanent Feather
+trail plus any valid temporary advantage, not yesterday's resting place.
 
-Rename fortune cards **World Events**. Reveal one shared situation at the start
-of each Day, before exploration, for all ducks in the same world. Explain its
-effect and duration clearly; consequences and choices can differ by player
-under the existing conditions.
+### Sleep, Twigs and Feathers
 
-Retain the 24-event deck and draw without replacement. Resolve reveal-time
-effects and choices before exploration; preserve event choices and effects
-that occur later in the Day. Shared fiction does not change timing or create new
-shared-board rules. During terminology/art work, give each existing rule
-identity an original event name, explanation and presentation.
-
-## Board and token design philosophy
-
-Use an illustrated physical board with tangible cardboard pieces: goofy,
-colourful cartoon ducks, bold silhouettes, expressive faces and softly painted
-scenery. Functional pieces must be readable at actual iPad mini sizes.
-
-| Reference | Agreed use |
+| Concept | Agreed role |
 | --- | --- |
-| [Approved base board](concepts/2026-09-12-approved/board-art-approved.png) | Canonical composition, without tiles, numbers, rewards or legend |
-| [V2 player ducks](concepts/2026-09-11/duck-player-tiles-v2.png) | Approved physical duck tiles with distinct colours and personalities |
-| [V3 seed](concepts/2026-09-11-v3/seed-tile-v3.png) | One rounded-triangle shape, solid orange face and thick darker orange rim |
-| [V5 painted components](concepts/2026-09-11-v5/painted-kit.png) | Bubbly wells, leafy rest frames and icons; style reference only, not the rejected placement coordinates |
+| Sleep score | Comfort earned tonight; frozen for the Most Rested comparison |
+| Sleep remaining | The portion of that night's allowance still available for purchases |
+| Twigs | Persistent victory score, shown through an exact total and growing nest |
+| Feathers | Each one automatically extends the permanent starting trail by one space |
 
-**Board composition.** One continuous route crosses three connected loops:
-cool teal wetlands, warm sunny grasslands and harsh sandy wasteland. Keep the
-incomplete upper-left nest, far-upper-right oasis and eight shelters. Use
-wetland banks, short meadow grass and desert sand for biome-specific routes.
-Dense reeds, grasses, shrubs and trees explain blocked shortcuts while leaving
-comparable usable token clearance throughout. Preserve clear shelter entries,
-including left access to the upper meadow shelter. Bridges meet their paths
-naturally; the wasteland crossing is a dramatic timber-and-rope bridge over a
-rocky cleft.
+Use a moon icon for Sleep, twigs for score and a Feather trail for permanent
+progress. A purchase changes remaining Sleep, never the earned Sleep score.
+Do not call Sleep Pond pennies or illustrate it with coins.
 
-**Layered tabletop construction.** Keep scenery in the base image. Add separate
-painted placement wells, reward rows, shelter markers and movable tokens over
-it. Later Unity work must explicitly place and inspect every indexed space on
-the illustrated route. Numerical correctness alone does not establish good
-alignment. Bridges may be connectors without tile spaces on their decks.
+**Feathers have one purpose only.** One Feather always represents one permanent
+start advance. They are not banked or spent through a menu, cannot refill a flask,
+and are not converted into Twigs. There is no one-upgrade-per-night redemption
+cap. Tune the sources/yields rather than changing that exchange rate.
 
-**Future tokens.** Use one consistent silhouette per encounter category across
-all its strengths. Categories may differ in shape where useful, but share a
-common footprint and edge treatment so every piece fits the same wells. Give
-each a strong category colour through its face and/or thick rim, plus a
-recognizable illustration; identification must not rely on colour alone.
-Keep Seeds on their accepted single shape. Player ducks vary by colour and
-personality; the four-design sheet does not expand the two-player scope.
+Gaining a Feather updates the permanent trail; it must not relocate today's
+encounters or change a frozen resting reward. The old ruby currency phase and
+its alternative purchases are obsolete for the new game. Starting-Feather
+settings represent initial trail progress. The exact timing of animations and
+the track-end/last-Night cases must be specified before implementation.
 
-Keep token faces uncluttered and recognizably flat printed pieces. Strength
-values, changing state and selection highlights are precise overlays, not
-generated text. Reserve space for them and check human and opponent views.
-Distinguish player duck tiles from Companion duck encounters. Use original
-art; the reference game informs rules and physical-board affordances, not
-copied illustrations. Production/provenance guidance lives in
-[ASSET_BRIEF.md](ASSET_BRIEF.md).
+### Full-screen Dream view and nest levels
 
-## Spaces, rewards and shelters
+Use a dedicated Dream view with room for all legal encounter categories and
+strengths, clear costs and remaining Sleep, plus a persistent route-preview
+button. Do not add a second movement track. The earlier mockup's two seed offers
+and prices illustrate layout only; they are not a random market or price table.
+Obstacles are a bag category, not automatically a purchasable offer. Adapt
+Concept B's Feather panel to show Feathers laid and permanent trail progress,
+not a spendable balance or manual exchange button.
 
-Keep 54 logical positions: internal start 0 and spaces 1–53. Encounters end at
-52; 53 is the final scoring space. Score **the next empty space**, not the last
-encounter. Preserve the exact Pond penny/Twig table in
-[the track audit](concepts/2026-09-11-v3/track-data.md); biome appearance does not
-change its values.
+Both ducks unlock the same nest level with the calendar:
 
-- The incomplete nest is the duck's starting well, without a number or start
-  label. Other wells must obviously accept tokens. Keep indices in data only;
-  no top numbers or separate SCORE flag at 53.
-- Attach a readable bottom reward row to each well: gold coin icon + amount,
-  then twig icon + amount. For zero Twigs, omit both the icon and zero and
-  centre the coin pair. Use exact typesetting, consistent usable geometry
-  and modest painted contour variation. Recheck spaces 11, 44 and 53.
-- The eight scenic rests are distributed 2/3/3 by biome. Proposed overlay
-  indices are 5, 13, 20, 28, 34, 40, 46 and 52. Each frames one well with a
-  leafy Feather marker and connects visibly to its own adjacent shelter.
-  Keep 40 a modest refuge and 46 a cosier cave. Decorative scenery must not
-  imply extra playable spaces or additional Penny/Twig rewards.
-- Restore the playful footer with large painted icons and slim separators:
-  empty well + **TILE HERE**; coin + **Pond pennies**; twigs + **Twigs**;
-  leafy Feather + **REST**; dashed arrow + **Score the next empty space**.
-  Keep lettering separate from the base art.
-- Show accumulated Twigs beside the scored nest, Pond pennies as **Spend
-  today**, and today's resting preview separately.
+| Days | Nest level | Maximum purchases per Night |
+| --- | --- | --- |
+| 1–3 | 1 — Little nest | 1 |
+| 4–6 | 2 — Comfortable nest | 2 |
+| 7–9 | 3 — Cosy nest | 3 |
 
-Eight scenic rests are an approved visual choice; Core still awards Feathers
-at all 15 original ruby spaces. Before playable integration, agree how to
-represent every baseline reward without silently removing seven or making
-the display disagree with Core. An eight-reward rules profile belongs to the
-optional experiment milestone.
+Each duck has its own allowance; this is not a shared match-wide purchase cap.
+These are initial settings to test, not claims of balance. Limits apply across
+the whole Night, not separately each time the purchase panel is opened.
+Sleep still limits affordability. The starting proposal for M2 is to retain
+finite supplies and one purchase per category, allowing level 3 to buy three
+different legal categories. Confirm those policies in the rules sheet rather
+than silently carrying over the old global cap of two.
+Final-Night shopping has no following Day and requires an explicit ending rule.
 
-## Duck journey and daily reset
+Nest capacity is not unlocked by being ahead in Twigs. Shared levels prevent
+the leader alone gaining extra buying power. Decorative nest growth and exact
+Twig totals show individual progress; do not require counting drawn branches.
+Show a brief gain such as “+4 tonight”, with rival totals readily accessible.
 
-The duck marks its permanent start while encounters are drawn ahead. Show
-existing catch-up assistance as a temporary lily-pad crossing to the effective
-start and a landing pad. Preserve the score-marker calculation, not one space
-per point behind.
+### Most Rested Duck
 
-After exploration, animate the duck along the crossing and completed route.
-A safe duck settles happily; a worn-out duck flops down. Core determines the
-outcome; animation adds no rule phase or reward. Hold the result pose during
-review. Next Day resets to the legitimate permanent start, preserves Trail
-upgrades and recalculates catch-up. Tonight's rest does not become tomorrow's
-start. The scored nest persists across the match.
+Compare **frozen earned Sleep among ducks who are not worn out**, before
+spending or awarding the winner's bonus. All tied eligible leaders qualify;
+if everyone is worn out, nobody does.
 
-## Display vocabulary
+Start with a bounded **Start +1 tomorrow** reward. It is temporary for the next
+Day, distinct from a permanent Feather, and is not stored for later Days.
+It replaces the old default bonus die in the new profile. “Every encounter +1”
+is not an equivalent prize and is deferred; varied bonus choices can follow
+balance evidence. Define the final-Night reward and contributing Sleep modifiers
+in the rules sheet.
 
-Display terms change; underlying rule and serialization identities stay stable.
+Movement bonuses affect distance, not printed encounter strength or white
+Exhaustion. Define ordering with World Events and other placement effects.
 
-| Existing concept | Display term |
+### Dawn Delivery
+
+A gift stork visits trailing ducks at the start of the Day. This replaces rat
+tails and the temporary lily-pad catch-up system; do not apply both.
+
+Use the Twig deficit from the leader at dawn, before deliveries, with a public
+explanation of eligibility. Check at each dawn; Day 1 normally has equal zero
+Twig scores and no parcel. Initial settings:
+
+| Twig deficit | Dawn gift |
 | --- | --- |
-| Victory points | Twigs |
-| Buying points / coins | Pond pennies |
-| Rubies | Feathers |
-| Round | Day |
-| Token / chip | Encounter |
-| Draw / Stop | Explore / Settle down |
-| White total / Exploded | Exhaustion / Worn out! |
-| Ruby scoring space | Shelter |
-| Cauldron track | Wetland trail |
-| Permanent droplet improvement | Trail upgrade |
-| Rat-tail assistance / rat marker | Lily-pad shortcut / Landing pad |
-| Shopping phase / shop | Prepare for tomorrow / Pond Market |
-| Flask | Water flask |
-| Bonus die | Most Rested Duck reward |
-| Fortune cards | World Events |
+| 0–4 | None |
+| 5–9 | 1 Feather |
+| 10 or more | 2 Feathers |
 
-| Encounter identity | Display term |
+Each eligible duck receives at most one parcel per dawn. Its Feathers extend
+the permanent trail one space each, exactly like other Feathers. These thresholds
+are accepted starting values for tuning, not guaranteed fairness. Test repeated
+deliveries, deliberate under-scoring, large gaps and combined leader bonuses.
+Borrowed encounter parcels remain a deferred alternative.
+
+### World Events and encounter effects
+
+Reveal one shared **World Event** at the start of each Day. Explain its effect
+and duration; resolve reveal-time choices before exploration, while preserving
+the correct timing of later effects. For example:
+“Rain-softened seeds — Seeds move +1 today.”
+
+Reuse compatible Set 1 effects and the existing event-hook system. Audit all
+eight encounter categories and all 24 existing events. Rules involving ruby
+spending, rat tails, the bonus die, next-space scoring or the old purchase cap
+need deliberate adaptation. Maintain an explicit keep/adapt/replace mapping;
+do not silently drop incompatible events or claim unchanged full-rule coverage.
+Original text/art must describe the actual new effect.
+
+## Art and token philosophy
+
+The board remains a physical illustrated tabletop: cool wetlands, warm meadow
+and harsh wasteland, with an incomplete upper-left nest and upper-right oasis.
+Dense natural barriers explain the route; keep clear shelter entries and similar
+usable widths across all biomes. Bridges meet the route naturally; the dramatic
+wasteland crossing remains a timber-and-rope bridge over a cleft.
+
+Layer precise wells, reward strips, rest markers and movable tokens over the
+approved base art. Use the playful [V5 painted components](concepts/2026-09-11-v5/painted-kit.png)
+as style references, not their rejected coordinates. Each shelter visibly belongs
+to one well. Use moon + Sleep, twigs + score, and any Feather yield in readable
+reward strips. Omit zero-Twig clutter. Update the footer to explain scoring
+**where the duck rests**; remove the old next-empty-space instruction.
+
+Each token category has a consistent silhouette across strengths, a strong
+face/rim colour and an identifiable illustration. Different categories can
+have different shapes but must fit a common well footprint. Keep rounded sturdy
+edges, matte cardboard depth and playful original illustrations. Reserve a clear
+strength area; production numerals and changing state remain precise overlays.
+Colour alone must not be required to recognize a category.
+
+| Identity | Encounter name |
 | --- | --- |
 | White | Obstacles |
 | Orange | Seeds |
@@ -202,57 +207,75 @@ Display terms change; underlying rule and serialization identities stay stable.
 | Black | Companion duck |
 | Purple | Wildflowers |
 
-Twigs cannot be spent. Pond pennies keep daily expiry and final-day
-floor(amount / 5) conversion, including the worn-out either/or restriction.
-Feathers retain their separate final conversion.
+The [token-family study](concepts/2026-09-13-token-family/README.md) explores the
+seven other categories beside the accepted Seed style. Those concepts are for
+review, not approved sprites or final effect specifications. Player ducks remain
+distinct colours/personalities and die-cut silhouettes; the Companion duck is a
+small illustrated encounter tile, not another player marker. Four duck identities
+do not expand the initial human-versus-AI scope.
 
-## Milestones and gates
+Other display terms: Day; Explore; Settle down; Exhaustion; Worn out!; Shelter;
+Feather trail; Dream choices; Most Rested Duck; World Event; Dawn Delivery.
+Water flask/recovery stays an unresolved rule mapping, not a Feather purchase.
+Production guidance is in [ASSET_BRIEF.md](ASSET_BRIEF.md).
 
-| Milestone | Bounded work | Evidence and pause |
+## Reuse the engine; replace the changed rules
+
+Retain one Core engine and evolve its existing snapshot/legal-action/execute
+API. Keep deterministic randomness, ownership of state, bags, supply, event
+hooks and the separation of AI from legality. Refactor the parts tied to old
+scoring, phases and currency. Keep the CLI as a quick way to exercise the same
+new rules before Unity integration.
+
+Preserve the completed original rules as a regression reference and keep its
+tests meaningful. New Quackies rules belong in a distinct configuration and
+focused rule policies where needed, using the same engine. Do not fork an entire
+second engine, grow the legacy prototype, or scatter theme conditionals through
+Unity. A classic reference configuration does not require another user-facing
+game mode.
+
+Read [ARCHITECTURE.md](../ARCHITECTURE.md) and
+[ENGINE_EVOLUTION.md](ENGINE_EVOLUTION.md) for the implementation rationale.
+Core remains independent of Unity; clients render authoritative state rather
+than calculating rewards. Preserve existing serialized assets until intentionally
+migrated, and validate old and new behavior separately.
+
+## Milestones and remaining decisions
+
+M0 (baseline) and the initial M1 art exploration are recorded history. The
+remaining roadmap replaces the earlier “terminology first, balance later” order:
+
+| Milestone | Work | Review evidence |
 | --- | --- | --- |
-| M0 — Baseline | Completed repository/tool audit and preserved playable game | Accepted; build, 129 tests and CLI smoke recorded |
-| M1 — Art direction | Approved ducks, seed and selected base board; consolidated plan | Art selection complete; overlay/resolution remain open; stop here |
-| M2 — Terminology | Small shared display contract, CLI/Unity wording, Most Rested Duck reward and World Events | Same legal actions and numerical results for identical seeds/actions; review wording |
-| M3 — Playable duck table | Separate presentation bound to MatchSession, selected board, exact overlays, nest/catch-up visuals and full game flow | Verify all positions/rewards, iPad readability, interaction, daily reset and complete match; review playtest |
-| M4 — Essential art | Remaining encounters/resources, original World Event presentation/help and modest journey/result animations | Actual-size readability, consistent assets and accurate previews; review feel |
-| M5 — Optional rules experiment | Only after rules approval: compare shelter density and biome reward profiles | Preserve unchanged baseline; test stop, passing and exhaustion cases; review balance |
-| M6 — Migration review | Review clients, AI, compatibility, assets, tests and remaining issues | Tested branch ready for user's merge decision |
+| M1 checkpoint — accepted direction and token study | This plan, seven token concepts and engine recommendation | Visual feedback; no implementation yet |
+| M2 — Rules sheet | 50-row table, prices, shelter indices, all encounter/event mappings, recovery and final-Night rules | One readable, complete rules contract and example Days |
+| M3 — Core and CLI | Implement the new profile in bounded source/test checkpoints; update observations, actions and Normal AI | Focused rule tests, original regression checks and complete deterministic CLI matches |
+| M4 — Unity board and Dream layout | Fit 50 indexed spaces, tokens, nest, full catalogue and navigation to iPad landscape | Actual-size layout, reward visibility, alignment and touch checks |
+| M5 — Full playable game | Bind every phase/choice to Core, add deliveries and journey feedback, restart and complete nine Days | End-to-end human/AI match, scene reconstruction and error checks |
+| M6 — Balance and release preparation | Tune recovery/leader loops, finish essential assets/help and verify export | Recorded balance evidence, full relevant checks, iOS export; user decides merge/release |
 
-The roadmap does not authorize starting its next row. Get the user's reaction
-at each gate. The earlier V1 Unity style-test scene remains historical evidence,
-not the accepted duck presentation.
+M2 must settle: stopping before a draw; rewinds; endpoint/overshoot and saturated
+Feather trails; worn-out Sleep/Twig/Feather treatment; Sleep expiry and final-Night
+disposition, including whether any Sleep conversion exists; final-Day rewards
+with no tomorrow; recovery/flask mechanics; event/bonus ordering; finite supply,
+category uniqueness/unlocks, strengths and the final price table. Define when
+each Day's effective start freezes, including Dawn gifts and reveal-time event
+Feathers. Endpoint bookkeeping may not add Feather banking, spending, conversion
+or a nightly redemption cap as a convenient substitute.
 
-## Implementation and validation
+The approved board is native 1536 × 1024; the requested detailed 3072 × 2048
+master and exact 50-space fit remain outstanding. A passing width audit of a
+later V10 alternative does not apply to the user-selected image. Preserve the
+selected composition while resolving the layout.
 
-Read [ARCHITECTURE.md](../ARCHITECTURE.md) before changing boundaries.
-`src/Quackies.Core/Match/MatchSession.cs` remains the gameplay engine,
-independent of Unity. Unity uses the compiled Core DLL; `MatchPresenter`
-adapts session/input, presentation views render it, and builders/importers
-remain editor-only.
+Test tubes, additional ingredient sets, a separate AI-history pane and physical
+device installation remain deferred. Keep the initial AI/starting-progress
+settings, fixed starting-bag reference, rival-board inspection and restart.
+Keep source art, identifiers and namespaces as Quackies; release title is undecided.
 
-For M2, inventory action, observation, history and event text before adding a
-small immutable shared vocabulary/formatter. Preserve action IDs, enums,
-fields, assemblies and serialized bindings. Avoid a generic theme engine,
-duplicated client name tables or rules derived from text; keep legacy callers
-compatible. Bind board anchors, hitboxes and reward labels to authoritative
-indexed data, not inferred pixels. Separate optional rules from presentation.
-
-Follow [AGENTS.md](../../AGENTS.md) for lead/worker models, disjoint ownership,
-one Editor owner and regular small commits/pushes. Keep Core source, its tests
-and compiling Unity changes in separate checkpoints; preserve unrelated work.
-Record focused tests and milestone checks in PROGRESS.md. Editor runs, iOS
-exports and physical-device tests are distinct evidence.
-
-## Outstanding decisions
-
-- The approved image is native **1536 × 1024**. The requested detailed
-  3072 × 2048 master remains outstanding; enlargement alone adds no detail.
-- Exact 53-space placement and token clearance need a fit pass once work
-  resumes. Earlier narrow-corridor findings remain relevant. The passing
-  audit of the later V10 alternative does not apply to the selected image;
-  preserve the approved composition when resolving layout.
-- Resolve the eight-shelter/15-reward representation before playable integration.
-  Biome reward curves and two-Feather safe / one-Feather worn-out rewards
-  remain unapproved experiments.
-- The release title is undecided. Keep repository, namespaces, assemblies
-  and bundle identifiers as Quackies.
+Follow [AGENTS.md](../../AGENTS.md): lead owns Git/integration, bounded workers
+have disjoint ownership, one agent owns Editor mutations, and every coherent
+checkpoint is pushed on `codex/duck-game-milestone-0`. Preserve unrelated local
+changes. Review each milestone before starting the next. Editor execution,
+iOS export and physical-device testing are distinct evidence; no automatic
+merge, device install or public release.

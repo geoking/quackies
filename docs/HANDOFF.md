@@ -1,37 +1,35 @@
 # Quackies handoff
 
-## Current task: plan updated; wait for the user's next command
+## Current task: accepted duck direction recorded; await next milestone command
 
-13 September: [dream-phase design study](duck-migration/concepts/2026-09-13-dream-study/README.md)
-adds the user's proposed 50-space/Sleep-score rules, analysis and two visual
-options. This is a discussion checkpoint, not authority to implement those
-rules or resume Unity. The selected base-board art remains unchanged.
+13 September: the user accepted the revised direction: 50 playable spaces plus
+the starting nest; final occupied-space rest and score; frozen earned Sleep
+versus remaining nightly allowance; full-screen Dream Concept B; shared nest
+levels for Days 1–3, 4–6 and 7–9; persistent Twigs; automatic permanent
+Feather advances; Dawn Delivery stork criteria; and Most Rested based on earned
+Sleep among eligible non-worn ducks. See [status](duck-migration/STATUS.md) and
+the authoritative [plan](duck-migration/PLAN.md) for the bounded specification.
 
-Updated 12 September 2026. Work is on `codex/duck-game-milestone-0`, based on
-merged playable baseline `74e40cf`. The user accepted the duck/seed designs and
-explicitly selected **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b**, the first V10
-board candidate. Use [the approved board](duck-migration/concepts/2026-09-12-approved/board-art-approved.png)
-and its [selection record](duck-migration/concepts/2026-09-12-approved/README.md),
-not the later clearance-corrected V10 image.
+The selected base board remains **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b**
+at [the approved image](duck-migration/concepts/2026-09-12-approved/board-art-approved.png).
+Three biomes and eight shelters remain, remapped 2/3/3 across 50 spaces; the
+wasteland direction is two Feathers at each earlier haven and three at the
+endpoint haven. The selected
+image is 1536 × 1024; the requested 3072 × 2048 master, exact 50-space fit and
+final table remain open. The new token-family concepts are candidates only.
 
-The [consolidated plan](duck-migration/PLAN.md) now records the **Most Rested
-Duck reward** and shared start-of-Day **World Events**, preserving baseline
-mechanics. It defines the illustrated board with separate, precisely positioned
-wells/rewards/tokens and the design philosophy for future token categories.
-These are documentation decisions; the runtime has not been migrated.
+The tested base game remains a reference, but the duck game is no longer a
+pure reskin: incompatible events and effects must be audited and intentionally
+adapted. No Core, Unity, scene, art import or gameplay implementation has been
+started for this direction.
 
-Read [status](duck-migration/STATUS.md) for remaining validation and the stop
-gate. Exact 53-space fit, token clearance, eight-shelter/15-reward representation
-and the detailed 3072 × 2048 master remain outstanding. The selected board is
-1536 × 1024; a passing audit of a different V10 image is not evidence for it.
-Historical image iterations remain in [PROGRESS.md](PROGRESS.md) and their
-concept folders.
+Next bounded work is rules specification, Core plus CLI, Unity fit, a playable
+full-Day/Dream loop, nine-Day AI and balance, then full verification. Preserve
+unrelated work and the pre-existing ProjectSettings preload removal. Root owns
+Git and the milestone checkpoints.
 
-**Stop after this documentation checkpoint.** Do not generate art, import into
-Unity, alter source/settings, construct scenes or start the next milestone
-until the user commands it. Preserve the original playable game and the
-pre-existing ProjectSettings preload removal. Regular coherent commits/pushes
-remain authorized; no automatic main merge or release.
+**Stop after this planning and token-art checkpoint.** Wait for the user's next
+milestone command before implementation or Unity work.
 
 ## Completed playable baseline
 

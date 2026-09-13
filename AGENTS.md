@@ -47,8 +47,12 @@ and record the known failing checks. Do not describe a partial milestone as the
 complete playable game. No physical-device install or public release is requested.
 A successful Editor run, iOS export, and device test are distinct evidence.
 
-Stop at each completed migration milestone and ask the user how they feel about
-the result before starting the next one. M0 establishes the baseline and plan;
-M1 is the first generated-art and Unity visual test. Preserve existing mechanics
-through the first playable duck version. Ask before adding rule or balance
-changes; presentation choices within the selected milestone may proceed.
+Stop at each completed milestone and ask the user how they feel about the result
+before starting the next one. Follow the current milestone order in
+docs/duck-migration/PLAN.md. The user has approved a distinct Quackies rules
+direction (50-space rest, dreams, nest levels, Feather trails and Dawn Delivery),
+superseding the earlier presentation-only reskin. Preserve the original rules as
+a tested reference while deliberately implementing the approved new profile.
+Do not restore superseded mechanics or invent unresolved balance rules; finish
+the agreed rules-sheet milestone first. Presentation choices within the selected
+milestone may proceed. Current planning/art requests do not authorize Unity work.

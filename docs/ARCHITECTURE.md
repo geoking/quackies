@@ -1,5 +1,12 @@
 # Quackies Architecture
 
+The implementation described below is the completed original rules baseline.
+On 13 September 2026 the user accepted a distinct Day/Dream rules direction.
+The planned evolution is in [duck-migration/ENGINE_EVOLUTION.md](duck-migration/ENGINE_EVOLUTION.md)
+and the current [plan](duck-migration/PLAN.md). No new rules are implemented by
+that documentation checkpoint; baseline-specific scoring and currency behavior
+below must not be mistaken for requirements of the new profile.
+
 Quackies has one rules engine with two front ends: Unity and a command-line
 debugging client. Neither front end decides whether a move is legal or awards
 game resources. Both submit actions issued by the same match session.

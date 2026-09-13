@@ -497,3 +497,37 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   hash and pre-existing ProjectSettings hash checked. No Unity calls/imports,
   code changes, runtime tests or approved asset replacements occurred.
 - Stopped for discussion and visual feedback; implementation remains paused.
+
+### 27. Accepted Day/Dream plan and encounter family (13 September 2026)
+
+- Replaced the old presentation-only roadmap with the accepted duck-game target:
+  50 playable spaces plus nest, final-occupied rest, Sleep earned/remaining,
+  full-screen Dream Concept B, shared 1/2/3 nest purchase tiers, automatic
+  single-purpose Feather trails and bounded Dawn Delivery catch-up. Most Rested
+  compares safe ducks' earned Sleep and initially grants a temporary start step.
+  Thresholds/tier timings are initial settings to test, not balance evidence.
+- Updated PLAN, STATUS, ASSET_BRIEF and current HANDOFF. Aligned AGENTS and the
+  architecture/baseline headers so future work does not restore superseded
+  mechanics. Preserve the original game as a tested reference; the new profile
+  requires an explicit 50-row table and complete encounter/event adaptation.
+- A focused Sol/high source audit recommends evolving Core/MatchSession and the
+  CLI rather than restarting. Saved ENGINE_EVOLUTION.md with reusable boundaries,
+  concentrated refactors, incompatible event examples and planned verification.
+  The short next-build sequence is rules sheet, Core/CLI, Unity layout, complete
+  playable integration, then balance and finishing. No implementation began.
+- Generated two token sheets: Obstacles, Tailwind, Signpost, Refreshing splash,
+  Nesting reeds, Companion duck and Wildflowers, alongside a Seed style reference.
+  Root visually inspected all eight illustrated chips, labels and representative
+  strength badges. Each category has a distinct colour/silhouette; the Companion
+  duck remains inside a round encounter disc. The original approved Seed and
+  player tiles remain unchanged; new concepts await visual feedback.
+- Saved native 1536 × 1024 sheets, full built-in image_gen prompts, provenance,
+  hashes and inspection notes under
+  `duck-migration/concepts/2026-09-13-token-family/`. These are opaque concept
+  sheets, not production sprites or a verified iPad footprint.
+- Validation: focused independent plan review, 57 local documentation links,
+  native-image provenance, selected-board hash, preserved baseline HANDOFF tail,
+  pre-existing ProjectSettings hash and whitespace checks. No runtime tests,
+  Unity calls/imports, Core/CLI changes or approved artwork replacements occurred.
+- Stopped after planning and token art. The next bounded milestone is the complete
+  rules sheet; implementation and Unity remain subject to the next user command.

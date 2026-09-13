@@ -1,5 +1,10 @@
 # Day, dreams and nests — design study
 
+**Later decision:** the user chose Concept B, shared nest levels and automatic
+Feather trails with Dawn Delivery. See [the current plan](../../PLAN.md).
+The tray recommendation, banked Feathers and nightly redemption cap below are
+historical proposals, superseded by that decision.
+
 13 September 2026. **Discussion proposal, not an approved rules specification.**
 The user requested a critique and visual ideas. No gameplay, Unity scene or
 approved board asset has been changed. The current [migration plan](../../PLAN.md)

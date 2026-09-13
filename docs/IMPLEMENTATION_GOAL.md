@@ -3,8 +3,9 @@
 This document describes the completed playable baseline, merged into main as
 `74e40cf`. The current gradual duck migration is defined in
 [duck-migration/PLAN.md](duck-migration/PLAN.md), starting with M0 and pausing for
-feedback at each milestone. The baseline rules remain the reference for unchanged
-mechanics during that migration.
+feedback at each milestone. The accepted 13 September Day/Dream direction
+deliberately changes several mechanics. Preserve this completed baseline as
+a regression reference; the current migration plan defines the new target.
 
 ## Current completion milestone — 9 September 2026
 

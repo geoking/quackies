@@ -1,58 +1,69 @@
 # Duck migration status
 
-Updated 12 September 2026. **M1 art selection is approved; work is paused at
-the user's request after a documentation checkpoint.**
-
-On 13 September the user requested a new design discussion and visual ideas:
-50 spaces, last-occupied-space rest, Sleep score, dreams and next-Day bonuses.
-[The study](concepts/2026-09-13-dream-study/README.md) contains two mockups and
-the rule trade-offs. It is exploratory; gameplay and Unity remain unchanged.
+Updated 13 September 2026. The user accepted the revised duck-game direction;
+this is a planning and token-art checkpoint. No Core, Unity, scene, or gameplay
+implementation has started.
 
 ## Current accepted direction
 
-- The user selected **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b**, the first V10
-  candidate. Its exact native image is now the [approved base board](concepts/2026-09-12-approved/board-art-approved.png);
-  [selection/provenance](concepts/2026-09-12-approved/README.md) distinguishes it
-  from the later clearance-corrected alternatives.
-- The V2 duck tiles and V3 orange seed token are approved. V5's bubbly painted
-  wells, icons and footer remain the overlay style reference. Its old placement
-  coordinates were rejected and must not be reused unchanged.
-- The [consolidated plan](PLAN.md) defines the layered tabletop board, category
-  shapes/colours, readable future tokens and exact reward overlays.
-- Bonus-die presentation becomes **Most Rested Duck reward**, a small end-of-day
-  bonus. Fortune cards become **World Events**, one shared situation revealed
-  at the start of each Day. Existing eligibility, outcomes and event mechanics
-  remain the initial rules baseline. These names are planned, not implemented.
+- The board keeps the selected **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b**
+  composition unchanged. The approved native image is
+  [the selected board](concepts/2026-09-12-approved/board-art-approved.png);
+  its exact fit is still unverified.
+- The playable route has **50 spaces plus the separate starting nest**. Rest
+  and score use the final occupied space. The precise 50-row table, endpoint,
+  no-draw, rewind and final-night handling remain to be specified.
+- **Sleep score** records earned sleep and is frozen for Most Rested comparison;
+  the remaining nightly allowance is tracked separately for Dream purchases.
+  Most Rested is the highest earned Sleep among eligible non-worn ducks, with
+  tied winners sharing a bounded temporary **Start +1 tomorrow** reward.
+- Night opens the full-screen Dream view based on
+  [Concept B](concepts/2026-09-13-dream-study/concept-b-nest-mat.png), with a
+  **View adventure** button and enough room for the complete legal encounter
+  catalogue. Shared nest levels cover Days 1–3, 4–6 and 7–9 and allow 1, 2 or
+  3 purchases per Night respectively; they are not tied to Twig score.
+- Twigs are persistent victory score and are shown in the nest. Each Feather
+  automatically and permanently advances the starting trail by one space;
+  Feathers have no banking, spending menu, refill, final conversion or
+  once-per-Night cap.
+- **Dawn Delivery** replaces rat-tail assistance: at dawn, the stork gives
+  1 Feather for a 5–9 Twig deficit and 2 Feathers for a deficit of 10 or more.
+  Day 1's equal zero Twig scores normally mean no gift. These public criteria
+  are initial tuning values, not verified balance.
+- Three biomes remain, with the approved eight shelters remapped 2/3/3 across
+  the 50 spaces. Each earlier wasteland haven awards two Feathers and the
+  endpoint haven three; exact row values and shelter indices are open.
+- The new token-family concepts are saved in
+  [the token-family brief](concepts/2026-09-13-token-family/README.md): seven
+  new category designs plus the approved Seed style reference. They are
+  concept candidates, not accepted final art.
+
+The accepted direction and remaining specification work are in [PLAN.md](PLAN.md).
+The implementation must preserve
+the tested base game as a reference while intentionally adapting incompatible
+events and effects for the new duck game; this is no longer a pure reskin.
 
 ## Evidence and remaining work
 
-The approved board has no tiles or labels. Exact 53-space alignment, shelter
-mapping, token clearance and iPad readability remain unverified. The V10 audit
-that passed sampled widths applies to a later image, **exec-bada2b21**, not the
-user-selected **exec-9d44cb08**. Its initial narrow-corridor findings remain
-relevant to the eventual layout pass.
+The selected board is 1536 × 1024. The requested high-detail 3072 × 2048
+version remains outstanding, and 50-space fit, token clearance, shelter
+placement and iPad readability are unverified. Do not apply the later V10
+clearance audit to the selected image.
 
-The approved native image is 1536 × 1024. The requested detailed 3072 × 2048
-master is still outstanding; no resampling or separately billed API fallback
-was performed. An earlier API-workflow question remains unanswered.
+Next bounded work is: write the exact rules/table; implement and test Core plus
+CLI; fit the selected board in Unity; validate a playable full-Day/Dream loop;
+then run nine-Day AI, balance and full verification. Final-night Sleep,
+Feather and Dawn handling must be explicit before implementation.
 
-Eight scenic shelters are approved. Core retains 15 ruby scoring positions;
-resolve their visual representation before playable integration. The unchanged
-Penny/Twig table and next-empty-space semantics remain authoritative.
-
-M0 was accepted with a clean build, 129 passing tests and a CLI smoke:
-[baseline evidence](BASELINE.md). V1's technical Unity checks remain historical
-evidence of a rejected visual style: [M1 evidence](evidence/m1/README.md).
-V2–V10 concept folders and [PROGRESS.md](../PROGRESS.md) preserve subsequent
-image iterations and their validation; they are not current Unity evidence.
+M0 remains the tested historical reference: clean build, 129 passing tests and
+CLI smoke are recorded in [BASELINE.md](BASELINE.md). Existing baseline art
+iterations and Unity evidence remain historical until the new direction is
+implemented and revalidated.
 
 ## Resume gate
 
-Wait for the user's command. No Unity calls/imports, scene construction, code
-changes, further image generation or next milestone follow this plan update.
-When authorized, read PLAN.md and inspect live Git/Editor state before acting;
-use the accepted board reference, not the highest-numbered generated image.
-
-Branch: `codex/duck-game-milestone-0`. Lead owns small commits/pushes and must
-preserve the pre-existing ProjectSettings preload removal. No main merge or
-release is authorized. The playable baseline remains usable and unchanged.
+No Unity calls/imports, source changes, or gameplay implementation are part of
+this checkpoint. When the next milestone is authorized, read PLAN.md and inspect
+live Git/Editor state before acting. Root owns the authoritative plan and Git
+checkpoints; preserve unrelated work and the pre-existing ProjectSettings
+preload removal.

@@ -1,0 +1,54 @@
+{
+  "date": "2026-09-13",
+  "mode": "built-in image_gen",
+  "status": "Visually inspected concept sheets; user acceptance pending",
+  "outputs": [
+    {
+      "artifact": "encounters-a.png",
+      "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-708c2b9f-2716-48fa-949f-51f4ec9b1127.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 1829921,
+      "sha256": "3c248164c250317acabf712f8dd8f8b203f0f1ac7bdb6db5bc1e00cea826ff9b",
+      "categories": [
+        "Obstacles",
+        "Seeds (style reference)",
+        "Tailwind",
+        "Signpost"
+      ]
+    },
+    {
+      "artifact": "encounters-b.png",
+      "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-13ca1a68-7f54-4215-8a1a-7a82d1524fce.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 1834922,
+      "sha256": "45c977b60c28236141902582d65179284d2b42d44d067142ff6f4a11b40b5543",
+      "categories": [
+        "Refreshing splash",
+        "Nesting reeds",
+        "Companion duck",
+        "Wildflowers"
+      ]
+    }
+  ],
+  "inspection": {
+    "count": "Seven new category designs plus one Seed family reference across two sheets, four per sheet.",
+    "readability": "Category labels and illustrative strength1 badges readable; distinct face/rim colours; sturdy differentiated outlines; full token bounds inside both images.",
+    "style": "Flat printed cartoon faces with cream cardboard edges. Companion duck remains inside a round dark encounter disc, distinct from player die-cut full bodies.",
+    "limitations": [
+      "Concept art only; not final sprites, an alpha atlas, iPad-size validation or rule-effect approval.",
+      "Illustrative strength1 numerals are generated; production values must be precise separate overlays.",
+      "Seed appearance on sheet is a generated family reference; the approved seed asset remains unchanged.",
+      "All tokens must be normalized to a shared actual footprint before Unity use."
+    ],
+    "unityCalls": false,
+    "unityImports": false,
+    "sourceChanges": false,
+    "approvedAssetsReplaced": false
+  }
+}
