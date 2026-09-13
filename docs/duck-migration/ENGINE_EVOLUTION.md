@@ -71,11 +71,13 @@ can inform a rain/Seed movement modifier. They do not mandate the old event's
 text, deck membership or balance. Ruby spending, rat tails and bonus-die effects
 must not leak into the new profile through default registration.
 
-The [fresh encounter study](concepts/2026-09-13-obstacle-study/README.md) proposes
-eight whites plus five colours, five safe Exhaustion, mild bounded nuisances,
-explicit Tailwind movement and preview/shield/rescue powers. These are review
-candidates. Specify cancellation versus placement, private previews, nuisance
-priority/expiry, daily caps and pending versus banked rewards before coding.
+The current [encounter discussion](ENCOUNTER_RULES.md) supersedes the art study's
+candidate powers: separate thematic quantity from movement, support conditional
+movement and ordinary nuisances, and specify a Day 5 Goose with a temporary
+lower safe maximum. Splash must compare against the resulting maximum rather
+than a hard-coded sixth white. These are review candidates. Specify cancellation
+versus placement, private previews, nuisance priority/expiry, and pending versus
+banked rewards before coding. Do not treat Reeds x3 as three placements/triggers.
 AI and human must see the same information legally available to their duck;
 a Signpost preview does not expose an unearned future draw order.
 

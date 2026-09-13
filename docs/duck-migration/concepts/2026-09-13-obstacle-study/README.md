@@ -1,5 +1,13 @@
 # Fresh encounters and obstacle study
 
+**Subsequent rules discussion:** the user likes the helpful colour concepts and
+requests Reeds quantities, multiple movement colours, conditional ordinary
+nuisances and a Day 5 Goose that lowers the safe maximum. Current proposals
+are in [ENCOUNTER_RULES.md](../../ENCOUNTER_RULES.md). They supersede the powers
+below, including automatic Mud/Brambles losses and the old Goose suppression.
+This folder preserves the original artwork, prompts and effect-free bag audit;
+the old sixth-white model does not describe a Day after Goose has resolved.
+
 13 September 2026. The user approved the previous token art style and requested
 a fresh rules design rather than inherited Quacks effects. Ten Days is now the
 standard direction; shorter match lengths are deferred. This study proposes

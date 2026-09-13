@@ -1,6 +1,6 @@
 # Quackies handoff
 
-## Current task: fresh encounters and obstacle art ready for review
+## Current task: quantity variants and conditional obstacles ready for discussion
 
 13 September: the user approved the token-family style, chose ten Days and
 requested original encounter powers rather than Quacks mappings. The earlier
@@ -23,12 +23,23 @@ badges removed in the [new study](duck-migration/concepts/2026-09-13-obstacle-st
 It contains revised ordinary tokens, Tailwind →2/→4/→6 and five white obstacles.
 These are concept sheets, not imported or production-ready sprites.
 
-The study proposes seven helpful powers and four regular mild nuisances, with
-an optional Grumpy Goose. Eight whites plus five colours and five safe Exhaustion
-(sixth worn out) are working proposals, not finalized rules. Exact effect-free
-bag enumeration gives 7.78 placements/2.78 colours on average when stopping at
-white five; it is not full-game balance evidence. Log affects next-colour movement;
-Pebbles makes only its own safe resting space one Sleep less comfortable.
+The user likes the helpful colour ideas and requests Reeds x1/x2/x3 for Twig
+yield, with normal movement still one. [ENCOUNTER_RULES.md](duck-migration/ENCOUNTER_RULES.md)
+is now the current candidate discussion, superseding the art study's powers.
+It offers other thematic quantities, shared future rule cards and modest
+conditional Seed/Companion movement alongside Tailwind.
+
+Ordinary extra nuisances are conditional: Log halves fast movement, proposed
+Mud blocks bonus movement, and Pebbles/Brambles lose Sleep/a newly earned Twig
+only when the duck settles on that chip. Goose is proposed from Day 5, lowering
+the safe maximum from five to four for the Day when resolved. The interpretation
+adds one to each bag once, retains it thereafter, resets the maximum each dawn,
+does not let Companion block it, and lets Splash cancel an otherwise fatal draw
+then settle. Those exact lifecycle/counter rules remain proposals for review.
+
+Eight whites plus five colours is the Day 1 candidate bag. The old effect-free
+bag audit applies before Goose. New controlled Goose comparisons exclude
+purchased colours and cannot establish actual Day 5 or full-game balance.
 
 The tested base game remains a reference. New encounter/event rules need no
 one-to-one conversion of its eight categories or 24 fortunes. Reuse Core/CLI
@@ -40,7 +51,7 @@ full-Day/Dream loop, ten-Day AI and balance, then full verification. Preserve
 unrelated work and the pre-existing ProjectSettings preload removal. Root owns
 Git and the milestone checkpoints.
 
-**Stop after this planning and token-art checkpoint.** Wait for the user's next
+**Stop after this rules discussion checkpoint.** Wait for the user's next
 milestone command before implementation or Unity work.
 
 ## Completed playable baseline

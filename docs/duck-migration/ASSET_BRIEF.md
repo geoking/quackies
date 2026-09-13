@@ -34,11 +34,18 @@ colour plus an identifying illustration, and a shared footprint and edge
 treatment that fits every legal well. The user approved this visual family.
 
 The [revised study](concepts/2026-09-13-obstacle-study/README.md) removes generic
-‘1’ badges. Default movement is one, unprinted; Tailwind alone initially uses
-explicit total-movement arrows →2/→4/→6. Keep those instructions, changing state
+‘1’ badges. Default movement is one, unprinted; Tailwind uses explicit
+total-movement arrows →2/→4/→6. The subsequent [quantity discussion](ENCOUNTER_RULES.md)
+allows meaningful counts such as reed bundles x1/x2/x3, visually separate from
+movement. A quantity represents contents, not copies, placements or triggers.
+If future rule cards may change its reward, avoid baking a specific Twig/Sleep
+payout into that quantity icon. Conditional movement belongs in clear rule text,
+not a misleading fixed arrow. Keep instructions, quantities, changing state
 and selection highlights as precise production overlays. White obstacles share
 their category shape/rim and differ through clear nuisance illustrations; use
 a short board-edge key and active-effect indicator rather than face paragraphs.
+The Goose needs a visible current-Exhaustion/current-maximum display; the older
+concept-sheet footer “Five is safe” is not an always-valid runtime instruction.
 Artwork must leave room for readable exceptional values at actual iPad mini board and
 opponent-inspection sizes. Player duck pieces must remain distinct from
 Companion duck encounters.

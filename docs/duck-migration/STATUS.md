@@ -1,7 +1,7 @@
 # Duck migration status
 
 Updated 13 September 2026. The user accepted the revised duck-game direction;
-this is a fresh-rules proposal and token-art checkpoint. No implementation of
+this is an encounter-quantity and conditional-obstacle discussion. No implementation of
 this new direction has started in Core, CLI or Unity.
 
 ## Current accepted direction
@@ -40,10 +40,15 @@ this new direction has started in Core, CLI or Unity.
   ‘1’ badges, shows Tailwind →2/→4/→6 and adds five distinct white nuisances.
   Revised sheets and exact effects are for review, not production sprites.
 
-The current bag proposal is eight whites plus five colours, with five Exhaustion
-safe and the sixth white worn out. The study records seven helpful powers,
-four regular mild nuisances and an optional Goose, plus exact effect-free draw
-math. These are candidates awaiting review, not approved balanced rules.
+The user likes the colour powers and requests Reeds quantities x1/x2/x3 granting
+one/two/three Twigs while normal movement remains one. Current proposals live
+in [ENCOUNTER_RULES.md](ENCOUNTER_RULES.md): more quantity variants, conditional
+Seed/Companion movement, Mud blocking extra movement, and Pebbles/Brambles
+penalties only on their own resting chip. Goose from Day 5 lowers that Day's
+safe maximum from five to four when resolved; lifecycle/rescue details remain
+candidate interpretations. Eight whites plus five colours is the Day 1 proposal.
+Earlier effect-free draw math is historical opening-bag evidence, not full-game
+or Day 5 balance. Original art sheets are unchanged by this discussion.
 
 The accepted direction and remaining specification work are in [PLAN.md](PLAN.md).
 Preserve the tested base game as a reference while defining the complete new

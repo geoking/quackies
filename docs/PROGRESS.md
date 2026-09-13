@@ -571,3 +571,39 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   runtime tests or approved asset replacements occurred.
 - Stopped for the user's reaction to the rules and art. The full rules-sheet
   milestone remains incomplete; no automatic implementation or Unity work follows.
+
+### 29. Ability quantities, conditional movement and Day 5 Goose (13 September 2026)
+
+- The user likes the helpful colour ideas and requests Reeds x1/x2/x3 awarding
+  one/two/three Twigs while each chip still has normal movement one. Saved
+  [ENCOUNTER_RULES.md](duck-migration/ENCOUNTER_RULES.md) as the current discussion:
+  category quantities are distinct from movement instructions and never imply
+  extra placements or triggers. Other denominations and shared future rule cards
+  are proposals; initial play still uses one fixed ruleset.
+- Proposed conditional precision alongside Tailwind's reliable distance: Seeds
+  can eat one kernel for an extra step after an Obstacle, forgoing that kernel's
+  Sleep; a Companion drawn while a shield is already held moves an extra step
+  instead of stacking protection. Neither proposal is implemented or priced.
+- Replaced arbitrary ordinary-white payout deductions with conditional nuisances.
+  Mud blocks the next colour's bonus movement while preserving intrinsic movement
+  and other effects. Log halves movement; Pebbles/Brambles deduct Sleep/a newly
+  earned Twig only on their own safe resting chip. Clarified nonstacking slow
+  effects, one placement per chip, and shield use on actual rest deductions.
+- Recorded the user's Day 5 Goose idea and a candidate lifecycle: add one per
+  bag once, retain it for later Days, and lower that Day's safe maximum five to
+  four only when resolved. It remains a white Obstacle; Companion cannot block
+  its special Exhaustion rule. Splash checks the resulting maximum and cancels
+  a fatal reveal completely before automatic safe settlement. These precise
+  lifecycle/counter interpretations remain for review, not finalized balance.
+- Independent Sol/high review checked candidate quantity semantics and timing.
+  A separate Sol/high exact enumeration compared eight continued draws with no
+  powers or purchased colours: prior 8+5 gives 24.94% worn-out, adding Goose gives
+  57.58%, replacing a white gives 52.14%. The document records exact fractions
+  and enumeration conditions. These are controlled risk comparisons, not actual
+  Day 5 player loss rates; a replacement is a fallback if addition proves too harsh.
+- Updated PLAN, STATUS, ASSET_BRIEF, ENGINE_EVOLUTION and current HANDOFF; marked
+  the previous art study's powers superseded while preserving its images and
+  opening-bag evidence. Checked current document links, whitespace, historical
+  baseline handoff preservation and the unchanged pre-existing ProjectSettings
+  hash. No art generation/editing, Core/CLI changes, Unity calls/imports or runtime
+  tests occurred. Stopped for discussion; implementation remains paused.

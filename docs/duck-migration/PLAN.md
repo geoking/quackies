@@ -21,11 +21,12 @@ The **full-screen nest and Dream mat, Concept B**, is the chosen layout directio
 A clear **View adventure** button returns to the board. The integrated tray is
 a historical alternative, not the default.
 
-This checkpoint proposes new encounter powers and a starting bag, checks the
-bag's baseline risk, and revises the accepted token style without generic number
-badges. It does not implement rules, modify the CLI or import into Unity. Exact
-powers and revised images in the [obstacle study](concepts/2026-09-13-obstacle-study/README.md)
-remain for review; the complete rules sheet is not yet finished.
+The current discussion extends the accepted colour roles with explicit ability
+quantities, conditional movement and nuisances, and the proposed Day 5 Goose.
+It does not implement rules, modify the CLI or import into Unity. The
+[encounter rules discussion](ENCOUNTER_RULES.md) is the current candidate contract;
+the earlier [obstacle study](concepts/2026-09-13-obstacle-study/README.md) preserves
+art and effect-free opening-bag evidence. The full rules sheet is not finished.
 
 ## The short build sequence
 
@@ -180,24 +181,40 @@ The original game remains a tested reference, not a content requirement.
 
 ### Current encounter proposal — awaiting review
 
-Use the [fresh encounter study](concepts/2026-09-13-obstacle-study/README.md)
-as the single detailed candidate specification. Default movement is one space;
-only thematic movement specialists have explicit instructions, initially
-Tailwind →2/→4/→6, each denoting total movement.
+Use [ENCOUNTER_RULES.md](ENCOUNTER_RULES.md) as the current detailed discussion;
+it supersedes the earlier study's powers. The user likes the helpful colour
+roles and requests Reeds x1/x2/x3 for one/two/three Twigs, with normal movement
+still one. Numbers describe thematic quantities, not universal strength.
+Other quantity variants and future shared rule cards are suggestions to review.
+
+Tailwind →2/→4/→6 denotes total movement. Candidate smaller movement options
+give Seeds a food-versus-Sleep choice after an obstacle and let a repeated
+Companion move an extra step when its shield is already held. Reeds quantity
+does not change its normal movement. Do not force every colour into movement
+grades or change token meanings during a match.
 
 The user's suggested opening bag is eight white Obstacles plus five colours.
 The study proposes two each of Log, Mud, Pebbles and Brambles, with two Seeds,
-one Tailwind →2, one Signpost and one Splash. Its working threshold is five
-Exhaustion safe and the sixth resolved Obstacle worn out. Each white contributes
-one Exhaustion plus a small nuisance. Exact powers, composition and threshold
-are candidate rules, not finalized balance.
+one Tailwind →2, one Signpost and one Splash. The normal safe maximum is five
+Exhaustion. Every white adds one, while ordinary extra nuisances are conditional:
+Log affects fast movement; Mud blocks added movement; Pebbles/Brambles lose
+Sleep/a newly earned Twig only when the duck rests on that chip.
+
+The user proposes a Goose from Day 5 that lowers the safe maximum to four when
+drawn, which can immediately cause wear-out at five Exhaustion. The candidate
+adds one per bag once, keeps it thereafter and resets the maximum next dawn.
+Companion does not block this special Exhaustion rule. Splash is proposed to
+cancel any draw that would exceed the resulting maximum and then settle safely.
+Goose replaces its older next-colour ability suppression. Exact lifecycle,
+movement extensions, Mud, prices and starting composition remain review proposals.
 
 The effect-free bag audit gives 7.78 placements and 2.78 coloured placements on
 average when stopping at the fifth white; it excludes powers and player strategy.
 Test whether early trips offer enough useful coloured draws. Keep nuisance
 penalties bounded, avoid stacking movement penalties, and show a concise
-board-edge obstacle key with active effects near the draw control. The study's
-Grumpy Goose is optional later variety, not part of the first starting bag.
+board-edge obstacle key with active effects near the draw control. The
+Goose pressure comparison is separate and excludes actual Day 5 purchases;
+neither audit certifies full-game balance. No Goose starts in the Day 1 bag.
 
 ## Art and token philosophy
 
@@ -218,8 +235,10 @@ Each token category has a consistent silhouette across variants, a strong
 face/rim colour and an identifiable illustration. Different categories can
 have different shapes but must fit a common well footprint. Keep rounded sturdy
 edges, matte cardboard depth and playful original illustrations. Omit default
-‘1’ badges. Reserve room for explicit movement instructions only where needed;
-production arrows, exceptional values and changing state remain precise overlays.
+‘1’ movement badges. Meaningful quantities such as reed bundles x1/x2/x3 are
+allowed beside their category symbol, with their effect explained on the shared
+rule reference. Keep them visually distinct from explicit movement arrows.
+Production instructions, quantities and changing state remain precise overlays.
 Colour alone must not be required to recognize a category.
 
 | Identity | Encounter name |
@@ -286,7 +305,8 @@ M2 must settle: stopping before a draw; rewinds; endpoint/overshoot and saturate
 Feather trails; worn-out Sleep/Twig/Feather treatment; Sleep expiry and final-Night
 disposition, including whether any Sleep conversion exists; final-Day rewards
 with no tomorrow; recovery/flask mechanics; event/bonus ordering; finite supply,
-category uniqueness/unlocks, movement variants, starting bag, nuisance ordering,
+category uniqueness/unlocks, quantity/movement variants, starting bag, Day 5
+Goose introduction and lifecycle, nuisance ordering,
 Exhaustion threshold and the final price table. Define when
 each Day's effective start freezes, including Dawn gifts and reveal-time event
 Feathers. Endpoint bookkeeping may not add Feather banking, spending, conversion
