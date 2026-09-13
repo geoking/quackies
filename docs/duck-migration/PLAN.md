@@ -4,6 +4,12 @@ Updated 12 September 2026. This is the current decision record. Iteration histor
 and validation live in [STATUS.md](STATUS.md), [PROGRESS.md](../PROGRESS.md)
 and the individual concept folders.
 
+**13 September design discussion:** the user is exploring 50 spaces, resting
+on the final occupied space, Sleep score, a dream phase and stronger next-Day
+bonuses. See [the critique and two presentation concepts](concepts/2026-09-13-dream-study/README.md).
+These proposed rule changes are under review; the baseline below has not been
+rewritten as an approved rules specification, and Unity work remains paused.
+
 ## Current decision and stopping point
 
 The user approved **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b** as the base board.

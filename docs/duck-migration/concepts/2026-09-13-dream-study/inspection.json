@@ -1,0 +1,44 @@
+{
+  "date": "2026-09-13",
+  "mode": "built-in image_gen",
+  "status": "Exploratory presentation concepts; user review pending; values illustrative",
+  "outputs": [
+    {
+      "artifact": "concept-a-dream-tray.png",
+      "nativeSource": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-2d50c2f9-b85b-4fbb-a43d-fe65ca5e5a2a.png",
+      "bytes": 3087760,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "2d4584244c97d70caa17bcf67c76f05ccaa37f89731e8955621baf979c7371fa",
+      "copy": "Byte-identical native copy"
+    },
+    {
+      "artifact": "concept-b-nest-mat.png",
+      "nativeSource": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-d0ff44fd-e27e-4f05-93e0-103f6416f234.png",
+      "bytes": 3008260,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "50048030527e3054c1200eaf8a4fde2fa2f56a6432c53a79d0a685f220fc873a",
+      "copy": "Byte-identical native copy"
+    }
+  ],
+  "inspection": {
+    "appearance": "Both native outputs visually inspected. Distinct integrated dream tray and full player mat with prominent nest score; readable main labels; flat cardboard duck/seed style maintained.",
+    "limitations": [
+      "Not a 50-space board map or Unity layout validation.",
+      "Sleep scores, twig totals and prices are illustrative, not an approved reward or shop table.",
+      "Concept B omits strength numerals on seed faces; production must restore precise strength overlays.",
+      "Two seed offers illustrate layout only; production must expose all legal categories and enforce purchase restrictions.",
+      "Nest duck graphics indicate player identity; the actual resting duck remains at its final adventure position.",
+      "Permanent Feather upgrades and temporary Most Rested Duck rewards need distinct duration labels in implementation."
+    ],
+    "coreChanges": false,
+    "unityCalls": false,
+    "unityImports": false,
+    "originalBoardChanged": false
+  }
+}

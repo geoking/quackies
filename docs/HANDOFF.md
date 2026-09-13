@@ -2,6 +2,11 @@
 
 ## Current task: plan updated; wait for the user's next command
 
+13 September: [dream-phase design study](duck-migration/concepts/2026-09-13-dream-study/README.md)
+adds the user's proposed 50-space/Sleep-score rules, analysis and two visual
+options. This is a discussion checkpoint, not authority to implement those
+rules or resume Unity. The selected base-board art remains unchanged.
+
 Updated 12 September 2026. Work is on `codex/duck-game-milestone-0`, based on
 merged playable baseline `74e40cf`. The user accepted the duck/seed designs and
 explicitly selected **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b**, the first V10

@@ -471,3 +471,29 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   resizing, Unity calls or imports were performed for this documentation change.
 - Stop here at the user's request. The next milestone and Unity construction
   await the user's command; regular checkpoint publication remains authorized.
+
+### 26. Day/dream rules discussion and presentation concepts (13 September 2026)
+
+- Recorded the user's proposed 50-space track, resting on the final encounter,
+  Sleep score, dream shopping, stronger next-Day advantages and one-to-one
+  Feather upgrades in a separate discussion study. The approved baseline rules
+  were not silently replaced; current plan/status/handoff link to the study.
+- Reviewed the rule implications against Core with a focused Sol/high worker:
+  reward-table/index changes, movement versus Exhaustion, repeated-winner
+  feedback, Feather purchasing power, event timing and final-night closure.
+  Proposed comparing earned Sleep for Most Rested, keeping spend remaining
+  separate and testing bounded temporary advantages. No balance simulation or
+  gameplay implementation occurred.
+- Generated and visually inspected two presentation mockups: an integrated
+  dream tray over the moonlit board, and a separate nest/dream player mat.
+  Both retain the cardboard duck/seed style and show a persistent exact Twig
+  score plus decorative nest growth. The recommended flow uses the integrated
+  tray with an expandable nest view.
+- Saved both byte-identical native 1536 × 1024 images, complete prompts,
+  provenance/limitations and discussion notes under
+  `duck-migration/concepts/2026-09-13-dream-study/`. Example values/prices are
+  illustrative; the images do not establish 50-space placement or a legal shop.
+- Validation: documentation links, native image hashes, original approved board
+  hash and pre-existing ProjectSettings hash checked. No Unity calls/imports,
+  code changes, runtime tests or approved asset replacements occurred.
+- Stopped for discussion and visual feedback; implementation remains paused.

@@ -3,6 +3,11 @@
 Updated 12 September 2026. **M1 art selection is approved; work is paused at
 the user's request after a documentation checkpoint.**
 
+On 13 September the user requested a new design discussion and visual ideas:
+50 spaces, last-occupied-space rest, Sleep score, dreams and next-Day bonuses.
+[The study](concepts/2026-09-13-dream-study/README.md) contains two mockups and
+the rule trade-offs. It is exploratory; gameplay and Unity remain unchanged.
+
 ## Current accepted direction
 
 - The user selected **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b**, the first V10
