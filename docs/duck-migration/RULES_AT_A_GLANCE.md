@@ -1,135 +1,111 @@
 # Quackies rules at a glance
 
-Accepted working rules, 13 September 2026. These are the first ruleset to test;
-open details are listed at the end rather than filled in from Quacks.
+Updated 14 September 2026. The user's latest mechanic changes are incorporated
+below. Values in the [50-space board/shop proposal](v1/BOARD_AND_SHOP.md) and
+[ten-card World Event deck](v1/WORLD_EVENTS.md) are **new candidates for review**.
+They are not implemented or established as balanced through full games.
 
-Standard play lasts **ten Days**. Ducks explore during the Day, settle on the
-route, then use nightly Sleep in the Dream view. **Twigs are the persistent
-victory score.**
+## The game
 
-## World, route and daily rhythm
+Play **ten Days**, initially one human versus Normal AI. Each duck has its own
+bag and route progress in a shared world. Adventure by Day, then enter the
+full-screen Dream/nest view at Night; View adventure returns to the board.
+**Most Twigs wins**, including final Dream Twigs. A shorter game setting waits.
 
-The separate starting nest is followed by **50 scorable spaces** through
-wetland, meadow and wasteland; it is not a numbered zero. **Eight shelters** are
-distributed two, three and three across those biomes. “Shelter” and “haven” mean
-the same kind of resting place.
+The incomplete nest is separate from **50 playable spaces** across wetlands,
+meadow and wasteland. Score the duck's final occupied space, never the next
+space or all spaces passed. Eight proposed havens are at **7, 13, 21, 27, 32,
+38, 44 and 50**. They improve Sleep without increasing the local Twig plateau;
+endpoint 50 is the exception, with the highest printed Sleep and Twigs by one.
 
-At the start of a Day, resolve Dawn Delivery and reveal one shared World Event.
-Each duck begins from its Feather trail plus any temporary start bonus, never
-from yesterday's rest. Draw encounters from that duck's bag. Determine final
-movement, place the chip once, then resolve its other text. Passed spaces do not
-pay; only the **final occupied space** does. A previewed or cancelled encounter
-is not placed.
+## Dawn and adventure
 
-A duck may settle safely or become worn out. Five Exhaustion is normally safe;
-resolving a sixth white causes wear-out. Every resolved white normally moves one and adds
-one Exhaustion unless its entire draw is cancelled.
+Shuffle ten shared World Events once per game; reveal one each dawn without
+replacement. Its effect lasts that Day. Days 1–10 therefore use all ten cards.
 
-Owned encounters return to the bag for the next Day, including those used on
-the route and any cancelled reveal. Purchased chips join the owned bag. Reset
-Exhaustion, previews, pending nuisances, rescue use and Companion counts each dawn.
+At dawn the stork delivers **one Feather for every four Twigs behind the
+leader, rounding up**: 1–4 behind gives 1, 5–8 gives 2, 9–12 gives 3, and so on.
+A tied leader gets none. Snapshot all Twig scores before delivery. Each Feather
+permanently advances every later start by exactly one; it is never spent,
+converted or redeemed through a cap. This uncapped formula replaces the old
+thresholds. Start from the updated permanent trail plus any temporary Most
+Rested step, not yesterday's resting place. Trail saturation at 50 remains open.
 
-## Encounters
+The opening bag has **13 chips**: two each of Log, Mud, Pebbles and Brambles;
+two Seeds; one Tailwind →2; one Signpost; one Splash. Each white moves one and
+adds one Exhaustion. **Five is normally safe; six wears the duck out.** Once on
+Day 5, add one Grumpy Goose to each bag, where it remains for the rest of the game.
+An unprotected Goose adds one Exhaustion and lowers today's safe maximum to
+four before checking safety; five now wears the duck out. Reset the maximum
+and other temporary state next dawn. Owned chips return to the bag each Day.
 
-Default movement is one and is not printed. A numbered forward arrow always
-states total movement, while an illustrated quantity describes the pictured
-object rather than movement or universal strength.
+## Helpful encounters
 
-- **Seeds:** Move one. Seeds have no ability or Sleep reward and add no
-  Exhaustion. They cheaply dilute the bag's Obstacle share.
-- **Tailwind:** The three designs move exactly **2, 4 or 6 total spaces**, shown
-  as →2, →4 and →6. Tailwind has no additional ability.
-- **Signpost:** Move **two total spaces**, then privately preview the next
-  encounter. Settle and return it during cleanup, or continue with that exact
-  encounter. Previewing never places, resolves, selects or reorders a chip.
-- **Refreshing splash:** Move one and arm one rescue. If a later draw would
-  exceed the resulting safe maximum, including a Goose's reduction, cancel it
-  completely and settle safely on
-  the last occupied space. Only one rescue may be used per Day; using it ends
-  exploration.
-- **Nesting reeds x1/x2/x3:** Move one and grant one pending Twig per pictured
-  bundle. An x3 chip remains one placement and trigger. Bank the Twigs only
-  after a safe settle.
-- **Companion duck:** Count Companions that duck places this Day, even when a
-  nuisance reduces movement. The first moves two, the second three, and every
-  later Companion four. Other chips do not reset the count. Companion has **no
-  nuisance shield**.
-- **Wildflowers:** Move one. Each placed Wildflowers grants **two pending Sleep** when the duck
-  settles safely at a marked shelter. The previously discussed shelter-movement
-  version and extra flower quantities are future alternatives, not part of this
-  initial set.
+| Chip | Rule |
+| --- | --- |
+| Seeds | Move 1; no ability or Exhaustion. Cheap bag improvement. |
+| Tailwind →2 / →4 / →6 | Move the printed total before modifiers; no other ability. |
+| Signpost →2 | Move 2, then privately preview the next chip. Continue with that exact chip or settle. No selecting/reordering. |
+| Refreshing splash | Move 1. If the **immediately next chip** is an obstacle, ignore its nuisance; its movement and Exhaustion still apply. Protection expires after that chip even if helpful. |
+| Nesting reeds ×1 / ×2 / ×3 | Move 1 and earn 1/2/3 Twigs. Quantity never changes movement or chip count. Keep these Twigs when worn out. |
+| Companion duck | Add one to today's active flock; the first moves 2, second 3, later ones 4. Mud reduces this running total, without altering earlier movement. |
+| Wildflowers | Move 1. Each placed Flower gives +2 Sleep if the duck settles safely at a haven. |
 
-## Ordinary Obstacles
+After everyone finishes, the largest **safe, positive active flock** gets one
+Night award: +1 Sleep with one Companion or +2 total with two or more. All tied
+leaders qualify. It enters Sleep before Most Rested is decided.
 
-The four ordinary white designs share movement one and one Exhaustion. Their
-extra nuisances only matter when their stated condition occurs.
+## White obstacles
 
-- **Fallen log:** Halve the next coloured chip's movement, rounding up to at
-  least one. Its other ability still works; a one-step chip is unaffected.
-- **Mud puddle:** The next coloured chip gets no bonus movement from abilities
-  or World Events. Intrinsic movement and other effects remain: Companion moves
-  one, while an intrinsic →2 Signpost or Tailwind is not reduced.
-- **Loose pebbles:** Lose one Sleep, minimum zero, only if this Pebbles chip is
-  the safe final resting place.
-- **Brambles:** Lose one Twig earned during this Day, minimum zero, only if this
-  Brambles chip is the safe final resting place. Previously banked Twigs are
-  untouched.
+| Obstacle | Extra nuisance, in addition to movement 1 and Exhaustion 1 |
+| --- | --- |
+| Fallen log | Halve the next helpful chip's movement, rounding up, minimum 1. Repeated Logs do not stack. Its other ability still works. |
+| Mud puddle | Reduce today's active Companion total by 1, minimum 0. Never remove an owned chip or change earlier placements. No deferred debt if the flock is empty. |
+| Loose pebbles | Lose 1 Sleep, minimum 0, only if this is the final occupied chip. |
+| Brambles | Lose 1 Twig earned today, minimum 0, only if this is the final occupied chip. Earlier banked Twigs are untouched. |
+| Grumpy Goose | Lower today's safe maximum to 4. Added to each bag once on Day 5. |
 
-Copies of pending Logs or Muds do not stack. If both are pending, calculate each
-from the same proposed movement and use the lower result. Both clear on the next
-coloured placement or at Day's end. Passing Pebbles or Brambles avoids its
-resting penalty.
+Splash prevents the covered obstacle's extra nuisance, including Goose's limit
+reduction. It cannot prevent wear-out from the count itself and provides no
+rescue/rewind. Mud is interpreted to affect **both later Companion movement and
+the Night flock contest**. A Pebbles/Brambles final-chip penalty also applies
+when worn out under the proposed timing interpretation; a protected placement
+has no such penalty. See [detailed timing](ENCOUNTER_RULES.md).
 
-Each duck starts with **13 encounters**: two Logs, two Muds, two Pebbles, two
-Brambles, two Seeds, one Tailwind →2, one Signpost and one Splash.
+## Night, the award and the ending
 
-## Grumpy Goose
+Bank today's printed, Reeds and earned event Twigs after any Brambles deduction.
+Safe ducks retain their full Sleep; **worn-out ducks retain half, rounded down**.
+The proposed treatment keeps haven Feathers, Wildflowers, safe event bonuses
+and the flock award safe-only. Worn-out ducks cannot win Most Rested.
 
-During preparation for **Day 5**, add exactly one Goose to each duck's bag. It
-remains there for Days 5–10; do not add another each dawn. Goose is a white
-Obstacle, moves one and adds one Exhaustion. When it resolves, it also lowers
-that Day's safe Exhaustion maximum from five to four, then safety is checked.
-The lower maximum lasts for the rest of that Day and resets next dawn. At four
-Exhaustion before Goose, resolving it causes immediate wear-out at five.
+Compare frozen earned Sleep among safe ducks, including their bonuses, before
+spending. All tied leaders qualify; if all ducks wear out, nobody qualifies.
+Nights 1–9 give each Most Rested duck **one temporary extra starting step next
+Day**, represented by a passed-around [zzz tile](concepts/2026-09-14-most-rested/README.md).
+Place it just beyond the updated nest/Feather trail; use duplicate display
+markers for tied beneficiaries.
+It never becomes a permanent Feather or stacks across Days.
 
-Companion cannot block Goose. Splash may cancel a lethal Goose completely, or a
-later white that would exceed the lowered maximum. Signpost preview alone does
-nothing.
+The calendar gives both ducks the same nest capacity: Nights 1–3 allow one
+purchase, 4–6 allow two, 7–9 allow three. Each has its own allowance. Proposed
+shop policy is one chip per family per Night, all offers available when
+affordable, unlimited initial stock, and no Sleep carried into another Night.
+Purchases change remaining Sleep, never the frozen Most Rested score.
 
-## Night, Sleep and progress
+**Day 10:** safe havens give **+2 extra Sleep**, on top of printed rewards and
+other earned bonuses. **Night 10:** no shopping; every duck converts retained
+Sleep at **4 Sleep → 1 Dream Twig**, rounding down. The safe Most Rested duck
+(or tied ducks) also gets **1 Dream Twig** instead of a tomorrow-start reward.
+Twigs determine victory. Record safe-haven Feathers as usual on Day 10, but
+there is no following Day and they add no final exchange or Dream Twig value.
 
-After every duck finishes, compare placed Companions among safe ducks. Worn-out
-ducks are ineligible. All tied positive leaders qualify: one Companion awards
-**+1 Sleep**; two or more award **+2 Sleep total**, once. Add it to earned and
-available Sleep before freezing Sleep for Most Rested.
+## Still requiring review before implementation
 
-Compare frozen earned Sleep among ducks who are not worn out. Tied leaders
-qualify; if all are worn out, nobody does. Each Most Rested duck receives
-**Start +1 tomorrow** for one Day. Purchases reduce remaining Sleep, never the
-frozen score.
-
-The calendar gives both ducks the same nest level and nightly purchase limit:
-Days 1–3 allow one purchase, Days 4–6 allow two, and Days 7–10 allow three.
-These are individual limits, not a shared cap. Twigs persist across Nights and
-build the nest; Sleep is tonight's allowance.
-
-Each Feather adds **one permanent space** to all later starts. Feathers are
-never spent or converted, have no per-Night redemption cap, and never relocate
-today's resting position. Route-end handling remains open. At dawn, compare
-each duck's Twig score with the leader before deliveries: a deficit of 0–4 gives
-nothing, 5–9 gives one Feather, and 10 or more gives two. Each eligible duck
-receives at most one parcel. The three wasteland havens are intended to award
-two Feathers at each earlier haven and three at the final haven.
-
-## Still to be decided
-
-The full rules sheet must still fix the exact rewards and indices for all 50
-spaces; all encounter prices; the complete World Event catalogue and modifier
-order; worn-out payouts; stopping, rewind, overshoot and route-end behavior;
-saturated Feather trails; final-Day and Night 10 rewards and purchasing; and
-finite supply, category limits and unlock policies. The accepted rules above do
-not supply those answers or establish that the current numbers are balanced.
-Final victory ties, stopping before the first draw and any separate flask are
-also unresolved. Short matches, alternate rule cards and the Wildflower shelter
-step remain later work. Initial play is one human versus Normal AI on iPad mini,
-with a full-screen Dream view and a View adventure button.
+The full 50-row table, all 11 prices and ten events now exist as reviewable data.
+Remaining decisions are the proposed stock/housekeeping rules, final victory
+ties, no-draw/empty-bag/overshoot handling, and especially what happens when
+uncapped permanent Feathers reach or exceed the finite route. None may silently
+break the one-Feather/one-step rule. Confirm interpretations and run full-match
+balance work after the contract is accepted. No Core/CLI or Unity change is
+part of this checkpoint; the existing engine will be evolved, not restarted.

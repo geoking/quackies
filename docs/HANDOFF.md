@@ -1,66 +1,48 @@
 # Quackies handoff
 
-## Current task: accepted rule overview and complete encounter art ready for review
+## Current task: v1 rules/data proposal ready for review
 
-13 September: the user approved the token-family style, chose ten Days and
-requested original encounter powers rather than Quacks mappings. The earlier
-accepted direction remains: 50 playable spaces plus
-the starting nest; final occupied-space rest and score; frozen earned Sleep
-versus remaining nightly allowance; full-screen Dream Concept B; shared nest
-levels initially adjusted to Days 1–3, 4–6 and 7–10; persistent Twigs; automatic permanent
-Feather advances; Dawn Delivery stork criteria; and Most Rested based on earned
-Sleep among eligible non-worn ducks. See [status](duck-migration/STATUS.md) and
-the authoritative [plan](duck-migration/PLAN.md) for the bounded specification.
+14 September: the latest encounter artwork is approved. The user changed Mud
+to lose one active Companion, Splash to immediate-next-chip nuisance protection,
+Dawn to uncapped ceil(Twig deficit/4) Feathers, and worn-out rewards to full
+Twigs plus half Sleep rounded down. Day 10 safe havens add another +2 Sleep;
+Night 10 converts retained Sleep at floor(Sleep/4) Dream Twigs and grants safe
+Most Rested winners one extra Dream Twig. Highest final Twigs wins.
 
-The selected base board remains **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b**
-at [the approved image](duck-migration/concepts/2026-09-12-approved/board-art-approved.png).
-Three biomes and eight shelters remain, remapped 2/3/3 across 50 spaces; the
-wasteland direction is two Feathers at each earlier haven and three at the
-endpoint haven. The selected
-image is 1536 × 1024; the requested 3072 × 2048 master, exact 50-space fit and
-final table remain open. The token-family style is approved, with default ‘1’
-badges removed in the [new study](duck-migration/concepts/2026-09-13-obstacle-study/README.md).
-It contains revised ordinary tokens, Tailwind →2/→4/→6 and five white obstacles.
-The [current four-sheet set](duck-migration/concepts/2026-09-13-agreed-token-set/README.md)
-now covers all 16 encounter designs/variants, including Signpost →2 and Reeds
-bundle quantities. These are concept sheets, not imported or production-ready sprites.
+The [current plan](duck-migration/PLAN.md), [recap](duck-migration/RULES_AT_A_GLANCE.md)
+and [detailed encounter timing](duck-migration/ENCOUNTER_RULES.md) replace older
+Mud/rescue/stork/three-Feather-endpoint specifications. Mud's reduced active flock
+controls later Companion movement and the safe Night contest without deleting
+owned chips or changing previous placements. Splash can block Goose's limit
+drop but never its Exhaustion. Root interpretations are labelled for review.
 
-The user likes the helpful colour ideas and requests Reeds x1/x2/x3 for Twig
-yield, with normal movement still one. [ENCOUNTER_RULES.md](duck-migration/ENCOUNTER_RULES.md)
-is now the detailed working reference, superseding the old art study's powers.
-The user has accepted the current rules. Seeds move one, add no Exhaustion,
-have no Sleep reward or ability and remain cheap. Companion
-uses successive 2/3/4 movement and a largest-flock Night bonus. This
-replaces the old shield, compares safe ducks' placed Companion counts after all
-finish, pays tied positive leaders +1 Sleep with one or +2 total with two or more,
-then freezes Sleep before Most Rested. Signpost moves two and previews one.
-The concise [agreed overview](duck-migration/RULES_AT_A_GLANCE.md) includes the
-full current set and explicitly lists the unresolved economy/payout/endgame rules.
+The [board/shop proposal](duck-migration/v1/BOARD_AND_SHOP.md) contains all 50
+rows, havens 7/13/21/27/32/38/44/50, endpoint 21 Sleep/9 Twigs/2 Feathers,
+11 prices and Night examples. [Ten proposed World Events](duck-migration/v1/WORLD_EVENTS.md)
+are shuffled once and revealed without replacement. Exact bag/counter
+[audit evidence](duck-migration/v1/balance-audit.json) is bounded, not full-game
+balance. New numerical values/events/policies remain review candidates.
 
-Ordinary extra nuisances are conditional: Log halves fast movement,
-Mud blocks bonus movement, and Pebbles/Brambles lose Sleep/a newly earned Twig
-only when the duck settles on that chip. Goose joins from Day 5, lowering
-the safe maximum from five to four for the Day when resolved. The interpretation
-adds one to each bag once, retains it thereafter, resets the maximum each dawn,
-does not let Companion block it, and lets Splash cancel an otherwise fatal draw
-then settle. These are accepted working rules, still requiring balance testing.
+A [Most Rested zzz tile](duck-migration/concepts/2026-09-14-most-rested/README.md)
+was generated and inspected. It covers one temporary extra start space beyond
+the updated Feather trail, distinct from permanent Feathers. Nights 1–9 pass
+the award; ties preserve equal benefits. No Day 11 start is awarded.
 
-Eight whites plus five colours is the Day 1 bag. The old effect-free
-bag audit applies before Goose. New controlled Goose comparisons exclude
-purchased colours and cannot establish actual Day 5 or full-game balance.
+The approved [board](duck-migration/concepts/2026-09-12-approved/board-art-approved.png),
+V2 player ducks, Dream Concept B and [16 encounter designs](duck-migration/concepts/2026-09-13-agreed-token-set/README.md)
+remain unchanged. The selected board is native 1536 × 1024; the requested
+3072 master, exact 50-space alignment and actual-size token/readability fit are
+still outstanding. No Core/CLI, Unity scene or import work occurred.
 
-The tested base game remains a reference. New encounter/event rules need no
-one-to-one conversion of its eight categories or 24 fortunes. Reuse Core/CLI
-architecture. No Core, Unity, scene, import or gameplay implementation has started
-for this direction. Short-match settings remain deferred.
+**Open before implementation:** resolve uncapped permanent Feathers at/beyond
+a finite route; review new data, safe-only payout interpretations and proposed
+stock/no-draw/empty-bag/overshoot/final-tie/no-flask rules. No silent cap, discard,
+banking or conversion may substitute for the one-Feather/one-step rule.
+Reuse the existing engine and CLI. Initial scope remains human versus Normal
+AI on iPad mini, ten Days. Preserve the unrelated ProjectSettings modification.
 
-Next bounded work is rules specification, Core plus CLI, Unity fit, a playable
-full-Day/Dream loop, ten-Day AI and balance, then full verification. Preserve
-unrelated work and the pre-existing ProjectSettings preload removal. Root owns
-Git and the milestone checkpoints.
-
-**Stop after this rules summary and art checkpoint.** Wait for the user's next
-milestone command before implementation or Unity work.
+**Stop after this planning/art checkpoint.** Await review and the next explicit
+milestone command before implementation. Root owns Git; no merge/release.
 
 ## Completed playable baseline
 

@@ -1,6 +1,6 @@
 # Evolve the existing engine
 
-13 September 2026. Architecture recommendation for the accepted Day/Dream
+14 September 2026. Architecture recommendation for the accepted Day/Dream
 direction in [PLAN.md](PLAN.md), now ten Days with original encounter powers
 and World Events. This document changes no implementation.
 
@@ -24,7 +24,7 @@ regression and development; it does not require a second mode in the game's UI.
 - [MatchSession](../../src/Quackies.Core/Match/MatchSession.cs) owns state and exposes
   GetSnapshot, GetLegalActions and Execute with opaque stale-safe action IDs.
 - RuleSet registration, immutable observations, deterministic randomness,
-  inventory ownership and finite shared supply remain relevant.
+  inventory ownership and configurable supply remain relevant.
 - Ingredient and World Event lifecycle hooks already distinguish placement
   sources and can resolve legal choices without Unity implementing rules.
 - IPlayerPolicy observes state and chooses legal actions; Normal's exhaustion
@@ -43,12 +43,12 @@ be one authoritative match engine.
 | --- | --- |
 | [BoardTrack](../../src/Quackies.Core/Rules/BoardTrack.cs) | Explicit playable endpoint and reward lookup policy; the duck profile has nest 0 and occupiable/scorable 1–50. Store authoritative biome, Sleep, Twigs, Feather yield and shelter identity. Remove the assumption that every profile scores position+1. |
 | [Player state](../../src/Quackies.Core/Match/PlayerRoundState.cs) | Separate persistent Twigs, frozen Sleep earned, Sleep remaining, permanent trail, next-Day temporary advantage, effective start and frozen rest position. |
-| Encounter identity and effects | Separate category, obstacle subtype, explicit movement instruction and ability parameters. Default movement one is not a universal printed strength. Add session-owned nuisance/preview/rescue state only after the candidate rules are agreed. |
+| Encounter identity and effects | Separate category, obstacle subtype, explicit movement instruction and ability parameters. Default movement one is not a universal printed strength. Add session-owned next-chip protection, per-placement nuisance suppression, pending Log, preview and active-flock state after the contract is approved. |
 | Feather awards | Route all duck-profile Feather sources through one capability that advances the permanent start exactly once and records the source for display/history. No spendable Feather balance or Feather-spending action. |
-| [Evaluation](../../src/Quackies.Core/Match/EvaluationPhaseHandler.cs) | Freeze final occupied rest and Sleep at the agreed point; resolve Night effects and compare safe ducks by earned Sleep, preserving correct event ordering. |
+| [Evaluation](../../src/Quackies.Core/Match/EvaluationPhaseHandler.cs) | Freeze final occupied rest; retain Twigs and floor(Sleep/2) when worn, resolve safe bonuses and compare safe ducks. Day 10 adds safe-haven Sleep then converts retained Sleep to Dream Twigs. |
 | Dream phase | Replace the duck profile's old evaluation/shop/ruby sequence with explicit Night resolution and Dream purchasing. Full-screen layout is a Unity concern; phase legality belongs to Core. |
-| [Purchasing](../../src/Quackies.Core/Match/ShoppingPhaseHandler.cs) | Use each player's Day-based 1/2/3 limit, remaining Sleep, finite stock and category restrictions. Reopening a panel must not reset purchases. |
-| Dawn preparation | Replace rat calculation with one pre-award Twig-deficit snapshot, bounded stork parcels and temporary-bonus activation/expiry. No simultaneous old catch-up. |
+| [Purchasing](../../src/Quackies.Core/Match/ShoppingPhaseHandler.cs) | Use each player's Day-based 1/2/3 limit, remaining Sleep and approved stock/category restrictions; the current proposal uses unlimited stock and one-per-family. Reopening a panel must not reset purchases. |
+| Dawn preparation | Replace rat calculation with one pre-award Twig-deficit snapshot, uncapped ceil(Twig deficit/4) stork parcels and temporary-bonus activation/expiry. No simultaneous old catch-up. |
 | Observations/API | Add the new authoritative fields and phases without gratuitously breaking reference clients. Clients should not derive nest level, gifts or winner eligibility from labels. |
 | AI | Keep legal-action separation and safe-draw reasoning; evaluate new Dream choices and whether the policy handles comfortable stops and recovery adequately. |
 
@@ -74,27 +74,30 @@ must not leak into the new profile through default registration.
 The current [encounter rules](ENCOUNTER_RULES.md) supersede the art study's
 powers: separate thematic quantity from movement, support conditional
 movement and ordinary nuisances, and specify a Day 5 Goose with a temporary
-lower safe maximum. Splash must compare against the resulting maximum rather
-than a hard-coded sixth white. The current powers are accepted first-test rules,
-summarized in [RULES_AT_A_GLANCE.md](RULES_AT_A_GLANCE.md). Specify cancellation
-versus placement, private previews, nuisance priority/expiry, and pending versus
-banked rewards before coding. Do not treat Reeds x3 as three placements/triggers.
+lower safe maximum. Splash now suppresses only the immediately next chip's
+Obstacle nuisance; it never cancels movement or Exhaustion and supplies no
+rescue. Mud reduces active flock for later movement and the Night comparison.
+The current powers are summarized in [RULES_AT_A_GLANCE.md](RULES_AT_A_GLANCE.md).
+Keep physical placement counts separate from active Companions. Protection of
+a final Pebbles/Brambles placement must persist until settlement. Do not treat
+Reeds x3 as three placements; keep its earned Twigs even when worn out.
 AI and human must see the same information legally available to their duck;
 a Signpost preview does not expose an unearned future draw order.
 
 ## Before coding
 
-Finish the 50-row table and eight shelter locations. Define no-draw rest,
-rewinds, overshoot/settling, saturated permanent trails, worn-out results,
-Sleep expiry, bonus ordering, whether any separate recovery/flask exists,
-the exact starting bag, threshold, prices and final-Night behavior.
+The [complete candidate table/prices](v1/BOARD_AND_SHOP.md) and
+[ten events](v1/WORLD_EVENTS.md) now exist. Review numeric values, safe-only
+reward interpretations and housekeeping policies before coding. Resolve
+no-draw/empty-bag/overshoot rules and especially saturated permanent trails.
 The accepted one-to-one Feather rule cannot silently become a cap, bank or
 alternate conversion to work around an unresolved boundary.
 
-Standard play ends after Day 10: purchasing encounters and awarding tomorrow's advantage
-need an explicit ending treatment. Twigs determine the winner; reaching 50
-does not automatically win. Record any final tie-break instead of inheriting
-one accidentally from the old physical scoring position.
+Night 10 has no shopping: safe havens add +2 Sleep, retained Sleep converts at
+floor(Sleep/4), safe Most Rested winners get +1 Dream Twig, and no tomorrow-start
+bonus is granted. Twigs determine victory, not arrival at space 50. The proposal
+uses shared victory on tied final Twigs; confirm this rather than inheriting an
+old score-position tiebreak. New static data is not runtime implementation.
 
 ## Build and verification order
 
@@ -109,8 +112,8 @@ classic regression tests; add duck tests against the same engine for all 50
 positions, frozen versus spent Sleep, every Feather source, Dawn thresholds,
 tied Most Rested, purchase tiers, endpoint/rewind cases, each new encounter/event
 and final Day 10. Verify obstacle subtypes, queued nuisances, private previews
-and cancellation/Exhaustion boundaries against the agreed new specification.
-Continue testing immutable snapshots, stale choices and shared supply.
+and protection/Exhaustion boundaries against the agreed new specification.
+Continue testing immutable snapshots, stale choices and configured supply policies.
 
 Use seeded complete matches to inspect game length, leader retention, recovery,
 shelter usage, upgrade accumulation and early arrival at the endpoint. These are
@@ -125,4 +128,5 @@ The read-only review inspected the source files linked above,
 [RuleSet](../../src/Quackies.Core/Rules/RuleSet.cs),
 [SetOneIngredients](../../src/Quackies.Core/Rules/Ingredients/SetOneIngredients.cs)
 and [SetOneFortunes](../../src/Quackies.Core/Rules/Fortunes/SetOneFortunes.cs).
-No tests or implementations were performed for this planning recommendation.
+No Core/CLI implementation or runtime tests were performed for this planning
+recommendation. The v1 bag/data audit is separate bounded design evidence.

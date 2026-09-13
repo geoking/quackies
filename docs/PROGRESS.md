@@ -674,3 +674,49 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   Core/CLI changes, Unity calls/imports or runtime tests were performed.
 - Stopped after the requested rule recap and visual set; await the user's next
   command before proceeding with another milestone.
+
+### 32. V1 board, economy, events and Most Rested proposal (14 September 2026)
+
+- Incorporated the user's new direction: Mud loses one active Companion without
+  deleting owned chips or changing prior movement; Splash protects only the
+  immediately next chip's nuisance, retaining movement/Exhaustion; Dawn Delivery
+  is uncapped ceil(Twig deficit/4); worn-out ducks retain Twigs and half Sleep
+  rounded down; safe Day 10 havens add another +2 Sleep; Night 10 converts retained
+  Sleep at 4:1 to Dream Twigs and gives safe Most Rested winners +1 Dream Twig.
+- Authored all 50 candidate board rows in CSV/JSON and a readable table, with
+  eight havens at 7/13/21/27/32/38/44/50, 2/3/3 across biomes. Ordinary wasteland
+  has lower Sleep than late meadow; its havens pay more. Non-endpoint havens
+  match both neighbours' Twigs. Endpoint 21 Sleep/9 Twigs/2 Feathers is one above
+  the previous printed Sleep/Twig maxima. All 11 offers have proposed prices.
+- A focused Sol/high worker proposed ten shared World Events with per-duck
+  triggers and exact timing. Root replaced the fewest-distance reward with
+  Friendly Guide's first-Obstacle nuisance protection, verified Splash overlap,
+  and retained a once-shuffled, no-replacement deck using all ten cards.
+- Another bounded Sol/high audit used exact arithmetic for opening travel,
+  printed reward affordability, single-purchase movement, one-Companion Mud
+  attrition, controlled Goose/Splash pressure and repeated uncapped Dawn gifts.
+  Saved the reproducible script and JSON with model omissions explicit. This is
+  not a full-match simulation or evidence of balanced AI/human play.
+- Kept interpretations visible: reduced active flock governs later movement and
+  Night comparison; final Pebbles/Brambles penalties also apply when worn out;
+  Reeds Twigs survive wear-out while haven Feathers, Flowers, flock and other
+  safe-only bonuses do not. Proposed unlimited initial shop stock, one-per-family,
+  Sleep expiry, no final shopping and housekeeping rules remain review items.
+  The finite route versus uncapped permanent Feathers remains unresolved. No
+  cap, discard, bank, conversion or automatic implementation workaround was added.
+- Generated and visually inspected one matching lavender zzz cloud marker for
+  the temporary Most Rested step beyond the updated Feather trail. Saved the
+  native byte-identical 1536 × 1024 opaque PNG, prompt, hash and inspection.
+  Existing board/player/encounter images were preserved; the latest 16 encounter
+  designs are now recorded as user-approved. No Unity import occurred.
+- Consolidated PLAN around canonical rule/data references, updated the recap,
+  detailed timing, architecture recommendation, art brief, STATUS and current
+  HANDOFF. Preserved the historical baseline handoff tail unchanged.
+- Validation: all 50 CSV/JSON rows agree, haven counts/adjacent Twig plateaus and
+  endpoint maxima pass, all 11 offers and ten unique cards are present, local
+  documentation links and JSON parse, artwork/source and pre-existing Settings
+  hashes are preserved, and whitespace checks pass. See v1/validation.json.
+  No Core/CLI changes, Unity calls or runtime tests were performed.
+- Stop at this reviewable planning/art checkpoint. M2 is not complete until the
+  remaining boundaries/policies are reviewed; the next implementation milestone
+  requires the user's command. Regular checkpoint commit/push remains authorized.

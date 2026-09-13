@@ -1,8 +1,8 @@
 # Duck art production brief
 
-Updated 13 September 2026. The selected board remains the canonical scenery
-reference. The token family's style is approved; revised numberless faces and
-obstacle variants remain concept sheets for review. Rule values,
+Updated 14 September 2026. The selected board remains the canonical scenery
+reference. The user approved the current 16 encounter designs, including numberless
+faces and obstacle variants. They remain concept sheets, not production sprites. Rule values,
 placement geometry and interaction copy belong in [PLAN.md](PLAN.md); this
 brief records only the asset direction and production gates.
 
@@ -47,7 +47,7 @@ a short board-edge key and active-effect indicator rather than face paragraphs.
 The Goose needs a visible current-Exhaustion/current-maximum display; the older
 concept-sheet footer “Five is safe” is not an always-valid runtime instruction.
 Plain Seeds need no quantity/movement badge or power text. The accepted Companion
-flock uses one unnumbered design and a public placed-count/next-movement display;
+flock uses one unnumbered design and a public active-flock/next-movement display;
 2/3/4 is a Day-state progression, not three printed denominations. Its older
 shield treatment is superseded. The fixed-movement Signpost uses
 an explicit →2, separate from any future preview-quantity symbol.
@@ -58,18 +58,24 @@ Companion duck encounters.
 ## Remaining asset work
 
 The [current token set](concepts/2026-09-13-agreed-token-set/README.md) contains
-four review sheets covering all 16 encounter designs/variants: five everyday
+four approved concept sheets covering all 16 encounter designs/variants: five everyday
 tokens, three Tailwinds, three Reeds quantities and five whites. Signpost →2,
 Reeds quantities, unnumbered Companion and Day 5 Goose labels match the accepted
 rules. Native dimensions, hashes, prompts and visual findings are saved there.
 
-Review these sheets; later prepare resource icons for Twigs, Sleep and Feathers,
+Later prepare production sprites and resource icons for Twigs, Sleep and Feathers,
 the scored nest and shared nest-level presentation, shelter markers, endpoint
 and wasteland details, the Dawn Delivery stork, and original World Event art.
 The Dream view must show the full legal catalogue without implying extra
 purchases or altered rules. Twigs remain persistent nest score; Feathers are
 automatic permanent trail advances; Sleep earned and Sleep remaining need
 separate visual treatments.
+
+The new [Most Rested marker](concepts/2026-09-14-most-rested/README.md) is a
+lavender cloud with a dark blue rim, crescent and “zzz”. It is for review and
+covers the temporary start +1 beyond the updated Feather trail. Use duplicate
+displays for tied beneficiaries. Distinguish it from permanent trail resources;
+Night 10 changes the award to a Dream Twig and does not indicate another start.
 
 Before any Unity import, inspect native outputs and record source/prompt,
 dimensions, hash, alpha findings and intended use. Verify the selected board's

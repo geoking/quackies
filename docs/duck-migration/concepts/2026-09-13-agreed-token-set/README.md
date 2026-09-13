@@ -1,6 +1,6 @@
 # Current Quackies token set
 
-13 September 2026. Four new review sheets cover all **16 encounter designs and
+Generated 13 September; approved by the user 14 September 2026. Four concept sheets cover all **16 encounter designs and
 variants** in the accepted first ruleset. They preserve the approved colourful
 cartoon/cardboard style and category silhouettes. The rules are summarized in
 [RULES_AT_A_GLANCE.md](../../RULES_AT_A_GLANCE.md); details and later alternatives
@@ -13,7 +13,7 @@ remain in [ENCOUNTER_RULES.md](../../ENCOUNTER_RULES.md).
 Five designs: plain orange Seeds; blue Signpost with explicit →2; yellow
 Refreshing splash; black Companion disc; purple Wildflowers. No generic ‘1’
 badges, Seed ability icons or Companion shields. Companion uses one face because
-its 2/3/4 movement comes from the number placed that Day.
+its 2/3/4 movement comes from the active flock that Day (after any Mud losses).
 
 ## Tailwind movement variants
 
@@ -28,7 +28,7 @@ token's total movement before modifiers, not an extra amount added to one.
 
 Three matching green leaf tokens with one/two/three tied bundles and a matching
 bundle symbol ×1/×2/×3. All have normal movement one; the quantity grants Twigs
-on a safe rest. It never represents extra chips, placements or movement.
+even when worn out under the 14 September reward rule. It never represents extra chips, placements or movement.
 
 ## White obstacles
 
@@ -53,5 +53,5 @@ byte-for-byte to this folder. Root inspected every token, label and numeric mark
 These are opaque review sheets, not isolated transparent sprites, exact-size
 iPad validation or a Unity import. Production symbols/state still need precise
 overlays and verified sizing. Current powers are agreed for a first test; the
-reward table, prices and remaining endgame/payout details are not invented by
-the artwork. Prior approved source images remain unchanged.
+new [table/prices](../../v1/BOARD_AND_SHOP.md) and [events](../../v1/WORLD_EVENTS.md)
+are separate review proposals, not instructions encoded in the artwork. Prior approved source images remain unchanged.
