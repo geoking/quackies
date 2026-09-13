@@ -46,10 +46,10 @@ their category shape/rim and differ through clear nuisance illustrations; use
 a short board-edge key and active-effect indicator rather than face paragraphs.
 The Goose needs a visible current-Exhaustion/current-maximum display; the older
 concept-sheet footer “Five is safe” is not an always-valid runtime instruction.
-Plain Seeds need no quantity/movement badge or power text. The proposed Companion
+Plain Seeds need no quantity/movement badge or power text. The accepted Companion
 flock uses one unnumbered design and a public placed-count/next-movement display;
 2/3/4 is a Day-state progression, not three printed denominations. Its older
-shield treatment is superseded. A fixed-movement Signpost proposal would use
+shield treatment is superseded. The fixed-movement Signpost uses
 an explicit →2, separate from any future preview-quantity symbol.
 Artwork must leave room for readable exceptional values at actual iPad mini board and
 opponent-inspection sizes. Player duck pieces must remain distinct from
@@ -57,7 +57,13 @@ Companion duck encounters.
 
 ## Remaining asset work
 
-Review the revised token and obstacle sheets; later prepare resource icons for Twigs, Sleep and Feathers,
+The [current token set](concepts/2026-09-13-agreed-token-set/README.md) contains
+four review sheets covering all 16 encounter designs/variants: five everyday
+tokens, three Tailwinds, three Reeds quantities and five whites. Signpost →2,
+Reeds quantities, unnumbered Companion and Day 5 Goose labels match the accepted
+rules. Native dimensions, hashes, prompts and visual findings are saved there.
+
+Review these sheets; later prepare resource icons for Twigs, Sleep and Feathers,
 the scored nest and shared nest-level presentation, shelter markers, endpoint
 and wasteland details, the Dawn Delivery stork, and original World Event art.
 The Dream view must show the full legal catalogue without implying extra

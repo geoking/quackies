@@ -21,14 +21,14 @@ The **full-screen nest and Dream mat, Concept B**, is the chosen layout directio
 A clear **View adventure** button returns to the board. The integrated tray is
 a historical alternative, not the default.
 
-The current discussion keeps Seeds plain and cheap, proposes a Companion flock
-with increasing movement and a shared Night competition, and considers another
-simple movement-plus-utility colour. Quantities, conditional nuisances and the
-proposed Day 5 Goose remain part of the design.
-It does not implement rules, modify the CLI or import into Unity. The
-[encounter rules discussion](ENCOUNTER_RULES.md) is the current candidate contract;
-the earlier [obstacle study](concepts/2026-09-13-obstacle-study/README.md) preserves
-art and effect-free opening-bag evidence. The full rules sheet is not finished.
+The user has accepted the current encounter rules, including plain Seeds,
+Companion flock movement and Night competition, Signpost movement, Reeds
+quantities, conditional nuisances and the Day 5 Goose. Read
+[RULES_AT_A_GLANCE.md](RULES_AT_A_GLANCE.md) for the complete agreed overview and
+remaining decisions, with detailed timing in [ENCOUNTER_RULES.md](ENCOUNTER_RULES.md).
+The [current token set](concepts/2026-09-13-agreed-token-set/README.md) covers all
+16 encounter designs/variants for review. This checkpoint does not implement
+rules, modify the CLI or import into Unity. The full rules sheet is not finished.
 
 ## The short build sequence
 
@@ -143,7 +143,7 @@ is not an equivalent prize and is deferred; varied bonus choices can follow
 balance evidence. Define the final-Night reward and contributing Sleep modifiers
 in the rules sheet.
 
-The proposed Companion flock Sleep award resolves before this comparison and
+The Companion flock Sleep award resolves before this comparison and
 before earned Sleep freezes. It can therefore change both Dream buying power
 and the Most Rested result; test the combined advantage, not just the raw bonus.
 
@@ -185,9 +185,9 @@ count or one-to-one conversion of the old 24 events. The complete new rules
 contract must list every included effect, timing, choice and restriction.
 The original game remains a tested reference, not a content requirement.
 
-### Current encounter proposal — awaiting review
+### Accepted encounters — first ruleset to test
 
-Use [ENCOUNTER_RULES.md](ENCOUNTER_RULES.md) as the current detailed discussion;
+Use [ENCOUNTER_RULES.md](ENCOUNTER_RULES.md) as the current detailed reference;
 it supersedes the earlier study's powers. The user likes the helpful colour
 roles and requests Reeds x1/x2/x3 for one/two/three Twigs, with normal movement
 still one. Numbers describe thematic quantities, not universal strength.
@@ -197,15 +197,15 @@ Other quantity variants and future shared rule cards are suggestions to review.
 Sleep reward, kernel denominations and food/movement choice. They dilute the
 bag's obstacle proportion without cancelling Exhaustion already gained.
 
-Tailwind →2/→4/→6 denotes total movement. The user proposes Companion movement
-of two for the first placed that Day, three for the second and four for all later
-ones, plus a Night bonus for the most Companions. The candidate removes the old
+Tailwind →2/→4/→6 denotes total movement. Companion movement is
+two for the first placed that Day, three for the second and four for all later
+ones, plus a Night bonus for the most Companions. This replaces the old
 shield and compares placed counts among safe ducks after everyone finishes.
 Tied positive leaders receive +1 Sleep with one Companion or +2 total with two
 or more, before earned Sleep freezes. This capped scaling and eligibility are
-recommendations to test; the bonus is not paid per chip or per neighbour.
+accepted starting rules to test; the bonus is not paid per chip or per neighbour.
 
-A suggested Signpost variant moves two and previews one chip, offering modest
+Signpost moves two and previews one chip, offering modest
 reliable movement with information. Stronger preview quantities and optional
 Wildflower shelter movement remain alternatives to review, not automatic scope.
 Reeds quantity never sets movement. Do not force every colour into movement
@@ -214,20 +214,21 @@ without Seed Sleep, and ensure Companion/Signpost have an appropriate cost
 relative to Tailwind →2. The initial comparison is between one human and one AI;
 an adjacent-player rule card belongs to a future multiplayer option.
 
-The user's suggested opening bag is eight white Obstacles plus five colours.
-The study proposes two each of Log, Mud, Pebbles and Brambles, with two Seeds,
+The agreed opening bag is eight white Obstacles plus five colours:
+two each of Log, Mud, Pebbles and Brambles, with two Seeds,
 one Tailwind →2, one Signpost and one Splash. The normal safe maximum is five
 Exhaustion. Every white adds one, while ordinary extra nuisances are conditional:
 Log affects fast movement; Mud blocks added movement; Pebbles/Brambles lose
 Sleep/a newly earned Twig only when the duck rests on that chip.
 
-The user proposes a Goose from Day 5 that lowers the safe maximum to four when
-drawn, which can immediately cause wear-out at five Exhaustion. The candidate
+Goose joins from Day 5 and lowers the safe maximum to four when
+drawn, which can immediately cause wear-out at five Exhaustion. The rule
 adds one per bag once, keeps it thereafter and resets the maximum next dawn.
-Companion does not block this special Exhaustion rule. Splash is proposed to
-cancel any draw that would exceed the resulting maximum and then settle safely.
-Goose replaces its older next-colour ability suppression. Exact lifecycle,
-movement extensions, Mud, prices and starting composition remain review proposals.
+Companion does not block this special Exhaustion rule. Splash cancels
+any draw that would exceed the resulting maximum and then settles the duck safely.
+Goose replaces its older next-colour ability suppression. These powers and the
+starting composition are accepted working rules; prices, final payouts and
+complete rule interactions still need specification and balance evidence.
 
 The effect-free bag audit gives 7.78 placements and 2.78 coloured placements on
 average when stopping at the fifth white; it excludes powers and player strategy.
@@ -274,8 +275,8 @@ Colour alone must not be required to recognize a category.
 | Purple | Wildflowers |
 
 The user approved the [token-family style](concepts/2026-09-13-token-family/README.md).
-The [updated study](concepts/2026-09-13-obstacle-study/README.md) removes default
-badges, adds three Tailwinds and explores five white nuisances. These remain
+The [current token set](concepts/2026-09-13-agreed-token-set/README.md) has plain
+faces, explicit movement arrows, Reeds quantities and all five white nuisances. These remain
 concept sheets, not production sprites or final effect specifications. Player ducks remain
 distinct colours/personalities and die-cut silhouettes; the Companion duck is a
 small illustrated encounter tile, not another player marker. Four duck identities
@@ -283,7 +284,7 @@ do not expand the initial human-versus-AI scope.
 
 Other display terms: Day; Explore; Settle down; Exhaustion; Worn out!; Shelter;
 Feather trail; Dream choices; Most Rested Duck; World Event; Dawn Delivery.
-The study proposes Splash rescue; any separate flask/recovery mechanic remains
+Splash provides the agreed rescue; any separate flask/recovery mechanic remains
 an unresolved inclusion decision, not a required Quacks feature or Feather purchase.
 Production guidance is in [ASSET_BRIEF.md](ASSET_BRIEF.md).
 
@@ -315,7 +316,7 @@ remaining roadmap replaces the earlier “terminology first, balance later” or
 
 | Milestone | Work | Review evidence |
 | --- | --- | --- |
-| M1 checkpoint — accepted art and fresh encounter study | Numberless token art, Tailwind variants, white nuisances and opening-bag audit | Review revised art and candidate rules; no implementation yet |
+| M1 checkpoint — accepted rules overview and full token set | Agreed rule reference and 16 encounter designs/variants | Review current art; complete remaining rules before implementation |
 | M2 — Rules sheet | 50-row table, prices, shelter indices, original encounter/event definitions, worn-out/recovery and final-Night rules | One readable, complete rules contract and example Days |
 | M3 — Core and CLI | Implement the new profile in bounded source/test checkpoints; update observations, actions and Normal AI | Focused rule tests, original regression checks and complete deterministic CLI matches |
 | M4 — Unity board and Dream layout | Fit 50 indexed spaces, tokens, nest, full catalogue and navigation to iPad landscape | Actual-size layout, reward visibility, alignment and touch checks |
@@ -326,9 +327,9 @@ M2 must settle: stopping before a draw; rewinds; endpoint/overshoot and saturate
 Feather trails; worn-out Sleep/Twig/Feather treatment; Sleep expiry and final-Night
 disposition, including whether any Sleep conversion exists; final-Day rewards
 with no tomorrow; recovery/flask mechanics; event/bonus ordering; finite supply,
-category uniqueness/unlocks, quantity/movement variants, starting bag, Day 5
-Goose introduction and lifecycle, nuisance ordering,
-Exhaustion threshold and the final price table. Define when
+category uniqueness/unlocks, later quantity variants, event/nuisance ordering
+and the final price table. Preserve the accepted starting bag, five-safe maximum,
+Day 5 Goose and initial encounter powers while specifying their edge cases. Define when
 each Day's effective start freezes, including Dawn gifts and reveal-time event
 Feathers. Endpoint bookkeeping may not add Feather banking, spending, conversion
 or a nightly redemption cap as a convenient substitute.

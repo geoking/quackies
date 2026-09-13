@@ -71,11 +71,12 @@ can inform a rain/Seed movement modifier. They do not mandate the old event's
 text, deck membership or balance. Ruby spending, rat tails and bonus-die effects
 must not leak into the new profile through default registration.
 
-The current [encounter discussion](ENCOUNTER_RULES.md) supersedes the art study's
-candidate powers: separate thematic quantity from movement, support conditional
+The current [encounter rules](ENCOUNTER_RULES.md) supersede the art study's
+powers: separate thematic quantity from movement, support conditional
 movement and ordinary nuisances, and specify a Day 5 Goose with a temporary
 lower safe maximum. Splash must compare against the resulting maximum rather
-than a hard-coded sixth white. These are review candidates. Specify cancellation
+than a hard-coded sixth white. The current powers are accepted first-test rules,
+summarized in [RULES_AT_A_GLANCE.md](RULES_AT_A_GLANCE.md). Specify cancellation
 versus placement, private previews, nuisance priority/expiry, and pending versus
 banked rewards before coding. Do not treat Reeds x3 as three placements/triggers.
 AI and human must see the same information legally available to their duck;

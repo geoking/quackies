@@ -1,6 +1,6 @@
 # Quackies handoff
 
-## Current task: plain Seeds and Companion flock ready for discussion
+## Current task: accepted rule overview and complete encounter art ready for review
 
 13 September: the user approved the token-family style, chose ten Days and
 requested original encounter powers rather than Quacks mappings. The earlier
@@ -21,28 +21,31 @@ image is 1536 × 1024; the requested 3072 × 2048 master, exact 50-space fit and
 final table remain open. The token-family style is approved, with default ‘1’
 badges removed in the [new study](duck-migration/concepts/2026-09-13-obstacle-study/README.md).
 It contains revised ordinary tokens, Tailwind →2/→4/→6 and five white obstacles.
-These are concept sheets, not imported or production-ready sprites.
+The [current four-sheet set](duck-migration/concepts/2026-09-13-agreed-token-set/README.md)
+now covers all 16 encounter designs/variants, including Signpost →2 and Reeds
+bundle quantities. These are concept sheets, not imported or production-ready sprites.
 
 The user likes the helpful colour ideas and requests Reeds x1/x2/x3 for Twig
 yield, with normal movement still one. [ENCOUNTER_RULES.md](duck-migration/ENCOUNTER_RULES.md)
-is now the current candidate discussion, superseding the art study's powers.
-The user has now removed Seed complexity: Seeds move one, add no Exhaustion,
-have no Sleep reward or ability and remain cheap. The new Companion suggestion
-uses successive 2/3/4 movement and a largest-flock Night bonus. The candidate
+is now the detailed working reference, superseding the old art study's powers.
+The user has accepted the current rules. Seeds move one, add no Exhaustion,
+have no Sleep reward or ability and remain cheap. Companion
+uses successive 2/3/4 movement and a largest-flock Night bonus. This
 replaces the old shield, compares safe ducks' placed Companion counts after all
 finish, pays tied positive leaders +1 Sleep with one or +2 total with two or more,
-then freezes Sleep before Most Rested. These cap/eligibility details are review
-recommendations. Signpost move-two/peek-one is another proposed utility mover.
+then freezes Sleep before Most Rested. Signpost moves two and previews one.
+The concise [agreed overview](duck-migration/RULES_AT_A_GLANCE.md) includes the
+full current set and explicitly lists the unresolved economy/payout/endgame rules.
 
-Ordinary extra nuisances are conditional: Log halves fast movement, proposed
+Ordinary extra nuisances are conditional: Log halves fast movement,
 Mud blocks bonus movement, and Pebbles/Brambles lose Sleep/a newly earned Twig
-only when the duck settles on that chip. Goose is proposed from Day 5, lowering
+only when the duck settles on that chip. Goose joins from Day 5, lowering
 the safe maximum from five to four for the Day when resolved. The interpretation
 adds one to each bag once, retains it thereafter, resets the maximum each dawn,
 does not let Companion block it, and lets Splash cancel an otherwise fatal draw
-then settle. Those exact lifecycle/counter rules remain proposals for review.
+then settle. These are accepted working rules, still requiring balance testing.
 
-Eight whites plus five colours is the Day 1 candidate bag. The old effect-free
+Eight whites plus five colours is the Day 1 bag. The old effect-free
 bag audit applies before Goose. New controlled Goose comparisons exclude
 purchased colours and cannot establish actual Day 5 or full-game balance.
 
@@ -56,7 +59,7 @@ full-Day/Dream loop, ten-Day AI and balance, then full verification. Preserve
 unrelated work and the pre-existing ProjectSettings preload removal. Root owns
 Git and the milestone checkpoints.
 
-**Stop after this rules discussion checkpoint.** Wait for the user's next
+**Stop after this rules summary and art checkpoint.** Wait for the user's next
 milestone command before implementation or Unity work.
 
 ## Completed playable baseline

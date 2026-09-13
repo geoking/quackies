@@ -639,3 +639,38 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   handoff tail and preserved pre-existing ProjectSettings hash. No Core/CLI,
   Unity, image or runtime-test changes occurred. Stopped for discussion; the
   complete rules sheet and balance work remain outstanding.
+
+### 31. Agreed rule overview and complete encounter token set (13 September 2026)
+
+- The user accepted the current rules direction and requested a simple complete
+  recap plus designs for every agreed encounter. A focused Sol/high worker
+  drafted [RULES_AT_A_GLANCE.md](duck-migration/RULES_AT_A_GLANCE.md); root reviewed
+  it against the conversation and current plan. It covers ten Days, the 50-space
+  route, daily draw/rest loop, all seven helpful families, five whites, the
+  13-chip starter, Goose, Night comparisons, nest purchases and Feather/Dawn rules.
+- Kept unknown values visibly separate: exact 50-row rewards, prices and stock
+  policies, full World Events, worn-out payouts, route-end/no-draw/rewind behavior,
+  saturated trails, final-Night handling and final ties. Corrected the recap's
+  Splash check to use the resulting maximum including Goose, and distinguished
+  no nightly Feather redemption cap from the unresolved physical route endpoint.
+- Updated PLAN, STATUS, ENCOUNTER_RULES, ENGINE_EVOLUTION, ASSET_BRIEF and current
+  HANDOFF to record current powers as accepted first-test rules. Wildflower
+  movement, additional Signpost/Flower quantities and alternate rule cards remain
+  future options. Acceptance is not full-game balance evidence or completion of
+  the remaining rules-sheet milestone. No implementation or Unity work began.
+- Generated four matching native 1536 × 1024 review sheets with built-in
+  image_gen, covering all 16 encounter designs/variants: five everyday chips,
+  Tailwind →2/→4/→6, Reeds bundle quantities ×1/×2/×3, and five white Obstacles.
+  Signpost now shows →2; Companion remains unnumbered with no shield; Goose
+  says “Joins on Day 5” and has no obsolete always-five-safe footer.
+- Root visually inspected every token, label and numeric mark. Saved the
+  byte-identical RGB images, complete prompts, source paths, hashes and review
+  findings under [the current token set](duck-migration/concepts/2026-09-13-agreed-token-set/README.md).
+  These are opaque concept sheets, not isolated sprites or an iPad-size fit test.
+  Approved player ducks and board source remain unchanged.
+- Validation: 65 local documentation links, four image/source hashes, dimensions
+  and RGB metadata, JSON, historical baseline handoff preservation, selected-board
+  and pre-existing ProjectSettings hashes, and whitespace checks passed. No
+  Core/CLI changes, Unity calls/imports or runtime tests were performed.
+- Stopped after the requested rule recap and visual set; await the user's next
+  command before proceeding with another milestone.

@@ -1,7 +1,7 @@
 # Duck migration status
 
 Updated 13 September 2026. The user accepted the revised duck-game direction;
-this is a plain-Seed and Companion-flock discussion. No implementation of
+this is an accepted-rules summary and complete token-design checkpoint. No implementation of
 this new direction has started in Core, CLI or Unity.
 
 ## Current accepted direction
@@ -36,22 +36,21 @@ this new direction has started in Core, CLI or Unity.
   the 50 spaces. Each earlier wasteland haven awards two Feathers and the
   endpoint haven three; exact row values and shelter indices are open.
 - The user approved the [token-family style](concepts/2026-09-13-token-family/README.md).
-  The [updated study](concepts/2026-09-13-obstacle-study/README.md) removes default
-  ‘1’ badges, shows Tailwind →2/→4/→6 and adds five distinct white nuisances.
-  Revised sheets and exact effects are for review, not production sprites.
+  The [current set](concepts/2026-09-13-agreed-token-set/README.md) covers all
+  16 encounter designs/variants on four sheets, with explicit movement arrows,
+  Reeds bundle quantities and five white nuisances. These are review sheets,
+  not isolated production sprites or imported art.
 
-The user likes the colour powers and requests Reeds quantities x1/x2/x3 granting
-one/two/three Twigs while normal movement remains one. Current proposals live
-in [ENCOUNTER_RULES.md](ENCOUNTER_RULES.md): Seeds are now plain cheap one-step
-chips with no Exhaustion or Sleep effect. Companion proposes 2/3/4 movement for
-successive placements and a capped largest-safe-flock Sleep reward before
-Most Rested, replacing the shield. Signpost two-step movement plus a preview is
-another suggestion, not an implemented rule. Mud blocks extra movement, and
-Pebbles/Brambles penalties apply only on their own resting chip. Goose from Day 5 lowers that Day's
-safe maximum from five to four when resolved; lifecycle/rescue details remain
-candidate interpretations. Eight whites plus five colours is the Day 1 proposal.
-Earlier effect-free draw math is historical opening-bag evidence, not full-game
-or Day 5 balance. Original art sheets are unchanged by this discussion.
+The user accepted the current powers. [RULES_AT_A_GLANCE.md](RULES_AT_A_GLANCE.md)
+is the concise agreed overview; [ENCOUNTER_RULES.md](ENCOUNTER_RULES.md) records
+detailed timing and later alternatives. Seeds are plain, Companion uses 2/3/4
+flock movement and a capped safe-flock Night award, Signpost moves two and
+previews one, Reeds gives its bundle quantity in Twigs, and Splash/Wildflowers
+retain their safe-rescue/shelter roles. White nuisances remain conditional and
+Goose joins once from Day 5. The opening bag is eight whites plus five colours.
+Prices, the 50-row reward table, worn-out payouts, final-Night and endpoint
+details remain unresolved; accepted values are not balance certification.
+Earlier bag math remains controlled evidence, not actual Day 5 player loss rates.
 
 The accepted direction and remaining specification work are in [PLAN.md](PLAN.md).
 Preserve the tested base game as a reference while defining the complete new

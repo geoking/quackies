@@ -1,0 +1,65 @@
+{
+  "date": "2026-09-13",
+  "mode": "built-in image_gen",
+  "outputs": [
+    {
+      "artifact": "everyday-encounters.png",
+      "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-a8dd3647-5d9e-4d4a-8ea3-32b7e320660b.png",
+      "bytes": 1872927,
+      "sha256": "ab255e6ece87e42cac13f4394174d19fe97927f56a93be6255c79e77d9a0f466",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "pngColourType": 2
+    },
+    {
+      "artifact": "tailwind-variants.png",
+      "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-8ee7a338-d750-4134-b846-56b54b5e81b2.png",
+      "bytes": 1723799,
+      "sha256": "6c49322eea48492237f3d9d65a8083b237ffb89a6e7f8a7310b29fc02741bf16",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "pngColourType": 2
+    },
+    {
+      "artifact": "reeds-quantities.png",
+      "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-55db44ca-9cd3-4a15-9d8d-e78077404291.png",
+      "bytes": 1863629,
+      "sha256": "152af4fd990fb1d2d15cc9abc5845b4505683985d27e447be09ea42229521c08",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "pngColourType": 2
+    },
+    {
+      "artifact": "white-obstacles.png",
+      "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-d22238df-d309-4223-bbc4-71c204b4f635.png",
+      "bytes": 1882910,
+      "sha256": "193d5d84ba02d41baf25777eeafeec4f847870d46a9ae66b93fa9527372e6594",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "pngColourType": 2
+    }
+  ],
+  "visualInspection": {
+    "everyday": "Five complete category tokens, correct labels; Signpost arrow2; no default1 or shield on other faces.",
+    "tailwind": "Three matching red chevrons, correct arrows2/4/6, clear total-movement footer.",
+    "reeds": "Three matching green leaves; one/two/three tied bundles, bundle-icon x1/x2/x3 panels, no movement arrows; one-step footer correct.",
+    "obstacles": "Five white/charcoal octagons, no face numbers; correct Day5 Goose caption and safe-limit footer, old optional/five-safe text removed."
+  },
+  "limitations": [
+    "Opaque concept sheets, not isolated transparent sprites.",
+    "No actual-size iPad fit or readability validation.",
+    "Generated symbols are review artwork; production overlays still need precise rendering.",
+    "Current rules agreed for testing; full economy, worn-out payouts and final-Night details unresolved."
+  ],
+  "coreChanges": false,
+  "unityCalls": false,
+  "unityImports": false
+}
