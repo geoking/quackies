@@ -21,8 +21,10 @@ The **full-screen nest and Dream mat, Concept B**, is the chosen layout directio
 A clear **View adventure** button returns to the board. The integrated tray is
 a historical alternative, not the default.
 
-The current discussion extends the accepted colour roles with explicit ability
-quantities, conditional movement and nuisances, and the proposed Day 5 Goose.
+The current discussion keeps Seeds plain and cheap, proposes a Companion flock
+with increasing movement and a shared Night competition, and considers another
+simple movement-plus-utility colour. Quantities, conditional nuisances and the
+proposed Day 5 Goose remain part of the design.
 It does not implement rules, modify the CLI or import into Unity. The
 [encounter rules discussion](ENCOUNTER_RULES.md) is the current candidate contract;
 the earlier [obstacle study](concepts/2026-09-13-obstacle-study/README.md) preserves
@@ -141,6 +143,10 @@ is not an equivalent prize and is deferred; varied bonus choices can follow
 balance evidence. Define the final-Night reward and contributing Sleep modifiers
 in the rules sheet.
 
+The proposed Companion flock Sleep award resolves before this comparison and
+before earned Sleep freezes. It can therefore change both Dream buying power
+and the Most Rested result; test the combined advantage, not just the raw bonus.
+
 Movement bonuses affect distance, not white Exhaustion. Default movement and
 explicit movement instructions are separate from ability amounts; there is no
 universal printed strength. Define ordering with World Events and other effects.
@@ -187,11 +193,26 @@ roles and requests Reeds x1/x2/x3 for one/two/three Twigs, with normal movement
 still one. Numbers describe thematic quantities, not universal strength.
 Other quantity variants and future shared rule cards are suggestions to review.
 
-Tailwind →2/→4/→6 denotes total movement. Candidate smaller movement options
-give Seeds a food-versus-Sleep choice after an obstacle and let a repeated
-Companion move an extra step when its shield is already held. Reeds quantity
-does not change its normal movement. Do not force every colour into movement
-grades or change token meanings during a match.
+**Seeds are cheap, plain one-step non-Exhaustion chips.** Remove their previous
+Sleep reward, kernel denominations and food/movement choice. They dilute the
+bag's obstacle proportion without cancelling Exhaustion already gained.
+
+Tailwind →2/→4/→6 denotes total movement. The user proposes Companion movement
+of two for the first placed that Day, three for the second and four for all later
+ones, plus a Night bonus for the most Companions. The candidate removes the old
+shield and compares placed counts among safe ducks after everyone finishes.
+Tied positive leaders receive +1 Sleep with one Companion or +2 total with two
+or more, before earned Sleep freezes. This capped scaling and eligibility are
+recommendations to test; the bonus is not paid per chip or per neighbour.
+
+A suggested Signpost variant moves two and previews one chip, offering modest
+reliable movement with information. Stronger preview quantities and optional
+Wildflower shelter movement remain alternatives to review, not automatic scope.
+Reeds quantity never sets movement. Do not force every colour into movement
+grades or change token meanings during a match. Revisit early reward/prices
+without Seed Sleep, and ensure Companion/Signpost have an appropriate cost
+relative to Tailwind →2. The initial comparison is between one human and one AI;
+an adjacent-player rule card belongs to a future multiplayer option.
 
 The user's suggested opening bag is eight white Obstacles plus five colours.
 The study proposes two each of Log, Mud, Pebbles and Brambles, with two Seeds,

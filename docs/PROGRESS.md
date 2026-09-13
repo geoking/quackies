@@ -607,3 +607,35 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   baseline handoff preservation and the unchanged pre-existing ProjectSettings
   hash. No art generation/editing, Core/CLI changes, Unity calls/imports or runtime
   tests occurred. Stopped for discussion; implementation remains paused.
+
+### 30. Plain Seeds and a Companion flock proposal (13 September 2026)
+
+- The user rejected the Seed food/movement choice and requests a cheap plain
+  non-Exhaustion chip. Updated the current plan and encounter discussion to
+  remove Seed Sleep, kernel denominations and ability text; ordinary movement
+  remains one. Early board rewards and Dream prices must support buying without
+  the former Seed Sleep subsidy.
+- Interpreted the user's successive Companion values 2/3/4 as movement of the
+  first/second/third-and-later placed that Day. The candidate resets counts each
+  dawn, counts physical Companions rather than all chips or owned inventory,
+  and replaces the former nuisance shield. Mud removes the flock movement bonus
+  while retaining the placed count; Log halves the proposed movement normally.
+- Proposed one Night award for the largest safe flock after everyone finishes:
+  tied positive leaders earn +1 Sleep with one Companion or +2 total with two
+  or more. Worn-out ducks are excluded. The award enters earned/available Sleep
+  before the result freezes and Most Rested is compared. These caps, tie rules,
+  interpretation and eligibility are recommendations for review, not accepted
+  or tested balance. A neighbour-only multiplayer card remains a later option.
+- A focused Sol/high review checked the cumulative 2/5/9/13 Companion movement,
+  dominance risk relative to Tailwind, and the loop through extra buying power
+  and Most Rested. Final read-only review found no retained live Seed ability or
+  Companion shield rule. Clarified that owning additional copies changes draw
+  likelihood; resolving a chip does not improve future odds by itself.
+- Added a proposed Signpost move-two/peek-one as a simple utility mover, with a
+  targeted Wildflower shelter step kept as a later alternative. Neither is an
+  implemented rule. Updated PLAN, STATUS, ASSET_BRIEF and current HANDOFF while
+  retaining historical studies and baseline evidence.
+- Validation: checked changed-document links, whitespace, unchanged historical
+  handoff tail and preserved pre-existing ProjectSettings hash. No Core/CLI,
+  Unity, image or runtime-test changes occurred. Stopped for discussion; the
+  complete rules sheet and balance work remain outstanding.

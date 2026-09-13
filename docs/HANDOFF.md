@@ -1,6 +1,6 @@
 # Quackies handoff
 
-## Current task: quantity variants and conditional obstacles ready for discussion
+## Current task: plain Seeds and Companion flock ready for discussion
 
 13 September: the user approved the token-family style, chose ten Days and
 requested original encounter powers rather than Quacks mappings. The earlier
@@ -26,8 +26,13 @@ These are concept sheets, not imported or production-ready sprites.
 The user likes the helpful colour ideas and requests Reeds x1/x2/x3 for Twig
 yield, with normal movement still one. [ENCOUNTER_RULES.md](duck-migration/ENCOUNTER_RULES.md)
 is now the current candidate discussion, superseding the art study's powers.
-It offers other thematic quantities, shared future rule cards and modest
-conditional Seed/Companion movement alongside Tailwind.
+The user has now removed Seed complexity: Seeds move one, add no Exhaustion,
+have no Sleep reward or ability and remain cheap. The new Companion suggestion
+uses successive 2/3/4 movement and a largest-flock Night bonus. The candidate
+replaces the old shield, compares safe ducks' placed Companion counts after all
+finish, pays tied positive leaders +1 Sleep with one or +2 total with two or more,
+then freezes Sleep before Most Rested. These cap/eligibility details are review
+recommendations. Signpost move-two/peek-one is another proposed utility mover.
 
 Ordinary extra nuisances are conditional: Log halves fast movement, proposed
 Mud blocks bonus movement, and Pebbles/Brambles lose Sleep/a newly earned Twig

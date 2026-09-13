@@ -1,7 +1,7 @@
 # Encounter quantities, movement and conditional obstacles
 
-13 September 2026, following approval of the helpful colour concepts. This is
-the current design discussion, superseding the powers in the
+13 September 2026, updated for plain Seeds and the proposed Companion flock.
+This is the current design discussion, superseding the powers in the
 [first obstacle study](concepts/2026-09-13-obstacle-study/README.md). Ten Days,
 the artwork direction and the existing Day/Dream plan remain unchanged.
 No Core, CLI, Unity or asset implementation is authorized by this discussion.
@@ -13,9 +13,15 @@ moves one space, more than one colour capable of movement, and ordinary white
 nuisances that only hurt conditionally. They propose a Goose from Day 5 that
 lowers the safe Exhaustion maximum by one, potentially causing immediate wear-out.
 
+The latest direction removes both Seed movement choices and Seed Sleep rewards:
+Seeds are cheap, non-Exhaustion chips with normal movement one and no ability.
+The user proposes Companion interaction through a highest-count Night reward
+and successive values 2/3/4. This document interprets those values as the movement
+of successive Companions placed that Day, with a separate small Sleep payout.
+
 The recommendations below specify a candidate interpretation, not tested prices
 or a finalized full ruleset. They preserve the approved colour roles; movement
-choices, extra denominations, exact Mud and Goose lifecycle remain proposals.
+extensions, extra denominations, exact Mud and Goose lifecycle remain proposals.
 
 ## Numbers describe quantities, not universal strength
 
@@ -41,14 +47,14 @@ a match. Initial play uses one fixed ruleset; customization is later work.
 | Family and quantity | Initial candidate | Possible future rule card, not simultaneous |
 | --- | --- | --- |
 | Reeds: 1/2/3 bundles | Move one; gain one pending Twig per bundle. | Weaving: pool bundles drawn that Day; complete groups of three give an additional small comfort bonus on a safe rest. A three-bundle chip completes one group by itself. |
-| Seeds: 1/2/3 kernels | Gain one pending Sleep per kernel, with the conditional food choice below. | Packed lunch: kernels instead fuel a capped movement choice after an obstacle; unused kernels have an explicitly defined reward. This changes the rule card, not the printed quantity. |
-| Signpost: 1/2/3 sign panels | Preview the next N chips in order; continue or settle. No free draw, selection or reordering. | Route planner: reorder up to N previewed chips, then continue or settle; no chip is discarded. Stronger information, not extra movement. |
+| Signpost: 1/2/3 sign panels | Preview the next N chips in order; continue or settle. The movement proposal below uses two steps and starts with N=1; larger previews are later options. No free draw, selection or reordering. | Route planner: reorder up to N previewed chips, then continue or settle; no chip is discarded. Stronger information, not extra movement. |
 | Wildflowers: 1/2/3 blooms | Gain two pending Sleep per bloom if settling safely at a marked shelter. | Scent trail: blooms define a limited reach toward a nearby shelter instead of a Sleep payout; exact route reach and choice timing must be specified for that future card. |
 
 The first Reeds variant is explicitly requested; other quantities and future
 cards are options, not a requirement to stock every colour in three sizes.
-Keep Splash and Companion unnumbered initially. More rescues or stacked shields
-would change risk much more than another Twig. Prices, finite stock and unlock
+Seeds need no denominations or quantity subsystem. Keep Splash and Companion
+unnumbered initially: Splash has one rescue per Day, while Companion's movement
+depends on its place in that Day's flock, not a purchased strength. Prices, finite stock and unlock
 Days still need the full rules sheet; higher grades must earn their higher cost.
 
 For Signpost, preview only available chips. Existing preview knowledge is kept
@@ -57,35 +63,106 @@ not a free new independent selection. Each continued draw consumes the next
 known chip normally. Opponents cannot see another duck's private preview, and
 AI receives only its own legally revealed information.
 
-## Three distinct ways to gain movement
+## Simple Seeds and distinct movement roles
 
-Use these modest candidate extensions in the initial ruleset:
-
+- **Seeds: cheap safe steps.** Move one, add no Exhaustion and have no ability.
+  They dilute the obstacle share of the bag. They do not cancel Exhaustion already
+  gained or make later draws automatically safe. Remove the prior food choice,
+  kernel denominations and pending Sleep reward entirely.
 - **Tailwind: reliable distance.** Its arrow gives total movement 2/4/6. No
   condition and no additional reward. It remains the large-distance specialist.
-- **Seeds: food after a difficult step.** If the previous placed chip is an
-  Obstacle, optionally eat one kernel from this Seed for +1 movement. Only the
-  remaining kernels award pending Sleep. Otherwise gather every kernel for
-  Sleep. This is at most one extra step, regardless of quantity, and trades
-  comfort for position. No previously earned Sleep is spent.
-- **Companion: company keeps you moving.** With no nuisance shield held, move
-  one and arm a shield. If a shield is already held, move two total and keep the
-  existing shield; do not add another. This makes a repeated Companion useful
-  without turning it into a larger stock of protection.
+- **Companion: travel as a flock.** Successive Companions placed that Day move
+  2, then 3, then 4 each for the third and every later Companion. The Night flock
+  comparison below adds player interaction. This replaces the old shield rule;
+  Companions do not also protect from nuisance effects.
+- **Signpost: a suggested steady utility mover.** Move two and preview the next
+  chip. This is the recommended additional movement-plus-small-benefit option,
+  replacing its former normal one step if accepted. Existing suggestions for
+  stronger preview quantities can remain later stock options; they do not raise
+  this proposed base movement. Start with one preview and an explicit →2.
 
-Reeds, Signpost, Splash and the initial Wildflowers have normal movement one.
-Future cards can offer other thematic movement; not every denomination needs
-it. Seed/Companion precision is conditional and modest, while Tailwind reaches
-farther predictably. Check whether a cheap Seed or Companion makes Tailwind →2
-an unattractive purchase; frequency, cost and useful exact-rest opportunities
-need play evidence rather than assuming the identities alone guarantee balance.
+Reeds and Splash keep normal movement one. Wildflowers retains its initial
+one-step shelter-comfort role. A later alternative could allow it to move two
+instead of one only when the two-step destination is a marked shelter; specify
+that as one optional step before placement, not a chain of shelter jumps. Do not
+automatically add this option alongside every other movement proposal.
 
-Determine movement and choose any food option after revealing the chip and
-before placing it. Compute the final destination, place once, then resolve
+Keep Seeds cheapest. Tailwind →2 needs a price or availability advantage over
+Signpost →2 plus a preview and over the first Companion. Higher-grade Tailwinds
+offer reliable distance without needing repeated draws. Prices and quantities
+are not settled by these roles; cheaper, slower options must remain worthwhile
+under the Night purchase cap.
+
+Determine final movement before placing each chip, place it once, then resolve
 nonmovement effects. Do not collect rewards or triggers from intermediate
-spaces. A previewed or cancelled reveal is not a placement. The current
-ordinary/World Event movement modifiers, endpoint handling and every legal
-choice must be made explicit before implementation.
+spaces. Previewed or cancelled encounters are not placements. Ordinary/World
+Event modifier order, endpoint handling and every legal choice need the full
+rules sheet. Removing Seed Sleep also means the early board rewards and Dream
+prices must fund an enjoyable first purchase without relying on the old subsidy.
+
+## Companion flock — candidate rule to test
+
+Count only each duck's actually placed Companions this Day, not all encounters,
+all Companions owned, or Companions drawn by other players. Reset the count at
+dawn. They need not be consecutive; an intervening white or other colour does
+not reset it. Each physical Companion counts once, even if Mud or Log reduces
+its movement. Do not move earlier Companion placements again as the flock grows.
+
+| Companion placed this Day | Total movement before modifiers | Total distance from all Companions so far |
+| --- | --- | --- |
+| First | 2 | 2 |
+| Second | 3 | 5 |
+| Third | 4 | 9 |
+| Fourth | 4 | 13 |
+
+Its own movement is normal one plus a flock bonus of one/two/three, capped at
+three bonus steps. This makes the 2/3/4 progression compatible with Mud removing
+bonus movement; Mud reduces it to one, while Log rounds halved total movement
+up. Separate World Event movement must follow the shared modifier policy.
+The component can show the next Companion's current movement in the live rule
+reference rather than printing a fixed 2/3/4 denomination on every chip.
+
+After every duck has ended the adventure, compare Companion counts among ducks
+who settled safely. A worn-out duck is ineligible and does not block another
+duck's reward. The highest positive count wins; tied eligible leaders all receive
+the same reward. If every eligible count is zero, or no duck is safe, nobody earns it.
+
+- One Companion in the largest safe flock: **+1 Sleep**.
+- Two or more Companions in the largest safe flock: **+2 Sleep total**.
+- Other ducks: no flock bonus. It is never paid once per Companion or per rival.
+
+This min(count, 2) payout is the lead's bounded recommendation, not an accepted
+balance value. It retains a count-dependent reward without also scaling the
+Night payout to four or indefinitely. Each additional placed Companion still
+contributes its capped four-step movement and helps win the count comparison.
+Owning more copies increases the chance of drawing a flock; resolving a chip
+does not itself improve the odds of later draws.
+
+Apply the flock award to earned and available Sleep before freezing earned
+Sleep and comparing Most Rested. It is spendable that Night and may change the
+Most Rested result, which can grant tomorrow's temporary starting step. Do not
+freeze Sleep first and then change that supposedly frozen comparison value.
+For ordinary Sleep accounting, sum board Sleep, eligible encounter bonuses and
+the flock award, apply the resting-chip Sleep deduction if any, then clamp the
+total at zero once before freezing it. World Events must have explicit ordering
+within this pre-freeze resolution.
+
+Three Companions move nine raw spaces, versus six for three Tailwind →2 chips
+and twelve for three Tailwind →4 chips. The escalating movement plus Sleep can
+make black disproportionately attractive if equally cheap/common. Losing the
+old shield, bounding the Night award, and pricing Companion above simple →2
+movement are important starting constraints, not proof of balance. Test whether
+one player can buy more Companions, win extra Sleep, and repeatedly finance the
+next Companion and Most Rested advantage. If necessary, reduce the award to a
+flat +1 before increasing other families' complexity to compensate.
+
+Show each duck's placed Companion count publicly during exploration, together
+with safe/worn status. The winner is not known until all ducks finish. This is
+a shared race for a reward, not direct removal of another duck's resources.
+For the initial human/AI match compare the two ducks once. A future multiplayer
+Neighbourhood rule card could compare only distinct adjacent players; do not
+double-count the same opponent as both left and right in a two-player game or
+combine per-neighbour prizes with this all-player majority payout.
 
 ## Ordinary obstacles: conditional nuisances
 
@@ -101,10 +178,11 @@ conditional; ordinary obstacles do not impose automatic payout deductions.
 | Brambles | Lose one newly earned Twig only if this chip is the safe final resting place. Lose nothing if no Twig was earned today; earlier nest Twigs are untouched. |
 
 Mud differs from Log: Tailwind →4 still moves four through Mud, but two through
-a Log. A normally one-step Seed cannot eat for an extra step through Mud, so it
-keeps all its kernels for Sleep. A second Companion in Mud moves one but retains
-the existing shield. A rain event's Seed movement bonus is also blocked for
-that next coloured chip. Mud never suppresses Twig/Sleep/preview/rescue effects.
+a Log. A Companion's flock movement bonus is blocked, leaving one step, while
+the chip still counts for the Day's flock. A rain event's Seed movement bonus
+is also blocked for that next coloured chip. The proposed Signpost's intrinsic
+→2 remains two and its preview still works. Mud never suppresses Twig/Sleep,
+preview or rescue effects; an ordinary unmodified Seed is unaffected.
 
 Repeated Logs or Muds do not accumulate. If both are pending, calculate each
 restriction independently from the same proposed movement and use the lower
@@ -114,20 +192,10 @@ gives three, Mud alone four, both give three rather than two. Both clear on the
 next coloured placement, even when movement remains one, or at Day's end.
 World Events with other movement operations need their own explicit ordering.
 
-A Companion shield prevents a new Log/Mud slow status from arming and is then
-consumed; an already-pending duplicate does not consume it. For Pebbles/Brambles,
-keep the shield while exploring and consume it only if safe settlement on that
-chip would actually deduct Sleep/a newly earned Twig. Moving on or having zero
-of that reward to lose does not spend the shield. A shield cannot undo an earlier
-armed slow status. All unspent shields expire during Day cleanup, after settlement.
-The two rest penalties cannot both apply from ordinary final-position
+The previous Companion nuisance shield is superseded, not retained as an extra
+flock benefit. The two rest penalties cannot both apply from ordinary final-position
 scoring: only one encounter occupies the duck's final resting position.
 Moving beyond a Bramble/Pebble avoids its nuisance; it leaves no nightly tax.
-
-If a Seed elects to eat despite a pending Log, its kernel is used even if the
-halving removes the extra step. Show the resulting movement before confirming
-the food choice; gathering remains available. Mud instead disables the extra
-movement option, so the chip gathers all kernels.
 
 Show the short icon key at the board edge and any armed slow effect beside the
 draw control. No paragraphs or default movement numbers belong on chip faces.
@@ -151,12 +219,12 @@ The reduction is not a permanent, cumulative loss across Days.
 | 3 | 4 | 4 | Safe, but any further white causes wear-out |
 | 4 | 5 | 4 | Worn out immediately |
 
-Goose is a white Obstacle for all type-based rules, including Seeds' previous
-Obstacle condition; being special does not create a separate helpful category.
+Goose is a white Obstacle for all type-based rules; being special does not
+create a separate helpful category. Plain Seeds have no previous-Obstacle condition.
 The Goose replaces its old movement/ability-suppression rule. Its maximum
 reduction is a special Exhaustion rule, not an ordinary nuisance: **Companion
-does not block it**. When Goose resolves, it always lowers the maximum. A held
-shield remains for a subsequent ordinary nuisance.
+does not block it**. When Goose resolves, it always lowers the maximum. The
+Companion flock proposal has no shield mechanic.
 
 Update Splash from “cancel the sixth white” to **cancel a draw that would leave
 Exhaustion above the resulting safe maximum**. This covers a Goose that would
@@ -198,7 +266,7 @@ Test actual growing bags and stop behavior before choosing that fallback.
 Show both current Exhaustion and the current maximum prominently; at four
 Exhaustion with an undrawn Goose, the next draw is no longer guaranteed safe.
 
-Review exact denominations, Seed/Companion movement, Mud semantics and Goose
+Review exact denominations, Companion flock and Signpost movement, Mud semantics and Goose
 lifecycle alongside the 50-row rewards, prices, worn-out payout, final Night and
 World Events. Feathers remain automatic permanent +1 starts, never a currency
 or a relocation to yesterday's rest. No new art or runtime work was performed

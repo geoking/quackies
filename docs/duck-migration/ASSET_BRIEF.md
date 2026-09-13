@@ -46,6 +46,11 @@ their category shape/rim and differ through clear nuisance illustrations; use
 a short board-edge key and active-effect indicator rather than face paragraphs.
 The Goose needs a visible current-Exhaustion/current-maximum display; the older
 concept-sheet footer “Five is safe” is not an always-valid runtime instruction.
+Plain Seeds need no quantity/movement badge or power text. The proposed Companion
+flock uses one unnumbered design and a public placed-count/next-movement display;
+2/3/4 is a Day-state progression, not three printed denominations. Its older
+shield treatment is superseded. A fixed-movement Signpost proposal would use
+an explicit →2, separate from any future preview-quantity symbol.
 Artwork must leave room for readable exceptional values at actual iPad mini board and
 opponent-inspection sizes. Player duck pieces must remain distinct from
 Companion duck encounters.

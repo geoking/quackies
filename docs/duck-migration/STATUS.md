@@ -1,7 +1,7 @@
 # Duck migration status
 
 Updated 13 September 2026. The user accepted the revised duck-game direction;
-this is an encounter-quantity and conditional-obstacle discussion. No implementation of
+this is a plain-Seed and Companion-flock discussion. No implementation of
 this new direction has started in Core, CLI or Unity.
 
 ## Current accepted direction
@@ -42,9 +42,12 @@ this new direction has started in Core, CLI or Unity.
 
 The user likes the colour powers and requests Reeds quantities x1/x2/x3 granting
 one/two/three Twigs while normal movement remains one. Current proposals live
-in [ENCOUNTER_RULES.md](ENCOUNTER_RULES.md): more quantity variants, conditional
-Seed/Companion movement, Mud blocking extra movement, and Pebbles/Brambles
-penalties only on their own resting chip. Goose from Day 5 lowers that Day's
+in [ENCOUNTER_RULES.md](ENCOUNTER_RULES.md): Seeds are now plain cheap one-step
+chips with no Exhaustion or Sleep effect. Companion proposes 2/3/4 movement for
+successive placements and a capped largest-safe-flock Sleep reward before
+Most Rested, replacing the shield. Signpost two-step movement plus a preview is
+another suggestion, not an implemented rule. Mud blocks extra movement, and
+Pebbles/Brambles penalties apply only on their own resting chip. Goose from Day 5 lowers that Day's
 safe maximum from five to four when resolved; lifecycle/rescue details remain
 candidate interpretations. Eight whites plus five colours is the Day 1 proposal.
 Earlier effect-free draw math is historical opening-bag evidence, not full-game
