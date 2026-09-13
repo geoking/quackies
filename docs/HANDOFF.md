@@ -1,11 +1,13 @@
 # Quackies handoff
 
-## Current task: accepted duck direction recorded; await next milestone command
+## Current task: fresh encounters and obstacle art ready for review
 
-13 September: the user accepted the revised direction: 50 playable spaces plus
+13 September: the user approved the token-family style, chose ten Days and
+requested original encounter powers rather than Quacks mappings. The earlier
+accepted direction remains: 50 playable spaces plus
 the starting nest; final occupied-space rest and score; frozen earned Sleep
 versus remaining nightly allowance; full-screen Dream Concept B; shared nest
-levels for Days 1–3, 4–6 and 7–9; persistent Twigs; automatic permanent
+levels initially adjusted to Days 1–3, 4–6 and 7–10; persistent Twigs; automatic permanent
 Feather advances; Dawn Delivery stork criteria; and Most Rested based on earned
 Sleep among eligible non-worn ducks. See [status](duck-migration/STATUS.md) and
 the authoritative [plan](duck-migration/PLAN.md) for the bounded specification.
@@ -16,15 +18,25 @@ Three biomes and eight shelters remain, remapped 2/3/3 across 50 spaces; the
 wasteland direction is two Feathers at each earlier haven and three at the
 endpoint haven. The selected
 image is 1536 × 1024; the requested 3072 × 2048 master, exact 50-space fit and
-final table remain open. The new token-family concepts are candidates only.
+final table remain open. The token-family style is approved, with default ‘1’
+badges removed in the [new study](duck-migration/concepts/2026-09-13-obstacle-study/README.md).
+It contains revised ordinary tokens, Tailwind →2/→4/→6 and five white obstacles.
+These are concept sheets, not imported or production-ready sprites.
 
-The tested base game remains a reference, but the duck game is no longer a
-pure reskin: incompatible events and effects must be audited and intentionally
-adapted. No Core, Unity, scene, art import or gameplay implementation has been
-started for this direction.
+The study proposes seven helpful powers and four regular mild nuisances, with
+an optional Grumpy Goose. Eight whites plus five colours and five safe Exhaustion
+(sixth worn out) are working proposals, not finalized rules. Exact effect-free
+bag enumeration gives 7.78 placements/2.78 colours on average when stopping at
+white five; it is not full-game balance evidence. Log affects next-colour movement;
+Pebbles makes only its own safe resting space one Sleep less comfortable.
+
+The tested base game remains a reference. New encounter/event rules need no
+one-to-one conversion of its eight categories or 24 fortunes. Reuse Core/CLI
+architecture. No Core, Unity, scene, import or gameplay implementation has started
+for this direction. Short-match settings remain deferred.
 
 Next bounded work is rules specification, Core plus CLI, Unity fit, a playable
-full-Day/Dream loop, nine-Day AI and balance, then full verification. Preserve
+full-Day/Dream loop, ten-Day AI and balance, then full verification. Preserve
 unrelated work and the pre-existing ProjectSettings preload removal. Root owns
 Git and the milestone checkpoints.
 

@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-13",
+  "mode": "built-in image_gen",
+  "status": "Updated art visually inspected; new effects and revised designs awaiting user review",
+  "outputs": [
+    {
+      "artifact": "ordinary-encounters.png",
+      "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-4f2a9af5-ac82-4fd7-87ce-492597707ca0.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 1774365,
+      "sha256": "e52102922fb79fdb7264b36b551946b4f9ae429d3b080accb96741353c1c49ec"
+    },
+    {
+      "artifact": "tailwind-and-companions.png",
+      "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-d8cee3e9-eac9-42d7-ad0f-920a4fb7ef48.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 1976431,
+      "sha256": "f6f1119f9a7df2e61088f5c2212514398c42cbeabba2ba964b9cf43cf256f367"
+    },
+    {
+      "artifact": "obstacle-variants.png",
+      "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-d1dad8ed-cb14-47fb-8abc-e0c43e4f5653.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 1945166,
+      "sha256": "d79e32d4dd639c730eb8ee66b692a3946b03caf39a08a70bde92f10d40267649"
+    }
+  ],
+  "inspection": {
+    "genericOneBadges": "Absent from all three output sheets; obsolete white badge backings removed.",
+    "tailwind": "Three red variants have readable forward-arrow instructions2,4,6; these mean total movement.",
+    "whiteVariants": "Fallen log, Mud puddle, Loose pebbles, Brambles and optional Grumpy goose; consistent white/charcoal octagon identity; no printed strength numbers.",
+    "style": "Approved colourful cartoon/cardboard family retained; other category names and silhouettes remain identifiable.",
+    "limitations": [
+      "Concept sheets only, not isolated production sprites or exact iPad-size fit.",
+      "Five-safe/sixth-worn is the stated interpretation of proposed threshold, not a implemented rule.",
+      "Obstacle effects and helper abilities are candidate rules; image descriptions do not encode or validate gameplay.",
+      "All native files copied unchanged; prior approved reference images preserved."
+    ],
+    "unityCalls": false,
+    "unityImports": false,
+    "coreChanges": false
+  }
+}

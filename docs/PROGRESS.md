@@ -531,3 +531,43 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   Unity calls/imports, Core/CLI changes or approved artwork replacements occurred.
 - Stopped after planning and token art. The next bounded milestone is the complete
   rules sheet; implementation and Unity remain subject to the next user command.
+
+### 28. Ten-Day direction, fresh powers and obstacle study (13 September 2026)
+
+- The user approved the token-family style, chose ten Days as standard and
+  requested original encounter rules independent of the Quacks structure.
+  Updated the current plan, status, art brief, engine notes, working agreement
+  and handoff. Shorter-match settings remain later work; the initial third nest
+  tier now extends through Day 10, with final-Night behavior still unresolved.
+  The old game remains a tested reference, not a required 24-event conversion.
+- Saved [the encounter/obstacle study](duck-migration/concepts/2026-09-13-obstacle-study/README.md):
+  seven helpful powers, four regular nuisance variants and an optional Grumpy
+  Goose. Eight whites plus five colours, five safe Exhaustion and the sixth
+  worn out are working proposals. Default movement one is unprinted; Tailwind
+  has explicit total movement 2/4/6. Prices, full rewards, worn-out payout and
+  exact powers remain open for review; none were implemented or called balanced.
+- A focused Sol/high worker enumerated every white/colour ordering for candidate
+  bags and checked exact hypergeometric formulas. In 8+5, stopping at white five
+  averages 7.78 placements and 2.78 coloured placements. Continuing through draw
+  eight has a 24.94% chance of reaching white six. This excludes all powers,
+  nuisance penalties, purchases, stopping strategy, weather and permanent starts;
+  it is a bag-pressure baseline, not a measured player loss rate or full-game test.
+  Saved the reproducible dependency-free script and exact JSON report.
+- Independent candidate-rule review identified duplicate Log/Pebble behavior
+  and shield/capped-nuisance timing. Pebbles now reduces Sleep by one only if
+  its own chip is the safe resting place. Clarified shield consumption, pending
+  nuisance priority, daily caps and cancellation versus resolved placement.
+  Feather effect remains fixed at one permanent start step per Feather.
+- Generated three native 1536 × 1024 sheets with built-in image_gen: ordinary
+  encounters without generic badges; Companion/Wildflowers and Tailwinds with
+  readable →2/→4/→6; five white obstacle illustrations with no printed ‘1’.
+  Root visually inspected the outputs and saved byte-identical images, prompts,
+  source paths, hashes and limitations. These are opaque concept sheets, not
+  isolated sprites or game-size readability evidence.
+- Validation: exact bag checks passed, 58 local documentation links checked,
+  JSON/provenance/native-image hashes verified, historical HANDOFF baseline
+  preserved, selected-board and pre-existing ProjectSettings hashes unchanged,
+  and whitespace checks passed. No Core/CLI implementation, Unity calls/imports,
+  runtime tests or approved asset replacements occurred.
+- Stopped for the user's reaction to the rules and art. The full rules-sheet
+  milestone remains incomplete; no automatic implementation or Unity work follows.

@@ -1,7 +1,8 @@
 # Duck art production brief
 
 Updated 13 September 2026. The selected board remains the canonical scenery
-reference, while the new token family is still at concept stage. Rule values,
+reference. The token family's style is approved; revised numberless faces and
+obstacle variants remain concept sheets for review. Rule values,
 placement geometry and interaction copy belong in [PLAN.md](PLAN.md); this
 brief records only the asset direction and production gates.
 
@@ -28,18 +29,23 @@ The seven new category designs are documented in
 [concepts/2026-09-13-token-family/README.md](concepts/2026-09-13-token-family/README.md)
 alongside the approved Seed reference. The categories are Obstacles, Tailwind,
 Signpost, Refreshing splash, Nesting reeds, Companion duck and Wildflowers.
-Each category needs one stable silhouette across strengths, a strong category
+Each category needs one stable silhouette across variants, a strong category
 colour plus an identifying illustration, and a shared footprint and edge
-treatment that fits every legal well. These designs are not accepted art yet.
+treatment that fits every legal well. The user approved this visual family.
 
-Keep strength, changing state and selection highlights as precise overlays.
-Artwork must leave room for readable values at actual iPad mini board and
+The [revised study](concepts/2026-09-13-obstacle-study/README.md) removes generic
+‘1’ badges. Default movement is one, unprinted; Tailwind alone initially uses
+explicit total-movement arrows →2/→4/→6. Keep those instructions, changing state
+and selection highlights as precise production overlays. White obstacles share
+their category shape/rim and differ through clear nuisance illustrations; use
+a short board-edge key and active-effect indicator rather than face paragraphs.
+Artwork must leave room for readable exceptional values at actual iPad mini board and
 opponent-inspection sizes. Player duck pieces must remain distinct from
 Companion duck encounters.
 
 ## Remaining asset work
 
-Review the token-family concepts; later prepare resource icons for Twigs, Sleep and Feathers,
+Review the revised token and obstacle sheets; later prepare resource icons for Twigs, Sleep and Feathers,
 the scored nest and shared nest-level presentation, shelter markers, endpoint
 and wasteland details, the Dawn Delivery stork, and original World Event art.
 The Dream view must show the full legal catalogue without implying extra

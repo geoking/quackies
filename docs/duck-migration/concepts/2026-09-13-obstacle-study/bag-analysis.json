@@ -1,0 +1,228 @@
+{
+  "study": "Quackies obstacle-bag probability audit",
+  "scope": {
+    "days": 10,
+    "playable_trail_spaces": 50,
+    "purpose": "bounded opening-bag arithmetic, not a full-game balance simulation"
+  },
+  "assumptions": [
+    "Draws are uniformly random without replacement.",
+    "Every obstacle adds exactly 1 Exhaustion.",
+    "Exhaustion 5 is safe; placing a sixth obstacle makes the duck worn out.",
+    "The safe stopping policy places the fifth obstacle, then stops immediately.",
+    "Helpful means any non-obstacle draw; it does not claim every coloured effect is beneficial in every state.",
+    "Distance uses movement only and excludes effect chains, negative effects, recovery, voluntary stop strategy, World Events, Dream purchases and permanent Feather starting progress."
+  ],
+  "bags": {
+    "proposal_8_obstacles_5_coloured": {
+      "label": "Proposal: 8 Obstacles + 5 coloured",
+      "composition": {
+        "obstacles": 8,
+        "coloured_helpful_chips": 5,
+        "total": 13
+      },
+      "raw_obstacle_fraction": {
+        "fraction": "8/13",
+        "decimal": 0.615385,
+        "percent": 61.538
+      },
+      "sixth_obstacle_probability_by_draw_if_continuing": {
+        "6": {
+          "fraction": "7/429",
+          "decimal": 0.016317,
+          "percent": 1.632
+        },
+        "8": {
+          "fraction": "107/429",
+          "decimal": 0.249417,
+          "percent": 24.942
+        },
+        "10": {
+          "fraction": "115/143",
+          "decimal": 0.804196,
+          "percent": 80.42
+        }
+      },
+      "stop_immediately_after_placing_fifth_obstacle": {
+        "expected_helpful_draws": {
+          "fraction": "25/9",
+          "decimal": 2.777778
+        },
+        "expected_total_placements": {
+          "fraction": "70/9",
+          "decimal": 7.777778
+        },
+        "obstacles_placed": 5
+      },
+      "verification": {
+        "method": "enumerated every distinct obstacle/colour order and matched hypergeometric and negative-hypergeometric formulas",
+        "distinct_orders": 1287
+      }
+    },
+    "alternative_8_obstacles_7_coloured": {
+      "label": "Alternative: 8 Obstacles + 7 coloured",
+      "composition": {
+        "obstacles": 8,
+        "coloured_helpful_chips": 7,
+        "total": 15
+      },
+      "raw_obstacle_fraction": {
+        "fraction": "8/15",
+        "decimal": 0.533333,
+        "percent": 53.333
+      },
+      "sixth_obstacle_probability_by_draw_if_continuing": {
+        "6": {
+          "fraction": "4/715",
+          "decimal": 0.005594,
+          "percent": 0.559
+        },
+        "8": {
+          "fraction": "43/429",
+          "decimal": 0.100233,
+          "percent": 10.023
+        },
+        "10": {
+          "fraction": "61/143",
+          "decimal": 0.426573,
+          "percent": 42.657
+        }
+      },
+      "stop_immediately_after_placing_fifth_obstacle": {
+        "expected_helpful_draws": {
+          "fraction": "35/9",
+          "decimal": 3.888889
+        },
+        "expected_total_placements": {
+          "fraction": "80/9",
+          "decimal": 8.888889
+        },
+        "obstacles_placed": 5
+      },
+      "verification": {
+        "method": "enumerated every distinct obstacle/colour order and matched hypergeometric and negative-hypergeometric formulas",
+        "distinct_orders": 6435
+      }
+    },
+    "alternative_6_obstacles_5_coloured": {
+      "label": "Alternative: 6 Obstacles + 5 coloured",
+      "composition": {
+        "obstacles": 6,
+        "coloured_helpful_chips": 5,
+        "total": 11
+      },
+      "raw_obstacle_fraction": {
+        "fraction": "6/11",
+        "decimal": 0.545455,
+        "percent": 54.545
+      },
+      "sixth_obstacle_probability_by_draw_if_continuing": {
+        "6": {
+          "fraction": "1/462",
+          "decimal": 0.002165,
+          "percent": 0.216
+        },
+        "8": {
+          "fraction": "2/33",
+          "decimal": 0.060606,
+          "percent": 6.061
+        },
+        "10": {
+          "fraction": "5/11",
+          "decimal": 0.454545,
+          "percent": 45.455
+        }
+      },
+      "stop_immediately_after_placing_fifth_obstacle": {
+        "expected_helpful_draws": {
+          "fraction": "25/7",
+          "decimal": 3.571429
+        },
+        "expected_total_placements": {
+          "fraction": "60/7",
+          "decimal": 8.571429
+        },
+        "obstacles_placed": 5
+      },
+      "verification": {
+        "method": "enumerated every distinct obstacle/colour order and matched hypergeometric and negative-hypergeometric formulas",
+        "distinct_orders": 462
+      }
+    }
+  },
+  "starting_bag_distance": {
+    "composition": [
+      "8 Obstacles",
+      "2 Seeds",
+      "1 Tailwind 2",
+      "1 Signpost",
+      "1 Refreshing splash"
+    ],
+    "movement_model": "Every placed chip moves 1; Tailwind's total movement replaces its ordinary 1.",
+    "probability_tailwind_is_placed_before_stopping": {
+      "fraction": "5/9",
+      "decimal": 0.555556,
+      "percent": 55.556
+    },
+    "tailwind_total_movement_sensitivity": {
+      "2": {
+        "expected_distance": {
+          "fraction": "25/3",
+          "decimal": 8.333333
+        },
+        "fraction_of_50_space_trail": {
+          "fraction": "1/6",
+          "decimal": 0.166667,
+          "percent": 16.667
+        }
+      },
+      "4": {
+        "expected_distance": {
+          "fraction": "85/9",
+          "decimal": 9.444444
+        },
+        "fraction_of_50_space_trail": {
+          "fraction": "17/90",
+          "decimal": 0.188889,
+          "percent": 18.889
+        }
+      },
+      "6": {
+        "expected_distance": {
+          "fraction": "95/9",
+          "decimal": 10.555556
+        },
+        "fraction_of_50_space_trail": {
+          "fraction": "19/90",
+          "decimal": 0.211111,
+          "percent": 21.111
+        }
+      }
+    },
+    "opening_tailwind_2_result": {
+      "expected_distance": {
+        "fraction": "25/3",
+        "decimal": 8.333333
+      },
+      "fraction_of_50_space_trail": {
+        "fraction": "1/6",
+        "decimal": 0.166667,
+        "percent": 16.667
+      }
+    }
+  },
+  "design_readout": [
+    "The proposal is 8/13 Obstacles (61.538%). If drawing continues, worn-out risk rises from 1.632% by draw 6 to 24.942% by draw 8 and 80.420% by draw 10.",
+    "Stopping on obstacle five yields 25/9 (2.778) helpful draws and 70/9 (7.778) total placements on average.",
+    "With ordinary movement 1 and Tailwind 2, the bounded opening estimate is 25/3 (8.333) spaces, one sixth of the 50-space trail. Later strong movement and/or Feather progression is therefore needed for deep-route access.",
+    "The 8+7 alternative gives the safest draw-10 risk (42.657%) and most helpful draws (3.889) of these options. The 6+5 bag has lower early risk, but with only one obstacle left after the safe limit its draw-10 risk is 45.455%.",
+    "A safe outing reaches five obstacle placements under this policy, so eight individually unique inconveniences would create frequent stacking, timing and explanation overhead. Exact obstacle effects and their stacking rules remain unresolved."
+  ],
+  "unresolved_for_full_balance": [
+    "The effects and movement totals of Seeds, Signpost and Refreshing splash.",
+    "The eight obstacle inconveniences, including timing, duration and stacking.",
+    "Recovery rules and any reason to stop before five Exhaustion.",
+    "Dream supply, prices, later bag composition and Tailwind 4/6 acquisition pace.",
+    "World Events, Feather gain cadence and the 50-space reward curve."
+  ]
+}

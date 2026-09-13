@@ -6,7 +6,9 @@ Follow docs/duck-migration/PLAN.md for the current duck migration. The completed
 playable baseline is documented in docs/IMPLEMENTATION_GOAL.md. Read
 docs/ARCHITECTURE.md before changing component boundaries. Readable, adaptable
 architecture is the leading requirement. Core rules must never depend on Unity.
-Do not simplify the agreed complete base-game scope to satisfy prototype tests.
+Do not shrink the agreed complete game scope to satisfy prototype tests.
+Preserve the completed original rules as a reference; they do not prescribe
+the new duck game's encounter powers or World Event catalogue.
 
 ## Model and usage policy
 
@@ -50,7 +52,8 @@ A successful Editor run, iOS export, and device test are distinct evidence.
 Stop at each completed milestone and ask the user how they feel about the result
 before starting the next one. Follow the current milestone order in
 docs/duck-migration/PLAN.md. The user has approved a distinct Quackies rules
-direction (50-space rest, dreams, nest levels, Feather trails and Dawn Delivery),
+direction (ten Days, 50-space rest, dreams, nest levels, Feather trails, Dawn
+Delivery and fresh encounter/event rules),
 superseding the earlier presentation-only reskin. Preserve the original rules as
 a tested reference while deliberately implementing the approved new profile.
 Do not restore superseded mechanics or invent unresolved balance rules; finish

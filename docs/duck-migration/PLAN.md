@@ -1,13 +1,14 @@
 # Quackies overall plan
 
 Updated 13 September 2026. This is the accepted direction following the user's
-approval of the full-screen Dream view, shared nest levels, Feather trails and
-Dawn Delivery. It supersedes the earlier presentation-only migration.
+approval of the full-screen Dream view, shared nest levels, Feather trails,
+Dawn Delivery and token style, followed by ten Days and fresh encounter rules.
+It supersedes the earlier presentation-only migration and Quacks rule mapping.
 Historical decisions and evidence remain in [PROGRESS.md](../PROGRESS.md).
 
 ## What we are building
 
-A complete nine-Day tabletop game for iPad mini landscape, initially one human
+A complete ten-Day tabletop game for iPad mini landscape, initially one human
 versus Normal AI. Ducks explore a shared world by Day, then dream at Night.
 Twigs build their nests and determine the winner. Each duck has its own bag,
 route state and score; shared World Events affect the same world.
@@ -20,9 +21,11 @@ The **full-screen nest and Dream mat, Concept B**, is the chosen layout directio
 A clear **View adventure** button returns to the board. The integrated tray is
 a historical alternative, not the default.
 
-This checkpoint updates the plan, generates the other token concepts and explains
-the build sequence. It does not implement rules, modify the CLI or import into
-Unity. New token art still needs the user's visual reaction.
+This checkpoint proposes new encounter powers and a starting bag, checks the
+bag's baseline risk, and revises the accepted token style without generic number
+badges. It does not implement rules, modify the CLI or import into Unity. Exact
+powers and revised images in the [obstacle study](concepts/2026-09-13-obstacle-study/README.md)
+remain for review; the complete rules sheet is not yet finished.
 
 ## The short build sequence
 
@@ -32,7 +35,7 @@ Unity. New token art still needs the user's visual reaction.
    rules in small tested pieces, and play complete games in the text client.
 3. **Build the Unity table.** Fit all 50 spaces to the selected artwork and
    build the spacious Dream screen, nest display and token catalogue.
-4. **Connect and play the full game.** Run all nine Days with the human and AI,
+4. **Connect and play the full game.** Run all ten Days with the human and AI,
    including rest, dreams, upgrades, deliveries and the final result.
 5. **Balance and finish.** Test whether players can recover from falling behind,
    tune rewards, inspect iPad readability, polish feedback and verify the iOS export.
@@ -94,7 +97,7 @@ the track-end/last-Night cases must be specified before implementation.
 ### Full-screen Dream view and nest levels
 
 Use a dedicated Dream view with room for all legal encounter categories and
-strengths, clear costs and remaining Sleep, plus a persistent route-preview
+thematic variants, clear costs and remaining Sleep, plus a persistent route-preview
 button. Do not add a second movement track. The earlier mockup's two seed offers
 and prices illustrate layout only; they are not a random market or price table.
 Obstacles are a bag category, not automatically a purchasable offer. Adapt
@@ -107,9 +110,10 @@ Both ducks unlock the same nest level with the calendar:
 | --- | --- | --- |
 | 1–3 | 1 — Little nest | 1 |
 | 4–6 | 2 — Comfortable nest | 2 |
-| 7–9 | 3 — Cosy nest | 3 |
+| 7–10 | 3 — Cosy nest | 3 |
 
 Each duck has its own allowance; this is not a shared match-wide purchase cap.
+Extending the third tier through Day 10 is the initial schedule adjustment.
 These are initial settings to test, not claims of balance. Limits apply across
 the whole Night, not separately each time the purchase panel is opened.
 Sleep still limits affordability. The starting proposal for M2 is to retain
@@ -136,8 +140,9 @@ is not an equivalent prize and is deferred; varied bonus choices can follow
 balance evidence. Define the final-Night reward and contributing Sleep modifiers
 in the rules sheet.
 
-Movement bonuses affect distance, not printed encounter strength or white
-Exhaustion. Define ordering with World Events and other placement effects.
+Movement bonuses affect distance, not white Exhaustion. Default movement and
+explicit movement instructions are separate from ability amounts; there is no
+universal printed strength. Define ordering with World Events and other effects.
 
 ### Dawn Delivery
 
@@ -167,12 +172,32 @@ and duration; resolve reveal-time choices before exploration, while preserving
 the correct timing of later effects. For example:
 “Rain-softened seeds — Seeds move +1 today.”
 
-Reuse compatible Set 1 effects and the existing event-hook system. Audit all
-eight encounter categories and all 24 existing events. Rules involving ruby
-spending, rat tails, the bonus die, next-space scoring or the old purchase cap
-need deliberate adaptation. Maintain an explicit keep/adapt/replace mapping;
-do not silently drop incompatible events or claim unchanged full-rule coverage.
-Original text/art must describe the actual new effect.
+Design original encounter powers and a World Event catalogue around the duck
+game. Reuse useful engine hooks, not a required Set 1 effect structure, card
+count or one-to-one conversion of the old 24 events. The complete new rules
+contract must list every included effect, timing, choice and restriction.
+The original game remains a tested reference, not a content requirement.
+
+### Current encounter proposal — awaiting review
+
+Use the [fresh encounter study](concepts/2026-09-13-obstacle-study/README.md)
+as the single detailed candidate specification. Default movement is one space;
+only thematic movement specialists have explicit instructions, initially
+Tailwind →2/→4/→6, each denoting total movement.
+
+The user's suggested opening bag is eight white Obstacles plus five colours.
+The study proposes two each of Log, Mud, Pebbles and Brambles, with two Seeds,
+one Tailwind →2, one Signpost and one Splash. Its working threshold is five
+Exhaustion safe and the sixth resolved Obstacle worn out. Each white contributes
+one Exhaustion plus a small nuisance. Exact powers, composition and threshold
+are candidate rules, not finalized balance.
+
+The effect-free bag audit gives 7.78 placements and 2.78 coloured placements on
+average when stopping at the fifth white; it excludes powers and player strategy.
+Test whether early trips offer enough useful coloured draws. Keep nuisance
+penalties bounded, avoid stacking movement penalties, and show a concise
+board-edge obstacle key with active effects near the draw control. The study's
+Grumpy Goose is optional later variety, not part of the first starting bag.
 
 ## Art and token philosophy
 
@@ -189,11 +214,12 @@ to one well. Use moon + Sleep, twigs + score, and any Feather yield in readable
 reward strips. Omit zero-Twig clutter. Update the footer to explain scoring
 **where the duck rests**; remove the old next-empty-space instruction.
 
-Each token category has a consistent silhouette across strengths, a strong
+Each token category has a consistent silhouette across variants, a strong
 face/rim colour and an identifiable illustration. Different categories can
 have different shapes but must fit a common well footprint. Keep rounded sturdy
-edges, matte cardboard depth and playful original illustrations. Reserve a clear
-strength area; production numerals and changing state remain precise overlays.
+edges, matte cardboard depth and playful original illustrations. Omit default
+‘1’ badges. Reserve room for explicit movement instructions only where needed;
+production arrows, exceptional values and changing state remain precise overlays.
 Colour alone must not be required to recognize a category.
 
 | Identity | Encounter name |
@@ -207,16 +233,18 @@ Colour alone must not be required to recognize a category.
 | Black | Companion duck |
 | Purple | Wildflowers |
 
-The [token-family study](concepts/2026-09-13-token-family/README.md) explores the
-seven other categories beside the accepted Seed style. Those concepts are for
-review, not approved sprites or final effect specifications. Player ducks remain
+The user approved the [token-family style](concepts/2026-09-13-token-family/README.md).
+The [updated study](concepts/2026-09-13-obstacle-study/README.md) removes default
+badges, adds three Tailwinds and explores five white nuisances. These remain
+concept sheets, not production sprites or final effect specifications. Player ducks remain
 distinct colours/personalities and die-cut silhouettes; the Companion duck is a
 small illustrated encounter tile, not another player marker. Four duck identities
 do not expand the initial human-versus-AI scope.
 
 Other display terms: Day; Explore; Settle down; Exhaustion; Worn out!; Shelter;
 Feather trail; Dream choices; Most Rested Duck; World Event; Dawn Delivery.
-Water flask/recovery stays an unresolved rule mapping, not a Feather purchase.
+The study proposes Splash rescue; any separate flask/recovery mechanic remains
+an unresolved inclusion decision, not a required Quacks feature or Feather purchase.
 Production guidance is in [ASSET_BRIEF.md](ASSET_BRIEF.md).
 
 ## Reuse the engine; replace the changed rules
@@ -247,18 +275,19 @@ remaining roadmap replaces the earlier “terminology first, balance later” or
 
 | Milestone | Work | Review evidence |
 | --- | --- | --- |
-| M1 checkpoint — accepted direction and token study | This plan, seven token concepts and engine recommendation | Visual feedback; no implementation yet |
-| M2 — Rules sheet | 50-row table, prices, shelter indices, all encounter/event mappings, recovery and final-Night rules | One readable, complete rules contract and example Days |
+| M1 checkpoint — accepted art and fresh encounter study | Numberless token art, Tailwind variants, white nuisances and opening-bag audit | Review revised art and candidate rules; no implementation yet |
+| M2 — Rules sheet | 50-row table, prices, shelter indices, original encounter/event definitions, worn-out/recovery and final-Night rules | One readable, complete rules contract and example Days |
 | M3 — Core and CLI | Implement the new profile in bounded source/test checkpoints; update observations, actions and Normal AI | Focused rule tests, original regression checks and complete deterministic CLI matches |
 | M4 — Unity board and Dream layout | Fit 50 indexed spaces, tokens, nest, full catalogue and navigation to iPad landscape | Actual-size layout, reward visibility, alignment and touch checks |
-| M5 — Full playable game | Bind every phase/choice to Core, add deliveries and journey feedback, restart and complete nine Days | End-to-end human/AI match, scene reconstruction and error checks |
+| M5 — Full playable game | Bind every phase/choice to Core, add deliveries and journey feedback, restart and complete ten Days | End-to-end human/AI match, scene reconstruction and error checks |
 | M6 — Balance and release preparation | Tune recovery/leader loops, finish essential assets/help and verify export | Recorded balance evidence, full relevant checks, iOS export; user decides merge/release |
 
 M2 must settle: stopping before a draw; rewinds; endpoint/overshoot and saturated
 Feather trails; worn-out Sleep/Twig/Feather treatment; Sleep expiry and final-Night
 disposition, including whether any Sleep conversion exists; final-Day rewards
 with no tomorrow; recovery/flask mechanics; event/bonus ordering; finite supply,
-category uniqueness/unlocks, strengths and the final price table. Define when
+category uniqueness/unlocks, movement variants, starting bag, nuisance ordering,
+Exhaustion threshold and the final price table. Define when
 each Day's effective start freezes, including Dawn gifts and reveal-time event
 Feathers. Endpoint bookkeeping may not add Feather banking, spending, conversion
 or a nightly redemption cap as a convenient substitute.
@@ -268,8 +297,9 @@ master and exact 50-space fit remain outstanding. A passing width audit of a
 later V10 alternative does not apply to the user-selected image. Preserve the
 selected composition while resolving the layout.
 
-Test tubes, additional ingredient sets, a separate AI-history pane and physical
-device installation remain deferred. Keep the initial AI/starting-progress
+Short-match settings are deferred; standard play is ten Days. Test tubes,
+additional encounter sets, a separate AI-history pane and physical-device
+installation also remain deferred. Keep the initial AI/starting-progress
 settings, fixed starting-bag reference, rival-board inspection and restart.
 Keep source art, identifiers and namespaces as Quackies; release title is undecided.
 

@@ -1,11 +1,13 @@
 # Duck migration status
 
 Updated 13 September 2026. The user accepted the revised duck-game direction;
-this is a planning and token-art checkpoint. No Core, Unity, scene, or gameplay
-implementation has started.
+this is a fresh-rules proposal and token-art checkpoint. No implementation of
+this new direction has started in Core, CLI or Unity.
 
 ## Current accepted direction
 
+- Standard play is **ten Days**. A shorter-match setting is deferred. Encounter
+  powers and World Events will be original designs, not required Quacks mappings.
 - The board keeps the selected **exec-9d44cb08-9cb9-4367-8a00-4a5f8c60b78b**
   composition unchanged. The approved native image is
   [the selected board](concepts/2026-09-12-approved/board-art-approved.png);
@@ -20,7 +22,7 @@ implementation has started.
 - Night opens the full-screen Dream view based on
   [Concept B](concepts/2026-09-13-dream-study/concept-b-nest-mat.png), with a
   **View adventure** button and enough room for the complete legal encounter
-  catalogue. Shared nest levels cover Days 1–3, 4–6 and 7–9 and allow 1, 2 or
+  catalogue. The initial ten-Day nest schedule covers Days 1–3, 4–6 and 7–10 and allows 1, 2 or
   3 purchases per Night respectively; they are not tied to Twig score.
 - Twigs are persistent victory score and are shown in the nest. Each Feather
   automatically and permanently advances the starting trail by one space;
@@ -33,15 +35,19 @@ implementation has started.
 - Three biomes remain, with the approved eight shelters remapped 2/3/3 across
   the 50 spaces. Each earlier wasteland haven awards two Feathers and the
   endpoint haven three; exact row values and shelter indices are open.
-- The new token-family concepts are saved in
-  [the token-family brief](concepts/2026-09-13-token-family/README.md): seven
-  new category designs plus the approved Seed style reference. They are
-  concept candidates, not accepted final art.
+- The user approved the [token-family style](concepts/2026-09-13-token-family/README.md).
+  The [updated study](concepts/2026-09-13-obstacle-study/README.md) removes default
+  ‘1’ badges, shows Tailwind →2/→4/→6 and adds five distinct white nuisances.
+  Revised sheets and exact effects are for review, not production sprites.
+
+The current bag proposal is eight whites plus five colours, with five Exhaustion
+safe and the sixth white worn out. The study records seven helpful powers,
+four regular mild nuisances and an optional Goose, plus exact effect-free draw
+math. These are candidates awaiting review, not approved balanced rules.
 
 The accepted direction and remaining specification work are in [PLAN.md](PLAN.md).
-The implementation must preserve
-the tested base game as a reference while intentionally adapting incompatible
-events and effects for the new duck game; this is no longer a pure reskin.
+Preserve the tested base game as a reference while defining the complete new
+duck rules. Its eight categories/24 events do not prescribe the new rule content.
 
 ## Evidence and remaining work
 
@@ -52,7 +58,7 @@ clearance audit to the selected image.
 
 Next bounded work is: write the exact rules/table; implement and test Core plus
 CLI; fit the selected board in Unity; validate a playable full-Day/Dream loop;
-then run nine-Day AI, balance and full verification. Final-night Sleep,
+then run ten-Day AI, balance and full verification. Final-night Sleep,
 Feather and Dawn handling must be explicit before implementation.
 
 M0 remains the tested historical reference: clean build, 129 passing tests and

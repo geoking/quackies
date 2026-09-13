@@ -1,5 +1,11 @@
 # Encounter token family — 13 September 2026
 
+**Review update:** the user approved this token style. Generic ‘1’ badges are
+superseded by [the numberless encounter and obstacle study](../2026-09-13-obstacle-study/README.md),
+which also shows explicit Tailwind movement variants. The original sheets and
+inspection below are retained as history; approval of style does not fix powers
+or certify production sprites.
+
 Seven new category concepts, shown beside the approved Seed's style, for the
 user's review. The [overall plan](../../PLAN.md) records the accepted game
 direction; these illustrations do not approve new effects.
@@ -44,4 +50,4 @@ These are opaque concept sheets, not isolated sprites or an alpha atlas.
 Strength1 is illustrative; production strength numerals must be separate exact
 overlays. Actual iPad readability and common physical sizing still need checking.
 No approved artwork was replaced; no Unity calls/imports or game-code changes
-were made. User acceptance of these new token designs is pending.
+were made. The later style approval is recorded at the top of this document.

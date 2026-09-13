@@ -1,7 +1,8 @@
 # Evolve the existing engine
 
 13 September 2026. Architecture recommendation for the accepted Day/Dream
-direction in [PLAN.md](PLAN.md). This document changes no implementation.
+direction in [PLAN.md](PLAN.md), now ten Days with original encounter powers
+and World Events. This document changes no implementation.
 
 ## Decision
 
@@ -42,6 +43,7 @@ be one authoritative match engine.
 | --- | --- |
 | [BoardTrack](../../src/Quackies.Core/Rules/BoardTrack.cs) | Explicit playable endpoint and reward lookup policy; the duck profile has nest 0 and occupiable/scorable 1–50. Store authoritative biome, Sleep, Twigs, Feather yield and shelter identity. Remove the assumption that every profile scores position+1. |
 | [Player state](../../src/Quackies.Core/Match/PlayerRoundState.cs) | Separate persistent Twigs, frozen Sleep earned, Sleep remaining, permanent trail, next-Day temporary advantage, effective start and frozen rest position. |
+| Encounter identity and effects | Separate category, obstacle subtype, explicit movement instruction and ability parameters. Default movement one is not a universal printed strength. Add session-owned nuisance/preview/rescue state only after the candidate rules are agreed. |
 | Feather awards | Route all duck-profile Feather sources through one capability that advances the permanent start exactly once and records the source for display/history. No spendable Feather balance or Feather-spending action. |
 | [Evaluation](../../src/Quackies.Core/Match/EvaluationPhaseHandler.cs) | Freeze final occupied rest and Sleep at the agreed point; resolve Night effects and compare safe ducks by earned Sleep, preserving correct event ordering. |
 | Dream phase | Replace the duck profile's old evaluation/shop/ruby sequence with explicit Night resolution and Dream purchasing. Full-screen layout is a Unity concern; phase legality belongs to Core. |
@@ -56,38 +58,37 @@ Classic state/behavior must remain valid for its tests while duck clients use
 clear domain names. Compatibility is not a reason to label permanent progress
 as a spendable currency.
 
-## Existing effects that cannot simply be renamed
+## New rules rather than mandatory conversions
 
-The rules-sheet milestone must map every one of the eight encounter categories
-and 24 existing events to keep, adapt or replace, with resulting behavior stated.
+The user explicitly chose freedom from the Quacks effect structure. Write a
+complete original encounter catalogue and World Event deck; neither the old
+24-card count nor a one-to-one keep/adapt/replace mapping is required. Original
+regression tests still describe the completed reference game.
 
-- A Good Start, Rat Infestation and Rats Are Your Friends depend on rats.
-- Wheel and Deal spends a ruby, which Feathers no longer permit.
-- Lucky Devil, Shining Extra Bright, Less Is More, You Only Get to Choose One
-  and Charity award or compare ruby resources. Automatic trail movement changes
-  their value and sometimes their meaning.
-- Choose Wisely, Pot Is Filling Up and Seasoned Perfectly grant permanent
-  movement. Decide how their effects fit Feather-trail terminology and timing.
-- The Pot Is Full and Roll the Die depend on a die whose old default role is
-  being replaced. Magic Potion depends on the unresolved recovery lifecycle.
-- Green, purple and black encounter evaluation grants combinations of points,
-  rubies or droplet movement. Reauthor their exact duck rewards deliberately.
-- [Pumpkin Patch Party](../../src/Quackies.Core/Rules/Fortunes/OngoingFortunes.cs)
-  already supplies the rain/Seed+1 movement pattern without changing strength.
+Reuse technical capabilities where they fit. For example, the existing
+[ongoing event hooks](../../src/Quackies.Core/Rules/Fortunes/OngoingFortunes.cs)
+can inform a rain/Seed movement modifier. They do not mandate the old event's
+text, deck membership or balance. Ruby spending, rat tails and bonus-die effects
+must not leak into the new profile through default registration.
 
-Do not silently remove incompatible content or keep old ruby uses under a new
-name. Numeric strengths, prices, unlocks and safe/worn-out restrictions require
-a deliberate specification; token artwork does not define them.
+The [fresh encounter study](concepts/2026-09-13-obstacle-study/README.md) proposes
+eight whites plus five colours, five safe Exhaustion, mild bounded nuisances,
+explicit Tailwind movement and preview/shield/rescue powers. These are review
+candidates. Specify cancellation versus placement, private previews, nuisance
+priority/expiry, daily caps and pending versus banked rewards before coding.
+AI and human must see the same information legally available to their duck;
+a Signpost preview does not expose an unearned future draw order.
 
 ## Before coding
 
 Finish the 50-row table and eight shelter locations. Define no-draw rest,
 rewinds, overshoot/settling, saturated permanent trails, worn-out results,
-Sleep expiry, bonus ordering, flask/recovery and final-Night behavior.
+Sleep expiry, bonus ordering, whether any separate recovery/flask exists,
+the exact starting bag, threshold, prices and final-Night behavior.
 The accepted one-to-one Feather rule cannot silently become a cap, bank or
 alternate conversion to work around an unresolved boundary.
 
-Day 9 has no Day 10: purchasing encounters and awarding tomorrow's advantage
+Standard play ends after Day 10: purchasing encounters and awarding tomorrow's advantage
 need an explicit ending treatment. Twigs determine the winner; reaching 50
 does not automatically win. Record any final tie-break instead of inheriting
 one accidentally from the old physical scoring position.
@@ -97,13 +98,15 @@ one accidentally from the old physical scoring position.
 1. Publish the readable rules contract and data.
 2. Evolve track, state and observations, then direct rest/Sleep/Feather behavior.
 3. Implement Most Rested, Dawn Delivery, Dream purchases and the ending.
-4. Adapt every mapped encounter/event and update CLI/Normal AI.
+4. Implement every newly specified encounter/event and update CLI/Normal AI.
 5. Verify complete deterministic text matches, then bind Unity.
 
 Keep focused source/test checkpoints separate and push each. Retain meaningful
 classic regression tests; add duck tests against the same engine for all 50
 positions, frozen versus spent Sleep, every Feather source, Dawn thresholds,
-tied Most Rested, purchase tiers, endpoint/rewind cases, each event and final Day.
+tied Most Rested, purchase tiers, endpoint/rewind cases, each new encounter/event
+and final Day 10. Verify obstacle subtypes, queued nuisances, private previews
+and cancellation/Exhaustion boundaries against the agreed new specification.
 Continue testing immutable snapshots, stale choices and shared supply.
 
 Use seeded complete matches to inspect game length, leader retention, recovery,
