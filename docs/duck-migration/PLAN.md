@@ -26,11 +26,13 @@ Use the selected [board](concepts/2026-09-12-approved/board-art-approved.png),
 chosen full-screen layout with **View adventure** navigation and room for the
 whole shop. Its illustrative prices and Feather-spending controls are obsolete.
 
-**M2 is complete. The revised M3 layout is ready for user visual review.** The
-earlier fixed-data proof and its [historical review evidence](m3/README.md)
-remain available, but the user rejected its board concept and asset-resolution
-assumption. M4 remains unstarted and waits for the user's command; no Core
-gameplay work has begun.
+**M2 is complete. M3 is reopened for refinement.** The earlier fixed-data proof
+and the previous revised-M3 captures are historical/rejected evidence. The
+current `board-layout.json` is a provisional 40-space visual fixture, not an
+approved rules board; canonical v1 data remains 50 spaces until the user
+chooses between 40 larger, 45 smaller, and 45 with an extended painted route.
+M4 remains unstarted and waits for the user's command; no Core gameplay work
+has begun.
 
 ## Current rule references
 
@@ -102,11 +104,13 @@ Keep a single source for each kind of detail instead of duplicating long lists:
 
 1. **M2 is complete.** Rules, rewards, prices, events, settings, Night tie-break
    and local autosave/resume are approved.
-2. **M3 revised layout is ready for visual review.** The board geometry, haven
-   treatment, tile sizing and dual-viewport runtime audit are recorded in
-   [m3-revision/README.md](m3-revision/README.md) and its
-   [validation record](m3-revision/validation.md). The earlier proof is
-   historical validation only; the revised two-rebuild and Console checks pass.
+2. **M3 refinement is open.** Compare the provisional 40-space fixture and its
+   108 × 79.2 wells with the pending 45-space alternatives. See
+   [m3-refinement/README.md](m3-refinement/README.md). The earlier proof and
+   revised-M3 captures are historical/rejected. The candidate validation passes
+   actual 1133 × 744 and 2732 × 2048 audits, 40/40 center raycasts and
+   PointerClick inspections; see [validation](m3-refinement/validation.md).
+   Route-count selection and M3 approval remain open.
 3. **Evolve Core with the CLI alongside it.** Keep the engine/API boundary;
    refactor duck identity, state and phases. Build a complete Day/Night slice,
    then all ten Days, the Normal AI and local autosave/resume.
@@ -116,9 +120,9 @@ Keep a single source for each kind of detail instead of duplicating long lists:
    touch/readability, restart/resume and export. Review before changing numbers.
 
 The detailed [implementation plan](IMPLEMENTATION_PLAN.md) splits these into
-reviewable checkpoints. M3 revision remains the visual gate and M4 the Core/CLI
-build; this deliberately brings the highest visual risk forward. Stop for
-feedback at each milestone. M4 starts only on the user's command.
+reviewable checkpoints. M3 refinement remains the visual gate and M4 the
+Core/CLI build; this deliberately brings the highest visual risk forward. Stop
+for feedback at each milestone. M4 starts only on the user's command.
 
 ## Art and token philosophy
 
@@ -129,16 +133,13 @@ usable widths across all biomes. Bridges meet the route naturally; the dramatic
 wasteland crossing remains a timber-and-rope bridge over a cleft.
 
 Layer precise wells, reward strips, rest markers and movable tokens over the
-approved base art. The revision must place all 50 spaces in one centered route
-following the painted path, with near-even arclength spacing across wetlands,
-meadow and wasteland. Do not use a zigzag route or sidebar/stacked wells; keep
-the descending and ascending wetland arms approximately even in count. Make
-tiles and token faces larger while preserving usable paths and shelter entries.
-Seven haven tiles sit on the path next to their painted shelters and never cover
-the shelter artwork; space 50 uses the oasis itself and has no separate tile.
-Integrate a single-Feather haven treatment and the two-Feather wasteland
-treatment into the haven artwork instead of floating Feather decorations. Use
-the playful
+approved base art. The current refinement compares a provisional 40-space
+centerline with 108 × 79.2 wells against the unresolved 45-space alternatives.
+Every candidate center must follow painted path art, including wasteland curves;
+bridges have no tiles. Haven entry alignment, same-biome tile colour, green
+leafy nest borders and large integrated Feather 1/2 treatments remain visual
+requirements. Do not promote this fixture into rules data until the user picks
+the route count. Use the playful
 [V5 painted components](concepts/2026-09-11-v5/painted-kit.png)
 as style references, not their rejected coordinates. Each shelter visibly belongs
 to one well. Replace the old coin treatment with a Moon/Sleep icon, and use
@@ -206,7 +207,7 @@ need distinct validation; this planning audit is not a runtime test.
 | --- | --- |
 | M0 / initial M1 | Historical baseline and art exploration; recorded in PROGRESS |
 | **M2 — Complete** | Rules, all data, events, defaults and local save/resume approved; final-Day-only simultaneous drawing and Night Sleep tiebreak recorded |
-| **M3 — Ready for visual review** | Revised centered 50-space route, seven adjacent haven wells, larger tiles/tokens, endpoint data and passing 1133 × 744 / 2732 × 2048 runtime audits; two stable rebuilds and zero Console errors recorded in [m3-revision/README.md](m3-revision/README.md) and [validation](m3-revision/validation.md) |
+| **M3 — Refinement open** | Provisional 40-space visual fixture with 108 × 79.2 wells; candidate compilation, Console, rebuild, texture, dual-viewport and 40/40 pointer evidence pass in [m3-refinement/validation.md](m3-refinement/validation.md). Compare 40 vs unresolved 45 alternatives; no completion or approval claim. |
 | M4 — Core/CLI (unstarted) | New profile/state, exact private previews, complete Day/Night and ten-Day matches, Normal AI and local save/resume; starts only on the user's command |
 | M5 — Connected Unity game | Committed Core handoff, complete human/AI play, all phases, restart and local match restoration |
 | M6 — Balance/export | Match evidence, approved tuning, readability/performance and iOS export |
@@ -217,16 +218,15 @@ empty-bag and overshoot rules are fixed, as are shop limits, Sleep expiry,
 recovery exclusion, worn-out payouts and final ranking. There are no remaining
 M2 rule decisions. Production polish and actual balance are later milestone work.
 
-The current M3 revision finishes layout at the approved board source size. The
-detailed 3072 × 2048 production master is explicitly deferred; retain the
-higher-resolution authoring plan and 4096 import cap. UI remains
-resolution-independent and production sprites use native assets at their
-intended scale. The revised layout passes runtime audits at 1133 × 744 and
-2732 × 2048. The board uses seven native-alpha haven wells beside shelters,
-larger 90 × 66 wells and 66-unit token faces (previously 74 × 58 and 54), with
-havens at 3, 11, 19, 27, 29, 37, 44 and 50; endpoint remains 21 Sleep / 9
-Twigs / 2 Feathers. The earlier 1536 × 1024 proof and its captures remain
-historical validation only.
+The 40-space `board-layout.json` is a provisional visual fixture for review;
+canonical v1 data remains 50 rows with havens 3, 11, 19, 27, 29, 37, 44 and 50
+and endpoint 21 Sleep / 9 Twigs / 2 Feathers. The detailed 3072 × 2048 painted
+master remains explicitly deferred; retain the higher-resolution authoring plan
+and 4096 import cap. UI remains resolution-independent and production sprites
+use native assets. Candidate validation is recorded in
+[m3-refinement/validation.md](m3-refinement/validation.md), while route-count
+selection and M3 approval remain open. The earlier 1536 × 1024 proof and revised-M3 captures remain
+historical/rejected evidence.
 
 Short-match settings, alternate rule cards, test tubes, a separate AI-history
 pane and device installation remain deferred. Four player duck identities do

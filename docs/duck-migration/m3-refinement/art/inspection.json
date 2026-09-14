@@ -1,0 +1,26 @@
+[
+  {
+    "file": "unity/Quackies.Unity/Assets/Art/DuckLayout/nest-frame-one.png",
+    "width": 1463,
+    "height": 1075,
+    "mode": "RGBA",
+    "centerAlpha": 0,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "8767f47094c093711e43e47e70906b0c6b156a4842b35d486772f568c41b4361"
+  },
+  {
+    "file": "unity/Quackies.Unity/Assets/Art/DuckLayout/nest-frame-two.png",
+    "width": 1462,
+    "height": 1076,
+    "mode": "RGBA",
+    "centerAlpha": 0,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "94bf3631c984046d74aa2da7493b5103974fff28dcdfd9e1b140ebe6136dc664"
+  }
+]

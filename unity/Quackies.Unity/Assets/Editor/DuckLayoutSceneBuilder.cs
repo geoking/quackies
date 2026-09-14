@@ -101,7 +101,7 @@ namespace Quackies.Unity.Editor
                 out var inspectionArt, out var inspectionSleep, out var inspectionTwig, out var inspectionFeather, out var closeInspection);
             dream.gameObject.SetActive(false);
             proof.Configure(adventure.gameObject, dream.gameObject, dreamAdventureButton, dreamButton, emptyButton, occupiedButton,
-                status, spaces, offers, tokens, duckRest, zzz, featherTrail, inspection, inspectionTitle, inspectionDetail,
+                status, data.boardSpaceCount, spaces, offers, tokens, duckRest, zzz, featherTrail, inspection, inspectionTitle, inspectionDetail,
                 inspectionSleepValue, inspectionTwigValue, inspectionFeatherValue, inspectionArt, inspectionSleep, inspectionTwig,
                 inspectionFeather, closeInspection);
             proof.transform.SetAsLastSibling();
@@ -121,21 +121,22 @@ namespace Quackies.Unity.Editor
             art = null;
             if (!File.Exists(ToAbsolutePath(BoardLayoutPath))) { issue = "Missing required " + BoardLayoutPath + "."; return false; }
             if (!DuckLayoutBoardData.TryParse(File.ReadAllText(ToAbsolutePath(BoardLayoutPath)), out data, out issue)) return false;
+            var endpoint = data.boardSpaceCount;
             var configuredHavens = data.rows.Where(row => row.haven).Select(row => row.space).OrderBy(space => space).ToArray();
-            if (configuredHavens.Length != 8 || !configuredHavens.Contains(50))
+            if (configuredHavens.Length != 8 || !configuredHavens.Contains(endpoint))
             {
-                issue = "Expected exactly eight havens, including the endpoint at space 50.";
+                issue = "Expected exactly eight havens, including endpoint " + endpoint + ".";
                 return false;
             }
-            var oasis = data.rows.Single(row => row.space == 50);
+            var oasis = data.rows.Single(row => row.space == endpoint);
             if (!oasis.haven || oasis.feathers != 2)
             {
-                issue = "Endpoint 50 must be the oasis haven with its two Feather reward.";
+                issue = "Endpoint " + endpoint + " must be the oasis haven with its two Feather reward.";
                 return false;
             }
             var required = new[]
             {
-                "board.png", "well-grass.png", "well-wasteland.png", "well-haven-grass.png", "well-haven-wasteland.png",
+                "board.png", "well-grass.png", "well-wasteland.png", "nest-frame-one.png", "nest-frame-two.png",
                 "endpoint-feathers.png", "feathers-two.png", "feather.png", "sleep.png", "twig.png",
                 "dream-concept.png"
             };
@@ -149,8 +150,8 @@ namespace Quackies.Unity.Editor
                 board = LoadSprite(ArtDirectory + "/board.png"),
                 grassWell = LoadSprite(ArtDirectory + "/well-grass.png"),
                 wastelandWell = LoadSprite(ArtDirectory + "/well-wasteland.png"),
-                grassHavenWell = LoadSprite(ArtDirectory + "/well-haven-grass.png"),
-                wastelandHavenWell = LoadSprite(ArtDirectory + "/well-haven-wasteland.png"),
+                nestFrameOne = LoadSprite(ArtDirectory + "/nest-frame-one.png", true),
+                nestFrameTwo = LoadSprite(ArtDirectory + "/nest-frame-two.png", true),
                 endpointFeathers = LoadSprite(ArtDirectory + "/endpoint-feathers.png"),
                 feathers = LoadSprite(ArtDirectory + "/feathers-two.png"),
                 feather = LoadSprite(ArtDirectory + "/feather.png"),
@@ -161,8 +162,8 @@ namespace Quackies.Unity.Editor
             art.duck = art.RequiredCrop("ducks.png", 0);
             art.zzz = art.RequiredCrop("zzz.png", 0);
             art.dreamNest = art.RequiredCrop("dream-concept.png", 0);
-            if (art.board == null || art.grassWell == null || art.wastelandWell == null || art.grassHavenWell == null
-                || art.wastelandHavenWell == null || art.endpointFeathers == null || art.feathers == null || art.feather == null
+            if (art.board == null || art.grassWell == null || art.wastelandWell == null || art.nestFrameOne == null
+                || art.nestFrameTwo == null || art.endpointFeathers == null || art.feathers == null || art.feather == null
                 || art.sleep == null || art.twig == null || art.duck == null || art.zzz == null || art.dreamNest == null)
             {
                 issue = "A required image or alpha sprite crop could not be imported. Provide all 16 encounter crops plus ducks.png#0 and zzz.png#0.";
@@ -255,7 +256,7 @@ namespace Quackies.Unity.Editor
             featherTrail = BuildFeatherTrail(overlays, projection, data, art);
             duckRest = BuildDuckRest(overlays, projection, data, art);
             zzz = BuildZzz(overlays, projection, data, art);
-            tokenPresentations = BuildTokenFixtures(art);
+            tokenPresentations = BuildTokenFixtures(art, data.boardSpaceCount);
             BuildBoardLegend(board, projection, art);
 
             return adventure;
@@ -281,15 +282,11 @@ namespace Quackies.Unity.Editor
 
             RectTransform wellRect = null;
             Image wellArtwork = null;
-            if (row.space != 50)
+            if (row.space != data.boardSpaceCount)
             {
                 var wasteland = string.Equals(row.biome, "wasteland", StringComparison.OrdinalIgnoreCase);
-                var wellSprite = row.haven
-                    ? (wasteland ? art.wastelandHavenWell : art.grassHavenWell)
-                    : (wasteland ? art.wastelandWell : art.grassWell);
-                var tint = row.haven
-                    ? Color.white
-                    : string.Equals(row.biome, "wasteland", StringComparison.OrdinalIgnoreCase) ? WastelandTint
+                var wellSprite = wasteland ? art.wastelandWell : art.grassWell;
+                var tint = string.Equals(row.biome, "wasteland", StringComparison.OrdinalIgnoreCase) ? WastelandTint
                     : string.Equals(row.biome, "meadow", StringComparison.OrdinalIgnoreCase) ? MeadowTint : WetlandTint;
                 var well = Image("Rest Well", root, tint, wellSprite);
                 well.preserveAspect = true;
@@ -297,6 +294,13 @@ namespace Quackies.Unity.Editor
                 well.raycastTarget = false;
                 wellRect = well.rectTransform;
                 wellArtwork = well;
+                if (row.haven)
+                {
+                    var leafFrame = Image("Haven Leaf Frame", root, Color.white,
+                        row.feathers > 1 ? art.nestFrameTwo : art.nestFrameOne);
+                    leafFrame.preserveAspect = true;
+                    TableUi.Place(leafFrame.rectTransform, 0, 0, wellWidth, wellHeight);
+                }
             }
             else
             {
@@ -311,7 +315,7 @@ namespace Quackies.Unity.Editor
             var rewardWidth = wellWidth * .86f;
             var reward = Panel("Reward Row", root, (wellWidth - rewardWidth) * .5f, wellHeight + 1f, rewardWidth, rewardHeight,
                 new Color(.12f, .12f, .22f, .88f));
-            if (row.space == 50 && wellArtwork != null)
+            if (row.space == data.boardSpaceCount && wellArtwork != null)
             {
                 // Keep the painted oasis pool unobscured: the cohesive endpoint seal belongs beside its reward strip.
                 var sealSize = Mathf.Min(rewardHeight * .9f, wellWidth * .24f);
@@ -320,31 +324,32 @@ namespace Quackies.Unity.Editor
                 TableUi.Place(wellArtwork.rectTransform, sealX, sealY, sealSize, sealSize);
             }
             var rewardScale = rewardWidth / 49f;
+            var rewardNumberSize = Mathf.Min(10f * rewardScale, rewardHeight * .8f);
             var sleepIcon = Image("Moon", reward, Color.white, art.sleep);
             sleepIcon.preserveAspect = true;
             TableUi.Place(sleepIcon.rectTransform, rewardScale, (rewardHeight - 10f * rewardScale) * .5f, 10f * rewardScale, 10f * rewardScale);
-            var sleepNumber = Label("Sleep number", reward, row.sleep.ToString(), 10f * rewardScale, Cream,
+            var sleepNumber = Label("Sleep number", reward, row.sleep.ToString(), rewardNumberSize, Cream,
                 true, TextAlignmentOptions.MidlineLeft);
             ConfigureRewardNumber(sleepNumber);
             TableUi.Place(sleepNumber.rectTransform, 12f * rewardScale, 0, 14f * rewardScale, rewardHeight);
             var twigIcon = Image("Twig", reward, Color.white, art.twig);
             twigIcon.preserveAspect = true;
             TableUi.Place(twigIcon.rectTransform, 27f * rewardScale, (rewardHeight - 10f * rewardScale) * .5f, 10f * rewardScale, 10f * rewardScale);
-            var twigNumber = Label("Twig number", reward, row.twigs.ToString(), 10f * rewardScale, Cream,
+            var twigNumber = Label("Twig number", reward, row.twigs.ToString(), rewardNumberSize, Cream,
                 true, TextAlignmentOptions.MidlineLeft);
             ConfigureRewardNumber(twigNumber);
             TableUi.Place(twigNumber.rectTransform, 38f * rewardScale, 0, 8f * rewardScale, rewardHeight);
             var token = Image("Encounter overlay", root, new Color(.25f, .12f, .38f, .95f));
             token.preserveAspect = true;
             var tokenSize = row.haven
-                ? Mathf.Min(wellWidth * .65f, wellHeight * .9f)
+                ? wellWidth * .65f
                 : Mathf.Min(wellWidth * .8f, wellHeight);
-            var tokenX = row.haven ? wellWidth * .04f : (wellWidth - tokenSize) * .5f;
+            var tokenX = row.haven ? wellWidth * .07f : (wellWidth - tokenSize) * .5f;
             var tokenY = row.haven ? wellHeight * .04f : wellHeight - tokenSize;
             TableUi.Place(token.rectTransform, tokenX, tokenY, tokenSize, tokenSize);
             token.gameObject.SetActive(false);
             var view = root.gameObject.AddComponent<DuckLayoutSpaceView>();
-            view.Configure(row.id, row.space, row.haven, row.space == 50, row.havenName, row.sleep, row.twigs, row.feathers, wellRect,
+            view.Configure(row.id, row.space, row.haven, row.space == data.boardSpaceCount, row.havenName, row.sleep, row.twigs, row.feathers, wellRect,
                 reward, button, wellArtwork, row.feathers > 1 ? art.feathers : art.feather, token);
             return view;
         }
@@ -408,14 +413,29 @@ namespace Quackies.Unity.Editor
             return marker.gameObject;
         }
 
-        private static DuckLayoutProofPreview.TokenPresentation[] BuildTokenFixtures(DuckLayoutArt art)
+        private static DuckLayoutProofPreview.TokenPresentation[] BuildTokenFixtures(DuckLayoutArt art, int boardSpaceCount)
         {
+            var usedSpaces = new HashSet<int>();
             return DuckLayoutFixtures.Tokens.Select(token => new DuckLayoutProofPreview.TokenPresentation
             {
                 title = token.title,
-                space = token.space,
+                space = ResolveTokenSpace(token.space, boardSpaceCount, usedSpaces),
                 sprite = art.RequiredCrop(token.sourceAsset, token.cropIndex)
             }).ToArray();
+        }
+
+        private static int ResolveTokenSpace(int requestedSpace, int boardSpaceCount, HashSet<int> usedSpaces)
+        {
+            if (requestedSpace >= 1 && requestedSpace < boardSpaceCount && usedSpaces.Add(requestedSpace)) return requestedSpace;
+            var replacement = Enumerable.Range(1, boardSpaceCount - 1)
+                .Where(space => !usedSpaces.Contains(space))
+                .OrderBy(space => Math.Abs(space - requestedSpace))
+                .ThenBy(space => space)
+                .FirstOrDefault();
+            if (replacement == 0)
+                throw new InvalidOperationException("No free nonendpoint board space is available for an encounter fixture.");
+            usedSpaces.Add(replacement);
+            return replacement;
         }
 
         private static RectTransform BuildDream(RectTransform root, DuckLayoutArt art, out DuckLayoutOfferView[] offers, out Button adventureButton)
@@ -608,10 +628,10 @@ namespace Quackies.Unity.Editor
             camera.GetComponent<Camera>().backgroundColor = Navy;
         }
 
-        private static Sprite LoadSprite(string path)
+        private static Sprite LoadSprite(string path, bool useMipmaps = false)
         {
             var importer = AssetImporter.GetAtPath(path) as TextureImporter;
-            if (importer != null) ConfigureTextureImporter(importer, SpriteImportMode.Single, true);
+            if (importer != null) ConfigureTextureImporter(importer, SpriteImportMode.Single, true, useMipmaps);
             return AssetDatabase.LoadAssetAtPath<Sprite>(path);
         }
 
@@ -624,18 +644,19 @@ namespace Quackies.Unity.Editor
             return JsonUtility.FromJson<DuckLayoutCropManifest>(File.ReadAllText(ToAbsolutePath(CropManifestPath)));
         }
 
-        private static void ConfigureTextureImporter(TextureImporter importer, SpriteImportMode mode, bool saveAndReimport)
+        private static void ConfigureTextureImporter(TextureImporter importer, SpriteImportMode mode, bool saveAndReimport, bool useMipmaps = false)
         {
+            var filterMode = useMipmaps ? FilterMode.Trilinear : FilterMode.Bilinear;
             var changed = importer.textureType != TextureImporterType.Sprite || importer.spriteImportMode != mode
                 || !importer.alphaIsTransparency || importer.textureCompression != TextureImporterCompression.Uncompressed
-                || importer.mipmapEnabled || importer.filterMode != FilterMode.Bilinear || importer.wrapMode != TextureWrapMode.Clamp
+                || importer.mipmapEnabled != useMipmaps || importer.filterMode != filterMode || importer.wrapMode != TextureWrapMode.Clamp
                 || importer.maxTextureSize != HighResolutionTextureSize || importer.npotScale != TextureImporterNPOTScale.None;
             importer.textureType = TextureImporterType.Sprite;
             importer.spriteImportMode = mode;
             importer.alphaIsTransparency = true;
             importer.textureCompression = TextureImporterCompression.Uncompressed;
-            importer.mipmapEnabled = false;
-            importer.filterMode = FilterMode.Bilinear;
+            importer.mipmapEnabled = useMipmaps;
+            importer.filterMode = filterMode;
             importer.wrapMode = TextureWrapMode.Clamp;
             importer.maxTextureSize = HighResolutionTextureSize;
             importer.npotScale = TextureImporterNPOTScale.None;
@@ -651,7 +672,10 @@ namespace Quackies.Unity.Editor
             else
             {
                 var spaces = controller.Spaces ?? Array.Empty<DuckLayoutSpaceView>();
-                if (spaces.Length != 50) issues.Add("Expected 50 serialized space views, found " + spaces.Length + ".");
+                var endpoint = controller.BoardSpaceCount;
+                if (endpoint != 40 && endpoint != 45 && endpoint != 50)
+                    issues.Add("Board space count must be 40, 45, or 50, found " + endpoint + ".");
+                if (spaces.Length != endpoint) issues.Add("Expected " + endpoint + " serialized space views, found " + spaces.Length + ".");
                 var ids = new HashSet<string>();
                 var numbers = new HashSet<int>();
                 var havens = new HashSet<int>();
@@ -662,16 +686,18 @@ namespace Quackies.Unity.Editor
                     numbers.Add(space.Space);
                     if (space.IsHaven) havens.Add(space.Space);
                     var hasWell = space.transform.Find("Rest Well") != null;
-                    if (space.Space == 50 && hasWell)
+                    if (space.Space == endpoint && hasWell)
                         issues.Add("The native oasis endpoint must not have a well.");
-                    if (space.Space < 50 && !hasWell)
+                    if (space.Space < endpoint && !hasWell)
                         issues.Add("Every nonendpoint space, including havens, needs a rest well.");
+                    if (space.IsHaven && space.Space != endpoint && space.transform.Find("Haven Leaf Frame") == null)
+                        issues.Add("Haven " + space.Space + " needs its leaf-frame overlay.");
                 }
                 var serializedSpaces = spaces.Where(space => space != null).ToArray();
                 foreach (var source in serializedSpaces)
                 {
                     var sourceId = source.StableId + " (space " + source.Space + ")";
-                    var well = source.WellRect == null ? default(Rect?) : WorldRect(source.WellRect);
+                    var well = AuditWellBounds(source);
                     var token = source.TokenRect == null ? default(Rect?) : WorldRect(source.TokenRect);
                     foreach (var target in serializedSpaces)
                     {
@@ -683,13 +709,13 @@ namespace Quackies.Unity.Editor
                         if (token.HasValue && Intersects(token.Value, reward))
                             issues.Add(sourceId + " encounter token overlaps " + targetId + " reward row.");
                     }
-                    if (source.IsHaven && source.Space != 50 && well.HasValue && token.HasValue
-                        && Intersects(token.Value, HavenSealBounds(well.Value)))
-                        issues.Add(sourceId + " encounter token overlaps its integrated Feather seal.");
+                    if (source.IsHaven && source.Space != endpoint && well.HasValue && token.HasValue
+                        && Intersects(token.Value, HavenFrameFeatherBounds(well.Value)))
+                        issues.Add(sourceId + " encounter token overlaps its leaf-frame Feather art.");
                 }
-                if (!numbers.SetEquals(Enumerable.Range(1, 50))) issues.Add("Spaces are not exactly 1–50.");
-                if (havens.Count != 8 || !havens.Contains(50))
-                    issues.Add("Scene must serialize exactly eight havens, including endpoint 50.");
+                if (!numbers.SetEquals(Enumerable.Range(1, endpoint))) issues.Add("Spaces are not exactly 1–" + endpoint + ".");
+                if (havens.Count != 8 || !havens.Contains(endpoint))
+                    issues.Add("Scene must serialize exactly eight havens, including endpoint " + endpoint + ".");
                 var havenLinks = UnityEngine.Object.FindObjectsOfType<Image>(true).Count(image => image.name.StartsWith("Haven Link ", StringComparison.Ordinal));
                 if (havenLinks != 0) issues.Add("Haven links must not cross the board artwork.");
                 var floatingFeatherBadges = UnityEngine.Object.FindObjectsOfType<Image>(true)
@@ -700,8 +726,8 @@ namespace Quackies.Unity.Editor
                 var oasisMedallions = UnityEngine.Object.FindObjectsOfType<Image>(true).Count(image => image.name == "Oasis Feather Medallion");
                 var rewardRows = UnityEngine.Object.FindObjectsOfType<Image>(true).Count(image => image.name == "Reward Row");
                 var endpoints = spaces.Count(space => space != null && space.UsesBoardArt);
-                if (wells != 49 || endpoints != 1 || oasisBindings != 1 || oasisMedallions != 1 || rewardRows != 50)
-                    issues.Add("Scene needs 49 wells, one native oasis medallion, and 50 reward rows.");
+                if (wells != endpoint - 1 || endpoints != 1 || oasisBindings != 1 || oasisMedallions != 1 || rewardRows != endpoint)
+                    issues.Add("Scene needs " + (endpoint - 1) + " wells, one native oasis medallion, and " + endpoint + " reward rows.");
                 var offers = controller.Offers ?? Array.Empty<DuckLayoutOfferView>();
                 if (offers.Length != 11) issues.Add("Expected 11 serialized offers.");
                 var expectedOfferIds = new HashSet<string>(DuckLayoutFixtures.Offers.Select(offer => offer.id));
@@ -715,6 +741,14 @@ namespace Quackies.Unity.Editor
                 else if (tokens.Any(token => token == null || token.sprite == null)
                     || tokens.Select(token => token.sprite).Distinct().Count() != 16)
                     issues.Add("All 16 token references need distinct non-null cropped sprites.");
+                else
+                {
+                    var tokenSpaces = tokens.Select(token => token.space).ToArray();
+                    if (tokenSpaces.Any(space => space < 1 || space >= endpoint)
+                        || tokenSpaces.Distinct().Count() != tokens.Length
+                        || tokenSpaces.Any(space => !serializedSpaces.Any(view => view.Space == space)))
+                        issues.Add("All 16 encounter samples need distinct nonendpoint placement spaces on the rendered board.");
+                }
             }
             foreach (var text in UnityEngine.Object.FindObjectsOfType<TMP_Text>(true))
                 if (text.isTextOverflowing) issues.Add("TMP overflow: " + HierarchyPath(text.transform) + ".");
@@ -741,17 +775,39 @@ namespace Quackies.Unity.Editor
             return Rect.MinMaxRect(corners[0].x, corners[0].y, corners[2].x, corners[2].y);
         }
 
+        private static Rect? AuditWellBounds(DuckLayoutSpaceView space)
+        {
+            if (space.WellRect == null) return null;
+            var footprint = WorldRect(space.WellRect);
+            if (space.IsHaven || space.UsesBoardArt || space.WellSprite == null) return footprint;
+
+            // Image.preserveAspect draws the ordinary well in this centred inscribed quad, not across its full RectTransform.
+            var sprite = space.WellSprite;
+            var spriteAspect = sprite.rect.width / sprite.rect.height;
+            var footprintAspect = footprint.width / footprint.height;
+            if (footprintAspect > spriteAspect)
+            {
+                var width = footprint.height * spriteAspect;
+                return Rect.MinMaxRect(footprint.center.x - width * .5f, footprint.yMin, footprint.center.x + width * .5f, footprint.yMax);
+            }
+
+            var height = footprint.width / spriteAspect;
+            return Rect.MinMaxRect(footprint.xMin, footprint.center.y - height * .5f, footprint.xMax, footprint.center.y + height * .5f);
+        }
+
         private static bool Intersects(Rect a, Rect b) => a.xMin < b.xMax && a.xMax > b.xMin && a.yMin < b.yMax && a.yMax > b.yMin;
 
-        private static Rect HavenSealBounds(Rect well)
+        private static Rect HavenFrameFeatherBounds(Rect well)
         {
-            const float sealCenterX = .85f;
-            const float sealCenterY = .80f;
-            const float sealRadiusByWellWidth = .11f;
-            var radius = well.width * sealRadiusByWellWidth;
-            var centerX = well.xMin + well.width * sealCenterX;
-            var centerY = well.yMax - well.height * sealCenterY;
-            return Rect.MinMaxRect(centerX - radius, centerY - radius, centerX + radius, centerY + radius);
+            const float featherXMin = .734f;
+            const float featherXMax = .99f;
+            const float featherYMin = .14f;
+            const float featherYMax = .86f;
+            return Rect.MinMaxRect(
+                well.xMin + well.width * featherXMin,
+                well.yMax - well.height * featherYMax,
+                well.xMin + well.width * featherXMax,
+                well.yMax - well.height * featherYMin);
         }
 
         private static string HierarchyDigest(Scene scene)
@@ -782,8 +838,8 @@ namespace Quackies.Unity.Editor
             public Sprite board;
             public Sprite grassWell;
             public Sprite wastelandWell;
-            public Sprite grassHavenWell;
-            public Sprite wastelandHavenWell;
+            public Sprite nestFrameOne;
+            public Sprite nestFrameTwo;
             public Sprite endpointFeathers;
             public Sprite feathers;
             public Sprite feather;

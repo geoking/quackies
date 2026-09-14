@@ -1,6 +1,6 @@
 # Quackies handoff
 
-## Current task: revised M3 layout ready for board review
+## Current task: M3 refinement open; route count unresolved
 
 14 September 2026: the user explicitly closed M2 and approved the remaining
 rules/defaults and local autosave/Continue scope, with two corrections:
@@ -32,36 +32,44 @@ action freshness, frozen rewards and purchase counts across local restore.
 Keep Core free of Unity/filesystem dependencies and retain the original engine
 profile as a regression reference while substantially refactoring duck rules.
 
-**The revised M3 layout is ready for user visual review. M4 is unstarted and
-waits for the user's command.** The prior fixed-data scene and its captures are
-historical validation only; the user rejected that board concept and its
-asset-resolution framing. Do not treat the old scene as the current board
-handoff.
+**M3 is reopened for refinement. M4 is unstarted and waits for the user's
+command.** The prior fixed-data scene and previous revised-M3 captures are
+historical/rejected. The current `board-layout.json` is a provisional 40-space
+visual fixture, not the current rules handoff. The user is deciding between 40
+larger, 45 smaller and 45 with an extended painted route; canonical v1 data
+remains 50 spaces until that choice.
 
 [Historical M3 evidence](duck-migration/m3/README.md) records 1133 × 744
 Adventure, occupied, Dream and inspection captures, two rebuilds, pointer
 navigation and a zero-error Console query. It remains useful history but is not
 evidence that the revision is complete. The new requirements and evidence
 checklist and [validation record](duck-migration/m3-revision/validation.md) are
-in [m3-revision/README.md](duck-migration/m3-revision/README.md). Runtime
-audits pass at 1133 × 744 and 2732 × 2048. Two stable rebuilds, unchanged texture metadata and zero Console errors
-are recorded in the revised validation. There is no live Core binding or duck
-gameplay. M4 is Core/CLI, M5 connects the Unity game, and M6 covers
-balance/export; stop for review between milestones.
+historical for the rejected presentation. The current refinement brief and
+[candidate validation](duck-migration/m3-refinement/validation.md) are in
+[m3-refinement/README.md](duck-migration/m3-refinement/README.md). Candidate
+compilation, Console, rebuild, texture, dual-viewport and 40/40 pointer checks
+pass. The route-count decision and M3 approval remain open. There is no live
+Core binding or duck gameplay. M4 is Core/CLI, M5
+connects the Unity game, and M6 covers balance/export; stop for review between
+milestones.
 
-The current revision finishes layout at the approved board source size. The
-detailed 3072 × 2048 master is explicitly deferred production work; retain the
-higher-resolution authoring plan and 4096 import cap, resolution-independent UI
-and native production sprites. Runtime audits pass at 1133 × 744 and 2732 ×
-2048. The 50 spaces must form
-one centered route with near-even arclength spacing, including approximately
-even counts on the descending/ascending wetland arms. Seven haven tiles sit on
-the path beside, never over, painted shelters; space 50 is the oasis itself
-with no tile. Integrate one-Feather haven art and two-Feather wasteland art;
-remove floating Feather decorations. Use 90 × 66 wells and 66-unit token faces
-(previously 74 × 58 and 54), with native alpha on the seven nonendpoint haven
-wells beside shelters; space 50 uses the oasis. Retain final oasis 21 Sleep / 9
-Twigs / 2 Feathers unless root changes the data. Dream
+The current refinement uses a provisional 40-space fixture at the approved
+board source size. The detailed 3072 × 2048 master is explicitly deferred;
+retain the higher-resolution authoring plan and 4096 import cap,
+resolution-independent UI and native production sprites. Candidate validation
+passes actual 1133 × 744 and 2732 × 2048 audits, 40/40 center raycasts and
+PointerClick inspections. Compare 108
+× 79.2 wells with 90 × 66 and compare the current 40 candidate with the user-
+question 45 alternatives; they are not promised generated deliverables.
+Candidate centers must follow painted paths through wasteland curves, bridges
+must remain tile-free, leaving approach/deck gaps between spaces 13/14 and
+26/27. Future duck animation needs explicit bridge waypoints rather than
+straight center interpolation. Proposed haven IDs are
+3/10/15/20/24/29/33/40 with bottom entries aligned at 20/33. Canonical v1
+data remains 50 spaces with endpoint 21 Sleep / 9 Twigs / 2 Feathers.
+Same-biome tile colour, green leafy nest borders and integrated Feather 1/2
+treatments are covered by candidate evidence. Candidate reward labels are
+visual-only remappings; canonical v1 reward data is unchanged. Dream
 Concept-B likeness and fun, engaging typography are minor M5 implementation
 follow-ups when the Dream view is built. Root owns any Sleep/Twig/haven row
 reassignment needed by geometry.

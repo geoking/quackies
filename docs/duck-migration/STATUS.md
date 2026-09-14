@@ -1,9 +1,11 @@
 # Duck migration status
 
-Updated 14 September 2026. **M2 is complete; the revised M3 layout is ready
-for user visual review.** The earlier separate iPad layout proof uses fixed
-sample data and remains historical validation. M4 is unstarted and waits for
-the user's command; no Core gameplay work has begun.
+Updated 14 September 2026. **M2 is complete; M3 is reopened for refinement.**
+The earlier separate iPad proof and previous revised-M3 captures are
+historical/rejected. The current `board-layout.json` is a provisional 40-space
+visual fixture; canonical v1 data remains 50 spaces while the user considers
+40 larger versus 45 smaller versus 45 with an extended painted route. M4 is
+unstarted and waits for the user's command; no Core gameplay work has begun.
 
 ## Approved M2 contract
 
@@ -40,27 +42,33 @@ Console errors. This evidence is retained for history, but the user rejected
 that board concept and its 1133 × 744/native-art framing; it does not close the
 reopened M3 revision.
 
-## M3 revision ready for visual review
+## M3 refinement open
 
-The revision checklist and evidence contract are in
-[m3-revision/README.md](m3-revision/README.md), with the current
-[validation record](m3-revision/validation.md). The revised board layout is
-ready for user visual review: runtime audits pass at 1133 × 744 and 2732 ×
-2048. It uses resolution-independent UI and native production sprites; the
-detailed 3072 × 2048 production master is explicitly deferred, while the
-higher-resolution authoring plan and 4096 import cap remain.
+The refinement decision record is in
+[m3-refinement/README.md](m3-refinement/README.md). The current
+`Assets/Art/DuckLayout/board-layout.json` is a provisional 40-space visual
+fixture, not an approved rules board. Compare 108 × 79.2 wells with the prior
+90 × 66 treatment and compare 40 larger against 45 smaller and 45 with an
+extended painted route. Candidate validation passes actual 1133 × 744 and
+2732 × 2048 audits, 40/40 center raycasts and PointerClick inspections; see
+[validation](m3-refinement/validation.md). The detailed 3072 × 2048 production
+master is explicitly deferred, while the higher-resolution authoring plan and
+4096 import cap remain.
 
-All 50 spaces follow one centered route, with six spaces on each straight arm
-of every biome and the remainder at bends, crossings and the endpoint. Seven
-haven wells sit beside shelters at 3, 11, 19, 27, 29, 37 and 44, with integrated
-one-/two-Feather artwork. Space 50 uses the oasis and retains 21 Sleep / 9 Twigs /
-2 Feathers. Wells are 90 × 66 design units, previously 74 × 58. Ordinary token
-faces are 66 units, previously 54; haven faces use 58.5 to clear their seals.
-Two stable rebuilds and zero Console errors are recorded in the validation.
-Dream Concept-B likeness and playful typography remain M5 follow-ups.
+The provisional 40-space fixture proposes haven IDs 3, 10, 15, 20, 24, 29, 33
+and 40, with bottom shelter entries aligned at 20 and 33. Every candidate
+center must sit on painted path art, including wasteland curves; bridges remain
+tile-free with approach/deck gaps between spaces 13/14 and 26/27. Future duck
+animation needs explicit bridge waypoints rather than straight interpolation.
+Same-biome tile colours, green leafy nest borders and large
+integrated Feather 1/2 treatments are covered by the candidate evidence.
+Canonical v1 data still has 50 rows and endpoint 21 Sleep / 9 Twigs / 2 Feathers.
+The route-count decision and M3 approval remain open. Dream
+Concept-B likeness and playful typography remain M5 follow-ups.
 
 M4 Core/CLI and persistence, M5 connected Unity, and M6 balance/export remain
-after visual review of M3. M4 is unstarted and waits for the user's command.
+after the route-count decision and visual review. M4 is unstarted and waits for
+the user's command.
 The existing engine/API/CLI will be refactored, not restarted.
 
 ## Art and historical evidence

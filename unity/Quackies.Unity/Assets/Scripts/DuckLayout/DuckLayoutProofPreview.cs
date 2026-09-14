@@ -26,6 +26,7 @@ namespace Quackies.Unity.DuckLayout
         [SerializeField] private Button emptyWellsButton;
         [SerializeField] private Button occupiedWellsButton;
         [SerializeField] private TMP_Text previewStatus;
+        [SerializeField] private int boardSpaceCount = 50;
         [SerializeField] private DuckLayoutSpaceView[] spaces;
         [SerializeField] private DuckLayoutOfferView[] offers;
         [SerializeField] private TokenPresentation[] tokenPresentations;
@@ -49,9 +50,10 @@ namespace Quackies.Unity.DuckLayout
         public DuckLayoutSpaceView[] Spaces => spaces;
         public DuckLayoutOfferView[] Offers => offers;
         public TokenPresentation[] TokenPresentations => tokenPresentations;
+        public int BoardSpaceCount => boardSpaceCount;
 
         public void Configure(GameObject adventure, GameObject dream, Button adventureButton, Button dreamButton,
-            Button emptyButton, Button occupiedButton, TMP_Text status, DuckLayoutSpaceView[] boardSpaces,
+            Button emptyButton, Button occupiedButton, TMP_Text status, int spaceCount, DuckLayoutSpaceView[] boardSpaces,
             DuckLayoutOfferView[] shopOffers, TokenPresentation[] tokens, GameObject duckRest, GameObject zzz,
             GameObject featherTrail, GameObject shade, TMP_Text title, TMP_Text detail, TMP_Text sleepValue, TMP_Text twigValue,
             TMP_Text featherValue, Image art,
@@ -64,6 +66,7 @@ namespace Quackies.Unity.DuckLayout
             emptyWellsButton = emptyButton;
             occupiedWellsButton = occupiedButton;
             previewStatus = status;
+            boardSpaceCount = spaceCount;
             spaces = boardSpaces;
             offers = shopOffers;
             tokenPresentations = tokens;
@@ -124,7 +127,8 @@ namespace Quackies.Unity.DuckLayout
             if (adventureRoot != null) adventureRoot.SetActive(adventure);
             if (dreamRoot != null) dreamRoot.SetActive(!adventure);
             if (previewStatus != null) previewStatus.text = adventure
-                ? (showingOccupied ? "Encounter-fit sample • 16 variants, duck rest, zzz and Feather trail." : "Empty-well sample • 50 fixed rest spaces and visible rewards.")
+                ? (showingOccupied ? "Encounter-fit sample • 16 variants, duck rest, zzz and Feather trail."
+                    : "Empty-well sample • " + boardSpaceCount + " fixed rest spaces and visible rewards.")
                 : "Dream Concept B • fixed Night 4, Level 2, purchase limit 2 sample.";
         }
 

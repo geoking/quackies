@@ -942,3 +942,47 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   likeness and typography remain M5 follow-ups. M4 is unstarted; stop here for
   user review. This completes the revised layout work, not user approval or
   a playable duck rules implementation.
+
+### 42. M3 spacing and shelter-entry refinement reopened (14 September 2026)
+
+- The user rejected the prior 90 × 66 / 50-space presentation as too small or
+  too tight and reopened a focused visual review. Compare 20%-larger 108 × 79.2
+  wells against 90 × 66, and compare 45 spaces against the current 50. No
+  route-count decision is assumed or recorded yet.
+- Every candidate tile center must sit on painted path artwork, including
+  wasteland curves. Bridges must remain tile-free. Haven entries must align to
+  shelter entrances, including the current 6/1, 15/5 and 20/8 references.
+  Same-biome tile colour, green leafy nest borders and large integrated Feather
+  1/2 treatments remain visual requirements.
+- The previous revised-M3 README and validation are historical/rejected for
+  this refinement. The deferred 3072 × 2048 master, M5 Dream/typography work
+  and unstarted M4 remain unchanged. See the [refinement review brief](duck-migration/m3-refinement/README.md).
+- Read-only impact inventory identifies the board JSON/CSV/table, validation
+  and balance audit (including max-trail and endpoint assertions), route audit,
+  Unity layout validators and current migration prose that would require
+  coordinated updates if 45 is selected. No source, scene, data or numeric
+  files were changed in this checkpoint.
+
+### 43. M3 provisional 40-space candidate review (14 September 2026)
+
+- The current `Assets/Art/DuckLayout/board-layout.json` is a provisional
+  40-space visual fixture using 20%-larger 108 × 79.2 wells. Its visual reward
+  labels are fixture-only remappings; canonical v1 remains the approved
+  50-row board and endpoint data.
+- Final candidate validation passes actual 1133 × 744 and 2732 × 2048 audits,
+  40/40 center raycasts and PointerClick inspections, up-to-date compilation
+  with no errors, zero Console errors, identical rebuild hierarchy digest and
+  stable texture metadata. Screenshots were reviewed at both sizes. The route
+  count and M3 approval remain open.
+- The user’s route question remains open: 40 larger versus 45 smaller versus
+  45 with an extended painted route. The 45 alternatives are options for the
+  decision, not promised generated deliverables. All candidate centers must
+  follow painted path art through wasteland curves, with no tile wells on the
+  bridge approach/deck gaps between spaces 13/14 and 26/27. Future duck
+  animation needs explicit bridge waypoints rather than straight center
+  interpolation.
+- Same-biome tile colour, green leafy nest borders, large integrated Feather
+  1/2 treatments and proposed haven IDs 3/10/15/20/24/29/33/40 remain visual
+  review requirements. Historical m3-revision captures remain unchanged and
+  rejected for this refinement. M4 is unstarted and the 3072 × 2048 master
+  remains deferred.

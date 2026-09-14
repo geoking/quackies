@@ -3,9 +3,9 @@
 14 September 2026. **M2 is complete.** The user approved the rules, settings,
 shop policy, local autosave/resume and this implementation scope, with final-Day
 only simultaneous drawing and final-Night Sleep breaking equal total Twigs.
-M2 changed documentation only. **The revised M3 layout is ready for user
-visual review; M4 Core/CLI implementation remains unstarted and waits for the
-user's command.** The short product direction is in
+M2 changed documentation only. **M3 is reopened for refinement; M4 Core/CLI
+implementation remains unstarted and waits for the user's command.** The short
+product direction is in
 [PLAN.md](PLAN.md).
 
 ## Decision: evolve Core; rebuild the changed game presentation
@@ -152,43 +152,41 @@ future work.
 
 Closed by the user on 14 September 2026. Rules, defaults, exact rewards/prices,
 events and persistence scope are approved, including the two corrections above.
-Keep this contract stable for the first complete playtest. **M3 revised layout
-is ready for visual review; M4 is unstarted and awaits the user's command.**
+Keep this contract stable for the first complete playtest. **M3 refinement is
+open; M4 is unstarted and awaits the user's command.**
 
-### M3 — Revised layout ready for visual review
+### M3 — Refinement open; current fixture provisional
 
 The earlier `DuckLayoutProof` and its [review evidence](m3/README.md) remain
-historical validation only. The revised fixed-data layout is ready for user
-visual review. Its geometry, artwork, tile sizing, resolution-independent
-layout and dual-viewport runtime audits are described in
-[m3-revision/README.md](m3-revision/README.md) and [validation](m3-revision/validation.md).
-Two stable rebuilds, unchanged texture metadata and zero Console errors are
-recorded in the revised validation. The
-higher-resolution master is deferred, and Dream likeness/typography are M5
-implementation follow-ups. No Core gameplay work has begun.
+historical/rejected validation only. The current `board-layout.json` is a
+provisional 40-space visual fixture. Compare 40 larger (108 × 79.2) against 45
+smaller and 45 with an extended painted route; canonical v1 rules data remains
+50 spaces. The current refinement brief is in
+[m3-refinement/README.md](m3-refinement/README.md). Font-overflow and visual
+Candidate validation now passes actual 1133 × 744 and 2732 × 2048 audits,
+40/40 center raycasts and PointerClick inspections; see
+[validation](m3-refinement/validation.md). Do not claim the earlier revised-M3
+evidence as current completion. The higher-resolution master is deferred, Dream
+likeness/typography are M5 follow-ups, and no Core gameplay work has begun.
 
 Create a separate reproducible layout scene using fixed sample data, without a
 live rules session or Core binding. Preserve the playable baseline scene.
 Finish layout at the approved board source size; the detailed 3072 × 2048
 production master is explicitly deferred. Keep the higher-resolution authoring
 plan and 4096 import cap, resolution-independent UI and native production
-sprites. Runtime audits pass at 1133 × 744 and 2732 × 2048. The revised board
-uses native-alpha haven wells beside shelters at 3, 11, 19, 27, 29, 37, 44 and
-50, with endpoint 21 Sleep / 9 Twigs / 2 Feathers; wells are 90 × 66 design
-units and token faces are 66 units (previously 74 × 58 and 54). Root owns the
-Editor mutation and scene verification.
+sprites. The current figure is a provisional 40-space fixture with 108 × 79.2
+wells and proposed haven IDs 3/10/15/20/24/29/33/40, with entry alignment at
+the bottom shelters 20/33. This is a visual fixture only; canonical v1 data
+remains 50 spaces and no endpoint or reward values change until route-count
+selection. Root owns the Editor mutation and scene verification.
 
-Place exactly 50 stable-ID spaces as one centered route on the painted path,
-with near-even arclength spacing across wetlands, meadow and wasteland. Do not
-use a zigzag or sidebar/stacked layout; keep the descending and ascending
-wetland arms approximately even in count. Use larger tiles and token faces.
-Place seven haven tiles on the path next to their painted shelters, never over
-the shelter art; space 50 is the oasis itself and receives no separate tile.
-Integrate single-Feather haven art and two-Feather wasteland art rather than
-floating Feather decorations. Any Sleep/Twig/haven row reassignment needed for
-geometry is a root-owned data decision and must be persisted by root; this plan
-does not invent replacement numbers. Keep the final oasis at 21 Sleep / 9
-Twigs / 2 Feathers unless root changes the approved data.
+Place candidate spaces on painted path centers, including wasteland curves, and
+keep both bridges free of tiles. Align haven entries to shelter entrances and
+use same-biome tile colour, green leafy nest borders and large integrated
+Feather 1/2 treatments. The provisional fixture proposes eight haven IDs
+3/10/15/20/24/29/33/40; the 45-space alternatives remain unresolved. Do not
+change canonical reward rows or the 21 Sleep / 9 Twigs / 2 Feathers endpoint
+until the user chooses the route count.
 
 Represent all 16 encounter variants on the common token footprint and test
 representative occupied spaces. Dream likeness to Concept B and fun, engaging

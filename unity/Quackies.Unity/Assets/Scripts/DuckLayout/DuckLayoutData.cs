@@ -9,6 +9,7 @@ namespace Quackies.Unity.DuckLayout
     public sealed class DuckLayoutBoardData
     {
         public int version;
+        public int boardSpaceCount = 50;
         public float boardWidth = 1536f;
         public float boardHeight = 1024f;
         public float wellWidth = 90f;
@@ -22,14 +23,23 @@ namespace Quackies.Unity.DuckLayout
             data = JsonUtility.FromJson<DuckLayoutBoardData>(json);
             if (data == null) { issue = "The JSON could not be read."; return false; }
             if (data.version != 1) { issue = "Expected board-layout version 1."; return false; }
+            if (data.boardSpaceCount != 40 && data.boardSpaceCount != 45 && data.boardSpaceCount != 50)
+            {
+                issue = "Board space count must be 40, 45, or 50.";
+                return false;
+            }
             if (data.boardWidth <= 0 || data.boardHeight <= 0) { issue = "Board dimensions must be positive."; return false; }
             if (data.wellWidth <= 0 || data.wellHeight <= 0 || data.rewardHeight <= 0) { issue = "Well and reward dimensions must be positive."; return false; }
-            if (data.rows == null || data.rows.Length != 50) { issue = "Expected exactly 50 board rows."; return false; }
+            if (data.rows == null || data.rows.Length != data.boardSpaceCount) { issue = "Expected exactly " + data.boardSpaceCount + " board rows."; return false; }
             var spaces = new HashSet<int>();
             foreach (var row in data.rows)
             {
                 if (row == null || string.IsNullOrWhiteSpace(row.id)) { issue = "Every board row needs an id."; return false; }
-                if (!spaces.Add(row.space) || row.space < 1 || row.space > 50) { issue = "Board spaces must be unique IDs 1–50."; return false; }
+                if (!spaces.Add(row.space) || row.space < 1 || row.space > data.boardSpaceCount)
+                {
+                    issue = "Board spaces must be unique IDs 1–" + data.boardSpaceCount + ".";
+                    return false;
+                }
                 if (row.x < 0f || row.x > 1f || row.y < 0f || row.y > 1f) { issue = row.id + " has an out-of-range normalised position."; return false; }
                 if (row.sleep < 0 || row.twigs < 0 || row.feathers < 0) { issue = row.id + " has a negative reward."; return false; }
                 if (row.feathers > 0 && !row.haven) { issue = row.id + " awards Feathers but is not a haven."; return false; }
@@ -85,8 +95,6 @@ namespace Quackies.Unity.DuckLayout
     /// <summary>Fixed, approved M2 values used only to prove the Dream layout. No gameplay consumes these.</summary>
     public static class DuckLayoutFixtures
     {
-        public static readonly int[] HavenSpaces = { 7, 13, 21, 27, 32, 38, 44, 50 };
-
         public static readonly DuckLayoutOfferFixture[] Offers =
         {
             Offer("seeds", "Seeds", 1, 0, 3, "everyday-encounters.png", 0),

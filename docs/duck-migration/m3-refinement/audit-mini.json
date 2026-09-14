@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "UnityEngine.Canvas.ForceUpdateCanvases();return typeof(Quackies.Unity.Editor.DuckLayoutSceneBuilder).GetMethod(\"AuditOpenScene\",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static).Invoke(null,null);"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": "# Duck Layout Audit\n\nScene: Assets/Scenes/DuckLayoutProof.unity\nHierarchy digest: `243dc117f52a11599da93370522809df9b74824064ad04de58d9ae639e0a6042`\nStatus: PASS\n"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/george/Repos/quackies/unity/Quackies.Unity"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}
