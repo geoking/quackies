@@ -9,13 +9,13 @@ namespace Quackies.Core.Rules
 {
     /// <summary>
     /// Narrow access granted while a fortune card is revealed. More lifecycle
-    /// hooks can be added here without moving event behavior into MatchSession.
+    /// hooks can be added here without moving event behavior into ClassicMatchRuntime.
     /// </summary>
     public sealed class RoundEventContext
     {
-        private readonly MatchSession _session;
+        private readonly ClassicMatchRuntime _session;
 
-        internal RoundEventContext(MatchSession session)
+        internal RoundEventContext(ClassicMatchRuntime session)
         {
             _session = session;
             PlayerIds = new ReadOnlyCollection<string>(session.Players.Select(player => player.Id).ToList());

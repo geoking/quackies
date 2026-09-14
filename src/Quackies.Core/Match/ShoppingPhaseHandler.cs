@@ -6,8 +6,8 @@ namespace Quackies.Core.Match
 {
     internal sealed class ShoppingPhaseHandler
     {
-        private readonly MatchSession _session;
-        internal ShoppingPhaseHandler(MatchSession session) { _session = session; }
+        private readonly ClassicMatchRuntime _session;
+        internal ShoppingPhaseHandler(ClassicMatchRuntime session) { _session = session; }
 
         internal IEnumerable<GameAction> GetLegalActions(PlayerRoundState player)
         {

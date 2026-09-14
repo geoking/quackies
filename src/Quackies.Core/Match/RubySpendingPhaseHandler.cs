@@ -5,8 +5,8 @@ namespace Quackies.Core.Match
 {
     internal sealed class RubySpendingPhaseHandler
     {
-        private readonly MatchSession _session;
-        internal RubySpendingPhaseHandler(MatchSession session) { _session = session; }
+        private readonly ClassicMatchRuntime _session;
+        internal RubySpendingPhaseHandler(ClassicMatchRuntime session) { _session = session; }
 
         internal IEnumerable<GameAction> GetLegalActions(PlayerRoundState player)
         {

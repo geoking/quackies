@@ -8,9 +8,9 @@ namespace Quackies.Core.Rules
     /// <summary>A narrow mutation capability supplied only while resolving an ingredient effect.</summary>
     public sealed class IngredientContext
     {
-        private readonly MatchSession _session;
+        private readonly ClassicMatchRuntime _session;
         private readonly PlayerRoundState _player;
-        internal IngredientContext(MatchSession session, PlayerRoundState player) { _session = session; _player = player; }
+        internal IngredientContext(ClassicMatchRuntime session, PlayerRoundState player) { _session = session; _player = player; }
         public int Round => _session.Round;
         public int CountPlaced(TokenColor color) => _player.Count(color);
         public int CountInLast(TokenColor color, int count) => _player.CountInLast(color, count);

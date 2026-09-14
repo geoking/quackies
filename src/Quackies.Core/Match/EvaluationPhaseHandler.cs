@@ -7,9 +7,9 @@ namespace Quackies.Core.Match
 {
     internal sealed class EvaluationPhaseHandler
     {
-        private readonly MatchSession _session;
+        private readonly ClassicMatchRuntime _session;
         private bool _eventCompletionApplied;
-        internal EvaluationPhaseHandler(MatchSession session) { _session = session; }
+        internal EvaluationPhaseHandler(ClassicMatchRuntime session) { _session = session; }
 
         internal void Begin()
         {

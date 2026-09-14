@@ -7,9 +7,9 @@ namespace Quackies.Core.Match
 {
     internal sealed class BrewingPhaseHandler
     {
-        private readonly MatchSession _session;
+        private readonly ClassicMatchRuntime _session;
 
-        internal BrewingPhaseHandler(MatchSession session) { _session = session; }
+        internal BrewingPhaseHandler(ClassicMatchRuntime session) { _session = session; }
 
         internal IEnumerable<GameAction> GetLegalActions(PlayerRoundState player)
         {
