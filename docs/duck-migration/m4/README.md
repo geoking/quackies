@@ -1,7 +1,9 @@
 # M4 implementation record
 
 14 September 2026. The user authorized C1 through C3, followed by a progress
-report. C4/C5 remain future work; Unity integration stays in M5. No Core DLL is
+report. The user accepted that result and authorized completing C4/C5 and
+closing M4. Calendar completion, Normal AI and save/Continue are in progress;
+Unity integration stays in M5. No Core DLL is
 synced into the approved scene during this run.
 
 ## Baseline

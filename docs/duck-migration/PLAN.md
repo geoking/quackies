@@ -2,8 +2,8 @@
 
 Updated 14 September 2026. **M2 and M3 are complete and approved by the user.**
 M3 closes with the 43-space board and reward typography at `2c7cd6a`.
-**M4 C1–C3 are complete for this bounded slice; C4/C5 are unstarted and await
-the progress report.**
+**M4 C1–C3 are complete. The user approved continuing through C4/C5 to close
+M4; full-calendar play, Normal AI and save/Continue are now in progress.**
 Historical decisions and checks remain in [PROGRESS.md](../PROGRESS.md).
 
 ## What we are building

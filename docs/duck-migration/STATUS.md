@@ -2,7 +2,7 @@
 
 Updated 14 September 2026. **M2 and M3 are complete and approved by the user.**
 The accepted visual checkpoint is `2c7cd6a`. **M4 C1–C3 are complete for this
-bounded slice; C4/C5 are unstarted pending the progress report.** No duck Core
+bounded slice; the user has now authorized completing C4/C5 and closing M4.** No duck Core
 session is bound to Unity.
 
 ## Closed milestones
