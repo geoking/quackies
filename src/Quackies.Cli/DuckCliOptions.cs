@@ -2,10 +2,22 @@ namespace Quackies.Cli;
 
 internal sealed class DuckCliOptions
 {
-    internal const string Usage = "Usage: Quackies.Cli --profile ducks [--seed integer] [--inspect] [--demo-day]";
+    internal const string Usage = "Usage: Quackies.Cli --profile ducks [--seed integer] [--inspect | --demo-day | --demo-game] [--save path | --no-save] [--continue | --new-game] [--two-player]";
     internal int Seed { get; private set; } = 42;
     internal bool InspectOnly { get; private set; }
     internal bool DemoDay { get; private set; }
+    internal bool DemoGame { get; private set; }
+    internal bool ContinueGame { get; private set; }
+    internal bool NewGame { get; private set; }
+    internal bool TwoPlayer { get; private set; }
+    internal bool NoSave { get; private set; }
+    internal string? SavePath { get; private set; }
+
+    internal bool ShouldSave => !NoSave && !InspectOnly
+        && (ContinueGame || SavePath != null || (!DemoDay && !DemoGame));
+
+    internal string EffectiveSavePath => SavePath ?? Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Quackies", "ducks-save.json");
 
     internal static bool Requested(string[] arguments) => arguments.Any(argument =>
         argument == "--profile" || argument.StartsWith("--profile=", StringComparison.Ordinal));
@@ -36,10 +48,23 @@ internal sealed class DuckCliOptions
                     break;
                 case "--inspect" when parts.Length == 1: options.InspectOnly = true; break;
                 case "--demo-day" when parts.Length == 1: options.DemoDay = true; break;
+                case "--demo-game" when parts.Length == 1: options.DemoGame = true; break;
+                case "--continue" when parts.Length == 1: options.ContinueGame = true; break;
+                case "--new-game" when parts.Length == 1: options.NewGame = true; break;
+                case "--two-player" when parts.Length == 1: options.TwoPlayer = true; break;
+                case "--no-save" when parts.Length == 1: options.NoSave = true; break;
+                case "--save":
+                    options.SavePath = Value();
+                    if (string.IsNullOrWhiteSpace(options.SavePath)) throw new ArgumentException("--save requires a file path.");
+                    break;
                 default: throw new ArgumentException($"Unknown duck option: {arguments[index]}.");
             }
         }
-        if (options.InspectOnly && options.DemoDay) throw new ArgumentException("Choose either --inspect or --demo-day.");
+        if (new[] { options.InspectOnly, options.DemoDay, options.DemoGame }.Count(value => value) > 1)
+            throw new ArgumentException("Choose one of --inspect, --demo-day or --demo-game.");
+        if (options.ContinueGame && options.NewGame) throw new ArgumentException("Choose either --continue or --new-game.");
+        if (options.NoSave && (options.SavePath != null || options.ContinueGame))
+            throw new ArgumentException("--no-save cannot be combined with --save or --continue.");
         return options;
     }
 }
