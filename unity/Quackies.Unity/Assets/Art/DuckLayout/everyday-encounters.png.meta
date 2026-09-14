@@ -1,0 +1,410 @@
+fileFormatVersion: 2
+guid: 02eb0b3a8502c439e9a01ec2b832811a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 732999586234964561
+    second: everyday-encounters_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ducklayout-everyday-encounters-00
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 558
+        width: 458
+        height: 392
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 6, y: 189}
+        - {x: 41, y: 183}
+        - {x: 65, y: 169}
+        - {x: 94, y: 137}
+        - {x: 145, y: 60}
+        - {x: 229, y: -84}
+        - {x: 229, y: -167}
+        - {x: 200, y: -196}
+        - {x: -6, y: -196}
+        - {x: -186, y: -196}
+        - {x: -210, y: -179}
+        - {x: -218, y: -168}
+        - {x: -229, y: -141}
+        - {x: -229, y: -123}
+        - {x: -220, y: -90}
+        - {x: -191, y: -32}
+        - {x: -89, y: 121}
+        - {x: -65, y: 151}
+        - {x: -43, y: 171}
+        - {x: -19, y: 184}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e06e981f5a267bb0acf56289d05bbc21
+      internalID: 1547076372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ducklayout-everyday-encounters-01
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 555
+        width: 435
+        height: 401
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -9.5, y: 192.5}
+        - {x: 10.5, y: 192.5}
+        - {x: 32.5, y: 186.5}
+        - {x: 48.5, y: 177.5}
+        - {x: 74.5, y: 155.5}
+        - {x: 191.5, y: 35.5}
+        - {x: 206.5, y: 10.5}
+        - {x: 214.5, y: -14.5}
+        - {x: 213.5, y: -38.5}
+        - {x: 202.5, y: -67.5}
+        - {x: 169.5, y: -120.5}
+        - {x: 122.5, y: -177.5}
+        - {x: 91.5, y: -200.5}
+        - {x: 11.5, y: -200.5}
+        - {x: -92.5, y: -200.5}
+        - {x: -102.5, y: -193.5}
+        - {x: -118.5, y: -181.5}
+        - {x: -158.5, y: -137.5}
+        - {x: -201.5, y: -70.5}
+        - {x: -214.5, y: -34.5}
+        - {x: -211.5, y: 0.5}
+        - {x: -198.5, y: 27.5}
+        - {x: -183.5, y: 46.5}
+        - {x: -58.5, y: 169.5}
+        - {x: -31.5, y: 186.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b0727d31bdbc879d536d7d364fcc40c
+      internalID: 1318641105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ducklayout-everyday-encounters-02
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 550
+        width: 415
+        height: 404
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -15.5, y: 194}
+        - {x: 3.5, y: 191}
+        - {x: 32.5, y: 173}
+        - {x: 66.5, y: 140}
+        - {x: 103.5, y: 95}
+        - {x: 136.5, y: 49}
+        - {x: 170.5, y: -7}
+        - {x: 187.5, y: -46}
+        - {x: 191.5, y: -49}
+        - {x: 207.5, y: -98}
+        - {x: 207.5, y: -136}
+        - {x: 201.5, y: -151}
+        - {x: 189.5, y: -171}
+        - {x: 166.5, y: -189}
+        - {x: 138.5, y: -202}
+        - {x: 15.5, y: -202}
+        - {x: -160.5, y: -202}
+        - {x: -160.5, y: -199}
+        - {x: -174.5, y: -196}
+        - {x: -207.5, y: -176}
+        - {x: -207.5, y: -37}
+        - {x: -152.5, y: 56}
+        - {x: -102.5, y: 124}
+        - {x: -59.5, y: 170}
+        - {x: -33.5, y: 188}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b50d5c1a3c935c11be8a6ef5d963f0
+      internalID: 2129933353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ducklayout-everyday-encounters-03
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 140
+        width: 410
+        height: 387
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -15, y: 191.5}
+        - {x: 28, y: 190.5}
+        - {x: 60, y: 183.5}
+        - {x: 99, y: 166.5}
+        - {x: 129, y: 144.5}
+        - {x: 156, y: 114.5}
+        - {x: 181, y: 72.5}
+        - {x: 198, y: 26.5}
+        - {x: 205, y: -8.5}
+        - {x: 205, y: -50.5}
+        - {x: 194, y: -91.5}
+        - {x: 178, y: -124.5}
+        - {x: 145, y: -162.5}
+        - {x: 128, y: -177.5}
+        - {x: 101, y: -193.5}
+        - {x: 14, y: -193.5}
+        - {x: -101, y: -193.5}
+        - {x: -132, y: -176.5}
+        - {x: -169, y: -142.5}
+        - {x: -181, y: -126.5}
+        - {x: -196, y: -94.5}
+        - {x: -205, y: -61.5}
+        - {x: -205, y: 7.5}
+        - {x: -192, y: 49.5}
+        - {x: -186, y: 58.5}
+        - {x: -187, y: 63.5}
+        - {x: -154, y: 118.5}
+        - {x: -125, y: 147.5}
+        - {x: -97, y: 166.5}
+        - {x: -57, y: 183.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623b52dd3f1ca4bf9c9960d470056967
+      internalID: 1807793015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ducklayout-everyday-encounters-04
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 131
+        width: 418
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -12, y: 193}
+        - {x: 20, y: 189}
+        - {x: 43, y: 179}
+        - {x: 66, y: 159}
+        - {x: 79, y: 136}
+        - {x: 113, y: 135}
+        - {x: 146, y: 118}
+        - {x: 163, y: 100}
+        - {x: 175, y: 80}
+        - {x: 184, y: 60}
+        - {x: 188, y: 38}
+        - {x: 187, y: 16}
+        - {x: 175, y: -15}
+        - {x: 174, y: -31}
+        - {x: 186, y: -62}
+        - {x: 189, y: -101}
+        - {x: 186, y: -115}
+        - {x: 169, y: -145}
+        - {x: 132, y: -169}
+        - {x: 94, y: -176}
+        - {x: 83, y: -181}
+        - {x: 63, y: -195}
+        - {x: 61, y: -200}
+        - {x: -5, y: -200}
+        - {x: -77, y: -200}
+        - {x: -74, y: -194}
+        - {x: -84, y: -193}
+        - {x: -105, y: -177}
+        - {x: -147, y: -167}
+        - {x: -171, y: -152}
+        - {x: -193, y: -129}
+        - {x: -200, y: -115}
+        - {x: -204, y: -96}
+        - {x: -201, y: -56}
+        - {x: -187, y: -29}
+        - {x: -187, y: -18}
+        - {x: -199, y: 24}
+        - {x: -199, y: 48}
+        - {x: -182, y: 91}
+        - {x: -172, y: 105}
+        - {x: -147, y: 126}
+        - {x: -125, y: 135}
+        - {x: -97, y: 137}
+        - {x: -92, y: 140}
+        - {x: -80, y: 160}
+        - {x: -61, y: 177}
+        - {x: -32, y: 190}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e176cf125a32e07f18d7d47cc0278330
+      internalID: -770996734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f7578552580db46fdb46cbd74d162ae7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ducklayout-everyday-encounters-00: 1547076372
+      ducklayout-everyday-encounters-01: 1318641105
+      ducklayout-everyday-encounters-02: 2129933353
+      ducklayout-everyday-encounters-03: 1807793015
+      ducklayout-everyday-encounters-04: -770996734
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

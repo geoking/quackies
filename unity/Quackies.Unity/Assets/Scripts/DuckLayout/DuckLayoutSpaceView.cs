@@ -1,0 +1,65 @@
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace Quackies.Unity.DuckLayout
+{
+    /// <summary>Serialized visual binding for one fixed board space; it contains no reward or rules logic.</summary>
+    public sealed class DuckLayoutSpaceView : MonoBehaviour
+    {
+        [SerializeField] private string stableId;
+        [SerializeField] private int space;
+        [SerializeField] private bool haven;
+        [SerializeField] private string havenName;
+        [SerializeField] private int sleep;
+        [SerializeField] private int twigs;
+        [SerializeField] private int feathers;
+        [SerializeField] private RectTransform wellRect;
+        [SerializeField] private RectTransform rewardRect;
+        [SerializeField] private Button inspectButton;
+        [SerializeField] private Image tokenImage;
+
+        public string StableId => stableId;
+        public int Space => space;
+        public bool IsHaven => haven;
+        public string HavenName => havenName;
+        public int Sleep => sleep;
+        public int Twigs => twigs;
+        public int Feathers => feathers;
+        public RectTransform WellRect => wellRect;
+        public RectTransform RewardRect => rewardRect;
+        public Button InspectButton => inspectButton;
+
+        public void Configure(string id, int number, bool isHaven, string shelterName, int sleepReward, int twigReward,
+            int featherReward, RectTransform well, RectTransform reward, Button button, Image token)
+        {
+            stableId = id;
+            space = number;
+            haven = isHaven;
+            havenName = shelterName ?? string.Empty;
+            sleep = sleepReward;
+            twigs = twigReward;
+            feathers = featherReward;
+            wellRect = well;
+            rewardRect = reward;
+            inspectButton = button;
+            tokenImage = token;
+        }
+
+        public void ShowToken(Sprite sprite)
+        {
+            if (tokenImage != null)
+            {
+                tokenImage.sprite = sprite;
+                tokenImage.color = sprite == null ? new Color(.25f, .12f, .38f, .95f) : Color.white;
+                tokenImage.useSpriteMesh = sprite != null;
+                tokenImage.gameObject.SetActive(true);
+            }
+        }
+
+        public void HideToken()
+        {
+            if (tokenImage != null) tokenImage.gameObject.SetActive(false);
+        }
+    }
+}

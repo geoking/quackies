@@ -864,3 +864,18 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   `127.0.0.1:7800`; the Editor was ready, stopped, and returned zero captured
   errors. No imports, Git operations, Core/CLI changes, Unity scene changes or
   runtime tests occurred in this documentation kickoff.
+### 37. M3 scene and asset checkpoint — review in progress
+
+- Added the isolated, fixed-data `DuckLayoutProof` scene and reproducible Editor
+  builder. The original playable scenes and Core DLL remain unchanged.
+- Added generated grass/wasteland wells, Moon/Sleep, single/paired Feather and
+  Twig icons. Native alpha was verified for all six selected new assets.
+- Approved encounter, duck and zzz image bytes are preserved. Rectangles and
+  source-measured sprite outlines isolate their faces in Unity metadata.
+- The Editor compilation passes. Two successive builds have the same hierarchy
+  digest and unchanged metadata for all 14 textures. The structural audit passes
+  50 spaces, eight havens, 11 offers, 16 distinct encounter sprites, text overflow
+  and cross-space bounds checks.
+- Native 1133 × 744 Adventure capture is available in `duck-migration/m3/`.
+  Visual polish, endpoint Feather emphasis and interaction review remain in
+  progress. This is a scene checkpoint, not M3 completion or a live duck game.

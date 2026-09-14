@@ -55,12 +55,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/Presentation/ScoreboardView.cs" />
+    <Compile Include="Assets/Scripts/DuckLayout/DuckLayoutOfferView.cs" />
+    <Compile Include="Assets/Scripts/DuckLayout/DuckLayoutSpaceView.cs" />
     <Compile Include="Assets/Scripts/Art/QuackiesArtCatalog.cs" />
     <Compile Include="Assets/Scripts/Presentation/DuckStyleEllipse.cs" />
     <Compile Include="Assets/Scripts/Presentation/ActionPanelView.cs" />
     <Compile Include="Assets/Scripts/Presentation/TableTheme.cs" />
+    <Compile Include="Assets/Scripts/DuckLayout/DuckLayoutProofPreview.cs" />
     <Compile Include="Assets/Scripts/GamePresenter.cs" />
     <Compile Include="Assets/Scripts/Presentation/ReferenceModal.cs" />
+    <Compile Include="Assets/Scripts/DuckLayout/DuckLayoutData.cs" />
     <Compile Include="Assets/Scripts/Presentation/DiceResultsView.cs" />
     <Compile Include="Assets/Scripts/Presentation/SafeArea.cs" />
     <Compile Include="Assets/Scripts/Presentation/PotView.cs" />

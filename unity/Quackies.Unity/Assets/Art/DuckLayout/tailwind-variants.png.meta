@@ -1,0 +1,284 @@
+fileFormatVersion: 2
+guid: 5522f352ac17f4e3bb80d721a79ca2e3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7193435606344709608
+    second: tailwind-variants_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ducklayout-tailwind-variants-00
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 313
+        width: 478
+        height: 421
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -174, y: 210.5}
+        - {x: 102, y: 210.5}
+        - {x: 126, y: 192.5}
+        - {x: 204, y: 84.5}
+        - {x: 235, y: 34.5}
+        - {x: 239, y: 33.5}
+        - {x: 239, y: -55.5}
+        - {x: 194, y: -133.5}
+        - {x: 151, y: -194.5}
+        - {x: 137, y: -210.5}
+        - {x: 121, y: -210.5}
+        - {x: -226, y: -210.5}
+        - {x: -232, y: -202.5}
+        - {x: -239, y: -192.5}
+        - {x: -239, y: -114.5}
+        - {x: -187, y: -30.5}
+        - {x: -180, y: -16.5}
+        - {x: -176, y: 4.5}
+        - {x: -184, y: 27.5}
+        - {x: -223, y: 91.5}
+        - {x: -229, y: 111.5}
+        - {x: -229, y: 142.5}
+        - {x: -226, y: 156.5}
+        - {x: -211, y: 185.5}
+        - {x: -195, y: 200.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5ce32348808861069c1c3487e58947f
+      internalID: 145434631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ducklayout-tailwind-variants-01
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 313
+        width: 471
+        height: 421
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -177.5, y: 210.5}
+        - {x: 107.5, y: 210.5}
+        - {x: 130.5, y: 192.5}
+        - {x: 160.5, y: 151.5}
+        - {x: 235.5, y: 44.5}
+        - {x: 235.5, y: -69.5}
+        - {x: 158.5, y: -191.5}
+        - {x: 151.5, y: -195.5}
+        - {x: 140.5, y: -210.5}
+        - {x: 125.5, y: -210.5}
+        - {x: -226.5, y: -210.5}
+        - {x: -235.5, y: -199.5}
+        - {x: -235.5, y: -104.5}
+        - {x: -202.5, y: -51.5}
+        - {x: -200.5, y: -43.5}
+        - {x: -188.5, y: -28.5}
+        - {x: -179.5, y: -5.5}
+        - {x: -181.5, y: 21.5}
+        - {x: -213.5, y: 73.5}
+        - {x: -226.5, y: 102.5}
+        - {x: -229.5, y: 145.5}
+        - {x: -225.5, y: 163.5}
+        - {x: -210.5, y: 188.5}
+        - {x: -198.5, y: 199.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6228d4cd52d365dc1a8a5581a677a77f
+      internalID: -527019268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ducklayout-tailwind-variants-02
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 313
+        width: 462
+        height: 421
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -186, y: 210.5}
+        - {x: 113, y: 210.5}
+        - {x: 136, y: 193.5}
+        - {x: 231, y: 60.5}
+        - {x: 231, y: -100.5}
+        - {x: 172, y: -187.5}
+        - {x: 151, y: -210.5}
+        - {x: 142, y: -210.5}
+        - {x: -231, y: -210.5}
+        - {x: -231, y: -86.5}
+        - {x: -204, y: -44.5}
+        - {x: -187, y: -8.5}
+        - {x: -187, y: 8.5}
+        - {x: -192, y: 24.5}
+        - {x: -231, y: 87.5}
+        - {x: -231, y: 169.5}
+        - {x: -221, y: 186.5}
+        - {x: -209, y: 198.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a77f67441036c9344df3780fe6c25a
+      internalID: -1893282038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0652e19efe06b4776af3d982651a7846
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ducklayout-tailwind-variants-00: 145434631
+      ducklayout-tailwind-variants-01: -527019268
+      ducklayout-tailwind-variants-02: -1893282038
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

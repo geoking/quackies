@@ -1,0 +1,315 @@
+fileFormatVersion: 2
+guid: a3d76295d53f249fca6248cf7f36c372
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6540758431896146121
+    second: reeds-quantities_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ducklayout-reeds-quantities-00
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 253
+        width: 485
+        height: 536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 79.5, y: 263}
+        - {x: 129.5, y: 263}
+        - {x: 187.5, y: 255}
+        - {x: 202.5, y: 249}
+        - {x: 215.5, y: 229}
+        - {x: 236.5, y: 156}
+        - {x: 242.5, y: 106}
+        - {x: 242.5, y: -67}
+        - {x: 232.5, y: -91}
+        - {x: 222.5, y: -131}
+        - {x: 196.5, y: -188}
+        - {x: 164.5, y: -230}
+        - {x: 136.5, y: -251}
+        - {x: 101.5, y: -268}
+        - {x: -81.5, y: -268}
+        - {x: -125.5, y: -268}
+        - {x: -157.5, y: -255}
+        - {x: -191.5, y: -231}
+        - {x: -212.5, y: -199}
+        - {x: -224.5, y: -168}
+        - {x: -237.5, y: -110}
+        - {x: -240.5, y: -30}
+        - {x: -231.5, y: 14}
+        - {x: -222.5, y: 31}
+        - {x: -218.5, y: 51}
+        - {x: -215.5, y: 52}
+        - {x: -189.5, y: 108}
+        - {x: -153.5, y: 156}
+        - {x: -117.5, y: 190}
+        - {x: -81.5, y: 216}
+        - {x: -28.5, y: 242}
+        - {x: 21.5, y: 256}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c1ef7978a5a3ad562e366be849a8a57
+      internalID: 268175910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ducklayout-reeds-quantities-01
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 254
+        width: 486
+        height: 535
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 88, y: 263.5}
+        - {x: 151, y: 260.5}
+        - {x: 194, y: 251.5}
+        - {x: 205, y: 241.5}
+        - {x: 217, y: 213.5}
+        - {x: 231, y: 159.5}
+        - {x: 243, y: 71.5}
+        - {x: 243, y: -67.5}
+        - {x: 237, y: -79.5}
+        - {x: 222, y: -138.5}
+        - {x: 204, y: -179.5}
+        - {x: 176, y: -220.5}
+        - {x: 147, y: -247.5}
+        - {x: 107, y: -267.5}
+        - {x: -88, y: -267.5}
+        - {x: -129, y: -267.5}
+        - {x: -156, y: -256.5}
+        - {x: -186, y: -237.5}
+        - {x: -212, y: -204.5}
+        - {x: -226, y: -174.5}
+        - {x: -243, y: -97.5}
+        - {x: -243, y: 3.5}
+        - {x: -233, y: 18.5}
+        - {x: -219, y: 58.5}
+        - {x: -185, y: 120.5}
+        - {x: -149, y: 165.5}
+        - {x: -116, y: 195.5}
+        - {x: -81, y: 219.5}
+        - {x: -34, y: 242.5}
+        - {x: 23, y: 257.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fcbbed02d7cae4a238ba49d9b439b2b
+      internalID: -583333871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ducklayout-reeds-quantities-02
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 254
+        width: 493
+        height: 535
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 81.5, y: 261.5}
+        - {x: 140.5, y: 259.5}
+        - {x: 187.5, y: 251.5}
+        - {x: 201.5, y: 242.5}
+        - {x: 209.5, y: 221.5}
+        - {x: 212.5, y: 220.5}
+        - {x: 221.5, y: 196.5}
+        - {x: 237.5, y: 130.5}
+        - {x: 246.5, y: 77.5}
+        - {x: 246.5, y: -90.5}
+        - {x: 234.5, y: -135.5}
+        - {x: 212.5, y: -186.5}
+        - {x: 191.5, y: -218.5}
+        - {x: 153.5, y: -251.5}
+        - {x: 124.5, y: -263.5}
+        - {x: 121.5, y: -267.5}
+        - {x: -81.5, y: -267.5}
+        - {x: -141.5, y: -267.5}
+        - {x: -189.5, y: -238.5}
+        - {x: -207.5, y: -216.5}
+        - {x: -227.5, y: -171.5}
+        - {x: -237.5, y: -135.5}
+        - {x: -243.5, y: -85.5}
+        - {x: -246.5, y: -82.5}
+        - {x: -246.5, y: 5.5}
+        - {x: -243.5, y: 5.5}
+        - {x: -234.5, y: 18.5}
+        - {x: -222.5, y: 53.5}
+        - {x: -216.5, y: 59.5}
+        - {x: -215.5, y: 68.5}
+        - {x: -180.5, y: 128.5}
+        - {x: -153.5, y: 161.5}
+        - {x: -117.5, y: 194.5}
+        - {x: -73.5, y: 223.5}
+        - {x: -27.5, y: 243.5}
+        - {x: 20.5, y: 255.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef95038d05d491b39b169c6f836f1c0
+      internalID: -68262951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 23abc1a1df2844d1d940bd6305c28955
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ducklayout-reeds-quantities-00: 268175910
+      ducklayout-reeds-quantities-01: -583333871
+      ducklayout-reeds-quantities-02: -68262951
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

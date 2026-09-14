@@ -1,0 +1,198 @@
+{
+  "selected": [
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/board.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sha256": "121c064ae0d14b8883e3420c6ed8f081167e1c0927a6a5010ce5307d2982a7f9",
+      "bytes": 3132901,
+      "provenance": "Byte-for-byte copy of approved concept; source pixels remain unchanged, silhouettes use native Unity mesh metadata."
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/dream-concept.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sha256": "50048030527e3054c1200eaf8a4fde2fa2f56a6432c53a79d0a685f220fc873a",
+      "bytes": 3008260,
+      "provenance": "Byte-for-byte copy of approved concept; source pixels remain unchanged, silhouettes use native Unity mesh metadata."
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/ducks.png",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGB",
+      "sha256": "5920eb50a9e2af383607c5de3e4a55a8677d68b5f9087f7d1078a54e1288d21d",
+      "bytes": 1833536,
+      "provenance": "Byte-for-byte copy of approved concept; source pixels remain unchanged, silhouettes use native Unity mesh metadata."
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/everyday-encounters.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sha256": "ab255e6ece87e42cac13f4394174d19fe97927f56a93be6255c79e77d9a0f466",
+      "bytes": 1872927,
+      "provenance": "Byte-for-byte copy of approved concept; source pixels remain unchanged, silhouettes use native Unity mesh metadata."
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/feather.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "sha256": "e434160c4587cef0824c55d633969e4a15d53294726618743ddbe592619ff892",
+      "bytes": 798168,
+      "generator": "built-in image_gen",
+      "generation": "exec-cd220e5a-6b90-4277-b1e9-d1c7652659f9",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        97,
+        8,
+        1202,
+        1236
+      ]
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/feathers-two.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "sha256": "3c6e6147ea4dea4a3ea6d09f43f9ff83f5eaa0f0b22758e03f9b3a61181f8e0c",
+      "bytes": 1143343,
+      "generator": "built-in image_gen",
+      "generation": "exec-9205000e-b9e7-4321-b968-561a5f19e818",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        59,
+        1,
+        1230,
+        1236
+      ]
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/reeds-quantities.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sha256": "152af4fd990fb1d2d15cc9abc5845b4505683985d27e447be09ea42229521c08",
+      "bytes": 1863629,
+      "provenance": "Byte-for-byte copy of approved concept; source pixels remain unchanged, silhouettes use native Unity mesh metadata."
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/sleep.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "sha256": "a8576fa7cb57f3aa88a185769c13d230d98efb4bbcbdae120947362f4a1a3012",
+      "bytes": 773651,
+      "generator": "built-in image_gen",
+      "generation": "exec-f185747d-dc3b-4fc8-84b1-4be562ae7771",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        21,
+        1208,
+        1254
+      ]
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/tailwind-variants.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sha256": "6c49322eea48492237f3d9d65a8083b237ffb89a6e7f8a7310b29fc02741bf16",
+      "bytes": 1723799,
+      "provenance": "Byte-for-byte copy of approved concept; source pixels remain unchanged, silhouettes use native Unity mesh metadata."
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/twig.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "sha256": "61ddce6fbe7757d32c79023940f17809399d83e066a56ae77e33ad07421cab6e",
+      "bytes": 1016716,
+      "generator": "built-in image_gen",
+      "generation": "exec-7bd0850e-d79a-40b3-80d2-a7f2025d18a8",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        50,
+        48,
+        1232,
+        1184
+      ]
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/well-grass.png",
+      "width": 1385,
+      "height": 1136,
+      "mode": "RGBA",
+      "sha256": "60d6a1e4a988ab0534e55f67d07c59f5b748dce51e36a244eee309eb6bf020db",
+      "bytes": 1946185,
+      "generator": "built-in image_gen",
+      "generation": "exec-3f08ca72-0ded-4e1b-92f2-596828e715d2",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1373,
+        1116
+      ]
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/well-wasteland.png",
+      "width": 1385,
+      "height": 1136,
+      "mode": "RGBA",
+      "sha256": "7eb7491ae9e49e8614be5fa655e5d3666318b5c9d09ca4c6dabd8dd7d8f6554e",
+      "bytes": 1677123,
+      "generator": "built-in image_gen",
+      "generation": "exec-f5a75378-e0bc-4917-931b-86b4046b2fd7",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        15,
+        1375,
+        1098
+      ]
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/white-obstacles.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sha256": "193d5d84ba02d41baf25777eeafeec4f847870d46a9ae66b93fa9527372e6594",
+      "bytes": 1882910,
+      "provenance": "Byte-for-byte copy of approved concept; source pixels remain unchanged, silhouettes use native Unity mesh metadata."
+    },
+    {
+      "path": "unity/Quackies.Unity/Assets/Art/DuckLayout/zzz.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sha256": "9eca71f626563eb179b66d01cb12bb8429682eaf34c41a8f480cf6fdc33deb43",
+      "bytes": 1728422,
+      "provenance": "Byte-for-byte copy of approved concept; source pixels remain unchanged, silhouettes use native Unity mesh metadata."
+    }
+  ],
+  "discarded": "Checkerboard/halo extraction attempts were rejected. Original approved tokens and source PNG bytes retained with Unity sprite outlines instead.",
+  "resolution": "Use native 1536x1024 board for M3 geometry; no upscale claimed as new detail."
+}

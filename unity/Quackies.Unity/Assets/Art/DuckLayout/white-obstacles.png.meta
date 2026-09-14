@@ -1,0 +1,381 @@
+fileFormatVersion: 2
+guid: 368928350312c43e7b8851d441fdfc66
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8160575326817234531
+    second: white-obstacles_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ducklayout-white-obstacles-00
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 560
+        width: 412
+        height: 381
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -69, y: 185.5}
+        - {x: 70, y: 185.5}
+        - {x: 83, y: 182.5}
+        - {x: 101, y: 171.5}
+        - {x: 184, y: 89.5}
+        - {x: 201, y: 57.5}
+        - {x: 206, y: 37.5}
+        - {x: 206, y: -102.5}
+        - {x: 196, y: -121.5}
+        - {x: 169, y: -153.5}
+        - {x: 123, y: -190.5}
+        - {x: 69, y: -190.5}
+        - {x: -120, y: -190.5}
+        - {x: -175, y: -142.5}
+        - {x: -201, y: -106.5}
+        - {x: -206, y: -88.5}
+        - {x: -206, y: 27.5}
+        - {x: -196, y: 71.5}
+        - {x: -188, y: 85.5}
+        - {x: -100, y: 170.5}
+        - {x: -84, y: 181.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a253f1d49b692b1d8837a307e415e411
+      internalID: 1606748453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ducklayout-white-obstacles-01
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 560
+        width: 412
+        height: 382
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -68, y: 185}
+        - {x: 70, y: 185}
+        - {x: 88, y: 180}
+        - {x: 99, y: 173}
+        - {x: 180, y: 93}
+        - {x: 192, y: 78}
+        - {x: 200, y: 61}
+        - {x: 206, y: 28}
+        - {x: 206, y: -96}
+        - {x: 197, y: -117}
+        - {x: 182, y: -139}
+        - {x: 123, y: -191}
+        - {x: 68, y: -191}
+        - {x: -122, y: -191}
+        - {x: -125, y: -185}
+        - {x: -161, y: -157}
+        - {x: -185, y: -132}
+        - {x: -201, y: -105}
+        - {x: -206, y: -87}
+        - {x: -206, y: 18}
+        - {x: -195, y: 73}
+        - {x: -182, y: 91}
+        - {x: -95, y: 174}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39635ddc7f715158f9481b78f243da15
+      internalID: -544383812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ducklayout-white-obstacles-02
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 560
+        width: 420
+        height: 382
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -72, y: 185}
+        - {x: 67, y: 185}
+        - {x: 83, y: 181}
+        - {x: 98, y: 172}
+        - {x: 189, y: 83}
+        - {x: 201, y: 58}
+        - {x: 210, y: -9}
+        - {x: 210, y: -88}
+        - {x: 199, y: -115}
+        - {x: 172, y: -152}
+        - {x: 126, y: -191}
+        - {x: 72, y: -191}
+        - {x: -127, y: -191}
+        - {x: -180, y: -141}
+        - {x: -204, y: -106}
+        - {x: -210, y: -88}
+        - {x: -210, y: 11}
+        - {x: -198, y: 72}
+        - {x: -187, y: 89}
+        - {x: -106, y: 169}
+        - {x: -88, y: 181}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb63d8561fe9729a305f8f02ac8702f
+      internalID: -280825757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ducklayout-white-obstacles-03
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 138
+        width: 430
+        height: 383
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -81, y: 187.5}
+        - {x: 67, y: 187.5}
+        - {x: 80, y: 184.5}
+        - {x: 96, y: 174.5}
+        - {x: 117, y: 154.5}
+        - {x: 182, y: 90.5}
+        - {x: 188, y: 80.5}
+        - {x: 197, y: 54.5}
+        - {x: 202, y: 14.5}
+        - {x: 201, y: -22.5}
+        - {x: 205, y: -63.5}
+        - {x: 199, y: -97.5}
+        - {x: 182, y: -129.5}
+        - {x: 159, y: -154.5}
+        - {x: 135, y: -173.5}
+        - {x: 106, y: -191.5}
+        - {x: 74, y: -191.5}
+        - {x: -118, y: -191.5}
+        - {x: -175, y: -147.5}
+        - {x: -193, y: -129.5}
+        - {x: -207, y: -105.5}
+        - {x: -215, y: -79.5}
+        - {x: -215, y: 5.5}
+        - {x: -211, y: 43.5}
+        - {x: -201, y: 80.5}
+        - {x: -195, y: 90.5}
+        - {x: -111, y: 172.5}
+        - {x: -98, y: 182.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ce0f81387ea1c20e9a267fc6b6eeca
+      internalID: 274128744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ducklayout-white-obstacles-04
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 138
+        width: 429
+        height: 383
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -77.5, y: 187.5}
+        - {x: 67.5, y: 187.5}
+        - {x: 86.5, y: 182.5}
+        - {x: 180.5, y: 96.5}
+        - {x: 199.5, y: 66.5}
+        - {x: 207.5, y: 19.5}
+        - {x: 210.5, y: -61.5}
+        - {x: 210.5, y: -83.5}
+        - {x: 199.5, y: -117.5}
+        - {x: 185.5, y: -140.5}
+        - {x: 141.5, y: -178.5}
+        - {x: 125.5, y: -184.5}
+        - {x: 117.5, y: -191.5}
+        - {x: 77.5, y: -191.5}
+        - {x: -116.5, y: -191.5}
+        - {x: -147.5, y: -172.5}
+        - {x: -187.5, y: -132.5}
+        - {x: -206.5, y: -103.5}
+        - {x: -212.5, y: -71.5}
+        - {x: -212.5, y: -6.5}
+        - {x: -209.5, y: 41.5}
+        - {x: -201.5, y: 74.5}
+        - {x: -192.5, y: 90.5}
+        - {x: -109.5, y: 171.5}
+        - {x: -98.5, y: 180.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e58b7128c177b29cdee6fe4f7fe4336e
+      internalID: -921958524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 80e9299d483854c37ac655dd65f65d45
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ducklayout-white-obstacles-00: 1606748453
+      ducklayout-white-obstacles-01: -544383812
+      ducklayout-white-obstacles-02: -280825757
+      ducklayout-white-obstacles-03: 274128744
+      ducklayout-white-obstacles-04: -921958524
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

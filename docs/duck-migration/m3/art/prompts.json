@@ -1,0 +1,64 @@
+{
+  "tool": "built-in image_gen",
+  "purpose": "M3 layout assets; no source pixel editing outside the generator",
+  "newAssets": {
+    "well-grass": "Use case: stylized-concept. Asset type: SINGLE transparent PNG sprite for a polished cartoony tabletop duck board game. Use attached board as style reference, not edit target. Create ONE empty token landing well suited to a grassy trail: a softly rounded, bubbly oval-square patch of flattened fresh light yellow-green grass, outlined by a subtle dark moss green edge and tiny rim of short grass. Top-down flat board-game illustration, clean smooth painterly shading, crisp bold silhouette. Large quiet empty centre where a die-cut token can sit. No stones, no dirt paving, no long plants, no objects in centre. Proportions width 1.22 times height. Do not include a score strip, text, letters, numerals or icons. One object fills 85% of a square canvas with genuinely transparent background outside its silhouette, no checkerboard painted into image, no opaque sheet. Match warm playful saturated visual style of reference. Simple enough to read at 55 px wide. Keep exterior clean and alpha transparent.",
+    "well-wasteland": "Use case: stylized-concept. Asset type: SINGLE transparent PNG sprite for a polished cartoony tabletop duck board game. Attached board is a style reference only. Create ONE empty token landing well for the barren orange wasteland: a softly rounded bubbly oval-square patch of smooth pale warm terracotta sand, with a restrained dark rust-brown outline and small weathered sandy rim. Top-down flat board-game illustration, smooth clean painterly shading, crisp silhouette. Large quiet empty centre where a die-cut token can sit; suggest fine cracked earth only at outer corners. No stones, paving block, grass, objects, vegetation or shelter. Proportions width 1.22 times height. No score strip, text, letters, numerals or icons. One object fills 85% square canvas, genuinely transparent background outside silhouette, no painted checkerboard, no opaque sheet. Match warm playful saturated board style. Simple enough to read at 55 px wide.",
+    "feathers-two": "Use case: stylized-concept. Asset type: SINGLE transparent PNG reward emblem for a polished playful cartoon board game. Attached board is style reference only. Paint exactly TWO clearly separated ivory duck feathers fanned gently side by side. Each feather has a small warm brown quill and soft pale lavender shadow; dark warm outline makes white feather readable on orange desert. Bottom of feathers meets a tiny ochre sandy base with one unobtrusive jade leaf, indicating a safe rest in the wasteland. Do NOT add a full tile or shelter. No digits, no text, no labels, no gold coins. Show only this paired two-feather icon filling most square canvas. Crisp clean illustration matching board, smooth painterly shading no grain. True transparent alpha outside isolated object, no checkered pattern painted, no opaque background. Strong simple silhouette legible at 28px.",
+    "sleep": "Use case: stylized-concept. Asset type: SINGLE transparent PNG Sleep score resource icon for a playful duck tabletop game. Attached board is style reference only. Paint one plump pale golden crescent moon, tilted slightly, with two tiny sleepy lavender sparkles tucked beside its inner curve. Deep indigo outline and soft warm highlight. The crescent must be instantly recognisable at 16px. No coin, disk, circle medallion, face, text, Zs, numerals, board or backdrop. Compact friendly rounded illustrated silhouette, clean smooth painterly shading, minimal texture, polished saturated cartoon style matching reference. Isolated single moon emblem centered filling85% square canvas. Genuine transparent alpha background, no painted checkerboard, no opaque paper sheet."
+  },
+  "extractionAttempts": [
+    [
+      "well-grass-alpha",
+      "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-e56acf87-9465-404b-87b5-c12792cb3aac.png",
+      "Remove the grey and white checkerboard background completely. Keep only the green rounded grassy token well, pixel appearance and composition unchanged. Output a real transparent-background PNG with alpha zero around the grass. Do not paint a checkerboard. Do not repaint the grass, add text or add objects."
+    ],
+    [
+      "everyday-alpha",
+      "/Users/george/Repos/quackies/docs/duck-migration/concepts/2026-09-13-agreed-token-set/everyday-encounters.png",
+      "Extract the FIVE existing die-cut encounter tokens, preserving every face, colour, shape, edge and position EXACTLY. Remove all page background, title and caption text including names BELOW each token. Preserve the arrow 2 printed INSIDE blue signpost. Nothing inside any token should be transparent. Keep original layout three above two below and overall1536x1024 framing. Output true transparent alpha outside the five token silhouettes, no painted checkerboard, no opaque background. Do not redesign or redraw the approved characters."
+    ],
+    [
+      "tailwind-alpha",
+      "/Users/george/Repos/quackies/docs/duck-migration/concepts/2026-09-13-agreed-token-set/tailwind-variants.png",
+      "Extract the THREE existing red chevron Tailwind tokens. Preserve exact token positions, silhouettes, faces, colours, wind designs and internal printed arrows2,4,6. Remove page background and all text OUTSIDE tokens. Retain each creamy rim. Output true transparent PNG alpha outside the three token silhouettes, no painted checkerboard, no opaque background. Keep1536x1024 framing. Do not redesign."
+    ],
+    [
+      "reeds-alpha",
+      "/Users/george/Repos/quackies/docs/duck-migration/concepts/2026-09-13-agreed-token-set/reeds-quantities.png",
+      "Extract the THREE existing green leaf Nesting reeds tokens. Preserve exactpositions silhouettes facescolour reeds bundles and internal quantity pictograms x1 x2 x3. Remove the page background and all text OUTSIDE tokens. Keep each creamy rim. Output true transparent PNG alpha outside silhouettes; no checkerboard, no opaque background. Keep1536x1024framing. Do not redesign."
+    ],
+    [
+      "obstacles-alpha",
+      "/Users/george/Repos/quackies/docs/duck-migration/concepts/2026-09-13-agreed-token-set/white-obstacles.png",
+      "Extract the FIVE existing white octagonal obstacle tokens. Preserve exactly the log, mud, pebbles, brambles, grumpygoose faces, rim outlines and positions. Remove page background and ALL title/caption/name text OUTSIDE tokens. White INSIDE tokens stays solid white. Output true transparent PNG alpha outside silhouettes, no paintedcheckerboard, no opaque background. Keep original3above2below layoutand1536x1024framing. Do not redesign."
+    ]
+  ],
+  "additional": [
+    [
+      "well-grass-final",
+      "/Users/george/Repos/quackies/unity/Quackies.Unity/Assets/Art/DuckLayout/well-wasteland.png",
+      "Use case: style-transfer. Turn this SINGLE rounded sandy board-game token landing well into a short-grass landing well for the meadow. Preserve the exact blank shape, size and truly transparent alpha around it. Replace orange sand with pale fresh spring-green flattened grass; moss green edge, a few tiny blades at outer rim; same quiet open centre and dark cartoon outline. No other objects, text or symbols. Crucially retain real transparency, never paint a checkerboard or background."
+    ],
+    [
+      "ducks-alpha",
+      "/Users/george/Repos/quackies/docs/duck-migration/concepts/2026-09-11/duck-player-tiles-v2.png",
+      "Use case: background-extraction. Remove the cream paper background around these FOUR duck player tokens and preserve the four exact approved silly duck designs, colours, faces, cream die-cut outlines, positions and dimensions. Do not redraw. Make true PNG alpha transparency around each separate silhouette. No checkerboard or background. Four tokens remain in original 2x2 arrangement. Nothing inside any token is transparent."
+    ],
+    [
+      "zzz-alpha",
+      "/Users/george/Repos/quackies/docs/duck-migration/concepts/2026-09-14-most-rested/most-rested-marker.png",
+      "Use case: background-extraction. Extract ONLY the existing lavender cloud Most Rested token from this concept sheet. Remove cream background and top/bottom title/caption. Preserve the cloud's exact shape, cream rim, dark blue outline, yellowcrescent, stars and three zzz printed INSIDE it. Output real PNG alpha outside silhouette. No painted checkerboard, no opaque background. Keep originaltoken scale/positionwithin1536x1024canvas. Do not redesign."
+    ],
+    [
+      "twig",
+      "/Users/george/Repos/quackies/docs/duck-migration/concepts/2026-09-11-v5/painted-kit.png",
+      "Use case: background-extraction. Extract ONLY the small bundle of three brown twigs tied with string in the BOTTOM CENTRE of the reference sheet. Output as ONE isolated score-resource icon filling a square canvas, on real transparent PNG alpha. Keep its appealing smooth cartoon brown wooden shading and bold rim. Remove all other objects and backdrop. No text, digits, coin, feathers or extra objects. No painted checkerboard. Crisp readable at16px."
+    ],
+    [
+      "feather",
+      "/Users/george/Repos/quackies/unity/Quackies.Unity/Assets/Art/DuckLayout/feathers-two.png",
+      "Use case: precise-object-edit. Produce the matching SINGLE white duck feather icon for a one-Feather reward. Keep the taller left feather from this pair, with same cream/lavender shading and dark warm outline, but remove the entire second feather, sand base and green leaf. One isolated ivory feather, warm quill, centred filling square canvas. Real transparent PNG alpha outside it. No checkerboard, no text, no numerals, no other objects."
+    ]
+  ]
+}
