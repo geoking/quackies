@@ -1,6 +1,6 @@
 # Quackies handoff
 
-## Current task: M3 revision open; awaiting board review
+## Current task: revised M3 layout ready for board review
 
 14 September 2026: the user explicitly closed M2 and approved the remaining
 rules/defaults and local autosave/Continue scope, with two corrections:
