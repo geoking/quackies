@@ -196,7 +196,7 @@ internal static class DuckCli
 
     private static void Show(DuckMatchView view)
     {
-        Console.WriteLine($"Day {view.Day}/10 · {view.Phase} · World Event: {view.CurrentEvent.Name}");
+        Console.WriteLine($"Day {view.Day}/10 · {view.Phase} · Nest level {view.NestLevel} · World Event: {view.CurrentEvent.Name}");
         foreach (var player in view.Players)
         {
             Console.WriteLine($"{player.Name}: {player.TotalTwigs} Twigs · space {player.Position} · Exhaustion {player.Exhaustion}/{player.SafeExhaustionMaximum} · bag {player.BagCount}" +
