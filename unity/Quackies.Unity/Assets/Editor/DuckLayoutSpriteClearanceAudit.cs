@@ -277,7 +277,8 @@ namespace Quackies.Unity.Editor
                     Mathf.Min(bottomLeft.y, bottomRight.y, topLeft.y, topRight.y),
                     Mathf.Max(bottomLeft.x, bottomRight.x, topLeft.x, topRight.x),
                     Mathf.Max(bottomLeft.y, bottomRight.y, topLeft.y, topRight.y));
-                yield return Expand(glyphBounds, .65f * Mathf.Abs(text.rectTransform.lossyScale.x));
+                // Include the stronger board-reward outline, in addition to inter-object clearance.
+                yield return Expand(glyphBounds, 1.1f * Mathf.Abs(text.rectTransform.lossyScale.x));
             }
         }
 

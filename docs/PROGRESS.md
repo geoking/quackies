@@ -1076,3 +1076,13 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 - [Review images, prompts and validation](duck-migration/m3-scattered-twigs/README.md)
   are saved. Stop for visual assessment; M4/Core remains unstarted. Existing
   rule-document and ProjectSettings drafts are preserved.
+
+### 49. M3 clearer reward numbers (14 September 2026)
+
+- Applied a stronger black outline and slight face weight only to the 86 board
+  reward labels. Increased Twig numbers from 21 to 22 and raised Sleep numbers
+  by 0.84 board pixels to contain the stroke; artwork and placements are unchanged.
+- Both tablet-size scene audits pass, all 150 labels fit and all 672 chip/space
+  combinations remain clear. Compilation and Console report no errors.
+  [Typography review and checks](duck-migration/m3-reward-typography/README.md)
+  are saved. Stop for visual feedback; M4 remains unstarted.

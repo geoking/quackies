@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var c=UnityEngine.Object.FindObjectOfType<Quackies.Unity.DuckLayout.DuckLayoutProofPreview>();var numbers=new System.Collections.Generic.HashSet<TMPro.TMP_Text>(c.Spaces.SelectMany(s=>s.RewardNumbers));var texts=UnityEngine.Object.FindObjectsOfType<TMPro.TMP_Text>(true);foreach(var t in texts){t.ForceMeshUpdate(true,true);var reward=numbers.Contains(t);var m=t.fontSharedMaterial;if(!t.font.name.StartsWith(\"Fredoka\")||!t.extraPadding||!m.IsKeywordEnabled(\"OUTLINE_ON\")||m.GetColor(\"_OutlineColor\")!=UnityEngine.Color.black||t.isTextOverflowing||!UnityEngine.Mathf.Approximately(m.GetFloat(\"_OutlineWidth\"),reward?.36f:.24f))throw new System.Exception(\"Typography failure: \"+t.name);if(reward&&!UnityEngine.Mathf.Approximately(m.GetFloat(\"_FaceDilate\"),.03f))throw new System.Exception(\"Reward face weight mismatch\");}var scale=c.Spaces[0].WellRect.rect.width/108f;foreach(var s in c.Spaces.Where(s=>s.Space<43)){if(!UnityEngine.Mathf.Approximately(s.RewardNumbers[1].fontSize,22f*scale))throw new System.Exception(\"Twig size mismatch \"+s.Space);}return new{totalLabels=texts.Length,rewardLabels=numbers.Count,rewardOutline=.36f,generalOutline=.24f,rewardFaceDilate=.03f,twigFontSize=22,overflow=0};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "totalLabels": 150,
+        "rewardLabels": 86,
+        "rewardOutline": 0.36,
+        "generalOutline": 0.24,
+        "rewardFaceDilate": 0.03,
+        "twigFontSize": 22,
+        "overflow": 0
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/george/Repos/quackies/unity/Quackies.Unity"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

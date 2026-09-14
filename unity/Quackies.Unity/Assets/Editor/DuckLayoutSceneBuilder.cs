@@ -29,6 +29,7 @@ namespace Quackies.Unity.Editor
         private const string TileCropManifestPath = ArtDirectory + "/tile-crops.json";
         private const string RoundedTextFontPath = ArtDirectory + "/Fonts/Fredoka-SemiBold.ttf";
         private const string RoundedTextFontAssetPath = ArtDirectory + "/Fonts/Fredoka-SemiBold SDF.asset";
+        private const string RewardOutlineMaterialPath = ArtDirectory + "/Fonts/Fredoka-SemiBold SDF - Reward Outline.mat";
         private const string RequiredTypographyGlyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~•×–→";
         private const float ViewWidth = FittedViewport.Width;
         private const float ViewHeight = FittedViewport.Height;
@@ -57,6 +58,7 @@ namespace Quackies.Unity.Editor
         private static readonly Color MeadowTint = new Color(.98f, .88f, .50f, .94f);
         private static readonly Color WastelandTint = new Color(.93f, .65f, .40f, .94f);
         private static TMP_FontAsset roundedTextFont;
+        private static Material rewardOutlineMaterial;
 
         [MenuItem("Quackies/Build Duck Layout Proof")]
         public static void BuildDuckLayoutProof() => TryBuildDuckLayoutProof();
@@ -122,6 +124,7 @@ namespace Quackies.Unity.Editor
                 inspectionSleepValue, inspectionTwigValue, inspectionFeatherValue, inspectionArt, inspectionSleep, inspectionTwig,
                 inspectionFeather, closeInspection);
             ApplyOutlinedTypography(canvas.transform);
+            ApplyRewardTypography(spaces);
             proof.transform.SetAsLastSibling();
             inspection.transform.SetAsLastSibling();
 
@@ -369,7 +372,7 @@ namespace Quackies.Unity.Editor
             {
                 var tile = art.TileFor(row);
                 numbers.Add(RewardNumber("Sleep number", reward, row.sleep, ArtRect(tile.sleepNumber, width, height), 23f*sx));
-                numbers.Add(RewardNumber("Twig number", reward, row.twigs, ArtRect(tile.twigNumber, width, height), 21f*sx));
+                numbers.Add(RewardNumber("Twig number", reward, row.twigs, ArtRect(tile.twigNumber, width, height), 22f*sx));
                 protectedArt.Add(ProtectedArt("Painted moon and stars", root, tile.moon, width, height));
                 // Twig areas are painted ground decoration. Encounter sprites may land over them.
                 foreach (var area in tile.featherAreas ?? Array.Empty<DuckLayoutArtRect>())
@@ -715,6 +718,18 @@ namespace Quackies.Unity.Editor
             }
         }
 
+        /// <summary>Applies the stronger persisted outline only to the 43 × 2 board reward labels.</summary>
+        private static void ApplyRewardTypography(IEnumerable<DuckLayoutSpaceView> spaces)
+        {
+            var material = RewardOutlineMaterial();
+            foreach (var label in spaces.Where(space => space != null).SelectMany(space => space.RewardNumbers))
+            {
+                if (label == null) continue;
+                label.fontSharedMaterial = material;
+                label.extraPadding = true;
+            }
+        }
+
         private static TMP_FontAsset RoundedTextFont()
         {
             if (roundedTextFont != null) return roundedTextFont;
@@ -751,6 +766,33 @@ namespace Quackies.Unity.Editor
             EditorUtility.SetDirty(material);
             EditorUtility.SetDirty(roundedTextFont);
             return roundedTextFont;
+        }
+
+        private static Material RewardOutlineMaterial()
+        {
+            var fontMaterial = RoundedTextFont().material;
+            if (fontMaterial == null)
+                throw new InvalidOperationException("Rounded TMP asset needs a material: " + RoundedTextFontAssetPath);
+            if (rewardOutlineMaterial == null)
+            {
+                rewardOutlineMaterial = AssetDatabase.LoadAssetAtPath<Material>(RewardOutlineMaterialPath);
+                if (rewardOutlineMaterial == null)
+                {
+                    rewardOutlineMaterial = new Material(fontMaterial) { name = "Fredoka SemiBold SDF - Reward Outline" };
+                    AssetDatabase.CreateAsset(rewardOutlineMaterial, RewardOutlineMaterialPath);
+                }
+            }
+
+            // Start from the active Fredoka material each rebuild so its atlas and TMP settings stay aligned.
+            rewardOutlineMaterial.CopyPropertiesFromMaterial(fontMaterial);
+            rewardOutlineMaterial.name = "Fredoka SemiBold SDF - Reward Outline";
+            rewardOutlineMaterial.EnableKeyword("OUTLINE_ON");
+            rewardOutlineMaterial.SetColor(ShaderUtilities.ID_OutlineColor, Color.black);
+            rewardOutlineMaterial.SetFloat(ShaderUtilities.ID_OutlineWidth, .36f);
+            rewardOutlineMaterial.SetFloat(ShaderUtilities.ID_FaceDilate, .03f);
+            ShaderUtilities.UpdateShaderRatios(rewardOutlineMaterial);
+            EditorUtility.SetDirty(rewardOutlineMaterial);
+            return rewardOutlineMaterial;
         }
 
         private static void ConfigureCompactButton(Button button)
@@ -948,7 +990,7 @@ namespace Quackies.Unity.Editor
                 points.Add(text.rectTransform.TransformPoint(character.topRight));
             }
             if (points.Count == 0) return null;
-            var padding = .65f * text.rectTransform.lossyScale.x;
+            var padding = 1.1f * text.rectTransform.lossyScale.x;
             return Rect.MinMaxRect(points.Min(point => point.x) - padding, points.Min(point => point.y) - padding,
                 points.Max(point => point.x) + padding, points.Max(point => point.y) + padding);
         }
