@@ -1,0 +1,59 @@
+{
+  "routeRowsUnchanged": true,
+  "rewardPayloadsUnchanged": true,
+  "nestAndShelterAnchorsUnchanged": true,
+  "spaces": 43,
+  "chipFrame": {
+    "size": 64,
+    "x": 16,
+    "y": -11,
+    "horizontalCentre": 48
+  },
+  "preservedPreexistingDrafts": {
+    "docs/HANDOFF.md": "b41edb7bb0f3665d9d9cd7fa4d36db7fc9ba425382af9d46d26f1bddc3559e1a",
+    "docs/duck-migration/ENCOUNTER_RULES.md": "97f6ec9bc812e48c2f0c45d8949d6ebf40529347993eb401ff3df7911d9d0bbb",
+    "docs/duck-migration/ENGINE_EVOLUTION.md": "9330448c9942feb6247c2b0b4146b576116140eb48adc095b12577a064edd9f6",
+    "docs/duck-migration/IMPLEMENTATION_PLAN.md": "f8420caabe23898101816a86d573d4f09d6c8586ce38e3e48e1044a26883ac08",
+    "docs/duck-migration/PLAN.md": "d8bfe088a85a648fc3783ee6496d1b3b966bc8446afea0b36f7b17f084f73678",
+    "docs/duck-migration/RULES_AT_A_GLANCE.md": "abf7bc47ebc8f9e0184070a884d0dabeddd40c7b2848eefce7d2f0ada4c3aea8",
+    "docs/duck-migration/STATUS.md": "b67a30c65fa77c22c7fdcd285da6301e289ee492950337126dca1e2e43e5652c",
+    "docs/duck-migration/v1/BOARD_AND_SHOP.md": "838ead77858701ed10875250e8f90c699d4510c157c81a25112315ab203d47f0",
+    "docs/duck-migration/v1/balance-audit.py": "a999b50cd1165ad3b9401be087516896a152414a484b4d0a2210f15540811549",
+    "docs/duck-migration/v1/board.csv": "7f2e7a91961582ac22c7940d4ab49e602fdb5f9481f3457b7fce1ec68f160d67",
+    "docs/duck-migration/v1/board.json": "8713a6383e2180ba37fed322d5c1d457b1ff60778ea88b7cf397328153007dad",
+    "unity/Quackies.Unity/ProjectSettings/ProjectSettings.asset": "bd3fb139bac5aa51048d7e8cf69f6010f6e8df5b02dc20c5b419b49b0dd6cbcb"
+  },
+  "unchangedExistingPngs": {
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/board.png": "121c064ae0d14b8883e3420c6ed8f081167e1c0927a6a5010ce5307d2982a7f9",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/dream-concept.png": "50048030527e3054c1200eaf8a4fde2fa2f56a6432c53a79d0a685f220fc873a",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/ducks.png": "5920eb50a9e2af383607c5de3e4a55a8677d68b5f9087f7d1078a54e1288d21d",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/endpoint-feathers.png": "20f685b327c6cf1934417848ea981142794b879a4c9a401e26d674afd7ae9531",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/everyday-encounters.png": "ab255e6ece87e42cac13f4394174d19fe97927f56a93be6255c79e77d9a0f466",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/feather.png": "e434160c4587cef0824c55d633969e4a15d53294726618743ddbe592619ff892",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/feathers-two.png": "3c6e6147ea4dea4a3ea6d09f43f9ff83f5eaa0f0b22758e03f9b3a61181f8e0c",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/leaf-rim-only.png": "448d1fbe5d88a0459c0d8da80beee969d1add4e0a52b756fbface0212dac3e6a",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/nest-frame-one.png": "8767f47094c093711e43e47e70906b0c6b156a4842b35d486772f568c41b4361",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/nest-frame-two.png": "94bf3631c984046d74aa2da7493b5103974fff28dcdfd9e1b140ebe6136dc664",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/reeds-quantities.png": "152af4fd990fb1d2d15cc9abc5845b4505683985d27e447be09ea42229521c08",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/sleep.png": "a8576fa7cb57f3aa88a185769c13d230d98efb4bbcbdae120947362f4a1a3012",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tailwind-variants.png": "6c49322eea48492237f3d9d65a8083b237ffb89a6e7f8a7310b29fc02741bf16",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-inside-meadow.png": "b6c63f0f76aafda013e5dee916c22d2e50819c627fde560a8c68ee8fbfc3c4f5",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-inside-wasteland.png": "0b0b43c138bfa361e7e27852f3c7913e7b3167f6426add3b5722a6ffd90563a6",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-inside-wetlands.png": "fc9730fcde89a4a8a22eabfbec0245e1c9b64a20835349bd3dc418131a835012",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/twig.png": "61ddce6fbe7757d32c79023940f17809399d83e066a56ae77e33ad07421cab6e",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/well-grass.png": "60d6a1e4a988ab0534e55f67d07c59f5b748dce51e36a244eee309eb6bf020db",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/well-haven-grass.png": "3364c9ad4f43988d7ce6e617105690aa771d27bd12159ca1b231a94893566c8c",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/well-haven-wasteland.png": "f9db23bae70d2a0a157dce3b44d7a8f225cc81a973e373bc2ecdf3c05e51d139",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/well-wasteland.png": "7eb7491ae9e49e8614be5fa655e5d3666318b5c9d09ca4c6dabd8dd7d8f6554e",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/white-obstacles.png": "193d5d84ba02d41baf25777eeafeec4f847870d46a9ae66b93fa9527372e6594",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/zzz.png": "9eca71f626563eb179b66d01cb12bb8429682eaf34c41a8f480cf6fdc33deb43"
+  },
+  "newArtworkAndImportMetadata": {
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-scattered-meadow.png": "ffce0547bb6ff3a399fc41e49a704b717084e53d961d661d3879e7bf4e80d08a",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-scattered-wetlands.png": "ae720ffc1717fba8ccf681803ab6d46ebeafda6647002ec8827ba91f5929bd89",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-scattered-wasteland.png.meta": "15010dcae41eb9ab9a6d062c76ab6fa6003069312f4620b39d3d406a47b292ec",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-scattered-wasteland.png": "0989497fdf71ce9195aad06a723d8e4afbe7304d99a08d75441c3154ea7b1df8",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-scattered-meadow.png.meta": "23f1e1504ad8c026ae96e2a8cedb9c47a96f23cb533023316e3385f8a38d65d0",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-scattered-wetlands.png.meta": "eb3bb36971b2a87f1fbecec9f1ffb2ca9ff24e316d252a4c8c81aec35f0c6864"
+  }
+}

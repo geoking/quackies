@@ -657,7 +657,7 @@
     }
   ],
   "boardSpaceCount": 43,
-  "tokenSize": 72,
-  "tokenOffsetX": -2,
-  "tokenOffsetY": -14.2
+  "tokenSize": 64.0,
+  "tokenOffsetX": 16.0,
+  "tokenOffsetY": -11.0
 }

@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var built=Quackies.Unity.Editor.DuckLayoutSceneBuilder.TryBuildDuckLayoutProof();if(!built)throw new System.Exception(\"Duck layout build did not complete\");var c=UnityEngine.Object.FindObjectOfType<Quackies.Unity.DuckLayout.DuckLayoutProofPreview>();UnityEditor.EditorApplication.isPlaying=true;return new{built,width=c.Spaces[0].TokenRect.rect.width,x=c.Spaces[0].TokenRect.anchoredPosition.x};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "built": true,
+        "width": 42.625,
+        "x": 10.65625
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/george/Repos/quackies/unity/Quackies.Unity"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

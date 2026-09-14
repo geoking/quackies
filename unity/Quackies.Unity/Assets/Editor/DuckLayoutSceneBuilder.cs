@@ -35,9 +35,15 @@ namespace Quackies.Unity.Editor
         private const float BoardY = 57f;
         private const float BoardBottomInset = 5f;
         private const float BoardHorizontalInset = 13f;
-        private const float OasisFeatherSize = 64f;
+        // Endpoint art offsets are deliberately independent from space 43's route centre. Tune these
+        // after measuring the oasis sheet; reward backing stays directly below the two pool Feathers.
+        private const float OasisFeatherSize = 56f;
         private const float OasisFeatherGap = 12f;
-        private const float OasisFeatherCenterY = 12.5f;
+        private const float OasisFeatherCenterY = 24f;
+        private const float OasisRewardBackingXFraction = .07f;
+        private const float OasisRewardBackingWidthFraction = .86f;
+        private const float OasisRewardBackingInsetFromBottom = 1f;
+        private const float OasisRewardBackingHeight = 24f;
         private const float OasisFeatherHitHorizontalOverflow = 40f;
         private const float OasisFeatherHitTopOverflow = 33f;
         private const int HighResolutionTextureSize = 4096;
@@ -185,7 +191,7 @@ namespace Quackies.Unity.Editor
                     && tile.twigs == row.twigs && tile.feathers == row.feathers).ToArray();
                 if (matches.Length != 1 || art.RequiredCrop(matches[0].asset, matches[0].cropIndex) == null
                     || !ValidArtRect(matches[0].sleepNumber) || !ValidArtRect(matches[0].twigNumber)
-                    || !ValidArtRect(matches[0].moon) || !ValidArtRect(matches[0].sticks)
+                    || !ValidArtRect(matches[0].moon)
                     || (matches[0].featherAreas ?? Array.Empty<DuckLayoutArtRect>()).Any(area => !ValidArtRect(area))
                     || (row.haven && (matches[0].featherAreas == null || matches[0].featherAreas.Length == 0)))
                 {
@@ -343,7 +349,9 @@ namespace Quackies.Unity.Editor
             if (endpoint)
             {
                 // This open ground treatment preserves the uncovered oasis; no well is added here.
-                var panel = Panel("Oasis reward backing", reward, width * .07f, height - 11f * sy, width * .86f, 24f * sy,
+                var panel = Panel("Oasis reward backing", reward, width * OasisRewardBackingXFraction,
+                    height - OasisRewardBackingInsetFromBottom * sy, width * OasisRewardBackingWidthFraction,
+                    OasisRewardBackingHeight * sy,
                     new Color(.12f, .12f, .22f, .88f));
                 var moon = Image("Moon", panel, Color.white, art.sleep);
                 TableUi.Place(moon.rectTransform, 1f * sx, 3f * sy, 17f * sx, 17f * sy);
@@ -361,16 +369,17 @@ namespace Quackies.Unity.Editor
             {
                 var tile = art.TileFor(row);
                 numbers.Add(RewardNumber("Sleep number", reward, row.sleep, ArtRect(tile.sleepNumber, width, height), 23f*sx));
-                numbers.Add(RewardNumber("Twig number", reward, row.twigs, ArtRect(tile.twigNumber, width, height), 23f*sx));
+                numbers.Add(RewardNumber("Twig number", reward, row.twigs, ArtRect(tile.twigNumber, width, height), 21f*sx));
                 protectedArt.Add(ProtectedArt("Painted moon and stars", root, tile.moon, width, height));
-                protectedArt.Add(ProtectedArt("Painted twigs", root, tile.sticks, width, height));
+                // Twig areas are painted ground decoration. Encounter sprites may land over them.
                 foreach (var area in tile.featherAreas ?? Array.Empty<DuckLayoutArtRect>())
                     protectedArt.Add(ProtectedArt("Painted Feather reward", root, area, width, height));
             }
             var token = Image("Encounter overlay", root, Color.white);
             token.preserveAspect = true;
+            token.useSpriteMesh = true;
             var tokenSize = data.tokenSize * sx;
-            var tokenOffset = ComputeTokenOffset(data, row, art);
+            var tokenOffset = ComputeTokenOffset(data);
             TableUi.Place(token.rectTransform, tokenOffset.x * sx, tokenOffset.y * sy, tokenSize, tokenSize);
             token.gameObject.SetActive(false);
             var view = root.gameObject.AddComponent<DuckLayoutSpaceView>();
@@ -421,6 +430,7 @@ namespace Quackies.Unity.Editor
         {
             var feather = Image(name, parent, Color.white, sprite);
             feather.preserveAspect = true;
+            feather.useSpriteMesh = true;
             TableUi.Place(feather.rectTransform, x, y, size, size);
             if (!Mathf.Approximately(angle, 0f))
             {
@@ -476,9 +486,10 @@ namespace Quackies.Unity.Editor
             var point = row.Position(projection.width, projection.height);
             var duck = Image("Duck resting at space 32", overlayRoot, Color.white, art.duck);
             duck.preserveAspect = true;
+            duck.useSpriteMesh = true;
             var sx = projection.width / data.boardWidth;
             var sy = projection.height / data.boardHeight;
-            var tokenOffset = ComputeTokenOffset(data, row, art);
+            var tokenOffset = ComputeTokenOffset(data);
             TableUi.Place(duck.rectTransform,
                 point.x + (tokenOffset.x - data.wellWidth * .5f) * sx,
                 point.y + (tokenOffset.y - data.wellHeight * .5f) * sy,
@@ -486,16 +497,11 @@ namespace Quackies.Unity.Editor
             return duck.gameObject;
         }
 
-        private static Vector2 ComputeTokenOffset(DuckLayoutBoardData data, DuckLayoutBoardRow row, DuckLayoutArt art)
+        private static Vector2 ComputeTokenOffset(DuckLayoutBoardData data)
         {
-            if (row.space == data.boardSpaceCount) return new Vector2(data.tokenOffsetX, data.tokenOffsetY);
-            var tile = art.TileFor(row);
-            var rightEdge = tile.sticks.x * data.wellWidth;
-            // Haven Feathers can extend farther left than their twig bundle.
-            foreach (var feather in tile.featherAreas ?? Array.Empty<DuckLayoutArtRect>())
-                rightEdge = Mathf.Min(rightEdge, feather.x * data.wellWidth);
-            var maximumX = rightEdge - 2f - data.tokenSize;
-            return new Vector2(Mathf.Min(data.tokenOffsetX, maximumX), data.tokenOffsetY);
+            // All normal and haven wells use the manifest's one measured landing. Do not infer a
+            // per-tile offset from twigs: they are intentionally permitted below the encounter art.
+            return new Vector2(data.tokenOffsetX, data.tokenOffsetY);
         }
 
         private static GameObject BuildZzz(RectTransform overlayRoot, BoardProjection projection, DuckLayoutBoardData data, DuckLayoutArt art)
@@ -1014,7 +1020,9 @@ namespace Quackies.Unity.Editor
                     var importer = AssetImporter.GetAtPath(path) as TextureImporter;
                     if (texture == null || importer == null) continue;
                     importer.GetSourceTextureWidthAndHeight(out var sourceWidth, out var sourceHeight);
-                    ConfigureTextureImporter(importer, SpriteImportMode.Multiple, false, group.Key.StartsWith("tile-inside-", StringComparison.Ordinal));
+                    var isPaintedTileSheet = group.Key.StartsWith("tile-inside-", StringComparison.Ordinal)
+                        || group.Key.StartsWith("tile-scattered-", StringComparison.Ordinal);
+                    ConfigureTextureImporter(importer, SpriteImportMode.Multiple, false, isPaintedTileSheet);
                     var settings = new TextureImporterSettings();
                     importer.ReadTextureSettings(settings);
                     settings.spriteMeshType = SpriteMeshType.Tight;

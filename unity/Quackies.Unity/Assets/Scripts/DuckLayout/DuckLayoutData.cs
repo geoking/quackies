@@ -16,6 +16,8 @@ namespace Quackies.Unity.DuckLayout
         public float wellHeight = 66f;
         public float rewardHeight = 22f;
         public float tokenSize = 86f;
+        // One shared landing for every painted non-endpoint tile. Tile decoration must not alter this
+        // footprint: the sprite-clearance audit protects measured rewards instead.
         public float tokenOffsetX = -6f;
         public float tokenOffsetY = -16f;
         public DuckLayoutNestAnchor nest;
@@ -79,7 +81,6 @@ namespace Quackies.Unity.DuckLayout
         public DuckLayoutArtRect sleepNumber;
         public DuckLayoutArtRect twigNumber;
         public DuckLayoutArtRect moon;
-        public DuckLayoutArtRect sticks;
         public DuckLayoutArtRect[] featherAreas;
     }
 

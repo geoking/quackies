@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var texts=UnityEngine.Object.FindObjectsOfType<TMPro.TMP_Text>(true);foreach(var t in texts){t.ForceMeshUpdate(true,true);if(!t.font.name.StartsWith(\"Fredoka\")||!t.extraPadding||!t.fontSharedMaterial.IsKeywordEnabled(\"OUTLINE_ON\")||t.fontSharedMaterial.GetColor(\"_OutlineColor\")!=UnityEngine.Color.black||t.isTextOverflowing)throw new System.Exception(\"Typography failure: \"+t.name);}return new{checkedCount=texts.Length,font=\"Fredoka SemiBold\",outline=\"black\",width=.24f,overflow=0};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "checkedCount": 150,
+        "font": "Fredoka SemiBold",
+        "outline": "black",
+        "width": 0.24,
+        "overflow": 0
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/george/Repos/quackies/unity/Quackies.Unity"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

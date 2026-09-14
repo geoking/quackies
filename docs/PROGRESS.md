@@ -1057,3 +1057,22 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   are saved. Awaiting the user's visual assessment; M4/Core is unstarted. Existing
   rule-document drafts and ProjectSettings were preserved. Reconcile the new
   visual haven-4 decision with canonical rules before implementing Core.
+
+### 48. M3 scattered twig tiles and central chip placement (14 September 2026)
+
+- Added fifteen generated biome tile variants with scattered, count-correct
+  twigs and prominent lower-left haven Feathers. Exact Twig values now appear
+  at right-middle; Sleep remains beside the bottom moon. Existing board/art
+  PNGs, all 43 route rows and reward payloads are unchanged.
+- Removed the twig-bundle placement clamp. Chips and the resting duck share a
+  central 64-pixel footprint; larger candidates covered rewards. Reduced oasis
+  Feathers from 64 to 56 pixels and lowered them in front of the pool, with the
+  winnings immediately below. Enabled mipmapped filtering for the new sheets.
+- Both 1133 × 744 and 2732 × 2048 rendered audits pass; all 43 centre interactions
+  pass. All 672 chip/space combinations clear rewards, and native-mesh simulation
+  matches 19 rendered samples. Deliberate chip/chip, chip/moon and chip/Feather
+  overlap is rejected. All 150 outlined labels fit; compilation and Console
+  report no errors.
+- [Review images, prompts and validation](duck-migration/m3-scattered-twigs/README.md)
+  are saved. Stop for visual assessment; M4/Core remains unstarted. Existing
+  rule-document and ProjectSettings drafts are preserved.
