@@ -1,38 +1,32 @@
 # Future Quackies milestones
 
-The active priority is now the gradual duck migration. See
-[its plan](duck-migration/PLAN.md) and [review status](duck-migration/STATUS.md).
-M0 was accepted. M1's first Unity style preview passed technical checks but was
-rejected visually on 11 September. The user approved the V2 ducks/biome style;
-the V3 tokens are now accepted. The V5 board-only review combines the selected
-upper-right-oasis artwork with bubbly painted wells, full leafy rest frames,
-an illustrated legend and exact reward typography. The incomplete nest, all 53
-spaces, eight rests and current Penny/Twig values remain. Pause after
-image inspection. The items below remain backlog
-and are not authorization to start additional work now.
+Updated 14 September 2026. The active target is the original ten-Day duck game,
+with approved 50-space rewards, prices and ten World Events. The authoritative
+[plan](duck-migration/PLAN.md), [implementation plan](duck-migration/IMPLEMENTATION_PLAN.md)
+and [status](duck-migration/STATUS.md) replace older 53-space/Penny art notes.
 
-The agreed initial playable milestone is complete. All 24 Set 1 fortunes are
-enabled by default; 129 Core tests, a nine-round Unity interaction run, native
-iPad-aspect inspection and iOS export provide the recorded validation. See
-[the evidence](../tools/validation/evidence/2026-09-10/README.md).
+## Next work, after the user's milestone command
 
-Future work, requiring a new selected scope:
+1. Close the remaining rule defaults and local save/resume scope.
+2. Prove the selected board's 50-space token/reward fit and full Dream view at
+   iPad mini size in an isolated layout scene.
+3. Refactor Core with CLI support at each checkpoint: one complete Day/Night,
+   then ten Days, all encounters/events, Normal AI and any agreed persistence.
+4. Bind the committed Core build to the measured Unity presentation and verify
+   complete play, settings, restart and any agreed restoration support.
+5. Gather balance evidence, polish readability/input and verify iOS export.
 
-1. **Test-tube rules.** Add the second droplet, every printed reward and the choice
-   of which droplet advances, with the full board displayed when enabled.
-2. **AI-history pane.** Present the existing match history in a separate scrollable
-   view, including draws, flask use, stops, explosions and purchases.
-3. **Physical iPad validation.** Compile and sign the exported Xcode project, then
-   measure touch behavior, performance and memory on the intended iPad mini.
-4. **Compatibility cleanup.** Consolidate the retained prototype API when its
-   callers can migrate; continue implementing new gameplay through MatchSession.
+Stop for feedback between milestones. Regular source/test/Unity checkpoint
+commits remain separate and are pushed; no automatic merge or public release.
 
-5. **Biome reward experiment.** Extend the old shelter experiment only after an
-   explicit rules specification: preserve the unchanged baseline and compare
-   proposed first, middle and final biome reward profiles through playtesting.
-   The current art direction does not approve numeric rewards, timing, AI or
-   balance changes.
+## Deferred work
 
-Continue small reviewed source, test and Unity checkpoints; push each and record
-validation in PROGRESS.md. Preserve the supplied artwork and keep rules outside
-Unity presentation code. No new goal, main merge or release is started here.
+Shorter matches, expanded events/token rules, additional AI levels, network play,
+a separate AI-history pane and physical-device installation remain later scope.
+Optional Quacks test-tube rules belong to the retained reference-game backlog;
+they are not an implicit requirement of the new duck profile.
+
+The original playable baseline's 129 Core tests, nine-round Unity run and iOS
+export are historical evidence in [PROGRESS.md](PROGRESS.md) and
+[the baseline report](../tools/validation/evidence/2026-09-10/README.md).
+Those results do not validate the not-yet-implemented duck game.

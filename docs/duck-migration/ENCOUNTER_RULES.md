@@ -4,7 +4,7 @@
 first complete ruleset. It replaces the earlier rescue, Companion shield and
 Mud movement rules. The user has accepted the headline encounter changes; the integration
 interpretations are distinguished below. Board payouts and prices are approved starting values; stock policy remains
-for review in [v1/BOARD_AND_SHOP.md](v1/BOARD_AND_SHOP.md), and the ten proposed
+for review in [v1/BOARD_AND_SHOP.md](v1/BOARD_AND_SHOP.md), and the ten approved
 shared events are defined in [v1/WORLD_EVENTS.md](v1/WORLD_EVENTS.md).
 
 The mechanical relationships below record the working rules and interpretations. Their numeric yields
@@ -32,7 +32,7 @@ Resolve one encounter at a time:
 A cancelled preview never counts as placed. No current encounter cancels an
 entire draw. The duck eventually rests on its final occupied space, not the next
 empty space. World Event movement is added before Log halves the total unless
-that event explicitly says otherwise. The proposed Still Air event and pending
+that event explicitly says otherwise. The Still Air event and pending
 Log halve Tailwind movement only once together; the Log is consumed normally.
 
 ## Helpful encounters

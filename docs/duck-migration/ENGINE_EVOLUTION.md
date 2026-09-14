@@ -84,29 +84,45 @@ Reeds x3 as three placements; keep its earned Twigs even when worn out.
 AI and human must see the same information legally available to their duck;
 a Signpost preview does not expose an unearned future draw order.
 
-## Before coding
+## Source audit and remaining decisions
 
-The [approved starting table/prices](v1/BOARD_AND_SHOP.md) and
-[ten events](v1/WORLD_EVENTS.md) now exist. Numeric values are approved. Review the revised events, safe-only
-reward interpretations and housekeeping policies before coding. Resolve
-no-draw/empty-bag/overshoot rules and nonzero starting-Feather settings. The
-three-Feather Dawn cap bounds the default ten-Day effective start to at most 46.
-The Dawn source cap is explicit; it does not change the one-Feather/one-step
-benefit or authorize banking, discarding or alternate conversion.
+The latest read-only audit confirms reuse of the API shape, with a substantial
+refactor of the match model. The [implementation plan](IMPLEMENTATION_PLAN.md)
+records source anchors and checkpoints. Two important requirements are exact
+private Signpost previews (current sampling does not reserve the next draw) and
+separate token type/movement/ability quantities (current colour/value cannot
+represent the agreed obstacles and Reeds faithfully).
 
-Night 10 has no shopping: safe havens add +2 Sleep, retained Sleep converts at
-floor(Sleep/4), safe Most Rested winners get +1 Dream Twig, and no tomorrow-start
-bonus is granted. Twigs determine victory, not arrival at space 50. The proposal
-uses shared victory on tied final Twigs; confirm this rather than inheriting an
-old score-position tiebreak. New static data is not runtime implementation.
+The 50 rows, all prices and ten events are approved. Review the remaining
+endpoint/empty-bag, shop, tie, starting-setting and worn-out interpretations.
+Simultaneous decision beats throughout the game are now recommended to avoid
+reaction-order advantage; existing round-nine hidden commitments need a profile
+policy and step freshness rather than more numbered-round conditions.
+
+Local autosave/resume is a proposed v1 addition. It does not exist today. Design
+stable IDs, authoritative save state, resumable randomness and pending-decision
+descriptors before coupling new effects to delegate-only state. Saveable Core
+data stays separate from CLI/Unity filesystem adapters. A MatchView is not a
+complete save, and scene reconstruction is not match restoration.
+
+Night 10 still has no shopping: safe havens add +2 Sleep, retained Sleep converts
+at floor(Sleep/4), safe Most Rested winners receive +1 Dream Twig. Shared final
+Twig victory is the recommended tie rule, not yet an accepted inherited default.
 
 ## Build and verification order
 
-1. Publish the readable rules contract and data.
-2. Evolve track, state and observations, then direct rest/Sleep/Feather behavior.
-3. Implement Most Rested, Dawn Delivery, Dream purchases and the ending.
-4. Implement every newly specified encounter/event and update CLI/Normal AI.
-5. Verify complete deterministic text matches, then bind Unity.
+The implementation plan now puts an isolated **M3 layout proof before M4 Core**.
+It needs only fixed sample data and must not bind a changing Core DLL. Within M4:
+
+1. Establish duck profile/data/identity/state, preserving original regressions.
+2. Implement Adventure, exact private previews and the selected decision rhythm.
+3. Complete one Day/Night with encounters, all event fixtures and Dream purchases.
+4. Complete ten Days, Dawn, Goose, final conversion and winners.
+5. Refactor Normal AI and implement any agreed local save/resume support.
+
+Update CLI observations/actions with every slice rather than leaving it until
+the end. Bind the committed DLL to Unity only after the complete CLI contract
+works. [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) lists the expected evidence.
 
 Keep focused source/test checkpoints separate and push each. Retain meaningful
 classic regression tests; add duck tests against the same engine for all 50

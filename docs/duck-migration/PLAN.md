@@ -4,8 +4,9 @@ Updated 14 September 2026. This is the current duck-game direction. It
 supersedes the presentation-only Quacks migration; historical decisions and
 validation remain in [PROGRESS.md](../PROGRESS.md). The latest user-requested
 mechanics, all 50 board rewards and the 11 shop prices are accepted starting
-values. Dawn gifts now have the user-selected maximum of three. Revised World
-Events and explicitly labelled interpretations/policies remain **proposals for review**.
+values. Dawn gifts have the user-selected maximum of three, and the revised
+ten World Events are now approved. Remaining rule defaults and autosave scope
+are recommendations for review in the [implementation plan](IMPLEMENTATION_PLAN.md).
 
 ## What we are building
 
@@ -22,9 +23,9 @@ Use the selected [board](concepts/2026-09-12-approved/board-art-approved.png),
 chosen full-screen layout with **View adventure** navigation and room for the
 whole shop. Its illustrative prices and Feather-spending controls are obsolete.
 
-This checkpoint supplies rules/data and a Most Rested marker concept. It does
-not change Core/CLI, modify the scene or import into Unity. Implementation waits
-for the next explicit milestone command.
+This checkpoint reviews source readiness and updates the implementation plan.
+It changes no Core/CLI code, scene or Unity imports. The next milestone still
+requires the user's build command and closure of its relevant rule decisions.
 
 ## Current rule references
 
@@ -35,7 +36,8 @@ Keep a single source for each kind of detail instead of duplicating long lists:
 | [Rules at a glance](RULES_AT_A_GLANCE.md) | Current game loop, accepted changes and clearly marked interpretations |
 | [Encounter timing](ENCOUNTER_RULES.md) | All helpful/white powers, protection and movement ordering |
 | [Board and shop](v1/BOARD_AND_SHOP.md) | Every one of 50 rewards, 11 prices, Night examples, proposed policies and balance limits |
-| [World Events](v1/WORLD_EVENTS.md) | Ten proposed cards, once-per-game shuffled deck, triggers and ordering |
+| [World Events](v1/WORLD_EVENTS.md) | Ten approved cards, once-per-game shuffled deck, triggers and ordering |
+| [Implementation plan](IMPLEMENTATION_PLAN.md) | Remaining recommended defaults, source audit, build checkpoints and acceptance checks |
 | [Board data](v1/board.json), [CSV](v1/board.csv), [shop data](v1/shop.json) | Approved numeric values; not yet loaded by the game |
 | [Bounded audit](v1/balance-audit.json) | Exact bag/counter arithmetic with explicit assumptions, not full-game balance |
 
@@ -82,25 +84,30 @@ Keep a single source for each kind of detail instead of duplicating long lists:
   the next chip's nuisance, not its Exhaustion, and supplies no rescue.
 - **One shared world.** Shuffle the ten event cards once and reveal one per
   Day without replacement. Their effects expire that Day. Future deck expansion
-  can add cards; the revised ten-card proposal mixes four helpful events, three
+  can add cards; the approved ten-card deck mixes four helpful events, three
   collective goals and three mild setbacks. Collective rewards wait until all
-  players finish and include the AI. The cards remain subject to review/testing.
+  players finish and include the AI. Full-match testing remains outstanding.
 
 ## The short build sequence
 
-1. **Review the revised events and remaining policies.** Board rewards/prices
-   are accepted. Resolve start-setting/route-end rules and housekeeping choices.
-2. **Upgrade Core and CLI.** Reuse the engine. Implement direct resting, new
-   rewards, encounters, events, Dream purchases and ending in small tested pieces.
-3. **Build the Unity table.** Fit all 50 spaces to the approved scenery, with
-   clear haven links, readable tokens and a spacious Dream view.
-4. **Play complete matches.** Connect the human and Normal AI through all ten
-   Days, including dreams, deliveries, final scoring and restart.
-5. **Balance and finish.** Check recovery, haven choices, purchase diversity,
-   leader effects and endpoint frequency; polish iPad readability and verify export.
+1. **Close the remaining rule defaults.** Review endpoint/empty-bag behaviour,
+   shop policy, starting settings, ties and the proposed shared decision rhythm.
+   Decide local autosave/resume scope. The board, prices and events are approved.
+2. **Prove the iPad layout first.** Fit 50 wells and reward strips to the approved
+   board, test occupied spaces, and lay out the full-screen Dream shop. Use a
+   separate fixed-data scene; this is a visual test, not gameplay implementation.
+3. **Evolve Core with the CLI alongside it.** Keep the engine/API boundary;
+   refactor duck identity, state and phases. Build a complete Day/Night slice,
+   then all ten Days, the Normal AI and agreed persistence support.
+4. **Connect the Unity game.** Reuse the measured layout and existing UI
+   infrastructure, bind the committed Core build, and play a complete match.
+5. **Balance and finish.** Inspect recovery, haven/purchase choices, event effects,
+   touch/readability, restart/resume and export. Review before changing numbers.
 
-Stop for feedback at each milestone; these steps are not permission to begin
-the next milestone automatically.
+The detailed [implementation plan](IMPLEMENTATION_PLAN.md) splits these into
+reviewable checkpoints. M3 is now the layout proof and M4 the Core/CLI build;
+this deliberately brings the highest visual risk forward. Stop for feedback at
+each milestone. Nothing in this planning checkpoint starts Unity or code work.
 
 ## Art and token philosophy
 
@@ -176,27 +183,19 @@ need distinct validation; this planning audit is not a runtime test.
 | Milestone | Work and evidence |
 | --- | --- |
 | M0 / initial M1 | Historical baseline and art exploration; recorded in PROGRESS |
-| Current M2 proposal checkpoint | Approved 50-row table/prices, capped Dawn gifts, revised 10 event proposals and zzz concept; bounded math only |
-| M2 completion | Review events/interpretations and resolve route end, starting settings, shop and housekeeping policies |
-| M3 — Core/CLI | Focused rules/tests, original regressions and complete deterministic text matches |
-| M4 — Unity layout | Actual-size 50-space fit, shelters, tokens, nest, full shop and touch/readability checks |
-| M5 — Full game | Ten-Day human/AI loop, all choices, restart, scene reconstruction and Console checks |
-| M6 — Balance/export | Recorded complete-match comparisons, visual polish and iOS export evidence |
+| M2 — Rule closure | Board/prices/events approved; review the remaining recommended defaults and persistence scope |
+| M3 — iPad layout proof | Selected board with exactly 50 wells, occupied token/reward fit, eight haven links and all 11 Dream offers; deterministic rebuild |
+| M4 — Core/CLI | New profile/state, exact private previews, complete Day/Night and ten-Day matches, Normal AI and agreed save/resume; source/test checkpoints |
+| M5 — Connected Unity game | Committed Core handoff, complete human/AI play, all phases, restart and any agreed restoration support |
+| M6 — Balance/export | Match evidence, approved tuning, readability/performance and iOS export |
 
-With the three-Feather Dawn cap and **zero starting Feathers**, the ten-Day
-start remains below the endpoint: at most nine prior haven rewards ×2 plus nine
-Dawn gifts ×3 is 45 permanent steps; Most Rested adds at most one temporary step,
-for a conservative maximum start of **46**. This overestimates early haven gains,
-so it is a bound, not a normal-match forecast. It resolves the default-start
-saturation concern under the current Feather sources and ten-Day length.
-
-Starting-Feather settings add directly to that bound and need an explicit valid
-range. Overshooting 50 during a draw, no-draw/empty-bag endings, no-rewind/no-flask,
-final victory ties, shop stock/one-per-type rules and Sleep expiry remain review
-items. Do not silently discard, bank, convert or reduce awarded Feathers. The
-Dawn source cap is now explicitly authorized; no other source changes follow.
-Safe-only haven/Flower/flock rewards and final-chip penalties when worn out are
-still marked integration interpretations. No implementation starts here.
+The three-Feather Dawn cap bounds the default ten-Day start to 46. The
+implementation plan recommends a shared starting setting of 0–3, which bounds
+the latest start to 49, plus explicit first-draw, empty-bag and overshoot rules.
+It also proposes simultaneous Draw/Settle decision beats, shop policies, shared
+victory on tied Twigs, no separate recovery item and local autosave/resume.
+These defaults/additions still need review; approval of the event deck does not
+silently settle them. Existing safe-only payout interpretations remain explicit.
 
 The selected board is native 1536 × 1024. Its requested detailed 3072 × 2048
 master, exact 50-space alignment, token clearance and iPad fit remain outstanding.

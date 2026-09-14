@@ -4,7 +4,7 @@
 starting values. They are **not yet implemented or balanced through complete
 matches**. The [overview](../RULES_AT_A_GLANCE.md) records the current mechanics;
 shop/housekeeping policies and marked interpretations still require review. [Detailed encounters](../ENCOUNTER_RULES.md) and the
-[ten proposed World Events](WORLD_EVENTS.md) define the associated effects.
+[ten approved World Events](WORLD_EVENTS.md) define the associated effects.
 
 ## Board philosophy
 
@@ -210,5 +210,5 @@ require a placed chip before claiming route rewards; when a draw reaches/passes
 50, place once at 50, resolve the full chip and Exhaustion, then finish the Day
 with its safe/worn outcome. This does **not** solve starts already at/beyond 50.
 Empty-bag finish and tied final Twigs can respectively use automatic settling
-and shared victory. Confirm these policies, stock rules and the revised events
-before the Core milestone; the reward and price numbers are now accepted. No implementation or Unity work is authorized here.
+and shared victory. Confirm these policies, stock rules and the remaining defaults in the
+[implementation plan](../IMPLEMENTATION_PLAN.md) before the Core milestone; the reward and price numbers are now accepted. No implementation or Unity work is authorized here.

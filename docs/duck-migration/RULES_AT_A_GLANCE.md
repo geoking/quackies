@@ -2,8 +2,8 @@
 
 Updated 14 September 2026. The user's latest mechanic changes are incorporated
 below. The user approved the [50-space rewards and shop prices](v1/BOARD_AND_SHOP.md)
-and selected a three-Feather Dawn cap. The [revised ten-card World Event deck](v1/WORLD_EVENTS.md)
-and marked policies remain **proposals for review**. Nothing is implemented or
+and selected a three-Feather Dawn cap. The [ten-card World Event deck](v1/WORLD_EVENTS.md)
+is now approved too; remaining marked policies still require review. Nothing is implemented or
 established as balanced through full games.
 
 ## The game
@@ -109,8 +109,10 @@ there is no following Day and they add no final exchange or Dream Twig value.
 
 ## Still requiring review before implementation
 
-All 50 board rewards and 11 prices are approved starting values. Review the
-revised ten events, stock/housekeeping policies and marked reward interpretations.
+All 50 board rewards, 11 prices and ten events are approved starting values.
+Review stock/housekeeping policies and marked reward interpretations in the
+[implementation plan](IMPLEMENTATION_PLAN.md), including the proposed drawing
+rhythm and local autosave scope.
 Define final victory ties, no-draw/empty-bag/overshoot handling and valid nonzero
 starting-Feather settings. The Dawn cap keeps the default ten-Day starts below
 50; it does not specify those other boundaries. No Core/CLI or Unity change is

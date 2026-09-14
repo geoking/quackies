@@ -1,9 +1,10 @@
 # Initial playable Quackies
 
 This document describes the completed playable baseline, merged into main as
-`74e40cf`. The current gradual duck migration is defined in
-[duck-migration/PLAN.md](duck-migration/PLAN.md), starting with M0 and pausing for
-feedback at each milestone. The accepted 13 September Day/Dream direction
+`74e40cf`. The current duck migration is defined in
+[duck-migration/PLAN.md](duck-migration/PLAN.md) and its
+[implementation plan](duck-migration/IMPLEMENTATION_PLAN.md), pausing for feedback
+at each milestone. This completed baseline document is not the new build target. The accepted 13 September Day/Dream direction
 deliberately changes several mechanics. Preserve this completed baseline as
 a regression reference; the current migration plan defines the new target.
 

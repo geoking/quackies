@@ -1,6 +1,6 @@
 # Quackies handoff
 
-## Current task: v1 rewards/prices approved; revised shared events ready for review
+## Current task: v1 rules approved; implementation readiness plan ready for review
 
 14 September: the latest encounter artwork is approved. The user changed Mud
 to lose one active Companion, Splash to immediate-next-chip nuisance protection,
@@ -18,11 +18,11 @@ drop but never its Exhaustion. Root interpretations are labelled for review.
 
 The [approved board rewards/shop prices](duck-migration/v1/BOARD_AND_SHOP.md) contains all 50
 rows, havens 7/13/21/27/32/38/44/50, endpoint 21 Sleep/9 Twigs/2 Feathers,
-11 prices and Night examples. [Ten proposed World Events](duck-migration/v1/WORLD_EVENTS.md)
+11 prices and Night examples. [Ten approved World Events](duck-migration/v1/WORLD_EVENTS.md)
 are shuffled once and revealed without replacement. Exact bag/counter
 [audit evidence](duck-migration/v1/balance-audit.json) is bounded, not full-game
-balance. Board rewards/prices are now approved starting values. Revised events and
-marked policies remain review candidates. Public copy uses “token types”.
+balance. Board rewards/prices are now approved starting values. All ten events are now approved;
+remaining marked policies/defaults still need review. Public copy uses “token types”.
 
 A [Most Rested zzz tile](duck-migration/concepts/2026-09-14-most-rested/README.md)
 was generated and inspected. It covers one temporary extra start space beyond
@@ -40,16 +40,27 @@ The Dawn cap gives a conservative maximum default Day 10 start of 46:
 The collective/negative event proposals add no Feathers. Review nonzero starting
 settings separately; ordinary draw overshoot still needs endpoint rules.
 
-**Open before implementation:** review revised World Events, safe-only payout
+**Open before implementation:** review safe-only payout
 interpretations and proposed stock/no-draw/empty-bag/overshoot/final-tie/no-flask
 rules. The explicit Dawn gift cap does not change one Feather into anything
 other than one permanent step. No additional cap, discard, banking or conversion
 is authorized.
-Reuse the existing engine and CLI. Initial scope remains human versus Normal
-AI on iPad mini, ten Days. Preserve the unrelated ProjectSettings modification.
+The source-backed [implementation plan](duck-migration/IMPLEMENTATION_PLAN.md)
+confirms a substantial Core refactor while retaining the API shape/CLI. It
+identifies exact private previews, independent token quantities, decision
+freshness, Normal AI and missing persistence as real implementation work.
+Recommended defaults include shared 0–3 starting Feathers, first-draw and endpoint
+rules, shop/expiry/tie policies and simultaneous Draw/Settle beats. Local autosave
+is a proposed v1 addition; no persistent save currently exists.
 
-**Stop after this planning/art checkpoint.** Await review and the next explicit
-milestone command before implementation. Root owns Git; no merge/release.
+Future order is now **M2 close defaults → M3 isolated iPad layout proof → M4
+Core/CLI → M5 connected Unity → M6 balance/export**. The layout proof uses fixed
+sample data on the selected board and is not gameplay. Preserve approved art,
+Core/Unity boundaries and unrelated ProjectSettings edits.
+
+**Stop after this readiness checkpoint.** Await the user's review and next
+milestone command. No Core/CLI implementation, Unity calls/imports, art changes,
+runtime tests, merge or release occurred. Root owns Git and checkpoint pushes.
 
 ## Completed playable baseline
 

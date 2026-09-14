@@ -1,15 +1,14 @@
 # Quackies
 
-The duck-theme migration is on `codex/duck-game-milestone-0`.
-See its [plan](docs/duck-migration/PLAN.md) and
-[milestone status](docs/duck-migration/STATUS.md). The first M1 Unity style
-preview passed technical checks but was rejected visually on 11 September 2026.
-The user approved the duck and seed tokens and selected the background with its
-oasis in the far upper right. V5 restores painted bubbly spaces, full leafy
-rest frames and the larger illustrated legend, with precise coin/twig rewards.
-The [board and review notes](docs/duck-migration/concepts/2026-09-11-v5/README.md)
-remain outside Unity. The original playable game remains below; no M2 or
-game-code change is authorized by the image review.
+The active duck-game migration is on `codex/duck-game-milestone-0`.
+Its ten-Day rules, 50-space rewards, encounter prices and ten World Events are
+approved. See the [product plan](docs/duck-migration/PLAN.md),
+[implementation plan](docs/duck-migration/IMPLEMENTATION_PLAN.md) and
+[status](docs/duck-migration/STATUS.md). Remaining defaults and persistence scope
+need review; no new gameplay has been implemented. Next prove the approved
+board's iPad layout, then refactor Core/CLI and connect the Unity game.
+The playable scene and commands below describe the **completed original rules
+baseline**, which remains a regression reference during the migration.
 
 A Unity tabletop game for one human and one AI, targeting iPad mini landscape.
 The complete base-game Set 1 fortune deck, Normal AI, board inspection, match

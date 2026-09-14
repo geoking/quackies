@@ -758,3 +758,52 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   board/Settings hashes and whitespace checks. Updated v1/validation.json.
 - Stop for the user's review of the revised cards. Remaining policies/settings
   and event acceptance precede the next implementation milestone.
+
+### 34. Implementation readiness and source-backed migration plan (14 September 2026)
+
+- The user approved the revised World Event mix and asked what remains before
+  building, whether Core/API/CLI should be modified or restarted, and what the
+  implementation plan needs. Recorded all ten events as accepted first-test
+  rules without changing their effects, board rows or shop prices.
+- Read-only Sol/high Core and Terra/high Unity audits support keeping the match
+  API boundary, state ownership, deterministic injection, inventory, CLI loop
+  and presenter/view/editor separation, while substantially replacing old rule
+  assumptions and cauldron-specific views. No source files were changed.
+- Added [IMPLEMENTATION_PLAN.md](duck-migration/IMPLEMENTATION_PLAN.md) with
+  concrete source evidence: colour/value conflation cannot model new token
+  quantities; existing preview sampling does not reserve the next draw; round
+  nine alone batches hidden decisions; ordinary action IDs are not uniformly
+  revision-bound; Normal AI encodes the old game; persistent match save/load
+  does not exist. These are scoped implementation requirements, not new bugs
+  claimed fixed in the completed reference profile.
+- Kept remaining defaults explicit for review: first draw/empty bag, endpoint
+  resolution before ending, shared starting setting 0–3, stock/one-per-type and
+  Sleep expiry, shared final victory, no separate recovery, payout interpretations,
+  and simultaneous Draw/Settle beats. Specify a frozen participant cohort,
+  private commitments, deterministic atomic reveal and fresh action issuance.
+- Proposed local autosave/Continue for the tablet version. Authoritative save
+  data needs bag/deck/RNG continuation, pending previews and beat identity,
+  counters, frozen rewards and purchases; MatchView and scene reconstruction
+  cannot substitute. Core remains filesystem/Unity independent. This added
+  capability and gameplay defaults await review, not implicit implementation.
+- Reordered future milestones: close M2 defaults; M3 isolated iPad layout proof;
+  M4 Core/CLI; M5 connected Unity; M6 balance/export. The proof uses fixed sample
+  data, exactly 50 wells, eight havens, occupied reward visibility and all 11
+  Dream offers. It is deliberately not a live match or balance test. Keep
+  approved composition and inspect production assets after layout is settled.
+- Split Core work into small source/test checkpoints: identity/state; Adventure
+  and exact previews; a full Day 1/Night 1/Day 2 slice; ten-Day progression;
+  Normal AI and agreed resume. The CLI evolves with each slice. Final review
+  corrected the Day-slice dependency so Dawn and zzz activation work before
+  claiming a complete first-Day loop.
+- Updated PLAN, engine rationale, concise rules, STATUS, current HANDOFF and
+  entry-point docs. Removed stale active README/NEXT_MILESTONES descriptions of
+  53 spaces/Pennies/rejected V5 alignment. Preserved completed baseline bodies,
+  approved art, numerical data, previous audit evidence and unrelated Settings.
+- Validation: source-backed read-only findings; changed-document links and
+  source anchors; stable baseline handoff/implementation-goal bodies; unchanged
+  board rows, prices and event effects; preserved asset/Settings hashes and
+  whitespace checks. No new runtime tests, Core/CLI changes, Unity calls,
+  scene/import operations or art generation were performed.
+- Stopped at the requested readiness checkpoint for user review. M2 remains
+  pending the remaining defaults/scope; no implementation milestone began.
