@@ -320,6 +320,49 @@ public sealed class DuckAdventureTests
     }
 
     [Fact]
+    public void Endpoint_overshoot_clamps_each_full_chip_then_scores_the_occupied_endpoint()
+    {
+        var runtime = RuntimeWithEvent(DuckWorldEventType.HomeBeforeDark);
+        SetBag(runtime, "human", "companion", "seeds");
+        SetBag(runtime, "ai", "tailwind_6", "seeds");
+        var human = runtime.Player("human");
+        var ai = runtime.Player("ai");
+        human.Position = 40;
+        human.ActiveFlock = 3;
+        ai.Position = 40;
+        var match = Session(runtime);
+
+        Execute(match, "human", GameActionKind.Explore);
+        Assert.Equal(43, human.Position);
+        Assert.Equal(4, human.ActiveFlock);
+        Assert.Equal(0, human.Exhaustion);
+        Assert.True(human.HasFinishedDay);
+        Assert.Equal(43, human.PlacedChips.Single().Position);
+        Assert.Single(human.BagPhysicalChipIds);
+        Assert.Equal(DuckPhase.Adventure, runtime.State.Phase);
+
+        Execute(match, "ai", GameActionKind.Explore);
+
+        Assert.Equal(43, ai.Position);
+        Assert.Equal(0, ai.Exhaustion);
+        Assert.True(ai.HasFinishedDay);
+        Assert.Equal(43, ai.PlacedChips.Single().Position);
+        Assert.Single(ai.BagPhysicalChipIds);
+        Assert.Equal(DuckPhase.Night, runtime.State.Phase);
+        Assert.Equal(9, human.TotalTwigs);
+        Assert.Equal(9, ai.TotalTwigs);
+        Assert.Equal(2, human.PermanentFeatherTrail);
+        Assert.Equal(2, ai.PermanentFeatherTrail);
+        Assert.Equal(21, human.LastNightOutcome!.PrintedSleep);
+        Assert.Equal(9, human.LastNightOutcome.PrintedTwigs);
+        Assert.Equal(2, human.LastNightOutcome.FeathersAwarded);
+        Assert.Equal(24, human.FrozenSleep);
+        Assert.Equal(22, ai.FrozenSleep);
+        Assert.All(runtime.State.Players, player =>
+            Assert.Equal(43, player.PlacedChips.Last().Position));
+    }
+
+    [Fact]
     public void Empty_bag_finishes_only_after_the_last_chip_ability_resolves()
     {
         var runtime = RuntimeWithEvent(DuckWorldEventType.HomeBeforeDark);
@@ -374,8 +417,17 @@ public sealed class DuckAdventureTests
         Assert.Equal(DuckPhase.Night, runtime.State.Phase);
         Assert.All(runtime.State.Players, player => Assert.NotNull(player.LastNightOutcome));
         Assert.All(runtime.State.Players, player => Assert.True(player.IsSleepFrozen));
-        Assert.Empty(match.GetLegalActions("human"));
-        Assert.Empty(match.GetLegalActions("ai"));
+        var historyCount = runtime.State.History.Count;
+        var awardCount = runtime.State.PublicAwards.Count;
+        foreach (var playerId in new[] { "human", "ai" })
+        {
+            var actions = match.GetLegalActions(playerId);
+            Assert.Contains(actions, action => action.Kind == GameActionKind.FinishDream);
+            Assert.DoesNotContain(actions, action => action.Kind == GameActionKind.Explore || action.Kind == GameActionKind.Settle);
+            match.GetSnapshot(playerId);
+        }
+        Assert.Equal(historyCount, runtime.State.History.Count);
+        Assert.Equal(awardCount, runtime.State.PublicAwards.Count);
     }
 
     [Fact]
@@ -424,6 +476,46 @@ public sealed class DuckAdventureTests
 
         Execute(match, "ai", GameActionKind.Settle);
         Assert.Equal(DuckPhase.Night, runtime.State.Phase);
+    }
+
+    [Fact]
+    public void Day_ten_reveal_resolves_the_whole_frozen_cohort_when_the_first_duck_wears_out()
+    {
+        var runtime = RuntimeWithEvent(DuckWorldEventType.HomeBeforeDark);
+        runtime.State.Day = 10;
+        runtime.State.FinalDayDecisionBeat = 1;
+        SetBag(runtime, "human", "fallen_log", "seeds");
+        SetBag(runtime, "ai", "reeds_3", "seeds");
+        var human = runtime.Player("human");
+        var ai = runtime.Player("ai");
+        human.Exhaustion = 5;
+        var match = Session(runtime);
+        var humanExplore = match.GetLegalActions("human").Single(action => action.Kind == GameActionKind.Explore);
+        var aiExplore = match.GetLegalActions("ai").Single(action => action.Kind == GameActionKind.Explore);
+
+        match.Execute("human", humanExplore);
+        Assert.Empty(human.PlacedChips);
+        Assert.Empty(ai.PlacedChips);
+
+        match.Execute("ai", aiExplore);
+
+        Assert.True(human.HasFinishedDay);
+        Assert.True(human.IsWornOut);
+        Assert.Equal(6, human.Exhaustion);
+        Assert.Single(human.PlacedChips);
+        Assert.False(ai.HasFinishedDay);
+        Assert.False(ai.IsWornOut);
+        Assert.Equal(1, ai.Position);
+        Assert.Equal(3, ai.DayReedsTwigs);
+        Assert.Equal(3, ai.TotalTwigs);
+        Assert.Single(ai.PlacedChips);
+        Assert.Empty(runtime.State.FinalDayCommits);
+        Assert.Equal(2, runtime.State.FinalDayDecisionBeat);
+        Assert.Equal(DuckPhase.Adventure, runtime.State.Phase);
+        Assert.Empty(match.GetLegalActions("human"));
+        Assert.Contains(match.GetLegalActions("ai"), action => action.Kind == GameActionKind.Explore);
+        Assert.Equal(new[] { "human", "human", "ai" },
+            runtime.State.History.Select(entry => entry.ActorId));
     }
 
     private static DuckMatchRuntime RuntimeWithEvent(DuckWorldEventType eventType)
