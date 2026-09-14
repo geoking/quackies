@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var c=UnityEngine.Object.FindObjectOfType<Quackies.Unity.DuckLayout.DuckLayoutProofPreview>();var results=new System.Collections.Generic.List<object>();var rt=c.Spaces[0].TokenRect;var original=rt.position;try{rt.position=c.Spaces[1].TokenRect.position;var report=Quackies.Unity.Editor.DuckLayoutSpriteClearanceAudit.AuditOpenScene();if(!report.Contains(\"Status: FAIL\")||!report.Contains(\"chip overlaps space-02\"))throw new System.Exception(\"Coincident chips not rejected\");results.Add(new{name=\"Coincident chips\",passed=true});}finally{rt.position=original;}try{rt.position=c.Spaces[0].RewardArtAreas[0].position;var report=Quackies.Unity.Editor.DuckLayoutSpriteClearanceAudit.AuditOpenScene();if(!report.Contains(\"Status: FAIL\")||!report.Contains(\"Painted moon\"))throw new System.Exception(\"Moon overlap not rejected\");results.Add(new{name=\"Moon overlap\",passed=true});}finally{rt.position=original;}var restored=Quackies.Unity.Editor.DuckLayoutSpriteClearanceAudit.AuditOpenScene();if(!restored.Contains(\"Status: PASS\"))throw new System.Exception(restored);return new{regressions=results,restored};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "regressions": [
+          {
+            "name": "Coincident chips",
+            "passed": true
+          },
+          {
+            "name": "Moon overlap",
+            "passed": true
+          }
+        ],
+        "restored": "# Duck Layout Sprite Clearance Audit\nStatus: PASS\nSimulated placements: 16 \u00d7 42 = 672.\nBroad-phase candidates sent to exact triangle SAT: 1024 reward meshes; 1 chip/duck/feather meshes.\n"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/george/Repos/quackies/unity/Quackies.Unity"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

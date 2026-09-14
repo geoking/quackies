@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "UnityEngine.Object.FindObjectOfType<Quackies.Unity.DuckLayout.DuckLayoutProofPreview>().ShowOccupiedWells();return Quackies.Unity.Editor.DuckLayoutSpriteClearanceAudit.AuditOpenScene();"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": "# Duck Layout Sprite Clearance Audit\nStatus: PASS\nSimulated placements: 16 \u00d7 42 = 672.\nBroad-phase candidates sent to exact triangle SAT: 1024 reward meshes; 1 chip/duck/feather meshes.\n"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/george/Repos/quackies/unity/Quackies.Unity"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

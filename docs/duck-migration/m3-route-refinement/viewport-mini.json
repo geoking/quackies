@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var t=System.Type.GetType(\"UnityEditor.PlayModeView,UnityEditor\");var f=System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic;var view=t.GetMethod(\"GetMainPlayModeView\",f|System.Reflection.BindingFlags.Static).Invoke(null,null);var rt=(UnityEngine.RenderTexture)t.GetField(\"m_TargetTexture\",f|System.Reflection.BindingFlags.Instance).GetValue(view);return new {width=rt.width,height=rt.height};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "width": 1133,
+        "height": 744
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/george/Repos/quackies/unity/Quackies.Unity"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

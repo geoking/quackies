@@ -27,6 +27,9 @@ namespace Quackies.Unity.Editor
         private const string CropManifestPath = ArtDirectory + "/encounter-crops.json";
         private const string TileManifestPath = ArtDirectory + "/tile-art.json";
         private const string TileCropManifestPath = ArtDirectory + "/tile-crops.json";
+        private const string RoundedTextFontPath = ArtDirectory + "/Fonts/Fredoka-SemiBold.ttf";
+        private const string RoundedTextFontAssetPath = ArtDirectory + "/Fonts/Fredoka-SemiBold SDF.asset";
+        private const string RequiredTypographyGlyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~•×–→";
         private const float ViewWidth = FittedViewport.Width;
         private const float ViewHeight = FittedViewport.Height;
         private const float BoardY = 57f;
@@ -47,6 +50,7 @@ namespace Quackies.Unity.Editor
         private static readonly Color WetlandTint = new Color(.78f, .97f, .86f, .94f);
         private static readonly Color MeadowTint = new Color(.98f, .88f, .50f, .94f);
         private static readonly Color WastelandTint = new Color(.93f, .65f, .40f, .94f);
+        private static TMP_FontAsset roundedTextFont;
 
         [MenuItem("Quackies/Build Duck Layout Proof")]
         public static void BuildDuckLayoutProof() => TryBuildDuckLayoutProof();
@@ -111,6 +115,7 @@ namespace Quackies.Unity.Editor
                 status, data.boardSpaceCount, spaces, offers, tokens, duckRest, zzz, featherTrail, inspection, inspectionTitle, inspectionDetail,
                 inspectionSleepValue, inspectionTwigValue, inspectionFeatherValue, inspectionArt, inspectionSleep, inspectionTwig,
                 inspectionFeather, closeInspection);
+            ApplyOutlinedTypography(canvas.transform);
             proof.transform.SetAsLastSibling();
             inspection.transform.SetAsLastSibling();
 
@@ -338,7 +343,7 @@ namespace Quackies.Unity.Editor
             if (endpoint)
             {
                 // This open ground treatment preserves the uncovered oasis; no well is added here.
-                var panel = Panel("Oasis reward backing", reward, width * .07f, height + 1f * sy, width * .86f, 24f * sy,
+                var panel = Panel("Oasis reward backing", reward, width * .07f, height - 11f * sy, width * .86f, 24f * sy,
                     new Color(.12f, .12f, .22f, .88f));
                 var moon = Image("Moon", panel, Color.white, art.sleep);
                 TableUi.Place(moon.rectTransform, 1f * sx, 3f * sy, 17f * sx, 17f * sy);
@@ -346,8 +351,8 @@ namespace Quackies.Unity.Editor
                 var twig = Image("Twig", panel, Color.white, art.twig);
                 TableUi.Place(twig.rectTransform, 40f * sx, 3f * sy, 17f * sx, 17f * sy);
                 twig.preserveAspect = true;
-                numbers.Add(RewardNumber("Sleep number", panel, row.sleep, new Rect(18f*sx, 0, 24f*sx, 24f*sy), 18f*sx));
-                numbers.Add(RewardNumber("Twig number", panel, row.twigs, new Rect(58f*sx, 0, 16f*sx, 24f*sy), 18f*sx));
+                numbers.Add(RewardNumber("Sleep number", panel, row.sleep, new Rect(18f*sx, 0, 24f*sx, 24f*sy), 20f*sx));
+                numbers.Add(RewardNumber("Twig number", panel, row.twigs, new Rect(58f*sx, 0, 16f*sx, 24f*sy), 20f*sx));
                 protectedArt.Add(moon.rectTransform);
                 protectedArt.Add(twig.rectTransform);
                 BuildOasisGroundFeathers(root, width, sx, art);
@@ -355,8 +360,8 @@ namespace Quackies.Unity.Editor
             else
             {
                 var tile = art.TileFor(row);
-                numbers.Add(RewardNumber("Sleep number", reward, row.sleep, ArtRect(tile.sleepNumber, width, height), 20f*sx));
-                numbers.Add(RewardNumber("Twig number", reward, row.twigs, ArtRect(tile.twigNumber, width, height), 20f*sx));
+                numbers.Add(RewardNumber("Sleep number", reward, row.sleep, ArtRect(tile.sleepNumber, width, height), 23f*sx));
+                numbers.Add(RewardNumber("Twig number", reward, row.twigs, ArtRect(tile.twigNumber, width, height), 23f*sx));
                 protectedArt.Add(ProtectedArt("Painted moon and stars", root, tile.moon, width, height));
                 protectedArt.Add(ProtectedArt("Painted twigs", root, tile.sticks, width, height));
                 foreach (var area in tile.featherAreas ?? Array.Empty<DuckLayoutArtRect>())
@@ -365,7 +370,8 @@ namespace Quackies.Unity.Editor
             var token = Image("Encounter overlay", root, Color.white);
             token.preserveAspect = true;
             var tokenSize = data.tokenSize * sx;
-            TableUi.Place(token.rectTransform, data.tokenOffsetX * sx, data.tokenOffsetY * sy, tokenSize, tokenSize);
+            var tokenOffset = ComputeTokenOffset(data, row, art);
+            TableUi.Place(token.rectTransform, tokenOffset.x * sx, tokenOffset.y * sy, tokenSize, tokenSize);
             token.gameObject.SetActive(false);
             var view = root.gameObject.AddComponent<DuckLayoutSpaceView>();
             view.Configure(row.id, row.space, row.haven, endpoint, row.havenName, row.sleep, row.twigs, row.feathers,
@@ -393,17 +399,11 @@ namespace Quackies.Unity.Editor
         {
             var label = Label(name, parent, value.ToString(), fontSize, Cream, true, TextAlignmentOptions.Center);
             ConfigureRewardNumber(label);
+            // Keep the painted number centre while allowing the rounded face's full line height.
+            var extraHeight = Mathf.Max(0f, fontSize * 1.4f - rect.height);
+            rect.y -= extraHeight * .5f;
+            rect.height += extraHeight;
             TableUi.Place(label.rectTransform, rect.x, rect.y, rect.width, rect.height);
-            var path = ArtDirectory + "/tile-reward-font.mat";
-            var material = AssetDatabase.LoadAssetAtPath<Material>(path);
-            if (material == null)
-            {
-                material = new Material(label.fontSharedMaterial) { name = "Painted tile reward numbers" };
-                material.SetColor(ShaderUtilities.ID_OutlineColor, Ink);
-                material.SetFloat(ShaderUtilities.ID_OutlineWidth, .16f);
-                AssetDatabase.CreateAsset(material, path);
-            }
-            label.fontSharedMaterial = material;
             return label;
         }
 
@@ -478,11 +478,24 @@ namespace Quackies.Unity.Editor
             duck.preserveAspect = true;
             var sx = projection.width / data.boardWidth;
             var sy = projection.height / data.boardHeight;
+            var tokenOffset = ComputeTokenOffset(data, row, art);
             TableUi.Place(duck.rectTransform,
-                point.x + (data.tokenOffsetX - data.wellWidth * .5f) * sx,
-                point.y + (data.tokenOffsetY - data.wellHeight * .5f) * sy,
+                point.x + (tokenOffset.x - data.wellWidth * .5f) * sx,
+                point.y + (tokenOffset.y - data.wellHeight * .5f) * sy,
                 data.tokenSize * sx, data.tokenSize * sx);
             return duck.gameObject;
+        }
+
+        private static Vector2 ComputeTokenOffset(DuckLayoutBoardData data, DuckLayoutBoardRow row, DuckLayoutArt art)
+        {
+            if (row.space == data.boardSpaceCount) return new Vector2(data.tokenOffsetX, data.tokenOffsetY);
+            var tile = art.TileFor(row);
+            var rightEdge = tile.sticks.x * data.wellWidth;
+            // Haven Feathers can extend farther left than their twig bundle.
+            foreach (var feather in tile.featherAreas ?? Array.Empty<DuckLayoutArtRect>())
+                rightEdge = Mathf.Min(rightEdge, feather.x * data.wellWidth);
+            var maximumX = rightEdge - 2f - data.tokenSize;
+            return new Vector2(Mathf.Min(data.tokenOffsetX, maximumX), data.tokenOffsetY);
         }
 
         private static GameObject BuildZzz(RectTransform overlayRoot, BoardProjection projection, DuckLayoutBoardData data, DuckLayoutArt art)
@@ -540,7 +553,7 @@ namespace Quackies.Unity.Editor
             var nestHeading = Label("Nest heading", nest, "YOUR NEST", 21, Navy, true, TextAlignmentOptions.MidlineLeft);
             TableUi.Place(nestHeading.rectTransform, 19, 13, 135, 30);
             var current = Panel("Current Night", nest, 151, 12, 160, 34, Lavender);
-            var currentText = Label("Current Night label", current, "NIGHT 4 • LEVEL 2 • 2 CHOICES", 11, Cream, true, TextAlignmentOptions.Center);
+            var currentText = Label("Current Night label", current, "NIGHT 4 • LEVEL 2 • 2 CHOICES", 10.5f, Cream, true, TextAlignmentOptions.Center);
             TableUi.Fill(currentText.rectTransform, 5);
             var nestArt = Image("Nest illustration crop", nest, Color.white, art.dreamNest);
             nestArt.preserveAspect = true;
@@ -646,7 +659,7 @@ namespace Quackies.Unity.Editor
             featherValue.textWrappingMode = TextWrappingModes.NoWrap;
             TableUi.Place(featherValue.rectTransform, 192, 48, 40, 30);
             detail = Label("Inspection detail", card, "", 16, Ink, false, TextAlignmentOptions.Center);
-            TableUi.Place(detail.rectTransform, 43, 268, 491, 82);
+            TableUi.Place(detail.rectTransform, 43, 253, 491, 132);
             close = TableUi.Button("Close inspection", card, "Close", Navy, Cream);
             TableUi.Place(close.GetComponent<RectTransform>(), 202, 401, 173, 48);
             return shade.gameObject;
@@ -680,6 +693,58 @@ namespace Quackies.Unity.Editor
             label.alignment = alignment;
             label.enableAutoSizing = false;
             return label;
+        }
+
+        /// <summary>Gives every generated TMP label the same rounded face and high-contrast outlined material.</summary>
+        private static void ApplyOutlinedTypography(Transform root)
+        {
+            var font = RoundedTextFont();
+            var material = font.material;
+            foreach (var label in root.GetComponentsInChildren<TMP_Text>(true))
+            {
+                label.font = font;
+                label.fontSharedMaterial = material;
+                label.fontStyle &= ~FontStyles.Bold;
+                label.extraPadding = true;
+            }
+        }
+
+        private static TMP_FontAsset RoundedTextFont()
+        {
+            if (roundedTextFont != null) return roundedTextFont;
+
+            roundedTextFont = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(RoundedTextFontAssetPath);
+            if (roundedTextFont == null)
+            {
+                var source = AssetDatabase.LoadAssetAtPath<Font>(RoundedTextFontPath);
+                if (source == null)
+                    throw new InvalidOperationException("Missing required rounded typeface: " + RoundedTextFontPath);
+                roundedTextFont = TMP_FontAsset.CreateFontAsset(source);
+                if (roundedTextFont == null)
+                    throw new InvalidOperationException("TMP could not create an SDF asset from " + RoundedTextFontPath);
+                roundedTextFont.name = "Fredoka SemiBold SDF";
+                AssetDatabase.CreateAsset(roundedTextFont, RoundedTextFontAssetPath);
+                AssetDatabase.AddObjectToAsset(roundedTextFont.atlasTexture, roundedTextFont);
+                AssetDatabase.AddObjectToAsset(roundedTextFont.material, roundedTextFont);
+            }
+
+            if (roundedTextFont.fallbackFontAssetTable == null)
+                roundedTextFont.fallbackFontAssetTable = new List<TMP_FontAsset>();
+            var fallback = TMP_Settings.defaultFontAsset;
+            if (fallback != null && fallback != roundedTextFont && !roundedTextFont.fallbackFontAssetTable.Contains(fallback))
+                roundedTextFont.fallbackFontAssetTable.Add(fallback);
+            roundedTextFont.TryAddCharacters(RequiredTypographyGlyphs, out _);
+
+            var material = roundedTextFont.material;
+            if (material == null)
+                throw new InvalidOperationException("Rounded TMP asset needs a material: " + RoundedTextFontAssetPath);
+            material.name = "Fredoka SemiBold SDF - Outline";
+            material.EnableKeyword("OUTLINE_ON");
+            material.SetColor(ShaderUtilities.ID_OutlineColor, Color.black);
+            material.SetFloat(ShaderUtilities.ID_OutlineWidth, .24f);
+            EditorUtility.SetDirty(material);
+            EditorUtility.SetDirty(roundedTextFont);
+            return roundedTextFont;
         }
 
         private static void ConfigureCompactButton(Button button)
@@ -778,15 +843,12 @@ namespace Quackies.Unity.Editor
                 {
                     var sourceId = source.StableId + " (space " + source.Space + ")";
                     var well = source.UsesBoardArt ? default(Rect?) : WorldRect(source.WellRect);
-                    var token = source.UsesBoardArt || source.TokenRect == null ? default(Rect?) : WorldRect(source.TokenRect);
                     foreach (var target in serializedSpaces)
                     {
                         if (source.Space < target.Space && !target.UsesBoardArt)
                         {
                             if (well.HasValue && Intersects(well.Value, WorldRect(target.WellRect)))
                                 issues.Add(sourceId + " well overlaps " + target.StableId + " well.");
-                            if (token.HasValue && target.TokenRect != null && Intersects(token.Value, WorldRect(target.TokenRect)))
-                                issues.Add(sourceId + " token overlaps " + target.StableId + " token.");
                         }
                         foreach (var number in target.RewardNumbers)
                         {
@@ -797,12 +859,7 @@ namespace Quackies.Unity.Editor
                                 issues.Add(sourceId + " " + number.name + " is outside its tile.");
                             if (source != target && well.HasValue && Intersects(well.Value, bounds.Value))
                                 issues.Add(sourceId + " well overlaps " + target.StableId + " " + number.name + ".");
-                            if (token.HasValue && Intersects(token.Value, bounds.Value))
-                                issues.Add(sourceId + " token overlaps " + target.StableId + " " + number.name + ".");
                         }
-                        foreach (var protectedArt in target.RewardArtAreas)
-                            if (token.HasValue && Intersects(token.Value, WorldRect(protectedArt)))
-                                issues.Add(sourceId + " token overlaps " + target.StableId + " " + protectedArt.name + ".");
                     }
                     if (source.RewardNumbers.Length != 2) issues.Add(sourceId + " needs two live reward numbers.");
                     else if (source.RewardNumbers[0].text != source.Sleep.ToString() || source.RewardNumbers[1].text != source.Twigs.ToString())
@@ -830,18 +887,10 @@ namespace Quackies.Unity.Editor
                 var endpointFeathers = UnityEngine.Object.FindObjectsOfType<Image>(true)
                     .Where(image => image.name.StartsWith("Oasis Ground Feather ", StringComparison.Ordinal)).ToArray();
                 if (endpointFeathers.Length != 2) issues.Add("Oasis needs two ground Feathers.");
-                foreach (var feather in endpointFeathers)
-                    foreach (var target in serializedSpaces)
-                    {
-                        foreach (var number in target.RewardNumbers)
-                        {
-                            var bounds = GlyphRect(number);
-                            if (bounds.HasValue && Intersects(WorldRect(feather.rectTransform), bounds.Value))
-                                issues.Add("Oasis Feather overlaps " + target.StableId + " " + number.name + ".");
-                        }
-                        if (!target.UsesBoardArt && Intersects(WorldRect(feather.rectTransform), WorldRect(target.TokenRect)))
-                            issues.Add("Oasis Feather overlaps " + target.StableId + " token.");
-                    }
+                // Cropped chips and rotated Feathers have large transparent rectangle corners.
+                // Audit their actual native sprite triangles against every reward and all 16 chip variants.
+                var spriteAudit = DuckLayoutSpriteClearanceAudit.AuditOpenScene();
+                if (!spriteAudit.Contains("Status: PASS")) issues.Add(spriteAudit.Trim());
                 var offers = controller.Offers ?? Array.Empty<DuckLayoutOfferView>();
                 if (offers.Length != 11) issues.Add("Expected 11 serialized offers.");
                 var expectedOfferIds = new HashSet<string>(DuckLayoutFixtures.Offers.Select(offer => offer.id));

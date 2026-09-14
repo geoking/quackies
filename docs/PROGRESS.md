@@ -1038,3 +1038,22 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 - This completes the requested visual integration checkpoint, not user approval
   or the complete duck game. The larger painted master remains deferred;
   broader rule-document drafts remain paused and M4/Core remains unstarted.
+
+### 47. M3 route alignment and readable typography (14 September 2026)
+
+- Refined the restored decorative-tile board: redistributed all three loops,
+  corrected the lower meadow/wasteland placements and log approach, moved the
+  first haven's complete reward payload from space 3 to 4, and raised the oasis
+  reward treatment. The 43-space proof retains eight havens and all other rewards.
+- Kept 108 × 84 tiles, fitted 72-pixel chips closer to painted twigs and Feathers,
+  and applied rounded Fredoka SemiBold lettering with black outlines throughout.
+  All 23 existing PNG assets remain unchanged.
+- Both actual 1133 × 744 and 2732 × 2048 scene audits pass. All 43 board centre
+  interactions and 11 Dream inspections pass, with no overflow in 150 TMP labels.
+  All 16 chips fit at all 42 placement spaces; native-mesh simulation matches
+  19 rendered samples and rejects deliberate chip/chip and chip/moon overlap.
+  Compilation and Console report zero errors.
+- [Review images and validation](duck-migration/m3-route-refinement/README.md)
+  are saved. Awaiting the user's visual assessment; M4/Core is unstarted. Existing
+  rule-document drafts and ProjectSettings were preserved. Reconcile the new
+  visual haven-4 decision with canonical rules before implementing Core.

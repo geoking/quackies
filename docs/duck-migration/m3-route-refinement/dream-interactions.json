@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var c=UnityEngine.Object.FindObjectOfType<Quackies.Unity.DuckLayout.DuckLayoutProofPreview>();c.ShowDream();int count=0;foreach(var o in c.Offers){c.CloseInspection();UnityEngine.Canvas.ForceUpdateCanvases();var rt=(UnityEngine.RectTransform)o.InspectButton.transform;var pos=UnityEngine.RectTransformUtility.WorldToScreenPoint(null,rt.TransformPoint(rt.rect.center));var ev=new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current){position=pos};var rr=new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();UnityEngine.EventSystems.EventSystem.current.RaycastAll(ev,rr);if(rr.Count==0||rr[0].gameObject.GetComponentInParent<Quackies.Unity.DuckLayout.DuckLayoutOfferView>()!=o)throw new System.Exception(\"Offer raycast: \"+o.OfferId);UnityEngine.EventSystems.ExecuteEvents.Execute(o.InspectButton.gameObject,ev,UnityEngine.EventSystems.ExecuteEvents.pointerClickHandler);UnityEngine.Canvas.ForceUpdateCanvases();var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;var title=(TMPro.TMP_Text)c.GetType().GetField(\"inspectionTitle\",f).GetValue(c);if(title.text!=o.Family)throw new System.Exception(\"Wrong offer title\");foreach(var t in UnityEngine.Object.FindObjectsOfType<TMPro.TMP_Text>()){t.ForceMeshUpdate();if(t.isTextOverflowing)throw new System.Exception(\"Offer overflow: \"+o.OfferId+\" \"+t.name);}count++;}c.CloseInspection();return new{inspectedOffers=count,activeTextOverflow=0};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "inspectedOffers": 11,
+        "activeTextOverflow": 0
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/george/Repos/quackies/unity/Quackies.Unity"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}
