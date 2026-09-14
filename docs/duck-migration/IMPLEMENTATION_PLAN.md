@@ -3,8 +3,8 @@
 14 September 2026. **M2 is complete.** The user approved the rules, settings,
 shop policy, local autosave/resume and this implementation scope, with final-Day
 only simultaneous drawing and final-Night Sleep breaking equal total Twigs.
-It changes documentation only. **M3 layout work is now authorized; no Core/CLI
-implementation begins in this checkpoint.** The short product direction is in
+M2 changed documentation only. **M3's fixed-data layout proof is now complete;
+M4 Core/CLI implementation waits for the user's command.** The short product direction is in
 [PLAN.md](PLAN.md).
 
 ## Decision: evolve Core; rebuild the changed game presentation
@@ -142,16 +142,24 @@ Keep classic randomness/tests stable while adding a resumable duck source.
 
 M0 and earlier M1 experiments remain history. The future M3/M4 ordering is now
 changed deliberately: prove the approved board's fit before the full Core build.
-Stop for user feedback after each milestone. All builds below are future work.
+Stop for user feedback after each milestone. M3 evidence is recorded below;
+M4 and later builds remain future work.
 
 ### M2 — Rules sheet complete
 
 Closed by the user on 14 September 2026. Rules, defaults, exact rewards/prices,
 events and persistence scope are approved, including the two corrections above.
-Keep this contract stable for the first complete playtest. **M3 is authorized
-and in progress; root owns Unity Editor mutations.**
+Keep this contract stable for the first complete playtest. **M3 is complete;
+M4 awaits the user's command.**
 
-### M3 — iPad layout proof
+### M3 — iPad layout proof complete
+
+Completed 14 September 2026. [Review evidence](m3/README.md) includes the saved
+`DuckLayoutProof` scene, 1133 × 744 empty/occupied/Dream/inspection captures,
+exact 50-space/eight-haven/11-offer/16-token checks, two identical hierarchy
+digests, stable import metadata and zero final Console errors. Pointer navigation
+and inspections work. This meets the bounded layout criteria below; it does not
+implement a live duck game. Stop here for user feedback before M4.
 
 Create a separate reproducible Unity layout scene using the approved board and
 fixed sample data, without a live rules session or Core binding. Preserve the

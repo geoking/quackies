@@ -1,6 +1,6 @@
 # Quackies handoff
 
-## Current task: M3 layout proof in progress
+## Current task: M3 complete; awaiting user review
 
 14 September 2026: the user explicitly closed M2 and approved the remaining
 rules/defaults and local autosave/Continue scope, with two corrections:
@@ -32,19 +32,22 @@ action freshness, frozen rewards and purchase counts across local restore.
 Keep Core free of Unity/filesystem dependencies and retain the original engine
 profile as a regression reference while substantially refactoring duck rules.
 
-**M3 is authorized and in progress.** Root owns the Unity Editor work. First
-inspect live Git/Editor state,
-then make the isolated iPad layout proof: approved board, exactly 50 wells,
-occupied tokens/rewards, eight haven links, duck/zzz markers and all 11 Dream
-offers. Use fixed sample data in a separate scene with no Core binding, not a live
-match. The final space uses the existing oasis with two Feathers and scores
-beneath; replace coin treatment with the Moon/Sleep icon. M3 is complete only
-after actual target-size verification, two deterministic rebuilds and a no-new-
-console-errors check. M4 is Core/CLI, M5 connects the Unity game, and M6 covers
-balance/export; stop for review between milestones.
+**M3 is complete. M4 waits for the user's command.** Open **Quackies → Build
+and Play Duck Layout Proof** for the separate fixed-data scene. It has the
+approved board, 50 stable spaces, eight haven links, all 16 token variants,
+duck/zzz/Feather samples, enlarged inspections and all 11 Dream offers. Native
+painted havens at 21/38/50 remain visible; the oasis endpoint has two Feathers
+and 21 Sleep / 9 Twigs beneath it. Moon/Sleep replaces the coin treatment.
+
+[M3 evidence](duck-migration/m3/README.md) records 1133 × 744 Adventure,
+occupied, Dream and inspection captures. Two rebuilds share a hierarchy digest
+and identical metadata for all 14 textures. Compilation, layout/text checks,
+pointer navigation and final zero-error Console query pass. Play mode is stopped.
+There is no live Core binding or duck gameplay. M4 is Core/CLI, M5 connects the
+Unity game, and M6 covers balance/export; stop for review between milestones.
 
 Approved art remains unchanged. The board is native 1536 × 1024; the requested
-3072 master and actual-size 50-space fit remain production work. Preserve the
+3072 master remains production work after review of the measured M3 fit. Preserve the
 unrelated ProjectSettings preload removal and other pre-existing changes.
 
 No Core/CLI changes, runtime tests, Unity calls/imports, scene building or art

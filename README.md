@@ -7,8 +7,10 @@ approved. See the [product plan](docs/duck-migration/PLAN.md),
 [status](docs/duck-migration/STATUS.md). **M2 is complete**, including approved
 local autosave/resume. Days 1–9 draw independently; only Day 10 is simultaneous.
 Equal final Twigs use Night 10 retained Sleep, then a draw. No new gameplay is
-implemented. M3's iPad layout proof is authorized and in progress; it uses a
-separate fixed-data scene with no Core binding and does not change gameplay.
+implemented. **M3's iPad layout proof is complete** in a separate fixed-data
+scene with no Core binding. Open **Quackies → Build and Play Duck Layout Proof**
+to review it, or see the [screenshots and checks](docs/duck-migration/m3/README.md).
+M4 waits for the user's command.
 The playable scene and commands below describe the **completed original rules
 baseline**, which remains a regression reference during the migration.
 

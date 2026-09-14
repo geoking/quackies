@@ -1,8 +1,8 @@
 # Duck migration status
 
-Updated 14 September 2026. **M2 is complete. M3 is authorized and in progress.**
-The active goal is the separate iPad layout proof, using fixed sample data.
-Gameplay and persistence implementation remain M4 work.
+Updated 14 September 2026. **M2 and M3 are complete; awaiting user review.**
+The separate iPad layout proof uses fixed sample data. Gameplay and persistence
+implementation remain M4 work and wait for the user's command.
 
 ## Approved M2 contract
 
@@ -29,16 +29,15 @@ The [plan](PLAN.md), [implementation plan](IMPLEMENTATION_PLAN.md),
 closed contract. No M2 rule defaults remain pending. The bounded
 [math audit](v1/balance-audit.json) is design evidence, not full-match balance.
 
-## Current: M3 iPad layout proof
+## Completed: M3 iPad layout proof
 
-Use a separate fixed-data Unity scene to check the selected board's exactly
-50 wells, common token footprint, occupied reward visibility, eight haven links,
-duck/zzz overlays and full-screen Dream shop with all 11 offers. This is layout
-evidence, not a live game. The user has commanded M3, including generated grass
-and wasteland wells, a two-Feather wasteland treatment and a Moon/Sleep icon.
-The existing oasis itself is space 50, with two Feathers and scores below it.
-Preserve unrelated work; root owns integration and Editor mutations. The selected
-board composition stays fixed while measured anchors are fitted to its corridors.
+The separate `DuckLayoutProof` scene checks exactly 50 spaces, a common token
+footprint, occupied reward visibility, eight haven links, duck/zzz overlays and
+the full-screen Dream shop with all 11 offers. Generated grass/wasteland wells,
+a two-Feather wasteland treatment and a Moon/Sleep icon are included. The native
+oasis is space 50, with two Feathers and scores below it. [Review evidence](m3/README.md)
+records target-size captures, two stable rebuilds, pointer checks and zero final
+Console errors. This is layout evidence, not a live game.
 
 After M3 review: M4 Core/CLI and persistence, M5 connected Unity, M6 balance/export.
 The existing engine/API/CLI will be refactored, not restarted.
@@ -46,12 +45,13 @@ The existing engine/API/CLI will be refactored, not restarted.
 ## Art and historical evidence
 
 The [approved board](concepts/2026-09-12-approved/board-art-approved.png) remains
-native 1536 × 1024. The requested detailed 3072 × 2048 master and exact 50-space
-fit remain future production work. The approved
+native 1536 × 1024. The requested detailed 3072 × 2048 master remains future
+production work; M3 records the exact 50-space layout and token fit. The approved
 [16 encounter designs](concepts/2026-09-13-agreed-token-set/README.md) are opaque
-concept sheets, not production sprites. Dream Concept B, V2 player ducks and
+concept sheets are isolated with Unity sprite rectangles and outlines for this
+proof, preserving their source bytes. Dream Concept B, V2 player ducks and
 the [zzz marker concept](concepts/2026-09-14-most-rested/README.md) are available
-for the layout milestone.
+in the completed layout proof.
 
 M0's build/129 tests/CLI results in [BASELINE.md](BASELINE.md) are historical.
 M2 closure is specification approval, not a completed or playtested duck game.

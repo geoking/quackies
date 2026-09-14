@@ -17,6 +17,10 @@ their nuisance illustrations untouched. Captions, headings and sheet shadows
 are outside the crops. The Dream nest crop is intentionally rectangular and has
 no outline because it is a fixed presentation panel rather than a sprite mesh.
 
-These are layout metadata only. They do not alter source PNG pixels, define
-Unity import settings, or claim runtime fit/mesh validation. The polygons follow measured outer rims; the importer must still verify their
-rendered bounds at target size. The Dream crop stops above the old caption.
+These are layout metadata only and do not alter source PNG pixels. The builder
+applies the rectangles and outlines through Unity's sprite import API, preserves
+stable sprite identities, and uses the sprite mesh when rendering UI images.
+The polygons follow measured outer rims; the completed [M3 review](validation.md)
+checks their rendered bounds at 1133 × 744 with all 16 encounter variants.
+The Dream crop stops above the old caption. Production alpha extraction remains
+separate from this native source-sheet proof.
