@@ -135,12 +135,11 @@ saveable match state while keeping the classic regression suite passing. Update
 the CLI alongside each slice. The [detailed C1 plan](IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval)
 sets its deliverables and stopping boundary.
 
-C1 also verifies starting-position safety for the approved shared 0–3 Feather
-setting on the shorter route. The [endpoint review](m3-closeout/endpoint-review.md)
-separates the default-zero proof from the still-unproven optional settings. Do
-not silently cap, discard or convert Feathers, or remove an approved setting.
-If reachability analysis exposes a rule choice, return it to the user before
-implementing that behaviour. Actual full-match balance remains M6 work.
+C1 found a [reachable setting-3 overflow](m4/starting-feather-review.md): permanent
+Day-10 start 43 plus Most Rested gives effective start 44. Default zero remains
+proven safe. A user decision on this endpoint policy is pending; no cap,
+conversion, lost Feather or removed setting is approved. Independent C2/C3
+work continues. Actual full-match balance remains M6 work.
 
 Stop for user review at each milestone. M4 source and focused tests are small,
 separate checked commits with regular GitHub checkpoints; root owns Git and

@@ -39,10 +39,22 @@ duck definitions, `5ed4ada` seven catalogue tests. All 146 tests pass at the
 catalogue boundary. Each push was attempted and blocked by shell authentication.
 
 - C1: shared boundary, exact immutable catalogue, physical-chip identity and
-  saveable state foundation. A separate bounded analysis checks optional
-  starting Feathers against the endpoint.
-- C2/C3 are not yet implemented. Final completion requires every encounter,
-  every World Event fixture and a verified Day 1 → Night 1 → Day 2 CLI slice.
+  saveable state foundation are checked (`dae9174` / `a286e25`). Typed CLI
+  inspection shows the correct opening state. Twelve foundation tests pass;
+  the full suite at the state/Night boundary passes all 174 cases.
+- The [starting-Feather witness](starting-feather-review.md), committed as
+  `c66997c`, proves setting 3 can begin Day 10 at effective space 44. The user
+  has been asked to choose an endpoint policy and then requested the exact
+  combination, which was explained. **No cap or option removal is approved.**
+  C1's policy gate remains open; independent encounter/Night work continues.
+- Night calculation is committed (`c4d4608` / `3625342`) with sixteen focused
+  cases. It covers all 43 safe/worn rewards, final penalties, safe bonuses,
+  collective events and duplicate-award rejection. Final-Night conversion
+  values are calculated for fixtures; applying final results/winners is C4.
+- C2 Adventure and C3 Dream/Dawn integration are in progress. Final completion
+  requires every encounter, every World Event fixture and a verified
+  Day 1 → Night 1 → Day 2 CLI slice. Full calendar continuation and Normal AI
+  remain C4/C5; developer CLI controls are not presented as Normal AI.
 - Git checkpoints are local while shell GitHub credentials remain unavailable.
   Push attempts fail with `could not read Username for 'https://github.com'`.
 - Preserve the unrelated `ProjectSettings.asset` preload-removal change.

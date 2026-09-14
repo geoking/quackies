@@ -46,9 +46,16 @@ The [C1 brief](IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval)
 defines the first deliverable and its tests. The approved shared 0–3 starting
 Feather setting must be checked against the 43-space endpoint before all options
 are exposed. The [endpoint review](m3-closeout/endpoint-review.md) distinguishes
-current default-zero evidence from optional settings that still need proof.
+current default-zero evidence from the optional settings. C1 now has a
+[constructive setting-3 overflow](m4/starting-feather-review.md), and the user
+has been asked to decide the endpoint policy. No adjustment is approved yet.
 Do not silently cap/convert Feathers or remove approved options; surface a
 specific rule decision to the user if analysis requires one.
+
+Current implementation: shared typed command boundary, resumable randomness,
+exact catalogue and saveable state foundation are checked. All 174 tests pass
+at the state/isolated-Night boundary. Adventure and Dream/Dawn integration are
+active; [M4 evidence](m4/README.md) records checkpoints and outstanding work.
 
 M5 connects the accepted Unity board/Dream views to committed Core actions/state,
 finishes runtime nest/award/event presentation, and verifies a complete human/AI

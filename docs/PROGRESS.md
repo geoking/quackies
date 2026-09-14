@@ -1121,3 +1121,11 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   (`6cb2ccc` / `3a0d0c5`) and the exact duck catalogue (`34f4b31` / `5ed4ada`)
   are saved as source/test checkpoints. All 146 current tests pass. Each push
   was attempted but shell GitHub authentication still fails.
+- Typed duck setup and state (`dae9174` / `a286e25`) pass twelve foundation
+  cases. Night scoring (`c4d4608` / `3625342`) passes sixteen focused cases;
+  all 174 tests pass at this boundary. CLI inspection shows the exact opening
+  inventories, Day/event state, variants and offers. C2/C3 integration continues.
+- The verified setting-three sequence in `c66997c` reaches effective start44
+  at Day10. A user decision is pending; the requested combination was explained
+  with exact Day starts, havens, purchases and cumulative Feather awards.
+  Neither an effective-start cap nor a settings reduction is implemented.
