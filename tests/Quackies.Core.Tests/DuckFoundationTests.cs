@@ -31,35 +31,23 @@ public sealed class DuckFoundationTests
         Assert.Throws<ArgumentException>(() => match.GetSnapshot("spectator"));
     }
 
-    [Theory]
-    [InlineData(0)]
-    [InlineData(1)]
-    [InlineData(2)]
-    [InlineData(3)]
-    public void Approved_starting_Feather_values_are_represented_without_clipping(int startingFeathers)
+    [Fact]
+    public void Every_duck_starts_at_nest_zero_without_a_configurable_Feather_input()
     {
-        var settings = new DuckMatchSettings(startingFeathers);
+        var settings = new DuckMatchSettings();
         var view = MatchSession.CreateDuck(17, settings).GetSnapshot("human");
 
         Assert.Same(settings, view.Settings);
         Assert.Equal(10, settings.Days);
-        Assert.Equal(startingFeathers, settings.StartingFeathers);
+        Assert.Equal(0, settings.StartingFeathers);
         Assert.All(view.Players, player =>
         {
-            Assert.Equal(startingFeathers, player.PermanentFeatherTrail);
-            Assert.Equal(startingFeathers, player.EffectiveStart);
-            Assert.Equal(startingFeathers, player.Position);
+            Assert.Equal(0, player.PermanentFeatherTrail);
+            Assert.Equal(0, player.EffectiveStart);
+            Assert.Equal(0, player.Position);
         });
-    }
-
-    [Theory]
-    [InlineData(-1)]
-    [InlineData(4)]
-    public void Starting_Feathers_outside_the_approved_shared_range_are_rejected(int startingFeathers)
-    {
-        var exception = Assert.Throws<ArgumentOutOfRangeException>(() => new DuckMatchSettings(startingFeathers));
-
-        Assert.Equal("startingFeathers", exception.ParamName);
+        var constructor = Assert.Single(typeof(DuckMatchSettings).GetConstructors());
+        Assert.Empty(constructor.GetParameters());
     }
 
     [Fact]
