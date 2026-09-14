@@ -1,0 +1,35 @@
+[
+  {
+    "asset": "tile-inside-wetlands.png",
+    "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-5f6f97cf-6f42-4834-a1d4-b98cb8f5957b.png",
+    "sha256": "fc9730fcde89a4a8a22eabfbec0245e1c9b64a20835349bd3dc418131a835012",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sourceMode": "RGB",
+    "outsideHandling": "Original RGB artwork preserved. Tight Sprite Editor mesh outlines omit the baked checkerboard; no background bitmap editing."
+  },
+  {
+    "asset": "tile-inside-meadow.png",
+    "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-471bde45-77e4-4d1c-b73c-69d78eba97a1.png",
+    "sha256": "b6c63f0f76aafda013e5dee916c22d2e50819c627fde560a8c68ee8fbfc3c4f5",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sourceMode": "RGB",
+    "outsideHandling": "Original RGB artwork preserved. Tight Sprite Editor mesh outlines omit the baked checkerboard; no background bitmap editing."
+  },
+  {
+    "asset": "tile-inside-wasteland.png",
+    "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-62f37e9e-778f-4fd0-8fba-01f05a9fea06.png",
+    "sha256": "0b0b43c138bfa361e7e27852f3c7913e7b3167f6426add3b5722a6ffd90563a6",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sourceMode": "RGB",
+    "outsideHandling": "Original RGB artwork preserved. Tight Sprite Editor mesh outlines omit the baked checkerboard; no background bitmap editing."
+  }
+]

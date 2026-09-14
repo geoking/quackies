@@ -1018,3 +1018,23 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   Canonical 43-row and bounded-audit documentation synchronization is the
   remaining closeout work. Visual approval stays with the user. The larger
   painted master remains deferred; M4 is unstarted.
+
+### 46. M3 painted rewards inside larger tiles (14 September 2026)
+
+- Integrated the selected decorative tile concept into the saved Unity proof.
+  Fifteen generated sprite variants supply grass-only wetlands, warmer meadow
+  and dry wasteland tiles, with richer haven borders and painted Feather rewards.
+  Twigs, moons and stars are artwork; exact reward numbers remain live text.
+- Enlarged tiles to 108 × 84 board units and encounter tokens from 70 to 78.
+  The resting duck shares their enlarged footprint and top-left overhang.
+  Spread the lower loops to remove tile overlap while preserving all eight
+  shelter anchors, the bridge gaps and all 43 reward rows. The native oasis
+  remains uncovered with its existing ground rewards.
+- Actual 1133 × 744 and 2732 × 2048 audits pass; all 43 center raycasts and
+  PointerClick inspections pass. Deliberate overlap and old-duck-size regressions
+  are rejected. Final rebuilding preserves import metadata; compilation and
+  Console report zero errors. [Images, source hashes and checks](duck-migration/m3-inside-rewards/README.md)
+  are saved for review.
+- This completes the requested visual integration checkpoint, not user approval
+  or the complete duck game. The larger painted master remains deferred;
+  broader rule-document drafts remain paused and M4/Core remains unstarted.

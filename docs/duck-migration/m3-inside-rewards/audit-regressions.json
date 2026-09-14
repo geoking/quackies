@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var c=UnityEngine.Object.FindObjectOfType<Quackies.Unity.DuckLayout.DuckLayoutProofPreview>();var method=typeof(Quackies.Unity.Editor.DuckLayoutSceneBuilder).GetMethod(\"AuditOpenScene\",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static);System.Func<string> audit=()=> (string)method.Invoke(null,null);if(!audit().Contains(\"Status: PASS\"))throw new System.Exception(\"Baseline must pass\");var moved=c.Spaces.Single(s=>s.Space==7).transform;var old=moved.position;string overlap;try{moved.position=c.Spaces.Single(s=>s.Space==6).transform.position;overlap=audit();if(!overlap.Contains(\"well overlaps\")||!overlap.Contains(\"token overlaps\"))throw new System.Exception(\"Overlap regression was not detected\");}finally{moved.position=old;UnityEngine.Canvas.ForceUpdateCanvases();}var duck=UnityEngine.Object.FindObjectsOfType<UnityEngine.UI.Image>(true).Single(i=>i.name==\"Duck resting at space 32\").rectTransform;var size=duck.sizeDelta;string duckMismatch;try{duck.sizeDelta=size*.5f;duckMismatch=audit();if(!duckMismatch.Contains(\"Resting duck must match\"))throw new System.Exception(\"Duck size regression was not detected\");}finally{duck.sizeDelta=size;UnityEngine.Canvas.ForceUpdateCanvases();}var restored=audit();if(!restored.Contains(\"Status: PASS\"))throw new System.Exception(\"Restored scene did not pass\");return new {overlapRejected=true,oldDuckSizeRejected=true,restoredAudit=restored,overlapFailure=overlap,duckSizeFailure=duckMismatch};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "overlapRejected": true,
+        "oldDuckSizeRejected": true,
+        "restoredAudit": "# Duck Layout Audit\n\nScene: Assets/Scenes/DuckLayoutProof.unity\nHierarchy digest: `a4105fecb5f0e117adfbd5eca2057be96df757380e5ba3d2fa3d3b6692cb4bc6`\nStatus: PASS\n",
+        "overlapFailure": "# Duck Layout Audit\n\nScene: Assets/Scenes/DuckLayoutProof.unity\nHierarchy digest: `a4105fecb5f0e117adfbd5eca2057be96df757380e5ba3d2fa3d3b6692cb4bc6`\nStatus: FAIL\n\nIssues:\n- space-06 (space 6) well overlaps space-07 well.\n- space-06 (space 6) token overlaps space-07 token.\n- space-06 (space 6) well overlaps space-07 Sleep number.\n- space-06 (space 6) well overlaps space-07 Twig number.\n- space-07 (space 7) well overlaps space-06 Sleep number.\n- space-07 (space 7) well overlaps space-06 Twig number.\n",
+        "duckSizeFailure": "# Duck Layout Audit\n\nScene: Assets/Scenes/DuckLayoutProof.unity\nHierarchy digest: `a4105fecb5f0e117adfbd5eca2057be96df757380e5ba3d2fa3d3b6692cb4bc6`\nStatus: FAIL\n\nIssues:\n- Resting duck must match the encounter token size and offset.\n"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/george/Repos/quackies/unity/Quackies.Unity"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

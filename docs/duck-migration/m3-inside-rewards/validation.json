@@ -1,0 +1,54 @@
+{
+  "baselineCommit": "4d5e5bdcbccd0fb2e4d23b3683248abf26991262",
+  "all43RewardsUnchanged": true,
+  "boardPaintingUnchanged": true,
+  "biomeCounts": {
+    "wetlands": 14,
+    "meadow": 14,
+    "wasteland": 15
+  },
+  "havenSpaces": [
+    3,
+    10,
+    16,
+    21,
+    26,
+    32,
+    36,
+    43
+  ],
+  "allHavenCentersUnchanged": true,
+  "wellSize": [
+    108.0,
+    84.0
+  ],
+  "tokenSize": 78.0,
+  "previousTokenSize": 70.0,
+  "tokenGrowthPercent": 11.43,
+  "tokenOffsetFromWellTopLeft": [
+    -12,
+    -19.15
+  ],
+  "paintedTileCount": 42,
+  "nativeOasisCount": 1,
+  "manualAtlasReview": "All 15 sprites: exact twig counts, grass-only wetlands, decorated ordinary tiles, stronger haven decoration, one/two feathers and green wasteland havens. Lead and read-only Luna review.",
+  "manualBoardReview": "Empty/occupied views inspected at both sizes: clear bridges, haven access, centers following available route, no covered rewards. The wetlands lower loop remains visually dense at mini size. Static visual review, not a physical-device test or user approval.",
+  "scope": "M3 visual integration only. M4/Core/CLI unstarted; larger board master and broader rule-document drafts deferred.",
+  "sourceSha256": {
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/board-layout.json": "3f4613a82901d342ef1b809dafba97797a021494c6b366f7ae7aa750f582b616",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/board.png": "121c064ae0d14b8883e3420c6ed8f081167e1c0927a6a5010ce5307d2982a7f9",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-art.json": "873805ca70462e2e30b5a1fa6443162af0246d63ddf50971f16e8bcc674ae418",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-crops.json": "22c358be2903e4778867427d0f3f5240ba6e4e573f04be9db9d0f6dcef4d1823",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-inside-meadow.png": "b6c63f0f76aafda013e5dee916c22d2e50819c627fde560a8c68ee8fbfc3c4f5",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-inside-meadow.png.meta": "5272bc102c0f1b2d3d95e1f852d70a12eab787ddcd7764e351c80a26a37c8b93",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-inside-wasteland.png": "0b0b43c138bfa361e7e27852f3c7913e7b3167f6426add3b5722a6ffd90563a6",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-inside-wasteland.png.meta": "fdebf0d272fff21458e2a6f3f23309dc669c2b8bf2f406012f8058f10a52f465",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-inside-wetlands.png": "fc9730fcde89a4a8a22eabfbec0245e1c9b64a20835349bd3dc418131a835012",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-inside-wetlands.png.meta": "62408b818d3e3889d1ce1c7d7d8a26496e3df9d089a293b8f0fece086c128d75",
+    "unity/Quackies.Unity/Assets/Art/DuckLayout/tile-reward-font.mat": "782fe7b9439be59eb46d033975fd4e149477ee33aa07a36deb988a21a8c12b8e",
+    "unity/Quackies.Unity/Assets/Editor/DuckLayoutSceneBuilder.cs": "dd3ec1772feb7b3bce63c589747b623055854debbb2ddf397329071ec0478498",
+    "unity/Quackies.Unity/Assets/Scenes/DuckLayoutProof.unity": "a571d0586cc3487a6a41f28abf5c4923a07c96ab032c4068e449f94876a1d471",
+    "unity/Quackies.Unity/Assets/Scripts/DuckLayout/DuckLayoutData.cs": "13de7351f98d7913867a35ed0c18c6dba45b67d888b359e3de94d23329433aff",
+    "unity/Quackies.Unity/Assets/Scripts/DuckLayout/DuckLayoutSpaceView.cs": "b1b66c6914b074776595e06a92dd22d374b1725d46a2b5650931eed28f6b68da"
+  }
+}

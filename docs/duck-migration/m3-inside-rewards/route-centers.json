@@ -1,0 +1,396 @@
+{
+  "boardSize": [
+    1536,
+    1024
+  ],
+  "coordinates": "Board pixels, origin top-left. Authored by visual path review and constrained by protected reward/token footprints.",
+  "centers": [
+    {
+      "space": 1,
+      "biome": "wetlands",
+      "x": 128.0,
+      "y": 204.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 2,
+      "biome": "wetlands",
+      "x": 93.9752,
+      "y": 339.1713,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 3,
+      "biome": "wetlands",
+      "x": 88.0,
+      "y": 478.0,
+      "haven": true,
+      "shelterX": 229.0,
+      "shelterY": 452.0
+    },
+    {
+      "space": 4,
+      "biome": "wetlands",
+      "x": 94.0,
+      "y": 578.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 5,
+      "biome": "wetlands",
+      "x": 101.0,
+      "y": 678.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 6,
+      "biome": "wetlands",
+      "x": 145.0,
+      "y": 778.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 7,
+      "biome": "wetlands",
+      "x": 261.0,
+      "y": 796.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 8,
+      "biome": "wetlands",
+      "x": 377.0,
+      "y": 800.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 9,
+      "biome": "wetlands",
+      "x": 450.0,
+      "y": 714.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 10,
+      "biome": "wetlands",
+      "x": 463.0,
+      "y": 614.0,
+      "haven": true,
+      "shelterX": 338.0,
+      "shelterY": 593.0
+    },
+    {
+      "space": 11,
+      "biome": "wetlands",
+      "x": 450.0,
+      "y": 515.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 12,
+      "biome": "wetlands",
+      "x": 431.0,
+      "y": 416.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 13,
+      "biome": "wetlands",
+      "x": 415.0,
+      "y": 317.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 14,
+      "biome": "wetlands",
+      "x": 409.0,
+      "y": 218.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 15,
+      "biome": "meadow",
+      "x": 611.0,
+      "y": 218.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 16,
+      "biome": "meadow",
+      "x": 614.0,
+      "y": 335.0,
+      "haven": true,
+      "shelterX": 755.0,
+      "shelterY": 330.0
+    },
+    {
+      "space": 17,
+      "biome": "meadow",
+      "x": 614.874,
+      "y": 445.9966,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 18,
+      "biome": "meadow",
+      "x": 618.2738,
+      "y": 556.9396,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 19,
+      "biome": "meadow",
+      "x": 631.0,
+      "y": 665.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 20,
+      "biome": "meadow",
+      "x": 663.0,
+      "y": 765.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 21,
+      "biome": "meadow",
+      "x": 780.0,
+      "y": 805.0,
+      "haven": true,
+      "shelterX": 786.0,
+      "shelterY": 656.0
+    },
+    {
+      "space": 22,
+      "biome": "meadow",
+      "x": 899.0,
+      "y": 841.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 23,
+      "biome": "meadow",
+      "x": 951.0,
+      "y": 755.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 24,
+      "biome": "meadow",
+      "x": 959.0,
+      "y": 656.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 25,
+      "biome": "meadow",
+      "x": 957.0,
+      "y": 557.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 26,
+      "biome": "meadow",
+      "x": 950.0,
+      "y": 458.0,
+      "haven": true,
+      "shelterX": 813.0,
+      "shelterY": 457.0
+    },
+    {
+      "space": 27,
+      "biome": "meadow",
+      "x": 916.5964,
+      "y": 338.3447,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 28,
+      "biome": "meadow",
+      "x": 881.0,
+      "y": 218.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 29,
+      "biome": "wasteland",
+      "x": 1179.0,
+      "y": 200.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 30,
+      "biome": "wasteland",
+      "x": 1145.0,
+      "y": 300.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 31,
+      "biome": "wasteland",
+      "x": 1124.0,
+      "y": 400.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 32,
+      "biome": "wasteland",
+      "x": 1133.0,
+      "y": 500.0,
+      "haven": true,
+      "shelterX": 1202.0,
+      "shelterY": 455.0
+    },
+    {
+      "space": 33,
+      "biome": "wasteland",
+      "x": 1129.0,
+      "y": 600.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 34,
+      "biome": "wasteland",
+      "x": 1125.0,
+      "y": 700.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 35,
+      "biome": "wasteland",
+      "x": 1176.0,
+      "y": 800.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 36,
+      "biome": "wasteland",
+      "x": 1297.0,
+      "y": 808.0,
+      "haven": true,
+      "shelterX": 1297.0,
+      "shelterY": 722.0
+    },
+    {
+      "space": 37,
+      "biome": "wasteland",
+      "x": 1411.75,
+      "y": 842.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 38,
+      "biome": "wasteland",
+      "x": 1440.0,
+      "y": 756.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 39,
+      "biome": "wasteland",
+      "x": 1450.0,
+      "y": 656.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 40,
+      "biome": "wasteland",
+      "x": 1451.0,
+      "y": 556.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 41,
+      "biome": "wasteland",
+      "x": 1450.0,
+      "y": 456.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 42,
+      "biome": "wasteland",
+      "x": 1443.0,
+      "y": 356.0,
+      "haven": false,
+      "shelterX": null,
+      "shelterY": null
+    },
+    {
+      "space": 43,
+      "biome": "wasteland",
+      "x": 1417.0,
+      "y": 240.0,
+      "haven": true,
+      "shelterX": 1417.0,
+      "shelterY": 191.0
+    }
+  ]
+}

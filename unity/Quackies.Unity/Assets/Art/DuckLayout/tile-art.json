@@ -1,0 +1,542 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "biome": "wetlands",
+      "haven": false,
+      "twigs": 1,
+      "feathers": 0,
+      "asset": "tile-inside-wetlands.png",
+      "cropIndex": 0,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.31865828092243187,
+        "y": 0.7054455445544554,
+        "width": 0.2222222222222222,
+        "height": 0.2376237623762376
+      },
+      "sticks": {
+        "x": 0.7651991614255765,
+        "y": 0.25,
+        "width": 0.1278825995807128,
+        "height": 0.2747524752475248
+      },
+      "featherAreas": []
+    },
+    {
+      "biome": "wetlands",
+      "haven": false,
+      "twigs": 2,
+      "feathers": 0,
+      "asset": "tile-inside-wetlands.png",
+      "cropIndex": 1,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.3431578947368421,
+        "y": 0.7037037037037037,
+        "width": 0.2231578947368421,
+        "height": 0.23703703703703705
+      },
+      "sticks": {
+        "x": 0.7094736842105264,
+        "y": 0.24938271604938272,
+        "width": 0.21263157894736842,
+        "height": 0.291358024691358
+      },
+      "featherAreas": []
+    },
+    {
+      "biome": "wetlands",
+      "haven": false,
+      "twigs": 3,
+      "feathers": 0,
+      "asset": "tile-inside-wetlands.png",
+      "cropIndex": 2,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.35355648535564854,
+        "y": 0.7019704433497537,
+        "width": 0.2217573221757322,
+        "height": 0.23645320197044334
+      },
+      "sticks": {
+        "x": 0.6527196652719666,
+        "y": 0.2536945812807882,
+        "width": 0.2907949790794979,
+        "height": 0.29064039408866993
+      },
+      "featherAreas": []
+    },
+    {
+      "biome": "wetlands",
+      "haven": true,
+      "twigs": 1,
+      "feathers": 1,
+      "asset": "tile-inside-wetlands.png",
+      "cropIndex": 3,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.316008316008316,
+        "y": 0.7209302325581395,
+        "width": 0.2203742203742204,
+        "height": 0.22325581395348837
+      },
+      "sticks": {
+        "x": 0.7546777546777547,
+        "y": 0.3325581395348837,
+        "width": 0.1288981288981289,
+        "height": 0.2534883720930233
+      },
+      "featherAreas": [
+        {
+          "x": 0.6943866943866944,
+          "y": 0.027906976744186046,
+          "width": 0.20166320166320167,
+          "height": 0.24651162790697675
+        }
+      ]
+    },
+    {
+      "biome": "wetlands",
+      "haven": true,
+      "twigs": 3,
+      "feathers": 1,
+      "asset": "tile-inside-wetlands.png",
+      "cropIndex": 4,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.33608247422680415,
+        "y": 0.7209302325581395,
+        "width": 0.21855670103092784,
+        "height": 0.22325581395348837
+      },
+      "sticks": {
+        "x": 0.6556701030927835,
+        "y": 0.3302325581395349,
+        "width": 0.2804123711340206,
+        "height": 0.2744186046511628
+      },
+      "featherAreas": [
+        {
+          "x": 0.688659793814433,
+          "y": 0.027906976744186046,
+          "width": 0.2597938144329897,
+          "height": 0.31627906976744186
+        }
+      ]
+    },
+    {
+      "biome": "meadow",
+      "haven": false,
+      "twigs": 4,
+      "feathers": 0,
+      "asset": "tile-inside-meadow.png",
+      "cropIndex": 0,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.3165618448637317,
+        "y": 0.7034313725490197,
+        "width": 0.2222222222222222,
+        "height": 0.23529411764705882
+      },
+      "sticks": {
+        "x": 0.7463312368972747,
+        "y": 0.2647058823529412,
+        "width": 0.16981132075471697,
+        "height": 0.3480392156862745
+      },
+      "featherAreas": []
+    },
+    {
+      "biome": "meadow",
+      "haven": false,
+      "twigs": 5,
+      "feathers": 0,
+      "asset": "tile-inside-meadow.png",
+      "cropIndex": 1,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.339662447257384,
+        "y": 0.7034313725490197,
+        "width": 0.22362869198312235,
+        "height": 0.23529411764705882
+      },
+      "sticks": {
+        "x": 0.6624472573839663,
+        "y": 0.26715686274509803,
+        "width": 0.2489451476793249,
+        "height": 0.3480392156862745
+      },
+      "featherAreas": []
+    },
+    {
+      "biome": "meadow",
+      "haven": false,
+      "twigs": 6,
+      "feathers": 0,
+      "asset": "tile-inside-meadow.png",
+      "cropIndex": 2,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.3575883575883576,
+        "y": 0.7017114914425427,
+        "width": 0.2203742203742204,
+        "height": 0.23471882640586797
+      },
+      "sticks": {
+        "x": 0.6756756756756757,
+        "y": 0.26405867970660146,
+        "width": 0.25571725571725573,
+        "height": 0.34963325183374083
+      },
+      "featherAreas": []
+    },
+    {
+      "biome": "meadow",
+      "haven": true,
+      "twigs": 4,
+      "feathers": 1,
+      "asset": "tile-inside-meadow.png",
+      "cropIndex": 3,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.3145833333333333,
+        "y": 0.7192575406032483,
+        "width": 0.22083333333333333,
+        "height": 0.22273781902552203
+      },
+      "sticks": {
+        "x": 0.74375,
+        "y": 0.3433874709976798,
+        "width": 0.16666666666666666,
+        "height": 0.31554524361948955
+      },
+      "featherAreas": [
+        {
+          "x": 0.6625,
+          "y": 0.02320185614849188,
+          "width": 0.31666666666666665,
+          "height": 0.28306264501160094
+        }
+      ]
+    },
+    {
+      "biome": "meadow",
+      "haven": true,
+      "twigs": 5,
+      "feathers": 1,
+      "asset": "tile-inside-meadow.png",
+      "cropIndex": 4,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.3367768595041322,
+        "y": 0.7175925925925926,
+        "width": 0.2190082644628099,
+        "height": 0.2222222222222222
+      },
+      "sticks": {
+        "x": 0.6549586776859504,
+        "y": 0.3449074074074074,
+        "width": 0.24380165289256198,
+        "height": 0.31712962962962965
+      },
+      "featherAreas": [
+        {
+          "x": 0.6487603305785123,
+          "y": 0.023148148148148147,
+          "width": 0.3367768595041322,
+          "height": 0.3101851851851852
+        }
+      ]
+    },
+    {
+      "biome": "wasteland",
+      "haven": false,
+      "twigs": 6,
+      "feathers": 0,
+      "asset": "tile-inside-wasteland.png",
+      "cropIndex": 0,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.3172268907563025,
+        "y": 0.7205542725173211,
+        "width": 0.22268907563025211,
+        "height": 0.22170900692840648
+      },
+      "sticks": {
+        "x": 0.6743697478991597,
+        "y": 0.3117782909930716,
+        "width": 0.25210084033613445,
+        "height": 0.3418013856812933
+      },
+      "featherAreas": []
+    },
+    {
+      "biome": "wasteland",
+      "haven": false,
+      "twigs": 7,
+      "feathers": 0,
+      "asset": "tile-inside-wasteland.png",
+      "cropIndex": 1,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.336864406779661,
+        "y": 0.7156177156177156,
+        "width": 0.2245762711864407,
+        "height": 0.22377622377622378
+      },
+      "sticks": {
+        "x": 0.6313559322033898,
+        "y": 0.30303030303030304,
+        "width": 0.2923728813559322,
+        "height": 0.34032634032634035
+      },
+      "featherAreas": []
+    },
+    {
+      "biome": "wasteland",
+      "haven": false,
+      "twigs": 8,
+      "feathers": 0,
+      "asset": "tile-inside-wasteland.png",
+      "cropIndex": 2,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.3522012578616352,
+        "y": 0.7146171693735499,
+        "width": 0.2222222222222222,
+        "height": 0.22273781902552203
+      },
+      "sticks": {
+        "x": 0.6352201257861635,
+        "y": 0.3062645011600928,
+        "width": 0.3018867924528302,
+        "height": 0.33642691415313225
+      },
+      "featherAreas": []
+    },
+    {
+      "biome": "wasteland",
+      "haven": true,
+      "twigs": 7,
+      "feathers": 2,
+      "asset": "tile-inside-wasteland.png",
+      "cropIndex": 3,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.3145833333333333,
+        "y": 0.7142857142857143,
+        "width": 0.22083333333333333,
+        "height": 0.22119815668202766
+      },
+      "sticks": {
+        "x": 0.6666666666666666,
+        "y": 0.3456221198156682,
+        "width": 0.28541666666666665,
+        "height": 0.33410138248847926
+      },
+      "featherAreas": [
+        {
+          "x": 0.6270833333333333,
+          "y": 0.016129032258064516,
+          "width": 0.32916666666666666,
+          "height": 0.31336405529953915
+        }
+      ]
+    },
+    {
+      "biome": "wasteland",
+      "haven": true,
+      "twigs": 8,
+      "feathers": 2,
+      "asset": "tile-inside-wasteland.png",
+      "cropIndex": 4,
+      "sleepNumber": {
+        "x": 0.54,
+        "y": 0.65,
+        "width": 0.26,
+        "height": 0.34
+      },
+      "twigNumber": {
+        "x": 0.77,
+        "y": 0.56,
+        "width": 0.21,
+        "height": 0.3
+      },
+      "moon": {
+        "x": 0.33402489626556015,
+        "y": 0.7142857142857143,
+        "width": 0.21991701244813278,
+        "height": 0.22119815668202766
+      },
+      "sticks": {
+        "x": 0.6120331950207469,
+        "y": 0.3433179723502304,
+        "width": 0.3049792531120332,
+        "height": 0.33410138248847926
+      },
+      "featherAreas": [
+        {
+          "x": 0.6244813278008299,
+          "y": 0.018433179723502304,
+          "width": 0.3257261410788382,
+          "height": 0.31105990783410137
+        }
+      ]
+    }
+  ]
+}

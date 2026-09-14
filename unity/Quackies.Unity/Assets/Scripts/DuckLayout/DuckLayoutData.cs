@@ -16,6 +16,8 @@ namespace Quackies.Unity.DuckLayout
         public float wellHeight = 66f;
         public float rewardHeight = 22f;
         public float tokenSize = 86f;
+        public float tokenOffsetX = -6f;
+        public float tokenOffsetY = -16f;
         public DuckLayoutNestAnchor nest;
         public DuckLayoutBoardRow[] rows;
 
@@ -56,6 +58,39 @@ namespace Quackies.Unity.DuckLayout
 
     [Serializable]
     public sealed class DuckLayoutNestAnchor { public float x; public float y; }
+
+    /// <summary>Painted tile selection and measured overlay locations; no game rules.</summary>
+    [Serializable]
+    public sealed class DuckLayoutTileManifest
+    {
+        public int version;
+        public DuckLayoutTileArt[] entries;
+    }
+
+    [Serializable]
+    public sealed class DuckLayoutTileArt
+    {
+        public string biome;
+        public bool haven;
+        public int twigs;
+        public int feathers;
+        public string asset;
+        public int cropIndex;
+        public DuckLayoutArtRect sleepNumber;
+        public DuckLayoutArtRect twigNumber;
+        public DuckLayoutArtRect moon;
+        public DuckLayoutArtRect sticks;
+        public DuckLayoutArtRect[] featherAreas;
+    }
+
+    [Serializable]
+    public sealed class DuckLayoutArtRect
+    {
+        public float x;
+        public float y;
+        public float width;
+        public float height;
+    }
 
     [Serializable]
     public sealed class DuckLayoutBoardRow

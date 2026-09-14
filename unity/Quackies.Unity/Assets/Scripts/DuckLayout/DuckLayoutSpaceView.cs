@@ -21,6 +21,8 @@ namespace Quackies.Unity.DuckLayout
         [SerializeField] private Image wellImage;
         [SerializeField] private Sprite featherRewardSprite;
         [SerializeField] private Image tokenImage;
+        [SerializeField] private TMP_Text[] rewardNumbers;
+        [SerializeField] private RectTransform[] rewardArtAreas;
 
         public string StableId => stableId;
         public int Space => space;
@@ -37,6 +39,14 @@ namespace Quackies.Unity.DuckLayout
         public Sprite WellSprite => wellImage == null ? null : wellImage.sprite;
         public Sprite FeatherRewardSprite => featherRewardSprite;
         public Sprite EncounterSprite => tokenImage == null ? null : tokenImage.sprite;
+        public TMP_Text[] RewardNumbers => rewardNumbers ?? System.Array.Empty<TMP_Text>();
+        public RectTransform[] RewardArtAreas => rewardArtAreas ?? System.Array.Empty<RectTransform>();
+
+        public void ConfigurePaintedRewards(TMP_Text[] numbers, RectTransform[] protectedArt)
+        {
+            rewardNumbers = numbers;
+            rewardArtAreas = protectedArt;
+        }
 
         public void Configure(string id, int number, bool isHaven, bool usesBoardArt, string shelterName, int sleepReward, int twigReward,
             int featherReward, RectTransform well, RectTransform reward, Button button, Image wellArtwork, Sprite featherArtwork, Image token)

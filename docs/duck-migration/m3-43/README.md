@@ -1,5 +1,9 @@
 # M3: 43-space board review
 
+**Historical layout checkpoint.** Its external reward rows are superseded by
+the [painted rewards inside larger tiles](../m3-inside-rewards/README.md).
+The images and checks below describe the earlier layout.
+
 The user's selected route is **43 spaces: 14 wetlands / 14 meadow / 15
 wasteland**. The revised Unity layout is implemented and checked; visual
 approval remains with the user. M4 is unstarted and awaits their command.
