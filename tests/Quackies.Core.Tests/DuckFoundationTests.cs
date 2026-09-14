@@ -9,7 +9,7 @@ namespace Quackies.Core.Tests;
 public sealed class DuckFoundationTests
 {
     [Fact]
-    public void Factory_creates_typed_day_one_preparation_without_premature_actions()
+    public void Factory_creates_typed_active_day_one_with_only_the_mandatory_first_Explore()
     {
         var match = MatchSession.CreateDuck(seed: 42);
         var view = match.GetSnapshot("human");
@@ -19,14 +19,15 @@ public sealed class DuckFoundationTests
         Assert.Same(DuckMatchSettings.Standard, view.Settings);
         Assert.Equal(10, view.Settings.Days);
         Assert.Equal(1, view.Day);
-        Assert.Equal(DuckPhase.Preparation, view.Phase);
+        Assert.Equal(DuckPhase.Adventure, view.Phase);
         Assert.Equal("human", view.ViewerId);
         Assert.Contains(view.CurrentEvent, DuckRules.V1.WorldEvents);
         Assert.Equal(new[] { "human", "ai" }, view.Players.Select(player => player.Id));
         Assert.Equal(11, view.ShopOffers.Count);
         Assert.Empty(view.History);
         Assert.Empty(view.PublicAwards);
-        Assert.Empty(match.GetLegalActions("human"));
+        var action = Assert.Single(match.GetLegalActions("human"));
+        Assert.Equal(GameActionKind.Explore, action.Kind);
         Assert.Throws<ArgumentException>(() => match.GetSnapshot("spectator"));
     }
 
