@@ -1,6 +1,13 @@
 using Quackies.Core.AI;
 using Quackies.Core.Match;
 using Quackies.Core.Randomness;
+using Quackies.Cli;
+
+if (DuckCliOptions.Requested(args))
+{
+    Environment.ExitCode = DuckCli.Run(args);
+    return;
+}
 
 var seed = Environment.TickCount;
 int startingRubies;
