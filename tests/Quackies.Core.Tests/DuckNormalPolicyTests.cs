@@ -109,6 +109,25 @@ public sealed class DuckNormalPolicyTests
     }
 
     [Fact]
+    public void Worn_out_finished_opponent_cannot_block_the_safe_ducks_Most_Rested_value()
+    {
+        var safeOpponent = AdventureScenario(position: 3, exhaustion: 4,
+            bag: new[] { "seeds", "grumpy_goose" });
+        var wornOpponent = AdventureScenario(position: 3, exhaustion: 4,
+            bag: new[] { "seeds", "grumpy_goose" });
+        SetFinishedOpponent(safeOpponent.Runtime, position: 9, wornOut: false, frozenSleep: 7);
+        SetFinishedOpponent(wornOpponent.Runtime, position: 9, wornOut: true, frozenSleep: 7);
+
+        var blocked = Evaluate(safeOpponent);
+        var unblocked = Evaluate(wornOpponent);
+
+        Assert.Equal(GameActionKind.Explore, blocked.Action.Kind);
+        Assert.Equal(GameActionKind.Settle, unblocked.Action.Kind);
+        Assert.Contains("improves", blocked.Reason, StringComparison.Ordinal);
+        Assert.Contains("Keeping", unblocked.Reason, StringComparison.Ordinal);
+    }
+
+    [Fact]
     public void Early_Dream_prefers_movement_while_late_Dream_prefers_direct_Reeds_Twigs()
     {
         var early = DreamScenario(day: 2, sleep: 20);
@@ -258,12 +277,18 @@ public sealed class DuckNormalPolicyTests
         }
     }
 
-    private static void SetFinishedOpponent(DuckMatchRuntime runtime, int position)
+    private static void SetFinishedOpponent(
+        DuckMatchRuntime runtime,
+        int position,
+        bool wornOut = false,
+        int? frozenSleep = null)
     {
         var opponent = runtime.Player("ai");
         opponent.Position = position;
         opponent.HasFinishedDay = true;
-        opponent.IsWornOut = false;
+        opponent.IsWornOut = wornOut;
+        opponent.IsSleepFrozen = frozenSleep.HasValue;
+        opponent.FrozenSleep = frozenSleep ?? 0;
         opponent.PlacedChips.Clear();
     }
 
