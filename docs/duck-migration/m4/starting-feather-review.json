@@ -1,0 +1,1143 @@
+{
+  "study": "Quackies M4 C1 starting-Feather reachability witness",
+  "classification": "constructive positive-probability rules witness; not a balance simulation",
+  "inputs": [
+    "docs/duck-migration/v1/board.json",
+    "docs/duck-migration/v1/shop.json",
+    "docs/duck-migration/ENCOUNTER_RULES.md",
+    "docs/duck-migration/v1/WORLD_EVENTS.md"
+  ],
+  "starting_feathers_shared": 3,
+  "event_order": [
+    "A Pocket of Driftwood",
+    "Thick Morning Mist",
+    "Rain-Softened Seeds",
+    "Restless Night",
+    "A Friendly Guide",
+    "All Tucked In",
+    "Home Before Dark",
+    "Still Air",
+    "Shared Supper",
+    "Sunlit Signboards"
+  ],
+  "days_1_through_9": [
+    {
+      "day": 1,
+      "event": "A Pocket of Driftwood",
+      "twig_scores_before_dawn": {
+        "target": 0,
+        "opponent": 0
+      },
+      "dawn_feathers": {
+        "target": 0,
+        "opponent": 0
+      },
+      "outcomes": {
+        "target": {
+          "effective_start": 3,
+          "draws": [
+            "Brambles"
+          ],
+          "distance": 1,
+          "distance_after_each_draw": [
+            1
+          ],
+          "exhaustion": 1,
+          "safe": true,
+          "reeds_twigs": 0,
+          "helpful_types": [],
+          "pocket_twigs": 0,
+          "final_token": "Brambles",
+          "final_bramble_penalty": 1,
+          "final_pebbles_penalty": 0,
+          "rest": 4,
+          "printed_sleep": 6,
+          "printed_twigs": 1,
+          "today_twigs": 0,
+          "haven_feathers": 1,
+          "sleep_before_collective_event": 6,
+          "retained_sleep": 6,
+          "cumulative_twigs": 0,
+          "permanent_trail_after_night": 4,
+          "purchase": {
+            "token": "Tailwind2",
+            "family": "Tailwind",
+            "price": 5
+          }
+        },
+        "opponent": {
+          "effective_start": 3,
+          "draws": [
+            "Seed",
+            "Seed",
+            "Tailwind2",
+            "Signpost",
+            "Splash",
+            "Log",
+            "Log",
+            "Mud",
+            "Mud",
+            "Pebbles",
+            "Pebbles"
+          ],
+          "distance": 13,
+          "distance_after_each_draw": [
+            1,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "exhaustion": 6,
+          "safe": false,
+          "reeds_twigs": 0,
+          "helpful_types": [
+            "Seed",
+            "Signpost",
+            "Splash",
+            "Tailwind"
+          ],
+          "pocket_twigs": 1,
+          "final_token": "Pebbles",
+          "final_bramble_penalty": 0,
+          "final_pebbles_penalty": 1,
+          "rest": 16,
+          "printed_sleep": 13,
+          "printed_twigs": 4,
+          "today_twigs": 5,
+          "haven_feathers": 0,
+          "sleep_before_collective_event": 12,
+          "retained_sleep": 6,
+          "cumulative_twigs": 5,
+          "permanent_trail_after_night": 3,
+          "purchase": {
+            "token": "Reeds1",
+            "family": "Reeds",
+            "price": 6
+          }
+        }
+      },
+      "most_rested": [
+        "target"
+      ]
+    },
+    {
+      "day": 2,
+      "event": "Thick Morning Mist",
+      "twig_scores_before_dawn": {
+        "target": 0,
+        "opponent": 5
+      },
+      "dawn_feathers": {
+        "target": 2,
+        "opponent": 0
+      },
+      "outcomes": {
+        "target": {
+          "effective_start": 7,
+          "draws": [
+            "Seed",
+            "Seed",
+            "Tailwind2",
+            "Signpost",
+            "Splash",
+            "Tailwind2",
+            "Log",
+            "Log",
+            "Mud",
+            "Mud",
+            "Brambles"
+          ],
+          "distance": 14,
+          "distance_after_each_draw": [
+            1,
+            2,
+            4,
+            6,
+            7,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "exhaustion": 5,
+          "safe": true,
+          "reeds_twigs": 0,
+          "helpful_types": [
+            "Seed",
+            "Signpost",
+            "Splash",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Brambles",
+          "final_bramble_penalty": 1,
+          "final_pebbles_penalty": 0,
+          "rest": 21,
+          "printed_sleep": 15,
+          "printed_twigs": 5,
+          "today_twigs": 4,
+          "haven_feathers": 1,
+          "sleep_before_collective_event": 15,
+          "retained_sleep": 15,
+          "cumulative_twigs": 4,
+          "permanent_trail_after_night": 7,
+          "purchase": {
+            "token": "Tailwind6",
+            "family": "Tailwind",
+            "price": 15
+          }
+        },
+        "opponent": {
+          "effective_start": 3,
+          "draws": [
+            "Seed",
+            "Seed",
+            "Tailwind2",
+            "Signpost",
+            "Splash",
+            "Reeds1",
+            "Log",
+            "Log",
+            "Brambles",
+            "Pebbles",
+            "Mud"
+          ],
+          "distance": 13,
+          "distance_after_each_draw": [
+            1,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "exhaustion": 5,
+          "safe": true,
+          "reeds_twigs": 1,
+          "helpful_types": [
+            "Reeds",
+            "Seed",
+            "Signpost",
+            "Splash",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Mud",
+          "final_bramble_penalty": 0,
+          "final_pebbles_penalty": 0,
+          "rest": 16,
+          "printed_sleep": 13,
+          "printed_twigs": 4,
+          "today_twigs": 5,
+          "haven_feathers": 1,
+          "sleep_before_collective_event": 13,
+          "retained_sleep": 13,
+          "cumulative_twigs": 10,
+          "permanent_trail_after_night": 4,
+          "purchase": {
+            "token": "Reeds2",
+            "family": "Reeds",
+            "price": 11
+          }
+        }
+      },
+      "most_rested": [
+        "target"
+      ]
+    },
+    {
+      "day": 3,
+      "event": "Rain-Softened Seeds",
+      "twig_scores_before_dawn": {
+        "target": 4,
+        "opponent": 10
+      },
+      "dawn_feathers": {
+        "target": 2,
+        "opponent": 0
+      },
+      "outcomes": {
+        "target": {
+          "effective_start": 10,
+          "draws": [
+            "Seed",
+            "Seed",
+            "Tailwind2",
+            "Signpost",
+            "Splash",
+            "Tailwind2",
+            "Tailwind6",
+            "Log",
+            "Log",
+            "Mud",
+            "Mud",
+            "Brambles"
+          ],
+          "distance": 22,
+          "distance_after_each_draw": [
+            2,
+            4,
+            6,
+            8,
+            9,
+            11,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22
+          ],
+          "exhaustion": 5,
+          "safe": true,
+          "reeds_twigs": 0,
+          "helpful_types": [
+            "Seed",
+            "Signpost",
+            "Splash",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Brambles",
+          "final_bramble_penalty": 1,
+          "final_pebbles_penalty": 0,
+          "rest": 32,
+          "printed_sleep": 18,
+          "printed_twigs": 7,
+          "today_twigs": 6,
+          "haven_feathers": 2,
+          "sleep_before_collective_event": 18,
+          "retained_sleep": 18,
+          "cumulative_twigs": 10,
+          "permanent_trail_after_night": 11,
+          "purchase": null
+        },
+        "opponent": {
+          "effective_start": 4,
+          "draws": [
+            "Seed",
+            "Seed",
+            "Tailwind2",
+            "Signpost",
+            "Splash",
+            "Reeds1",
+            "Reeds2",
+            "Log",
+            "Log",
+            "Brambles",
+            "Pebbles",
+            "Mud"
+          ],
+          "distance": 16,
+          "distance_after_each_draw": [
+            2,
+            4,
+            6,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "exhaustion": 5,
+          "safe": true,
+          "reeds_twigs": 3,
+          "helpful_types": [
+            "Reeds",
+            "Seed",
+            "Signpost",
+            "Splash",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Mud",
+          "final_bramble_penalty": 0,
+          "final_pebbles_penalty": 0,
+          "rest": 20,
+          "printed_sleep": 12,
+          "printed_twigs": 5,
+          "today_twigs": 8,
+          "haven_feathers": 0,
+          "sleep_before_collective_event": 12,
+          "retained_sleep": 12,
+          "cumulative_twigs": 18,
+          "permanent_trail_after_night": 4,
+          "purchase": {
+            "token": "Reeds2",
+            "family": "Reeds",
+            "price": 11
+          }
+        }
+      },
+      "most_rested": [
+        "target"
+      ]
+    },
+    {
+      "day": 4,
+      "event": "Restless Night",
+      "twig_scores_before_dawn": {
+        "target": 10,
+        "opponent": 18
+      },
+      "dawn_feathers": {
+        "target": 2,
+        "opponent": 0
+      },
+      "outcomes": {
+        "target": {
+          "effective_start": 14,
+          "draws": [
+            "Seed",
+            "Seed",
+            "Tailwind2",
+            "Splash",
+            "Tailwind2",
+            "Tailwind6",
+            "Log",
+            "Log",
+            "Mud",
+            "Mud",
+            "Brambles"
+          ],
+          "distance": 18,
+          "distance_after_each_draw": [
+            1,
+            2,
+            4,
+            5,
+            7,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "exhaustion": 5,
+          "safe": true,
+          "reeds_twigs": 0,
+          "helpful_types": [
+            "Seed",
+            "Splash",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Brambles",
+          "final_bramble_penalty": 1,
+          "final_pebbles_penalty": 0,
+          "rest": 32,
+          "printed_sleep": 18,
+          "printed_twigs": 7,
+          "today_twigs": 6,
+          "haven_feathers": 2,
+          "sleep_before_collective_event": 18,
+          "retained_sleep": 17,
+          "cumulative_twigs": 16,
+          "permanent_trail_after_night": 15,
+          "purchase": null
+        },
+        "opponent": {
+          "effective_start": 4,
+          "draws": [
+            "Seed",
+            "Seed",
+            "Tailwind2",
+            "Signpost",
+            "Splash",
+            "Reeds1",
+            "Reeds2",
+            "Reeds2",
+            "Log",
+            "Log",
+            "Brambles",
+            "Pebbles",
+            "Mud"
+          ],
+          "distance": 15,
+          "distance_after_each_draw": [
+            1,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "exhaustion": 5,
+          "safe": true,
+          "reeds_twigs": 5,
+          "helpful_types": [
+            "Reeds",
+            "Seed",
+            "Signpost",
+            "Splash",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Mud",
+          "final_bramble_penalty": 0,
+          "final_pebbles_penalty": 0,
+          "rest": 19,
+          "printed_sleep": 11,
+          "printed_twigs": 4,
+          "today_twigs": 9,
+          "haven_feathers": 0,
+          "sleep_before_collective_event": 11,
+          "retained_sleep": 11,
+          "cumulative_twigs": 27,
+          "permanent_trail_after_night": 4,
+          "purchase": {
+            "token": "Reeds2",
+            "family": "Reeds",
+            "price": 11
+          }
+        }
+      },
+      "most_rested": [
+        "target"
+      ]
+    },
+    {
+      "day": 5,
+      "event": "A Friendly Guide",
+      "twig_scores_before_dawn": {
+        "target": 16,
+        "opponent": 27
+      },
+      "dawn_feathers": {
+        "target": 3,
+        "opponent": 0
+      },
+      "outcomes": {
+        "target": {
+          "effective_start": 19,
+          "draws": [
+            "Mud",
+            "Tailwind6",
+            "Tailwind2",
+            "Tailwind2",
+            "Seed",
+            "Brambles"
+          ],
+          "distance": 13,
+          "distance_after_each_draw": [
+            1,
+            7,
+            9,
+            11,
+            12,
+            13
+          ],
+          "exhaustion": 2,
+          "safe": true,
+          "reeds_twigs": 0,
+          "helpful_types": [
+            "Seed",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Brambles",
+          "final_bramble_penalty": 1,
+          "final_pebbles_penalty": 0,
+          "rest": 32,
+          "printed_sleep": 18,
+          "printed_twigs": 7,
+          "today_twigs": 6,
+          "haven_feathers": 2,
+          "sleep_before_collective_event": 18,
+          "retained_sleep": 18,
+          "cumulative_twigs": 22,
+          "permanent_trail_after_night": 20,
+          "purchase": null
+        },
+        "opponent": {
+          "effective_start": 4,
+          "draws": [
+            "Seed",
+            "Seed",
+            "Tailwind2",
+            "Signpost",
+            "Splash",
+            "Reeds1",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Log",
+            "Log",
+            "Brambles",
+            "Pebbles",
+            "Mud"
+          ],
+          "distance": 16,
+          "distance_after_each_draw": [
+            1,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "exhaustion": 5,
+          "safe": true,
+          "reeds_twigs": 7,
+          "helpful_types": [
+            "Reeds",
+            "Seed",
+            "Signpost",
+            "Splash",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Mud",
+          "final_bramble_penalty": 0,
+          "final_pebbles_penalty": 0,
+          "rest": 20,
+          "printed_sleep": 12,
+          "printed_twigs": 5,
+          "today_twigs": 12,
+          "haven_feathers": 0,
+          "sleep_before_collective_event": 12,
+          "retained_sleep": 12,
+          "cumulative_twigs": 39,
+          "permanent_trail_after_night": 4,
+          "purchase": {
+            "token": "Reeds2",
+            "family": "Reeds",
+            "price": 11
+          }
+        }
+      },
+      "most_rested": [
+        "target"
+      ]
+    },
+    {
+      "day": 6,
+      "event": "All Tucked In",
+      "twig_scores_before_dawn": {
+        "target": 22,
+        "opponent": 39
+      },
+      "dawn_feathers": {
+        "target": 3,
+        "opponent": 0
+      },
+      "outcomes": {
+        "target": {
+          "effective_start": 24,
+          "draws": [
+            "Tailwind6",
+            "Seed",
+            "Brambles"
+          ],
+          "distance": 8,
+          "distance_after_each_draw": [
+            6,
+            7,
+            8
+          ],
+          "exhaustion": 1,
+          "safe": true,
+          "reeds_twigs": 0,
+          "helpful_types": [
+            "Seed",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Brambles",
+          "final_bramble_penalty": 1,
+          "final_pebbles_penalty": 0,
+          "rest": 32,
+          "printed_sleep": 18,
+          "printed_twigs": 7,
+          "today_twigs": 6,
+          "haven_feathers": 2,
+          "sleep_before_collective_event": 18,
+          "retained_sleep": 20,
+          "cumulative_twigs": 28,
+          "permanent_trail_after_night": 25,
+          "purchase": null
+        },
+        "opponent": {
+          "effective_start": 4,
+          "draws": [
+            "Seed",
+            "Seed",
+            "Tailwind2",
+            "Signpost",
+            "Splash",
+            "Reeds1",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Log",
+            "Log",
+            "Brambles",
+            "Pebbles",
+            "Mud"
+          ],
+          "distance": 17,
+          "distance_after_each_draw": [
+            1,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "exhaustion": 5,
+          "safe": true,
+          "reeds_twigs": 9,
+          "helpful_types": [
+            "Reeds",
+            "Seed",
+            "Signpost",
+            "Splash",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Mud",
+          "final_bramble_penalty": 0,
+          "final_pebbles_penalty": 0,
+          "rest": 21,
+          "printed_sleep": 15,
+          "printed_twigs": 5,
+          "today_twigs": 14,
+          "haven_feathers": 1,
+          "sleep_before_collective_event": 15,
+          "retained_sleep": 17,
+          "cumulative_twigs": 53,
+          "permanent_trail_after_night": 5,
+          "purchase": {
+            "token": "Reeds2",
+            "family": "Reeds",
+            "price": 11
+          }
+        }
+      },
+      "most_rested": [
+        "target"
+      ]
+    },
+    {
+      "day": 7,
+      "event": "Home Before Dark",
+      "twig_scores_before_dawn": {
+        "target": 28,
+        "opponent": 53
+      },
+      "dawn_feathers": {
+        "target": 3,
+        "opponent": 0
+      },
+      "outcomes": {
+        "target": {
+          "effective_start": 29,
+          "draws": [
+            "Tailwind2",
+            "Brambles"
+          ],
+          "distance": 3,
+          "distance_after_each_draw": [
+            2,
+            3
+          ],
+          "exhaustion": 1,
+          "safe": true,
+          "reeds_twigs": 0,
+          "helpful_types": [
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Brambles",
+          "final_bramble_penalty": 1,
+          "final_pebbles_penalty": 0,
+          "rest": 32,
+          "printed_sleep": 18,
+          "printed_twigs": 7,
+          "today_twigs": 6,
+          "haven_feathers": 2,
+          "sleep_before_collective_event": 18,
+          "retained_sleep": 19,
+          "cumulative_twigs": 34,
+          "permanent_trail_after_night": 30,
+          "purchase": null
+        },
+        "opponent": {
+          "effective_start": 5,
+          "draws": [
+            "Seed",
+            "Seed",
+            "Tailwind2",
+            "Signpost",
+            "Splash",
+            "Reeds1",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Log",
+            "Log",
+            "Brambles",
+            "Pebbles",
+            "Mud"
+          ],
+          "distance": 18,
+          "distance_after_each_draw": [
+            1,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "exhaustion": 5,
+          "safe": true,
+          "reeds_twigs": 11,
+          "helpful_types": [
+            "Reeds",
+            "Seed",
+            "Signpost",
+            "Splash",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Mud",
+          "final_bramble_penalty": 0,
+          "final_pebbles_penalty": 0,
+          "rest": 23,
+          "printed_sleep": 13,
+          "printed_twigs": 5,
+          "today_twigs": 16,
+          "haven_feathers": 0,
+          "sleep_before_collective_event": 13,
+          "retained_sleep": 14,
+          "cumulative_twigs": 69,
+          "permanent_trail_after_night": 5,
+          "purchase": {
+            "token": "Reeds2",
+            "family": "Reeds",
+            "price": 11
+          }
+        }
+      },
+      "most_rested": [
+        "target"
+      ]
+    },
+    {
+      "day": 8,
+      "event": "Still Air",
+      "twig_scores_before_dawn": {
+        "target": 34,
+        "opponent": 69
+      },
+      "dawn_feathers": {
+        "target": 3,
+        "opponent": 0
+      },
+      "outcomes": {
+        "target": {
+          "effective_start": 34,
+          "draws": [
+            "Seed",
+            "Brambles"
+          ],
+          "distance": 2,
+          "distance_after_each_draw": [
+            1,
+            2
+          ],
+          "exhaustion": 1,
+          "safe": true,
+          "reeds_twigs": 0,
+          "helpful_types": [
+            "Seed"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Brambles",
+          "final_bramble_penalty": 1,
+          "final_pebbles_penalty": 0,
+          "rest": 36,
+          "printed_sleep": 20,
+          "printed_twigs": 8,
+          "today_twigs": 7,
+          "haven_feathers": 2,
+          "sleep_before_collective_event": 20,
+          "retained_sleep": 20,
+          "cumulative_twigs": 41,
+          "permanent_trail_after_night": 35,
+          "purchase": null
+        },
+        "opponent": {
+          "effective_start": 5,
+          "draws": [
+            "Seed",
+            "Seed",
+            "Tailwind2",
+            "Signpost",
+            "Splash",
+            "Reeds1",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Log",
+            "Log",
+            "Brambles",
+            "Pebbles",
+            "Mud"
+          ],
+          "distance": 18,
+          "distance_after_each_draw": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "exhaustion": 5,
+          "safe": true,
+          "reeds_twigs": 13,
+          "helpful_types": [
+            "Reeds",
+            "Seed",
+            "Signpost",
+            "Splash",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Mud",
+          "final_bramble_penalty": 0,
+          "final_pebbles_penalty": 0,
+          "rest": 23,
+          "printed_sleep": 13,
+          "printed_twigs": 5,
+          "today_twigs": 18,
+          "haven_feathers": 0,
+          "sleep_before_collective_event": 13,
+          "retained_sleep": 13,
+          "cumulative_twigs": 87,
+          "permanent_trail_after_night": 5,
+          "purchase": {
+            "token": "Reeds2",
+            "family": "Reeds",
+            "price": 11
+          }
+        }
+      },
+      "most_rested": [
+        "target"
+      ]
+    },
+    {
+      "day": 9,
+      "event": "Shared Supper",
+      "twig_scores_before_dawn": {
+        "target": 41,
+        "opponent": 87
+      },
+      "dawn_feathers": {
+        "target": 3,
+        "opponent": 0
+      },
+      "outcomes": {
+        "target": {
+          "effective_start": 39,
+          "draws": [
+            "Tailwind2",
+            "Seed",
+            "Brambles"
+          ],
+          "distance": 4,
+          "distance_after_each_draw": [
+            2,
+            3,
+            4
+          ],
+          "exhaustion": 1,
+          "safe": true,
+          "reeds_twigs": 0,
+          "helpful_types": [
+            "Seed",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Brambles",
+          "final_bramble_penalty": 1,
+          "final_pebbles_penalty": 0,
+          "rest": 43,
+          "printed_sleep": 21,
+          "printed_twigs": 9,
+          "today_twigs": 8,
+          "haven_feathers": 2,
+          "sleep_before_collective_event": 21,
+          "retained_sleep": 22,
+          "cumulative_twigs": 49,
+          "permanent_trail_after_night": 40,
+          "purchase": null
+        },
+        "opponent": {
+          "effective_start": 5,
+          "draws": [
+            "Seed",
+            "Seed",
+            "Tailwind2",
+            "Signpost",
+            "Splash",
+            "Reeds1",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Reeds2",
+            "Log",
+            "Log",
+            "Brambles",
+            "Pebbles",
+            "Mud"
+          ],
+          "distance": 20,
+          "distance_after_each_draw": [
+            1,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
+          "exhaustion": 5,
+          "safe": true,
+          "reeds_twigs": 15,
+          "helpful_types": [
+            "Reeds",
+            "Seed",
+            "Signpost",
+            "Splash",
+            "Tailwind"
+          ],
+          "pocket_twigs": 0,
+          "final_token": "Mud",
+          "final_bramble_penalty": 0,
+          "final_pebbles_penalty": 0,
+          "rest": 25,
+          "printed_sleep": 14,
+          "printed_twigs": 5,
+          "today_twigs": 20,
+          "haven_feathers": 0,
+          "sleep_before_collective_event": 14,
+          "retained_sleep": 15,
+          "cumulative_twigs": 107,
+          "permanent_trail_after_night": 5,
+          "purchase": {
+            "token": "Reeds2",
+            "family": "Reeds",
+            "price": 11
+          }
+        }
+      },
+      "most_rested": [
+        "target"
+      ]
+    }
+  ],
+  "day_10": {
+    "event": "Sunlit Signboards",
+    "twig_scores_before_dawn": {
+      "target": 49,
+      "opponent": 107
+    },
+    "dawn_feathers": {
+      "target": 3,
+      "opponent": 0
+    },
+    "target_permanent_start": 43,
+    "target_temporary_most_rested_step": 1,
+    "target_effective_start": 44,
+    "endpoint": 43,
+    "collision": "The effective start is already past endpoint 43 before the required first draw."
+  },
+  "conclusion": "Approved starting setting 3 has a reachable start-at/past-endpoint state under the current rules. A product rule decision is required; a loose upper bound is not the evidence for this conclusion."
+}
