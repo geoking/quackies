@@ -8,9 +8,11 @@ namespace Quackies.Core.Ducks.Runtime
     /// <summary>Immutable authoritative ranking after Night 10 conversion.</summary>
     public sealed class DuckFinalResult
     {
-        private DuckFinalResult(IEnumerable<DuckFinalStanding> standings)
+        internal DuckFinalResult(IEnumerable<DuckFinalStanding> standings)
         {
+            if (standings == null) throw new ArgumentNullException(nameof(standings));
             Standings = new ReadOnlyCollection<DuckFinalStanding>(standings.ToList());
+            if (Standings.Count == 0) throw new ArgumentException("A final result needs at least one standing.", nameof(standings));
             WinnerIds = new ReadOnlyCollection<string>(Standings
                 .Where(standing => standing.IsWinner)
                 .Select(standing => standing.PlayerId)

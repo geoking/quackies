@@ -10,7 +10,7 @@ namespace Quackies.Core.Match
     /// Shared authoritative command boundary. Profiles own their state and phase
     /// rules; clients receive only detached observations and issued commands.
     /// </summary>
-    public sealed class MatchSession<TView>
+    public sealed partial class MatchSession<TView>
     {
         private readonly IMatchRuntime<TView> _runtime;
         private readonly object _commandScope = new object();
