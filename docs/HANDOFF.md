@@ -1,11 +1,10 @@
 # Quackies handoff
 
-## Current task: M3 closed; await M4 approval
+## Current task: M4 through C3
 
 14 September 2026: the user approved the final visual result and explicitly
-closed M3. M2 remains complete. **M4/Core/CLI is unstarted and waits for the
-user's confirmation of the next plan. Do not begin implementation from this
-handoff alone.** See [PLAN.md](duck-migration/PLAN.md) and the detailed
+closed M3. M2 remains complete. **The user subsequently authorized M4 C1–C3,
+then a progress report. Do not proceed into C4/C5 or Unity integration.** See [PLAN.md](duck-migration/PLAN.md) and the detailed
 [C1 first checkpoint](duck-migration/IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval).
 
 The accepted proof has 43 spaces split 14/14/15, with havens at 4, 10, 16, 21,
@@ -29,9 +28,9 @@ presentation using the accepted visual direction.
 C1 verifies the approved 0–3 starting-Feather settings against the shorter route;
 [endpoint-review.md](duck-migration/m3-closeout/endpoint-review.md) records the
 current bound and its limits. Do not invent a Feather clamp, conversion or an
-unapproved reduction in settings. No new gameplay, Unity build or device export
-is part of this documentation closure. Preserve the unrelated ProjectSettings
-draft outside its commit.
+unapproved reduction in settings. Core/CLI implementation is now active; no
+Unity build or device export is authorized. Preserve the unrelated ProjectSettings
+draft outside commits. Current evidence and source decisions: [M4](duck-migration/m4/README.md).
 
 ## Completed playable baseline
 

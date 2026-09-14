@@ -7,6 +7,29 @@ and the current [plan](duck-migration/PLAN.md). No new rules are implemented by
 that documentation checkpoint; baseline-specific scoring and currency behavior
 below must not be mistaken for requirements of the new profile.
 
+## M4 shared boundary
+
+M4 now evolves that baseline. `MatchSession<TView>` shares command dispatch and
+authorization between typed profiles. The nongeneric `MatchSession` remains
+the classic compatibility facade; its original state and phase orchestration
+now live in internal `ClassicMatchRuntime`. The duck factory uses a typed duck
+observation so Sleep, Twigs, Day and permanent trail remain distinct from
+classic fields. Each session owns one runtime; clients never access its state.
+
+Issued actions carry internal match/player/revision/window authorization.
+`Execute` rejects repeated, stale and foreign commands, then rechecks current
+profile legality. Independent actions by the other player do not invalidate a
+still-legal command; phase/Day/final-decision-beat changes invalidate its window.
+The classic action IDs remain compatible, but clients must submit the returned
+action object rather than reconstructing commands.
+
+The duck catalogue is immutable and checked against canonical board/shop data.
+Definition identity, physical-chip identity, movement, Exhaustion and Reeds
+quantity are separate concepts. `ResumableRandomSource` has portable versioned
+PCG state for later exact save/Continue; the classic random sequence is unchanged.
+The M4 implementation record and checkpoint evidence are in
+[duck-migration/m4/README.md](duck-migration/m4/README.md).
+
 Quackies has one rules engine with two front ends: Unity and a command-line
 debugging client. Neither front end decides whether a move is legal or awards
 game resources. Both submit actions issued by the same match session.

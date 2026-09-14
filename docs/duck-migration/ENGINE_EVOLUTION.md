@@ -2,8 +2,8 @@
 
 14 September 2026. Architecture recommendation for the accepted Day/Dream
 direction in [PLAN.md](PLAN.md), now ten Days with original encounter powers
-and World Events. M3 is now approved; M4 remains unstarted pending user confirmation. This
-document changes no implementation.
+and World Events. M3 is approved; M4 is now authorized through C3. The implementation record is
+in [m4/README.md](m4/README.md).
 
 ## Decision
 

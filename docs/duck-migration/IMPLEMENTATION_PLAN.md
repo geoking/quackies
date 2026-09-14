@@ -4,7 +4,7 @@
 shop policy, local autosave/resume and this implementation scope, with final-Day
 only simultaneous drawing and final-Night Sleep breaking equal total Twigs.
 M2 changed documentation only. **M3 is complete and approved by the user. M4
-Core/CLI implementation remains unstarted and waits for explicit confirmation.**
+Core/CLI implementation is authorized through C3, followed by a progress report.**
 The accepted visual result is recorded in [M3 closeout](m3-closeout/README.md);
 the short product direction is in [PLAN.md](PLAN.md).
 
@@ -145,8 +145,8 @@ Keep classic randomness/tests stable while adding a resumable duck source.
 
 M0 and earlier M1 experiments remain history. The deliberate order was to resolve
 the visual risk in M3 before implementing the duck rules. That visual gate is now
-closed. M4 and later implementation remain future work; stop for review after each
-milestone and keep compiling checkpoints within the milestone.
+closed. M4 C1–C3 are now authorized as one bounded run. Stop after C3 for a
+progress report; keep compiling checkpoints within the run.
 
 ### M2 — Rules sheet complete
 

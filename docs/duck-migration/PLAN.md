@@ -2,7 +2,7 @@
 
 Updated 14 September 2026. **M2 and M3 are complete and approved by the user.**
 M3 closes with the 43-space board and reward typography at `2c7cd6a`.
-**M4 has not started. The user will approve its plan before any Core/CLI work.**
+**M4 is active. The user authorized C1–C3, then a progress report before C4.**
 Historical decisions and checks remain in [PROGRESS.md](../PROGRESS.md).
 
 ## What we are building
@@ -125,11 +125,11 @@ whole match loop, or put rule arithmetic into Unity.
 | M0 / initial M1 | Historical original baseline and art exploration |
 | M2 — Rules sheet | Complete: rules, data, events, defaults and local save/resume scope approved |
 | M3 — Layout | Complete: final 43-space visual proof approved by the user |
-| **M4 — Core/CLI** | **Unstarted; awaiting user confirmation.** C1 foundations/data → C2 Adventure/exact draws → C3 complete Day/Night → C4 ten-Day matches → C5 Normal AI/save-resume |
+| **M4 — Core/CLI** | **Active through C3; C4/C5 await the next review.** C1 foundations/data → C2 Adventure/exact draws → C3 complete Day/Night → C4 ten-Day matches → C5 Normal AI/save-resume |
 | M5 — Connected Unity | Bind the accepted board/Dream views to committed Core state/actions and complete a human/AI match |
 | M6 — Balance/export | Review seeded match outcomes, tune with approval, finish readability/performance and validate iOS export |
 
-The **first proposed M4 checkpoint is C1**: establish the duck profile, import
+The **current M4 checkpoint is C1**: establish the duck profile, import
 all approved data, separate token movement from ability quantities, and define
 saveable match state while keeping the classic regression suite passing. Update
 the CLI alongside each slice. The [detailed C1 plan](IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval)

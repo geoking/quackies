@@ -1106,3 +1106,18 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   throughout and classic regressions retained. M4 is unstarted and awaits the
   user's explicit confirmation. No Core/CLI/Unity implementation changed here;
   the unrelated ProjectSettings draft remains outside the checkpoint.
+
+### 51. M4 authorized through C3; foundation started (14 September 2026)
+
+- The user authorized C1–C3 and a progress report before later work. Core and
+  complex tests use Sol high, with a separate worker checking the endpoint
+  proof; the lead owns integration, architecture, CLI and Git. Unity stays at M3.
+- Fresh baseline: solution build has zero warnings/errors, all 129 classic
+  tests pass, and the seeded classic CLI starts and exits cleanly.
+- [M4 implementation record](duck-migration/m4/README.md) records the shared
+  typed command boundary and exact-data/state foundation. Completion of C1–C3
+  remains in progress; this entry does not claim a playable duck cycle.
+- Shared command authorization (`ac1d991` / `c23eda2`), portable randomness
+  (`6cb2ccc` / `3a0d0c5`) and the exact duck catalogue (`34f4b31` / `5ed4ada`)
+  are saved as source/test checkpoints. All 146 current tests pass. Each push
+  was attempted but shell GitHub authentication still fails.

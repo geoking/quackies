@@ -1,8 +1,8 @@
 # Duck migration status
 
 Updated 14 September 2026. **M2 and M3 are complete and approved by the user.**
-The accepted visual checkpoint is `2c7cd6a`. **M4 has not started and requires
-explicit user confirmation of the plan.** No duck Core session is bound to Unity.
+The accepted visual checkpoint is `2c7cd6a`. **M4 is active through C3, then
+stops for a progress report.** No duck Core session is bound to Unity.
 
 ## Closed milestones
 
@@ -31,10 +31,10 @@ duck game. Old studies and rejected versions remain historical evidence.
 The source painting remains 1536 × 1024. The detailed 3072 × 2048 master is
 explicitly deferred; higher render dimensions do not create new painted detail.
 
-## Awaiting approval: M4 Core/CLI
+## Active: M4 Core/CLI through C3
 
 Evolve the existing engine and CLI, preserving the original tested profile and
-snapshot/legal-actions/execute boundary. The proposed sequence is:
+snapshot/legal-actions/execute boundary. C1–C3 are authorized; C4/C5 remain later:
 
 1. C1: exact duck data, token identity, saveable state and profile foundation.
 2. C2: Adventure, encounters, exact private previews and decision timing.
