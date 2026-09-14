@@ -188,16 +188,19 @@ namespace Quackies.Core.Ducks.AI
             bool wornOut)
         {
             if (wornOut) return 0;
-            var opponents = observation.Players.Where(candidate => candidate.Id != player.Id).ToArray();
-            if (opponents.Length == 0) return 0;
-            var opponentSleep = opponents.Max(candidate => candidate.IsSleepFrozen
+            var eligibleOpponents = observation.Players
+                .Where(candidate => candidate.Id != player.Id && !candidate.IsWornOut)
+                .ToArray();
+            if (eligibleOpponents.Length == 0)
+                return observation.Day == DuckMatchSettings.StandardDays ? 4.0 : 1.4;
+            var opponentSleep = eligibleOpponents.Max(candidate => candidate.IsSleepFrozen
                 ? candidate.FrozenSleep
                 : ProvisionalSleep(observation, candidate));
             if (estimatedSleep < opponentSleep) return 0;
 
             // Finished opponents provide an exact comparison after Night resolves;
             // an unfinished route supplies only a discounted public estimate.
-            var confidence = opponents.All(candidate => candidate.HasFinishedDay) ? 1.0 : 0.35;
+            var confidence = eligibleOpponents.All(candidate => candidate.HasFinishedDay) ? 1.0 : 0.35;
             return observation.Day == DuckMatchSettings.StandardDays
                 ? 4.0 * confidence // one final Dream Twig
                 : 1.4 * confidence; // tomorrow's temporary one-step start
