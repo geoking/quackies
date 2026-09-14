@@ -3,16 +3,17 @@
 14 September 2026. This is the current detailed encounter contract for the
 first complete ruleset. It replaces the earlier rescue, Companion shield and
 Mud movement rules. The user has accepted the headline encounter changes; the integration
-interpretations are distinguished below. Exact prices, board payouts and supply quantities remain starting data
-to review in [v1/BOARD_AND_SHOP.md](v1/BOARD_AND_SHOP.md), and the ten proposed
+interpretations are distinguished below. Board payouts and prices are approved starting values; stock policy remains
+for review in [v1/BOARD_AND_SHOP.md](v1/BOARD_AND_SHOP.md), and the ten proposed
 shared events are defined in [v1/WORLD_EVENTS.md](v1/WORLD_EVENTS.md).
 
 The mechanical relationships below record the working rules and interpretations. Their numeric yields
 and movement are the current v1 starting values, still subject to playtesting;
-prices and board data are the lead's proposals. The settlement sequence is also
+prices and board data are now user-approved starting values. The settlement sequence is also
 the lead's integration interpretation, including Pebbles and Brambles inspecting
 the final occupied chip after wear-out. Route-end movement and saturated Feather
-behavior remain separate rules-sheet decisions.
+behavior for nonzero starting settings remain separate rules-sheet decisions;
+the capped Dawn formula already bounds default ten-Day starts below 50.
 
 ## Draw and placement order
 
@@ -31,10 +32,13 @@ Resolve one encounter at a time:
 A cancelled preview never counts as placed. No current encounter cancels an
 entire draw. The duck eventually rests on its final occupied space, not the next
 empty space. World Event movement is added before Log halves the total unless
-that event explicitly says otherwise.
+that event explicitly says otherwise. The proposed Still Air event and pending
+Log halve Tailwind movement only once together; the Log is consumed normally.
 
 ## Helpful encounters
 
+A token type means one of the seven helpful kinds listed below. Tailwind
+strengths and Reeds quantities remain variants of their respective types.
 Default movement one is unprinted. A number beside a forward arrow is total
 movement. A pictured quantity such as Reeds x3 describes the pictured objects,
 not movement or a universal strength.
@@ -61,7 +65,7 @@ moves 3, and count three or more moves 4. Companions need not be consecutive.
 Mud reduces the active count by one, to a minimum of zero. It does not remove an
 owned or placed Companion and never moves an earlier chip. The next Companion
 increments the reduced count and uses the formula above. A Companion still
-counts as physically placed for rules that inspect encountered families, while
+counts as physically placed for rules that inspect encountered token types, while
 movement and the Night flock contest use the reduced active count.
 
 After every duck's adventure ends, compare positive active flock counts among
@@ -74,7 +78,7 @@ Most Rested. Companion has no shield or nuisance-cancelling ability.
 ## Immediate-next Splash protection
 
 Placing Splash arms protection for the **immediately next placed chip only**.
-That protection expires after that chip regardless of its family, or at Day
+That protection expires after that chip regardless of its token type, or at Day
 cleanup if no next chip is placed.
 
 - If the next chip is helpful, protection does nothing and expires. A second
@@ -91,7 +95,8 @@ cleanup if no next chip is placed.
   and adds one Exhaustion; the current safe maximum stays unchanged.
 
 Splash never cancels a chip, refunds a draw, settles the duck or rescues it from
-lethal Exhaustion.
+lethal Exhaustion. It does not block World Event weather or other shared
+conditions; those are not obstacle nuisances.
 
 The **A Friendly Guide** World Event gives equivalent nuisance protection to
 each duck's first placed Obstacle that Day. If Splash also protects that same
@@ -156,8 +161,9 @@ suppression rule, and Companion provides no protection against it.
 
 ## Settlement and Night order
 
+After every player has finished, evaluate any collective event condition once.
 Settlement uses the final occupied chip, including the white chip that caused
-wear-out. Resolve in this order:
+wear-out. Include each eligible event payout once in the following order:
 
 1. Record the final space's printed Sleep/Twigs, Reeds Twigs and all earned
    event rewards. Worn-out ducks retain earned Twigs but cannot earn safe-only

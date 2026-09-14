@@ -47,8 +47,8 @@ be one authoritative match engine.
 | Feather awards | Route all duck-profile Feather sources through one capability that advances the permanent start exactly once and records the source for display/history. No spendable Feather balance or Feather-spending action. |
 | [Evaluation](../../src/Quackies.Core/Match/EvaluationPhaseHandler.cs) | Freeze final occupied rest; retain Twigs and floor(Sleep/2) when worn, resolve safe bonuses and compare safe ducks. Day 10 adds safe-haven Sleep then converts retained Sleep to Dream Twigs. |
 | Dream phase | Replace the duck profile's old evaluation/shop/ruby sequence with explicit Night resolution and Dream purchasing. Full-screen layout is a Unity concern; phase legality belongs to Core. |
-| [Purchasing](../../src/Quackies.Core/Match/ShoppingPhaseHandler.cs) | Use each player's Day-based 1/2/3 limit, remaining Sleep and approved stock/category restrictions; the current proposal uses unlimited stock and one-per-family. Reopening a panel must not reset purchases. |
-| Dawn preparation | Replace rat calculation with one pre-award Twig-deficit snapshot, uncapped ceil(Twig deficit/4) stork parcels and temporary-bonus activation/expiry. No simultaneous old catch-up. |
+| [Purchasing](../../src/Quackies.Core/Match/ShoppingPhaseHandler.cs) | Use each player's Day-based 1/2/3 limit, remaining Sleep and approved stock/category restrictions; the current proposal uses unlimited stock and one per token type. Reopening a panel must not reset purchases. |
+| Dawn preparation | Replace rat calculation with one pre-award Twig-deficit snapshot, min(3, ceil(Twig deficit/4)) stork parcels and temporary-bonus activation/expiry. No simultaneous old catch-up. |
 | Observations/API | Add the new authoritative fields and phases without gratuitously breaking reference clients. Clients should not derive nest level, gifts or winner eligibility from labels. |
 | AI | Keep legal-action separation and safe-draw reasoning; evaluate new Dream choices and whether the policy handles comfortable stops and recovery adequately. |
 
@@ -86,12 +86,13 @@ a Signpost preview does not expose an unearned future draw order.
 
 ## Before coding
 
-The [complete candidate table/prices](v1/BOARD_AND_SHOP.md) and
-[ten events](v1/WORLD_EVENTS.md) now exist. Review numeric values, safe-only
+The [approved starting table/prices](v1/BOARD_AND_SHOP.md) and
+[ten events](v1/WORLD_EVENTS.md) now exist. Numeric values are approved. Review the revised events, safe-only
 reward interpretations and housekeeping policies before coding. Resolve
-no-draw/empty-bag/overshoot rules and especially saturated permanent trails.
-The accepted one-to-one Feather rule cannot silently become a cap, bank or
-alternate conversion to work around an unresolved boundary.
+no-draw/empty-bag/overshoot rules and nonzero starting-Feather settings. The
+three-Feather Dawn cap bounds the default ten-Day effective start to at most 46.
+The Dawn source cap is explicit; it does not change the one-Feather/one-step
+benefit or authorize banking, discarding or alternate conversion.
 
 Night 10 has no shopping: safe havens add +2 Sleep, retained Sleep converts at
 floor(Sleep/4), safe Most Rested winners get +1 Dream Twig, and no tomorrow-start
@@ -117,7 +118,7 @@ Continue testing immutable snapshots, stale choices and configured supply polici
 
 Use seeded complete matches to inspect game length, leader retention, recovery,
 shelter usage, upgrade accumulation and early arrival at the endpoint. These are
-future balance checks, not claims that the currently proposed values work.
+future balance checks, not claims that the approved starting values are balanced.
 Unity then verifies layout/input, correct displayed state, scene reconstruction
 and complete human/AI play. Editor success, iOS export and device testing remain
 separate evidence.

@@ -1,14 +1,14 @@
 # Duck migration status
 
-Updated 14 September 2026. **Rules/data proposal ready for review; implementation
+Updated 14 September 2026. **Board rewards/prices approved; revised events ready for review; implementation
 and Unity work remain paused.** The latest encounter artwork is approved.
 
 The [plan](PLAN.md) and [concise rules](RULES_AT_A_GLANCE.md) now include Mud's
-active-flock loss, Splash's immediate-next-chip nuisance protection, uncapped
-Dawn gifts, full Twigs/rounded-down half Sleep when worn out, Day 10 haven +2
+active-flock loss, Splash's immediate-next-chip nuisance protection, Dawn gifts capped
+at three Feathers (1–4 behind: 1; 5–8: 2; 9+: 3), full Twigs/rounded-down half Sleep when worn out, Day 10 haven +2
 Sleep, 4-Sleep Dream Twig conversion and the final Most Rested +1 Dream Twig.
 Nights 1–9 still grant temporary start +1; a new [zzz marker concept](concepts/2026-09-14-most-rested/README.md)
-represents it beyond the updated Feather trail. Endpoint proposal: 21/9/2.
+represents it beyond the updated Feather trail. Approved endpoint: 21/9/2.
 
 ## Reviewable proposal
 
@@ -17,12 +17,14 @@ represents it beyond the updated Feather trail. Endpoint proposal: 21/9/2.
 - [Encounter ordering](ENCOUNTER_RULES.md) and worked Night/final examples.
 - [Reproducible bounded bag audit](v1/balance-audit.py) and [results](v1/balance-audit.json).
 
-Values, new events and marked interpretations remain candidates. The audit
+Board values and all prices are approved. Revised events and marked interpretations
+remain candidates. Public rules now say “token types” rather than “families”. The audit
 checks exact bag arithmetic and opening affordability, not full-game strategy,
 Day 5 observed losses or the combined Feather/Most Rested feedback loop.
 
-The finite 50-space route versus uncapped permanent Feather progress remains
-unresolved. Proposed shop/housekeeping policies also need review. No complete
+The new Dawn cap bounds a default ten-Day start to at most 46, below the
+endpoint. Nonzero starting-Feather settings and draw overshoot still need rules.
+Proposed shop/housekeeping policies also need review. No complete
 implementation-ready or balanced-game milestone is claimed.
 
 ## Art and evidence

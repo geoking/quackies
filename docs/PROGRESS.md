@@ -720,3 +720,41 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 - Stop at this reviewable planning/art checkpoint. M2 is not complete until the
   remaining boundaries/policies are reviewed; the next implementation milestone
   requires the user's command. Regular checkpoint commit/push remains authorized.
+
+### 33. Approved economy, capped Dawn and shared World Event proposals (14 September 2026)
+
+- The user approved the 50 board rewards and shop prices. Recorded them as
+  accepted starting values without changing a row or offer; full-game balance
+  remains unverified. Event effects and other marked policies remain proposals.
+- Replaced player-facing “families” with **token types** and a concrete example:
+  Seed + Tailwind + Signpost is three types; three Tailwind strengths count as
+  one. Retained stable historical art paths and internal data field names.
+- Adopted the user's Dawn source cap: 0 deficit gives none, 1–4 gives 1 Feather,
+  5–8 gives 2, and 9+ gives 3. Each awarded Feather still advances one permanent
+  step, and the score comparison repeats before each dawn's deliveries.
+- A bounded Luna/medium worker updated only the audit script/results, preserving
+  unrelated bag calculations. Exact cap-boundary assertions passed. With zero
+  starting Feathers, even nine prior haven rewards at two and nine Dawn gifts
+  at three yield at most 45 permanent steps; temporary Most Rested makes the
+  latest possible Day 10 start 46. This resolves default-start saturation under
+  the current sources/length, not nonzero settings or ordinary draw overshoot.
+- A focused Sol/high worker revised the ten-card proposal to four helpful
+  effects, three collective goals and three mild setbacks. All Tucked In pays
+  +2 Sleep only if every human/AI finishes safely at a haven; Home Before Dark
+  needs everyone safe; Shared Supper needs every duck to have placed a Seed,
+  including worn-out ducks before Sleep halving. Conditions are checked once
+  after all players finish. Equal shared Sleep chiefly helps purchasing and
+  final conversion rather than changing the safe Most Rested ranking.
+- Still Air halves Tailwind once even alongside Log; Thick Morning Mist removes
+  Signpost previews; Restless Night deducts one haven Sleep on a safe finish.
+  Weather is not an obstacle nuisance and cannot be blocked by Splash/Guide.
+  These are new review proposals, not user-approved or implemented effects.
+- Updated PLAN, recap, timing, engine recommendation, board/shop notes, STATUS
+  and current HANDOFF. Preserved its historical baseline tail and approved art.
+  No Core/CLI or Unity changes/imports/tests were performed.
+- Validation: numeric rows/offers unchanged; ten distinct events and explicit
+  shared/negative timing; capped Dawn boundaries/default-start bound; unchanged
+  non-Dawn audit calculations; CSV/JSON consistency, local links, preserved
+  board/Settings hashes and whitespace checks. Updated v1/validation.json.
+- Stop for the user's review of the revised cards. Remaining policies/settings
+  and event acceptance precede the next implementation milestone.

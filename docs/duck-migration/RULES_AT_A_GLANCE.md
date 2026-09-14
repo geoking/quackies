@@ -1,9 +1,10 @@
 # Quackies rules at a glance
 
 Updated 14 September 2026. The user's latest mechanic changes are incorporated
-below. Values in the [50-space board/shop proposal](v1/BOARD_AND_SHOP.md) and
-[ten-card World Event deck](v1/WORLD_EVENTS.md) are **new candidates for review**.
-They are not implemented or established as balanced through full games.
+below. The user approved the [50-space rewards and shop prices](v1/BOARD_AND_SHOP.md)
+and selected a three-Feather Dawn cap. The [revised ten-card World Event deck](v1/WORLD_EVENTS.md)
+and marked policies remain **proposals for review**. Nothing is implemented or
+established as balanced through full games.
 
 ## The game
 
@@ -14,7 +15,7 @@ full-screen Dream/nest view at Night; View adventure returns to the board.
 
 The incomplete nest is separate from **50 playable spaces** across wetlands,
 meadow and wasteland. Score the duck's final occupied space, never the next
-space or all spaces passed. Eight proposed havens are at **7, 13, 21, 27, 32,
+space or all spaces passed. Eight havens are at **7, 13, 21, 27, 32,
 38, 44 and 50**. They improve Sleep without increasing the local Twig plateau;
 endpoint 50 is the exception, with the highest printed Sleep and Twigs by one.
 
@@ -23,13 +24,14 @@ endpoint 50 is the exception, with the highest printed Sleep and Twigs by one.
 Shuffle ten shared World Events once per game; reveal one each dawn without
 replacement. Its effect lasts that Day. Days 1–10 therefore use all ten cards.
 
-At dawn the stork delivers **one Feather for every four Twigs behind the
-leader, rounding up**: 1–4 behind gives 1, 5–8 gives 2, 9–12 gives 3, and so on.
-A tied leader gets none. Snapshot all Twig scores before delivery. Each Feather
-permanently advances every later start by exactly one; it is never spent,
-converted or redeemed through a cap. This uncapped formula replaces the old
-thresholds. Start from the updated permanent trail plus any temporary Most
-Rested step, not yesterday's resting place. Trail saturation at 50 remains open.
+At dawn the stork gives **1 Feather for a 1–4 Twig deficit, 2 for 5–8, and
+3 for 9 or more**. Tied leaders get none. Snapshot all scores before delivery;
+repeat the check each dawn. The formula is `min(3, ceil(deficit / 4))`.
+Each awarded Feather permanently advances later starts by exactly one and is
+never spent, converted or subject to a separate redemption cap. Only the Dawn
+gift size is capped. Start from the updated trail plus any temporary Most Rested
+step, not yesterday's rest. With zero starting Feathers, even a conservative
+maximum Day 10 start is 46; nonzero starting settings still need bounds.
 
 The opening bag has **13 chips**: two each of Log, Mud, Pebbles and Brambles;
 two Seeds; one Tailwind →2; one Signpost; one Splash. Each white moves one and
@@ -40,6 +42,11 @@ four before checking safety; five now wears the duck out. Reset the maximum
 and other temporary state next dawn. Owned chips return to the bag each Day.
 
 ## Helpful encounters
+
+A **token type** is Seeds, Tailwind, Signpost, Splash, Reeds, Companion or
+Wildflowers. Different strengths/quantities of one type still count as one type:
+Seed + Tailwind + Signpost is three types; Tailwind →2 + →4 + →6 is one.
+“Helpful” means a non-obstacle chip. This replaces the unclear word “family”.
 
 | Chip | Rule |
 | --- | --- |
@@ -89,7 +96,7 @@ It never becomes a permanent Feather or stacks across Days.
 
 The calendar gives both ducks the same nest capacity: Nights 1–3 allow one
 purchase, 4–6 allow two, 7–9 allow three. Each has its own allowance. Proposed
-shop policy is one chip per family per Night, all offers available when
+shop policy is one chip per token type per Night, all offers available when
 affordable, unlimited initial stock, and no Sleep carried into another Night.
 Purchases change remaining Sleep, never the frozen Most Rested score.
 
@@ -102,10 +109,9 @@ there is no following Day and they add no final exchange or Dream Twig value.
 
 ## Still requiring review before implementation
 
-The full 50-row table, all 11 prices and ten events now exist as reviewable data.
-Remaining decisions are the proposed stock/housekeeping rules, final victory
-ties, no-draw/empty-bag/overshoot handling, and especially what happens when
-uncapped permanent Feathers reach or exceed the finite route. None may silently
-break the one-Feather/one-step rule. Confirm interpretations and run full-match
-balance work after the contract is accepted. No Core/CLI or Unity change is
-part of this checkpoint; the existing engine will be evolved, not restarted.
+All 50 board rewards and 11 prices are approved starting values. Review the
+revised ten events, stock/housekeeping policies and marked reward interpretations.
+Define final victory ties, no-draw/empty-bag/overshoot handling and valid nonzero
+starting-Feather settings. The Dawn cap keeps the default ten-Day starts below
+50; it does not specify those other boundaries. No Core/CLI or Unity change is
+part of this checkpoint; evolve the existing engine rather than restarting it.

@@ -3,8 +3,9 @@
 Updated 14 September 2026. This is the current duck-game direction. It
 supersedes the presentation-only Quacks migration; historical decisions and
 validation remain in [PROGRESS.md](../PROGRESS.md). The latest user-requested
-mechanics are accepted direction. Newly calculated rewards, prices, World
-Events and explicitly labelled interpretations are **proposals for review**.
+mechanics, all 50 board rewards and the 11 shop prices are accepted starting
+values. Dawn gifts now have the user-selected maximum of three. Revised World
+Events and explicitly labelled interpretations/policies remain **proposals for review**.
 
 ## What we are building
 
@@ -33,16 +34,16 @@ Keep a single source for each kind of detail instead of duplicating long lists:
 | --- | --- |
 | [Rules at a glance](RULES_AT_A_GLANCE.md) | Current game loop, accepted changes and clearly marked interpretations |
 | [Encounter timing](ENCOUNTER_RULES.md) | All helpful/white powers, protection and movement ordering |
-| [Board and shop proposal](v1/BOARD_AND_SHOP.md) | Every one of 50 rewards, 11 prices, Night examples, proposed policies and balance limits |
+| [Board and shop](v1/BOARD_AND_SHOP.md) | Every one of 50 rewards, 11 prices, Night examples, proposed policies and balance limits |
 | [World Events](v1/WORLD_EVENTS.md) | Ten proposed cards, once-per-game shuffled deck, triggers and ordering |
-| [Board data](v1/board.json), [CSV](v1/board.csv), [shop data](v1/shop.json) | Reviewable numeric data; not yet loaded by the game |
+| [Board data](v1/board.json), [CSV](v1/board.csv), [shop data](v1/shop.json) | Approved numeric values; not yet loaded by the game |
 | [Bounded audit](v1/balance-audit.json) | Exact bag/counter arithmetic with explicit assumptions, not full-game balance |
 
 ## Design rules that guide implementation
 
 - **Rest where the duck lands.** Fifty scorable spaces follow the separate,
   incomplete nest. No numbered-zero graphic or next-empty-space scoring.
-  The proposal divides them 1–16 / 17–33 / 34–50, with havens at
+  The approved table divides them 1–16 / 17–33 / 34–50, with havens at
   7, 13, 21, 27, 32, 38, 44 and 50. Haven names/indices need later art fit.
 - **Comfort is not monotonic distance.** A haven improves Sleep over nearby
   spaces while keeping their Twigs. Exposed wasteland is less restful than late
@@ -56,8 +57,10 @@ Keep a single source for each kind of detail instead of duplicating long lists:
 - **Feathers have one job.** Each automatically extends the permanent starting
   trail by one. Never bank, spend, cap redemption or convert them. Awarding one
   cannot move today's rest or re-score a placement. Dawn Delivery now gives
-  `ceil(Twig deficit / 4)` with no cap and zero for tied leaders, based on one
-  pre-delivery score snapshot. Repeated deficits pay again on later dawns.
+  `min(3, ceil(Twig deficit / 4))`: zero when tied, 1 for deficits 1–4,
+  2 for 5–8 and 3 for 9+. Snapshot scores before delivery. Repeated deficits
+  pay again on later dawns. This caps the gift source, not Feather redemption
+  or the one-Feather/one-step benefit.
 - **Most Rested means highest Sleep among safe ducks.** All eligible ties share
   the award; if all wear out, there is none. Nights 1–9 grant a temporary start
   +1 tomorrow represented by the zzz marker beyond the updated Feather trail.
@@ -70,7 +73,7 @@ Keep a single source for each kind of detail instead of duplicating long lists:
   level 2 on 4–6 and level 3 on 7–10, allowing 1/2/3 purchases on purchasing
   Nights. Individual decorative nest growth shows score; score cannot unlock
   exclusive purchase capacity for the leader. Use a readable exact Twig total.
-- **Original, readable encounters.** Seven helpful families and five white
+- **Original, readable encounters.** Seven helpful token types and five white
   designs retain the approved shapes. Default movement 1 is unprinted; arrows
   state total movement; Reeds quantities state bundle count/Twig yield.
   Starting bag remains eight whites plus five helpful chips. Goose joins once
@@ -79,12 +82,14 @@ Keep a single source for each kind of detail instead of duplicating long lists:
   the next chip's nuisance, not its Exhaustion, and supplies no rescue.
 - **One shared world.** Shuffle the ten event cards once and reveal one per
   Day without replacement. Their effects expire that Day. Future deck expansion
-  can add cards; v1 uses these ten, subject to review and match testing.
+  can add cards; the revised ten-card proposal mixes four helpful events, three
+  collective goals and three mild setbacks. Collective rewards wait until all
+  players finish and include the AI. The cards remain subject to review/testing.
 
 ## The short build sequence
 
-1. **Review this rules/data proposal.** Resolve the finite-route/uncapped-Feather
-   boundary, accept or adjust numerical values and housekeeping policies.
+1. **Review the revised events and remaining policies.** Board rewards/prices
+   are accepted. Resolve start-setting/route-end rules and housekeeping choices.
 2. **Upgrade Core and CLI.** Reuse the engine. Implement direct resting, new
    rewards, encounters, events, Dream purchases and ending in small tested pieces.
 3. **Build the Unity table.** Fit all 50 spaces to the approved scenery, with
@@ -171,20 +176,27 @@ need distinct validation; this planning audit is not a runtime test.
 | Milestone | Work and evidence |
 | --- | --- |
 | M0 / initial M1 | Historical baseline and art exploration; recorded in PROGRESS |
-| Current M2 proposal checkpoint | Complete candidate 50-row table, prices, 10 events, latest rules and zzz concept; bounded math only |
-| M2 completion | Review values/interpretations and resolve route end, Feather saturation, shop and housekeeping policies |
+| Current M2 proposal checkpoint | Approved 50-row table/prices, capped Dawn gifts, revised 10 event proposals and zzz concept; bounded math only |
+| M2 completion | Review events/interpretations and resolve route end, starting settings, shop and housekeeping policies |
 | M3 — Core/CLI | Focused rules/tests, original regressions and complete deterministic text matches |
 | M4 — Unity layout | Actual-size 50-space fit, shelters, tokens, nest, full shop and touch/readability checks |
 | M5 — Full game | Ten-Day human/AI loop, all choices, restart, scene reconstruction and Console checks |
 | M6 — Balance/export | Recorded complete-match comparisons, visual polish and iOS export evidence |
 
-The **uncapped permanent Feather trail versus finite 50-space route** is the
-main remaining rule boundary. Do not silently cap, discard, bank or convert an
-award to avoid it. The proposal also labels no-rewind/no-flask, first-draw,
-empty-bag, overshoot and final tie policies, unlimited shop stock, one-per-family,
-all-offer availability and Sleep expiry as review items. No runtime workaround
-is authorized by this document. Safe-only haven/Flower/flock rewards and
-final-chip penalties on worn-out endings are explicit interpretations to review.
+With the three-Feather Dawn cap and **zero starting Feathers**, the ten-Day
+start remains below the endpoint: at most nine prior haven rewards ×2 plus nine
+Dawn gifts ×3 is 45 permanent steps; Most Rested adds at most one temporary step,
+for a conservative maximum start of **46**. This overestimates early haven gains,
+so it is a bound, not a normal-match forecast. It resolves the default-start
+saturation concern under the current Feather sources and ten-Day length.
+
+Starting-Feather settings add directly to that bound and need an explicit valid
+range. Overshooting 50 during a draw, no-draw/empty-bag endings, no-rewind/no-flask,
+final victory ties, shop stock/one-per-type rules and Sleep expiry remain review
+items. Do not silently discard, bank, convert or reduce awarded Feathers. The
+Dawn source cap is now explicitly authorized; no other source changes follow.
+Safe-only haven/Flower/flock rewards and final-chip penalties when worn out are
+still marked integration interpretations. No implementation starts here.
 
 The selected board is native 1536 × 1024. Its requested detailed 3072 × 2048
 master, exact 50-space alignment, token clearance and iPad fit remain outstanding.

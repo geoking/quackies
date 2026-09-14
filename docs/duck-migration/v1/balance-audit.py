@@ -493,8 +493,8 @@ def build_report() -> dict[str, object]:
         )
 
     static_dawn = []
-    for gap in (1, 4, 5, 8, 9, 12):
-        gift = (gap + 3) // 4
+    for gap in (0, 1, 4, 5, 8, 9, 12, 13, 20):
+        gift = min(3, (gap + 3) // 4)
         static_dawn.append(
             {
                 "twig_gap": gap,
@@ -503,9 +503,32 @@ def build_report() -> dict[str, object]:
                 "feathers_over_9_unchanged_dawns": gift * 9,
             }
         )
-    extreme_gifts = [((8 * prior_days) + 3) // 4 for prior_days in range(1, 10)]
-    assert extreme_gifts == [2, 4, 6, 8, 10, 12, 14, 16, 18]
-    assert sum(extreme_gifts) == 90
+    assert [row["feathers_each_dawn"] for row in static_dawn] == [0, 1, 1, 2, 2, 3, 3, 3, 3]
+    assert min(3, (0 + 3) // 4) == 0
+    assert min(3, (4 + 3) // 4) == 1
+    assert min(3, (5 + 3) // 4) == 2
+    assert min(3, (8 + 3) // 4) == 2
+    assert min(3, (9 + 3) // 4) == 3
+    assert min(3, (100 + 3) // 4) == 3
+    extreme_gifts = [min(3, ((8 * prior_days) + 3) // 4) for prior_days in range(1, 10)]
+    assert extreme_gifts == [2, 3, 3, 3, 3, 3, 3, 3, 3]
+    assert sum(extreme_gifts) == 26
+    default_start_bound = {
+        "initial_feathers": 0,
+        "previous_haven_awards": 9,
+        "maximum_feathers_from_previous_haven_awards": 9 * 2,
+        "dawn_gifts_before_day_10": 9,
+        "maximum_feathers_from_dawn_gifts": 9 * 3,
+        "maximum_permanent_feathers_before_day_10": 9 * 2 + 9 * 3,
+        "temporary_most_rested_steps": 1,
+        "maximum_effective_start_before_day_10": 9 * 2 + 9 * 3 + 1,
+        "trail_spaces": 50,
+        "proves_default_start_not_beyond_route": 9 * 2 + 9 * 3 + 1 < 50,
+        "note": "Conservative bound overestimates reachable early gains under current Feather sources; nonzero starting Feathers add directly, and source changes or round-length changes require re-audit.",
+    }
+    assert default_start_bound["maximum_permanent_feathers_before_day_10"] == 45
+    assert default_start_bound["maximum_effective_start_before_day_10"] == 46
+    assert default_start_bound["proves_default_start_not_beyond_route"] is True
 
     cap_two = (
         package_result("Tailwind 4", 10, (("Tailwind 4", 4),)),
@@ -555,7 +578,7 @@ def build_report() -> dict[str, object]:
             "Each purchase comparison adds the named chip to the bag. Signpost preview, voluntary stopping, World Events, ordinary rest nuisances and all effects not explicitly reported are excluded.",
             "Reeds expectations are gross pending Twigs before a possible final Brambles nuisance.",
             "Fixed draw-eight pressure means continued drawing and is not an estimate of a player's wear-out rate.",
-            "Dawn examples apply ceil(Twig gap / 4) with no cap, and intentionally hold gaps or daily reward extremes fixed to expose repeated-payment boundaries.",
+            "Dawn Delivery applies min(3, ceil(Twig gap / 4)); examples intentionally hold gaps or daily reward extremes fixed to expose the payment boundary.",
         ],
         "opening_travel": {
             "model_scope": "Exact for the listed safe-stop, Log and Mud model, with ordinary Splash shielding omitted. It is not an exact prediction for the complete new-power starting bag.",
@@ -623,15 +646,20 @@ def build_report() -> dict[str, object]:
             "known_early_sleep_examples": sleep_examples,
             "break_even_assumption": "Holds the printed reward and Twig value fixed. If the next draw is safe, its extra Sleep value must offset the chance of floor(Sleep / 2); movement jumps, preview information and retained Twigs can change a real decision.",
         },
-        "uncapped_dawn_delivery": {
-            "rule": "Feathers = ceil(Twig gap / 4), with no cap",
+        "dawn_delivery": {
+            "rule": "Feathers = min(3, ceil(Twig gap / 4)); a zero gap gives zero Feathers",
             "static_gap_repetition": static_dawn,
             "candidate_reward_boundary": {
-                "assumption": "One duck gains 9 Twigs and the other 1 each Day, so the persistent gap grows by the candidate maximum differential of 8 before each following dawn; movement catch-up and the trail endpoint are deliberately ignored.",
+                "assumption": "One duck gains 9 Twigs and the other 1 each Day, so the persistent gap grows by the approved printed-board difference of 8 before each following dawn; the capped reward is shown through Day 10, while movement catch-up and the trail endpoint are deliberately ignored.",
                 "gifts_on_days_2_through_10": extreme_gifts,
                 "cumulative_feathers": sum(extreme_gifts),
             },
-            "boundary_requiring_explicit_rules": "Feathers do not reduce the recorded Twig gap, so the same deficit is paid again each dawn. Resolve route-end handling and what the UI reports when some or all of an uncapped delivery would extend beyond the 50-space trail.",
+            "default_start_bound": default_start_bound,
+            "boundary_assertions": {
+                "gaps_checked": [0, 4, 5, 8, 9, 100],
+                "expected_gifts": [0, 1, 2, 2, 3, 3],
+            },
+            "boundary_requiring_explicit_rules": "The cap limits each Dawn Delivery to three Feathers. This audit does not add a settings limit or endpoint clamp; nonzero starting Feathers, source changes, or round-length changes require re-audit.",
         },
         "limitations": [
             "The 50-row table is read only for haven metadata and opening endpoint affordability; later-day reward transitions, full purchase history and finite supply are not simulated.",
@@ -640,7 +668,7 @@ def build_report() -> dict[str, object]:
             "Wildflowers, Splash and Signpost are priced here only for computed movement comparisons; their strategic utility is not assigned a numeric value.",
             "The 8.640 opening mean is exact only for the scoped traversal that always applies Log and Mud. It omits Splash blocking either ordinary nuisance and is not a complete-new-power bag prediction.",
             "The 21.825% positive final Companion flock result likewise omits Splash blocking Mud. It covers one added Companion within that simplification; multiple-Night flock growth needs a complete match simulation.",
-            "The Dawn boundary is arithmetic evidence about the accepted uncapped formula, not a recommendation to replace or cap it.",
+            "The Dawn section audits the accepted three-Feather cap. Nonzero starting Feathers, changed Feather sources, or changed round length require re-audit.",
         ],
     }
 

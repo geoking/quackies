@@ -1,116 +1,136 @@
 # Quackies v1 World Events
 
-Proposed initial deck for review, 14 September 2026. These cards are original
-balance candidates, not implemented or established as fair by full matches.
+14 September 2026. This ten-card deck is a complete proposal for review. The
+user has approved the board and shop values, not these event effects or amounts.
 
-## Deck and timing
+## Shared deck and timing
 
-Use these ten cards as one shared deck. Shuffle it once before Day 1. At the
-start of each Day, reveal the top card for both ducks, then discard it after
-that Day's settlement. Draw without replacement, so every card appears exactly
-once during the ten-Day game. There are no Day restrictions: the tenth card is
-fully usable on Day 10.
+Shuffle these ten cards once before Day 1. Reveal one card at the start of each
+Day and discard it after that Night's scoring. Draw without replacement, so all
+ten cards appear exactly once in a ten-Day game. Every card can matter on any
+Day, including Day 10.
 
-An event applies only during its revealed Day. “Placed” means an encounter was
-committed to the route; a Signpost preview does not count. Each “first” or “once” limit is tracked separately for
-each duck unless the card explicitly compares all ducks. Event movement is
-bonus movement and is included before a pending Fallen Log halves the total.
-Movement never changes an Obstacle's Exhaustion.
+The revealed event applies equally to **all match players**, including every
+human and AI duck. Effects last only for that Day unless their payout is awarded
+at Night. “Placed” means the token was committed to the route. A Signpost
+preview is not placed and does not trigger an event.
 
-Event Sleep joins that Day's earned and available Sleep. Resolve all earned
-Sleep first; a worn-out duck then keeps `floor(total Sleep / 2)` and remains
-ineligible for Most Rested. Event Sleep retained by a safe duck counts for Most
-Rested. On Day 10, retained earned Sleep, including event Sleep and the safe
-haven's +2 Sleep, converts to `floor(Sleep / 4)` Dream Twigs. The Day 10 Most
-Rested winner or tied winners gain one additional Dream Twig instead of a
-tomorrow-start bonus.
+The seven helpful token types are **Seed, Tailwind, Signpost, Splash, Reeds,
+Companion and Flowers**. All Tailwind values are one type, as are all Reeds
+values. A physical token can count once for a placed-token condition even if
+Mud later lowers the active Companion count.
 
-Event Twigs are newly earned Twigs for that Day. They are kept when worn out,
-count toward the final score and can be the one Twig lost when Brambles is the final occupied chip,
-including a worn-out landing under the proposed rest-penalty interpretation. No event awards a Feather or changes permanent starting progress.
+Cards 5–7 are collective. Check their condition once, after every player has
+finished the Day. “All players” never means only the humans or only ducks that
+met part of the condition. All Tucked In and Home Before Dark require every
+player to be safe. Shared Supper explicitly allows worn-out players.
+
+Event Sleep is both earned and available Sleep. Add it before Sleep freezes for
+Most Rested. If a worn-out duck is eligible for an event payout, include that
+Sleep before halving its total and rounding down. A worn-out duck remains
+ineligible for Most Rested. On Day 10, retained event Sleep is included before
+conversion to `floor(Sleep / 4)` Dream Twigs. Equal collective Sleep awards do
+not directly change the relative Most Rested order, but they can fund purchases
+and cross a Day 10 conversion boundary.
+
+Event Twigs are Twigs earned that Day. They are retained when worn out, count
+toward final victory and can be reduced by an unsuppressed final Brambles. No
+event awards a Feather or changes permanent starting progress.
+
+Splash and A Friendly Guide suppress Obstacle nuisances. They never suppress
+weather or another World Event. Movement bonuses from an event are included
+before a pending Log halves movement, except for the single-halving rule on
+Still Air below.
 
 ## The ten cards
 
 ### 1. Rain-Softened Seeds
 
-**Today, every placed Seed gains +1 bonus movement.** A Seed therefore moves
-two before other modifiers. This affects every Seed the duck places; it grants
-no Sleep and does not change Seeds into Exhaustion chips.
+**Every placed Seed gains +1 movement today.** A Seed therefore moves 2 before
+other modifiers. This applies to every Seed each player places. It grants no
+Sleep and does not add Exhaustion.
 
-### 2. Broad-Winged Current
+### 2. Sunlit Signboards
 
-**The first helpful encounter each duck places today gains +1 bonus movement.**
-Apply it once per duck, whether that chip is a Seed or a later purchase. Its
-other ability resolves normally.
+**Every placed Signpost previews up to two available tokens instead of one
+today.** Keep them in bag order. If the player continues, the first previewed
+token is placed next and the second remains the next known token. If the player
+settles, all previewed tokens return during cleanup. No token may be selected, discarded or
+reordered. Signpost still moves its normal 2.
 
-### 3. Sunlit Signboards
+### 3. A Friendly Guide
 
-**Every Signpost placed today previews two encounters instead of one.** Preserve
-their bag order. Continuing resolves the first previewed encounter next;
-settling returns both during cleanup. The event never permits selection,
-discarding or reordering, and it does not change Signpost's intrinsic movement
-of two.
+**Ignore the nuisance on each player's first placed Obstacle today.** The
+Obstacle still moves and adds 1 Exhaustion, so it can still cause wear-out. The
+Guide prevents a Log from arming, a Mud from reducing the active Companion
+count, that Pebbles or Brambles placement from applying its final-position
+penalty, or a Goose from lowering the safe maximum.
 
-### 4. Long Golden Evening
+This protection is used on the first placed Obstacle even if its nuisance would
+have no effect. If Splash also protects that Obstacle, both protections are used
+there; neither moves to another token. The Guide does not remove a Log that was
+already pending. Its protection expires at Day cleanup if no Obstacle is placed.
 
-**When a duck places its fifth encounter today, it earns +1 Sleep.** Award this
-once per duck at that placement. The Sleep remains earned even if the duck later
-wears out, subject to the normal worn-out halving.
+### 4. A Pocket of Driftwood
 
-### 5. Lanterns at the Haven
+**The first time a player has placed three different helpful token types today,
+that player gains +1 Twig.** For example, a Seed, Signpost and Splash are three
+types. Tailwind →2 and Tailwind →4 are the same type. Award at most 1 Twig to
+each player. The Twig is kept if that duck later wears out.
 
-**A duck that settles safely at a haven earns +1 Sleep.** Award it once during
-settlement. On Day 10 it stacks with the haven's special +2 Sleep, and the full
-amount enters Most Rested and final conversion.
+### 5. All Tucked In
 
-### 6. A Pocket of Driftwood
+**If all players finish safely at a haven, every player gains +2 Sleep.** Each
+duck may occupy a different haven; they do not need to share one. If any player
+wears out or finishes away from a haven, nobody receives the event payout.
 
-**The first time a duck has placed three different helpful encounter families
-today, it earns +1 Twig.** Variants of one family, such as different Tailwinds
-or Reeds, still count as one family. Award at most one Twig per duck.
+Award the Sleep once to each player after everyone finishes. It counts for Most
+Rested, purchasing and Day 10 conversion. On Day 10 it stacks with the normal
++2 Sleep for safely finishing at a haven.
 
-### 7. Brave Little Paddle
+### 6. Home Before Dark
 
-**A duck that settles safely at its current Exhaustion maximum earns +1 Twig.**
-The maximum is normally five. It is four after an unblocked Goose has resolved;
-if Splash or the Guide blocked that Goose nuisance, it remains five. Award once at
-settlement. A worn-out duck does not qualify.
+**If all players finish safely, every player gains +1 Sleep.** Their final
+spaces need not match and need not be havens. If any player wears out, nobody
+receives the event payout. Award it once after everyone finishes, before Sleep
+freezes for Most Rested.
 
-### 8. Familiar Faces
+### 7. Shared Supper
 
-**When a duck places its second encounter from the same helpful family today,
-it earns +1 Sleep.** Award this once, for the first family to reach two placed
-chips. Variants share a family, and later duplicates give no further event
-Sleep. The award is retained subject to worn-out halving.
+**If every player placed at least one Seed today, every player gains +1 Sleep.**
+Count physical Seed placements, including a Seed placed by a duck that later
+wears out. If any player placed no Seed, nobody receives the payout.
 
-### 9. A Friendly Guide
+Award it once after everyone finishes. Safe players retain the full point. A
+worn-out player includes it before halving total Sleep and remains ineligible
+for Most Rested.
 
-**Ignore the nuisance on each duck's first placed Obstacle today.** It still
-moves and adds one Exhaustion. This prevents arming a Log, reducing the active flock
-count with Mud, that Pebbles/Brambles placement's rest penalty, or a Goose's lower safe
-maximum. It cannot prevent wear-out caused by the Obstacle count itself.
-If Splash covers this same first Obstacle, both protections apply there and
-Splash is consumed; neither shifts to another chip. The Guide is once per duck.
+### 8. Still Air
 
-### 10. A Colourful Landing
+**Every Tailwind moves half its normal total today, rounded up to at least 1.**
+Tailwind →2 moves 1, →4 moves 2 and →6 moves 3. Other token abilities and
+previews are unchanged.
 
-**A duck that settles safely with a helpful encounter as its final placed chip
-earns +1 Sleep.** Award it once during settlement. An Obstacle final chip does
-not qualify, even if Splash suppressed that Obstacle's nuisance. The award
-counts for Most Rested and Day 10 conversion.
+Still Air and Fallen Log never halve the same Tailwind twice. If a Log is
+pending when Tailwind is placed, consume the Log normally but apply only one
+halving. A pending Log still works normally on a non-Tailwind helpful token.
+Splash and Guide cannot block Still Air because it is weather, not an Obstacle
+nuisance.
 
-## Interaction notes for the v1 rules
+### 9. Thick Morning Mist
 
-- Mud reduces the affected duck's active Companion count by one, to a minimum
-  of zero. Earlier Companion positions never move. Event checks for placed
-  families still see those physical Companion chips; only rules using the
-  active flock count use the reduced number.
-- Splash protects only the immediately following chip. If that chip is an
-  Obstacle, its movement and +1 Exhaustion resolve but its nuisance does not.
-  This includes blocking Goose's maximum reduction, so the current safe maximum
-  stays unchanged. Splash does not cancel the chip, settle the duck or supply a
-  rescue. Splash expires after that next chip; if it is helpful, nothing is
-  protected.
-- A worn-out duck keeps all Twigs earned that Day and half its total earned
-  Sleep, rounded down. Safe-only event rewards are not earned by a worn-out
-  duck; rewards triggered earlier in exploration are included before halving.
+**Signposts move 2 but do not preview any token today.** The Signpost is still
+placed and counts as its token type. No preview is saved for later, and placing
+another Signpost does not clear the Mist. Splash and Guide cannot block it.
+
+### 10. Restless Night
+
+**A player who finishes safely at a haven receives 1 less Sleep from that
+haven, to a minimum of 0.** Apply this once to the haven-related Sleep subtotal
+after adding its printed Sleep, Flower bonuses and Day 10 safe-haven +2, but
+before Most Rested and Day 10 conversion. It does not reduce flock Sleep or any
+other separately earned event Sleep.
+
+Restless Night never removes Twigs or Feathers. Worn-out ducks receive no safe
+haven bonuses, so this event makes no further deduction from them. Splash and
+Guide cannot block it because it is the World Event, not an Obstacle nuisance.

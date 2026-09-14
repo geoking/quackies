@@ -22,14 +22,17 @@
   "endpoint_exceeds_previous_printed_sleep_and_twigs_by": 1,
   "unique_shop_offers": 11,
   "unique_events": 10,
-  "local_document_links_checked": 110,
-  "json_files_parsed": 6,
-  "final_scoring_examples_and_dawn_boundaries": "passed",
+  "local_document_links_checked": 85,
+  "json_files_parsed": 3,
+  "final_scoring_examples_and_capped_dawn_boundaries": "passed",
+  "default_start_upper_bound": 46,
+  "approved_board_and_offer_values_unchanged": true,
+  "non_dawn_bag_calculations_unchanged": true,
   "approved_board_sha256": "121c064ae0d14b8883e3420c6ed8f081167e1c0927a6a5010ce5307d2982a7f9",
   "pre_existing_project_settings_sha256": "bd3fb139bac5aa51048d7e8cf69f6010f6e8df5b02dc20c5b419b49b0dd6cbcb",
   "historical_handoff_tail_unchanged": true,
   "marker_source_copy_and_dimensions": "passed",
   "whitespace": "passed",
   "balance_audit": "worker regenerated and checked exact assertions; scoped Splash omission documented",
-  "unresolved": "Finite route versus uncapped permanent Feathers; review numerical/event and housekeeping proposals"
+  "unresolved": "Review revised events, housekeeping policies and nonzero starting settings; default ten-Day start bounded to 46"
 }

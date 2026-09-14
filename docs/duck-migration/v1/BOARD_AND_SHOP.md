@@ -1,9 +1,9 @@
-# Proposed v1 board and Dream shop
+# Quackies v1 board and Dream shop
 
-14 September 2026. Complete initial numeric proposal for review, **not yet
-implemented or balanced through complete matches**. The user's requested
-mechanics are in [the overview](../RULES_AT_A_GLANCE.md); this document supplies
-candidate numbers. [Detailed encounters](../ENCOUNTER_RULES.md) and the
+14 September 2026. The user approved all 50 reward rows and 11 shop prices as
+starting values. They are **not yet implemented or balanced through complete
+matches**. The [overview](../RULES_AT_A_GLANCE.md) records the current mechanics;
+shop/housekeeping policies and marked interpretations still require review. [Detailed encounters](../ENCOUNTER_RULES.md) and the
 [ten proposed World Events](WORLD_EVENTS.md) define the associated effects.
 
 ## Board philosophy
@@ -109,8 +109,8 @@ Twig yield; it never changes movement or how many chips are purchased.
 
 [Shop data](shop.json) also labels the following **proposed** shop policies:
 all offers available from Night 1, unlimited stock for the first balance pass,
-one purchase per family per Night, subject to the shared calendar's individual
-1/2/3 purchase limits. Different Tailwind or Reeds variants share a family.
+one purchase per token type per Night, subject to the shared calendar's individual
+1/2/3 purchase limits. Different Tailwind or Reeds variants share a token type.
 Sleep expires after that Night. Night 10 has no shopping; it converts Sleep.
 These policies replace the previously unconfirmed finite-stock suggestion only
 if accepted. White obstacles, Goose, player ducks, Feathers and the zzz award
@@ -191,18 +191,24 @@ Twigs can make risky travel especially attractive; safe-only Feathers, Flowers,
 flock bonuses and Most Rested must be assessed alongside half-Sleep. Large
 wasteland Sleep jumps and Reeds investment also need complete-match comparison.
 
-Dawn Delivery is **uncapped** `ceil(Twig deficit / 4)`: 0 gives 0; 1–4 gives 1;
-5–8 gives 2; 9–12 gives 3; and so on. Compare all scores before deliveries.
-Repeated equal deficits pay again each dawn and give permanent progress, so
-this may eventually exceed the 50-space route. The endpoint and start-saturation
-contract remains unresolved; do not silently cap, discard, bank or convert
-Feathers. This is a real specification boundary, not evidence the proposed
-catch-up formula fails in ordinary play.
+Dawn Delivery is now capped at **three Feathers per duck per dawn**:
+`min(3, ceil(Twig deficit / 4))`. A zero deficit gives none; 1–4 gives 1;
+5–8 gives 2; **9+ gives 3**. Compare all scores before deliveries. Repeat
+eligibility every dawn. Each Feather still permanently advances one step.
+
+Under the current ten-Day rules and zero initial Feathers, before Day 10 a duck
+can have at most nine earlier haven awards ×2 = 18 plus nine Dawn gifts ×3 = 27:
+**45 permanent steps**, or **46** with the temporary Most Rested step. This is a
+conservative upper bound, not a likely journey; early havens actually award less.
+The cap therefore resolves default-start saturation. Nonzero starting-Feather
+settings, extra Feather sources or longer matches require a fresh bound and
+explicit rules. The new events add no Feathers. Ordinary draw overshoot still
+requires endpoint handling.
 
 Suggested housekeeping, still for review: no rewinds or separate flask in v1;
 require a placed chip before claiming route rewards; when a draw reaches/passes
 50, place once at 50, resolve the full chip and Exhaustion, then finish the Day
 with its safe/worn outcome. This does **not** solve starts already at/beyond 50.
 Empty-bag finish and tied final Twigs can respectively use automatic settling
-and shared victory. Confirm these policies, stock rules and the numeric proposal
-before the Core milestone. No implementation or Unity work is authorized here.
+and shared victory. Confirm these policies, stock rules and the revised events
+before the Core milestone; the reward and price numbers are now accepted. No implementation or Unity work is authorized here.

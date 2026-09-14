@@ -1,10 +1,10 @@
 # Quackies handoff
 
-## Current task: v1 rules/data proposal ready for review
+## Current task: v1 rewards/prices approved; revised shared events ready for review
 
 14 September: the latest encounter artwork is approved. The user changed Mud
 to lose one active Companion, Splash to immediate-next-chip nuisance protection,
-Dawn to uncapped ceil(Twig deficit/4) Feathers, and worn-out rewards to full
+Dawn to min(3, ceil(Twig deficit/4)) Feathers, and worn-out rewards to full
 Twigs plus half Sleep rounded down. Day 10 safe havens add another +2 Sleep;
 Night 10 converts retained Sleep at floor(Sleep/4) Dream Twigs and grants safe
 Most Rested winners one extra Dream Twig. Highest final Twigs wins.
@@ -16,12 +16,13 @@ controls later Companion movement and the safe Night contest without deleting
 owned chips or changing previous placements. Splash can block Goose's limit
 drop but never its Exhaustion. Root interpretations are labelled for review.
 
-The [board/shop proposal](duck-migration/v1/BOARD_AND_SHOP.md) contains all 50
+The [approved board rewards/shop prices](duck-migration/v1/BOARD_AND_SHOP.md) contains all 50
 rows, havens 7/13/21/27/32/38/44/50, endpoint 21 Sleep/9 Twigs/2 Feathers,
 11 prices and Night examples. [Ten proposed World Events](duck-migration/v1/WORLD_EVENTS.md)
 are shuffled once and revealed without replacement. Exact bag/counter
 [audit evidence](duck-migration/v1/balance-audit.json) is bounded, not full-game
-balance. New numerical values/events/policies remain review candidates.
+balance. Board rewards/prices are now approved starting values. Revised events and
+marked policies remain review candidates. Public copy uses “token types”.
 
 A [Most Rested zzz tile](duck-migration/concepts/2026-09-14-most-rested/README.md)
 was generated and inspected. It covers one temporary extra start space beyond
@@ -34,10 +35,16 @@ remain unchanged. The selected board is native 1536 × 1024; the requested
 3072 master, exact 50-space alignment and actual-size token/readability fit are
 still outstanding. No Core/CLI, Unity scene or import work occurred.
 
-**Open before implementation:** resolve uncapped permanent Feathers at/beyond
-a finite route; review new data, safe-only payout interpretations and proposed
-stock/no-draw/empty-bag/overshoot/final-tie/no-flask rules. No silent cap, discard,
-banking or conversion may substitute for the one-Feather/one-step rule.
+The Dawn cap gives a conservative maximum default Day 10 start of 46:
+9 prior haven rewards ×2 + 9 Dawn gifts ×3 + 1 temporary Most Rested step.
+The collective/negative event proposals add no Feathers. Review nonzero starting
+settings separately; ordinary draw overshoot still needs endpoint rules.
+
+**Open before implementation:** review revised World Events, safe-only payout
+interpretations and proposed stock/no-draw/empty-bag/overshoot/final-tie/no-flask
+rules. The explicit Dawn gift cap does not change one Feather into anything
+other than one permanent step. No additional cap, discard, banking or conversion
+is authorized.
 Reuse the existing engine and CLI. Initial scope remains human versus Normal
 AI on iPad mini, ten Days. Preserve the unrelated ProjectSettings modification.
 
