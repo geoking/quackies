@@ -5,8 +5,10 @@ supersedes the presentation-only Quacks migration; historical decisions and
 validation remain in [PROGRESS.md](../PROGRESS.md). The latest user-requested
 mechanics, all 50 board rewards and the 11 shop prices are accepted starting
 values. Dawn gifts have the user-selected maximum of three, and the revised
-ten World Events are now approved. Remaining rule defaults and autosave scope
-are recommendations for review in the [implementation plan](IMPLEMENTATION_PLAN.md).
+ten World Events are approved. **M2 is complete:** all remaining defaults and
+local autosave/resume are approved in the [implementation plan](IMPLEMENTATION_PLAN.md).
+Drawing is independent on Days 1–9 and simultaneous only on Day 10; tied total
+Twigs are decided by final-Night retained Sleep, then a draw if still equal.
 
 ## What we are building
 
@@ -14,7 +16,8 @@ A ten-Day tabletop game for iPad mini landscape, initially one human versus
 Normal AI. Ducks adventure through wetlands, meadow and wasteland by Day, then
 enter a full-screen Dream/nest view at Night. Each has its own bag and progress;
 World Events affect everyone. Most persistent Twigs, including final Dream
-Twigs, wins. Keep starting-progress settings, rival-board inspection and restart.
+Twigs, wins; tied Twigs use frozen retained Night 10 Sleep, then a draw. Keep
+starting-progress settings, rival-board inspection, restart and local Continue game.
 
 Use the selected [board](concepts/2026-09-12-approved/board-art-approved.png),
 [V2 player ducks](concepts/2026-09-11/duck-player-tiles-v2.png) and approved
@@ -23,9 +26,8 @@ Use the selected [board](concepts/2026-09-12-approved/board-art-approved.png),
 chosen full-screen layout with **View adventure** navigation and room for the
 whole shop. Its illustrative prices and Feather-spending controls are obsolete.
 
-This checkpoint reviews source readiness and updates the implementation plan.
-It changes no Core/CLI code, scene or Unity imports. The next milestone still
-requires the user's build command and closure of its relevant rule decisions.
+This checkpoint closes M2 and changes no Core/CLI code, scene or Unity imports.
+**M3 — the iPad layout proof — waits for the user's explicit command.**
 
 ## Current rule references
 
@@ -33,11 +35,11 @@ Keep a single source for each kind of detail instead of duplicating long lists:
 
 | Reference | Authority |
 | --- | --- |
-| [Rules at a glance](RULES_AT_A_GLANCE.md) | Current game loop, accepted changes and clearly marked interpretations |
+| [Rules at a glance](RULES_AT_A_GLANCE.md) | Approved current game loop and rule details |
 | [Encounter timing](ENCOUNTER_RULES.md) | All helpful/white powers, protection and movement ordering |
-| [Board and shop](v1/BOARD_AND_SHOP.md) | Every one of 50 rewards, 11 prices, Night examples, proposed policies and balance limits |
+| [Board and shop](v1/BOARD_AND_SHOP.md) | Every one of 50 rewards, 11 prices, Night examples, approved policies and balance limits |
 | [World Events](v1/WORLD_EVENTS.md) | Ten approved cards, once-per-game shuffled deck, triggers and ordering |
-| [Implementation plan](IMPLEMENTATION_PLAN.md) | Remaining recommended defaults, source audit, build checkpoints and acceptance checks |
+| [Implementation plan](IMPLEMENTATION_PLAN.md) | Approved M2 defaults, source audit, build checkpoints and acceptance checks |
 | [Board data](v1/board.json), [CSV](v1/board.csv), [shop data](v1/shop.json) | Approved numeric values; not yet loaded by the game |
 | [Bounded audit](v1/balance-audit.json) | Exact bag/counter arithmetic with explicit assumptions, not full-game balance |
 
@@ -54,8 +56,8 @@ Keep a single source for each kind of detail instead of duplicating long lists:
   award two Feathers, superseding the old three-Feather endpoint.
 - **Separate nightly comfort from victory.** Twigs persist. Sleep earned freezes
   for Most Rested; purchases reduce only remaining Sleep. Worn-out ducks keep
-  earned Twigs and half Sleep rounded down. Safe-only reward interpretation is
-  documented, not hidden inside the payout formula.
+  earned Twigs and half Sleep rounded down. Safe-only rewards and final-chip
+  deductions follow the approved timing contract.
 - **Feathers have one job.** Each automatically extends the permanent starting
   trail by one. Never bank, spend, cap redemption or convert them. Awarding one
   cannot move today's rest or re-score a placement. Dawn Delivery now gives
@@ -70,7 +72,8 @@ Keep a single source for each kind of detail instead of duplicating long lists:
 - **The ending uses Dreams.** On Day 10 each safe haven gives another +2 Sleep.
   On Night 10 convert retained Sleep at floor(Sleep/4) Dream Twigs and give
   safe Most Rested winners one extra Dream Twig. No Night 10 shopping or Day 11
-  reward. Feathers have no final conversion. Highest final Twigs wins.
+  reward. Feathers have no final conversion. Rank total Twigs first, then
+  frozen retained Night 10 Sleep before conversion; if both tie, declare a draw.
 - **Nest capacity follows the calendar.** Both ducks have level 1 on Days 1–3,
   level 2 on 4–6 and level 3 on 7–10, allowing 1/2/3 purchases on purchasing
   Nights. Individual decorative nest growth shows score; score cannot unlock
@@ -80,8 +83,11 @@ Keep a single source for each kind of detail instead of duplicating long lists:
   state total movement; Reeds quantities state bundle count/Twig yield.
   Starting bag remains eight whites plus five helpful chips. Goose joins once
   on Day 5. Mud now reduces the active flock, including later movement and its
-  Night comparison under the documented interpretation. Splash protects just
+  Night comparison. Splash protects just
   the next chip's nuisance, not its Exhaustion, and supplies no rescue.
+- **Respond during the adventure.** Days 1–9 resolve each duck's Draw/Settle
+  immediately, with completed actions visible for others to react to. Only Day 10
+  uses hidden simultaneous decision beats. Signpost previews remain private.
 - **One shared world.** Shuffle the ten event cards once and reveal one per
   Day without replacement. Their effects expire that Day. Future deck expansion
   can add cards; the approved ten-card deck mixes four helpful events, three
@@ -90,15 +96,14 @@ Keep a single source for each kind of detail instead of duplicating long lists:
 
 ## The short build sequence
 
-1. **Close the remaining rule defaults.** Review endpoint/empty-bag behaviour,
-   shop policy, starting settings, ties and the proposed shared decision rhythm.
-   Decide local autosave/resume scope. The board, prices and events are approved.
+1. **M2 is complete.** Rules, rewards, prices, events, settings, Night tie-break
+   and local autosave/resume are approved.
 2. **Prove the iPad layout first.** Fit 50 wells and reward strips to the approved
    board, test occupied spaces, and lay out the full-screen Dream shop. Use a
    separate fixed-data scene; this is a visual test, not gameplay implementation.
 3. **Evolve Core with the CLI alongside it.** Keep the engine/API boundary;
    refactor duck identity, state and phases. Build a complete Day/Night slice,
-   then all ten Days, the Normal AI and agreed persistence support.
+   then all ten Days, the Normal AI and local autosave/resume.
 4. **Connect the Unity game.** Reuse the measured layout and existing UI
    infrastructure, bind the committed Core build, and play a complete match.
 5. **Balance and finish.** Inspect recovery, haven/purchase choices, event effects,
@@ -156,7 +161,7 @@ do not expand the initial human-versus-AI scope.
 Other display terms: Day; Explore; Settle down; Exhaustion; Worn out!; Shelter;
 Feather trail; Dream choices; Most Rested Duck; World Event; Dawn Delivery.
 Splash provides immediate-next-chip nuisance protection. No separate flask or
-rewind is proposed for v1; this housekeeping choice still needs review.
+rewind is included in v1, as approved.
 Production guidance is in [ASSET_BRIEF.md](ASSET_BRIEF.md).
 
 The [Most Rested cloud tile](concepts/2026-09-14-most-rested/README.md) is a new
@@ -178,24 +183,22 @@ Read [ARCHITECTURE.md](../ARCHITECTURE.md) before boundary changes and
 Preserve serialized identities until deliberately migrated. Old and new rules
 need distinct validation; this planning audit is not a runtime test.
 
-## Milestones and open boundaries
+## Milestone status
 
 | Milestone | Work and evidence |
 | --- | --- |
 | M0 / initial M1 | Historical baseline and art exploration; recorded in PROGRESS |
-| M2 — Rule closure | Board/prices/events approved; review the remaining recommended defaults and persistence scope |
-| M3 — iPad layout proof | Selected board with exactly 50 wells, occupied token/reward fit, eight haven links and all 11 Dream offers; deterministic rebuild |
-| M4 — Core/CLI | New profile/state, exact private previews, complete Day/Night and ten-Day matches, Normal AI and agreed save/resume; source/test checkpoints |
-| M5 — Connected Unity game | Committed Core handoff, complete human/AI play, all phases, restart and any agreed restoration support |
+| **M2 — Complete** | Rules, all data, events, defaults and local save/resume approved; final-Day-only simultaneous drawing and Night Sleep tiebreak recorded |
+| M3 — Awaiting user command | iPad layout proof: selected board with exactly 50 wells, occupied token/reward fit, eight haven links and all 11 Dream offers; deterministic rebuild |
+| M4 — Core/CLI | New profile/state, exact private previews, complete Day/Night and ten-Day matches, Normal AI and local save/resume; source/test checkpoints |
+| M5 — Connected Unity game | Committed Core handoff, complete human/AI play, all phases, restart and local match restoration |
 | M6 — Balance/export | Match evidence, approved tuning, readability/performance and iOS export |
 
-The three-Feather Dawn cap bounds the default ten-Day start to 46. The
-implementation plan recommends a shared starting setting of 0–3, which bounds
-the latest start to 49, plus explicit first-draw, empty-bag and overshoot rules.
-It also proposes simultaneous Draw/Settle decision beats, shop policies, shared
-victory on tied Twigs, no separate recovery item and local autosave/resume.
-These defaults/additions still need review; approval of the event deck does not
-silently settle them. Existing safe-only payout interpretations remain explicit.
+The three-Feather Dawn cap bounds the default ten-Day start to 46. The approved
+shared starting setting of 0–3 bounds the latest start to 49. First draw,
+empty-bag and overshoot rules are fixed, as are shop limits, Sleep expiry,
+recovery exclusion, worn-out payouts and final ranking. There are no remaining
+M2 rule decisions. Production fit and actual balance are later milestone work.
 
 The selected board is native 1536 × 1024. Its requested detailed 3072 × 2048
 master, exact 50-space alignment, token clearance and iPad fit remain outstanding.
@@ -210,4 +213,5 @@ Follow [AGENTS.md](../../AGENTS.md): root owns Git/integration, workers have
 bounded disjoint files, one agent owns Editor mutations. Push coherent checkpoints
 on `codex/duck-game-milestone-0`, preserving unrelated changes. No automatic
 merge, physical-device install or release. Editor success, iOS export and device
-testing are separate evidence. Stop after this planning checkpoint for review.
+testing are separate evidence. Stop after M2 closure and wait for the user's
+M3 command; do not start any part of M3 automatically.

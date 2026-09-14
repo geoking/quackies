@@ -4,17 +4,19 @@ Updated 14 September 2026. The active target is the original ten-Day duck game,
 with approved 50-space rewards, prices and ten World Events. The authoritative
 [plan](duck-migration/PLAN.md), [implementation plan](duck-migration/IMPLEMENTATION_PLAN.md)
 and [status](duck-migration/STATUS.md) replace older 53-space/Penny art notes.
+**M2 is complete:** all defaults and local save/resume are approved. Days 1–9
+use visible independent draws; only Day 10 uses simultaneous decisions. Final
+Twig ties use retained Night 10 Sleep, then a draw. M3 waits for the user's command.
 
 ## Next work, after the user's milestone command
 
-1. Close the remaining rule defaults and local save/resume scope.
-2. Prove the selected board's 50-space token/reward fit and full Dream view at
+1. **M3:** Prove the selected board's 50-space token/reward fit and full Dream view at
    iPad mini size in an isolated layout scene.
-3. Refactor Core with CLI support at each checkpoint: one complete Day/Night,
-   then ten Days, all encounters/events, Normal AI and any agreed persistence.
-4. Bind the committed Core build to the measured Unity presentation and verify
-   complete play, settings, restart and any agreed restoration support.
-5. Gather balance evidence, polish readability/input and verify iOS export.
+2. **M4:** Refactor Core with CLI support at each checkpoint: one complete Day/Night,
+   then ten Days, all encounters/events, Normal AI and local autosave/resume.
+3. **M5:** Bind the committed Core build to the measured Unity presentation and verify
+   complete play, settings, restart and local match restoration.
+4. **M6:** Gather balance evidence, polish readability/input and verify iOS export.
 
 Stop for feedback between milestones. Regular source/test/Unity checkpoint
 commits remain separate and are pushed; no automatic merge or public release.

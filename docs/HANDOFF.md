@@ -1,66 +1,50 @@
 # Quackies handoff
 
-## Current task: v1 rules approved; implementation readiness plan ready for review
+## Current task: M2 complete; await the user's M3 command
 
-14 September: the latest encounter artwork is approved. The user changed Mud
-to lose one active Companion, Splash to immediate-next-chip nuisance protection,
-Dawn to min(3, ceil(Twig deficit/4)) Feathers, and worn-out rewards to full
-Twigs plus half Sleep rounded down. Day 10 safe havens add another +2 Sleep;
-Night 10 converts retained Sleep at floor(Sleep/4) Dream Twigs and grants safe
-Most Rested winners one extra Dream Twig. Highest final Twigs wins.
+14 September 2026: the user explicitly closed M2 and approved the remaining
+rules/defaults and local autosave/Continue scope, with two corrections:
 
-The [current plan](duck-migration/PLAN.md), [recap](duck-migration/RULES_AT_A_GLANCE.md)
-and [detailed encounter timing](duck-migration/ENCOUNTER_RULES.md) replace older
-Mud/rescue/stork/three-Feather-endpoint specifications. Mud's reduced active flock
-controls later Companion movement and the safe Night contest without deleting
-owned chips or changing previous placements. Splash can block Goose's limit
-drop but never its Exhaustion. Root interpretations are labelled for review.
+- **Days 1–9:** independent visible Draw/Settle actions; reacting to other ducks'
+  completed progress is intended. **Day 10 only:** hidden simultaneous choices
+  and atomic reveal after all active ducks commit. Previews remain private.
+- **Final rank:** total Twigs including Dream Twigs, then frozen retained Night 10
+  Sleep before conversion, then a draw if still equal. Include eligible bonuses
+  and worn-out halving; do not add a safe-only filter or distance tiebreak.
 
-The [approved board rewards/shop prices](duck-migration/v1/BOARD_AND_SHOP.md) contains all 50
-rows, havens 7/13/21/27/32/38/44/50, endpoint 21 Sleep/9 Twigs/2 Feathers,
-11 prices and Night examples. [Ten approved World Events](duck-migration/v1/WORLD_EVENTS.md)
-are shuffled once and revealed without replacement. Exact bag/counter
-[audit evidence](duck-migration/v1/balance-audit.json) is bounded, not full-game
-balance. Board rewards/prices are now approved starting values. All ten events are now approved;
-remaining marked policies/defaults still need review. Public copy uses “token types”.
+The [plan](duck-migration/PLAN.md), [implementation plan](duck-migration/IMPLEMENTATION_PLAN.md),
+[recap](duck-migration/RULES_AT_A_GLANCE.md) and [timing](duck-migration/ENCOUNTER_RULES.md)
+now form an approved contract. Starting Feathers are a shared 0–3 setting,
+default 0. First draw is required; empty-bag/space-50 finishes resolve the full
+final chip and Exhaustion. Unlimited shop stock, one purchase per token type
+within 1/2/3 nest capacity, Sleep expiry, no separate recovery, and safe/worn
+payout details are approved. Night 10 conversion and Most Rested are unchanged.
 
-A [Most Rested zzz tile](duck-migration/concepts/2026-09-14-most-rested/README.md)
-was generated and inspected. It covers one temporary extra start space beyond
-the updated Feather trail, distinct from permanent Feathers. Nights 1–9 pass
-the award; ties preserve equal benefits. No Day 11 start is awarded.
+All [50 rewards and 11 prices](duck-migration/v1/BOARD_AND_SHOP.md), encounter
+powers and [ten World Events](duck-migration/v1/WORLD_EVENTS.md) remain approved.
+Havens are 7/13/21/27/32/38/44/50; endpoint is 21 Sleep/9 Twigs/2 Feathers.
+Dawn gifts cap at 3; default start bounds to 46, or 49 with starting setting 3.
+Numeric data, event effects and the bounded math audit have not changed.
 
-The approved [board](duck-migration/concepts/2026-09-12-approved/board-art-approved.png),
-V2 player ducks, Dream Concept B and [16 encounter designs](duck-migration/concepts/2026-09-13-agreed-token-set/README.md)
-remain unchanged. The selected board is native 1536 × 1024; the requested
-3072 master, exact 50-space alignment and actual-size token/readability fit are
-still outstanding. No Core/CLI, Unity scene or import work occurred.
+There is no persistent save implementation yet. M4 must preserve authoritative
+bag/deck/random continuation, exact previews, final-Day commitment state,
+action freshness, frozen rewards and purchase counts across local restore.
+Keep Core free of Unity/filesystem dependencies and retain the original engine
+profile as a regression reference while substantially refactoring duck rules.
 
-The Dawn cap gives a conservative maximum default Day 10 start of 46:
-9 prior haven rewards ×2 + 9 Dawn gifts ×3 + 1 temporary Most Rested step.
-The collective/negative event proposals add no Feathers. Review nonzero starting
-settings separately; ordinary draw overshoot still needs endpoint rules.
+**M3 has not begun.** On the user's command, first inspect live Git/Editor state,
+then make the isolated iPad layout proof: approved board, exactly 50 wells,
+occupied tokens/rewards, eight haven links, duck/zzz markers and all 11 Dream
+offers. Use fixed sample data, not a live match. M4 is Core/CLI, M5 connects the
+Unity game, and M6 covers balance/export; stop for review between milestones.
 
-**Open before implementation:** review safe-only payout
-interpretations and proposed stock/no-draw/empty-bag/overshoot/final-tie/no-flask
-rules. The explicit Dawn gift cap does not change one Feather into anything
-other than one permanent step. No additional cap, discard, banking or conversion
-is authorized.
-The source-backed [implementation plan](duck-migration/IMPLEMENTATION_PLAN.md)
-confirms a substantial Core refactor while retaining the API shape/CLI. It
-identifies exact private previews, independent token quantities, decision
-freshness, Normal AI and missing persistence as real implementation work.
-Recommended defaults include shared 0–3 starting Feathers, first-draw and endpoint
-rules, shop/expiry/tie policies and simultaneous Draw/Settle beats. Local autosave
-is a proposed v1 addition; no persistent save currently exists.
+Approved art remains unchanged. The board is native 1536 × 1024; the requested
+3072 master and actual-size 50-space fit remain production work. Preserve the
+unrelated ProjectSettings preload removal and other pre-existing changes.
 
-Future order is now **M2 close defaults → M3 isolated iPad layout proof → M4
-Core/CLI → M5 connected Unity → M6 balance/export**. The layout proof uses fixed
-sample data on the selected board and is not gameplay. Preserve approved art,
-Core/Unity boundaries and unrelated ProjectSettings edits.
-
-**Stop after this readiness checkpoint.** Await the user's review and next
-milestone command. No Core/CLI implementation, Unity calls/imports, art changes,
-runtime tests, merge or release occurred. Root owns Git and checkpoint pushes.
+No Core/CLI changes, runtime tests, Unity calls/imports, scene building or art
+generation occurred in M2 closure. Root owns the regular Git checkpoint/push;
+no merge, release or device install is authorized. **Stop and wait for M3.**
 
 ## Completed playable baseline
 

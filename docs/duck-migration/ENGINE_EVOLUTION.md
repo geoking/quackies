@@ -47,7 +47,7 @@ be one authoritative match engine.
 | Feather awards | Route all duck-profile Feather sources through one capability that advances the permanent start exactly once and records the source for display/history. No spendable Feather balance or Feather-spending action. |
 | [Evaluation](../../src/Quackies.Core/Match/EvaluationPhaseHandler.cs) | Freeze final occupied rest; retain Twigs and floor(Sleep/2) when worn, resolve safe bonuses and compare safe ducks. Day 10 adds safe-haven Sleep then converts retained Sleep to Dream Twigs. |
 | Dream phase | Replace the duck profile's old evaluation/shop/ruby sequence with explicit Night resolution and Dream purchasing. Full-screen layout is a Unity concern; phase legality belongs to Core. |
-| [Purchasing](../../src/Quackies.Core/Match/ShoppingPhaseHandler.cs) | Use each player's Day-based 1/2/3 limit, remaining Sleep and approved stock/category restrictions; the current proposal uses unlimited stock and one per token type. Reopening a panel must not reset purchases. |
+| [Purchasing](../../src/Quackies.Core/Match/ShoppingPhaseHandler.cs) | Use each player's Day-based 1/2/3 limit, remaining Sleep and approved stock/category restrictions; the approved policy uses unlimited stock and one per token type. Reopening a panel must not reset purchases. |
 | Dawn preparation | Replace rat calculation with one pre-award Twig-deficit snapshot, min(3, ceil(Twig deficit/4)) stork parcels and temporary-bonus activation/expiry. No simultaneous old catch-up. |
 | Observations/API | Add the new authoritative fields and phases without gratuitously breaking reference clients. Clients should not derive nest level, gifts or winner eligibility from labels. |
 | AI | Keep legal-action separation and safe-draw reasoning; evaluate new Dream choices and whether the policy handles comfortable stops and recovery adequately. |
@@ -84,7 +84,7 @@ Reeds x3 as three placements; keep its earned Twigs even when worn out.
 AI and human must see the same information legally available to their duck;
 a Signpost preview does not expose an unearned future draw order.
 
-## Source audit and remaining decisions
+## Source audit and approved M2 contract
 
 The latest read-only audit confirms reuse of the API shape, with a substantial
 refactor of the match model. The [implementation plan](IMPLEMENTATION_PLAN.md)
@@ -93,21 +93,23 @@ private Signpost previews (current sampling does not reserve the next draw) and
 separate token type/movement/ability quantities (current colour/value cannot
 represent the agreed obstacles and Reeds faithfully).
 
-The 50 rows, all prices and ten events are approved. Review the remaining
-endpoint/empty-bag, shop, tie, starting-setting and worn-out interpretations.
-Simultaneous decision beats throughout the game are now recommended to avoid
-reaction-order advantage; existing round-nine hidden commitments need a profile
-policy and step freshness rather than more numbered-round conditions.
+M2 is complete: the 50 rows, all prices/events, endpoint/empty-bag, shop,
+starting settings and worn-out rules are approved. Days 1–9 actions resolve
+independently and publicly so players can react. Only Day 10 uses hidden
+simultaneous commitments; adapt the old round-nine pattern through a final-Day
+profile policy and fresh action IDs. Keep previews private on every Day.
 
-Local autosave/resume is a proposed v1 addition. It does not exist today. Design
+Local autosave/resume is approved v1 scope. It does not exist today. Design
 stable IDs, authoritative save state, resumable randomness and pending-decision
 descriptors before coupling new effects to delegate-only state. Saveable Core
 data stays separate from CLI/Unity filesystem adapters. A MatchView is not a
 complete save, and scene reconstruction is not match restoration.
 
 Night 10 still has no shopping: safe havens add +2 Sleep, retained Sleep converts
-at floor(Sleep/4), safe Most Rested winners receive +1 Dream Twig. Shared final
-Twig victory is the recommended tie rule, not yet an accepted inherited default.
+at floor(Sleep/4), safe Most Rested winners receive +1 Dream Twig. Compare final
+total Twigs, then frozen retained Night 10 Sleep before conversion; equal values
+on both mean a draw. Preserve that Sleep value in state and saves, including
+bonuses and worn-out halving; do not reuse a distance or safe-eligibility tiebreak.
 
 ## Build and verification order
 
@@ -118,7 +120,7 @@ It needs only fixed sample data and must not bind a changing Core DLL. Within M4
 2. Implement Adventure, exact private previews and the selected decision rhythm.
 3. Complete one Day/Night with encounters, all event fixtures and Dream purchases.
 4. Complete ten Days, Dawn, Goose, final conversion and winners.
-5. Refactor Normal AI and implement any agreed local save/resume support.
+5. Refactor Normal AI and implement local save/resume support.
 
 Update CLI observations/actions with every slice rather than leaving it until
 the end. Bind the committed DLL to Unity only after the complete CLI contract
@@ -128,7 +130,8 @@ Keep focused source/test checkpoints separate and push each. Retain meaningful
 classic regression tests; add duck tests against the same engine for all 50
 positions, frozen versus spent Sleep, every Feather source, Dawn thresholds,
 tied Most Rested, purchase tiers, endpoint/rewind cases, each new encounter/event
-and final Day 10. Verify obstacle subtypes, queued nuisances, private previews
+and final Day 10. Verify independent Days 1–9 actions, hidden Day 10 decisions,
+final Twig/Sleep ranking and restored action freshness. Verify obstacle subtypes, queued nuisances, private previews
 and protection/Exhaustion boundaries against the agreed new specification.
 Continue testing immutable snapshots, stale choices and configured supply policies.
 

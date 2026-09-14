@@ -4,9 +4,10 @@ The active duck-game migration is on `codex/duck-game-milestone-0`.
 Its ten-Day rules, 50-space rewards, encounter prices and ten World Events are
 approved. See the [product plan](docs/duck-migration/PLAN.md),
 [implementation plan](docs/duck-migration/IMPLEMENTATION_PLAN.md) and
-[status](docs/duck-migration/STATUS.md). Remaining defaults and persistence scope
-need review; no new gameplay has been implemented. Next prove the approved
-board's iPad layout, then refactor Core/CLI and connect the Unity game.
+[status](docs/duck-migration/STATUS.md). **M2 is complete**, including approved
+local autosave/resume. Days 1–9 draw independently; only Day 10 is simultaneous.
+Equal final Twigs use Night 10 retained Sleep, then a draw. No new gameplay is
+implemented. M3's iPad layout proof waits for the user's explicit command.
 The playable scene and commands below describe the **completed original rules
 baseline**, which remains a regression reference during the migration.
 

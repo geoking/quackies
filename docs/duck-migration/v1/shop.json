@@ -79,7 +79,7 @@
       "sleep_price": 5
     }
   ],
-  "proposed_purchase_policy": {
+  "purchase_policy": {
     "nights": [
       1,
       2,
@@ -95,5 +95,6 @@
     "maximum_per_family_per_night": 1,
     "remaining_sleep_carries_to_next_day": false,
     "night_10": "no purchases; convert retained Sleep to Dream Twigs"
-  }
+  },
+  "purchase_policy_status": "Approved at M2 closure, 14 September 2026"
 }

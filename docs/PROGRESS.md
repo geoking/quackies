@@ -807,3 +807,41 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   scene/import operations or art generation were performed.
 - Stopped at the requested readiness checkpoint for user review. M2 remains
   pending the remaining defaults/scope; no implementation milestone began.
+
+### 35. M2 closed; M3 awaiting command (14 September 2026)
+
+- The user explicitly approved the remaining defaults and state saving, closed
+  M2, and requested that M3 wait for their command. Recorded local autosave and
+  Continue as required v1 scope, still unimplemented; all source/Unity work
+  remains paused.
+- Applied the two user corrections throughout the current contract: Days 1–9
+  resolve Draw/Settle independently with completed actions visible for opponents
+  to react to; only Day 10 uses hidden simultaneous commitments and an atomic
+  reveal. Normal Days have no cohort wait or forced alternating turn order.
+  Private previews remain private and collective Night rewards wait for all
+  ducks to finish. Restore ordinary actions versus final-Day pending beats
+  according to that distinction.
+- Final rank is total Twigs including Dream Twigs, then frozen retained Night 10
+  Sleep before conversion, including eligible bonuses and worn-out halving.
+  If both values tie, declare a draw with tied winners. No random selection,
+  distance tiebreak or extra safe-player eligibility filter is added. Most
+  Rested's separate safe-only award remains unchanged.
+- Marked starting Feathers 0–3/default 0, first-draw/empty-bag/endpoint behavior,
+  unlimited-stock/one-per-type shopping and nightly limits, Sleep expiry,
+  no separate recovery, and safe/worn payout timing as approved. Renamed the
+  shop data's policy key from proposed_purchase_policy to purchase_policy and
+  recorded approval; policy values and all prices remain unchanged.
+- A bounded Luna/medium worker updated the recap and encounter timing; root
+  reviewed the changes and corrected an unintended random-selection reading
+  of “draw”, removed normal-Day cohort language, and made the recap's Day split
+  explicit. Updated PLAN, implementation plan, engine guidance, board/shop
+  notes, STATUS, current HANDOFF, README and NEXT_MILESTONES consistently.
+- Validation: current-document links/source anchors; absence of superseded
+  all-Day simultaneous/shared-random-draw wording; final ranking examples;
+  unchanged board/offer values, event effects and previous bag audit; identical
+  policy values under the approved key; preserved historical baseline handoff,
+  approved artwork and unrelated Settings; whitespace checks. M2 closure is
+  specification approval, not runtime or balance evidence.
+- **M2 complete. M3 has not started.** Next is the isolated iPad layout proof,
+  only after the user's command. No Core/CLI edits or tests, Unity calls,
+  scene/import operations, art generation, merge or release occurred.

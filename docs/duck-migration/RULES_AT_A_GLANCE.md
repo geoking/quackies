@@ -1,10 +1,11 @@
 # Quackies rules at a glance
 
 Updated 14 September 2026. The user's latest mechanic changes are incorporated
-below. The user approved the [50-space rewards and shop prices](v1/BOARD_AND_SHOP.md)
-and selected a three-Feather Dawn cap. The [ten-card World Event deck](v1/WORLD_EVENTS.md)
-is now approved too; remaining marked policies still require review. Nothing is implemented or
-established as balanced through full games.
+below. The user approved the [50-space rewards and shop prices](v1/BOARD_AND_SHOP.md),
+the three-Feather Dawn cap, the [ten-card World Event deck](v1/WORLD_EVENTS.md),
+the remaining M2 defaults, and local autosave/Continue as a future feature. This
+rules sheet is closed for M2; it is a specification, not evidence of implementation
+or full-match balance.
 
 ## The game
 
@@ -24,14 +25,23 @@ endpoint 50 is the exception, with the highest printed Sleep and Twigs by one.
 Shuffle ten shared World Events once per game; reveal one each dawn without
 replacement. Its effect lasts that Day. Days 1–10 therefore use all ten cards.
 
+**Days 1–9:** Draw or Settle independently. Each completed action is visible,
+so ducks can react to others' progress before choosing to continue or stop.
+**Day 10 only:** active ducks commit their choices privately, then reveal each
+decision beat together. Finished ducks leave later beats. Signpost previews
+remain private on every Day; shared Night rewards wait for everyone to finish.
+
 At dawn the stork gives **1 Feather for a 1–4 Twig deficit, 2 for 5–8, and
 3 for 9 or more**. Tied leaders get none. Snapshot all scores before delivery;
 repeat the check each dawn. The formula is `min(3, ceil(deficit / 4))`.
 Each awarded Feather permanently advances later starts by exactly one and is
 never spent, converted or subject to a separate redemption cap. Only the Dawn
 gift size is capped. Start from the updated trail plus any temporary Most Rested
-step, not yesterday's rest. With zero starting Feathers, even a conservative
-maximum Day 10 start is 46; nonzero starting settings still need bounds.
+step, not yesterday's rest. The default starting Feather setting is **0**; an
+optional setting from **0–3** is offered equally to both ducks. Unsupported
+settings are rejected rather than silently clipped. With zero starting Feathers,
+even a conservative maximum Day 10 start is 46; the highest accepted setting
+still leaves room for the first draw.
 
 The opening bag has **13 chips**: two each of Log, Mud, Pebbles and Brambles;
 two Seeds; one Tailwind →2; one Signpost; one Splash. Each white moves one and
@@ -74,16 +84,15 @@ leaders qualify. It enters Sleep before Most Rested is decided.
 
 Splash prevents the covered obstacle's extra nuisance, including Goose's limit
 reduction. It cannot prevent wear-out from the count itself and provides no
-rescue/rewind. Mud is interpreted to affect **both later Companion movement and
-the Night flock contest**. A Pebbles/Brambles final-chip penalty also applies
-when worn out under the proposed timing interpretation; a protected placement
-has no such penalty. See [detailed timing](ENCOUNTER_RULES.md).
+flask, rescue or rewind. Mud affects **both later Companion movement and the
+Night flock contest**. A final unprotected Pebbles/Brambles penalty also applies
+when worn out; a protected placement has no such penalty. See [detailed timing](ENCOUNTER_RULES.md).
 
 ## Night, the award and the ending
 
 Bank today's printed, Reeds and earned event Twigs after any Brambles deduction.
 Safe ducks retain their full Sleep; **worn-out ducks retain half, rounded down**.
-The proposed treatment keeps haven Feathers, Wildflowers, safe event bonuses
+The approved treatment keeps haven Feathers, Wildflowers, safe event bonuses
 and the flock award safe-only. Worn-out ducks cannot win Most Rested.
 
 Compare frozen earned Sleep among safe ducks, including their bonuses, before
@@ -95,9 +104,10 @@ markers for tied beneficiaries.
 It never becomes a permanent Feather or stacks across Days.
 
 The calendar gives both ducks the same nest capacity: Nights 1–3 allow one
-purchase, 4–6 allow two, 7–9 allow three. Each has its own allowance. Proposed
-shop policy is one chip per token type per Night, all offers available when
-affordable, unlimited initial stock, and no Sleep carried into another Night.
+purchase, 4–6 allow two, 7–9 allow three. Each has its own allowance. All 11
+offers are available from Night 1, with unlimited stock; each Night allows one
+chip per token type within that duck's 1/2/3 cap. Variants share a type, and no
+Sleep carries into another Night.
 Purchases change remaining Sleep, never the frozen Most Rested score.
 
 **Day 10:** safe havens give **+2 extra Sleep**, on top of printed rewards and
@@ -107,13 +117,22 @@ Sleep at **4 Sleep → 1 Dream Twig**, rounding down. The safe Most Rested duck
 Twigs determine victory. Record safe-haven Feathers as usual on Day 10, but
 there is no following Day and they add no final exchange or Dream Twig value.
 
-## Still requiring review before implementation
+For final victory, compare each duck's total Twigs, including Dream Twigs. If
+the totals tie, compare the frozen retained Sleep from Final Night before Sleep
+conversion, including every eligible bonus and a worn-out duck's rounded-down
+half. If that still ties, declare the game a draw with tied winners. This final tiebreak is
+separate from the Most Rested award's safe-duck eligibility.
 
-All 50 board rewards, 11 prices and ten events are approved starting values.
-Review stock/housekeeping policies and marked reward interpretations in the
-[implementation plan](IMPLEMENTATION_PLAN.md), including the proposed drawing
-rhythm and local autosave scope.
-Define final victory ties, no-draw/empty-bag/overshoot handling and valid nonzero
-starting-Feather settings. The Dawn cap keeps the default ten-Day starts below
-50; it does not specify those other boundaries. No Core/CLI or Unity change is
-part of this checkpoint; evolve the existing engine rather than restarting it.
+## M2 closure and M3 waiting
+
+All 50 board rewards, 11 prices, ten events, draw rhythm, shop/housekeeping
+defaults, endpoint handling, final tiebreak, starting-Feather setting and local
+autosave/Continue scope are approved for the rules sheet. Each Day requires at
+least one draw before settling. An empty bag ends exploration only after its
+final chip fully resolves. Reaching or overshooting space 50 places at 50,
+fully resolves that chip including Exhaustion, then finishes with no further
+placements. Local autosave/Continue is approved but unimplemented.
+
+M2 is complete and this documentation checkpoint is closed. M3 (the isolated
+iPad layout proof) is waiting for the user's command; no Core/CLI or Unity build
+is part of this checkpoint.

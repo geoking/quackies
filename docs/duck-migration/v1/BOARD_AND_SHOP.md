@@ -3,7 +3,7 @@
 14 September 2026. The user approved all 50 reward rows and 11 shop prices as
 starting values. They are **not yet implemented or balanced through complete
 matches**. The [overview](../RULES_AT_A_GLANCE.md) records the current mechanics;
-shop/housekeeping policies and marked interpretations still require review. [Detailed encounters](../ENCOUNTER_RULES.md) and the
+M2 shop/housekeeping policies and payout timing are now approved. [Detailed encounters](../ENCOUNTER_RULES.md) and the
 [ten approved World Events](WORLD_EVENTS.md) define the associated effects.
 
 ## Board philosophy
@@ -24,8 +24,8 @@ Twig than their previous printed maxima. Endpoint 50 is the explicit exception
 to the neighbouring-Twig rule; the other seven havens match both neighbours.
 This table refers to printed values; encounters/events can change total payouts.
 
-Feathers below require a safe haven settle under the proposed worn-out
-interpretation. Every other space gives zero Feathers. Day 10's safe-haven +2
+Feathers below require a safe haven settle under the approved worn-out
+rule. Every other space gives zero Feathers. Day 10's safe-haven +2
 Sleep is **additional to** these printed values, and applies to all eight havens.
 
 ## Every space
@@ -107,13 +107,12 @@ Twig yield; it never changes movement or how many chips are purchased.
 | Companion duck | 7 |
 | Wildflowers | 5 |
 
-[Shop data](shop.json) also labels the following **proposed** shop policies:
+[Shop data](shop.json) records the following **approved** shop policies:
 all offers available from Night 1, unlimited stock for the first balance pass,
 one purchase per token type per Night, subject to the shared calendar's individual
 1/2/3 purchase limits. Different Tailwind or Reeds variants share a token type.
 Sleep expires after that Night. Night 10 has no shopping; it converts Sleep.
-These policies replace the previously unconfirmed finite-stock suggestion only
-if accepted. White obstacles, Goose, player ducks, Feathers and the zzz award
+These approved policies replace the earlier finite-stock suggestion. White obstacles, Goose, player ducks, Feathers and the zzz award
 are not shop offers. Reeds are not retroactively upgraded: each variant is a
 separate owned chip and pays only when placed on a later Day.
 
@@ -146,6 +145,10 @@ Wildflowers are inexpensive but require an exact safe haven finish.
    Dream Twigs are ordinary victory Twigs displayed as a distinct final gain.
    Record safe-haven Feathers as usual on Day 10, but they affect no remaining
    Day and add nothing to the final score.
+8. Rank total Twigs including Dream Twigs. For tied totals, compare frozen
+   retained Night 10 Sleep before conversion, including eligible bonuses and
+   worn-out halving. If that also ties, declare a draw. Do not compare conversion
+   remainders, distance or Most Rested eligibility.
 
 Examples without unrelated encounter/event modifiers:
 
@@ -163,7 +166,7 @@ Examples without unrelated encounter/event modifiers:
 - Final worn-out endpoint: no safe-haven +2; `floor(21/2)=10` Sleep → 2 Dream
   Twigs, plus 9 printed Twigs = 11. No Most Rested award or haven Feathers.
 
-## Balance evidence and remaining decisions
+## Balance evidence and approved boundary rules
 
 The reproducible [audit](balance-audit.py) and [results](balance-audit.json)
 use exact arithmetic for bounded bag/counter comparisons. With the starting
@@ -200,15 +203,17 @@ Under the current ten-Day rules and zero initial Feathers, before Day 10 a duck
 can have at most nine earlier haven awards ×2 = 18 plus nine Dawn gifts ×3 = 27:
 **45 permanent steps**, or **46** with the temporary Most Rested step. This is a
 conservative upper bound, not a likely journey; early havens actually award less.
-The cap therefore resolves default-start saturation. Nonzero starting-Feather
-settings, extra Feather sources or longer matches require a fresh bound and
-explicit rules. The new events add no Feathers. Ordinary draw overshoot still
-requires endpoint handling.
+The cap therefore resolves default-start saturation. The approved shared starting
+setting is 0–3 (default 0), so even the conservative maximum effective start is
+49. Extra Feather sources or longer matches require a fresh bound. Unsupported
+settings are rejected instead of clipping earned Feathers. The ten events add
+no Feathers.
 
-Suggested housekeeping, still for review: no rewinds or separate flask in v1;
-require a placed chip before claiming route rewards; when a draw reaches/passes
-50, place once at 50, resolve the full chip and Exhaustion, then finish the Day
-with its safe/worn outcome. This does **not** solve starts already at/beyond 50.
-Empty-bag finish and tied final Twigs can respectively use automatic settling
-and shared victory. Confirm these policies, stock rules and the remaining defaults in the
-[implementation plan](../IMPLEMENTATION_PLAN.md) before the Core milestone; the reward and price numbers are now accepted. No implementation or Unity work is authorized here.
+The M2 boundary rules are approved: no rewinds or separate flask; place at least
+one chip before claiming route rewards; reaching/passing 50 places once at 50,
+resolves the full chip and Exhaustion, then ends that duck's Day. No extra
+placements or overshoot rewards. The empty bag also finishes after the last chip
+fully resolves. Equal final Twigs use Night 10 retained Sleep, then a draw if
+still equal. These rules are specified in the [implementation plan](../IMPLEMENTATION_PLAN.md).
+M2 is complete; M3 remains paused until the user's command. No implementation
+or Unity work occurs in this closure checkpoint.

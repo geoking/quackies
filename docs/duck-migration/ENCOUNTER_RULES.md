@@ -2,22 +2,27 @@
 
 14 September 2026. This is the current detailed encounter contract for the
 first complete ruleset. It replaces the earlier rescue, Companion shield and
-Mud movement rules. The user has accepted the headline encounter changes; the integration
-interpretations are distinguished below. Board payouts and prices are approved starting values; stock policy remains
-for review in [v1/BOARD_AND_SHOP.md](v1/BOARD_AND_SHOP.md), and the ten approved
-shared events are defined in [v1/WORLD_EVENTS.md](v1/WORLD_EVENTS.md).
+Mud movement rules. Board payouts, prices, stock policy and the ten shared
+events are approved starting rules.
 
-The mechanical relationships below record the working rules and interpretations. Their numeric yields
-and movement are the current v1 starting values, still subject to playtesting;
-prices and board data are now user-approved starting values. The settlement sequence is also
-the lead's integration interpretation, including Pebbles and Brambles inspecting
-the final occupied chip after wear-out. Route-end movement and saturated Feather
-behavior for nonzero starting settings remain separate rules-sheet decisions;
-the capped Dawn formula already bounds default ten-Day starts below 50.
+Numeric yields remain subject to later full-match balance testing; this document
+does not claim implementation.
 
 ## Draw and placement order
 
-Resolve one encounter at a time:
+Days 1–9 resolve each duck's complete Draw or Settle action independently and
+publish it immediately. Other ducks may react to those completed actions. There
+is no paired wait, frozen multi-player cohort or forced alternating turn order
+on these Days. Signpost previews stay private, and Night/shared-event scoring
+still waits for everyone to finish.
+
+On Day 10 only, freeze the active cohort and its preceding public state for
+each decision beat. Every active duck commits Draw or Settle using that state
+plus its own known preview. Resolve in fixed player order and reveal the whole
+beat atomically after all active ducks commit. A duck finishing or wearing out
+leaves subsequent beats; it does not cancel another already-committed action.
+
+For a Draw action, resolve one encounter at a time:
 
 1. Reveal the next chip. A Signpost preview is information only, not a reveal
    or placement for encounter rules.
@@ -30,9 +35,13 @@ Resolve one encounter at a time:
    immediately and draws no further chip. Otherwise it may continue or settle.
 
 A cancelled preview never counts as placed. No current encounter cancels an
-entire draw. The duck eventually rests on its final occupied space, not the next
-empty space. World Event movement is added before Log halves the total unless
-that event explicitly says otherwise. The Still Air event and pending
+entire draw. Each duck must draw at least one chip before it may settle that
+Day. An empty bag ends exploration only after its final chip fully resolves. If
+movement reaches or overshoots space 50, place the chip at 50, fully resolve it
+including Exhaustion, then finish with no further placements. The duck
+eventually rests on its final occupied space, not the next empty space. World
+Event movement is added before Log halves the total unless that event explicitly
+says otherwise. The Still Air event and pending
 Log halve Tailwind movement only once together; the Log is consumed normally.
 
 ## Helpful encounters
@@ -139,7 +148,7 @@ Each duck starts with 13 chips:
 - one Refreshing splash.
 
 Reeds, Companion, Wildflowers and stronger Tailwinds enter through the shop;
-their prices, availability and proposed stock policy are defined with the board data.
+their prices, availability and approved stock policy are defined with the board data.
 
 ## Grumpy Goose from Day 5
 
@@ -162,6 +171,8 @@ suppression rule, and Companion provides no protection against it.
 ## Settlement and Night order
 
 After every player has finished, evaluate any collective event condition once.
+Night and shared-event conditions always wait for every active duck to finish;
+the Day 1–9 public placement rhythm does not award them early.
 Settlement uses the final occupied chip, including the white chip that caused
 wear-out. Include each eligible event payout once in the following order:
 
@@ -193,6 +204,20 @@ second deduction or remove Dream Twigs created later. There is no Night 10 shopp
 
 Record safe-haven Feathers as usual on Day 10; with no Day 11 or conversion,
 they add no remaining gameplay advantage or victory score.
+
+For final victory, compare total Twigs including Dream Twigs. If tied, compare
+the frozen retained Sleep from Final Night before conversion, including eligible
+bonuses and a worn-out duck's rounded-down half. If still tied, declare the game a draw with tied winners. This is a final-victory tiebreak and does not replace the separate
+Most Rested safe-duck eligibility rule.
+
+All 11 Dream offers are available from Night 1 with unlimited stock. Each duck
+may buy at most one chip per token type per Night, within the Night 1/2/3
+purchase cap; variants share a type and unspent Sleep expires. Night 10 has no
+shopping. There is no flask, rewind or redraw in this ruleset.
+
+Local autosave and Continue are approved future functionality and remain
+unimplemented. M2 is complete; M3's isolated iPad layout proof is waiting for
+the user's command. No Core/CLI or Unity implementation is claimed here.
 
 Exact space rewards, haven Feather values, encounter prices and shop policies
 belong to [v1/BOARD_AND_SHOP.md](v1/BOARD_AND_SHOP.md). The full World Event deck
