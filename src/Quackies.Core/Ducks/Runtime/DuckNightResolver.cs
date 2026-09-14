@@ -37,12 +37,13 @@ namespace Quackies.Core.Ducks.Runtime
             foreach (var player in state.Players)
             {
                 var outcome = outcomes[player.Id];
-                player.TotalTwigs += outcome.PrintedTwigs - outcome.BramblesPenalty;
+                player.TotalTwigs += outcome.PrintedTwigs - outcome.BramblesPenalty + outcome.DreamTwigs;
                 player.FrozenSleep = outcome.FrozenSleep;
-                player.RemainingSleep = outcome.FrozenSleep;
+                player.RemainingSleep = state.Day == DuckMatchSettings.StandardDays ? 0 : outcome.FrozenSleep;
                 player.IsSleepFrozen = true;
                 player.PendingMostRestedStep = outcome.NextDayTemporaryStep == 1;
                 player.LastNightOutcome = outcome;
+                player.HasFinishedDream = state.Day == DuckMatchSettings.StandardDays;
                 DuckFeatherAwards.Give(state, player, outcome.FeathersAwarded, "haven");
                 state.History.Add(new DuckHistoryState(state.Day, player.Id,
                     $"{player.Name} rests at {player.Position}: {outcome.TotalTwigsEarned} Twigs today, {outcome.FrozenSleep} Sleep" +
@@ -53,7 +54,18 @@ namespace Quackies.Core.Ducks.Runtime
                     state.History.Add(new DuckHistoryState(state.Day, player.Id, $"{player.Name} is a Most Rested Duck."));
                 }
             }
-            state.Phase = DuckPhase.Night;
+            if (state.Day == DuckMatchSettings.StandardDays)
+            {
+                state.FinalResult = DuckFinalResult.Create(state.Players);
+                state.Phase = DuckPhase.Finished;
+                state.History.Add(new DuckHistoryState(state.Day, string.Empty,
+                    "Final result: " + string.Join(", ", state.FinalResult.Standings.Select(standing =>
+                        $"{standing.PlayerName} {standing.TotalTwigs} Twigs / {standing.FrozenNightTenSleep} Sleep")) + "."));
+            }
+            else
+            {
+                state.Phase = DuckPhase.Night;
+            }
         }
 
         private sealed class NightAmounts

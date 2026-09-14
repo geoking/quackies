@@ -23,6 +23,7 @@ namespace Quackies.Core.Ducks.Runtime
         public int Day { get; set; }
         public DuckPhase Phase { get; set; }
         public int CurrentEventIndex { get; set; }
+        public bool DayFiveGooseAdded { get; set; }
         public int FinalDayDecisionBeat { get; set; }
         public int NextPhysicalChipId { get; set; }
         public RandomState RandomState { get; set; } = null!;
@@ -31,6 +32,7 @@ namespace Quackies.Core.Ducks.Runtime
         public List<DuckHistoryState> History { get; } = new List<DuckHistoryState>();
         public List<DuckPublicAwardState> PublicAwards { get; } = new List<DuckPublicAwardState>();
         public List<DuckFinalDayCommitState> FinalDayCommits { get; } = new List<DuckFinalDayCommitState>();
+        public DuckFinalResult? FinalResult { get; set; }
     }
 
     internal sealed class DuckPlayerState

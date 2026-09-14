@@ -24,7 +24,8 @@ namespace Quackies.Core.Ducks.Runtime
             IEnumerable<DuckHistoryEntry> history,
             IEnumerable<DuckPublicAwardView> publicAwards,
             int finalDayDecisionBeat,
-            bool awaitingFinalDayDecisions)
+            bool awaitingFinalDayDecisions,
+            DuckFinalResult? finalResult)
         {
             Settings = settings ?? throw new ArgumentNullException(nameof(settings));
             if (day < 1 || day > DuckMatchSettings.StandardDays) throw new ArgumentOutOfRangeException(nameof(day));
@@ -41,6 +42,7 @@ namespace Quackies.Core.Ducks.Runtime
             PublicAwards = Freeze(publicAwards);
             FinalDayDecisionBeat = finalDayDecisionBeat;
             AwaitingFinalDayDecisions = awaitingFinalDayDecisions;
+            FinalResult = finalResult;
         }
 
         public DuckMatchSettings Settings { get; }
@@ -59,6 +61,7 @@ namespace Quackies.Core.Ducks.Runtime
         public IReadOnlyList<DuckPublicAwardView> PublicAwards { get; }
         public int FinalDayDecisionBeat { get; }
         public bool AwaitingFinalDayDecisions { get; }
+        public DuckFinalResult? FinalResult { get; }
 
         internal static IReadOnlyList<T> Freeze<T>(IEnumerable<T> values)
         {

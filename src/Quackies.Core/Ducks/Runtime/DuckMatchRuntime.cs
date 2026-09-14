@@ -21,7 +21,7 @@ namespace Quackies.Core.Ducks.Runtime
                 Day = 1,
                 Phase = DuckPhase.Adventure,
                 CurrentEventIndex = 0,
-                FinalDayDecisionBeat = 1,
+                FinalDayDecisionBeat = 0,
                 NextPhysicalChipId = 1
             };
             _random = new ResumableRandomSource(seed);
@@ -112,7 +112,8 @@ namespace Quackies.Core.Ducks.Runtime
                 history,
                 awards,
                 State.FinalDayDecisionBeat,
-                State.FinalDayCommits.Count > 0);
+                State.FinalDayCommits.Count > 0,
+                State.FinalResult);
         }
 
         public IReadOnlyList<GameAction> GetLegalActions(string playerId)
@@ -122,8 +123,9 @@ namespace Quackies.Core.Ducks.Runtime
             {
                 case DuckPhase.Adventure: return DuckAdventureHandler.GetLegalActions(this, player);
                 case DuckPhase.Night: return DuckDreamHandler.GetLegalActions(State, player, Rules);
-                case DuckPhase.DayComplete when State.Day == 1:
-                    return DuckMatchView.Freeze(new[] { new GameAction("next-day", GameActionKind.NextDay, "Start Day 2") });
+                case DuckPhase.DayComplete when State.Day < DuckMatchSettings.StandardDays:
+                    return DuckMatchView.Freeze(new[] { new GameAction(
+                        "next-day", GameActionKind.NextDay, "Start Day " + (State.Day + 1)) });
                 default: return new ReadOnlyCollection<GameAction>(Array.Empty<GameAction>());
             }
         }

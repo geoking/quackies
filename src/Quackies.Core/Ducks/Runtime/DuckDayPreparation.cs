@@ -6,20 +6,32 @@ namespace Quackies.Core.Ducks.Runtime
 {
     internal static class DuckDayPreparation
     {
-        /// <summary>C3's first complete Dawn. Full calendar transitions are the following C4 checkpoint.</summary>
+        /// <summary>Advance one completed Dream into the next Day's ordered Dawn preparation.</summary>
         internal static void BeginNextDay(DuckMatchRuntime runtime)
         {
+            if (runtime == null) throw new ArgumentNullException(nameof(runtime));
             var state = runtime.State;
-            if (state.Phase != DuckPhase.DayComplete || state.Day != 1 || state.Players.Any(player => !player.HasFinishedDream))
-                throw new InvalidOperationException("The C3 daily slice advances completed Night 1 into Day 2.");
+            if (state.Phase != DuckPhase.DayComplete
+                || state.Day < 1
+                || state.Day >= DuckMatchSettings.StandardDays
+                || state.Players.Any(player => !player.HasFinishedDream))
+                throw new InvalidOperationException("Only a completed Dream on Days 1–9 can advance the calendar.");
 
             // Freeze all Twig deficits before any gifts, resets or temporary-step activation.
             var leadingTwigs = state.Players.Max(player => player.TotalTwigs);
             var deficits = state.Players.ToDictionary(player => player.Id, player => leadingTwigs - player.TotalTwigs);
-            state.Day = 2;
-            state.CurrentEventIndex = 1;
-            state.FinalDayDecisionBeat = 0;
+            var nextDay = state.Day + 1;
+            state.Day = nextDay;
+            state.CurrentEventIndex++;
+            state.FinalDayDecisionBeat = nextDay == DuckMatchSettings.StandardDays ? 1 : 0;
             state.FinalDayCommits.Clear();
+
+            if (nextDay == 5 && !state.DayFiveGooseAdded)
+            {
+                foreach (var player in state.Players)
+                    player.Inventory.Add(new DuckPhysicalChipState(state.NextPhysicalChipId++, "grumpy_goose"));
+                state.DayFiveGooseAdded = true;
+            }
 
             foreach (var player in state.Players)
             {
@@ -59,7 +71,7 @@ namespace Quackies.Core.Ducks.Runtime
                 player.EffectiveStart = player.PermanentFeatherTrail + (player.ActiveMostRestedStep ? 1 : 0);
                 player.Position = player.EffectiveStart;
                 runtime.AddHistory(player.Id,
-                    $"{player.Name} starts Day 2 at {player.EffectiveStart}: trail {player.PermanentFeatherTrail}, temporary Most Rested {(player.ActiveMostRestedStep ? 1 : 0)}; Dawn deficit {player.DawnTwigDeficit} gave {player.DawnFeathersAwarded} Feather(s).");
+                    $"{player.Name} starts Day {nextDay} at {player.EffectiveStart}: trail {player.PermanentFeatherTrail}, temporary Most Rested {(player.ActiveMostRestedStep ? 1 : 0)}; Dawn deficit {player.DawnTwigDeficit} gave {player.DawnFeathersAwarded} Feather(s).");
             }
             runtime.AddHistory(string.Empty, "World Event: " + runtime.CurrentEvent.Name + ".");
             state.Phase = DuckPhase.Adventure;
