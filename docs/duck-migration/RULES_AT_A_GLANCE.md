@@ -31,20 +31,13 @@ so ducks can react to others' progress before choosing to continue or stop.
 decision beat together. Finished ducks leave later beats. Signpost previews
 remain private on every Day; shared Night rewards wait for everyone to finish.
 
-At dawn the stork gives **1 Feather for a 1–4 Twig deficit, 2 for 5–8, and
-3 for 9 or more**. Tied leaders get none. Snapshot all scores before delivery;
-repeat the check each dawn. The formula is `min(3, ceil(deficit / 4))`.
-Each awarded Feather permanently advances later starts by exactly one and is
-never spent, converted or subject to a separate redemption cap. Only the Dawn
-gift size is capped. Start from the updated trail plus any temporary Most Rested
-step, not yesterday's rest. The default starting Feather setting is **0**; an
-optional setting from **0–3** remains approved for both ducks. The current
-[endpoint review](m3-closeout/endpoint-review.md) proves the default-zero
-setting starts no farther than 42 on the 43-space route. Its conservative bounds
-for settings 1–3 are 43/45/46; those do not prove that such starts are reachable,
-nor certify those options. C1 must establish tighter reachability or bring any
-required endpoint rule decision to the user. Do not silently remove settings,
-clip earned Feathers or change their one-step benefit.
+At dawn the stork gives **0 Feathers for a 0–2 Twig deficit, 1 for 3–6, 2
+for 7–10, and 3 for 11 or more**. Tied leaders get none. Snapshot all scores
+before delivery; repeat the check each dawn. Every duck starts at nest 0 with
+zero Feathers. Permanent Feathers come only from safe haven rewards and these
+Dawn thresholds. Each awarded Feather permanently advances later starts by
+exactly one and is never spent or converted. Most Rested is a temporary +1
+starting step, never a Feather.
 
 The opening bag has **13 chips**: two each of Log, Mud, Pebbles and Brambles;
 two Seeds; one Tailwind →2; one Signpost; one Splash. Each white moves one and
@@ -136,5 +129,6 @@ final chip fully resolves. Reaching or overshooting space 43 places at 43,
 fully resolves that chip including Exhaustion, then finishes with no further
 placements. Local autosave/Continue is approved but unimplemented.
 
-M2 and M3 are complete. M4 (Core/CLI) remains unstarted and waits for the user's
-command; no Core/CLI gameplay build is part of this checkpoint.
+M2 and M3 are complete. C1–C3 are complete for the bounded Day 1 → Night 1 →
+Day 2 slice; C4/C5 and Unity remain later work. No ten-Day game, Normal AI or
+save/resume implementation is claimed here.

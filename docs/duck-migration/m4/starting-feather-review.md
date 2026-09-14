@@ -1,7 +1,9 @@
 # C1 starting-Feather endpoint review
 
-14 September 2026. The approved shared starting setting 0–3 is **not safe under
-the current 43-space endpoint contract**. Setting 3 has a constructive,
+14 September 2026. **Historical evidence only:** this witness uses the excluded
+setting-3 configuration and superseded Dawn bands. The current contract starts
+every duck at nest 0 with zero Feathers. Under the former 0–3 setting, setting 3
+was **not safe under the 43-space endpoint contract**. It has a constructive,
 positive-probability two-duck witness whose permanent start is 43 before Day 10
 and whose temporary Most Rested step makes its effective start 44. The rules
 require at least one chip placement, but they do not say how a duck already at
@@ -64,26 +66,20 @@ before its final Brambles, so the Twig penalty remains active. Splash never
 protects a final penalty chip in the witness, and all helpful movement precedes
 any Log that could slow it.
 
-## Decision required before exposing settings 1–3
+## Historical decision boundary (superseded)
 
-The current endpoint rule covers a chip that reaches or passes 43 during a
-Draw. It does not cover an effective start already at or past 43. Setting 3 can
-reach that state, so C1 cannot certify the approved 0–3 option set without a
-rule decision.
+The former endpoint rule covered a chip that reaches or passes 43 during a
+Draw, but not an effective start already at or past 43. Setting 3 could reach
+that state under the former configuration.
 
-Two bounded implementation choices follow from the evidence. The game could cap
-only the effective start at 42 while continuing to record every earned Feather,
-or v1 could expose only the proven-safe zero setting. The first changes the
-approved one-Feather/one-step benefit at the endpoint; the second reduces the
-approved setting range. Either choice therefore requires explicit user approval
-before Core work. Clipping recorded progress, converting Feathers or suppressing
-awards is not authorized by this review.
+The current contract selects the proven-safe zero-start configuration. It does
+not cap effective starts, clip recorded progress, convert Feathers or suppress
+awards. This historical witness and its proof artifacts remain unchanged.
 
-The existing proof remains sufficient for setting 0: its effective start is at
-most 42. Separate exact classifications of settings 1 and 2 are unnecessary to
-establish the contract gap because setting 3 is already a reachable witness;
-they should be covered by whichever start-at/past-endpoint policy the user
-chooses.
+The zero-start bound is at most 42 before Day 10 under the current contract:
+25 Dawn Feathers (one first delivery plus eight later maximum gifts), 16 haven
+Feathers (one in each of the first two Days plus seven later havens), and one
+temporary Most Rested step.
 
 ## Evidence boundary
 

@@ -201,21 +201,18 @@ flock bonuses and Most Rested must be assessed alongside half-Sleep. Large
 wasteland Sleep jumps and Reeds investment also need complete-match comparison.
 
 Dawn Delivery is now capped at **three Feathers per duck per dawn**:
-`min(3, ceil(Twig deficit / 4))`. A zero deficit gives none; 1–4 gives 1;
-5–8 gives 2; **9+ gives 3**. Compare all scores before deliveries. Repeat
-eligibility every dawn. Each Feather still permanently advances one step.
+0–2 Twig deficit gives 0; 3–6 gives 1; 7–10 gives 2; **11+ gives 3**.
+Compare all scores before deliveries. Repeat eligibility every dawn. Each
+Feather still permanently advances one step. Every duck starts at nest 0 with
+zero Feathers; safe havens and Dawn Delivery are the only permanent sources.
 
-The refreshed [endpoint review](../m3-closeout/endpoint-review.md) bounds the
-default-zero effective start to **42**, strictly below endpoint 43. It uses the
-first two Days' one-Feather haven limit and the first Dawn gift limit, rather
-than applying the old 50-space generic bound of 46 to this board. For the
-approved optional shared starting settings 1–3, conservative bounds are 43, 45
-and 46. Those bounds are not reachable-match demonstrations and do not certify
-the options. C1 must prove tighter reachability or return a specific endpoint
-policy decision to the user before those values are exposed. The approved 0–3
-scope and one-Feather/one-step rule remain intact; no clipping or conversion is
-approved. Extra Feather sources or different match lengths require a fresh
-check. The current ten events add no Feathers.
+The refreshed endpoint review bounds the zero-start effective position to **42**,
+strictly below endpoint 43. Before Day 10, the bound is 25 Dawn Feathers
+(one first delivery plus eight later maximum gifts), 16 haven Feathers (one in
+each of the first two Days plus seven later havens), and one temporary Most
+Rested step. No effective-start cap, clipping or conversion is needed. The
+setting-3 witness and its old bounds remain historical evidence for an excluded
+configuration. The current ten events add no Feathers.
 
 The M2 boundary rules are approved: no rewinds or separate flask; place at least
 one chip before claiming route rewards; reaching/passing 43 places once at 43,
@@ -223,5 +220,6 @@ resolves the full chip and Exhaustion, then ends that duck's Day. No extra
 placements or overshoot rewards. The empty bag also finishes after the last chip
 fully resolves. Equal final Twigs use Night 10 retained Sleep, then a draw if
 still equal. These rules are specified in the [implementation plan](../IMPLEMENTATION_PLAN.md).
-M2 and M3 are complete; M4 remains unstarted and waits for the user's command.
-No Core gameplay work occurs in this closure checkpoint.
+M2 and M3 are complete; C1/C2 are checked and C3 Night/Dream/Dawn/CLI
+integration is in progress. C4/C5 and Unity remain later work. No complete game
+or Normal AI is claimed here.

@@ -49,7 +49,7 @@ be one authoritative match engine.
 | [Evaluation](../../src/Quackies.Core/Match/EvaluationPhaseHandler.cs) | Freeze final occupied rest; retain Twigs and floor(Sleep/2) when worn, resolve safe bonuses and compare safe ducks. Day 10 adds safe-haven Sleep then converts retained Sleep to Dream Twigs. |
 | Dream phase | Replace the duck profile's old evaluation/shop/ruby sequence with explicit Night resolution and Dream purchasing. Full-screen layout is a Unity concern; phase legality belongs to Core. |
 | [Purchasing](../../src/Quackies.Core/Match/ShoppingPhaseHandler.cs) | Use each player's Day-based 1/2/3 limit, remaining Sleep and approved stock/category restrictions; the approved policy uses unlimited stock and one per token type. Reopening a panel must not reset purchases. |
-| Dawn preparation | Replace rat calculation with one pre-award Twig-deficit snapshot, min(3, ceil(Twig deficit/4)) stork parcels and temporary-bonus activation/expiry. No simultaneous old catch-up. |
+| Dawn preparation | Replace rat calculation with one pre-award Twig-deficit snapshot: 0–2 gives 0, 3–6 gives 1, 7–10 gives 2, and 11+ gives 3 stork parcels, plus temporary-bonus activation/expiry. No simultaneous old catch-up. |
 | Observations/API | Add the new authoritative fields and phases without gratuitously breaking reference clients. Clients should not derive nest level, gifts or winner eligibility from labels. |
 | AI | Keep legal-action separation and safe-draw reasoning; evaluate new Dream choices and whether the policy handles comfortable stops and recovery adequately. |
 
@@ -95,8 +95,10 @@ separate token type/movement/ability quantities (current colour/value cannot
 represent the agreed obstacles and Reeds faithfully).
 
 M2 and the visual M3 gate are complete. The synchronized 43 rows (first haven
-at 4), all prices/events, endpoint/empty-bag, shop,
-starting settings and worn-out rules are approved. Days 1–9 actions resolve
+at 4), all prices/events, endpoint/empty-bag, shop, zero-start contract and
+worn-out rules are approved. Every duck starts at nest 0 with zero Feathers;
+safe havens and Dawn thresholds are the only permanent Feather sources, and
+Most Rested is a temporary +1. Days 1–9 actions resolve
 independently and publicly so players can react. Only Day 10 uses hidden
 simultaneous commitments; adapt the old round-nine pattern through a final-Day
 profile policy and fresh action IDs. Keep previews private on every Day.
@@ -116,8 +118,8 @@ bonuses and worn-out halving; do not reuse a distance or safe-eligibility tiebre
 ## Build and verification order
 
 The isolated **M3 layout proof is complete and approved**. It uses fixed sample
-data and remains separate from the changing Core DLL until M5. After explicit
-M4 approval, begin with the [C1 foundation checkpoint](IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval). Within M4:
+data and remains separate from the changing Core DLL until M5. M4 is active
+through C3; the [C1 foundation checkpoint](IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval) is checked. Within M4:
 
 1. Establish duck profile/data/identity/state, preserving original regressions.
 2. Implement Adventure, exact private previews and the selected decision rhythm.

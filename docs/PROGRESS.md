@@ -1129,3 +1129,40 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   at Day10. A user decision is pending; the requested combination was explained
   with exact Day starts, havens, purchases and cumulative Feather awards.
   Neither an effective-start cap nor a settings reduction is implemented.
+
+### 52. M4 C1–C3 complete; zero-start and revised Dawn contract (14 September 2026)
+
+- Closed the authorized foundation, Adventure and first Day/Night checkpoints.
+  The Core/CLI now runs Day 1 → Night 1 → Day 2 through issued legal actions,
+  preserving the tested classic reference. C4 ten-Day continuation/final results
+  and C5 Normal AI/save-resume remain unstarted; stop for the user's review.
+- Implemented all encounter variants, exact private Signpost previews,
+  independent ordinary-Day actions, final-Day commitment fixtures, endpoint
+  and empty-bag resolution, and all ten event effects. Night freezes each
+  breakdown and Most Rested before spending; Dream purchases obey price,
+  type and capacity limits and enter the next Day's rebuilt bag.
+- The user clarified that all ducks start at nest 0 with zero Feathers.
+  Removed the optional 0–3 setting. The setting-three witness is historical
+  evidence for an excluded configuration. Safe haven rewards and Dawn are
+  the permanent sources; Most Rested is a temporary +1. No start cap was added.
+- Adopted the user's revised Dawn bands: deficits 0–2 give 0 Feathers,
+  3–6 give 1, 7–10 give 2, and 11+ give 3. Updated the canonical audit and
+  current rules. The conservative effective-start bound remains 42
+  (25 Dawn + 16 haven + 1 temporary). These are initial playtest values;
+  full-match balance remains unproven.
+- Saved C2 source/tests `3c2e73c` / `bebf161`, C3 source/tests `64f4c58` /
+  `dc19f33`, CLI/tests `2ac42de` / `754f544`, and extra Adventure regressions
+  `673a177`. C2 source alone referenced the then-untracked Dream handler;
+  C3 closed that dependency. Its earlier worktree tests passed, but the C2
+  source checkpoint alone is not represented as compiling.
+- An isolated archive of committed Core/CLI/tests at `673a177` builds in Release
+  with **zero warnings/errors and all 241 tests passing**, including the
+  original regressions and real CLI execution. Additional endpoint and atomic
+  final-Day cohort checks pass. The seed-42 demo and inspection both exit
+  successfully; [commands and durable outputs](duck-migration/m4/README.md)
+  include the small-gap Dawn case that now awards no Feather.
+- Every checkpoint push was attempted but failed because shell GitHub
+  credentials are unavailable. All progress is committed locally on
+  `codex/duck-game-milestone-0`; no remote publication is claimed. Unity and its
+  Core DLL were not changed, and the unrelated ProjectSettings draft remains
+  outside all checkpoints.

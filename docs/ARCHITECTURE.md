@@ -3,9 +3,10 @@
 The implementation described below is the completed original rules baseline.
 On 13 September 2026 the user accepted a distinct Day/Dream rules direction.
 The planned evolution is in [duck-migration/ENGINE_EVOLUTION.md](duck-migration/ENGINE_EVOLUTION.md)
-and the current [plan](duck-migration/PLAN.md). No new rules are implemented by
-that documentation checkpoint; baseline-specific scoring and currency behavior
-below must not be mistaken for requirements of the new profile.
+and the current [plan](duck-migration/PLAN.md). M4 has now implemented the duck
+foundation and first complete daily cycle described below. The later classic
+sections document the retained reference profile; its currencies and phase
+rules do not prescribe the duck game.
 
 ## M4 shared boundary
 
@@ -29,6 +30,36 @@ quantity are separate concepts. `ResumableRandomSource` has portable versioned
 PCG state for later exact save/Continue; the classic random sequence is unchanged.
 The M4 implementation record and checkpoint evidence are in
 [duck-migration/m4/README.md](duck-migration/m4/README.md).
+
+### Duck daily cycle (C1–C3)
+
+`MatchSession.CreateDuck(seed)` creates the same session boundary with a
+`DuckMatchView`. `DuckMatchRuntime` owns typed state, the shuffled event deck,
+ordered physical-chip bags and the resumable random source. All ducks start at
+nest 0 with zero Feathers. Snapshots expose public placements and scoring but
+only the observing duck's exact Signpost preview; bag composition does not
+disclose future draw order.
+
+`DuckAdventureHandler` resolves complete chips before endpoint/empty-bag finish
+or wear-out. Days 1–9 actions are immediate. Day 10's typed commitments freeze
+each active cohort until all decisions arrive, then reveal in a fixed order.
+`DuckNightResolver` evaluates collective conditions across the completed cohort
+and applies rewards once. Immutable Night outcomes preserve the breakdown;
+frozen Sleep determines Most Rested before any spending.
+
+`DuckDreamHandler` spends only remaining Sleep, tracks purchase type and nest
+capacity, and adds physical chips to inventory for the next bag. After both
+ducks finish shopping, `DuckDayPreparation` snapshots Twig deficits, awards
+Dawn Feathers using the 3/7/11 thresholds, activates the temporary Most Rested
+step and rebuilds/shuffles each inventory into its next bag. Permanent trail
+and temporary movement remain separate. No effective-start cap is applied.
+
+The current runnable boundary is Day 1 → Night 1 → Day 2. Later-Day handlers
+have focused fixtures, but calendar continuation and final results are C4;
+Normal AI and public save/restore are C5. The CLI selects this profile with
+`--profile ducks`, supports `--inspect`, and runs the scripted cycle with
+`--demo-day`. Unity still uses its previous compiled Core DLL; M5 owns the
+eventual runtime binding and DLL update.
 
 Quackies has one rules engine with two front ends: Unity and a command-line
 debugging client. Neither front end decides whether a move is legal or awards

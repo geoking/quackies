@@ -216,8 +216,9 @@ purchase cap; variants share a type and unspent Sleep expires. Night 10 has no
 shopping. There is no flask, rewind or redraw in this ruleset.
 
 Local autosave and Continue are approved future functionality and remain
-unimplemented. M2 and M3 are complete; M4 remains unstarted and waits for the
-user's command. No Core/CLI gameplay implementation is claimed here.
+unimplemented. M2 and M3 are complete; C1–C3 are complete for the bounded
+Day 1 → Night 1 → Day 2 slice. C4/C5 and Unity remain later work. No ten-Day
+game, Normal AI or save/resume implementation is claimed here.
 
 Exact space rewards, haven Feather values, encounter prices and shop policies
 belong to [v1/BOARD_AND_SHOP.md](v1/BOARD_AND_SHOP.md). The full World Event deck

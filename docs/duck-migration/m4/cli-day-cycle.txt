@@ -1,0 +1,193 @@
+Quackies ducks · 10 Days · seed 42 · all ducks start at the nest
+Day 1/10 · Adventure · World Event: Thick Morning Mist
+Human: 0 Twigs · space 0 · Exhaustion 0/5 · bag 13
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 0 · Exhaustion 0/5 · bag 13
+  Feather trail 0 · today's start 0 · active flock 0
+
+Deterministic daily-cycle smoke demonstration; these are scripted choices, not Normal AI.
+human: Explore
+Day 1/10 · Adventure · World Event: Thick Morning Mist
+Human: 0 Twigs · space 1 · Exhaustion 0/5 · bag 12
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 0 · Exhaustion 0/5 · bag 13
+  Feather trail 0 · today's start 0 · active flock 0
+  D1 human: Human placed Seeds at space 1.
+
+ai: Explore
+Day 1/10 · Adventure · World Event: Thick Morning Mist
+Human: 0 Twigs · space 1 · Exhaustion 0/5 · bag 12
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 1 · Exhaustion 0/5 · bag 12
+  Feather trail 0 · today's start 0 · active flock 0
+  D1 human: Human placed Seeds at space 1.
+  D1 ai: AI placed Seeds at space 1.
+
+human: Explore
+Day 1/10 · Adventure · World Event: Thick Morning Mist
+Human: 0 Twigs · space 3 · Exhaustion 0/5 · bag 11
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 1 · Exhaustion 0/5 · bag 12
+  Feather trail 0 · today's start 0 · active flock 0
+  D1 human: Human placed Seeds at space 1.
+  D1 ai: AI placed Seeds at space 1.
+  D1 human: Human placed Signpost at space 3.
+
+ai: Explore
+Day 1/10 · Adventure · World Event: Thick Morning Mist
+Human: 0 Twigs · space 3 · Exhaustion 0/5 · bag 11
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 2 · Exhaustion 1/5 · bag 11
+  Feather trail 0 · today's start 0 · active flock 0
+  D1 human: Human placed Seeds at space 1.
+  D1 ai: AI placed Seeds at space 1.
+  D1 human: Human placed Signpost at space 3.
+  D1 ai: AI placed Loose pebbles at space 2.
+
+human: Explore
+Day 1/10 · Adventure · World Event: Thick Morning Mist
+Human: 0 Twigs · space 4 · Exhaustion 1/5 · bag 10
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 2 · Exhaustion 1/5 · bag 11
+  Feather trail 0 · today's start 0 · active flock 0
+  D1 ai: AI placed Seeds at space 1.
+  D1 human: Human placed Signpost at space 3.
+  D1 ai: AI placed Loose pebbles at space 2.
+  D1 human: Human placed Loose pebbles at space 4.
+
+ai: Explore
+Day 1/10 · Adventure · World Event: Thick Morning Mist
+Human: 0 Twigs · space 4 · Exhaustion 1/5 · bag 10
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 3 · Exhaustion 2/5 · bag 10
+  Feather trail 0 · today's start 0 · active flock 0
+  D1 human: Human placed Signpost at space 3.
+  D1 ai: AI placed Loose pebbles at space 2.
+  D1 human: Human placed Loose pebbles at space 4.
+  D1 ai: AI placed Mud puddle at space 3.
+
+human: Explore
+Day 1/10 · Adventure · World Event: Thick Morning Mist
+Human: 0 Twigs · space 5 · Exhaustion 2/5 · bag 9
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 3 · Exhaustion 2/5 · bag 10
+  Feather trail 0 · today's start 0 · active flock 0
+  D1 ai: AI placed Loose pebbles at space 2.
+  D1 human: Human placed Loose pebbles at space 4.
+  D1 ai: AI placed Mud puddle at space 3.
+  D1 human: Human placed Mud puddle at space 5.
+
+ai: Settle down
+Day 1/10 · Adventure · World Event: Thick Morning Mist
+Human: 0 Twigs · space 5 · Exhaustion 2/5 · bag 9
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 3 · Exhaustion 2/5 · bag 10 · resting
+  Feather trail 0 · today's start 0 · active flock 0
+  D1 human: Human placed Loose pebbles at space 4.
+  D1 ai: AI placed Mud puddle at space 3.
+  D1 human: Human placed Mud puddle at space 5.
+  D1 ai: AI settled down at space 3.
+
+human: Settle down
+Day 1/10 · Night · World Event: Thick Morning Mist
+Human: 2 Twigs · space 5 · Exhaustion 2/5 · bag 9 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 5 frozen Sleep; 5 available now. Twigs earned 2; Feathers 0 · Most Rested
+  Sleep: printed 5, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 5.
+  Twigs: printed 2, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 3 · Exhaustion 2/5 · bag 10 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 5 frozen Sleep; 5 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 5, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 5.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D1 human: Human rests at 5: 2 Twigs today, 5 Sleep.
+  D1 human: Human is a Most Rested Duck.
+  D1 ai: AI rests at 3: 1 Twigs today, 5 Sleep.
+  D1 ai: AI is a Most Rested Duck.
+
+ai: Buy Seeds for 3 Sleep
+Day 1/10 · Night · World Event: Thick Morning Mist
+Human: 2 Twigs · space 5 · Exhaustion 2/5 · bag 9 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 5 frozen Sleep; 5 available now. Twigs earned 2; Feathers 0 · Most Rested
+  Sleep: printed 5, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 5.
+  Twigs: printed 2, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 3 · Exhaustion 2/5 · bag 10 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 5 frozen Sleep; 2 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 5, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 5.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D1 human: Human is a Most Rested Duck.
+  D1 ai: AI rests at 3: 1 Twigs today, 5 Sleep.
+  D1 ai: AI is a Most Rested Duck.
+  D1 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+
+human: Buy Seeds for 3 Sleep
+Day 1/10 · Night · World Event: Thick Morning Mist
+Human: 2 Twigs · space 5 · Exhaustion 2/5 · bag 9 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 5 frozen Sleep; 2 available now. Twigs earned 2; Feathers 0 · Most Rested
+  Sleep: printed 5, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 5.
+  Twigs: printed 2, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 3 · Exhaustion 2/5 · bag 10 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 5 frozen Sleep; 2 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 5, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 5.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D1 ai: AI rests at 3: 1 Twigs today, 5 Sleep.
+  D1 ai: AI is a Most Rested Duck.
+  D1 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D1 human: Human buys Seeds for 3 Sleep; it enters tomorrow's bag.
+
+ai: Finish Dream choices
+Day 1/10 · Night · World Event: Thick Morning Mist
+Human: 2 Twigs · space 5 · Exhaustion 2/5 · bag 9 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 5 frozen Sleep; 2 available now. Twigs earned 2; Feathers 0 · Most Rested
+  Sleep: printed 5, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 5.
+  Twigs: printed 2, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 3 · Exhaustion 2/5 · bag 10 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 5 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 5, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 5.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D1 ai: AI is a Most Rested Duck.
+  D1 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D1 human: Human buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D1 ai: AI finishes Dream choices; unspent Sleep expires.
+
+human: Finish Dream choices
+Day 1/10 · DayComplete · World Event: Thick Morning Mist
+Human: 2 Twigs · space 5 · Exhaustion 2/5 · bag 9 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 5 frozen Sleep; 0 available now. Twigs earned 2; Feathers 0 · Most Rested
+  Sleep: printed 5, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 5.
+  Twigs: printed 2, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 3 · Exhaustion 2/5 · bag 10 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 5 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 5, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 5.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D1 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D1 human: Human buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D1 ai: AI finishes Dream choices; unspent Sleep expires.
+  D1 human: Human finishes Dream choices; unspent Sleep expires.
+
+ai: Start Day 2
+Day 2/10 · Adventure · World Event: A Friendly Guide
+Human: 2 Twigs · space 1 · Exhaustion 0/5 · bag 14
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 5 frozen Sleep; 0 available now. Twigs earned 2; Feathers 0 · Most Rested
+  Sleep: printed 5, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 5.
+  Twigs: printed 2, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 1 · Exhaustion 0/5 · bag 14
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 5 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 5, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 5.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D1 human: Human finishes Dream choices; unspent Sleep expires.
+  D2 human: Human starts Day 2 at 1: trail 0, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D2 ai: AI starts Day 2 at 1: trail 0, temporary Most Rested 1; Dawn deficit 1 gave 0 Feather(s).
+  D2 : World Event: A Friendly Guide.
+
+Verified CLI boundary reached: Day 1 → Night 1 → Day 2.

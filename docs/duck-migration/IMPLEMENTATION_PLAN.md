@@ -39,7 +39,7 @@ implementation and full-match balance validation remain future work.
 | --- | --- |
 | First draw and empty bag | Draw at least one token before claiming that Day's route rewards. An empty bag ends exploration after the final token fully resolves. |
 | Reaching or passing 43 | Place once at 43, resolve the complete token including Exhaustion, then finish safely or worn out as appropriate. No bonus for overshoot and no further token placements. Reaching 43 does not end the match. |
-| Starting Feathers | Default 0; offer the same 0–3 starting setting to both ducks. The current default-zero bound is reviewed in [endpoint-review.md](m3-closeout/endpoint-review.md). C1 must verify optional settings 1–3 on the 43-space route before exposing them. Preserve the approved setting requirement; do not silently remove options or clip/convert Feathers. A rule change requires user agreement. |
+| Starting Feathers | Every duck starts at nest 0 with zero Feathers. Permanent Feathers come only from safe haven rewards and Dawn Delivery: deficit 0–2 gives 0, 3–6 gives 1, 7–10 gives 2, and 11+ gives 3. Most Rested gives a temporary +1 and never a Feather. The default pre-Day-10 bound is at most 42; no effective-start cap is needed. |
 | Dream shopping | All 11 offers available from Night 1, unlimited stock initially, one chip per token type per Night, within that player's 1/2/3 purchase cap. Variants share a type. Unspent Sleep expires; purchases enter the next Day's bag. No Night 10 shop. |
 | Final tie | Rank total Twigs including Dream Twigs first, then frozen retained Sleep from Night 10 before conversion. If both match, the game is a draw. No distance tiebreak or separate safe-player filter. |
 | Recovery | No separate flask, rewind or redraw in v1. Splash is only next-token nuisance protection. |
@@ -73,13 +73,21 @@ freeze effective start, then explore. The event deck is shuffled once at match
 creation. Nothing in the current event deck grants permanent Feathers.
 
 The old generic zero-start bound of 46 was derived for 50 spaces and does not
-certify the shorter route. The current [endpoint review](m3-closeout/endpoint-review.md)
-uses early-Day constraints to distinguish a default-zero guarantee from optional
-starting settings that still require a proof. C1 owns that check before enabling
-those values. No new clamp, conversion or loss of the one-Feather/one-step rule
-is approved. New sources or match-length settings require a new check.
+certify the shorter route. The current contract's bound is at most 42 before
+Day 10: 25 Dawn Feathers (one first delivery plus eight later maximum gifts),
+16 haven Feathers (one in each of the first two Days plus seven later havens),
+and one temporary Most Rested step. The setting-3 witness is retained as
+historical evidence for an excluded configuration; its proof JSON/script remain
+unchanged. No new clamp, conversion or loss of the one-Feather/one-step rule is
+needed.
 
-## Important implementation gaps found in the current code
+## Original implementation gaps and their resolution
+
+This audit describes the classic code before C1. C1–C3 have implemented the
+duck identity, private draws, state, Night resolution and command authorization
+items below; their source boundaries and validation are recorded in
+[M4](m4/README.md). Normal AI remains C5 work. Classic references below remain
+as context for the migration, not a claim that duck logic still uses them.
 
 - **Separate token identity and quantities.** Current
   [Token](../../src/Quackies.Core/Tokens/Token.cs#L5) is colour plus value.
@@ -128,7 +136,7 @@ state, pending commitments and previews, event counters, frozen rewards,
 purchase counts, settings and format/rules version. Include Day 10 beat
 ID/revision, frozen participant cohort and reveal status when applicable, plus
 action-issuance sequences on every Day. An observation snapshot is
-not a complete save. Current pending choices contain delegates and
+not a complete save. The classic pending choices contain delegates and
 [SeededRandomSource](../../src/Quackies.Core/Randomness/SeededRandomSource.cs#L5)
 does not export RNG state; these cannot simply be JSON-serialized as-is.
 
@@ -184,11 +192,11 @@ studies remain in their evidence directories and do not prescribe current layout
 
 | Checkpoint | Result and focused evidence |
 | --- | --- |
-| C1: profile/data/state foundation | Preserve classic SetOne; introduce duck definitions, ten-Day settings and 43 occupied reward rows. Validate stable IDs, movement versus ability quantities and exact data. Design saveable state/profile lifecycle and complete the optional-start safety check. |
+| C1: profile/data/state foundation | Complete: preserve classic SetOne; introduce duck definitions, ten-Day settings and 43 occupied reward rows. Validate stable IDs, movement versus ability quantities, exact data and saveable state/profile lifecycle. Every duck starts at nest 0 with zero Feathers. |
 | C2: adventure and exact draws | Opening bag, movement, Explore/Settle, Exhaustion, Log/Mud/Splash/Goose and all helpful tokens; ordered private previews, independent Days 1–9 drawing, final-Day commitment support and endpoint/empty-bag behavior. CLI can expose each new action as it lands. |
-| C3: one complete Day and Night | All ten event handlers tested in isolated Day fixtures; collective conditions, safe/worn outcomes, Reeds/Flowers/flock, frozen Sleep, Most Rested, Night 1 purchases, capped Dawn delivery, permanent trail and temporary zzz activation. A Day 1 → Night 1 → Day 2 CLI slice works with authoritative breakdowns. |
-| C4: complete ten-Day match | Extend the working daily cycle across all ten Days: once-only Day 5 Goose, shared deck, repeated Dawn awards, nest-tier transitions, Day 10 hidden decisions, final haven bonus, conversion and Twig-then-Sleep winners. Run seeded full matches using deterministic legal test policies while Normal is completed. |
-| C5: Normal AI and resume | New policy uses legitimate information and the new rewards. Add versioned local save/continue and exact continuation tests. Record representative decisions and match outcomes. |
+| C3: one complete Day and Night | Complete for the bounded slice: Night/Dream/Dawn/CLI integration, event fixtures and the Day 1 → Night 1 → Day 2 CLI cycle with authoritative breakdowns. |
+| C4: complete ten-Day match | Unstarted: extend the working daily cycle across all ten Days, Day 5 Goose, shared deck, repeated Dawn awards, nest tiers, Day 10 decisions, final conversion and winners. |
+| C5: Normal AI and resume | Unstarted: add the new Normal policy, versioned local save/continue and exact continuation tests. |
 
 ### C1 — The first work after M4 approval
 
@@ -207,16 +215,19 @@ studies remain in their evidence directories and do not prescribe current layout
    ordered previews, event state and final-Day commitments. Keep serializable
    pending-decision descriptions and resumable randomness in the design from
    the outset. Filesystem writes and complete Continue behaviour arrive in C5.
-5. **Resolve the starting-position safety check.** Verify the approved shared
-   starting-Feather options 0–3 against the 43-space endpoint. If a reachable
-   start at/past the endpoint needs a new rule, present that specific choice to
-   the user before coding it. Do not change the one-Feather/one-step rule by
-   inventing a cap or dropping settings.
+5. **Record the starting-position contract.** Every duck starts at nest 0 with
+   zero Feathers. The default pre-Day-10 bound is at most 42, so no
+   effective-start cap is needed. Keep the setting-3 witness as historical
+   evidence for an excluded configuration; do not expose an optional starting
+   Feather setting or alter the one-Feather/one-step rule.
 6. **Expose and check the foundation through the CLI.** Select/inspect the duck
    profile and its initial data/state through the existing client boundary.
    Check exact board/shop/catalogue values, stable identities, independent state
-   and original-profile regressions. This checkpoint establishes foundations;
-   it does not claim playable Adventure, Night resolution or working saves yet.
+   and original-profile regressions. The bounded CLI checks are:
+   dotnet run --project src/Quackies.Cli -- --profile ducks --seed 42 --demo-day
+   and dotnet run --project src/Quackies.Cli -- --profile ducks --seed 42 --inspect.
+   C1–C3 now establish the bounded Day/Night slice; they do not claim the full
+   ten-Day game, Normal AI or working save/resume.
 
 Keep the existing snapshot/legal-actions/execute API shape and one authoritative
 match engine. Use focused profile policies/adapters where behaviour differs;
@@ -273,7 +284,7 @@ rules and cosmetic expansion remain later work.
 - Purchase count across reopening/resume, variant types, zero affordable offers,
   Sleep expiry, all-safe/all-worn/tied Most Rested; unequal Twigs outrank Sleep,
   equal Twigs use Night 10 retained Sleep, and equal values on both are a draw.
-- Dawn gaps 0/4/5/8/9/large; zero and highest accepted starting setting;
+- Dawn gaps 0/2/3/6/7/10/11/large; zero starting Feathers and threshold gifts;
   permanent versus temporary start; Day 5 Goose added once across resume.
 - Restore after an ordinary-Day action, while a Day 10 decision is pending, after Signpost,
   after a purchase, after Night rewards and at final scoring; same future state

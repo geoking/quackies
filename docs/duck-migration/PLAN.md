@@ -2,7 +2,8 @@
 
 Updated 14 September 2026. **M2 and M3 are complete and approved by the user.**
 M3 closes with the 43-space board and reward typography at `2c7cd6a`.
-**M4 is active. The user authorized C1–C3, then a progress report before C4.**
+**M4 C1–C3 are complete for this bounded slice; C4/C5 are unstarted and await
+the progress report.**
 Historical decisions and checks remain in [PROGRESS.md](../PROGRESS.md).
 
 ## What we are building
@@ -125,21 +126,27 @@ whole match loop, or put rule arithmetic into Unity.
 | M0 / initial M1 | Historical original baseline and art exploration |
 | M2 — Rules sheet | Complete: rules, data, events, defaults and local save/resume scope approved |
 | M3 — Layout | Complete: final 43-space visual proof approved by the user |
-| **M4 — Core/CLI** | **Active through C3; C4/C5 await the next review.** C1 foundations/data → C2 Adventure/exact draws → C3 complete Day/Night → C4 ten-Day matches → C5 Normal AI/save-resume |
+| **M4 — Core/CLI** | **C1–C3 complete for this slice; C4/C5 unstarted.** C4 ten-Day matches → C5 Normal AI/save-resume |
 | M5 — Connected Unity | Bind the accepted board/Dream views to committed Core state/actions and complete a human/AI match |
 | M6 — Balance/export | Review seeded match outcomes, tune with approval, finish readability/performance and validate iOS export |
 
-The **current M4 checkpoint is C1**: establish the duck profile, import
-all approved data, separate token movement from ability quantities, and define
-saveable match state while keeping the classic regression suite passing. Update
-the CLI alongside each slice. The [detailed C1 plan](IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval)
-sets its deliverables and stopping boundary.
+The bounded C1–C3 slice established the duck profile, exact catalogue, state,
+Adventure, Night/Dream/Dawn integration and the Day 1 → Night 1 → Day 2 CLI
+cycle while keeping the classic regression suite passing. Runnable CLI checks:
+dotnet run --project src/Quackies.Cli -- --profile ducks --seed 42 --demo-day
+and dotnet run --project src/Quackies.Cli -- --profile ducks --seed 42 --inspect.
+The [detailed C1 plan](IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval)
+records the foundation boundary.
 
-C1 found a [reachable setting-3 overflow](m4/starting-feather-review.md): permanent
-Day-10 start 43 plus Most Rested gives effective start 44. Default zero remains
-proven safe. A user decision on this endpoint policy is pending; no cap,
-conversion, lost Feather or removed setting is approved. Independent C2/C3
-work continues. Actual full-match balance remains M6 work.
+C1 resolved the starting contract: every duck starts at nest 0 with zero
+Feathers. Permanent Feathers come only from safe haven rewards and Dawn Delivery
+thresholds; Most Rested is a temporary +1 and never a Feather. The default
+pre-Day-10 bound is at most 42, so no effective-start cap is needed. The
+setting-3 witness remains historical evidence for an excluded configuration;
+its proof JSON/script are retained unchanged. C1 foundations and C2 source/test
+checkpoints are committed; C3 Night/Dream/Dawn/CLI integration is complete for
+the bounded Day 1 → Night 1 → Day 2 slice. C4/C5 remain unstarted. Actual
+full-match balance remains M6 work.
 
 Stop for user review at each milestone. M4 source and focused tests are small,
 separate checked commits with regular GitHub checkpoints; root owns Git and

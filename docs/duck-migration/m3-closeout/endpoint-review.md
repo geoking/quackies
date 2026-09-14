@@ -1,5 +1,13 @@
 # M3 43-space endpoint review
 
+**Historical M3 review.** The nonzero starting options and Dawn thresholds
+discussed below were superseded during M4. Every duck now starts at nest 0 with
+zero Feathers; Dawn gives 0 for deficits 0–2, 1 for 3–6, 2 for 7–10 and 3 for
+11+. The current bound is still 42, and no effective-start cap is required.
+See the [current contract](../IMPLEMENTATION_PLAN.md) and
+[M4 resolution](../m4/starting-feather-review.md). The linked canonical audit
+has been regenerated for that contract; this text preserves the earlier review.
+
 14 September 2026. This bounded rules review uses the approved 43-space board,
 the current encounter rules and the ten-card World Event deck. It does not
 simulate complete matches or authorize M4 implementation. The reproducible

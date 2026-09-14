@@ -4,6 +4,9 @@
   "scope": {
     "days": 10,
     "trail_spaces": 43,
+    "supported_starting_feathers": [
+      0
+    ],
     "havens": [
       4,
       10,
@@ -43,7 +46,7 @@
     "Each purchase comparison adds the named chip to the bag. Signpost preview, voluntary stopping, World Events, ordinary rest nuisances and all effects not explicitly reported are excluded.",
     "Reeds expectations are gross pending Twigs before a possible final Brambles nuisance.",
     "Fixed draw-eight pressure means continued drawing and is not an estimate of a player's wear-out rate.",
-    "Dawn Delivery applies min(3, ceil(Twig gap / 4)); examples intentionally hold gaps or daily reward extremes fixed to expose the payment boundary."
+    "Dawn Delivery uses frozen Twig-deficit bands: 0-2 gives 0 Feathers, 3-6 gives 1, 7-10 gives 2, and 11 or more gives 3; examples intentionally hold gaps or daily reward extremes fixed to expose the payment boundary."
   ],
   "opening_travel": {
     "model_scope": "Exact for the listed safe-stop, Log and Mud model, with ordinary Splash shielding omitted. It is not an exact prediction for the complete new-power starting bag.",
@@ -686,7 +689,7 @@
     "break_even_assumption": "Holds the printed reward and Twig value fixed. If the next draw is safe, its extra Sleep value must offset the chance of floor(Sleep / 2); movement jumps, preview information and retained Twigs can change a real decision."
   },
   "dawn_delivery": {
-    "rule": "Feathers = min(3, ceil(Twig gap / 4)); a zero gap gives zero Feathers",
+    "rule": "Frozen Twig deficit 0-2 gives 0 Feathers; 3-6 gives 1; 7-10 gives 2; 11 or more gives 3",
     "static_gap_repetition": [
       {
         "twig_gap": 0,
@@ -696,48 +699,48 @@
       },
       {
         "twig_gap": 1,
+        "feathers_each_dawn": 0,
+        "feathers_over_5_unchanged_dawns": 0,
+        "feathers_over_9_unchanged_dawns": 0
+      },
+      {
+        "twig_gap": 2,
+        "feathers_each_dawn": 0,
+        "feathers_over_5_unchanged_dawns": 0,
+        "feathers_over_9_unchanged_dawns": 0
+      },
+      {
+        "twig_gap": 3,
         "feathers_each_dawn": 1,
         "feathers_over_5_unchanged_dawns": 5,
         "feathers_over_9_unchanged_dawns": 9
       },
       {
-        "twig_gap": 4,
+        "twig_gap": 6,
         "feathers_each_dawn": 1,
         "feathers_over_5_unchanged_dawns": 5,
         "feathers_over_9_unchanged_dawns": 9
       },
       {
-        "twig_gap": 5,
+        "twig_gap": 7,
         "feathers_each_dawn": 2,
         "feathers_over_5_unchanged_dawns": 10,
         "feathers_over_9_unchanged_dawns": 18
       },
       {
-        "twig_gap": 8,
+        "twig_gap": 10,
         "feathers_each_dawn": 2,
         "feathers_over_5_unchanged_dawns": 10,
         "feathers_over_9_unchanged_dawns": 18
       },
       {
-        "twig_gap": 9,
+        "twig_gap": 11,
         "feathers_each_dawn": 3,
         "feathers_over_5_unchanged_dawns": 15,
         "feathers_over_9_unchanged_dawns": 27
       },
       {
-        "twig_gap": 12,
-        "feathers_each_dawn": 3,
-        "feathers_over_5_unchanged_dawns": 15,
-        "feathers_over_9_unchanged_dawns": 27
-      },
-      {
-        "twig_gap": 13,
-        "feathers_each_dawn": 3,
-        "feathers_over_5_unchanged_dawns": 15,
-        "feathers_over_9_unchanged_dawns": 27
-      },
-      {
-        "twig_gap": 20,
+        "twig_gap": 2147483647,
         "feathers_each_dawn": 3,
         "feathers_over_5_unchanged_dawns": 15,
         "feathers_over_9_unchanged_dawns": 27
@@ -769,8 +772,8 @@
       "day_1_maximum_twigs_for_day_2_dawn": 4,
       "day_2_maximum_dawn_feathers": 1,
       "day_2_safe_maximum_movement_after_one_purchase": 20,
-      "maximum_supported_setting_day_2_effective_start": 7,
-      "maximum_supported_setting_day_2_safe_reach": 27,
+      "supported_profile_day_2_effective_start_upper_bound": 3,
+      "supported_profile_day_2_safe_reach_upper_bound": 23,
       "first_two_feather_haven": 32,
       "maximum_day_1_and_day_2_haven_feathers_each": 1,
       "maximum_feathers_from_previous_haven_awards": 16,
@@ -780,105 +783,45 @@
       "maximum_effective_start_before_day_10": 42,
       "trail_spaces": 43,
       "proves_default_start_before_endpoint": true,
-      "proof": "Day 1 can move at most 14 safely under Rain-Softened Seeds, so its haven award is at most 1 Feather. A lethal sixth white can then finish at 15; worn-out ducks retain that row's 4 Twigs. Under the mutually exclusive Pocket of Driftwood event there is no Rain movement: the lethal-white maximum is 13, whose printed reward is at most 3 Twigs, plus the event's 1. Thus every default Day 1 payout is at most 4 Twigs and the Day 2 Dawn gift is at most 1. Day 2 can move at most 20 safely after one purchase. The supported settings have setting-specific Day 2 starts no greater than 7 and safe reaches no greater than 27, before the first 2-Feather haven at 32, so both early haven awards are at most 1. The remaining seven prior haven awards are at most 2 each and the remaining eight Dawn gifts are at most 3 each: 16 haven + 25 Dawn + 1 temporary = 42 for the default setting."
+      "proof": "Day 1 can move at most 14 safely under Rain-Softened Seeds, so its haven award is at most 1 Feather. A lethal sixth white can then finish at 15; worn-out ducks retain that row's 4 Twigs. Under the mutually exclusive Pocket of Driftwood event there is no Rain movement: the lethal-white maximum is 13, whose printed reward is at most 3 Twigs, plus the event's 1. Thus every supported-profile Day 1 payout is at most 4 Twigs and the Day 2 Dawn gift is at most 1 under the 3-6 band. The zero-start profile's Day 2 effective start is at most 3, and it can move at most 20 safely after one purchase, reaching at most 23 before the first 2-Feather haven at 32. Both early haven awards are therefore at most 1. The remaining seven prior haven awards are at most 2 each and the remaining eight Dawn gifts are at most 3 each: 16 haven + 25 Dawn + 1 temporary = 42."
     },
-    "m4_preimplementation_endpoint_bound_gate": {
-      "status": "unresolved for the approved shared starting-Feather settings 1 through 3",
-      "conservative_effective_start_bounds": {
-        "1": 43,
-        "2": 45,
-        "3": 46
-      },
-      "setting_specific_evidence": {
-        "0": {
-          "initial_feathers": 0,
-          "day_1_safe_maximum_reach": 14,
-          "day_1_rain_maximum_final_position_including_lethal_sixth_white": 15,
-          "day_1_rain_maximum_printed_twigs_retained_when_worn_out": 4,
-          "day_1_pocket_maximum_final_position_including_lethal_sixth_white": 13,
-          "day_1_pocket_maximum_printed_plus_event_twigs": 4,
-          "day_1_maximum_twigs_for_day_2_dawn": 4,
-          "day_2_maximum_dawn_feathers": 1,
-          "day_1_maximum_haven_feathers": 1,
-          "day_2_effective_start_upper_bound": 3,
-          "day_2_safe_reach_upper_bound": 23,
-          "day_2_maximum_haven_feathers": 1,
-          "maximum_feathers_from_previous_haven_awards": 16,
-          "maximum_feathers_from_dawn_gifts": 25,
-          "maximum_effective_start_before_day_10": 42,
-          "proves_start_before_endpoint": true
-        },
-        "1": {
-          "initial_feathers": 1,
-          "day_1_safe_maximum_reach": 15,
-          "day_1_rain_maximum_final_position_including_lethal_sixth_white": 16,
-          "day_1_rain_maximum_printed_twigs_retained_when_worn_out": 4,
-          "day_1_pocket_maximum_final_position_including_lethal_sixth_white": 14,
-          "day_1_pocket_maximum_printed_plus_event_twigs": 4,
-          "day_1_maximum_twigs_for_day_2_dawn": 4,
-          "day_2_maximum_dawn_feathers": 1,
-          "day_1_maximum_haven_feathers": 1,
-          "day_2_effective_start_upper_bound": 4,
-          "day_2_safe_reach_upper_bound": 24,
-          "day_2_maximum_haven_feathers": 1,
-          "maximum_feathers_from_previous_haven_awards": 16,
-          "maximum_feathers_from_dawn_gifts": 25,
-          "maximum_effective_start_before_day_10": 43,
-          "proves_start_before_endpoint": false
-        },
-        "2": {
-          "initial_feathers": 2,
-          "day_1_safe_maximum_reach": 16,
-          "day_1_rain_maximum_final_position_including_lethal_sixth_white": 17,
-          "day_1_rain_maximum_printed_twigs_retained_when_worn_out": 4,
-          "day_1_pocket_maximum_final_position_including_lethal_sixth_white": 15,
-          "day_1_pocket_maximum_printed_plus_event_twigs": 5,
-          "day_1_maximum_twigs_for_day_2_dawn": 5,
-          "day_2_maximum_dawn_feathers": 2,
-          "day_1_maximum_haven_feathers": 1,
-          "day_2_effective_start_upper_bound": 6,
-          "day_2_safe_reach_upper_bound": 26,
-          "day_2_maximum_haven_feathers": 1,
-          "maximum_feathers_from_previous_haven_awards": 16,
-          "maximum_feathers_from_dawn_gifts": 26,
-          "maximum_effective_start_before_day_10": 45,
-          "proves_start_before_endpoint": false
-        },
-        "3": {
-          "initial_feathers": 3,
-          "day_1_safe_maximum_reach": 17,
-          "day_1_rain_maximum_final_position_including_lethal_sixth_white": 18,
-          "day_1_rain_maximum_printed_twigs_retained_when_worn_out": 4,
-          "day_1_pocket_maximum_final_position_including_lethal_sixth_white": 16,
-          "day_1_pocket_maximum_printed_plus_event_twigs": 5,
-          "day_1_maximum_twigs_for_day_2_dawn": 5,
-          "day_2_maximum_dawn_feathers": 2,
-          "day_1_maximum_haven_feathers": 1,
-          "day_2_effective_start_upper_bound": 7,
-          "day_2_safe_reach_upper_bound": 27,
-          "day_2_maximum_haven_feathers": 1,
-          "maximum_feathers_from_previous_haven_awards": 16,
-          "maximum_feathers_from_dawn_gifts": 26,
-          "maximum_effective_start_before_day_10": 46,
-          "proves_start_before_endpoint": false
-        }
-      },
-      "endpoint": 43,
-      "condition_to_prove": "The effective start must be strictly below 43 so the required first draw can place a chip.",
-      "finding": "Setting-specific Day 1 Twig bounds produce conservative effective-start bounds of 43, 45 and 46 for settings 1, 2 and 3. These upper bounds do not prove that a real match reaches or passes the endpoint, and they do not prove that the settings are safe.",
-      "required_m4_decision": "Before implementation, either establish a tighter exact reachability bound for settings 1 through 3 or obtain a product rule for start-at/past-endpoint handling. This audit does not authorize clipping, caps or a settings change."
+    "supported_starting_feather_evidence": {
+      "0": {
+        "initial_feathers": 0,
+        "day_1_safe_maximum_reach": 14,
+        "day_1_rain_maximum_final_position_including_lethal_sixth_white": 15,
+        "day_1_rain_maximum_printed_twigs_retained_when_worn_out": 4,
+        "day_1_pocket_maximum_final_position_including_lethal_sixth_white": 13,
+        "day_1_pocket_maximum_printed_plus_event_twigs": 4,
+        "day_1_maximum_twigs_for_day_2_dawn": 4,
+        "day_2_maximum_dawn_feathers": 1,
+        "day_1_maximum_haven_feathers": 1,
+        "day_2_effective_start_upper_bound": 3,
+        "day_2_safe_reach_upper_bound": 23,
+        "day_2_maximum_haven_feathers": 1,
+        "maximum_feathers_from_previous_haven_awards": 16,
+        "maximum_feathers_from_dawn_gifts": 25,
+        "maximum_effective_start_before_day_10": 42,
+        "proves_start_before_endpoint": true
+      }
     },
     "boundary_assertions": {
       "gaps_checked": [
         0,
-        4,
-        5,
-        8,
-        9,
-        100
+        1,
+        2,
+        3,
+        6,
+        7,
+        10,
+        11,
+        2147483647
       ],
       "expected_gifts": [
         0,
+        0,
+        0,
+        1,
         1,
         2,
         2,
@@ -886,7 +829,7 @@
         3
       ]
     },
-    "boundary_requiring_explicit_rules": "The default zero-Feather setting is bounded to effective start 42, before endpoint 43. Settings 1 through 3 remain an explicit M4 gate; this audit does not add a settings limit, endpoint clamp or other rule."
+    "endpoint_bound": "The supported zero-start profile is bounded to effective start 42 before endpoint 43. This audit does not add an endpoint clamp or another Feather rule."
   },
   "limitations": [
     "The 43-row table is read for board assertions, haven metadata, opening affordability and the analytic default-start bound; later-day reward transitions and full purchase history are not simulated.",
@@ -895,6 +838,6 @@
     "Wildflowers, Splash and Signpost are priced here only for computed movement comparisons; their strategic utility is not assigned a numeric value.",
     "The 8.640 opening mean is exact only for the scoped traversal that always applies Log and Mud. It omits Splash blocking either ordinary nuisance and is not a complete-new-power bag prediction.",
     "The 21.825% positive final Companion flock result likewise omits Splash blocking Mud. It covers one added Companion within that simplification; multiple-Night flock growth needs a complete match simulation.",
-    "The Dawn section proves only the default zero-Feather setting starts before endpoint 43. Approved settings 1 through 3, changed Feather sources or changed round length require the recorded M4 gate or a fresh audit."
+    "The Dawn section proves only the supported zero-start profile starts before endpoint 43. Changed Feather sources, starting progress or round length require a fresh audit."
   ]
 }

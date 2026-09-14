@@ -1,8 +1,9 @@
 # Duck migration status
 
 Updated 14 September 2026. **M2 and M3 are complete and approved by the user.**
-The accepted visual checkpoint is `2c7cd6a`. **M4 is active through C3, then
-stops for a progress report.** No duck Core session is bound to Unity.
+The accepted visual checkpoint is `2c7cd6a`. **M4 C1–C3 are complete for this
+bounded slice; C4/C5 are unstarted pending the progress report.** No duck Core
+session is bound to Unity.
 
 ## Closed milestones
 
@@ -34,28 +35,27 @@ explicitly deferred; higher render dimensions do not create new painted detail.
 ## Active: M4 Core/CLI through C3
 
 Evolve the existing engine and CLI, preserving the original tested profile and
-snapshot/legal-actions/execute boundary. C1–C3 are authorized; C4/C5 remain later:
+snapshot/legal-actions/execute boundary. C1–C3 are complete; C4/C5 remain later:
 
-1. C1: exact duck data, token identity, saveable state and profile foundation.
-2. C2: Adventure, encounters, exact private previews and decision timing.
-3. C3: a complete Day → Night → next-Day CLI cycle and all event fixtures.
+1. C1: complete exact duck data, token identity, saveable state and profile foundation.
+2. C2: complete Adventure, encounters, exact private previews and decision timing.
+3. C3: complete the bounded Day → Night → next-Day CLI cycle and event fixtures.
 4. C4: all ten Days, Dawn/Goose/nest transitions, final conversion and winners.
 5. C5: Normal AI, local autosave/Continue and deterministic resume checks.
 
 The [C1 brief](IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval)
-defines the first deliverable and its tests. The approved shared 0–3 starting
-Feather setting must be checked against the 43-space endpoint before all options
-are exposed. The [endpoint review](m3-closeout/endpoint-review.md) distinguishes
-current default-zero evidence from the optional settings. C1 now has a
-[constructive setting-3 overflow](m4/starting-feather-review.md), and the user
-has been asked to decide the endpoint policy. No adjustment is approved yet.
-Do not silently cap/convert Feathers or remove approved options; surface a
-specific rule decision to the user if analysis requires one.
+defines the completed foundation. Every duck starts at nest 0 with zero
+Feathers. Permanent Feathers come only from safe haven rewards and Dawn Delivery
+thresholds; Most Rested is a temporary +1. The default pre-Day-10 bound is at
+most 42, so no effective-start cap is needed. The setting-3 witness in
+[starting-feather-review.md](m4/starting-feather-review.md) is historical
+evidence for an excluded configuration; its proof JSON/script remain unchanged.
 
-Current implementation: shared typed command boundary, resumable randomness,
-exact catalogue and saveable state foundation are checked. All 174 tests pass
-at the state/isolated-Night boundary. Adventure and Dream/Dawn integration are
-active; [M4 evidence](m4/README.md) records checkpoints and outstanding work.
+Current implementation: C1 foundations are checked; C2 source/test checkpoints
+are 3c2e73c / bebf161; C3 Night/Dream/Dawn/CLI integration is complete for the
+bounded slice. Full-suite validation is 241/241 including real Day 1 → Night 1
+→ Day 2 CLI, zero-start and Dawn checks. Normal AI and local save/Continue
+remain later C5 work.
 
 M5 connects the accepted Unity board/Dream views to committed Core actions/state,
 finishes runtime nest/award/event presentation, and verifies a complete human/AI

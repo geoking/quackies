@@ -1,0 +1,20 @@
+Quackies ducks · 10 Days · seed 42 · all ducks start at the nest
+Day 1/10 · Adventure · World Event: Thick Morning Mist
+Human: 0 Twigs · space 0 · Exhaustion 0/5 · bag 13
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 0 · Exhaustion 0/5 · bag 13
+  Feather trail 0 · today's start 0 · active flock 0
+
+Catalogue: 43 rewards · 8 havens · 16 encounter variants · 11 shop offers · 10 World Events
+Own inventory: fallen_log ×2, mud_puddle ×2, loose_pebbles ×2, brambles ×2, seeds ×2, tailwind_2 ×1, signpost ×1, splash ×1
+  seeds: 3 Sleep · movement 1 · Twig yield 0
+  tailwind_2: 5 Sleep · movement 2 · Twig yield 0
+  tailwind_4: 10 Sleep · movement 4 · Twig yield 0
+  tailwind_6: 15 Sleep · movement 6 · Twig yield 0
+  signpost: 7 Sleep · movement 2 · Twig yield 0
+  splash: 4 Sleep · movement 1 · Twig yield 0
+  reeds_1: 6 Sleep · movement 1 · Twig yield 1
+  reeds_2: 11 Sleep · movement 1 · Twig yield 2
+  reeds_3: 16 Sleep · movement 1 · Twig yield 3
+  companion: 7 Sleep · movement flock-dependent · Twig yield 0
+  wildflowers: 5 Sleep · movement 1 · Twig yield 0

@@ -25,12 +25,20 @@ Preserve the accepted path centres, 108 × 84 tiles, 64-pixel chip frame, native
 explicitly deferred. M5 will connect Core and finish runtime Dream/nest/event
 presentation using the accepted visual direction.
 
-C1 verifies the approved 0–3 starting-Feather settings against the shorter route;
-[endpoint-review.md](duck-migration/m3-closeout/endpoint-review.md) records the
-current bound and its limits. Do not invent a Feather clamp, conversion or an
-unapproved reduction in settings. Core/CLI implementation is now active; no
-Unity build or device export is authorized. Preserve the unrelated ProjectSettings
-draft outside commits. Current evidence and source decisions: [M4](duck-migration/m4/README.md).
+C1 resolved the starting contract: every duck starts at nest 0 with zero
+Feathers. Safe haven rewards and Dawn thresholds (0–2 → 0, 3–6 → 1, 7–10 → 2,
+11+ → 3) are the permanent sources; Most Rested is a temporary +1. The
+pre-Day-10 bound is at most 42, so no effective-start cap is needed. The
+setting-3 witness is historical evidence for an excluded configuration; its
+proof artifacts remain unchanged. Core/CLI implementation is active through
+C3; C1–C3 are complete for the bounded Day 1 → Night 1 → Day 2 slice. Runnable
+checks are dotnet run --project src/Quackies.Cli -- --profile ducks --seed 42
+--demo-day and dotnet run --project src/Quackies.Cli -- --profile ducks --seed
+42 --inspect; outputs are saved in [the M4 record](duck-migration/m4/README.md).
+C4/C5 remain unstarted; no Unity build or device export
+is authorized. Preserve the unrelated ProjectSettings draft outside commits.
+Current evidence and source decisions:
+[M4](duck-migration/m4/README.md).
 
 ## Completed playable baseline
 

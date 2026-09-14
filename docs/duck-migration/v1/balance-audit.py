@@ -30,7 +30,7 @@ TRAIL_SPACES = 43
 HAVENS = (4, 10, 16, 21, 26, 32, 36, 43)
 EXPECTED_BIOME_COUNTS = {"wetlands": 14, "meadow": 14, "wasteland": 15}
 DAWN_GIFT_CAP = 3
-SUPPORTED_STARTING_FEATHERS = range(4)
+SUPPORTED_STARTING_FEATHERS = (0,)
 
 # name, count, white, Log, Mud, fixed movement; movement None is Companion.
 STARTING_TOKENS = (
@@ -137,6 +137,18 @@ def load_reference_data() -> tuple[dict[int, dict[str, object]], dict[str, int]]
 
 def percent_text(value: Fraction) -> str:
     return f"{float(value) * 100:.3f}%"
+
+
+def dawn_feathers_for_deficit(deficit: int) -> int:
+    """Return the approved Dawn Delivery band for a frozen Twig deficit."""
+    assert deficit >= 0
+    if deficit <= 2:
+        return 0
+    if deficit <= 6:
+        return 1
+    if deficit <= 10:
+        return 2
+    return DAWN_GIFT_CAP
 
 
 def affordability_readout(rows: dict[str, dict[str, object]]) -> str:
@@ -540,8 +552,9 @@ def build_report() -> dict[str, object]:
         )
 
     static_dawn = []
-    for gap in (0, 1, 4, 5, 8, 9, 12, 13, 20):
-        gift = min(DAWN_GIFT_CAP, (gap + 3) // 4)
+    dawn_boundary_gaps = (0, 1, 2, 3, 6, 7, 10, 11, 2**31 - 1)
+    for gap in dawn_boundary_gaps:
+        gift = dawn_feathers_for_deficit(gap)
         static_dawn.append(
             {
                 "twig_gap": gap,
@@ -550,15 +563,10 @@ def build_report() -> dict[str, object]:
                 "feathers_over_9_unchanged_dawns": gift * 9,
             }
         )
-    assert [row["feathers_each_dawn"] for row in static_dawn] == [0, 1, 1, 2, 2, 3, 3, 3, 3]
-    assert min(DAWN_GIFT_CAP, (0 + 3) // 4) == 0
-    assert min(DAWN_GIFT_CAP, (4 + 3) // 4) == 1
-    assert min(DAWN_GIFT_CAP, (5 + 3) // 4) == 2
-    assert min(DAWN_GIFT_CAP, (8 + 3) // 4) == 2
-    assert min(DAWN_GIFT_CAP, (9 + 3) // 4) == 3
-    assert min(DAWN_GIFT_CAP, (100 + 3) // 4) == 3
+    dawn_boundary_gifts = [0, 0, 0, 1, 1, 2, 2, 3, 3]
+    assert [row["feathers_each_dawn"] for row in static_dawn] == dawn_boundary_gifts
     extreme_gifts = [
-        min(DAWN_GIFT_CAP, ((8 * prior_days) + 3) // 4)
+        dawn_feathers_for_deficit(8 * prior_days)
         for prior_days in range(1, 10)
     ]
     assert extreme_gifts == [2, 3, 3, 3, 3, 3, 3, 3, 3]
@@ -614,7 +622,7 @@ def build_report() -> dict[str, object]:
             board[position]["twigs"] for position in range(1, day_1_pocket_max_rest + 1)
         )
         day_1_max_twigs = max(day_1_rain_max_twigs, day_1_pocket_max_twigs)
-        day_2_max_dawn_gift = min(DAWN_GIFT_CAP, (day_1_max_twigs + 3) // 4)
+        day_2_max_dawn_gift = dawn_feathers_for_deficit(day_1_max_twigs)
         day_1_max_haven_feathers = max(
             board[position]["feathers"]
             for position in HAVENS
@@ -679,15 +687,16 @@ def build_report() -> dict[str, object]:
     assert day_1_safe_max_movement == 14
     assert day_2_safe_max_movement == 20
     assert first_two_feather_haven == 32
-    assert [row["day_1_maximum_twigs_for_day_2_dawn"] for row in setting_bound_rows.values()] == [4, 4, 5, 5]
-    assert [row["day_2_maximum_dawn_feathers"] for row in setting_bound_rows.values()] == [1, 1, 2, 2]
-    assert [row["day_1_maximum_haven_feathers"] for row in setting_bound_rows.values()] == [1, 1, 1, 1]
-    assert [row["day_2_effective_start_upper_bound"] for row in setting_bound_rows.values()] == [3, 4, 6, 7]
-    assert [row["day_2_safe_reach_upper_bound"] for row in setting_bound_rows.values()] == [23, 24, 26, 27]
-    assert [row["day_2_maximum_haven_feathers"] for row in setting_bound_rows.values()] == [1, 1, 1, 1]
-    assert [row["maximum_feathers_from_previous_haven_awards"] for row in setting_bound_rows.values()] == [16, 16, 16, 16]
-    assert [row["maximum_feathers_from_dawn_gifts"] for row in setting_bound_rows.values()] == [25, 25, 26, 26]
-    assert [row["maximum_effective_start_before_day_10"] for row in setting_bound_rows.values()] == [42, 43, 45, 46]
+    assert list(setting_bound_rows) == ["0"]
+    assert default_row["day_1_maximum_twigs_for_day_2_dawn"] == 4
+    assert default_row["day_2_maximum_dawn_feathers"] == 1
+    assert default_row["day_1_maximum_haven_feathers"] == 1
+    assert default_row["day_2_effective_start_upper_bound"] == 3
+    assert default_row["day_2_safe_reach_upper_bound"] == 23
+    assert default_row["day_2_maximum_haven_feathers"] == 1
+    assert default_row["maximum_feathers_from_previous_haven_awards"] == 16
+    assert default_row["maximum_feathers_from_dawn_gifts"] == 25
+    assert default_row["maximum_effective_start_before_day_10"] == 42
     assert default_maximum_permanent_start == 41
     assert default_maximum_effective_start == 42
     assert default_maximum_effective_start < TRAIL_SPACES
@@ -703,8 +712,8 @@ def build_report() -> dict[str, object]:
         "day_1_maximum_twigs_for_day_2_dawn": default_row["day_1_maximum_twigs_for_day_2_dawn"],
         "day_2_maximum_dawn_feathers": default_row["day_2_maximum_dawn_feathers"],
         "day_2_safe_maximum_movement_after_one_purchase": day_2_safe_max_movement,
-        "maximum_supported_setting_day_2_effective_start": max(row["day_2_effective_start_upper_bound"] for row in setting_bound_rows.values()),
-        "maximum_supported_setting_day_2_safe_reach": max(row["day_2_safe_reach_upper_bound"] for row in setting_bound_rows.values()),
+        "supported_profile_day_2_effective_start_upper_bound": default_row["day_2_effective_start_upper_bound"],
+        "supported_profile_day_2_safe_reach_upper_bound": default_row["day_2_safe_reach_upper_bound"],
         "first_two_feather_haven": first_two_feather_haven,
         "maximum_day_1_and_day_2_haven_feathers_each": 1,
         "maximum_feathers_from_previous_haven_awards": default_row["maximum_feathers_from_previous_haven_awards"],
@@ -714,14 +723,8 @@ def build_report() -> dict[str, object]:
         "maximum_effective_start_before_day_10": default_maximum_effective_start,
         "trail_spaces": TRAIL_SPACES,
         "proves_default_start_before_endpoint": default_maximum_effective_start < TRAIL_SPACES,
-        "proof": "Day 1 can move at most 14 safely under Rain-Softened Seeds, so its haven award is at most 1 Feather. A lethal sixth white can then finish at 15; worn-out ducks retain that row's 4 Twigs. Under the mutually exclusive Pocket of Driftwood event there is no Rain movement: the lethal-white maximum is 13, whose printed reward is at most 3 Twigs, plus the event's 1. Thus every default Day 1 payout is at most 4 Twigs and the Day 2 Dawn gift is at most 1. Day 2 can move at most 20 safely after one purchase. The supported settings have setting-specific Day 2 starts no greater than 7 and safe reaches no greater than 27, before the first 2-Feather haven at 32, so both early haven awards are at most 1. The remaining seven prior haven awards are at most 2 each and the remaining eight Dawn gifts are at most 3 each: 16 haven + 25 Dawn + 1 temporary = 42 for the default setting.",
+        "proof": "Day 1 can move at most 14 safely under Rain-Softened Seeds, so its haven award is at most 1 Feather. A lethal sixth white can then finish at 15; worn-out ducks retain that row's 4 Twigs. Under the mutually exclusive Pocket of Driftwood event there is no Rain movement: the lethal-white maximum is 13, whose printed reward is at most 3 Twigs, plus the event's 1. Thus every supported-profile Day 1 payout is at most 4 Twigs and the Day 2 Dawn gift is at most 1 under the 3-6 band. The zero-start profile's Day 2 effective start is at most 3, and it can move at most 20 safely after one purchase, reaching at most 23 before the first 2-Feather haven at 32. Both early haven awards are therefore at most 1. The remaining seven prior haven awards are at most 2 each and the remaining eight Dawn gifts are at most 3 each: 16 haven + 25 Dawn + 1 temporary = 42.",
     }
-    nonzero_setting_bounds = {
-        str(setting): setting_bound_rows[str(setting)]["maximum_effective_start_before_day_10"]
-        for setting in SUPPORTED_STARTING_FEATHERS
-        if setting > 0
-    }
-    assert nonzero_setting_bounds == {"1": 43, "2": 45, "3": 46}
 
     cap_two = (
         package_result("Tailwind 4", 10, (("Tailwind 4", 4),)),
@@ -746,6 +749,7 @@ def build_report() -> dict[str, object]:
         "scope": {
             "days": 10,
             "trail_spaces": TRAIL_SPACES,
+            "supported_starting_feathers": list(SUPPORTED_STARTING_FEATHERS),
             "havens": list(HAVENS),
             "reference_inputs": [
                 "docs/duck-migration/v1/board.csv",
@@ -776,7 +780,7 @@ def build_report() -> dict[str, object]:
             "Each purchase comparison adds the named chip to the bag. Signpost preview, voluntary stopping, World Events, ordinary rest nuisances and all effects not explicitly reported are excluded.",
             "Reeds expectations are gross pending Twigs before a possible final Brambles nuisance.",
             "Fixed draw-eight pressure means continued drawing and is not an estimate of a player's wear-out rate.",
-            "Dawn Delivery applies min(3, ceil(Twig gap / 4)); examples intentionally hold gaps or daily reward extremes fixed to expose the payment boundary.",
+            "Dawn Delivery uses frozen Twig-deficit bands: 0-2 gives 0 Feathers, 3-6 gives 1, 7-10 gives 2, and 11 or more gives 3; examples intentionally hold gaps or daily reward extremes fixed to expose the payment boundary.",
         ],
         "opening_travel": {
             "model_scope": "Exact for the listed safe-stop, Log and Mud model, with ordinary Splash shielding omitted. It is not an exact prediction for the complete new-power starting bag.",
@@ -847,7 +851,7 @@ def build_report() -> dict[str, object]:
             "break_even_assumption": "Holds the printed reward and Twig value fixed. If the next draw is safe, its extra Sleep value must offset the chance of floor(Sleep / 2); movement jumps, preview information and retained Twigs can change a real decision.",
         },
         "dawn_delivery": {
-            "rule": f"Feathers = min({DAWN_GIFT_CAP}, ceil(Twig gap / 4)); a zero gap gives zero Feathers",
+            "rule": "Frozen Twig deficit 0-2 gives 0 Feathers; 3-6 gives 1; 7-10 gives 2; 11 or more gives 3",
             "static_gap_repetition": static_dawn,
             "candidate_reward_boundary": {
                 "assumption": "One duck gains 9 Twigs and the other 1 each Day, so the persistent gap grows by the approved printed-board difference of 8 before each following dawn; the capped reward is shown through Day 10, while movement catch-up and the trail endpoint are deliberately ignored.",
@@ -855,20 +859,12 @@ def build_report() -> dict[str, object]:
                 "cumulative_feathers": sum(extreme_gifts),
             },
             "default_start_bound": default_start_bound,
-            "m4_preimplementation_endpoint_bound_gate": {
-                "status": "unresolved for the approved shared starting-Feather settings 1 through 3",
-                "conservative_effective_start_bounds": nonzero_setting_bounds,
-                "setting_specific_evidence": setting_bound_rows,
-                "endpoint": TRAIL_SPACES,
-                "condition_to_prove": "The effective start must be strictly below 43 so the required first draw can place a chip.",
-                "finding": "Setting-specific Day 1 Twig bounds produce conservative effective-start bounds of 43, 45 and 46 for settings 1, 2 and 3. These upper bounds do not prove that a real match reaches or passes the endpoint, and they do not prove that the settings are safe.",
-                "required_m4_decision": "Before implementation, either establish a tighter exact reachability bound for settings 1 through 3 or obtain a product rule for start-at/past-endpoint handling. This audit does not authorize clipping, caps or a settings change.",
-            },
+            "supported_starting_feather_evidence": setting_bound_rows,
             "boundary_assertions": {
-                "gaps_checked": [0, 4, 5, 8, 9, 100],
-                "expected_gifts": [0, 1, 2, 2, 3, 3],
+                "gaps_checked": list(dawn_boundary_gaps),
+                "expected_gifts": dawn_boundary_gifts,
             },
-            "boundary_requiring_explicit_rules": "The default zero-Feather setting is bounded to effective start 42, before endpoint 43. Settings 1 through 3 remain an explicit M4 gate; this audit does not add a settings limit, endpoint clamp or other rule.",
+            "endpoint_bound": "The supported zero-start profile is bounded to effective start 42 before endpoint 43. This audit does not add an endpoint clamp or another Feather rule.",
         },
         "limitations": [
             "The 43-row table is read for board assertions, haven metadata, opening affordability and the analytic default-start bound; later-day reward transitions and full purchase history are not simulated.",
@@ -877,7 +873,7 @@ def build_report() -> dict[str, object]:
             "Wildflowers, Splash and Signpost are priced here only for computed movement comparisons; their strategic utility is not assigned a numeric value.",
             "The 8.640 opening mean is exact only for the scoped traversal that always applies Log and Mud. It omits Splash blocking either ordinary nuisance and is not a complete-new-power bag prediction.",
             "The 21.825% positive final Companion flock result likewise omits Splash blocking Mud. It covers one added Companion within that simplification; multiple-Night flock growth needs a complete match simulation.",
-            "The Dawn section proves only the default zero-Feather setting starts before endpoint 43. Approved settings 1 through 3, changed Feather sources or changed round length require the recorded M4 gate or a fresh audit.",
+            "The Dawn section proves only the supported zero-start profile starts before endpoint 43. Changed Feather sources, starting progress or round length require a fresh audit.",
         ],
     }
 
