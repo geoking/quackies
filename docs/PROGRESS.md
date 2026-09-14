@@ -900,3 +900,17 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   Core/CLI work, production 3072 master, iOS export or device test is claimed.
   M4 waits for the user's command after review. Preserved the approved source
   artwork, original playable scenes/Core DLL and unrelated ProjectSettings.
+
+### 39. M3 reopened for route and haven-art revision (14 September 2026)
+
+- The user rejected the staggered start, uneven spacing and tiles covering
+  resting artwork. Reopened M3 for a single centered route with larger spaces,
+  seven on-path haven tiles beside their shelters, integrated Feather seals and
+  the native oasis endpoint. The previous checks remain historical evidence.
+- Adopted high-resolution production authoring, resolution-independent UI and
+  iPad mini plus larger-screen review. The built-in image generator returned
+  1536 × 1024 despite a 3072 × 2048 request. The user explicitly chose to finish
+  layout now and defer the larger board master; no API fallback was used.
+- Dream Concept-B styling and playful typography are recorded for the later
+  connected presentation milestone. M4 remains unstarted. This checkpoint is
+  the revised plan only; new art/route integration and validation are in progress.

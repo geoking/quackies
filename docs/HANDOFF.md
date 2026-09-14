@@ -1,6 +1,6 @@
 # Quackies handoff
 
-## Current task: M3 complete; awaiting user review
+## Current task: M3 revision open; awaiting board review
 
 14 September 2026: the user explicitly closed M2 and approved the remaining
 rules/defaults and local autosave/Continue scope, with two corrections:
@@ -32,23 +32,36 @@ action freshness, frozen rewards and purchase counts across local restore.
 Keep Core free of Unity/filesystem dependencies and retain the original engine
 profile as a regression reference while substantially refactoring duck rules.
 
-**M3 is complete. M4 waits for the user's command.** Open **Quackies → Build
-and Play Duck Layout Proof** for the separate fixed-data scene. It has the
-approved board, 50 stable spaces, eight haven links, all 16 token variants,
-duck/zzz/Feather samples, enlarged inspections and all 11 Dream offers. Native
-painted havens at 21/38/50 remain visible; the oasis endpoint has two Feathers
-and 21 Sleep / 9 Twigs beneath it. Moon/Sleep replaces the coin treatment.
+**M3 is reopened for revision. M4 waits for the user's command.** The prior
+fixed-data scene and its captures are historical validation only; the user
+rejected that board concept and its asset-resolution framing. Do not treat the
+old scene as the current board handoff.
 
-[M3 evidence](duck-migration/m3/README.md) records 1133 × 744 Adventure,
-occupied, Dream and inspection captures. Two rebuilds share a hierarchy digest
-and identical metadata for all 14 textures. Compilation, layout/text checks,
-pointer navigation and final zero-error Console query pass. Play mode is stopped.
+[Historical M3 evidence](duck-migration/m3/README.md) records 1133 × 744
+Adventure, occupied, Dream and inspection captures, two rebuilds, pointer
+navigation and a zero-error Console query. It remains useful history but is not
+evidence that the revision is complete. The new requirements and evidence
+checklist are in [m3-revision/README.md](duck-migration/m3-revision/README.md).
 There is no live Core binding or duck gameplay. M4 is Core/CLI, M5 connects the
 Unity game, and M6 covers balance/export; stop for review between milestones.
 
-Approved art remains unchanged. The board is native 1536 × 1024; the requested
-3072 master remains production work after review of the measured M3 fit. Preserve the
-unrelated ProjectSettings preload removal and other pre-existing changes.
+The current revision finishes layout at the approved board source size. The
+detailed 3072 × 2048 master is explicitly deferred production work; retain the
+higher-resolution authoring plan and 4096 import cap, resolution-independent UI
+and native production sprites. The 1133 × 744 iPad mini viewport is only a
+preview/check; also verify a larger iPad/Mac viewport. The 50 spaces must form
+one centered route with near-even arclength spacing, including approximately
+even counts on the descending/ascending wetland arms. Seven haven tiles sit on
+the path beside, never over, painted shelters; space 50 is the oasis itself
+with no tile. Integrate one-Feather haven art and two-Feather wasteland art;
+remove floating Feather decorations. Use larger tiles/token faces and retain
+final oasis 21 Sleep / 9 Twigs / 2 Feathers unless root changes the data. Dream
+Concept-B likeness and fun, engaging typography are minor M5 implementation
+follow-ups when the Dream view is built. Root owns any Sleep/Twig/haven row
+reassignment needed by geometry.
+
+Preserve the unrelated ProjectSettings preload removal and other pre-existing
+changes.
 
 No Core/CLI changes, runtime tests, Unity calls/imports, scene building or art
 generation occurred in the M2 closure. Root owns the regular Git checkpoint/push;

@@ -26,9 +26,11 @@ Use the selected [board](concepts/2026-09-12-approved/board-art-approved.png),
 chosen full-screen layout with **View adventure** navigation and room for the
 whole shop. Its illustrative prices and Feather-spending controls are obsolete.
 
-**M2 and M3 are complete.** The separate fixed-data Unity layout proof has
-[review captures and validation](m3/README.md). Core/CLI gameplay implementation
-has not started; M4 waits for the user's command after layout review.
+**M2 is complete. M3 is reopened for revision.** The earlier fixed-data proof
+and its [historical review evidence](m3/README.md) remain available, but the
+user rejected its board concept and asset-resolution assumption. The M3
+revision must be completed before Core/CLI gameplay work; M4 waits for the
+user's command after that review.
 
 ## Current rule references
 
@@ -99,9 +101,11 @@ Keep a single source for each kind of detail instead of duplicating long lists:
 
 1. **M2 is complete.** Rules, rewards, prices, events, settings, Night tie-break
    and local autosave/resume are approved.
-2. **M3 layout proof is complete.** Fifty spaces, occupied token/reward fit and
-   the full-screen Dream shop are verified in a separate fixed-data scene.
-   Review the layout before starting gameplay implementation.
+2. **M3 revision is open.** Finish the board geometry, haven treatment, tile
+   sizing and dual-viewport checks against the pending checklist in
+   [m3-revision/README.md](m3-revision/README.md). The earlier proof is
+   historical validation only; the higher-resolution master and Dream polish
+   follow later.
 3. **Evolve Core with the CLI alongside it.** Keep the engine/API boundary;
    refactor duck identity, state and phases. Build a complete Day/Night slice,
    then all ten Days, the Normal AI and local autosave/resume.
@@ -111,9 +115,9 @@ Keep a single source for each kind of detail instead of duplicating long lists:
    touch/readability, restart/resume and export. Review before changing numbers.
 
 The detailed [implementation plan](IMPLEMENTATION_PLAN.md) splits these into
-reviewable checkpoints. M3 is now the layout proof and M4 the Core/CLI build;
-this deliberately brings the highest visual risk forward. Stop for feedback at
-each milestone. M4 starts only on the user's command.
+reviewable checkpoints. M3 revision remains the visual gate and M4 the Core/CLI
+build; this deliberately brings the highest visual risk forward. Stop for
+feedback at each milestone. M4 starts only on the user's command.
 
 ## Art and token philosophy
 
@@ -124,9 +128,16 @@ usable widths across all biomes. Bridges meet the route naturally; the dramatic
 wasteland crossing remains a timber-and-rope bridge over a cleft.
 
 Layer precise wells, reward strips, rest markers and movable tokens over the
-approved base art. The fixed composition uses new grass and wasteland wells,
-one wasteland example awarding two Feathers, and the final space as the existing
-upper-right oasis with two Feathers and its scores beneath. Use the playful
+approved base art. The revision must place all 50 spaces in one centered route
+following the painted path, with near-even arclength spacing across wetlands,
+meadow and wasteland. Do not use a zigzag route or sidebar/stacked wells; keep
+the descending and ascending wetland arms approximately even in count. Make
+tiles and token faces larger while preserving usable paths and shelter entries.
+Seven haven tiles sit on the path next to their painted shelters and never cover
+the shelter artwork; space 50 uses the oasis itself and has no separate tile.
+Integrate a single-Feather haven treatment and the two-Feather wasteland
+treatment into the haven artwork instead of floating Feather decorations. Use
+the playful
 [V5 painted components](concepts/2026-09-11-v5/painted-kit.png)
 as style references, not their rejected coordinates. Each shelter visibly belongs
 to one well. Replace the old coin treatment with a Moon/Sleep icon, and use
@@ -194,7 +205,7 @@ need distinct validation; this planning audit is not a runtime test.
 | --- | --- |
 | M0 / initial M1 | Historical baseline and art exploration; recorded in PROGRESS |
 | **M2 — Complete** | Rules, all data, events, defaults and local save/resume approved; final-Day-only simultaneous drawing and Night Sleep tiebreak recorded |
-| **M3 — Complete** | [iPad layout proof](m3/README.md): 50 spaces, eight haven links, 16 encounter variants, 11 Dream offers, native 1133 × 744 review, two stable rebuilds and zero Console errors |
+| **M3 — Revision open** | Rejected prior board proof retained as history; current centered 50-space route, haven adjacency/art integration, larger tiles, endpoint planning and iPad/Mac viewport review are pending in [m3-revision/README.md](m3-revision/README.md). The higher-resolution master and Dream polish follow later. |
 | M4 — Core/CLI | New profile/state, exact private previews, complete Day/Night and ten-Day matches, Normal AI and local save/resume; source/test checkpoints |
 | M5 — Connected Unity game | Committed Core handoff, complete human/AI play, all phases, restart and local match restoration |
 | M6 — Balance/export | Match evidence, approved tuning, readability/performance and iOS export |
@@ -205,10 +216,14 @@ empty-bag and overshoot rules are fixed, as are shop limits, Sleep expiry,
 recovery exclusion, worn-out payouts and final ranking. There are no remaining
 M2 rule decisions. Production polish and actual balance are later milestone work.
 
-The selected board is native 1536 × 1024. Its requested detailed 3072 × 2048
-master remains outstanding. The M3 proof records measured 50-space alignment,
-token clearance and iPad-aspect fit using the native source image.
-Do not transfer a width audit of a later alternative to this selected image.
+The current M3 revision finishes layout at the approved board source size. The
+detailed 3072 × 2048 production master is explicitly deferred; retain the
+higher-resolution authoring plan and 4096 import cap. UI must remain
+resolution-independent and production sprites must be native assets at their
+intended scale; 1133 × 744 iPad mini landscape is a preview/check viewport, not
+an asset-resolution cap. Verify the revision at that iPad size and at a larger
+iPad/Mac viewport. The earlier 1536 × 1024 board proof and its 1133 × 744
+captures remain historical validation only.
 
 Short-match settings, alternate rule cards, test tubes, a separate AI-history
 pane and device installation remain deferred. Four player duck identities do
@@ -219,5 +234,6 @@ Follow [AGENTS.md](../../AGENTS.md): root owns Git/integration and the Unity
 Editor mutation for this milestone; workers have bounded disjoint files. Push coherent checkpoints
 on `codex/duck-game-milestone-0`, preserving unrelated changes. No automatic
 merge, physical-device install or release. Editor success, iOS export and device
-testing are separate evidence. M3's target-size verification, two rebuilds,
-Console check and captures are recorded in [the review evidence](m3/validation.md).
+testing are separate evidence. Historical M3 target-size verification, two
+rebuilds, Console check and captures remain in [the old review evidence](m3/validation.md);
+the revision needs its own evidence checklist in [m3-revision/README.md](m3-revision/README.md).

@@ -1,8 +1,9 @@
 # Duck migration status
 
-Updated 14 September 2026. **M2 and M3 are complete; awaiting user review.**
-The separate iPad layout proof uses fixed sample data. Gameplay and persistence
-implementation remain M4 work and wait for the user's command.
+Updated 14 September 2026. **M2 is complete; M3 is reopened for revision.**
+The earlier separate iPad layout proof uses fixed sample data and remains
+historical validation. Gameplay and persistence implementation remain M4 work
+and wait for the user's command.
 
 ## Approved M2 contract
 
@@ -29,24 +30,45 @@ The [plan](PLAN.md), [implementation plan](IMPLEMENTATION_PLAN.md),
 closed contract. No M2 rule defaults remain pending. The bounded
 [math audit](v1/balance-audit.json) is design evidence, not full-match balance.
 
-## Completed: M3 iPad layout proof
+## Historical M3 iPad layout proof
 
 The separate `DuckLayoutProof` scene checks exactly 50 spaces, a common token
 footprint, occupied reward visibility, eight haven links, duck/zzz overlays and
-the full-screen Dream shop with all 11 offers. Generated grass/wasteland wells,
-a two-Feather wasteland treatment and a Moon/Sleep icon are included. The native
-oasis is space 50, with two Feathers and scores below it. [Review evidence](m3/README.md)
+the full-screen Dream shop with all 11 offers. [Review evidence](m3/README.md)
 records target-size captures, two stable rebuilds, pointer checks and zero final
-Console errors. This is layout evidence, not a live game.
+Console errors. This evidence is retained for history, but the user rejected
+that board concept and its 1133 × 744/native-art framing; it does not close the
+reopened M3 revision.
 
-After M3 review: M4 Core/CLI and persistence, M5 connected Unity, M6 balance/export.
-The existing engine/API/CLI will be refactored, not restarted.
+## Open: M3 revision
+
+The revision checklist and evidence contract are in
+[m3-revision/README.md](m3-revision/README.md). Current completion covers the
+board layout at the approved source size, resolution-independent UI and native
+production sprites, using 1133 × 744 only as a preview/check and also verifying
+a larger iPad/Mac viewport. The detailed 3072 × 2048 production master is
+explicitly deferred; retain the higher-resolution authoring plan and 4096 import
+cap. All 50 spaces must be one centered route with near-even
+arclength spacing across biomes; the wetland arms must have approximately even
+counts. Seven haven tiles must sit on path beside painted shelters without
+covering them, while space 50 uses the oasis itself. Haven Feather art must be
+integrated (one Feather for the single-Feather haven treatment and two for the
+wasteland treatment), with no floating Feather decorations. Larger tiles/token
+faces remain explicit review items. Dream Concept-B likeness and fun engaging
+typography are minor M5 implementation follow-ups, not current M3 completion
+gates. Sleep/Twig/haven row adjustments are root-owned and pending; the final
+oasis remains 21 Sleep / 9 Twigs / 2 Feathers unless root changes it.
+
+M4 Core/CLI and persistence, M5 connected Unity, and M6 balance/export remain
+after M3 revision. The existing engine/API/CLI will be refactored, not
+restarted.
 
 ## Art and historical evidence
 
-The [approved board](concepts/2026-09-12-approved/board-art-approved.png) remains
-native 1536 × 1024. The requested detailed 3072 × 2048 master remains future
-production work; M3 records the exact 50-space layout and token fit. The approved
+The [approved board](concepts/2026-09-12-approved/board-art-approved.png) and
+historical proof remain available for reference. The requested detailed
+3072 × 2048 master is deferred production work; native production sprites and
+revised geometry remain open for this revision. The approved
 [16 encounter designs](concepts/2026-09-13-agreed-token-set/README.md) are opaque
 concept sheets are isolated with Unity sprite rectangles and outlines for this
 proof, preserving their source bytes. Dream Concept B, V2 player ducks and

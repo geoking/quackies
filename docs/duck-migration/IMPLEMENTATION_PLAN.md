@@ -3,8 +3,9 @@
 14 September 2026. **M2 is complete.** The user approved the rules, settings,
 shop policy, local autosave/resume and this implementation scope, with final-Day
 only simultaneous drawing and final-Night Sleep breaking equal total Twigs.
-M2 changed documentation only. **M3's fixed-data layout proof is now complete;
-M4 Core/CLI implementation waits for the user's command.** The short product direction is in
+M2 changed documentation only. **M3's earlier fixed-data layout proof is
+historical and M3 is reopened for revision; M4 Core/CLI implementation waits
+for the user's command.** The short product direction is in
 [PLAN.md](PLAN.md).
 
 ## Decision: evolve Core; rebuild the changed game presentation
@@ -141,57 +142,67 @@ Keep classic randomness/tests stable while adding a resumable duck source.
 ## Build milestones and review evidence
 
 M0 and earlier M1 experiments remain history. The future M3/M4 ordering is now
-changed deliberately: prove the approved board's fit before the full Core build.
-Stop for user feedback after each milestone. M3 evidence is recorded below;
-M4 and later builds remain future work.
+changed deliberately: resolve and review the board revision before the full
+Core build. Stop for user feedback after each milestone. The earlier M3 proof
+is recorded as historical evidence; the revision checklist is in
+[m3-revision/README.md](m3-revision/README.md). M4 and later builds remain
+future work.
 
 ### M2 — Rules sheet complete
 
 Closed by the user on 14 September 2026. Rules, defaults, exact rewards/prices,
 events and persistence scope are approved, including the two corrections above.
-Keep this contract stable for the first complete playtest. **M3 is complete;
-M4 awaits the user's command.**
+Keep this contract stable for the first complete playtest. **M3 revision is
+open; M4 awaits the user's command.**
 
-### M3 — iPad layout proof complete
+### M3 — Board and presentation revision open
 
-Completed 14 September 2026. [Review evidence](m3/README.md) includes the saved
-`DuckLayoutProof` scene, 1133 × 744 empty/occupied/Dream/inspection captures,
-exact 50-space/eight-haven/11-offer/16-token checks, two identical hierarchy
-digests, stable import metadata and zero final Console errors. Pointer navigation
-and inspections work. This meets the bounded layout criteria below; it does not
-implement a live duck game. Stop here for user feedback before M4.
+The earlier `DuckLayoutProof` and its [review evidence](m3/README.md) remain
+historical validation only. They do not satisfy the rejected board concept or
+close M3. The revision is pending the checklist in
+[m3-revision/README.md](m3-revision/README.md), including geometry, artwork,
+tile sizing, resolution-independent layout and dual-viewport evidence. The
+higher-resolution master is deferred, and Dream likeness/typography are M5
+implementation follow-ups. Stop for user feedback after the revised evidence
+review before M4.
 
-Create a separate reproducible Unity layout scene using the approved board and
-fixed sample data, without a live rules session or Core binding. Preserve the
-playable baseline scene. Use the existing [1133 × 744 fitted viewport](../../unity/Quackies.Unity/Assets/Scripts/Presentation/FittedViewport.cs#L5)
-and confirm the target iPad mini viewport during this milestone. Root owns the
-Editor mutation and scene verification.
+Create a separate reproducible layout scene using fixed sample data, without a
+live rules session or Core binding. Preserve the playable baseline scene.
+Finish layout at the approved board source size; the detailed 3072 × 2048
+production master is explicitly deferred. Keep the higher-resolution authoring
+plan and 4096 import cap, resolution-independent UI and native production
+sprites. The 1133 × 744 viewport is only a preview/check; verify the result at
+1133 × 744 and at a larger iPad/Mac viewport. Root owns the Editor mutation and
+scene verification.
 
-Place exactly 50 stable-ID wells with common token bounds, readable Moon/Sleep,
-Twig and Feather strips, eight clearly linked havens, player/rest/zzz overlays
-and a legible event/Exhaustion summary. The fixed composition must include the
-new grass and wasteland wells, a wasteland example awarding two Feathers, and
-the final space using the existing upper-right oasis with two Feathers and its
-scores beneath. Prove the full-screen Concept-B Dream layout with all 11 offers,
-nest levels, resources and View adventure. Represent all 16 encounter variants
-on the common token footprint. Test representative occupied spaces, not just
-empty wells. Taps may open inspection rather than requiring tiny text to contain
-the entire rule.
+Place exactly 50 stable-ID spaces as one centered route on the painted path,
+with near-even arclength spacing across wetlands, meadow and wasteland. Do not
+use a zigzag or sidebar/stacked layout; keep the descending and ascending
+wetland arms approximately even in count. Use larger tiles and token faces.
+Place seven haven tiles on the path next to their painted shelters, never over
+the shelter art; space 50 is the oasis itself and receives no separate tile.
+Integrate single-Feather haven art and two-Feather wasteland art rather than
+floating Feather decorations. Any Sleep/Twig/haven row reassignment needed for
+geometry is a root-owned data decision and must be persisted by root; this plan
+does not invent replacement numbers. Keep the final oasis at 21 Sleep / 9
+Twigs / 2 Feathers unless root changes the approved data.
+
+Represent all 16 encounter variants on the common token footprint and test
+representative occupied spaces. Dream likeness to Concept B and fun, engaging
+typography are minor M5 implementation follow-ups when the Dream view is built,
+not current M3 revision completion gates. Taps may open inspection rather than
+requiring tiny text to contain the entire rule.
 
 Record normalized layout anchors/bounds in a duck board-layout asset so the
 later art catalogue can reuse the measured positions. Confirm no overlaps,
-clipped text, ambiguous haven links or hidden rewards at actual display size.
-Rebuild twice to check exact IDs and no duplicates, then verify the live layout
-at target size and record that the Unity Console has no new errors. M3 is
-complete only after the two-build visual evidence, 50-well/layout checks and
-console result are recorded. This is **layout evidence, not a playable game or
-rules validation**. No new gameplay calculations belong in these fixed visual
-fixtures.
-
-Use the accepted native art for fit. Prepare isolated production sprites and
-the requested verified 3072 × 2048 board master after geometry is settled;
-a concept sheet or a simple upsize is not evidence of newly resolved detail.
-Do not regenerate the approved composition to hide alignment problems.
+clipped text, covered shelters, ambiguous haven links or hidden rewards at both
+viewport sizes. Rebuild twice to check exact IDs and no duplicates, then verify
+the live layout and record the Unity Console result. M3 closes only after the
+revision evidence checklist is complete; this remains layout evidence, not a
+playable game or rules validation. No new gameplay calculations belong in these
+fixed visual fixtures. A concept sheet or simple upsize is not evidence of the
+requested detail; do not hide alignment problems by changing the approved data
+without root's decision.
 
 ### M4 — Core and CLI, in small compiling checkpoints
 
