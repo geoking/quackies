@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Quackies.Core.Ducks.Definitions;
+using Quackies.Core.Match;
+
+namespace Quackies.Core.Ducks.Runtime
+{
+    internal static class DuckDreamHandler
+    {
+        internal static int PurchaseLimitForDay(int day)
+        {
+            if (day < 1 || day > DuckMatchSettings.StandardDays) throw new ArgumentOutOfRangeException(nameof(day));
+            return day == 10 ? 0 : day <= 3 ? 1 : day <= 6 ? 2 : 3;
+        }
+
+        internal static IReadOnlyList<GameAction> GetLegalActions(DuckMatchState state, DuckPlayerState player, DuckRuleDefinitions rules)
+        {
+            var actions = new List<GameAction>();
+            if (state.Phase != DuckPhase.Night || !player.IsSleepFrozen || player.HasFinishedDream || state.Day == 10)
+                return DuckMatchView.Freeze(actions);
+
+            if (player.PurchasedEncounterDefinitionIds.Count < PurchaseLimitForDay(state.Day))
+            {
+                actions.AddRange(rules.ShopOffers.Where(offer => offer.SleepPrice <= player.RemainingSleep && !player.PurchasedShopTypes.Contains(offer.ShopType))
+                    .Select(offer => new GameAction("buy:" + offer.DefinitionId, GameActionKind.BuyEncounter,
+                        $"Buy {offer.Encounter.Name} for {offer.SleepPrice} Sleep", cost: offer.SleepPrice, definitionId: offer.DefinitionId)));
+            }
+            actions.Add(new GameAction("finish-dream", GameActionKind.FinishDream, "Finish Dream choices"));
+            return DuckMatchView.Freeze(actions);
+        }
+
+        internal static void Execute(DuckMatchState state, DuckPlayerState player, DuckRuleDefinitions rules, GameAction action)
+        {
+            var legal = GetLegalActions(state, player, rules).SingleOrDefault(candidate => candidate.Id == action.Id)
+                ?? throw new InvalidOperationException("This Dream choice is no longer legal.");
+            if (legal.Kind == GameActionKind.FinishDream)
+            {
+                player.HasFinishedDream = true;
+                player.RemainingSleep = 0;
+                state.History.Add(new DuckHistoryState(state.Day, player.Id, $"{player.Name} finishes Dream choices; unspent Sleep expires."));
+                if (state.Players.All(candidate => candidate.HasFinishedDream)) state.Phase = DuckPhase.DayComplete;
+                return;
+            }
+
+            var offer = rules.ShopOffer(legal.DefinitionId);
+            player.RemainingSleep -= offer.SleepPrice;
+            player.PurchasedEncounterDefinitionIds.Add(offer.DefinitionId);
+            player.PurchasedShopTypes.Add(offer.ShopType);
+            player.Inventory.Add(new DuckPhysicalChipState(state.NextPhysicalChipId++, offer.EncounterDefinitionId));
+            state.History.Add(new DuckHistoryState(state.Day, player.Id,
+                $"{player.Name} buys {offer.Encounter.Name} for {offer.SleepPrice} Sleep; it enters tomorrow's bag."));
+        }
+    }
+}

@@ -118,9 +118,14 @@ namespace Quackies.Core.Ducks.Runtime
         public IReadOnlyList<GameAction> GetLegalActions(string playerId)
         {
             var player = Player(playerId);
-            return State.Phase == DuckPhase.Adventure
-                ? DuckAdventureHandler.GetLegalActions(this, player)
-                : new ReadOnlyCollection<GameAction>(Array.Empty<GameAction>());
+            switch (State.Phase)
+            {
+                case DuckPhase.Adventure: return DuckAdventureHandler.GetLegalActions(this, player);
+                case DuckPhase.Night: return DuckDreamHandler.GetLegalActions(State, player, Rules);
+                case DuckPhase.DayComplete when State.Day == 1:
+                    return DuckMatchView.Freeze(new[] { new GameAction("next-day", GameActionKind.NextDay, "Start Day 2") });
+                default: return new ReadOnlyCollection<GameAction>(Array.Empty<GameAction>());
+            }
         }
 
         public DuckMatchView Execute(string playerId, GameAction action)
@@ -131,12 +136,14 @@ namespace Quackies.Core.Ducks.Runtime
                 string.Equals(candidate.Id, action.Id, StringComparison.Ordinal));
             if (legal == null)
                 throw new InvalidOperationException("Action '" + action.Id + "' is not legal for " + playerId + " in " + State.Phase + ".");
-            if (State.Phase == DuckPhase.Adventure)
+            switch (State.Phase)
             {
-                DuckAdventureHandler.Execute(this, player, legal);
-                return GetSnapshot(playerId);
+                case DuckPhase.Adventure: DuckAdventureHandler.Execute(this, player, legal); break;
+                case DuckPhase.Night: DuckDreamHandler.Execute(State, player, Rules, legal); break;
+                case DuckPhase.DayComplete: DuckDayPreparation.BeginNextDay(this); break;
+                default: throw new InvalidOperationException("No Duck action can be executed during " + State.Phase + ".");
             }
-            throw new InvalidOperationException("No Duck action can be executed during " + State.Phase + ".");
+            return GetSnapshot(playerId);
         }
 
         internal DuckPlayerState Player(string playerId)
