@@ -27,7 +27,8 @@ chosen full-screen layout with **View adventure** navigation and room for the
 whole shop. Its illustrative prices and Feather-spending controls are obsolete.
 
 This checkpoint closes M2 and changes no Core/CLI code, scene or Unity imports.
-**M3 — the iPad layout proof — waits for the user's explicit command.**
+**M3 — the iPad layout proof — is authorized and in progress.** Root owns the
+Unity Editor work for this milestone.
 
 ## Current rule references
 
@@ -99,8 +100,9 @@ Keep a single source for each kind of detail instead of duplicating long lists:
 1. **M2 is complete.** Rules, rewards, prices, events, settings, Night tie-break
    and local autosave/resume are approved.
 2. **Prove the iPad layout first.** Fit 50 wells and reward strips to the approved
-   board, test occupied spaces, and lay out the full-screen Dream shop. Use a
-   separate fixed-data scene; this is a visual test, not gameplay implementation.
+   board, including new grass and wasteland wells, test occupied spaces, and lay
+   out the full-screen Dream shop. Use a separate fixed-data scene with no Core
+   binding; this is a visual test, not gameplay implementation.
 3. **Evolve Core with the CLI alongside it.** Keep the engine/API boundary;
    refactor duck identity, state and phases. Build a complete Day/Night slice,
    then all ten Days, the Normal AI and local autosave/resume.
@@ -123,9 +125,13 @@ usable widths across all biomes. Bridges meet the route naturally; the dramatic
 wasteland crossing remains a timber-and-rope bridge over a cleft.
 
 Layer precise wells, reward strips, rest markers and movable tokens over the
-approved base art. Use the playful [V5 painted components](concepts/2026-09-11-v5/painted-kit.png)
+approved base art. The fixed composition uses new grass and wasteland wells,
+one wasteland example awarding two Feathers, and the final space as the existing
+upper-right oasis with two Feathers and its scores beneath. Use the playful
+[V5 painted components](concepts/2026-09-11-v5/painted-kit.png)
 as style references, not their rejected coordinates. Each shelter visibly belongs
-to one well. Use moon + Sleep, twigs + score, and any Feather yield in readable
+to one well. Replace the old coin treatment with a Moon/Sleep icon, and use
+twigs + score and any Feather yield in readable
 reward strips. Omit zero-Twig clutter. Update the footer to explain scoring
 **where the duck rests**; remove the old next-empty-space instruction.
 
@@ -189,7 +195,7 @@ need distinct validation; this planning audit is not a runtime test.
 | --- | --- |
 | M0 / initial M1 | Historical baseline and art exploration; recorded in PROGRESS |
 | **M2 — Complete** | Rules, all data, events, defaults and local save/resume approved; final-Day-only simultaneous drawing and Night Sleep tiebreak recorded |
-| M3 — Awaiting user command | iPad layout proof: selected board with exactly 50 wells, occupied token/reward fit, eight haven links and all 11 Dream offers; deterministic rebuild |
+| **M3 — In progress** | iPad layout proof: selected board with exactly 50 wells, grass/wasteland composition, occupied token/reward fit, eight haven links, 16 encounter variants on a common footprint and all 11 Dream offers; deterministic rebuild |
 | M4 — Core/CLI | New profile/state, exact private previews, complete Day/Night and ten-Day matches, Normal AI and local save/resume; source/test checkpoints |
 | M5 — Connected Unity game | Committed Core handoff, complete human/AI play, all phases, restart and local match restoration |
 | M6 — Balance/export | Match evidence, approved tuning, readability/performance and iOS export |
@@ -209,9 +215,9 @@ pane and device installation remain deferred. Four player duck identities do
 not expand the initial human-versus-AI scope. Keep source identifiers as Quackies;
 release title remains undecided.
 
-Follow [AGENTS.md](../../AGENTS.md): root owns Git/integration, workers have
-bounded disjoint files, one agent owns Editor mutations. Push coherent checkpoints
+Follow [AGENTS.md](../../AGENTS.md): root owns Git/integration and the Unity
+Editor mutation for this milestone; workers have bounded disjoint files. Push coherent checkpoints
 on `codex/duck-game-milestone-0`, preserving unrelated changes. No automatic
 merge, physical-device install or release. Editor success, iOS export and device
-testing are separate evidence. Stop after M2 closure and wait for the user's
-M3 command; do not start any part of M3 automatically.
+testing are separate evidence. M3 is complete only after live target-size
+verification, two rebuilds, a console check and recorded evidence.

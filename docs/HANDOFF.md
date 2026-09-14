@@ -1,6 +1,6 @@
 # Quackies handoff
 
-## Current task: M2 complete; await the user's M3 command
+## Current task: M3 layout proof in progress
 
 14 September 2026: the user explicitly closed M2 and approved the remaining
 rules/defaults and local autosave/Continue scope, with two corrections:
@@ -32,19 +32,24 @@ action freshness, frozen rewards and purchase counts across local restore.
 Keep Core free of Unity/filesystem dependencies and retain the original engine
 profile as a regression reference while substantially refactoring duck rules.
 
-**M3 has not begun.** On the user's command, first inspect live Git/Editor state,
+**M3 is authorized and in progress.** Root owns the Unity Editor work. First
+inspect live Git/Editor state,
 then make the isolated iPad layout proof: approved board, exactly 50 wells,
 occupied tokens/rewards, eight haven links, duck/zzz markers and all 11 Dream
-offers. Use fixed sample data, not a live match. M4 is Core/CLI, M5 connects the
-Unity game, and M6 covers balance/export; stop for review between milestones.
+offers. Use fixed sample data in a separate scene with no Core binding, not a live
+match. The final space uses the existing oasis with two Feathers and scores
+beneath; replace coin treatment with the Moon/Sleep icon. M3 is complete only
+after actual target-size verification, two deterministic rebuilds and a no-new-
+console-errors check. M4 is Core/CLI, M5 connects the Unity game, and M6 covers
+balance/export; stop for review between milestones.
 
 Approved art remains unchanged. The board is native 1536 × 1024; the requested
 3072 master and actual-size 50-space fit remain production work. Preserve the
 unrelated ProjectSettings preload removal and other pre-existing changes.
 
 No Core/CLI changes, runtime tests, Unity calls/imports, scene building or art
-generation occurred in M2 closure. Root owns the regular Git checkpoint/push;
-no merge, release or device install is authorized. **Stop and wait for M3.**
+generation occurred in the M2 closure. Root owns the regular Git checkpoint/push;
+no merge, release or device install is authorized.
 
 ## Completed playable baseline
 

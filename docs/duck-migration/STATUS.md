@@ -1,8 +1,8 @@
 # Duck migration status
 
-Updated 14 September 2026. **M2 is complete. M3 has not started and is awaiting
-the user's explicit command.** No gameplay implementation or Unity work is
-part of this closure checkpoint.
+Updated 14 September 2026. **M2 is complete. M3 is authorized and in progress.**
+The active goal is the separate iPad layout proof, using fixed sample data.
+Gameplay and persistence implementation remain M4 work.
 
 ## Approved M2 contract
 
@@ -29,14 +29,16 @@ The [plan](PLAN.md), [implementation plan](IMPLEMENTATION_PLAN.md),
 closed contract. No M2 rule defaults remain pending. The bounded
 [math audit](v1/balance-audit.json) is design evidence, not full-match balance.
 
-## Next: M3 iPad layout proof, on command
+## Current: M3 iPad layout proof
 
 Use a separate fixed-data Unity scene to check the selected board's exactly
 50 wells, common token footprint, occupied reward visibility, eight haven links,
 duck/zzz overlays and full-screen Dream shop with all 11 offers. This is layout
-evidence, not a live game. Do not begin scene work, imports or generation until
-the user commands M3. Then inspect live Git/Editor state and preserve unrelated
-work; root owns integration and one agent owns Editor mutations at a time.
+evidence, not a live game. The user has commanded M3, including generated grass
+and wasteland wells, a two-Feather wasteland treatment and a Moon/Sleep icon.
+The existing oasis itself is space 50, with two Feathers and scores below it.
+Preserve unrelated work; root owns integration and Editor mutations. The selected
+board composition stays fixed while measured anchors are fitted to its corridors.
 
 After M3 review: M4 Core/CLI and persistence, M5 connected Unity, M6 balance/export.
 The existing engine/API/CLI will be refactored, not restarted.

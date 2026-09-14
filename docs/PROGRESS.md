@@ -845,3 +845,22 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 - **M2 complete. M3 has not started.** Next is the isolated iPad layout proof,
   only after the user's command. No Core/CLI edits or tests, Unity calls,
   scene/import operations, art generation, merge or release occurred.
+
+### 36. M3 layout-proof kickoff (14 September 2026)
+
+- The user authorized M3. The bounded target is the isolated iPad layout proof:
+  exactly 50 wells, new grass and wasteland composition, a two-Feather wasteland
+  example, the final space using the existing oasis with two Feathers and scores
+  beneath, Moon/Sleep icon treatment, eight haven links, all 16 encounter
+  variants on a common footprint, Dream/Adventure navigation and all 11 shop
+  offers. The fixed-data scene has no Core binding.
+- Root owns Unity Editor mutations and the later target-size verification. M3 is
+  complete only after the live layout is verified, rebuilt twice, and checked for
+  new Unity Console errors. This entry records kickoff only; the layout is not
+  built and no future validation is claimed.
+- Initial audit: branch is clean except the unrelated pre-existing
+  `unity/Quackies.Unity/ProjectSettings/ProjectSettings.asset` modification.
+  The Unity CLI connector reaches the intended project at Unity 6000.6.0f1 on
+  `127.0.0.1:7800`; the Editor was ready, stopped, and returned zero captured
+  errors. No imports, Git operations, Core/CLI changes, Unity scene changes or
+  runtime tests occurred in this documentation kickoff.

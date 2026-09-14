@@ -6,19 +6,24 @@ with approved 50-space rewards, prices and ten World Events. The authoritative
 and [status](duck-migration/STATUS.md) replace older 53-space/Penny art notes.
 **M2 is complete:** all defaults and local save/resume are approved. Days 1–9
 use visible independent draws; only Day 10 uses simultaneous decisions. Final
-Twig ties use retained Night 10 Sleep, then a draw. M3 waits for the user's command.
+Twig ties use retained Night 10 Sleep, then a draw. M3 is authorized and in progress;
+root owns the Unity Editor work for the layout proof.
 
 ## Next work, after the user's milestone command
 
-1. **M3:** Prove the selected board's 50-space token/reward fit and full Dream view at
-   iPad mini size in an isolated layout scene.
+1. **M3 (in progress):** Prove the selected board's 50-space token/reward fit and
+   full Dream view at iPad mini size in an isolated fixed-data scene. The proof
+   includes new grass/wasteland wells, a two-Feather wasteland example, the final
+   oasis with two Feathers and scores beneath, Moon/Sleep icon treatment, all 16
+   encounter variants on a common footprint, and all 11 Dream offers.
 2. **M4:** Refactor Core with CLI support at each checkpoint: one complete Day/Night,
    then ten Days, all encounters/events, Normal AI and local autosave/resume.
 3. **M5:** Bind the committed Core build to the measured Unity presentation and verify
    complete play, settings, restart and local match restoration.
 4. **M6:** Gather balance evidence, polish readability/input and verify iOS export.
 
-Stop for feedback between milestones. Regular source/test/Unity checkpoint
+Stop for feedback between milestones. M3 is complete only after actual layout
+verification, two deterministic rebuilds and no new Unity Console errors. Regular source/test/Unity checkpoint
 commits remain separate and are pushed; no automatic merge or public release.
 
 ## Deferred work

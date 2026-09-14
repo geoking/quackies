@@ -3,8 +3,9 @@
 14 September 2026. **M2 is complete.** The user approved the rules, settings,
 shop policy, local autosave/resume and this implementation scope, with final-Day
 only simultaneous drawing and final-Night Sleep breaking equal total Twigs.
-It changes documentation only. **No Core/CLI or Unity implementation begins in
-this checkpoint.** The short product direction is in [PLAN.md](PLAN.md).
+It changes documentation only. **M3 layout work is now authorized; no Core/CLI
+implementation begins in this checkpoint.** The short product direction is in
+[PLAN.md](PLAN.md).
 
 ## Decision: evolve Core; rebuild the changed game presentation
 
@@ -147,29 +148,37 @@ Stop for user feedback after each milestone. All builds below are future work.
 
 Closed by the user on 14 September 2026. Rules, defaults, exact rewards/prices,
 events and persistence scope are approved, including the two corrections above.
-Keep this contract stable for the first complete playtest. **M3 has not started
-and must wait for the user's explicit command.**
+Keep this contract stable for the first complete playtest. **M3 is authorized
+and in progress; root owns Unity Editor mutations.**
 
 ### M3 — iPad layout proof
 
 Create a separate reproducible Unity layout scene using the approved board and
-fixed sample data, without a live rules session. Preserve the playable baseline
-scene. Use the existing [1133 × 744 fitted viewport](../../unity/Quackies.Unity/Assets/Scripts/Presentation/FittedViewport.cs#L5)
-and confirm the target iPad mini viewport during this milestone.
+fixed sample data, without a live rules session or Core binding. Preserve the
+playable baseline scene. Use the existing [1133 × 744 fitted viewport](../../unity/Quackies.Unity/Assets/Scripts/Presentation/FittedViewport.cs#L5)
+and confirm the target iPad mini viewport during this milestone. Root owns the
+Editor mutation and scene verification.
 
-Place exactly 50 stable-ID wells with common token bounds, readable Sleep/Twig/
-Feather strips, eight clearly linked havens, player/rest/zzz overlays and a
-legible event/Exhaustion summary. Prove the full-screen Concept-B Dream layout
-with all 11 offers, nest levels, resources and View adventure. Test representative
-occupied spaces, not just empty wells. Taps may open inspection rather than
-requiring tiny text to contain the entire rule.
+Place exactly 50 stable-ID wells with common token bounds, readable Moon/Sleep,
+Twig and Feather strips, eight clearly linked havens, player/rest/zzz overlays
+and a legible event/Exhaustion summary. The fixed composition must include the
+new grass and wasteland wells, a wasteland example awarding two Feathers, and
+the final space using the existing upper-right oasis with two Feathers and its
+scores beneath. Prove the full-screen Concept-B Dream layout with all 11 offers,
+nest levels, resources and View adventure. Represent all 16 encounter variants
+on the common token footprint. Test representative occupied spaces, not just
+empty wells. Taps may open inspection rather than requiring tiny text to contain
+the entire rule.
 
 Record normalized layout anchors/bounds in a duck board-layout asset so the
 later art catalogue can reuse the measured positions. Confirm no overlaps,
 clipped text, ambiguous haven links or hidden rewards at actual display size.
-Rebuild twice to check exact IDs and no duplicates. This is **layout evidence,
-not a playable game or rules validation**. No new gameplay calculations belong
-in these fixed visual fixtures.
+Rebuild twice to check exact IDs and no duplicates, then verify the live layout
+at target size and record that the Unity Console has no new errors. M3 is
+complete only after the two-build visual evidence, 50-well/layout checks and
+console result are recorded. This is **layout evidence, not a playable game or
+rules validation**. No new gameplay calculations belong in these fixed visual
+fixtures.
 
 Use the accepted native art for fit. Prepare isolated production sprites and
 the requested verified 3072 × 2048 board master after geometry is settled;
