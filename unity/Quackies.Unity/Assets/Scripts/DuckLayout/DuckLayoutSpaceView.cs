@@ -19,6 +19,7 @@ namespace Quackies.Unity.DuckLayout
         [SerializeField] private RectTransform rewardRect;
         [SerializeField] private Button inspectButton;
         [SerializeField] private Image wellImage;
+        [SerializeField] private Sprite featherRewardSprite;
         [SerializeField] private Image tokenImage;
 
         public string StableId => stableId;
@@ -31,12 +32,14 @@ namespace Quackies.Unity.DuckLayout
         public int Feathers => feathers;
         public RectTransform WellRect => wellRect;
         public RectTransform RewardRect => rewardRect;
+        public RectTransform TokenRect => tokenImage == null ? null : tokenImage.rectTransform;
         public Button InspectButton => inspectButton;
         public Sprite WellSprite => wellImage == null ? null : wellImage.sprite;
+        public Sprite FeatherRewardSprite => featherRewardSprite;
         public Sprite EncounterSprite => tokenImage == null ? null : tokenImage.sprite;
 
         public void Configure(string id, int number, bool isHaven, bool usesBoardArt, string shelterName, int sleepReward, int twigReward,
-            int featherReward, RectTransform well, RectTransform reward, Button button, Image wellArtwork, Image token)
+            int featherReward, RectTransform well, RectTransform reward, Button button, Image wellArtwork, Sprite featherArtwork, Image token)
         {
             stableId = id;
             space = number;
@@ -50,6 +53,7 @@ namespace Quackies.Unity.DuckLayout
             rewardRect = reward;
             inspectButton = button;
             wellImage = wellArtwork;
+            featherRewardSprite = featherArtwork;
             tokenImage = token;
         }
 

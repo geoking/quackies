@@ -914,3 +914,14 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 - Dream Concept-B styling and playful typography are recorded for the later
   connected presentation milestone. M4 remains unstarted. This checkpoint is
   the revised plan only; new art/route integration and validation are in progress.
+
+### 40. Revised M3 route and haven artwork checkpoint (14 September 2026)
+
+- Replaced the staggered route with 50 centers on a single painted-path guide.
+  Kept larger 90 × 66 wells and tightened reward strips to clear bends.
+- Added native-alpha integrated one-/two-Feather haven tiles, kept seven havens
+  beside shelters, and moved the final oasis seal beside its reward row.
+- Unity compilation and the scene layout audit pass; the first revised
+  1133 × 744 visual review shows clear reward rows and an uncovered oasis.
+- This is a compiling checkpoint. Two-size occupied/pointer verification and
+  canonical reward-data synchronization remain in progress; M4 has not begun.

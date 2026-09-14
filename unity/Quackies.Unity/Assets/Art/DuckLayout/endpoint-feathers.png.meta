@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 43f9c1cccd0194aecb4945cfb89cfb14
+guid: ab6e362f6894d4ef0a28d8fc88fbcdfb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1763014460331064234
-    second: board_0
+      213: -5296662524037206692
+    second: endpoint-feathers_0
+  - first:
+      213: 3576607656696226170
+    second: endpoint-feathers_1
+  - first:
+      213: -376070463350779517
+    second: endpoint-feathers_2
+  - first:
+      213: -5057089397038094824
+    second: endpoint-feathers_3
+  - first:
+      213: 5159813041514908786
+    second: endpoint-feathers_4
+  - first:
+      213: 5894294661681201501
+    second: endpoint-feathers_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,13 +143,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: board_0
+      name: endpoint-feathers_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        y: 25
+        width: 1233
+        height: 1174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +158,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aabf8e19f4c777810800000000000000
-      internalID: 1763014460331064234
+      spriteID: c5d63af4f797e76b0800000000000000
+      internalID: -5296662524037206692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: endpoint-feathers_1
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 1028
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a71225ec6b9a2a130800000000000000
+      internalID: 3576607656696226170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: endpoint-feathers_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 306
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 381d575f7ede7caf0800000000000000
+      internalID: -376070463350779517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: endpoint-feathers_3
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 312
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 816662cacfb91d9b0800000000000000
+      internalID: -5057089397038094824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: endpoint-feathers_4
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 266
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c8ce69f965b9740800000000000000
+      internalID: 5159813041514908786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: endpoint-feathers_5
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 242
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d514df6f3cdbcc150800000000000000
+      internalID: 5894294661681201501
       vertices: []
       indices: 
       edges: []
@@ -163,7 +288,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      board_0: 1763014460331064234
+      endpoint-feathers_0: -5296662524037206692
+      endpoint-feathers_1: 3576607656696226170
+      endpoint-feathers_2: -376070463350779517
+      endpoint-feathers_3: -5057089397038094824
+      endpoint-feathers_4: 5159813041514908786
+      endpoint-feathers_5: 5894294661681201501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

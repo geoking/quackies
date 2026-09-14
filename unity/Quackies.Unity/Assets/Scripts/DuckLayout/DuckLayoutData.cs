@@ -11,9 +11,9 @@ namespace Quackies.Unity.DuckLayout
         public int version;
         public float boardWidth = 1536f;
         public float boardHeight = 1024f;
-        public float wellWidth = 76f;
-        public float wellHeight = 62f;
-        public float rewardHeight = 24f;
+        public float wellWidth = 90f;
+        public float wellHeight = 66f;
+        public float rewardHeight = 22f;
         public DuckLayoutNestAnchor nest;
         public DuckLayoutBoardRow[] rows;
 

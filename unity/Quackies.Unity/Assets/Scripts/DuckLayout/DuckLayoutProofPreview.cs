@@ -183,9 +183,9 @@ namespace Quackies.Unity.DuckLayout
                 inspectionDetail.text = space.IsHaven ? "Shelter reward preview. This fixed layout does not resolve a game action."
                     : "Rest reward preview. This fixed layout does not resolve a game action.";
             }
-            SetRewardPreview(space.Sleep, space.Twigs, space.Feathers);
+            SetRewardPreview(space.Sleep, space.Twigs, space.Feathers, space.FeatherRewardSprite);
             var token = showingOccupied ? FindToken(space.Space) : null;
-            SetInspectionArt(token == null ? space.WellSprite : token.sprite, space.Space == 50 && token == null);
+            SetInspectionArt(token == null ? space.WellSprite : token.sprite);
         }
 
         private void InspectOffer(DuckLayoutOfferView offer)
@@ -201,17 +201,22 @@ namespace Quackies.Unity.DuckLayout
             if (inspectionSleepIcon != null) inspectionSleepIcon.gameObject.SetActive(true);
             if (inspectionTwigIcon != null) inspectionTwigIcon.gameObject.SetActive(false);
             if (inspectionFeatherIcon != null) inspectionFeatherIcon.gameObject.SetActive(false);
-            SetInspectionArt(offer.PreviewSprite, false);
+            SetInspectionArt(offer.PreviewSprite);
         }
 
-        private void SetRewardPreview(int sleep, int twigs, int feathers)
+        private void SetRewardPreview(int sleep, int twigs, int feathers, Sprite featherSprite)
         {
             SetValue(inspectionSleepValue, sleep.ToString(), true);
             SetValue(inspectionTwigValue, twigs.ToString(), twigs > 0);
             SetValue(inspectionFeatherValue, feathers.ToString(), feathers > 0);
             if (inspectionSleepIcon != null) inspectionSleepIcon.gameObject.SetActive(true);
             if (inspectionTwigIcon != null) inspectionTwigIcon.gameObject.SetActive(twigs > 0);
-            if (inspectionFeatherIcon != null) inspectionFeatherIcon.gameObject.SetActive(feathers > 0);
+            if (inspectionFeatherIcon != null)
+            {
+                inspectionFeatherIcon.sprite = featherSprite;
+                inspectionFeatherIcon.useSpriteMesh = featherSprite != null;
+                inspectionFeatherIcon.gameObject.SetActive(feathers > 0 && featherSprite != null);
+            }
         }
 
         private static void SetValue(TMP_Text value, string text, bool visible)
@@ -221,10 +226,10 @@ namespace Quackies.Unity.DuckLayout
             value.gameObject.SetActive(visible);
         }
 
-        private void SetInspectionArt(Sprite sprite, bool endpointFallback)
+        private void SetInspectionArt(Sprite sprite)
         {
             if (inspectionArt == null) return;
-            inspectionArt.sprite = sprite ?? (endpointFallback && inspectionFeatherIcon != null ? inspectionFeatherIcon.sprite : null);
+            inspectionArt.sprite = sprite;
             inspectionArt.color = inspectionArt.sprite == null ? Color.clear : Color.white;
             inspectionArt.useSpriteMesh = inspectionArt.sprite != null;
             inspectionArt.gameObject.SetActive(inspectionArt.sprite != null);
