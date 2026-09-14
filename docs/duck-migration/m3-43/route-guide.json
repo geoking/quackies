@@ -1,0 +1,506 @@
+{
+  "status": "Final 43-space review geometry; visual path alignment is a human/agent image review, not a numeric proof against the painting.",
+  "boardSize": [
+    1536,
+    1024
+  ],
+  "rootWellSize": [
+    86,
+    63
+  ],
+  "colouredWellInsetScale": 0.82,
+  "tokenSize": 70,
+  "rewardHeight": 24,
+  "rewardWidth": 73.96,
+  "havenFeathers": {
+    "oneSize": 34.4,
+    "twoSize": 30.96,
+    "twoVerticalGap": 3.78
+  },
+  "oasisFeathers": {
+    "size": 64,
+    "unrotatedGap": 12,
+    "rotationsDegrees": [
+      52,
+      78
+    ],
+    "note": "Pair separation visually checked; transparent sprite margins mean rotated bounding boxes overestimate ink."
+  },
+  "islands": [
+    {
+      "biome": "wetlands",
+      "count": 14,
+      "measuredPathGuide": [
+        [
+          128,
+          204
+        ],
+        [
+          108,
+          272
+        ],
+        [
+          89,
+          363
+        ],
+        [
+          88,
+          478
+        ],
+        [
+          94,
+          563
+        ],
+        [
+          96,
+          665
+        ],
+        [
+          143,
+          751
+        ],
+        [
+          230,
+          787
+        ],
+        [
+          330,
+          790
+        ],
+        [
+          418,
+          755
+        ],
+        [
+          460,
+          681
+        ],
+        [
+          463,
+          614
+        ],
+        [
+          448,
+          500
+        ],
+        [
+          427,
+          401
+        ],
+        [
+          412,
+          303
+        ],
+        [
+          414,
+          235
+        ]
+      ],
+      "finalCenters": [
+        {
+          "space": 1,
+          "x": 128.0,
+          "y": 204.0,
+          "haven": false
+        },
+        {
+          "space": 2,
+          "x": 93.9752,
+          "y": 339.1713,
+          "haven": false
+        },
+        {
+          "space": 3,
+          "x": 88.0,
+          "y": 478.0,
+          "haven": true
+        },
+        {
+          "space": 4,
+          "x": 94.2703,
+          "y": 576.7858,
+          "haven": false
+        },
+        {
+          "space": 5,
+          "x": 101.1644,
+          "y": 674.4498,
+          "haven": false
+        },
+        {
+          "space": 6,
+          "x": 174.0,
+          "y": 763.5273,
+          "haven": false
+        },
+        {
+          "space": 7,
+          "x": 267.5927,
+          "y": 788.1278,
+          "haven": false
+        },
+        {
+          "space": 8,
+          "x": 365.3698,
+          "y": 775.9325,
+          "haven": false
+        },
+        {
+          "space": 9,
+          "x": 441.8707,
+          "y": 712.9421,
+          "haven": false
+        },
+        {
+          "space": 10,
+          "x": 463.0,
+          "y": 614.0,
+          "haven": true
+        },
+        {
+          "space": 11,
+          "x": 450.36,
+          "y": 518.0,
+          "haven": false
+        },
+        {
+          "space": 12,
+          "x": 431.5,
+          "y": 422.0,
+          "haven": false
+        },
+        {
+          "space": 13,
+          "x": 415.5,
+          "y": 326.0,
+          "haven": false
+        },
+        {
+          "space": 14,
+          "x": 414.0,
+          "y": 230.0,
+          "haven": false
+        }
+      ]
+    },
+    {
+      "biome": "meadow",
+      "count": 14,
+      "measuredPathGuide": [
+        [
+          611,
+          218
+        ],
+        [
+          614,
+          335
+        ],
+        [
+          615,
+          462
+        ],
+        [
+          619,
+          578
+        ],
+        [
+          633,
+          683
+        ],
+        [
+          665,
+          756
+        ],
+        [
+          732,
+          800
+        ],
+        [
+          780,
+          805
+        ],
+        [
+          881,
+          810
+        ],
+        [
+          951,
+          747
+        ],
+        [
+          962,
+          615
+        ],
+        [
+          950,
+          458
+        ],
+        [
+          929,
+          398
+        ],
+        [
+          908,
+          297
+        ],
+        [
+          881,
+          218
+        ]
+      ],
+      "finalCenters": [
+        {
+          "space": 15,
+          "x": 611.0,
+          "y": 218.0,
+          "haven": false
+        },
+        {
+          "space": 16,
+          "x": 614.0,
+          "y": 335.0,
+          "haven": true
+        },
+        {
+          "space": 17,
+          "x": 614.874,
+          "y": 445.9966,
+          "haven": false
+        },
+        {
+          "space": 18,
+          "x": 618.2738,
+          "y": 556.9396,
+          "haven": false
+        },
+        {
+          "space": 19,
+          "x": 631.0833,
+          "y": 668.6251,
+          "haven": false
+        },
+        {
+          "space": 20,
+          "x": 679.0361,
+          "y": 765.2177,
+          "haven": false
+        },
+        {
+          "space": 21,
+          "x": 780.0,
+          "y": 805.0,
+          "haven": true
+        },
+        {
+          "space": 22,
+          "x": 876.4,
+          "y": 809.6725,
+          "haven": false
+        },
+        {
+          "space": 23,
+          "x": 950.7777,
+          "y": 747.2001,
+          "haven": false
+        },
+        {
+          "space": 24,
+          "x": 958.9475,
+          "y": 651.6296,
+          "haven": false
+        },
+        {
+          "space": 25,
+          "x": 957.3707,
+          "y": 554.4333,
+          "haven": false
+        },
+        {
+          "space": 26,
+          "x": 950.0,
+          "y": 458.0,
+          "haven": true
+        },
+        {
+          "space": 27,
+          "x": 916.5964,
+          "y": 338.3447,
+          "haven": false
+        },
+        {
+          "space": 28,
+          "x": 881.0,
+          "y": 218.0,
+          "haven": false
+        }
+      ]
+    },
+    {
+      "biome": "wasteland",
+      "count": 15,
+      "measuredPathGuide": [
+        [
+          1179,
+          216
+        ],
+        [
+          1159,
+          280
+        ],
+        [
+          1128,
+          345
+        ],
+        [
+          1124,
+          404
+        ],
+        [
+          1133,
+          500
+        ],
+        [
+          1129,
+          607
+        ],
+        [
+          1125,
+          705
+        ],
+        [
+          1173,
+          780
+        ],
+        [
+          1230,
+          810
+        ],
+        [
+          1297,
+          808
+        ],
+        [
+          1385,
+          806
+        ],
+        [
+          1433,
+          755
+        ],
+        [
+          1450,
+          650
+        ],
+        [
+          1451,
+          538
+        ],
+        [
+          1450,
+          430
+        ],
+        [
+          1442,
+          352
+        ],
+        [
+          1417,
+          246
+        ]
+      ],
+      "finalCenters": [
+        {
+          "space": 29,
+          "x": 1179.0,
+          "y": 212.6,
+          "haven": false
+        },
+        {
+          "space": 30,
+          "x": 1145.0,
+          "y": 308.4,
+          "haven": false
+        },
+        {
+          "space": 31,
+          "x": 1124.0,
+          "y": 404.2,
+          "haven": false
+        },
+        {
+          "space": 32,
+          "x": 1133.0,
+          "y": 500.0,
+          "haven": true
+        },
+        {
+          "space": 33,
+          "x": 1129.1896,
+          "y": 601.9288,
+          "haven": false
+        },
+        {
+          "space": 34,
+          "x": 1125.0472,
+          "y": 703.8446,
+          "haven": false
+        },
+        {
+          "space": 35,
+          "x": 1198.0421,
+          "y": 793.18,
+          "haven": false
+        },
+        {
+          "space": 36,
+          "x": 1297.0,
+          "y": 808.0,
+          "haven": true
+        },
+        {
+          "space": 37,
+          "x": 1390.0,
+          "y": 821.0,
+          "haven": false
+        },
+        {
+          "space": 38,
+          "x": 1440.0,
+          "y": 725.0,
+          "haven": false
+        },
+        {
+          "space": 39,
+          "x": 1450.0,
+          "y": 629.0,
+          "haven": false
+        },
+        {
+          "space": 40,
+          "x": 1451.0,
+          "y": 533.0,
+          "haven": false
+        },
+        {
+          "space": 41,
+          "x": 1450.0,
+          "y": 437.0,
+          "haven": false
+        },
+        {
+          "space": 42,
+          "x": 1443.0,
+          "y": 341.0,
+          "haven": false
+        },
+        {
+          "space": 43,
+          "x": 1417.0,
+          "y": 240.0,
+          "haven": true
+        }
+      ]
+    }
+  ],
+  "validation": "See audit-mini.json and audit-large.json for checks using the rendered RectTransforms."
+}

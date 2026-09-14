@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "if(!Quackies.Unity.Editor.DuckLayoutSceneBuilder.TryBuildDuckLayoutProof()) throw new System.Exception(\"Build failed\");return typeof(Quackies.Unity.Editor.DuckLayoutSceneBuilder).GetMethod(\"AuditOpenScene\",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static).Invoke(null,null);"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": "# Duck Layout Audit\n\nScene: Assets/Scenes/DuckLayoutProof.unity\nHierarchy digest: `43096dcfa053a666db12e879c13f3488eedb8ed54023a770177117ad97dfdab8`\nStatus: PASS\n"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/george/Repos/quackies/unity/Quackies.Unity"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,3 +1,7 @@
+> Historical 40-space review evidence. The user subsequently selected 43
+> spaces; [the current M3 review](../m3-43/README.md) supersedes the route-count
+> question below. Historical captures and measurements are preserved.
+
 # M3 layout refinement: provisional 40-space fixture and route choice
 
 Status: **reopened for a focused visual decision; no 40-space or 45-space

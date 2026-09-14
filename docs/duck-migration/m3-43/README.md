@@ -1,51 +1,52 @@
-# M3 43-space revision
+# M3: 43-space board review
 
-Status: **in progress; no layout pass or approval claim.** This brief supersedes
-the earlier 40-versus-45 question. The current target is a 43-space visual
-route split **14 wetlands / 14 meadow / 15 wasteland**. Canonical v1 data still
-has 50 rows and remains unchanged until the final 43 reward rows and haven IDs
-are frozen.
+The user's selected route is **43 spaces: 14 wetlands / 14 meadow / 15
+wasteland**. The revised Unity layout is implemented and checked; visual
+approval remains with the user. M4 is unstarted and awaits their command.
 
-The source and art work now supports 43 spaces, independent Feather treatments,
-the new leafy haven rim, and larger reward/token presentation. The source/art
-checkpoint is available and compilation passes with no errors. Route
-token/reward packing is ongoing. This document records WIP scope only and does
-not claim a completed layout, runtime audit, or final M3.
+The selected 1536 × 1024 painting is unchanged. The detailed 3072 × 2048
+painted master remains explicitly deferred. Larger Game-view captures show
+the current painting with resolution-independent UI; they are not a newly
+painted high-resolution master.
 
-The base painting remains the selected 1536 × 1024 source. The detailed 3072 ×
-2048 master remains deferred. UI should remain resolution-independent, and
-future production authoring may use the existing higher-resolution plan and
-4096 import cap. M4/Core gameplay remains unstarted.
+## Layout
 
-## Current visual target
+- Recentered the wetlands loop and aligned the seven haven wells beside their
+  shelter entrances. The 20 Sleep / 8 Twigs wasteland haven is raised toward
+  its refuge. Bridge decks remain clear between spaces 14/15 and 28/29.
+- Eight havens: **3, 10, 16, 21, 26, 32, 36, 43**. The native oasis has two
+  large sideways Feathers on the ground, with **21 Sleep / 9 Twigs** beneath.
+- Haven wells retain the biome colour and a leafy rim. Two-Feather rewards use
+  two separated images. Ordinary coloured wells are inset within an 86 × 63
+  design-unit footprint, with 70-unit encounter tokens overhanging them.
+  This improves token size relative to the well; it does not claim every
+  token is absolutely larger than the previous, roomier 40-space candidate.
+- Reward rows are 24 design units high, with larger live TMP numbers and the
+  existing Moon and Twig artwork. Exact values stay independent of painting.
+- The frozen 43 reward rows are synchronized into the canonical v1 board
+  during this closeout. Shop prices and encounter/event rules remain unchanged.
 
-- 43 ordered spaces: 14 wetlands, 14 meadow, 15 wasteland.
-- Independent Feather 1 and Feather 2 artwork with the new leafy haven rim.
-- Larger reward strips and token presentation, with sizes still adjustable as
-  packing and readability are reviewed.
-- Route centers, token wells and reward rows packed against the painted paths,
-  including the wasteland curves and bridge approach/deck gaps.
-- Preserve the oasis and shelter visibility while keeping the base painting
-  unchanged.
+## Review images and checks
 
-The user permits adjusting sizes during this review. No final WHTR promise is
-made yet. Numeric reward/haven migration is deferred until root supplies the
-final 43-row data freeze; until then, the canonical 50-row board remains the
-rules authority.
+- [Empty board, iPad mini review size](empty-mini.png)
+- [Encounter fit, iPad mini review size](occupied-mini.png)
+- [Empty board, larger review size](empty-large.png)
+- [Encounter fit, larger review size](occupied-large.png)
+- [Validation summary](layout-validation.json) and [route coordinates](route-guide.json)
 
-## Remaining evidence
+Both actual Game-view sizes, **1133 × 744** and **2732 × 2048**, pass the
+rendered geometry/TMP audit. All **43/43** center raycasts select the expected
+space and programmatic PointerClick events open its matching inspection.
+There are zero compilation and Console errors. A final rebuild passes, with
+all 20 texture import metadata hashes unchanged. Empty and occupied captures
+were visually reviewed for path alignment, shelter access, bridge gaps,
+reward clarity, Feather separation and token fit.
 
-- [x] Root source/art checkpoint and compilation evidence recorded.
-- [ ] Route token and reward packing completed and visually reviewed.
-- [ ] 43 centers, wells and reward strips verified against painted paths at the
-      review viewports.
-- [ ] Wasteland curves and bridge approach/deck gaps remain clear of tile wells.
-- [ ] Haven/shelter entries, independent Feather separation and leafy rims read
-      clearly at mini and larger review sizes.
-- [ ] Final 43 reward rows and haven IDs frozen, then migrated into canonical
-      JSON/CSV/table and the balance audit.
-- [ ] M3 visual review completed and user approval recorded.
+These are Editor layout checks, not Core gameplay, physical-device testing,
+an iOS export, or user acceptance. Future movement must follow explicit bridge
+waypoints; straight interpolation between tile centers would cut corners.
+The shorter route also requires a fresh start-bound audit; optional starting
+Feathers need their endpoint boundary resolved before M4 implementation.
 
-Historical M3 and 40-space evidence remains historical; do not rewrite it as
-43-space evidence. No Core, rules, canonical v1 data, or M4 implementation is
-part of this WIP checkpoint.
+Historical 40- and 50-space evidence remains historical. This revision does
+not authorize M4 or imply approval of the final visuals.

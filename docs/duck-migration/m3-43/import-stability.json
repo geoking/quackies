@@ -1,0 +1,26 @@
+{
+  "stableAcrossRebuild": true,
+  "textureCount": 20,
+  "sha256": {
+    "endpoint-feathers.png.meta": "d3ea980938fec6ed74be12694d1583811f54e391d6632849d30924508af2e958",
+    "zzz.png.meta": "62e87f7ce5e0275d31a4e6da06902e5b09e12af158295c957fef8abaa510b18f",
+    "feathers-two.png.meta": "602c2f0be1489f02915f71fb9d30e6521de4a373ec462720077a900490a23922",
+    "board.png.meta": "181779d4df970ce2ff19c53dce5d853ebe06ba06aa5ceaf1609595bb0e0e80a8",
+    "well-haven-wasteland.png.meta": "f1585e1773f99292a287ff2b6bc80bb2841b625183976f796679edca18b26d5d",
+    "well-grass.png.meta": "ec7aae77e2f2a79ab8e1b5a31dc5c410c78a50a70f3eef15b407b86e26024401",
+    "leaf-rim-only.png.meta": "c7e34fab6e445d15ae369a5bb2fab8cdb3be5a0e705276ff05822d988e56081f",
+    "everyday-encounters.png.meta": "8d64ec88fc54eabdc4319eaf17667b9300922293151c90f773b51ce8310be152",
+    "tailwind-variants.png.meta": "30dfef14298c39523ff95e4838337db0e9b49f0f9f6195a5edddfad6d35460b1",
+    "nest-frame-two.png.meta": "d1d64a9286f651beee393268210ca8285456e20f242f427d240241edf34d6e99",
+    "feather.png.meta": "55430c2d29dadb733c798134d32b1f7964c12142b93577c703d446c327433b59",
+    "sleep.png.meta": "0a3d818dab4dc07daf92962eaae8a3e75525c722079a30bdc31dd83802569f80",
+    "well-wasteland.png.meta": "19eed39810dec806000e48946893587eea4fccc872f5ab49313b9698c117da01",
+    "well-haven-grass.png.meta": "44247aec1469035545c732638be4ee1b3809611047ef357197343787d86554b9",
+    "white-obstacles.png.meta": "171e610f0fde3c41e28a99c9fb841bc330854c049c1e20d4de7e9faa649f2a33",
+    "twig.png.meta": "c2ecb1269f728e922d9abf9ef9ed5332e9124e68631bb8db215d9e2a1f01ed0d",
+    "ducks.png.meta": "3050a227b2a3d4aaa7a768511a9c22970ee94bf979e0cb7a02c849679031b41d",
+    "reeds-quantities.png.meta": "8bc6fff16bd181fdc16d0a654587297503f8aca971f6339cd63ff71ce282f45d",
+    "nest-frame-one.png.meta": "6910067ded482f75a7233bf5e40177b7f8ba3263dad119492212b286a646966b",
+    "dream-concept.png.meta": "3bdac11151914b22f0ad2c9d14046bd641381da1f2516f68722348ec60967900"
+  }
+}

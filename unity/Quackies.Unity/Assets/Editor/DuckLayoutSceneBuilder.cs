@@ -30,6 +30,12 @@ namespace Quackies.Unity.Editor
         private const float BoardY = 57f;
         private const float BoardBottomInset = 5f;
         private const float BoardHorizontalInset = 13f;
+        private const float ColouredWellInsetScale = .82f;
+        private const float OasisFeatherSize = 64f;
+        private const float OasisFeatherGap = 12f;
+        private const float OasisFeatherCenterY = 12.5f;
+        private const float OasisFeatherHitHorizontalOverflow = 40f;
+        private const float OasisFeatherHitTopOverflow = 33f;
         private const int HighResolutionTextureSize = 4096;
 
         private static readonly Color Navy = new Color(.07f, .10f, .24f);
@@ -276,8 +282,10 @@ namespace Quackies.Unity.Editor
             if (isEndpoint)
             {
                 // The endpoint's coordinate is its ground-feather anchor. Extend this invisible target up into the painted oasis pool.
-                var poolReach = wellHeight * .45f;
-                TableUi.Place(hit.rectTransform, 0f, -poolReach, wellWidth, wellHeight + rewardHeight + 2f + poolReach);
+                var poolReach = Mathf.Max(wellHeight * .45f, OasisFeatherHitTopOverflow * scaleX);
+                var horizontalOverflow = OasisFeatherHitHorizontalOverflow * scaleX;
+                TableUi.Place(hit.rectTransform, -horizontalOverflow, -poolReach, wellWidth + horizontalOverflow * 2f,
+                    wellHeight + rewardHeight + 2f + poolReach);
             }
             else TableUi.Fill(hit.rectTransform);
             hit.raycastTarget = true;
@@ -295,7 +303,10 @@ namespace Quackies.Unity.Editor
                     : string.Equals(row.biome, "meadow", StringComparison.OrdinalIgnoreCase) ? MeadowTint : WetlandTint;
                 var well = Image("Rest Well", root, tint, wellSprite);
                 well.preserveAspect = true;
-                TableUi.Place(well.rectTransform, 0, 0, wellWidth, wellHeight);
+                var colouredWellWidth = wellWidth * ColouredWellInsetScale;
+                var colouredWellHeight = wellHeight * ColouredWellInsetScale;
+                TableUi.Place(well.rectTransform, (wellWidth - colouredWellWidth) * .5f, (wellHeight - colouredWellHeight) * .5f,
+                    colouredWellWidth, colouredWellHeight);
                 well.raycastTarget = false;
                 wellRect = well.rectTransform;
                 wellArtwork = well;
@@ -304,6 +315,8 @@ namespace Quackies.Unity.Editor
                     var leafFrame = Image("Haven Leaf Rim", root, Color.white, art.leafRim);
                     leafFrame.preserveAspect = true;
                     TableUi.Place(leafFrame.rectTransform, 0, 0, wellWidth, wellHeight);
+                    // A haven's visible footprint is its full leaf rim, not the inset coloured well beneath it.
+                    wellRect = leafFrame.rectTransform;
                 }
             }
             else
@@ -341,7 +354,7 @@ namespace Quackies.Unity.Editor
             TableUi.Place(token.rectTransform, tokenX, tokenY, tokenSize, tokenSize);
             token.gameObject.SetActive(false);
             if (isEndpoint)
-                BuildOasisGroundFeathers(root, wellWidth, wellHeight, art);
+                BuildOasisGroundFeathers(root, wellWidth, scaleX, art);
             else if (row.haven)
                 BuildHavenFeathers(root, row.feathers, wellWidth, wellHeight, art);
             var view = root.gameObject.AddComponent<DuckLayoutSpaceView>();
@@ -360,22 +373,22 @@ namespace Quackies.Unity.Editor
                 return;
             }
 
-            var pairSize = wellWidth * .30f;
+            var pairSize = wellWidth * .36f;
             var gap = wellHeight * .06f;
             var x = wellWidth * .80f;
-            var firstY = wellHeight * .04f;
+            var firstY = -wellHeight * .03f;
             PlaceFeather("Haven Feather 1", parent, art.feather, x, firstY, pairSize, 0f);
             PlaceFeather("Haven Feather 2", parent, art.feather, x, firstY + pairSize + gap, pairSize, 0f);
         }
 
-        private static void BuildOasisGroundFeathers(RectTransform parent, float wellWidth, float wellHeight, DuckLayoutArt art)
+        private static void BuildOasisGroundFeathers(RectTransform parent, float wellWidth, float scale, DuckLayoutArt art)
         {
-            var size = wellWidth * .36f;
-            var gap = wellWidth * .04f;
+            var size = OasisFeatherSize * scale;
+            var gap = OasisFeatherGap * scale;
             var x = (wellWidth - size * 2f - gap) * .5f;
-            var y = wellHeight * .44f;
-            PlaceFeather("Oasis Ground Feather 1", parent, art.feather, x, y, size, -16f);
-            PlaceFeather("Oasis Ground Feather 2", parent, art.feather, x + size + gap, y, size, 16f);
+            var y = OasisFeatherCenterY * scale - size * .5f;
+            PlaceFeather("Oasis Ground Feather 1", parent, art.feather, x, y, size, 52f);
+            PlaceFeather("Oasis Ground Feather 2", parent, art.feather, x + size + gap, y, size, 78f);
         }
 
         private static Image PlaceFeather(string name, RectTransform parent, Sprite sprite, float x, float y, float size, float angle)

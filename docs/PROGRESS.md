@@ -1003,3 +1003,18 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   43-row data freeze.
 - Added the bounded [M3 43-space revision brief](duck-migration/m3-43/README.md).
   Historical 40-space and prior M3 evidence remains unchanged.
+
+### 45. M3 43-space layout checkpoint (14 September 2026)
+
+- Implemented the selected 14/14/15 route, recentered the wetlands loop and
+  raised the 20/8 haven toward its wasteland refuge. Kept both bridge decks
+  clear. The oasis uses two large sideways ground Feathers above 21/9 rewards.
+- Enlarged reward typography, separated the two-Feather haven markers and
+  inset the coloured wells so 70-unit encounter tokens overhang their edges.
+- Actual 1133 × 744 and 2732 × 2048 rendered audits pass, with 43/43 center
+  raycasts and PointerClick inspections. Compilation and Console report zero
+  errors; all 20 texture import metadata hashes are stable across rebuilding.
+- [Review images and validation](duck-migration/m3-43/README.md) are saved.
+  Canonical 43-row and bounded-audit documentation synchronization is the
+  remaining closeout work. Visual approval stays with the user. The larger
+  painted master remains deferred; M4 is unstarted.

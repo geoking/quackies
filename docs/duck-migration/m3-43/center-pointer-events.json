@@ -1,0 +1,286 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var c=UnityEngine.Object.FindObjectOfType<Quackies.Unity.DuckLayout.DuckLayoutProofPreview>();c.ShowAdventure();c.ShowEmptyWells();c.CloseInspection();UnityEngine.Canvas.ForceUpdateCanvases();var hits=new System.Collections.Generic.List<object>();foreach(var s in c.Spaces){c.CloseInspection();UnityEngine.Canvas.ForceUpdateCanvases();var rt=(UnityEngine.RectTransform)s.transform;var pos=UnityEngine.RectTransformUtility.WorldToScreenPoint(null,rt.TransformPoint(rt.rect.center));var ev=new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current){position=pos,button=UnityEngine.EventSystems.PointerEventData.InputButton.Left};var rr=new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();UnityEngine.EventSystems.EventSystem.current.RaycastAll(ev,rr);var hit=rr.Count>0?rr[0].gameObject.GetComponentInParent<Quackies.Unity.DuckLayout.DuckLayoutSpaceView>():null;if(hit!=s)throw new System.Exception(\"Wrong center hit for \"+s.Space);UnityEngine.EventSystems.ExecuteEvents.Execute(s.InspectButton.gameObject,ev,UnityEngine.EventSystems.ExecuteEvents.pointerClickHandler);var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;var title=(TMPro.TMP_Text)c.GetType().GetField(\"inspectionTitle\",f).GetValue(c);var expected=s.IsHaven?s.HavenName:\"Rest space \"+s.Space;if(title.text!=expected)throw new System.Exception(\"Wrong inspection for \"+s.Space);hits.Add(new{space=s.Space,x=pos.x,y=pos.y,title=title.text});}c.CloseInspection();return new{passed=hits.Count,hits};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "passed": 43,
+        "hits": [
+          {
+            "space": 1,
+            "x": 140.25,
+            "y": 542.1406,
+            "title": "Rest space 1"
+          },
+          {
+            "space": 2,
+            "x": 117.588959,
+            "y": 452.1144,
+            "title": "Rest space 2"
+          },
+          {
+            "space": 3,
+            "x": 113.609375,
+            "y": 359.652344,
+            "title": "Reed hammock"
+          },
+          {
+            "space": 4,
+            "x": 117.785492,
+            "y": 293.859436,
+            "title": "Rest space 4"
+          },
+          {
+            "space": 5,
+            "x": 122.377075,
+            "y": 228.813721,
+            "title": "Rest space 5"
+          },
+          {
+            "space": 6,
+            "x": 170.886719,
+            "y": 169.4867,
+            "title": "Rest space 6"
+          },
+          {
+            "space": 7,
+            "x": 233.220947,
+            "y": 153.102356,
+            "title": "Rest space 7"
+          },
+          {
+            "space": 8,
+            "x": 298.342,
+            "y": 161.22467,
+            "title": "Rest space 8"
+          },
+          {
+            "space": 9,
+            "x": 349.2928,
+            "y": 203.177246,
+            "title": "Rest space 9"
+          },
+          {
+            "space": 10,
+            "x": 363.365234,
+            "y": 269.074219,
+            "title": "Willow nest"
+          },
+          {
+            "space": 11,
+            "x": 354.946777,
+            "y": 333.011719,
+            "title": "Rest space 11"
+          },
+          {
+            "space": 12,
+            "x": 342.385742,
+            "y": 396.949219,
+            "title": "Rest space 12"
+          },
+          {
+            "space": 13,
+            "x": 331.7295,
+            "y": 460.886719,
+            "title": "Rest space 13"
+          },
+          {
+            "space": 14,
+            "x": 330.730469,
+            "y": 524.8242,
+            "title": "Rest space 14"
+          },
+          {
+            "space": 15,
+            "x": 461.935547,
+            "y": 532.8164,
+            "title": "Rest space 15"
+          },
+          {
+            "space": 16,
+            "x": 463.9336,
+            "y": 454.892578,
+            "title": "Clover hollow"
+          },
+          {
+            "space": 17,
+            "x": 464.5157,
+            "y": 380.967133,
+            "title": "Rest space 17"
+          },
+          {
+            "space": 18,
+            "x": 466.78,
+            "y": 307.0773,
+            "title": "Rest space 18"
+          },
+          {
+            "space": 19,
+            "x": 475.311371,
+            "y": 232.693024,
+            "title": "Rest space 19"
+          },
+          {
+            "space": 20,
+            "x": 507.248627,
+            "y": 168.36084,
+            "title": "Rest space 20"
+          },
+          {
+            "space": 21,
+            "x": 574.4922,
+            "y": 141.865234,
+            "title": "Orchard shelter"
+          },
+          {
+            "space": 22,
+            "x": 638.6961,
+            "y": 138.7533,
+            "title": "Rest space 22"
+          },
+          {
+            "space": 23,
+            "x": 688.2328,
+            "y": 180.3609,
+            "title": "Rest space 23"
+          },
+          {
+            "space": 24,
+            "x": 693.674,
+            "y": 244.0123,
+            "title": "Rest space 24"
+          },
+          {
+            "space": 25,
+            "x": 692.62384,
+            "y": 308.7466,
+            "title": "Rest space 25"
+          },
+          {
+            "space": 26,
+            "x": 687.714844,
+            "y": 372.972656,
+            "title": "Hayloft hideaway"
+          },
+          {
+            "space": 27,
+            "x": 665.4675,
+            "y": 452.664978,
+            "title": "Rest space 27"
+          },
+          {
+            "space": 28,
+            "x": 641.759766,
+            "y": 532.8164,
+            "title": "Rest space 28"
+          },
+          {
+            "space": 29,
+            "x": 840.2324,
+            "y": 536.4129,
+            "title": "Rest space 29"
+          },
+          {
+            "space": 30,
+            "x": 817.5879,
+            "y": 472.608582,
+            "title": "Rest space 30"
+          },
+          {
+            "space": 31,
+            "x": 803.601563,
+            "y": 408.8043,
+            "title": "Rest space 31"
+          },
+          {
+            "space": 32,
+            "x": 809.5957,
+            "y": 345,
+            "title": "Shaded rock nook"
+          },
+          {
+            "space": 33,
+            "x": 807.057861,
+            "y": 277.113831,
+            "title": "Rest space 33"
+          },
+          {
+            "space": 34,
+            "x": 804.29895,
+            "y": 209.2363,
+            "title": "Rest space 34"
+          },
+          {
+            "space": 35,
+            "x": 852.914734,
+            "y": 149.737488,
+            "title": "Rest space 35"
+          },
+          {
+            "space": 36,
+            "x": 918.822266,
+            "y": 139.867188,
+            "title": "Spring-fed refuge"
+          },
+          {
+            "space": 37,
+            "x": 980.7617,
+            "y": 131.208984,
+            "title": "Rest space 37"
+          },
+          {
+            "space": 38,
+            "x": 1014.0625,
+            "y": 195.146484,
+            "title": "Rest space 38"
+          },
+          {
+            "space": 39,
+            "x": 1020.72266,
+            "y": 259.083984,
+            "title": "Rest space 39"
+          },
+          {
+            "space": 40,
+            "x": 1021.38867,
+            "y": 323.021484,
+            "title": "Rest space 40"
+          },
+          {
+            "space": 41,
+            "x": 1020.72266,
+            "y": 386.958984,
+            "title": "Rest space 41"
+          },
+          {
+            "space": 42,
+            "x": 1016.06055,
+            "y": 450.896484,
+            "title": "Rest space 42"
+          },
+          {
+            "space": 43,
+            "x": 998.744141,
+            "y": 518.164063,
+            "title": "Oasis sanctuary"
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/george/Repos/quackies/unity/Quackies.Unity"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

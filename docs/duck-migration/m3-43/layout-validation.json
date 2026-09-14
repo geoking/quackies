@@ -1,0 +1,51 @@
+{
+  "scene": "Assets/Scenes/DuckLayoutProof.unity",
+  "layoutDataSha256": "a5a71654094b532fae6aed8946ecd28ad0dc602491ada8a2ba345935a42bbef7",
+  "savedSceneSha256": "631ea9ac3edfabe585a22c3e47876fb655773e956450e2ce6fd7b4544705561d",
+  "baseBoardSha256": "121c064ae0d14b8883e3420c6ed8f081167e1c0927a6a5010ce5307d2982a7f9",
+  "boardDimensions": [
+    1536,
+    1024
+  ],
+  "largerPaintedMaster": "explicitly deferred",
+  "spaceCount": 43,
+  "biomeCounts": [
+    14,
+    14,
+    15
+  ],
+  "havens": [
+    3,
+    10,
+    16,
+    21,
+    26,
+    32,
+    36,
+    43
+  ],
+  "endpoint": [
+    21,
+    9,
+    2
+  ],
+  "viewports": [
+    [
+      1133,
+      744
+    ],
+    [
+      2732,
+      2048
+    ]
+  ],
+  "compilationErrors": 0,
+  "consoleErrors": 0,
+  "centerRaycastAndPointerClickInspectionsPassed": 43,
+  "pointerEvidence": "EventSystem raycasts + programmatic PointerClick; not a physical device touch test.",
+  "textureMetadataStableAcrossRebuild": true,
+  "textureMetadataCount": 20,
+  "visualReview": "Empty and occupied captures reviewed at both viewports. Path centering, shelter entrances, bridge gaps, 2-Feather separation, reward readability and token overhang checked.",
+  "coreOrM4Work": "not started",
+  "preExistingProjectSettingsSha256": "bd3fb139bac5aa51048d7e8cf69f6010f6e8df5b02dc20c5b419b49b0dd6cbcb"
+}
