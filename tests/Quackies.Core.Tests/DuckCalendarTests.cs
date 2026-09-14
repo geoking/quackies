@@ -12,6 +12,28 @@ public sealed class DuckCalendarTests
 {
     private static readonly DuckRuleDefinitions Rules = DuckRules.V1;
 
+    [Theory]
+    [InlineData(1, 1, 1)]
+    [InlineData(3, 1, 1)]
+    [InlineData(4, 2, 2)]
+    [InlineData(6, 2, 2)]
+    [InlineData(7, 3, 3)]
+    [InlineData(10, 3, 0)]
+    public void Nest_level_and_purchase_limit_cover_calendar_boundaries(
+        int day,
+        int expectedNestLevel,
+        int expectedPurchaseLimit)
+    {
+        var runtime = DuckMatchRuntime.Create(seed: 19);
+        runtime.State.Day = day;
+
+        var view = runtime.GetSnapshot("human");
+
+        Assert.Equal(expectedNestLevel, DuckDreamHandler.NestLevelForDay(day));
+        Assert.Equal(expectedNestLevel, view.NestLevel);
+        Assert.Equal(expectedPurchaseLimit, DuckDreamHandler.PurchaseLimitForDay(day));
+    }
+
     [Fact]
     public void Deterministic_policy_completes_all_ten_Days_and_reveals_each_event_once()
     {
