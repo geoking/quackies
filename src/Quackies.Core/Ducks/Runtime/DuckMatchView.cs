@@ -30,6 +30,7 @@ namespace Quackies.Core.Ducks.Runtime
             Settings = settings ?? throw new ArgumentNullException(nameof(settings));
             if (day < 1 || day > DuckMatchSettings.StandardDays) throw new ArgumentOutOfRangeException(nameof(day));
             Day = day;
+            NestLevel = DuckDreamHandler.NestLevelForDay(day);
             Phase = phase;
             ViewerId = viewerId ?? throw new ArgumentNullException(nameof(viewerId));
             CurrentEvent = currentEvent ?? throw new ArgumentNullException(nameof(currentEvent));
@@ -47,6 +48,7 @@ namespace Quackies.Core.Ducks.Runtime
 
         public DuckMatchSettings Settings { get; }
         public int Day { get; }
+        public int NestLevel { get; }
         public DuckPhase Phase { get; }
         public string ViewerId { get; }
         public DuckWorldEventDefinition CurrentEvent { get; }

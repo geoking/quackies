@@ -10,8 +10,14 @@ namespace Quackies.Core.Ducks.Runtime
     {
         internal static int PurchaseLimitForDay(int day)
         {
+            var nestLevel = NestLevelForDay(day);
+            return day == DuckMatchSettings.StandardDays ? 0 : nestLevel;
+        }
+
+        internal static int NestLevelForDay(int day)
+        {
             if (day < 1 || day > DuckMatchSettings.StandardDays) throw new ArgumentOutOfRangeException(nameof(day));
-            return day == 10 ? 0 : day <= 3 ? 1 : day <= 6 ? 2 : 3;
+            return day <= 3 ? 1 : day <= 6 ? 2 : 3;
         }
 
         internal static IReadOnlyList<GameAction> GetLegalActions(DuckMatchState state, DuckPlayerState player, DuckRuleDefinitions rules)
