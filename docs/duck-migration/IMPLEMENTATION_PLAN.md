@@ -3,10 +3,10 @@
 14 September 2026. **M2 is complete.** The user approved the rules, settings,
 shop policy, local autosave/resume and this implementation scope, with final-Day
 only simultaneous drawing and final-Night Sleep breaking equal total Twigs.
-M2 changed documentation only. **M3 is reopened for refinement; M4 Core/CLI
-implementation remains unstarted and waits for the user's command.** The short
-product direction is in
-[PLAN.md](PLAN.md).
+M2 changed documentation only. **M3 is complete and approved by the user. M4
+Core/CLI implementation remains unstarted and waits for explicit confirmation.**
+The accepted visual result is recorded in [M3 closeout](m3-closeout/README.md);
+the short product direction is in [PLAN.md](PLAN.md).
 
 ## Decision: evolve Core; rebuild the changed game presentation
 
@@ -38,8 +38,8 @@ implementation and full-match balance validation remain future work.
 | Topic | Approved v1 default |
 | --- | --- |
 | First draw and empty bag | Draw at least one token before claiming that Day's route rewards. An empty bag ends exploration after the final token fully resolves. |
-| Reaching or passing 50 | Place once at 50, resolve the complete token including Exhaustion, then finish safely or worn out as appropriate. No bonus for overshoot and no further token placements. Reaching 50 does not end the match. |
-| Starting Feathers | Default 0; offer the same 0–3 starting setting to both ducks. Under current ten-Day sources the conservative latest start is 46 + setting, at most 49, so there is room for a first draw. Reject unsupported settings rather than silently clipping Feathers. |
+| Reaching or passing 43 | Place once at 43, resolve the complete token including Exhaustion, then finish safely or worn out as appropriate. No bonus for overshoot and no further token placements. Reaching 43 does not end the match. |
+| Starting Feathers | Default 0; offer the same 0–3 starting setting to both ducks. The current default-zero bound is reviewed in [endpoint-review.md](m3-closeout/endpoint-review.md). C1 must verify optional settings 1–3 on the 43-space route before exposing them. Preserve the approved setting requirement; do not silently remove options or clip/convert Feathers. A rule change requires user agreement. |
 | Dream shopping | All 11 offers available from Night 1, unlimited stock initially, one chip per token type per Night, within that player's 1/2/3 purchase cap. Variants share a type. Unspent Sleep expires; purchases enter the next Day's bag. No Night 10 shop. |
 | Final tie | Rank total Twigs including Dream Twigs first, then frozen retained Sleep from Night 10 before conversion. If both match, the game is a draw. No distance tiebreak or separate safe-player filter. |
 | Recovery | No separate flask, rewind or redraw in v1. Splash is only next-token nuisance protection. |
@@ -56,7 +56,7 @@ On **Day 10 only**, freeze the active participant cohort and public state at the
 start of each decision beat. Each member commits from that state plus their own
 already-known preview. Resolve the committed cohort in fixed player order and
 publish placements, logs and new previews atomically after the whole beat.
-A duck wearing out or reaching 50 during resolution cannot cancel another
+A duck wearing out or reaching 43 during resolution cannot cancel another
 committed action. Evaluate all-finished/Night transitions after the reveal.
 This remains a profile rule for the final Day, not a round-nine constant.
 
@@ -72,10 +72,12 @@ temporary Most Rested step; prepare the bag and reveal today's shared event;
 freeze effective start, then explore. The event deck is shuffled once at match
 creation. Nothing in the current event deck grants permanent Feathers.
 
-The zero-start bound is 9 prior haven awards ×2 + 9 Dawn deliveries ×3 + at most
-1 temporary step = 46. This is an intentionally loose upper bound, not an
-expected trip. New Feather sources or shorter/longer match settings require a
-new check. The shared 0–3 setting is approved, with zero as the default.
+The old generic zero-start bound of 46 was derived for 50 spaces and does not
+certify the shorter route. The current [endpoint review](m3-closeout/endpoint-review.md)
+uses early-Day constraints to distinguish a default-zero guarantee from optional
+starting settings that still require a proof. C1 owns that check before enabling
+those values. No new clamp, conversion or loss of the one-Feather/one-step rule
+is approved. New sources or match-length settings require a new check.
 
 ## Important implementation gaps found in the current code
 
@@ -141,79 +143,86 @@ Keep classic randomness/tests stable while adding a resumable duck source.
 
 ## Build milestones and review evidence
 
-M0 and earlier M1 experiments remain history. The future M3/M4 ordering is now
-changed deliberately: resolve and review the board revision before the full
-Core build. Stop for user feedback after each milestone. The earlier M3 proof
-is recorded as historical evidence; the revision checklist is in
-[m3-revision/README.md](m3-revision/README.md). M4 and later builds remain
-future work.
+M0 and earlier M1 experiments remain history. The deliberate order was to resolve
+the visual risk in M3 before implementing the duck rules. That visual gate is now
+closed. M4 and later implementation remain future work; stop for review after each
+milestone and keep compiling checkpoints within the milestone.
 
 ### M2 — Rules sheet complete
 
 Closed by the user on 14 September 2026. Rules, defaults, exact rewards/prices,
-events and persistence scope are approved, including the two corrections above.
-Keep this contract stable for the first complete playtest. **M3 refinement is
-open; M4 is unstarted and awaits the user's command.**
+events and persistence scope are approved, including final-Day-only simultaneous
+drawing and final-Night retained Sleep as the victory tie-break.
 
-### M3 — Refinement open; current fixture provisional
+### M3 — Complete and visually approved
 
-The earlier `DuckLayoutProof` and its [review evidence](m3/README.md) remain
-historical/rejected validation only. The current `board-layout.json` is a
-provisional 40-space visual fixture. Compare 40 larger (108 × 79.2) against 45
-smaller and 45 with an extended painted route; canonical v1 rules data remains
-50 spaces. The current refinement brief is in
-[m3-refinement/README.md](m3-refinement/README.md). Font-overflow and visual
-Candidate validation now passes actual 1133 × 744 and 2732 × 2048 audits,
-40/40 center raycasts and PointerClick inspections; see
-[validation](m3-refinement/validation.md). Do not claim the earlier revised-M3
-evidence as current completion. The higher-resolution master is deferred, Dream
-likeness/typography are M5 follow-ups, and no Core gameplay work has begun.
+Closed by the user after the reward-number refinement at `2c7cd6a`. The accepted
+fixed-data scene uses 43 spaces split 14/14/15, with havens at 4, 10, 16, 21, 26,
+32, 36 and 43. Canonical JSON/CSV now match the accepted layout, including the
+full first-haven payload moved from 3 to 4. The oasis gives 21 Sleep/9 Twigs/2
+Feathers. Space 4 ends the one-Twig plateau; space 5 begins the two-Twig plateau.
 
-Create a separate reproducible layout scene using fixed sample data, without a
-live rules session or Core binding. Preserve the playable baseline scene.
-Finish layout at the approved board source size; the detailed 3072 × 2048
-production master is explicitly deferred. Keep the higher-resolution authoring
-plan and 4096 import cap, resolution-independent UI and native production
-sprites. The current figure is a provisional 40-space fixture with 108 × 79.2
-wells and proposed haven IDs 3/10/15/20/24/29/33/40, with entry alignment at
-the bottom shelters 20/33. This is a visual fixture only; canonical v1 data
-remains 50 spaces and no endpoint or reward values change until route-count
-selection. Root owns the Editor mutation and scene verification.
+The final presentation has distinguishable biome tiles, scattered twig artwork,
+right-middle Twig numerals, bottom moon/Sleep information, prominent lower-left
+haven Feathers, centrally fitted chips and a smaller oasis Feather pair with
+winnings below. Rounded outlined typography is implemented. The approved route
+centres, shelter alignment, bridges and scenery clearances are preserved.
 
-Place candidate spaces on painted path centers, including wasteland curves, and
-keep both bridges free of tiles. Align haven entries to shelter entrances and
-use same-biome tile colour, green leafy nest borders and large integrated
-Feather 1/2 treatments. The provisional fixture proposes eight haven IDs
-3/10/15/20/24/29/33/40; the 45-space alternatives remain unresolved. Do not
-change canonical reward rows or the 21 Sleep / 9 Twigs / 2 Feathers endpoint
-until the user chooses the route count.
+[M3 closeout](m3-closeout/README.md) links the actual mini/large rendered audits,
+43 centre interactions, all 672 chip/space checks, 19 rendered-mesh comparisons,
+150 fitted labels and final zero-error compilation/Console evidence. This is a
+visual proof with fixed sample data; no duck Core session is bound. Preserve the
+completed original playable scene as the reference game.
 
-Represent all 16 encounter variants on the common token footprint and test
-representative occupied spaces. Dream likeness to Concept B and fun, engaging
-typography are minor M5 implementation follow-ups when the Dream view is built,
-not current M3 revision completion gates. Taps may open inspection rather than
-requiring tiny text to contain the entire rule.
-
-Record normalized layout anchors/bounds in a duck board-layout asset so the
-later art catalogue can reuse the measured positions. Confirm no overlaps,
-clipped text, covered shelters, ambiguous haven links or hidden rewards at both
-viewport sizes. Rebuild twice to check exact IDs and no duplicates, then verify
-the live layout and record the Unity Console result. M3 closes only after the
-revision evidence checklist is complete; this remains layout evidence, not a
-playable game or rules validation. No new gameplay calculations belong in these
-fixed visual fixtures. A concept sheet or simple upsize is not evidence of the
-requested detail; do not hide alignment problems by changing the approved data
-without root's decision.
+The detailed 3072 × 2048 painted master remains deferred. M5 will bind actual
+state/actions and finish Dream Concept-B presentation, nest growth and runtime
+overlays. It should build on the approved board rather than reopen its design.
+Full-match balance and iOS export remain M6 work. Historical/rejected visual
+studies remain in their evidence directories and do not prescribe current layout.
 
 ### M4 — Core and CLI, in small compiling checkpoints
 
 | Checkpoint | Result and focused evidence |
 | --- | --- |
-| C1: profile/data/state foundation | Preserve classic SetOne; introduce duck definitions, ten-Day settings and 50 occupied reward rows. Validate IDs, quantities and all data rows. Design saveable state and profile-owned lifecycle rules. |
+| C1: profile/data/state foundation | Preserve classic SetOne; introduce duck definitions, ten-Day settings and 43 occupied reward rows. Validate stable IDs, movement versus ability quantities and exact data. Design saveable state/profile lifecycle and complete the optional-start safety check. |
 | C2: adventure and exact draws | Opening bag, movement, Explore/Settle, Exhaustion, Log/Mud/Splash/Goose and all helpful tokens; ordered private previews, independent Days 1–9 drawing, final-Day commitment support and endpoint/empty-bag behavior. CLI can expose each new action as it lands. |
 | C3: one complete Day and Night | All ten event handlers tested in isolated Day fixtures; collective conditions, safe/worn outcomes, Reeds/Flowers/flock, frozen Sleep, Most Rested, Night 1 purchases, capped Dawn delivery, permanent trail and temporary zzz activation. A Day 1 → Night 1 → Day 2 CLI slice works with authoritative breakdowns. |
 | C4: complete ten-Day match | Extend the working daily cycle across all ten Days: once-only Day 5 Goose, shared deck, repeated Dawn awards, nest-tier transitions, Day 10 hidden decisions, final haven bonus, conversion and Twig-then-Sleep winners. Run seeded full matches using deterministic legal test policies while Normal is completed. |
 | C5: Normal AI and resume | New policy uses legitimate information and the new rewards. Add versioned local save/continue and exact continuation tests. Record representative decisions and match outcomes. |
+
+### C1 — The first work after M4 approval
+
+1. **Record the current baseline.** Run the existing solution build, classic
+   regression suite and CLI smoke test. Keep the original profile and tests as
+   the reference; no Unity edits or DLL sync occur in C1.
+2. **Add the duck profile and exact catalogue.** Load/validate all 43 board
+   rewards, eight havens, 11 priced shop variants, seven helpful types, five
+   obstacles and ten World Event identities. Keep nest 0 separate from scorable
+   1–43. Use the agreed data; do not retune prices or powers while importing it.
+3. **Separate identity from quantities.** Give encounters stable definition IDs
+   and owned-chip identity. Movement, obstacle Exhaustion, Reeds yield and shop
+   type are distinct fields. A Reeds ×3 remains one chip moving one space.
+4. **Prepare authoritative, saveable state.** Separate persistent Twigs/trail,
+   Day position/Exhaustion/flock, frozen and spendable Sleep, purchases, private
+   ordered previews, event state and final-Day commitments. Keep serializable
+   pending-decision descriptions and resumable randomness in the design from
+   the outset. Filesystem writes and complete Continue behaviour arrive in C5.
+5. **Resolve the starting-position safety check.** Verify the approved shared
+   starting-Feather options 0–3 against the 43-space endpoint. If a reachable
+   start at/past the endpoint needs a new rule, present that specific choice to
+   the user before coding it. Do not change the one-Feather/one-step rule by
+   inventing a cap or dropping settings.
+6. **Expose and check the foundation through the CLI.** Select/inspect the duck
+   profile and its initial data/state through the existing client boundary.
+   Check exact board/shop/catalogue values, stable identities, independent state
+   and original-profile regressions. This checkpoint establishes foundations;
+   it does not claim playable Adventure, Night resolution or working saves yet.
+
+Keep the existing snapshot/legal-actions/execute API shape and one authoritative
+match engine. Use focused profile policies/adapters where behaviour differs;
+Core stays independent of Unity. The visible C1 handoff is a compiling solution,
+validated duck catalogue/initial state, retained classic checks and small source
+and test commits. C2 then implements real drawing, movement and settlement.
 
 Each Core source checkpoint and its focused tests are separate commits, pushed
 promptly with the checked source/test relationship recorded. Run full original
@@ -251,8 +260,8 @@ rules and cosmetic expansion remain later work.
 
 ## Essential scenario coverage
 
-- All 50 rewards, exact haven versus neighbouring ordinary finishes, and worn
-  versus safe arrival at 50; nothing scores the next empty space.
+- All 43 rewards, exact haven versus neighbouring ordinary finishes, and worn
+  versus safe arrival at 43; nothing scores the next empty space.
 - Mud before/after Companions, no negative flock, no retroactive movement;
   repeated Log, Splash expiring on a helpful chip, suppressed final penalties,
   protected/unprotected Goose and Still Air plus Log applied only once.

@@ -1086,3 +1086,23 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   combinations remain clear. Compilation and Console report no errors.
   [Typography review and checks](duck-migration/m3-reward-typography/README.md)
   are saved. Stop for visual feedback; M4 remains unstarted.
+
+### 50. M3 approved and closed; M4 plan awaiting confirmation (14 September 2026)
+
+- The user approved the final board and explicitly closed M3. Consolidated the
+  plan, implementation checkpoints, status, handoff and art brief around the
+  accepted 43-space route, scattered-twig tiles, central chip fit, Feather
+  treatment and final reward typography. Historical studies remain preserved.
+- Synchronized canonical JSON, CSV and reward documentation with every accepted
+  Unity row, including the complete first-haven payload at space 4. The 11 shop
+  prices, encounter powers and World Event deck remain unchanged.
+- Regenerated the bounded 43-space audit. The default-zero effective start is
+  bounded to 42; approved starting settings 1–3 require tighter reachability or
+  an explicit endpoint decision during C1. No Feather cap, conversion or removed
+  setting is introduced. Full-match balance remains future evidence.
+- [M3 closeout and next step](duck-migration/m3-closeout/README.md) record the
+  approval and validation. The proposed M4 sequence is foundation/data, Adventure,
+  Day/Night, ten-Day matches, then Normal AI/save-resume, with the CLI updated
+  throughout and classic regressions retained. M4 is unstarted and awaits the
+  user's explicit confirmation. No Core/CLI/Unity implementation changed here;
+  the unrelated ProjectSettings draft remains outside the checkpoint.

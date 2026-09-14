@@ -1,0 +1,28 @@
+{
+  "approvedVisualCommit": "2c7cd6a9d579cdae80f9cff6d5627ffad2cff093",
+  "m3Status": "complete; approved by user",
+  "m4Status": "unstarted; awaiting explicit confirmation",
+  "spaces": 43,
+  "biomes": {
+    "wetlands": 14,
+    "meadow": 14,
+    "wasteland": 15
+  },
+  "havens": [
+    4,
+    10,
+    16,
+    21,
+    26,
+    32,
+    36,
+    43
+  ],
+  "canonicalRowsMatchUnity": true,
+  "shopAndEventsUnchanged": true,
+  "relativeLinksChecked": 128,
+  "missingLinks": [],
+  "coreCliUnityImplementationChanged": false,
+  "preservedProjectSettingsSha256": "bd3fb139bac5aa51048d7e8cf69f6010f6e8df5b02dc20c5b419b49b0dd6cbcb",
+  "balanceAuditSha256": "65987085fef235df314ae4f3426730eb5b29be1224bda2cb68fa00aa99142e38"
+}

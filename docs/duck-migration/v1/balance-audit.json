@@ -3,20 +3,25 @@
   "generated_by": "python3 -B docs/duck-migration/v1/balance-audit.py",
   "scope": {
     "days": 10,
-    "trail_spaces": 50,
+    "trail_spaces": 43,
     "havens": [
-      3,
-      11,
-      19,
-      27,
-      29,
-      37,
-      44,
-      50
+      4,
+      10,
+      16,
+      21,
+      26,
+      32,
+      36,
+      43
     ],
     "reference_inputs": [
       "docs/duck-migration/v1/board.csv",
+      "docs/duck-migration/v1/board.json",
       "docs/duck-migration/v1/shop.json"
+    ],
+    "rules_reviewed": [
+      "docs/duck-migration/ENCOUNTER_RULES.md",
+      "docs/duck-migration/v1/WORLD_EVENTS.md"
     ],
     "classification": "exact bag arithmetic and counter-limited comparisons; not a full-game balance simulation"
   },
@@ -24,7 +29,7 @@
     "arithmetic": "fractions.Fraction throughout; decimals are presentation-only",
     "opening_method": "memoized exhaustive traversal of every reachable multiset/counter state within the stated simplification that omits Splash blocking Log or Mud",
     "pressure_method": "exact hypergeometric counts without Goose and exhaustive ordered state traversal for Goose/Splash",
-    "assertions": "The generator checks settled board/shop inputs and all headline fractions before writing JSON."
+    "assertions": "The generator checks identical 43-row CSV/JSON board inputs, the 14/14/15 biome split, haven and endpoint rows, aggregate 469 Sleep/211 Twigs, shop prices, headline fractions and the analytic default-start bound before writing JSON."
   },
   "assumptions": [
     "Draws are uniformly random without replacement.",
@@ -54,7 +59,7 @@
     "minimum": 5,
     "maximum": 12,
     "probability_reach_or_pass_position": {
-      "3": {
+      "4": {
         "fraction": "1/1",
         "decimal": 1.0,
         "percent": 100.0
@@ -96,7 +101,7 @@
       }
     },
     "probability_land_exactly_on_position": {
-      "3": {
+      "4": {
         "fraction": "0/1",
         "decimal": 0.0,
         "percent": 0.0
@@ -116,10 +121,10 @@
         "decimal": 0.176684,
         "percent": 17.668
       },
-      "11": {
-        "fraction": "26/231",
-        "decimal": 0.112554,
-        "percent": 11.255
+      "10": {
+        "fraction": "9769/60060",
+        "decimal": 0.162654,
+        "percent": 16.265
       },
       "13": {
         "fraction": "0/1",
@@ -128,7 +133,7 @@
       }
     },
     "haven_readout": {
-      "first_haven": 3,
+      "first_haven": 4,
       "probability_reach_or_pass": {
         "fraction": "1/1",
         "decimal": 1.0,
@@ -139,19 +144,25 @@
         "decimal": 0.0,
         "percent": 0.0
       },
-      "second_haven": 11,
+      "second_haven": 10,
       "probability_reach_or_pass_second_haven": {
-        "fraction": "181/1001",
-        "decimal": 0.180819,
-        "percent": 18.082
+        "fraction": "2947/8580",
+        "decimal": 0.343473,
+        "percent": 34.347
       },
+      "probability_land_exactly_on_second_haven": {
+        "fraction": "9769/60060",
+        "decimal": 0.162654,
+        "percent": 16.265
+      },
+      "computed_readout": "Under this fixed safe-stop model, reach-or-pass is 100.000% for haven 4 and 34.347% for haven 10; exact landing is 0.000% and 16.265%, respectively.",
       "note": "Only an exact landing receives that space's rest reward; reach-or-pass is a travel-depth measure."
     },
     "known_early_sleep_rows": [
       {
         "space": 6,
         "kind": "ordinary",
-        "sleep": 5
+        "sleep": 6
       },
       {
         "space": 7,
@@ -166,63 +177,63 @@
     ],
     "haven_rewards_reference": [
       {
-        "space": 3,
+        "space": 4,
         "sleep": 6,
         "twigs": 1,
         "feathers": 1,
         "name": "Reed hammock"
       },
       {
-        "space": 11,
+        "space": 10,
         "sleep": 10,
         "twigs": 3,
         "feathers": 1,
         "name": "Willow nest"
       },
       {
-        "space": 19,
+        "space": 16,
         "sleep": 13,
         "twigs": 4,
         "feathers": 1,
         "name": "Clover hollow"
       },
       {
-        "space": 27,
+        "space": 21,
         "sleep": 15,
         "twigs": 5,
         "feathers": 1,
         "name": "Orchard shelter"
       },
       {
-        "space": 29,
+        "space": 26,
         "sleep": 16,
         "twigs": 5,
         "feathers": 1,
         "name": "Hayloft hideaway"
       },
       {
-        "space": 37,
+        "space": 32,
         "sleep": 18,
         "twigs": 7,
         "feathers": 2,
         "name": "Shaded rock nook"
       },
       {
-        "space": 44,
+        "space": 36,
         "sleep": 20,
         "twigs": 8,
         "feathers": 2,
         "name": "Spring-fed refuge"
       },
       {
-        "space": 50,
+        "space": 43,
         "sleep": 21,
         "twigs": 9,
         "feathers": 2,
         "name": "Oasis sanctuary"
       }
     ],
-    "haven_twig_invariant": "Each non-endpoint haven has the same Twig reward as both adjacent spaces. Endpoint 50 is the explicit exception at one Twig above space 49."
+    "haven_twig_invariant": "First haven 4 matches space 3 at 1 Twig and space 5 begins the 2-Twig band. The other six nonendpoint havens match both adjacent spaces. Endpoint 43 is one Twig above space 42."
   },
   "single_purchase_movement_checks": {
     "model_scope": "Exact within the same scoped traversal as opening travel. Splash does not block Log or Mud, and nonmovement utility is not valued; the Companion active-flock result therefore also applies every Mud even when Splash immediately precedes it.",
@@ -399,9 +410,9 @@
       "Tailwind 4": {
         "price": 10,
         "probability_affordable_from_opening_safe_rest": {
-          "fraction": "26/231",
-          "decimal": 0.112554,
-          "percent": 11.255
+          "fraction": "9769/60060",
+          "decimal": 0.162654,
+          "percent": 16.265
         }
       },
       "Tailwind 6": {
@@ -415,9 +426,9 @@
       "Signpost": {
         "price": 7,
         "probability_affordable_from_opening_safe_rest": {
-          "fraction": "2947/8580",
-          "decimal": 0.343473,
-          "percent": 34.347
+          "fraction": "1741/3276",
+          "decimal": 0.531441,
+          "percent": 53.144
         }
       },
       "Refreshing Splash": {
@@ -431,9 +442,9 @@
       "Reeds 1": {
         "price": 6,
         "probability_affordable_from_opening_safe_rest": {
-          "fraction": "1096/1287",
-          "decimal": 0.851593,
-          "percent": 85.159
+          "fraction": "1231/1287",
+          "decimal": 0.956488,
+          "percent": 95.649
         }
       },
       "Reeds 2": {
@@ -455,9 +466,9 @@
       "Companion": {
         "price": 7,
         "probability_affordable_from_opening_safe_rest": {
-          "fraction": "2947/8580",
-          "decimal": 0.343473,
-          "percent": 34.347
+          "fraction": "1741/3276",
+          "decimal": 0.531441,
+          "percent": 53.144
         }
       },
       "Wildflowers": {
@@ -470,7 +481,7 @@
       }
     },
     "method": "Map each exact opening rest-position probability to that row's Sleep, before encounter, flock, Most Rested or World Event changes.",
-    "readout": "Prices 3\u20135 are affordable after every modelled safe opening rest; price 6 is affordable 85.159% of the time, price 7 is affordable 34.347%, and price 10 or more is not reached in this opening model."
+    "computed_readout": "Computed from the current board rows: Seed at 3 Sleep: 100.000%; Tailwind 2 at 5 Sleep: 100.000%; Tailwind 4 at 10 Sleep: 16.265%; Tailwind 6 at 15 Sleep: 0.000%; Signpost at 7 Sleep: 53.144%; Refreshing Splash at 4 Sleep: 100.000%; Reeds 1 at 6 Sleep: 95.649%; Reeds 2 at 11 Sleep: 0.000%; Reeds 3 at 16 Sleep: 0.000%; Companion at 7 Sleep: 53.144%; Wildflowers at 5 Sleep: 100.000%."
   },
   "purchase_cap_comparisons": {
     "two_purchase_tier_equal_budget_10": [
@@ -641,8 +652,8 @@
       {
         "position": 6,
         "kind": "ordinary",
-        "safe_sleep": 5,
-        "worn_out_sleep": 2,
+        "safe_sleep": 6,
+        "worn_out_sleep": 3,
         "sleep_lost": 3,
         "safe_branch_sleep_gain_needed_to_break_even": {
           "fraction": "24/5",
@@ -749,16 +760,113 @@
     },
     "default_start_bound": {
       "initial_feathers": 0,
-      "previous_haven_awards": 9,
-      "maximum_feathers_from_previous_haven_awards": 18,
-      "dawn_gifts_before_day_10": 9,
-      "maximum_feathers_from_dawn_gifts": 27,
-      "maximum_permanent_feathers_before_day_10": 45,
+      "day_1_safe_maximum_movement": 14,
+      "day_1_rain_maximum_final_position_including_lethal_sixth_white": 15,
+      "day_1_rain_maximum_printed_twigs_retained_when_worn_out": 4,
+      "day_1_pocket_maximum_final_position_including_lethal_sixth_white": 13,
+      "day_1_pocket_maximum_printed_plus_event_twigs": 4,
+      "day_1_maximum_haven_feathers": 1,
+      "day_1_maximum_twigs_for_day_2_dawn": 4,
+      "day_2_maximum_dawn_feathers": 1,
+      "day_2_safe_maximum_movement_after_one_purchase": 20,
+      "maximum_supported_setting_day_2_effective_start": 7,
+      "maximum_supported_setting_day_2_safe_reach": 27,
+      "first_two_feather_haven": 32,
+      "maximum_day_1_and_day_2_haven_feathers_each": 1,
+      "maximum_feathers_from_previous_haven_awards": 16,
+      "maximum_feathers_from_dawn_gifts": 25,
+      "maximum_permanent_feathers_before_day_10": 41,
       "temporary_most_rested_steps": 1,
-      "maximum_effective_start_before_day_10": 46,
-      "trail_spaces": 50,
-      "proves_default_start_not_beyond_route": true,
-      "note": "Conservative bound overestimates reachable early gains under current Feather sources; nonzero starting Feathers add directly, and source changes or round-length changes require re-audit."
+      "maximum_effective_start_before_day_10": 42,
+      "trail_spaces": 43,
+      "proves_default_start_before_endpoint": true,
+      "proof": "Day 1 can move at most 14 safely under Rain-Softened Seeds, so its haven award is at most 1 Feather. A lethal sixth white can then finish at 15; worn-out ducks retain that row's 4 Twigs. Under the mutually exclusive Pocket of Driftwood event there is no Rain movement: the lethal-white maximum is 13, whose printed reward is at most 3 Twigs, plus the event's 1. Thus every default Day 1 payout is at most 4 Twigs and the Day 2 Dawn gift is at most 1. Day 2 can move at most 20 safely after one purchase. The supported settings have setting-specific Day 2 starts no greater than 7 and safe reaches no greater than 27, before the first 2-Feather haven at 32, so both early haven awards are at most 1. The remaining seven prior haven awards are at most 2 each and the remaining eight Dawn gifts are at most 3 each: 16 haven + 25 Dawn + 1 temporary = 42 for the default setting."
+    },
+    "m4_preimplementation_endpoint_bound_gate": {
+      "status": "unresolved for the approved shared starting-Feather settings 1 through 3",
+      "conservative_effective_start_bounds": {
+        "1": 43,
+        "2": 45,
+        "3": 46
+      },
+      "setting_specific_evidence": {
+        "0": {
+          "initial_feathers": 0,
+          "day_1_safe_maximum_reach": 14,
+          "day_1_rain_maximum_final_position_including_lethal_sixth_white": 15,
+          "day_1_rain_maximum_printed_twigs_retained_when_worn_out": 4,
+          "day_1_pocket_maximum_final_position_including_lethal_sixth_white": 13,
+          "day_1_pocket_maximum_printed_plus_event_twigs": 4,
+          "day_1_maximum_twigs_for_day_2_dawn": 4,
+          "day_2_maximum_dawn_feathers": 1,
+          "day_1_maximum_haven_feathers": 1,
+          "day_2_effective_start_upper_bound": 3,
+          "day_2_safe_reach_upper_bound": 23,
+          "day_2_maximum_haven_feathers": 1,
+          "maximum_feathers_from_previous_haven_awards": 16,
+          "maximum_feathers_from_dawn_gifts": 25,
+          "maximum_effective_start_before_day_10": 42,
+          "proves_start_before_endpoint": true
+        },
+        "1": {
+          "initial_feathers": 1,
+          "day_1_safe_maximum_reach": 15,
+          "day_1_rain_maximum_final_position_including_lethal_sixth_white": 16,
+          "day_1_rain_maximum_printed_twigs_retained_when_worn_out": 4,
+          "day_1_pocket_maximum_final_position_including_lethal_sixth_white": 14,
+          "day_1_pocket_maximum_printed_plus_event_twigs": 4,
+          "day_1_maximum_twigs_for_day_2_dawn": 4,
+          "day_2_maximum_dawn_feathers": 1,
+          "day_1_maximum_haven_feathers": 1,
+          "day_2_effective_start_upper_bound": 4,
+          "day_2_safe_reach_upper_bound": 24,
+          "day_2_maximum_haven_feathers": 1,
+          "maximum_feathers_from_previous_haven_awards": 16,
+          "maximum_feathers_from_dawn_gifts": 25,
+          "maximum_effective_start_before_day_10": 43,
+          "proves_start_before_endpoint": false
+        },
+        "2": {
+          "initial_feathers": 2,
+          "day_1_safe_maximum_reach": 16,
+          "day_1_rain_maximum_final_position_including_lethal_sixth_white": 17,
+          "day_1_rain_maximum_printed_twigs_retained_when_worn_out": 4,
+          "day_1_pocket_maximum_final_position_including_lethal_sixth_white": 15,
+          "day_1_pocket_maximum_printed_plus_event_twigs": 5,
+          "day_1_maximum_twigs_for_day_2_dawn": 5,
+          "day_2_maximum_dawn_feathers": 2,
+          "day_1_maximum_haven_feathers": 1,
+          "day_2_effective_start_upper_bound": 6,
+          "day_2_safe_reach_upper_bound": 26,
+          "day_2_maximum_haven_feathers": 1,
+          "maximum_feathers_from_previous_haven_awards": 16,
+          "maximum_feathers_from_dawn_gifts": 26,
+          "maximum_effective_start_before_day_10": 45,
+          "proves_start_before_endpoint": false
+        },
+        "3": {
+          "initial_feathers": 3,
+          "day_1_safe_maximum_reach": 17,
+          "day_1_rain_maximum_final_position_including_lethal_sixth_white": 18,
+          "day_1_rain_maximum_printed_twigs_retained_when_worn_out": 4,
+          "day_1_pocket_maximum_final_position_including_lethal_sixth_white": 16,
+          "day_1_pocket_maximum_printed_plus_event_twigs": 5,
+          "day_1_maximum_twigs_for_day_2_dawn": 5,
+          "day_2_maximum_dawn_feathers": 2,
+          "day_1_maximum_haven_feathers": 1,
+          "day_2_effective_start_upper_bound": 7,
+          "day_2_safe_reach_upper_bound": 27,
+          "day_2_maximum_haven_feathers": 1,
+          "maximum_feathers_from_previous_haven_awards": 16,
+          "maximum_feathers_from_dawn_gifts": 26,
+          "maximum_effective_start_before_day_10": 46,
+          "proves_start_before_endpoint": false
+        }
+      },
+      "endpoint": 43,
+      "condition_to_prove": "The effective start must be strictly below 43 so the required first draw can place a chip.",
+      "finding": "Setting-specific Day 1 Twig bounds produce conservative effective-start bounds of 43, 45 and 46 for settings 1, 2 and 3. These upper bounds do not prove that a real match reaches or passes the endpoint, and they do not prove that the settings are safe.",
+      "required_m4_decision": "Before implementation, either establish a tighter exact reachability bound for settings 1 through 3 or obtain a product rule for start-at/past-endpoint handling. This audit does not authorize clipping, caps or a settings change."
     },
     "boundary_assertions": {
       "gaps_checked": [
@@ -778,15 +886,15 @@
         3
       ]
     },
-    "boundary_requiring_explicit_rules": "The cap limits each Dawn Delivery to three Feathers. This audit does not add a settings limit or endpoint clamp; nonzero starting Feathers, source changes, or round-length changes require re-audit."
+    "boundary_requiring_explicit_rules": "The default zero-Feather setting is bounded to effective start 42, before endpoint 43. Settings 1 through 3 remain an explicit M4 gate; this audit does not add a settings limit, endpoint clamp or other rule."
   },
   "limitations": [
-    "The 50-row table is read only for haven metadata and opening endpoint affordability; later-day reward transitions, full purchase history and finite supply are not simulated.",
+    "The 43-row table is read for board assertions, haven metadata, opening affordability and the analytic default-start bound; later-day reward transitions and full purchase history are not simulated.",
     "No AI or human stopping policy is modelled; Signpost knowledge is not acted upon.",
     "No full Goose-Day movement distribution, World Event, Most Rested, Feather feedback or opponent interaction is modelled.",
     "Wildflowers, Splash and Signpost are priced here only for computed movement comparisons; their strategic utility is not assigned a numeric value.",
     "The 8.640 opening mean is exact only for the scoped traversal that always applies Log and Mud. It omits Splash blocking either ordinary nuisance and is not a complete-new-power bag prediction.",
     "The 21.825% positive final Companion flock result likewise omits Splash blocking Mud. It covers one added Companion within that simplification; multiple-Night flock growth needs a complete match simulation.",
-    "The Dawn section audits the accepted three-Feather cap. Nonzero starting Feathers, changed Feather sources, or changed round length require re-audit."
+    "The Dawn section proves only the default zero-Feather setting starts before endpoint 43. Approved settings 1 through 3, changed Feather sources or changed round length require the recorded M4 gate or a fresh audit."
   ]
 }

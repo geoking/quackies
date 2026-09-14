@@ -4,13 +4,14 @@ Updated 14 September 2026. The selected board remains the canonical scenery
 reference. The user approved the current 16 encounter designs, including numberless
 faces and obstacle variants. They remain concept sheets, not production sprites. Rule values,
 placement geometry and interaction copy belong in [PLAN.md](PLAN.md); this
-brief records only the asset direction and production gates.
+brief records the asset direction and the accepted M3 presentation boundary.
 
 ## Approved references
 
 - [Selected board](concepts/2026-09-12-approved/board-art-approved.png) —
-  unchanged three-biome composition; native 1536 × 1024, with the requested
-  3072 × 2048 master still outstanding.
+  unchanged three-biome composition and source reference. The accepted M3 board
+  uses the stable 1536 × 1024 `Assets/Art/DuckLayout/board.png` presentation;
+  a larger painted master is explicitly deferred.
 - [V2 player ducks](concepts/2026-09-11/duck-player-tiles-v2.png) — approved
   player identities and silhouette language.
 - [V3 Seed](concepts/2026-09-11-v3/seed-tile-v3.png) — approved rounded-triangle
@@ -63,13 +64,23 @@ tokens, three Tailwinds, three Reeds quantities and five whites. Signpost →2,
 Reeds quantities, unnumbered Companion and Day 5 Goose labels match the accepted
 rules. Native dimensions, hashes, prompts and visual findings are saved there.
 
-Later prepare production sprites and resource icons for Twigs, Sleep and Feathers,
-the scored nest and shared nest-level presentation, shelter markers, endpoint
-and wasteland details, the Dawn Delivery stork, and original World Event art.
-The Dream view must show the full legal catalogue without implying extra
-purchases or altered rules. Twigs remain persistent nest score; Feathers are
-automatic permanent trail advances; Sleep earned and Sleep remaining need
-separate visual treatments.
+M3 accepts the 43-space board presentation with 15 scattered-Twig tile-art
+variants. Twigs are floor decoration and may be covered by a chip; the exact
+live Twig count stays at right-middle, while the exact live Sleep count sits
+beside the bottom moon. Larger bright Feathers occupy the lower-left haven
+pocket; the oasis uses two slightly smaller Feathers in front of the pool.
+All chips and the resting duck use the shared 64-pixel frame at offset
+`(16, -11)` within a tile. Fredoka SemiBold with black outlines is used
+throughout, with a stronger dedicated outline and fuller face for the 86 board
+reward labels; Twig numerals are 22 units.
+
+Production polish deferred to M5/M6 includes sprites and resource icons for
+Twigs, Sleep and Feathers, the scored nest and shared nest-level presentation,
+shelter markers, endpoint and wasteland details, the Dawn Delivery stork,
+original World Event art, and the final Dream view. The Dream view must show
+the full legal catalogue without implying extra purchases or altered rules.
+Twigs remain persistent nest score; Feathers are automatic permanent trail
+advances; Sleep earned and Sleep remaining need separate visual treatments.
 
 The new [Most Rested marker](concepts/2026-09-14-most-rested/README.md) is a
 lavender cloud with a dark blue rim, crescent and “zzz”. It is for review and
@@ -77,11 +88,12 @@ covers the temporary start +1 beyond the updated Feather trail. Use duplicate
 displays for tied beneficiaries. Distinguish it from permanent trail resources;
 Night 10 changes the award to a Dream Twig and does not indicate another start.
 
-Before any Unity import, inspect native outputs and record source/prompt,
-dimensions, hash, alpha findings and intended use. Verify the selected board's
-50-space overlay, shelter mapping, token clearance and 3072 master before
-calling it production-ready. Preserve editable source and stable `.meta`
-identities when import is later authorized.
+The accepted M3 presentation is already represented in the stable
+`Assets/Art/DuckLayout/` board, layout data, tile-art data, crops and scene
+builder. Preserve those existing assets, editable source, stable `.meta`
+identities and source/prompt metadata. Do not replace the accepted 43-space
+layout with the historical 50-space proof or require a larger board master
+before production work can continue.
 
 Preserve approved native images and Assets/Art/raw. Use original illustrations;
 reference game assets inform rules and component affordances, not copied art.

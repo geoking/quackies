@@ -22,10 +22,15 @@ from pathlib import Path
 
 OUTPUT_PATH = Path(__file__).with_name("balance-audit.json")
 BOARD_PATH = Path(__file__).with_name("board.csv")
+BOARD_JSON_PATH = Path(__file__).with_name("board.json")
 SHOP_PATH = Path(__file__).with_name("shop.json")
 SAFE_EXHAUSTION = 5
 FIXED_RISK_DRAWS = 8
-HAVENS = (3, 11, 19, 27, 29, 37, 44, 50)
+TRAIL_SPACES = 43
+HAVENS = (4, 10, 16, 21, 26, 32, 36, 43)
+EXPECTED_BIOME_COUNTS = {"wetlands": 14, "meadow": 14, "wasteland": 15}
+DAWN_GIFT_CAP = 3
+SUPPORTED_STARTING_FEATHERS = range(4)
 
 # name, count, white, Log, Mud, fixed movement; movement None is Companion.
 STARTING_TOKENS = (
@@ -66,19 +71,26 @@ def measure(value: Fraction, *, percent: bool = False) -> dict[str, object]:
 def load_reference_data() -> tuple[dict[int, dict[str, object]], dict[str, int]]:
     with BOARD_PATH.open(newline="", encoding="utf-8") as board_file:
         rows = list(csv.DictReader(board_file))
-    assert [int(row["space"]) for row in rows] == list(range(1, 51))
+    assert [int(row["space"]) for row in rows] == list(range(1, TRAIL_SPACES + 1))
     board = {
         int(row["space"]): {
             "biome": row["biome"],
             "sleep": int(row["sleep"]),
             "twigs": int(row["twigs"]),
-            "haven": row["haven"] == "True",
+            "haven": row["haven"].casefold() == "true",
             "feathers": int(row["feathers"]),
             "haven_name": row["haven_name"],
         }
         for row in rows
     }
     assert tuple(space for space, row in board.items() if row["haven"]) == HAVENS
+    assert {
+        biome: sum(row["biome"] == biome for row in board.values())
+        for biome in EXPECTED_BIOME_COUNTS
+    } == EXPECTED_BIOME_COUNTS
+    assert all(board[space]["biome"] == "wetlands" for space in range(1, 15))
+    assert all(board[space]["biome"] == "meadow" for space in range(15, 29))
+    assert all(board[space]["biome"] == "wasteland" for space in range(29, 44))
     assert [(board[space]["sleep"], board[space]["twigs"]) for space in HAVENS] == [
         (6, 1),
         (10, 3),
@@ -89,10 +101,30 @@ def load_reference_data() -> tuple[dict[int, dict[str, object]], dict[str, int]]
         (20, 8),
         (21, 9),
     ]
-    for space in HAVENS[:-1]:
+    assert [board[space]["feathers"] for space in HAVENS] == [1, 1, 1, 1, 1, 2, 2, 2]
+    assert sum(row["sleep"] for row in board.values()) == 469
+    assert sum(row["twigs"] for row in board.values()) == 211
+    assert board[HAVENS[0] - 1]["twigs"] == board[HAVENS[0]]["twigs"]
+    assert board[HAVENS[0] + 1]["twigs"] == board[HAVENS[0]]["twigs"] + 1
+    for space in HAVENS[1:-1]:
         assert board[space - 1]["twigs"] == board[space]["twigs"]
         assert board[space + 1]["twigs"] == board[space]["twigs"]
-    assert board[50]["twigs"] == board[49]["twigs"] + 1
+    assert board[TRAIL_SPACES]["twigs"] == board[TRAIL_SPACES - 1]["twigs"] + 1
+
+    board_json = json.loads(BOARD_JSON_PATH.read_text(encoding="utf-8"))
+    assert board_json["nest"] == {"index": 0, "scorable": False}
+    assert board_json["rows"] == [
+        {
+            "space": space,
+            "biome": row["biome"],
+            "sleep": row["sleep"],
+            "twigs": row["twigs"],
+            "haven": row["haven"],
+            "feathers": row["feathers"],
+            "haven_name": row["haven_name"],
+        }
+        for space, row in board.items()
+    ]
 
     shop = json.loads(SHOP_PATH.read_text(encoding="utf-8"))
     shop_prices = {offer["id"]: offer["sleep_price"] for offer in shop["offers"]}
@@ -101,6 +133,18 @@ def load_reference_data() -> tuple[dict[int, dict[str, object]], dict[str, int]]
         offer_id: expected[1] for offer_id, expected in EXPECTED_OFFERS.items()
     }
     return board, shop_prices
+
+
+def percent_text(value: Fraction) -> str:
+    return f"{float(value) * 100:.3f}%"
+
+
+def affordability_readout(rows: dict[str, dict[str, object]]) -> str:
+    parts = []
+    for label, row in rows.items():
+        probability = row["probability_affordable_from_opening_safe_rest"]
+        parts.append(f"{label} at {row['price']} Sleep: {probability['percent']:.3f}%")
+    return "Computed from the current board rows: " + "; ".join(parts) + "."
 
 
 def movement_outcomes(
@@ -395,14 +439,14 @@ def build_report() -> dict[str, object]:
     assert base_mean == Fraction(389198, 45045)
     assert min(base) == 5 and max(base) == 12
 
-    reach_positions = (3, 6, 7, 8, 10, 11, 12, 13)
+    reach_positions = tuple(sorted({first_haven, HAVENS[1], 6, 7, 8, 10, 11, 12, 13}))
     reach = {
         str(position): measure(probability_at_least(base, position), percent=True)
         for position in reach_positions
     }
     exact_landings = {
         str(position): measure(base.get(position, Fraction(0)), percent=True)
-        for position in (3, 6, 7, 8, 11, 13)
+        for position in tuple(sorted({first_haven, HAVENS[1], 6, 7, 8, 10, 13}))
     }
 
     purchase_rows = {
@@ -438,10 +482,13 @@ def build_report() -> dict[str, object]:
     ]["fraction"] == "1/1"
     assert opening_affordability["Reeds 1"][
         "probability_affordable_from_opening_safe_rest"
-    ]["fraction"] == "1096/1287"
+    ]["fraction"] == "1231/1287"
     assert opening_affordability["Signpost"][
         "probability_affordable_from_opening_safe_rest"
-    ]["fraction"] == "2947/8580"
+    ]["fraction"] == "1741/3276"
+    assert opening_affordability["Tailwind 4"][
+        "probability_affordable_from_opening_safe_rest"
+    ]["fraction"] == "9769/60060"
 
     # Stable exact results used in the written design review.
     assert purchase_rows["Seed"]["expected_next_day_distance"]["fraction"] == "581615/63063"
@@ -494,7 +541,7 @@ def build_report() -> dict[str, object]:
 
     static_dawn = []
     for gap in (0, 1, 4, 5, 8, 9, 12, 13, 20):
-        gift = min(3, (gap + 3) // 4)
+        gift = min(DAWN_GIFT_CAP, (gap + 3) // 4)
         static_dawn.append(
             {
                 "twig_gap": gap,
@@ -504,31 +551,177 @@ def build_report() -> dict[str, object]:
             }
         )
     assert [row["feathers_each_dawn"] for row in static_dawn] == [0, 1, 1, 2, 2, 3, 3, 3, 3]
-    assert min(3, (0 + 3) // 4) == 0
-    assert min(3, (4 + 3) // 4) == 1
-    assert min(3, (5 + 3) // 4) == 2
-    assert min(3, (8 + 3) // 4) == 2
-    assert min(3, (9 + 3) // 4) == 3
-    assert min(3, (100 + 3) // 4) == 3
-    extreme_gifts = [min(3, ((8 * prior_days) + 3) // 4) for prior_days in range(1, 10)]
+    assert min(DAWN_GIFT_CAP, (0 + 3) // 4) == 0
+    assert min(DAWN_GIFT_CAP, (4 + 3) // 4) == 1
+    assert min(DAWN_GIFT_CAP, (5 + 3) // 4) == 2
+    assert min(DAWN_GIFT_CAP, (8 + 3) // 4) == 2
+    assert min(DAWN_GIFT_CAP, (9 + 3) // 4) == 3
+    assert min(DAWN_GIFT_CAP, (100 + 3) // 4) == 3
+    extreme_gifts = [
+        min(DAWN_GIFT_CAP, ((8 * prior_days) + 3) // 4)
+        for prior_days in range(1, 10)
+    ]
     assert extreme_gifts == [2, 3, 3, 3, 3, 3, 3, 3, 3]
     assert sum(extreme_gifts) == 26
+
+    # Analytic endpoint bound for the default zero-Feather setting.  It uses
+    # only current encounter maxima, the mutually exclusive event cards and
+    # board rows; it does not assume a stopping policy or favourable draws.
+    starting_helpful_movement = sum(
+        count * movement
+        for _name, count, white, _log, _mud, movement in STARTING_TOKENS
+        if not white and movement is not None
+    )
+    starting_seed_count = next(
+        count for name, count, _white, _log, _mud, _movement in STARTING_TOKENS
+        if name == "Seed"
+    )
+    day_1_safe_max_movement = (
+        SAFE_EXHAUSTION + starting_helpful_movement + starting_seed_count
+    )
+    day_1_rain_max_movement_including_lethal_white = day_1_safe_max_movement + 1
+    day_1_pocket_max_movement_including_lethal_white = (
+        SAFE_EXHAUSTION + starting_helpful_movement + 1
+    )
+    maximum_purchased_movement = max(
+        movement or 2 for _label, _price, movement, _reeds in EXPECTED_OFFERS.values()
+    )
+    day_2_safe_max_movement = day_1_safe_max_movement + maximum_purchased_movement
+    first_two_feather_haven = min(
+        position for position in HAVENS if board[position]["feathers"] == 2
+    )
+    prior_haven_days = 9
+    later_prior_haven_days = prior_haven_days - 2
+    dawns_before_or_on_day_10 = 9
+    later_dawns = dawns_before_or_on_day_10 - 1
+    temporary_most_rested_steps = 1
+
+    setting_bound_rows = {}
+    for setting in SUPPORTED_STARTING_FEATHERS:
+        day_1_safe_reach = setting + day_1_safe_max_movement
+        day_1_rain_max_rest = min(
+            TRAIL_SPACES,
+            setting + day_1_rain_max_movement_including_lethal_white,
+        )
+        day_1_pocket_max_rest = min(
+            TRAIL_SPACES,
+            setting + day_1_pocket_max_movement_including_lethal_white,
+        )
+        day_1_rain_max_twigs = max(
+            board[position]["twigs"] for position in range(1, day_1_rain_max_rest + 1)
+        )
+        day_1_pocket_max_twigs = 1 + max(
+            board[position]["twigs"] for position in range(1, day_1_pocket_max_rest + 1)
+        )
+        day_1_max_twigs = max(day_1_rain_max_twigs, day_1_pocket_max_twigs)
+        day_2_max_dawn_gift = min(DAWN_GIFT_CAP, (day_1_max_twigs + 3) // 4)
+        day_1_max_haven_feathers = max(
+            board[position]["feathers"]
+            for position in HAVENS
+            if position <= day_1_safe_reach
+        )
+        day_2_effective_start = (
+            setting
+            + day_1_max_haven_feathers
+            + day_2_max_dawn_gift
+            + temporary_most_rested_steps
+        )
+        day_2_safe_reach = day_2_effective_start + day_2_safe_max_movement
+        assert day_2_safe_reach < first_two_feather_haven
+        day_2_max_haven_feathers = max(
+            board[position]["feathers"]
+            for position in HAVENS
+            if position <= day_2_safe_reach
+        )
+        maximum_haven_feathers_before_day_10 = (
+            day_1_max_haven_feathers
+            + day_2_max_haven_feathers
+            + later_prior_haven_days
+            * max(board[position]["feathers"] for position in HAVENS)
+        )
+        maximum_dawn_feathers_before_day_10 = (
+            day_2_max_dawn_gift + later_dawns * DAWN_GIFT_CAP
+        )
+        maximum_effective_start = (
+            setting
+            + maximum_haven_feathers_before_day_10
+            + maximum_dawn_feathers_before_day_10
+            + temporary_most_rested_steps
+        )
+        setting_bound_rows[str(setting)] = {
+            "initial_feathers": setting,
+            "day_1_safe_maximum_reach": day_1_safe_reach,
+            "day_1_rain_maximum_final_position_including_lethal_sixth_white": day_1_rain_max_rest,
+            "day_1_rain_maximum_printed_twigs_retained_when_worn_out": day_1_rain_max_twigs,
+            "day_1_pocket_maximum_final_position_including_lethal_sixth_white": day_1_pocket_max_rest,
+            "day_1_pocket_maximum_printed_plus_event_twigs": day_1_pocket_max_twigs,
+            "day_1_maximum_twigs_for_day_2_dawn": day_1_max_twigs,
+            "day_2_maximum_dawn_feathers": day_2_max_dawn_gift,
+            "day_1_maximum_haven_feathers": day_1_max_haven_feathers,
+            "day_2_effective_start_upper_bound": day_2_effective_start,
+            "day_2_safe_reach_upper_bound": day_2_safe_reach,
+            "day_2_maximum_haven_feathers": day_2_max_haven_feathers,
+            "maximum_feathers_from_previous_haven_awards": maximum_haven_feathers_before_day_10,
+            "maximum_feathers_from_dawn_gifts": maximum_dawn_feathers_before_day_10,
+            "maximum_effective_start_before_day_10": maximum_effective_start,
+            "proves_start_before_endpoint": maximum_effective_start < TRAIL_SPACES,
+        }
+
+    default_row = setting_bound_rows["0"]
+    default_maximum_permanent_start = (
+        default_row["maximum_feathers_from_previous_haven_awards"]
+        + default_row["maximum_feathers_from_dawn_gifts"]
+    )
+    default_maximum_effective_start = default_row[
+        "maximum_effective_start_before_day_10"
+    ]
+    assert starting_helpful_movement == 7
+    assert day_1_safe_max_movement == 14
+    assert day_2_safe_max_movement == 20
+    assert first_two_feather_haven == 32
+    assert [row["day_1_maximum_twigs_for_day_2_dawn"] for row in setting_bound_rows.values()] == [4, 4, 5, 5]
+    assert [row["day_2_maximum_dawn_feathers"] for row in setting_bound_rows.values()] == [1, 1, 2, 2]
+    assert [row["day_1_maximum_haven_feathers"] for row in setting_bound_rows.values()] == [1, 1, 1, 1]
+    assert [row["day_2_effective_start_upper_bound"] for row in setting_bound_rows.values()] == [3, 4, 6, 7]
+    assert [row["day_2_safe_reach_upper_bound"] for row in setting_bound_rows.values()] == [23, 24, 26, 27]
+    assert [row["day_2_maximum_haven_feathers"] for row in setting_bound_rows.values()] == [1, 1, 1, 1]
+    assert [row["maximum_feathers_from_previous_haven_awards"] for row in setting_bound_rows.values()] == [16, 16, 16, 16]
+    assert [row["maximum_feathers_from_dawn_gifts"] for row in setting_bound_rows.values()] == [25, 25, 26, 26]
+    assert [row["maximum_effective_start_before_day_10"] for row in setting_bound_rows.values()] == [42, 43, 45, 46]
+    assert default_maximum_permanent_start == 41
+    assert default_maximum_effective_start == 42
+    assert default_maximum_effective_start < TRAIL_SPACES
+
     default_start_bound = {
         "initial_feathers": 0,
-        "previous_haven_awards": 9,
-        "maximum_feathers_from_previous_haven_awards": 9 * 2,
-        "dawn_gifts_before_day_10": 9,
-        "maximum_feathers_from_dawn_gifts": 9 * 3,
-        "maximum_permanent_feathers_before_day_10": 9 * 2 + 9 * 3,
-        "temporary_most_rested_steps": 1,
-        "maximum_effective_start_before_day_10": 9 * 2 + 9 * 3 + 1,
-        "trail_spaces": 50,
-        "proves_default_start_not_beyond_route": 9 * 2 + 9 * 3 + 1 < 50,
-        "note": "Conservative bound overestimates reachable early gains under current Feather sources; nonzero starting Feathers add directly, and source changes or round-length changes require re-audit.",
+        "day_1_safe_maximum_movement": day_1_safe_max_movement,
+        "day_1_rain_maximum_final_position_including_lethal_sixth_white": default_row["day_1_rain_maximum_final_position_including_lethal_sixth_white"],
+        "day_1_rain_maximum_printed_twigs_retained_when_worn_out": default_row["day_1_rain_maximum_printed_twigs_retained_when_worn_out"],
+        "day_1_pocket_maximum_final_position_including_lethal_sixth_white": default_row["day_1_pocket_maximum_final_position_including_lethal_sixth_white"],
+        "day_1_pocket_maximum_printed_plus_event_twigs": default_row["day_1_pocket_maximum_printed_plus_event_twigs"],
+        "day_1_maximum_haven_feathers": default_row["day_1_maximum_haven_feathers"],
+        "day_1_maximum_twigs_for_day_2_dawn": default_row["day_1_maximum_twigs_for_day_2_dawn"],
+        "day_2_maximum_dawn_feathers": default_row["day_2_maximum_dawn_feathers"],
+        "day_2_safe_maximum_movement_after_one_purchase": day_2_safe_max_movement,
+        "maximum_supported_setting_day_2_effective_start": max(row["day_2_effective_start_upper_bound"] for row in setting_bound_rows.values()),
+        "maximum_supported_setting_day_2_safe_reach": max(row["day_2_safe_reach_upper_bound"] for row in setting_bound_rows.values()),
+        "first_two_feather_haven": first_two_feather_haven,
+        "maximum_day_1_and_day_2_haven_feathers_each": 1,
+        "maximum_feathers_from_previous_haven_awards": default_row["maximum_feathers_from_previous_haven_awards"],
+        "maximum_feathers_from_dawn_gifts": default_row["maximum_feathers_from_dawn_gifts"],
+        "maximum_permanent_feathers_before_day_10": default_maximum_permanent_start,
+        "temporary_most_rested_steps": temporary_most_rested_steps,
+        "maximum_effective_start_before_day_10": default_maximum_effective_start,
+        "trail_spaces": TRAIL_SPACES,
+        "proves_default_start_before_endpoint": default_maximum_effective_start < TRAIL_SPACES,
+        "proof": "Day 1 can move at most 14 safely under Rain-Softened Seeds, so its haven award is at most 1 Feather. A lethal sixth white can then finish at 15; worn-out ducks retain that row's 4 Twigs. Under the mutually exclusive Pocket of Driftwood event there is no Rain movement: the lethal-white maximum is 13, whose printed reward is at most 3 Twigs, plus the event's 1. Thus every default Day 1 payout is at most 4 Twigs and the Day 2 Dawn gift is at most 1. Day 2 can move at most 20 safely after one purchase. The supported settings have setting-specific Day 2 starts no greater than 7 and safe reaches no greater than 27, before the first 2-Feather haven at 32, so both early haven awards are at most 1. The remaining seven prior haven awards are at most 2 each and the remaining eight Dawn gifts are at most 3 each: 16 haven + 25 Dawn + 1 temporary = 42 for the default setting.",
     }
-    assert default_start_bound["maximum_permanent_feathers_before_day_10"] == 45
-    assert default_start_bound["maximum_effective_start_before_day_10"] == 46
-    assert default_start_bound["proves_default_start_not_beyond_route"] is True
+    nonzero_setting_bounds = {
+        str(setting): setting_bound_rows[str(setting)]["maximum_effective_start_before_day_10"]
+        for setting in SUPPORTED_STARTING_FEATHERS
+        if setting > 0
+    }
+    assert nonzero_setting_bounds == {"1": 43, "2": 45, "3": 46}
 
     cap_two = (
         package_result("Tailwind 4", 10, (("Tailwind 4", 4),)),
@@ -552,11 +745,16 @@ def build_report() -> dict[str, object]:
         "generated_by": "python3 -B docs/duck-migration/v1/balance-audit.py",
         "scope": {
             "days": 10,
-            "trail_spaces": 50,
+            "trail_spaces": TRAIL_SPACES,
             "havens": list(HAVENS),
             "reference_inputs": [
                 "docs/duck-migration/v1/board.csv",
+                "docs/duck-migration/v1/board.json",
                 "docs/duck-migration/v1/shop.json",
+            ],
+            "rules_reviewed": [
+                "docs/duck-migration/ENCOUNTER_RULES.md",
+                "docs/duck-migration/v1/WORLD_EVENTS.md",
             ],
             "classification": "exact bag arithmetic and counter-limited comparisons; not a full-game balance simulation",
         },
@@ -564,7 +762,7 @@ def build_report() -> dict[str, object]:
             "arithmetic": "fractions.Fraction throughout; decimals are presentation-only",
             "opening_method": "memoized exhaustive traversal of every reachable multiset/counter state within the stated simplification that omits Splash blocking Log or Mud",
             "pressure_method": "exact hypergeometric counts without Goose and exhaustive ordered state traversal for Goose/Splash",
-            "assertions": "The generator checks settled board/shop inputs and all headline fractions before writing JSON.",
+            "assertions": "The generator checks identical 43-row CSV/JSON board inputs, the 14/14/15 biome split, haven and endpoint rows, aggregate 469 Sleep/211 Twigs, shop prices, headline fractions and the analytic default-start bound before writing JSON.",
         },
         "assumptions": [
             "Draws are uniformly random without replacement.",
@@ -598,6 +796,8 @@ def build_report() -> dict[str, object]:
                 "probability_land_exactly": exact_landings[str(first_haven)],
                 "second_haven": HAVENS[1],
                 "probability_reach_or_pass_second_haven": reach[str(HAVENS[1])],
+                "probability_land_exactly_on_second_haven": exact_landings[str(HAVENS[1])],
+                "computed_readout": f"Under this fixed safe-stop model, reach-or-pass is {percent_text(probability_at_least(base, first_haven))} for haven {first_haven} and {percent_text(probability_at_least(base, HAVENS[1]))} for haven {HAVENS[1]}; exact landing is {percent_text(base.get(first_haven, Fraction(0)))} and {percent_text(base.get(HAVENS[1], Fraction(0)))}, respectively.",
                 "note": "Only an exact landing receives that space's rest reward; reach-or-pass is a travel-depth measure.",
             },
             "known_early_sleep_rows": [
@@ -618,7 +818,7 @@ def build_report() -> dict[str, object]:
                 }
                 for space in HAVENS
             ],
-            "haven_twig_invariant": "Each non-endpoint haven has the same Twig reward as both adjacent spaces. Endpoint 50 is the explicit exception at one Twig above space 49.",
+            "haven_twig_invariant": "First haven 4 matches space 3 at 1 Twig and space 5 begins the 2-Twig band. The other six nonendpoint havens match both adjacent spaces. Endpoint 43 is one Twig above space 42.",
         },
         "single_purchase_movement_checks": {
             "model_scope": "Exact within the same scoped traversal as opening travel. Splash does not block Log or Mud, and nonmovement utility is not valued; the Companion active-flock result therefore also applies every Mud even when Splash immediately precedes it.",
@@ -627,7 +827,7 @@ def build_report() -> dict[str, object]:
         "opening_night_affordability": {
             "rows": opening_affordability,
             "method": "Map each exact opening rest-position probability to that row's Sleep, before encounter, flock, Most Rested or World Event changes.",
-            "readout": "Prices 3–5 are affordable after every modelled safe opening rest; price 6 is affordable 85.159% of the time, price 7 is affordable 34.347%, and price 10 or more is not reached in this opening model.",
+            "computed_readout": affordability_readout(opening_affordability),
         },
         "purchase_cap_comparisons": {
             "two_purchase_tier_equal_budget_10": list(cap_two),
@@ -647,7 +847,7 @@ def build_report() -> dict[str, object]:
             "break_even_assumption": "Holds the printed reward and Twig value fixed. If the next draw is safe, its extra Sleep value must offset the chance of floor(Sleep / 2); movement jumps, preview information and retained Twigs can change a real decision.",
         },
         "dawn_delivery": {
-            "rule": "Feathers = min(3, ceil(Twig gap / 4)); a zero gap gives zero Feathers",
+            "rule": f"Feathers = min({DAWN_GIFT_CAP}, ceil(Twig gap / 4)); a zero gap gives zero Feathers",
             "static_gap_repetition": static_dawn,
             "candidate_reward_boundary": {
                 "assumption": "One duck gains 9 Twigs and the other 1 each Day, so the persistent gap grows by the approved printed-board difference of 8 before each following dawn; the capped reward is shown through Day 10, while movement catch-up and the trail endpoint are deliberately ignored.",
@@ -655,20 +855,29 @@ def build_report() -> dict[str, object]:
                 "cumulative_feathers": sum(extreme_gifts),
             },
             "default_start_bound": default_start_bound,
+            "m4_preimplementation_endpoint_bound_gate": {
+                "status": "unresolved for the approved shared starting-Feather settings 1 through 3",
+                "conservative_effective_start_bounds": nonzero_setting_bounds,
+                "setting_specific_evidence": setting_bound_rows,
+                "endpoint": TRAIL_SPACES,
+                "condition_to_prove": "The effective start must be strictly below 43 so the required first draw can place a chip.",
+                "finding": "Setting-specific Day 1 Twig bounds produce conservative effective-start bounds of 43, 45 and 46 for settings 1, 2 and 3. These upper bounds do not prove that a real match reaches or passes the endpoint, and they do not prove that the settings are safe.",
+                "required_m4_decision": "Before implementation, either establish a tighter exact reachability bound for settings 1 through 3 or obtain a product rule for start-at/past-endpoint handling. This audit does not authorize clipping, caps or a settings change.",
+            },
             "boundary_assertions": {
                 "gaps_checked": [0, 4, 5, 8, 9, 100],
                 "expected_gifts": [0, 1, 2, 2, 3, 3],
             },
-            "boundary_requiring_explicit_rules": "The cap limits each Dawn Delivery to three Feathers. This audit does not add a settings limit or endpoint clamp; nonzero starting Feathers, source changes, or round-length changes require re-audit.",
+            "boundary_requiring_explicit_rules": "The default zero-Feather setting is bounded to effective start 42, before endpoint 43. Settings 1 through 3 remain an explicit M4 gate; this audit does not add a settings limit, endpoint clamp or other rule.",
         },
         "limitations": [
-            "The 50-row table is read only for haven metadata and opening endpoint affordability; later-day reward transitions, full purchase history and finite supply are not simulated.",
+            "The 43-row table is read for board assertions, haven metadata, opening affordability and the analytic default-start bound; later-day reward transitions and full purchase history are not simulated.",
             "No AI or human stopping policy is modelled; Signpost knowledge is not acted upon.",
             "No full Goose-Day movement distribution, World Event, Most Rested, Feather feedback or opponent interaction is modelled.",
             "Wildflowers, Splash and Signpost are priced here only for computed movement comparisons; their strategic utility is not assigned a numeric value.",
             "The 8.640 opening mean is exact only for the scoped traversal that always applies Log and Mud. It omits Splash blocking either ordinary nuisance and is not a complete-new-power bag prediction.",
             "The 21.825% positive final Companion flock result likewise omits Splash blocking Mud. It covers one added Companion within that simplification; multiple-Night flock growth needs a complete match simulation.",
-            "The Dawn section audits the accepted three-Feather cap. Nonzero starting Feathers, changed Feather sources, or changed round length require re-audit.",
+            "The Dawn section proves only the default zero-Feather setting starts before endpoint 43. Approved settings 1 through 3, changed Feather sources or changed round length require the recorded M4 gate or a fresh audit.",
         ],
     }
 

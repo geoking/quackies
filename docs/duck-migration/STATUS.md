@@ -1,88 +1,63 @@
 # Duck migration status
 
-Updated 14 September 2026. **M2 is complete; M3 is reopened for refinement.**
-The earlier separate iPad proof and previous revised-M3 captures are
-historical/rejected. The current `board-layout.json` is a provisional 40-space
-visual fixture; canonical v1 data remains 50 spaces while the user considers
-40 larger versus 45 smaller versus 45 with an extended painted route. M4 is
-unstarted and waits for the user's command; no Core gameplay work has begun.
+Updated 14 September 2026. **M2 and M3 are complete and approved by the user.**
+The accepted visual checkpoint is `2c7cd6a`. **M4 has not started and requires
+explicit user confirmation of the plan.** No duck Core session is bound to Unity.
 
-## Approved M2 contract
+## Closed milestones
 
-- Ten Days, all 50 board rewards, eight havens, 11 shop offers/prices, all
-  encounter rules and ten shared World Events are approved.
-- Days 1–9 use independent Draw/Settle actions whose completed results are
-  public. Players may react to each other's progress. Only Day 10 uses hidden
-  simultaneous commitments and atomic reveal; private previews stay private.
-- Final rank is total Twigs including Dream Twigs, then frozen retained Night 10
-  Sleep before conversion (bonuses and worn-out halving included). If both tie,
-  the game is a draw. Most Rested's safe-only award remains a separate rule.
-- Starting Feathers use the same 0–3 setting for both ducks, default zero.
-  Each awarded Feather permanently advances one step; Dawn gives 1/2/3 for
-  deficits 1–4/5–8/9+. Maximum effective start is bounded to 49 at setting 3.
-- First draw, empty-bag and endpoint handling, one-per-type/unlimited-stock shop,
-  Sleep expiry, recovery exclusion and safe/worn payout details are approved.
-- Local autosave and Continue game are approved v1 requirements, not implemented
-  features. Save/restore must preserve previews, final-Day commitments, random
-  continuation, frozen scores and purchase state.
+M2 approved the ten-Day game, complete encounter/event catalogues, rewards and
+prices, independent Days 1–9 actions, hidden final-Day decisions, final Twig/Sleep
+ranking and local save/Continue requirement. These are specifications, not a
+claim that the new game is implemented or balanced through complete matches.
 
-The [plan](PLAN.md), [implementation plan](IMPLEMENTATION_PLAN.md),
-[recap](RULES_AT_A_GLANCE.md), [encounter timing](ENCOUNTER_RULES.md),
-[board/shop rules](v1/BOARD_AND_SHOP.md) and [events](v1/WORLD_EVENTS.md) define the
-closed contract. No M2 rule defaults remain pending. The bounded
-[math audit](v1/balance-audit.json) is design evidence, not full-match balance.
+M3 approved the fixed-data board/Dream layout and its visual refinements:
 
-## Historical M3 iPad layout proof
+- 43 scorable spaces split 14 wetlands / 14 meadow / 15 wasteland; havens at
+  4, 10, 16, 21, 26, 32, 36 and 43. JSON/CSV match the accepted Unity rows.
+- Distinguishable biome tiles, scattered twig artwork, right-middle Twig
+  numbers and bottom moon/Sleep information, with more prominent haven Feathers.
+- Centred 64-pixel chip/duck frames; corrected route/shelter/scenery clearances;
+  smaller oasis Feathers in front of the pool and winnings below.
+- Rounded outlined typography throughout, stronger outlines on the 86 reward
+  labels, slightly larger Twig numerals and a clear rest-where-you-land footer.
 
-The separate `DuckLayoutProof` scene checks exactly 50 spaces, a common token
-footprint, occupied reward visibility, eight haven links, duck/zzz overlays and
-the full-screen Dream shop with all 11 offers. [Review evidence](m3/README.md)
-records target-size captures, two stable rebuilds, pointer checks and zero final
-Console errors. This evidence is retained for history, but the user rejected
-that board concept and its 1133 × 744/native-art framing; it does not close the
-reopened M3 revision.
+[M3 closeout](m3-closeout/README.md) links the accepted sources and recorded
+1133 × 744 / 2732 × 2048 audits, 43 centre interactions, 672 chip placements,
+19 rendered-mesh comparisons, 150 fitted labels and final zero-error compilation
+and Console checks. The proof uses fixed sample data; it is not the completed
+duck game. Old studies and rejected versions remain historical evidence.
 
-## M3 refinement open
+The source painting remains 1536 × 1024. The detailed 3072 × 2048 master is
+explicitly deferred; higher render dimensions do not create new painted detail.
 
-The refinement decision record is in
-[m3-refinement/README.md](m3-refinement/README.md). The current
-`Assets/Art/DuckLayout/board-layout.json` is a provisional 40-space visual
-fixture, not an approved rules board. Compare 108 × 79.2 wells with the prior
-90 × 66 treatment and compare 40 larger against 45 smaller and 45 with an
-extended painted route. Candidate validation passes actual 1133 × 744 and
-2732 × 2048 audits, 40/40 center raycasts and PointerClick inspections; see
-[validation](m3-refinement/validation.md). The detailed 3072 × 2048 production
-master is explicitly deferred, while the higher-resolution authoring plan and
-4096 import cap remain.
+## Awaiting approval: M4 Core/CLI
 
-The provisional 40-space fixture proposes haven IDs 3, 10, 15, 20, 24, 29, 33
-and 40, with bottom shelter entries aligned at 20 and 33. Every candidate
-center must sit on painted path art, including wasteland curves; bridges remain
-tile-free with approach/deck gaps between spaces 13/14 and 26/27. Future duck
-animation needs explicit bridge waypoints rather than straight interpolation.
-Same-biome tile colours, green leafy nest borders and large
-integrated Feather 1/2 treatments are covered by the candidate evidence.
-Canonical v1 data still has 50 rows and endpoint 21 Sleep / 9 Twigs / 2 Feathers.
-The route-count decision and M3 approval remain open. Dream
-Concept-B likeness and playful typography remain M5 follow-ups.
+Evolve the existing engine and CLI, preserving the original tested profile and
+snapshot/legal-actions/execute boundary. The proposed sequence is:
 
-M4 Core/CLI and persistence, M5 connected Unity, and M6 balance/export remain
-after the route-count decision and visual review. M4 is unstarted and waits for
-the user's command.
-The existing engine/API/CLI will be refactored, not restarted.
+1. C1: exact duck data, token identity, saveable state and profile foundation.
+2. C2: Adventure, encounters, exact private previews and decision timing.
+3. C3: a complete Day → Night → next-Day CLI cycle and all event fixtures.
+4. C4: all ten Days, Dawn/Goose/nest transitions, final conversion and winners.
+5. C5: Normal AI, local autosave/Continue and deterministic resume checks.
 
-## Art and historical evidence
+The [C1 brief](IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval)
+defines the first deliverable and its tests. The approved shared 0–3 starting
+Feather setting must be checked against the 43-space endpoint before all options
+are exposed. The [endpoint review](m3-closeout/endpoint-review.md) distinguishes
+current default-zero evidence from optional settings that still need proof.
+Do not silently cap/convert Feathers or remove approved options; surface a
+specific rule decision to the user if analysis requires one.
 
-The [approved board](concepts/2026-09-12-approved/board-art-approved.png) and
-historical proof remain available for reference. The requested detailed
-3072 × 2048 master is deferred production work; native production sprites and
-the revised geometry are ready for visual review. The approved
-[16 encounter designs](concepts/2026-09-13-agreed-token-set/README.md) come from opaque
-concept sheets and are isolated with Unity sprite rectangles and outlines for this
-proof, preserving their source bytes. Dream Concept B, V2 player ducks and
-the [zzz marker concept](concepts/2026-09-14-most-rested/README.md) remain
-available for the revised layout review.
+M5 connects the accepted Unity board/Dream views to committed Core actions/state,
+finishes runtime nest/award/event presentation, and verifies a complete human/AI
+match. M6 covers actual balance evidence and iOS export. Device installation,
+networking, shorter games, alternate rules and additional content remain deferred.
 
-M0's build/129 tests/CLI results in [BASELINE.md](BASELINE.md) are historical.
-M2 closure is specification approval, not a completed or playtested duck game.
-The pre-existing ProjectSettings preload removal is unchanged and uncommitted.
+The [overall plan](PLAN.md), [implementation plan](IMPLEMENTATION_PLAN.md),
+[rule recap](RULES_AT_A_GLANCE.md), [encounters](ENCOUNTER_RULES.md),
+[board/shop](v1/BOARD_AND_SHOP.md) and [events](v1/WORLD_EVENTS.md) are the current
+contract. The original 129-test baseline is historical evidence in
+[BASELINE.md](BASELINE.md). The ProjectSettings preload-removal draft remains
+unchanged and outside this documentation checkpoint.

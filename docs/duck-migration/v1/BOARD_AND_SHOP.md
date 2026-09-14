@@ -1,36 +1,37 @@
 # Quackies v1 board and Dream shop
 
-14 September 2026. The user approved all 50 reward rows and 11 shop prices as
+14 September 2026. The user approved all 43 reward rows and 11 shop prices as
 starting values. They are **not yet implemented or balanced through complete
 matches**. The [overview](../RULES_AT_A_GLANCE.md) records the current mechanics;
 M2 shop/housekeeping policies and payout timing are now approved. [Detailed encounters](../ENCOUNTER_RULES.md) and the
 [ten approved World Events](WORLD_EVENTS.md) define the associated effects.
 
-The board rows now follow the approved `board-layout.json` geometry authority.
-Compared with the previous starting table, the changed rows are 3, 7, 10, 11,
-13, 18, 19, 21, 29, 30, 32, 37 and 38; the exact synchronized values are in
-the JSON and CSV below. The policy is 2/3/3 havens by biome, seven
-nonendpoint haven rows whose Twig value matches both neighbours, haven Sleep
-peaks at each shelter, and the endpoint exception of 21 Sleep / 9 Twigs / 2
-Feathers. Shop prices and policies are unchanged.
+The board rows now follow the frozen 43-space `board-layout.json` reward authority.
+The exact synchronized values are in the JSON and CSV below. The policy is
+2/3/3 havens by biome, six nonendpoint haven rows whose Twig value matches both
+neighbours, and the first haven at space 4 sitting at the end of the 1-Twig
+plateau before space 5 begins the 2-Twig plateau. Haven Sleep peaks at each
+shelter, with the endpoint exception of 21 Sleep / 9 Twigs / 2 Feathers.
+Shop prices and policies are unchanged.
 
 ## Board philosophy
 
 Sleep measures comfort. Twigs reward travel and remain unchanged when a haven
-interrupts a local Twig plateau. Thus a duck safely resting at haven 11 gets
-10 Sleep/3 Twigs, while space 12 gives 8 Sleep/3 Twigs: the earlier duck wins
+interrupts a local Twig plateau. Thus a duck safely resting at haven 10 gets
+10 Sleep/3 Twigs, while space 11 gives 8 Sleep/3 Twigs: the earlier duck wins
 Most Rested if neither has other modifiers. Passed spaces never pay.
 
-Wetlands occupy 1–16, meadow 17–33 and wasteland 34–50. Eight havens are split
-2/3/3 across them at 3, 11, 19, 27, 29, 37, 44 and 50. Haven names below are
+Wetlands occupy 1–14, meadow 15–28 and wasteland 29–43. Eight havens are split
+2/3/3 across them at 4, 10, 16, 21, 26, 32, 36 and 43. Haven names below are
 the semantic labels for the approved layout; the seven nonendpoint haven tiles
-sit beside painted shelters and space 50 uses the oasis itself.
+sit beside painted shelters and space 43 uses the oasis itself.
 
 Ordinary wasteland spaces give 10–13 Sleep versus the later meadow's 13–14.
 Wasteland havens jump to 18/20/21, making a comfortable destination valuable.
 The endpoint has **21 Sleep, 9 Twigs and 2 Feathers**: just one more Sleep and
-Twig than their previous printed maxima. Endpoint 50 is the explicit exception
-to the neighbouring-Twig rule; the other seven havens match both neighbours.
+Twig than their previous printed maxima. The first haven is the explicit
+plateau boundary; the other six nonendpoint havens match both neighbours.
+Endpoint 43 is the explicit exception to the neighbouring-Twig rule.
 This table refers to printed values; encounters/events can change total payouts.
 
 Feathers below require a safe haven settle under the approved worn-out
@@ -38,62 +39,56 @@ rule. Every other space gives zero Feathers. Day 10's safe-haven +2
 Sleep is **additional to** these printed values, and applies to all eight havens.
 
 ## Every space
-
 The nest is separate and unscored. Indices are data references, not printed top
-labels. Production reward strips use moon/Sleep, Twig and Feather icons.
+labels. The approved tiles contain scattered twig artwork, an exact live Twig
+number at right-middle, bottom moon/Sleep information and visible haven Feathers.
+There are no external reward strips.
 
 | Space | Biome | Sleep | Twigs | Feathers if safe | Haven |
 | --- | --- | ---: | ---: | ---: | --- |
 | 1 | Wetlands | 3 | 1 | 0 | — |
 | 2 | Wetlands | 3 | 1 | 0 | — |
-| 3 | Wetlands | 6 | 1 | 1 | Reed hammock |
-| 4 | Wetlands | 4 | 1 | 0 | — |
-| 5 | Wetlands | 5 | 1 | 0 | — |
-| 6 | Wetlands | 5 | 2 | 0 | — |
+| 3 | Wetlands | 5 | 1 | 0 | — |
+| 4 | Wetlands | 6 | 1 | 1 | Reed hammock |
+| 5 | Wetlands | 5 | 2 | 0 | — |
+| 6 | Wetlands | 6 | 2 | 0 | — |
 | 7 | Wetlands | 6 | 2 | 0 | — |
 | 8 | Wetlands | 6 | 2 | 0 | — |
-| 9 | Wetlands | 6 | 2 | 0 | — |
-| 10 | Wetlands | 7 | 3 | 0 | — |
-| 11 | Wetlands | 10 | 3 | 1 | Willow nest |
+| 9 | Wetlands | 7 | 3 | 0 | — |
+| 10 | Wetlands | 10 | 3 | 1 | Willow nest |
+| 11 | Wetlands | 8 | 3 | 0 | — |
 | 12 | Wetlands | 8 | 3 | 0 | — |
-| 13 | Wetlands | 8 | 3 | 0 | — |
-| 14 | Wetlands | 8 | 3 | 0 | — |
-| 15 | Wetlands | 9 | 3 | 0 | — |
-| 16 | Wetlands | 9 | 3 | 0 | — |
-| 17 | Meadow | 10 | 3 | 0 | — |
-| 18 | Meadow | 10 | 4 | 0 | — |
-| 19 | Meadow | 13 | 4 | 1 | Clover hollow |
-| 20 | Meadow | 11 | 4 | 0 | — |
-| 21 | Meadow | 11 | 4 | 0 | — |
-| 22 | Meadow | 11 | 4 | 0 | — |
-| 23 | Meadow | 12 | 4 | 0 | — |
-| 24 | Meadow | 12 | 4 | 0 | — |
-| 25 | Meadow | 12 | 5 | 0 | — |
-| 26 | Meadow | 13 | 5 | 0 | — |
-| 27 | Meadow | 15 | 5 | 1 | Orchard shelter |
-| 28 | Meadow | 13 | 5 | 0 | — |
-| 29 | Meadow | 16 | 5 | 1 | Hayloft hideaway |
-| 30 | Meadow | 14 | 5 | 0 | — |
-| 31 | Meadow | 14 | 6 | 0 | — |
-| 32 | Meadow | 14 | 6 | 0 | — |
-| 33 | Meadow | 14 | 6 | 0 | — |
-| 34 | Wasteland | 11 | 6 | 0 | — |
-| 35 | Wasteland | 11 | 6 | 0 | — |
-| 36 | Wasteland | 10 | 7 | 0 | — |
-| 37 | Wasteland | 18 | 7 | 2 | Shaded rock nook |
-| 38 | Wasteland | 10 | 7 | 0 | — |
-| 39 | Wasteland | 10 | 7 | 0 | — |
-| 40 | Wasteland | 11 | 7 | 0 | — |
-| 41 | Wasteland | 11 | 7 | 0 | — |
-| 42 | Wasteland | 11 | 8 | 0 | — |
-| 43 | Wasteland | 12 | 8 | 0 | — |
-| 44 | Wasteland | 20 | 8 | 2 | Spring-fed refuge |
-| 45 | Wasteland | 11 | 8 | 0 | — |
-| 46 | Wasteland | 12 | 8 | 0 | — |
-| 47 | Wasteland | 12 | 8 | 0 | — |
-| 48 | Wasteland | 13 | 8 | 0 | — |
-| 49 | Wasteland | 13 | 8 | 0 | — |
-| 50 | Wasteland | 21 | 9 | 2 | Oasis sanctuary |
+| 13 | Wetlands | 9 | 3 | 0 | — |
+| 14 | Wetlands | 9 | 3 | 0 | — |
+| 15 | Meadow | 10 | 4 | 0 | — |
+| 16 | Meadow | 13 | 4 | 1 | Clover hollow |
+| 17 | Meadow | 11 | 4 | 0 | — |
+| 18 | Meadow | 11 | 4 | 0 | — |
+| 19 | Meadow | 11 | 4 | 0 | — |
+| 20 | Meadow | 12 | 5 | 0 | — |
+| 21 | Meadow | 15 | 5 | 1 | Orchard shelter |
+| 22 | Meadow | 13 | 5 | 0 | — |
+| 23 | Meadow | 13 | 5 | 0 | — |
+| 24 | Meadow | 13 | 5 | 0 | — |
+| 25 | Meadow | 14 | 5 | 0 | — |
+| 26 | Meadow | 16 | 5 | 1 | Hayloft hideaway |
+| 27 | Meadow | 14 | 5 | 0 | — |
+| 28 | Meadow | 14 | 6 | 0 | — |
+| 29 | Wasteland | 11 | 6 | 0 | — |
+| 30 | Wasteland | 11 | 7 | 0 | — |
+| 31 | Wasteland | 11 | 7 | 0 | — |
+| 32 | Wasteland | 18 | 7 | 2 | Shaded rock nook |
+| 33 | Wasteland | 10 | 7 | 0 | — |
+| 34 | Wasteland | 11 | 8 | 0 | — |
+| 35 | Wasteland | 12 | 8 | 0 | — |
+| 36 | Wasteland | 20 | 8 | 2 | Spring-fed refuge |
+| 37 | Wasteland | 12 | 8 | 0 | — |
+| 38 | Wasteland | 12 | 8 | 0 | — |
+| 39 | Wasteland | 11 | 8 | 0 | — |
+| 40 | Wasteland | 12 | 8 | 0 | — |
+| 41 | Wasteland | 13 | 8 | 0 | — |
+| 42 | Wasteland | 13 | 8 | 0 | — |
+| 43 | Wasteland | 21 | 9 | 2 | Oasis sanctuary |
 
 Editable data: [CSV](board.csv) and [JSON](board.json), with identical rows.
 
@@ -161,17 +156,17 @@ Wildflowers are inexpensive but require an exact safe haven finish.
 
 Examples without unrelated encounter/event modifiers:
 
-- Safe haven 11: 10 Sleep, 3 Twigs, 1 Feather. Safe space 12: 8 Sleep, 3 Twigs.
-  Haven 11 wins Most Rested. If 11 had been worn out, it keeps 5 Sleep/3 Twigs,
+- Safe haven 10: 10 Sleep, 3 Twigs, 1 Feather. Safe space 11: 8 Sleep, 3 Twigs.
+  Haven 10 wins Most Rested. If 10 had been worn out, it keeps 5 Sleep/3 Twigs,
   gets no Feather and cannot win that award.
-- Worn out at 48: `floor(13/2) = 6` Sleep and 8 Twigs. If a placed Reeds ×2
+- Worn out at 41: `floor(13/2) = 6` Sleep and 8 Twigs. If a placed Reeds ×2
   also earned 2 Twigs, retain 10 Twigs. A final unsuppressed Brambles instead
   reduces today's Twig total by one; it never takes earlier banked Twigs.
-- Final safe haven 44: `20 + 2 = 22` Sleep → 5 Dream Twigs, plus 8 printed
+- Final safe haven 36: `20 + 2 = 22` Sleep → 5 Dream Twigs, plus 8 printed
   Twigs. If also Most Rested, the final gain is **14 Twigs** (8 + 5 + 1).
-- Final safe endpoint 50: `21 + 2 = 23` Sleep → 5 Dream Twigs, plus 9 printed
+- Final safe endpoint 43: `21 + 2 = 23` Sleep → 5 Dream Twigs, plus 9 printed
   Twigs. If also Most Rested, the final gain is **15 Twigs**. Without further
-  modifiers, endpoint wins the Sleep comparison over haven 44 by one.
+  modifiers, endpoint wins the Sleep comparison over haven 36 by one.
 - Final worn-out endpoint: no safe-haven +2; `floor(21/2)=10` Sleep → 2 Dream
   Twigs, plus 9 printed Twigs = 11. No Most Rested award or haven Feathers.
 
@@ -184,13 +179,13 @@ mean travel is 8.640 spaces, median 9, middle half 7–10. Log is modelled, but 
 movement comparison; Signpost information does not change the stopping decision.
 Splash/Goose protection is included in the separate wear-out pressure comparison.
 
-Under that policy, printed board Sleep makes offers costing 3–5 affordable at
-every modelled opening finish, 6 affordable about 85% and 7 about 34.347%.
-These are **printed-reward comparisons**, not promises after Pebbles or an
-actual human stopping choice. The first haven is at 3 and is always crossed by
-this fixed stop model, but no modeled opening finish lands there (0%). That is
-a limitation of the audit's minimum-distance stopping assumption; gameplay can
-still settle at space 3 under other stopping or preview choices.
+The audit has been regenerated against the approved 43-space table and haven-4
+placement. Under this fixed policy, Seed affordability is 100%, Reeds ×1 is
+95.649%, and Signpost is 53.144%; all offer calculations are in the JSON.
+Exact landing on haven 4 is 0% in this model because it always draws through the
+fifth white. Actual players can settle earlier or use previews, so this is not
+a claim that the haven is unreachable in gameplay. Exact landing on haven 10
+is 16.265% under the same stated simplifications.
 
 The controlled eight-draw wear-out comparison rises from about 25% with the
 opening bag to about 56% with an added Goose and no purchased chips. Adding
@@ -210,21 +205,23 @@ Dawn Delivery is now capped at **three Feathers per duck per dawn**:
 5–8 gives 2; **9+ gives 3**. Compare all scores before deliveries. Repeat
 eligibility every dawn. Each Feather still permanently advances one step.
 
-Under the current ten-Day rules and zero initial Feathers, before Day 10 a duck
-can have at most nine earlier haven awards ×2 = 18 plus nine Dawn gifts ×3 = 27:
-**45 permanent steps**, or **46** with the temporary Most Rested step. This is a
-conservative upper bound, not a likely journey; early havens actually award less.
-The cap therefore resolves default-start saturation. The approved shared starting
-setting is 0–3 (default 0), so even the conservative maximum effective start is
-49. Extra Feather sources or longer matches require a fresh bound. Unsupported
-settings are rejected instead of clipping earned Feathers. The ten events add
-no Feathers.
+The refreshed [endpoint review](../m3-closeout/endpoint-review.md) bounds the
+default-zero effective start to **42**, strictly below endpoint 43. It uses the
+first two Days' one-Feather haven limit and the first Dawn gift limit, rather
+than applying the old 50-space generic bound of 46 to this board. For the
+approved optional shared starting settings 1–3, conservative bounds are 43, 45
+and 46. Those bounds are not reachable-match demonstrations and do not certify
+the options. C1 must prove tighter reachability or return a specific endpoint
+policy decision to the user before those values are exposed. The approved 0–3
+scope and one-Feather/one-step rule remain intact; no clipping or conversion is
+approved. Extra Feather sources or different match lengths require a fresh
+check. The current ten events add no Feathers.
 
 The M2 boundary rules are approved: no rewinds or separate flask; place at least
-one chip before claiming route rewards; reaching/passing 50 places once at 50,
+one chip before claiming route rewards; reaching/passing 43 places once at 43,
 resolves the full chip and Exhaustion, then ends that duck's Day. No extra
 placements or overshoot rewards. The empty bag also finishes after the last chip
 fully resolves. Equal final Twigs use Night 10 retained Sleep, then a draw if
 still equal. These rules are specified in the [implementation plan](../IMPLEMENTATION_PLAN.md).
-M2 is complete; M3 remains paused until the user's command. No implementation
-or Unity work occurs in this closure checkpoint.
+M2 and M3 are complete; M4 remains unstarted and waits for the user's command.
+No Core gameplay work occurs in this closure checkpoint.

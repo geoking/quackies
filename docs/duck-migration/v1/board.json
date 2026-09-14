@@ -1,5 +1,5 @@
 {
-  "status": "User-approved v1 starting values, 14 September 2026; not yet implemented or fully playtested",
+  "status": "User-approved v1 starting values, 14 September 2026; 43-space revision frozen for M3 visual review; not yet fully playtested",
   "version": 1,
   "nest": {
     "index": 0,
@@ -27,6 +27,15 @@
     {
       "space": 3,
       "biome": "wetlands",
+      "sleep": 5,
+      "twigs": 1,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 4,
+      "biome": "wetlands",
       "sleep": 6,
       "twigs": 1,
       "haven": true,
@@ -34,19 +43,10 @@
       "haven_name": "Reed hammock"
     },
     {
-      "space": 4,
-      "biome": "wetlands",
-      "sleep": 4,
-      "twigs": 1,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
       "space": 5,
       "biome": "wetlands",
       "sleep": 5,
-      "twigs": 1,
+      "twigs": 2,
       "haven": false,
       "feathers": 0,
       "haven_name": ""
@@ -54,7 +54,7 @@
     {
       "space": 6,
       "biome": "wetlands",
-      "sleep": 5,
+      "sleep": 6,
       "twigs": 2,
       "haven": false,
       "feathers": 0,
@@ -81,15 +81,6 @@
     {
       "space": 9,
       "biome": "wetlands",
-      "sleep": 6,
-      "twigs": 2,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 10,
-      "biome": "wetlands",
       "sleep": 7,
       "twigs": 3,
       "haven": false,
@@ -97,13 +88,22 @@
       "haven_name": ""
     },
     {
-      "space": 11,
+      "space": 10,
       "biome": "wetlands",
       "sleep": 10,
       "twigs": 3,
       "haven": true,
       "feathers": 1,
       "haven_name": "Willow nest"
+    },
+    {
+      "space": 11,
+      "biome": "wetlands",
+      "sleep": 8,
+      "twigs": 3,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
     },
     {
       "space": 12,
@@ -117,7 +117,7 @@
     {
       "space": 13,
       "biome": "wetlands",
-      "sleep": 8,
+      "sleep": 9,
       "twigs": 3,
       "haven": false,
       "feathers": 0,
@@ -126,7 +126,7 @@
     {
       "space": 14,
       "biome": "wetlands",
-      "sleep": 8,
+      "sleep": 9,
       "twigs": 3,
       "haven": false,
       "feathers": 0,
@@ -134,33 +134,6 @@
     },
     {
       "space": 15,
-      "biome": "wetlands",
-      "sleep": 9,
-      "twigs": 3,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 16,
-      "biome": "wetlands",
-      "sleep": 9,
-      "twigs": 3,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 17,
-      "biome": "meadow",
-      "sleep": 10,
-      "twigs": 3,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 18,
       "biome": "meadow",
       "sleep": 10,
       "twigs": 4,
@@ -169,7 +142,7 @@
       "haven_name": ""
     },
     {
-      "space": 19,
+      "space": 16,
       "biome": "meadow",
       "sleep": 13,
       "twigs": 4,
@@ -178,70 +151,43 @@
       "haven_name": "Clover hollow"
     },
     {
-      "space": 20,
+      "space": 17,
       "biome": "meadow",
       "sleep": 11,
       "twigs": 4,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 18,
+      "biome": "meadow",
+      "sleep": 11,
+      "twigs": 4,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 19,
+      "biome": "meadow",
+      "sleep": 11,
+      "twigs": 4,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 20,
+      "biome": "meadow",
+      "sleep": 12,
+      "twigs": 5,
       "haven": false,
       "feathers": 0,
       "haven_name": ""
     },
     {
       "space": 21,
-      "biome": "meadow",
-      "sleep": 11,
-      "twigs": 4,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 22,
-      "biome": "meadow",
-      "sleep": 11,
-      "twigs": 4,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 23,
-      "biome": "meadow",
-      "sleep": 12,
-      "twigs": 4,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 24,
-      "biome": "meadow",
-      "sleep": 12,
-      "twigs": 4,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 25,
-      "biome": "meadow",
-      "sleep": 12,
-      "twigs": 5,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 26,
-      "biome": "meadow",
-      "sleep": 13,
-      "twigs": 5,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 27,
       "biome": "meadow",
       "sleep": 15,
       "twigs": 5,
@@ -250,7 +196,7 @@
       "haven_name": "Orchard shelter"
     },
     {
-      "space": 28,
+      "space": 22,
       "biome": "meadow",
       "sleep": 13,
       "twigs": 5,
@@ -259,7 +205,34 @@
       "haven_name": ""
     },
     {
-      "space": 29,
+      "space": 23,
+      "biome": "meadow",
+      "sleep": 13,
+      "twigs": 5,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 24,
+      "biome": "meadow",
+      "sleep": 13,
+      "twigs": 5,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 25,
+      "biome": "meadow",
+      "sleep": 14,
+      "twigs": 5,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 26,
       "biome": "meadow",
       "sleep": 16,
       "twigs": 5,
@@ -268,7 +241,7 @@
       "haven_name": "Hayloft hideaway"
     },
     {
-      "space": 30,
+      "space": 27,
       "biome": "meadow",
       "sleep": 14,
       "twigs": 5,
@@ -277,7 +250,7 @@
       "haven_name": ""
     },
     {
-      "space": 31,
+      "space": 28,
       "biome": "meadow",
       "sleep": 14,
       "twigs": 6,
@@ -286,25 +259,7 @@
       "haven_name": ""
     },
     {
-      "space": 32,
-      "biome": "meadow",
-      "sleep": 14,
-      "twigs": 6,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 33,
-      "biome": "meadow",
-      "sleep": 14,
-      "twigs": 6,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 34,
+      "space": 29,
       "biome": "wasteland",
       "sleep": 11,
       "twigs": 6,
@@ -313,25 +268,25 @@
       "haven_name": ""
     },
     {
-      "space": 35,
+      "space": 30,
       "biome": "wasteland",
       "sleep": 11,
-      "twigs": 6,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 36,
-      "biome": "wasteland",
-      "sleep": 10,
       "twigs": 7,
       "haven": false,
       "feathers": 0,
       "haven_name": ""
     },
     {
-      "space": 37,
+      "space": 31,
+      "biome": "wasteland",
+      "sleep": 11,
+      "twigs": 7,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 32,
       "biome": "wasteland",
       "sleep": 18,
       "twigs": 7,
@@ -340,7 +295,7 @@
       "haven_name": "Shaded rock nook"
     },
     {
-      "space": 38,
+      "space": 33,
       "biome": "wasteland",
       "sleep": 10,
       "twigs": 7,
@@ -349,34 +304,7 @@
       "haven_name": ""
     },
     {
-      "space": 39,
-      "biome": "wasteland",
-      "sleep": 10,
-      "twigs": 7,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 40,
-      "biome": "wasteland",
-      "sleep": 11,
-      "twigs": 7,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 41,
-      "biome": "wasteland",
-      "sleep": 11,
-      "twigs": 7,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 42,
+      "space": 34,
       "biome": "wasteland",
       "sleep": 11,
       "twigs": 8,
@@ -385,7 +313,7 @@
       "haven_name": ""
     },
     {
-      "space": 43,
+      "space": 35,
       "biome": "wasteland",
       "sleep": 12,
       "twigs": 8,
@@ -394,7 +322,7 @@
       "haven_name": ""
     },
     {
-      "space": 44,
+      "space": 36,
       "biome": "wasteland",
       "sleep": 20,
       "twigs": 8,
@@ -403,7 +331,25 @@
       "haven_name": "Spring-fed refuge"
     },
     {
-      "space": 45,
+      "space": 37,
+      "biome": "wasteland",
+      "sleep": 12,
+      "twigs": 8,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 38,
+      "biome": "wasteland",
+      "sleep": 12,
+      "twigs": 8,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 39,
       "biome": "wasteland",
       "sleep": 11,
       "twigs": 8,
@@ -412,7 +358,7 @@
       "haven_name": ""
     },
     {
-      "space": 46,
+      "space": 40,
       "biome": "wasteland",
       "sleep": 12,
       "twigs": 8,
@@ -421,7 +367,342 @@
       "haven_name": ""
     },
     {
-      "space": 47,
+      "space": 41,
+      "biome": "wasteland",
+      "sleep": 13,
+      "twigs": 8,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 42,
+      "biome": "wasteland",
+      "sleep": 13,
+      "twigs": 8,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 43,
+      "biome": "wasteland",
+      "sleep": 21,
+      "twigs": 9,
+      "haven": true,
+      "feathers": 2,
+      "haven_name": "Oasis sanctuary"
+    }
+  ],
+  "spaces": [
+    {
+      "space": 1,
+      "biome": "wetlands",
+      "sleep": 3,
+      "twigs": 1,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 2,
+      "biome": "wetlands",
+      "sleep": 3,
+      "twigs": 1,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 3,
+      "biome": "wetlands",
+      "sleep": 5,
+      "twigs": 1,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 4,
+      "biome": "wetlands",
+      "sleep": 6,
+      "twigs": 1,
+      "haven": true,
+      "feathers": 1,
+      "haven_name": "Reed hammock"
+    },
+    {
+      "space": 5,
+      "biome": "wetlands",
+      "sleep": 5,
+      "twigs": 2,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 6,
+      "biome": "wetlands",
+      "sleep": 6,
+      "twigs": 2,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 7,
+      "biome": "wetlands",
+      "sleep": 6,
+      "twigs": 2,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 8,
+      "biome": "wetlands",
+      "sleep": 6,
+      "twigs": 2,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 9,
+      "biome": "wetlands",
+      "sleep": 7,
+      "twigs": 3,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 10,
+      "biome": "wetlands",
+      "sleep": 10,
+      "twigs": 3,
+      "haven": true,
+      "feathers": 1,
+      "haven_name": "Willow nest"
+    },
+    {
+      "space": 11,
+      "biome": "wetlands",
+      "sleep": 8,
+      "twigs": 3,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 12,
+      "biome": "wetlands",
+      "sleep": 8,
+      "twigs": 3,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 13,
+      "biome": "wetlands",
+      "sleep": 9,
+      "twigs": 3,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 14,
+      "biome": "wetlands",
+      "sleep": 9,
+      "twigs": 3,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 15,
+      "biome": "meadow",
+      "sleep": 10,
+      "twigs": 4,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 16,
+      "biome": "meadow",
+      "sleep": 13,
+      "twigs": 4,
+      "haven": true,
+      "feathers": 1,
+      "haven_name": "Clover hollow"
+    },
+    {
+      "space": 17,
+      "biome": "meadow",
+      "sleep": 11,
+      "twigs": 4,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 18,
+      "biome": "meadow",
+      "sleep": 11,
+      "twigs": 4,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 19,
+      "biome": "meadow",
+      "sleep": 11,
+      "twigs": 4,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 20,
+      "biome": "meadow",
+      "sleep": 12,
+      "twigs": 5,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 21,
+      "biome": "meadow",
+      "sleep": 15,
+      "twigs": 5,
+      "haven": true,
+      "feathers": 1,
+      "haven_name": "Orchard shelter"
+    },
+    {
+      "space": 22,
+      "biome": "meadow",
+      "sleep": 13,
+      "twigs": 5,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 23,
+      "biome": "meadow",
+      "sleep": 13,
+      "twigs": 5,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 24,
+      "biome": "meadow",
+      "sleep": 13,
+      "twigs": 5,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 25,
+      "biome": "meadow",
+      "sleep": 14,
+      "twigs": 5,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 26,
+      "biome": "meadow",
+      "sleep": 16,
+      "twigs": 5,
+      "haven": true,
+      "feathers": 1,
+      "haven_name": "Hayloft hideaway"
+    },
+    {
+      "space": 27,
+      "biome": "meadow",
+      "sleep": 14,
+      "twigs": 5,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 28,
+      "biome": "meadow",
+      "sleep": 14,
+      "twigs": 6,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 29,
+      "biome": "wasteland",
+      "sleep": 11,
+      "twigs": 6,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 30,
+      "biome": "wasteland",
+      "sleep": 11,
+      "twigs": 7,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 31,
+      "biome": "wasteland",
+      "sleep": 11,
+      "twigs": 7,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 32,
+      "biome": "wasteland",
+      "sleep": 18,
+      "twigs": 7,
+      "haven": true,
+      "feathers": 2,
+      "haven_name": "Shaded rock nook"
+    },
+    {
+      "space": 33,
+      "biome": "wasteland",
+      "sleep": 10,
+      "twigs": 7,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 34,
+      "biome": "wasteland",
+      "sleep": 11,
+      "twigs": 8,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 35,
       "biome": "wasteland",
       "sleep": 12,
       "twigs": 8,
@@ -430,7 +711,52 @@
       "haven_name": ""
     },
     {
-      "space": 48,
+      "space": 36,
+      "biome": "wasteland",
+      "sleep": 20,
+      "twigs": 8,
+      "haven": true,
+      "feathers": 2,
+      "haven_name": "Spring-fed refuge"
+    },
+    {
+      "space": 37,
+      "biome": "wasteland",
+      "sleep": 12,
+      "twigs": 8,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 38,
+      "biome": "wasteland",
+      "sleep": 12,
+      "twigs": 8,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 39,
+      "biome": "wasteland",
+      "sleep": 11,
+      "twigs": 8,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 40,
+      "biome": "wasteland",
+      "sleep": 12,
+      "twigs": 8,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
+    },
+    {
+      "space": 41,
       "biome": "wasteland",
       "sleep": 13,
       "twigs": 8,
@@ -439,7 +765,7 @@
       "haven_name": ""
     },
     {
-      "space": 49,
+      "space": 42,
       "biome": "wasteland",
       "sleep": 13,
       "twigs": 8,
@@ -448,7 +774,7 @@
       "haven_name": ""
     },
     {
-      "space": 50,
+      "space": 43,
       "biome": "wasteland",
       "sleep": 21,
       "twigs": 9,

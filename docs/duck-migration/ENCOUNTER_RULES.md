@@ -37,7 +37,7 @@ For a Draw action, resolve one encounter at a time:
 A cancelled preview never counts as placed. No current encounter cancels an
 entire draw. Each duck must draw at least one chip before it may settle that
 Day. An empty bag ends exploration only after its final chip fully resolves. If
-movement reaches or overshoots space 50, place the chip at 50, fully resolve it
+movement reaches or overshoots space 43, place the chip at 43, fully resolve it
 including Exhaustion, then finish with no further placements. The duck
 eventually rests on its final occupied space, not the next empty space. World
 Event movement is added before Log halves the total unless that event explicitly
@@ -216,8 +216,8 @@ purchase cap; variants share a type and unspent Sleep expires. Night 10 has no
 shopping. There is no flask, rewind or redraw in this ruleset.
 
 Local autosave and Continue are approved future functionality and remain
-unimplemented. M2 is complete; M3's isolated iPad layout proof is waiting for
-the user's command. No Core/CLI or Unity implementation is claimed here.
+unimplemented. M2 and M3 are complete; M4 remains unstarted and waits for the
+user's command. No Core/CLI gameplay implementation is claimed here.
 
 Exact space rewards, haven Feather values, encounter prices and shop policies
 belong to [v1/BOARD_AND_SHOP.md](v1/BOARD_AND_SHOP.md). The full World Event deck

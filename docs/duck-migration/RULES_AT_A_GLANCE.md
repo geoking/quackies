@@ -1,7 +1,7 @@
 # Quackies rules at a glance
 
 Updated 14 September 2026. The user's latest mechanic changes are incorporated
-below. The user approved the [50-space rewards and shop prices](v1/BOARD_AND_SHOP.md),
+below. The user approved the [43-space rewards and shop prices](v1/BOARD_AND_SHOP.md),
 the three-Feather Dawn cap, the [ten-card World Event deck](v1/WORLD_EVENTS.md),
 the remaining M2 defaults, and local autosave/Continue as a future feature. This
 rules sheet is closed for M2; it is a specification, not evidence of implementation
@@ -14,11 +14,11 @@ bag and route progress in a shared world. Adventure by Day, then enter the
 full-screen Dream/nest view at Night; View adventure returns to the board.
 **Most Twigs wins**, including final Dream Twigs. A shorter game setting waits.
 
-The incomplete nest is separate from **50 playable spaces** across wetlands,
+The incomplete nest is separate from **43 playable spaces** across wetlands,
 meadow and wasteland. Score the duck's final occupied space, never the next
-space or all spaces passed. Eight havens are at **3, 11, 19, 27, 29,
-37, 44 and 50**. They improve Sleep without increasing the local Twig plateau;
-endpoint 50 is the exception, with the highest printed Sleep and Twigs by one.
+space or all spaces passed. Eight havens are at **4, 10, 16, 21, 26, 32, 36
+and 43**. They improve Sleep without increasing the local Twig plateau;
+endpoint 43 is the exception, with the highest printed Sleep and Twigs by one.
 
 ## Dawn and adventure
 
@@ -38,10 +38,13 @@ Each awarded Feather permanently advances later starts by exactly one and is
 never spent, converted or subject to a separate redemption cap. Only the Dawn
 gift size is capped. Start from the updated trail plus any temporary Most Rested
 step, not yesterday's rest. The default starting Feather setting is **0**; an
-optional setting from **0–3** is offered equally to both ducks. Unsupported
-settings are rejected rather than silently clipped. With zero starting Feathers,
-even a conservative maximum Day 10 start is 46; the highest accepted setting
-still leaves room for the first draw.
+optional setting from **0–3** remains approved for both ducks. The current
+[endpoint review](m3-closeout/endpoint-review.md) proves the default-zero
+setting starts no farther than 42 on the 43-space route. Its conservative bounds
+for settings 1–3 are 43/45/46; those do not prove that such starts are reachable,
+nor certify those options. C1 must establish tighter reachability or bring any
+required endpoint rule decision to the user. Do not silently remove settings,
+clip earned Feathers or change their one-step benefit.
 
 The opening bag has **13 chips**: two each of Log, Mud, Pebbles and Brambles;
 two Seeds; one Tailwind →2; one Signpost; one Splash. Each white moves one and
@@ -123,16 +126,15 @@ conversion, including every eligible bonus and a worn-out duck's rounded-down
 half. If that still ties, declare the game a draw with tied winners. This final tiebreak is
 separate from the Most Rested award's safe-duck eligibility.
 
-## M2 closure and M3 waiting
+## M2 and M3 closure
 
-All 50 board rewards, 11 prices, ten events, draw rhythm, shop/housekeeping
+All 43 board rewards, 11 prices, ten events, draw rhythm, shop/housekeeping
 defaults, endpoint handling, final tiebreak, starting-Feather setting and local
 autosave/Continue scope are approved for the rules sheet. Each Day requires at
 least one draw before settling. An empty bag ends exploration only after its
-final chip fully resolves. Reaching or overshooting space 50 places at 50,
+final chip fully resolves. Reaching or overshooting space 43 places at 43,
 fully resolves that chip including Exhaustion, then finishes with no further
 placements. Local autosave/Continue is approved but unimplemented.
 
-M2 is complete and this documentation checkpoint is closed. M3 (the isolated
-iPad layout proof) is waiting for the user's command; no Core/CLI or Unity build
-is part of this checkpoint.
+M2 and M3 are complete. M4 (Core/CLI) remains unstarted and waits for the user's
+command; no Core/CLI gameplay build is part of this checkpoint.

@@ -1,242 +1,154 @@
 # Quackies overall plan
 
-Updated 14 September 2026. This is the current duck-game direction. It
-supersedes the presentation-only Quacks migration; historical decisions and
-validation remain in [PROGRESS.md](../PROGRESS.md). The latest user-requested
-mechanics, all 50 board rewards and the 11 shop prices are accepted starting
-values. Dawn gifts have the user-selected maximum of three, and the revised
-ten World Events are approved. **M2 is complete:** all remaining defaults and
-local autosave/resume are approved in the [implementation plan](IMPLEMENTATION_PLAN.md).
-Drawing is independent on Days 1–9 and simultaneous only on Day 10; tied total
-Twigs are decided by final-Night retained Sleep, then a draw if still equal.
+Updated 14 September 2026. **M2 and M3 are complete and approved by the user.**
+M3 closes with the 43-space board and reward typography at `2c7cd6a`.
+**M4 has not started. The user will approve its plan before any Core/CLI work.**
+Historical decisions and checks remain in [PROGRESS.md](../PROGRESS.md).
 
 ## What we are building
 
 A ten-Day tabletop game for iPad mini landscape, initially one human versus
-Normal AI. Ducks adventure through wetlands, meadow and wasteland by Day, then
-enter a full-screen Dream/nest view at Night. Each has its own bag and progress;
-World Events affect everyone. Most persistent Twigs, including final Dream
-Twigs, wins; tied Twigs use frozen retained Night 10 Sleep, then a draw. Keep
-starting-progress settings, rival-board inspection, restart and local Continue game.
+Normal AI. Ducks adventure across wetlands, meadow and wasteland by Day, then
+enter a full-screen Dream/nest view at Night. Each duck owns a bag, board progress
+and nest; World Events affect the shared world. Most persistent Twigs, including
+final Dream Twigs, wins. Equal Twigs use retained final-Night Sleep, then a draw.
 
-Use the selected [board](concepts/2026-09-12-approved/board-art-approved.png),
-[V2 player ducks](concepts/2026-09-11/duck-player-tiles-v2.png) and approved
-[16 encounter designs](concepts/2026-09-13-agreed-token-set/README.md).
-[Dream Concept B](concepts/2026-09-13-dream-study/concept-b-nest-mat.png) is the
-chosen full-screen layout with **View adventure** navigation and room for the
-whole shop. Its illustrative prices and Feather-spending controls are obsolete.
+The approved v1 includes the complete encounter catalogue, ten shuffled World
+Events, all 43 rewards, 11 shop offers, rival-board inspection, restart and local
+save/Continue. Nest purchase capacity follows the calendar. Feather trails give
+one permanent starting step per Feather; Dawn Delivery is capped at three per
+Day. Most Rested grants a temporary next-Day step on Nights 1–9. Days 1–9 allow
+independent decisions with public completed actions; only Day 10 uses hidden
+simultaneous decisions. The final Night converts retained Sleep to Dream Twigs.
 
-**M2 is complete. M3 is reopened for refinement.** The earlier fixed-data proof
-and the previous revised-M3 captures are historical/rejected evidence. The
-current `board-layout.json` is a provisional 40-space visual fixture, not an
-approved rules board; canonical v1 data remains 50 spaces until the user
-chooses between 40 larger, 45 smaller, and 45 with an extended painted route.
-M4 remains unstarted and waits for the user's command; no Core gameplay work
-has begun.
+## Authoritative specifications
 
-## Current rule references
-
-Keep a single source for each kind of detail instead of duplicating long lists:
+Keep each detailed rule in its own reference rather than duplicating full lists:
 
 | Reference | Authority |
 | --- | --- |
-| [Rules at a glance](RULES_AT_A_GLANCE.md) | Approved current game loop and rule details |
-| [Encounter timing](ENCOUNTER_RULES.md) | All helpful/white powers, protection and movement ordering |
-| [Board and shop](v1/BOARD_AND_SHOP.md) | Every one of 50 rewards, 11 prices, Night examples, approved policies and balance limits |
-| [World Events](v1/WORLD_EVENTS.md) | Ten approved cards, once-per-game shuffled deck, triggers and ordering |
-| [Implementation plan](IMPLEMENTATION_PLAN.md) | Approved M2 defaults, source audit, build checkpoints and acceptance checks |
-| [Board data](v1/board.json), [CSV](v1/board.csv), [shop data](v1/shop.json) | Approved numeric values; not yet loaded by the game |
-| [Bounded audit](v1/balance-audit.json) | Exact bag/counter arithmetic with explicit assumptions, not full-game balance |
+| [Rules at a glance](RULES_AT_A_GLANCE.md) | Complete approved game loop and rule recap |
+| [Encounter timing](ENCOUNTER_RULES.md) | Token powers, movement, protection and ordered Night resolution |
+| [Board and shop](v1/BOARD_AND_SHOP.md) | All 43 rewards, 11 prices, payout examples and balance limits |
+| [World Events](v1/WORLD_EVENTS.md) | Ten approved cards, triggers, collective conditions and timing |
+| [Implementation plan](IMPLEMENTATION_PLAN.md) | M2 defaults, M4 checkpoints, persistence and acceptance checks |
+| [Board JSON](v1/board.json), [CSV](v1/board.csv), [shop JSON](v1/shop.json) | Exact numeric data for the future duck profile |
+| [Bounded audit](v1/balance-audit.json) | Scoped arithmetic and explicit assumptions, not full-match balance |
+| [M3 closeout](m3-closeout/README.md) | Approved visual state, data reconciliation and evidence |
 
-## Design rules that guide implementation
+The 43 rows are synchronized with the accepted Unity layout. Havens are
+**4, 10, 16, 21, 26, 32, 36 and 43**. Space 3 gives 5 Sleep/1 Twig; the Reed
+hammock at 4 gives 6 Sleep/1 Twig/1 Feather. Space 5 starts the 2-Twig plateau.
+The other six nonendpoint havens match both neighbours' Twigs. The oasis is the
+endpoint exception at **21 Sleep/9 Twigs/2 Feathers**. Do not restore the earlier
+50-space table or haven-3 placement.
 
-- **Rest where the duck lands.** Fifty scorable spaces follow the separate,
-  incomplete nest. No numbered-zero graphic or next-empty-space scoring.
-  The approved table divides them 1–16 / 17–33 / 34–50, with havens at
-  3, 11, 19, 27, 29, 37, 44 and 50. Seven nonendpoint haven tiles sit beside
-  painted shelters; space 50 uses the oasis itself.
-- **Comfort is not monotonic distance.** A haven improves Sleep over nearby
-  spaces while keeping their Twigs. Exposed wasteland is less restful than late
-  meadow, but its havens are especially comfortable. Endpoint printed values
-  are just highest: 21 Sleep/9 Twigs/2 Feathers. All three wasteland havens now
-  award two Feathers, superseding the old three-Feather endpoint.
-- **Separate nightly comfort from victory.** Twigs persist. Sleep earned freezes
-  for Most Rested; purchases reduce only remaining Sleep. Worn-out ducks keep
-  earned Twigs and half Sleep rounded down. Safe-only rewards and final-chip
-  deductions follow the approved timing contract.
-- **Feathers have one job.** Each automatically extends the permanent starting
-  trail by one. Never bank, spend, cap redemption or convert them. Awarding one
-  cannot move today's rest or re-score a placement. Dawn Delivery now gives
-  `min(3, ceil(Twig deficit / 4))`: zero when tied, 1 for deficits 1–4,
-  2 for 5–8 and 3 for 9+. Snapshot scores before delivery. Repeated deficits
-  pay again on later dawns. This caps the gift source, not Feather redemption
-  or the one-Feather/one-step benefit.
-- **Most Rested means highest Sleep among safe ducks.** All eligible ties share
-  the award; if all wear out, there is none. Nights 1–9 grant a temporary start
-  +1 tomorrow represented by the zzz marker beyond the updated Feather trail.
-  Flock/event bonuses resolve before the comparison, and spending never changes it.
-- **The ending uses Dreams.** On Day 10 each safe haven gives another +2 Sleep.
-  On Night 10 convert retained Sleep at floor(Sleep/4) Dream Twigs and give
-  safe Most Rested winners one extra Dream Twig. No Night 10 shopping or Day 11
-  reward. Feathers have no final conversion. Rank total Twigs first, then
-  frozen retained Night 10 Sleep before conversion; if both tie, declare a draw.
-- **Nest capacity follows the calendar.** Both ducks have level 1 on Days 1–3,
-  level 2 on 4–6 and level 3 on 7–10, allowing 1/2/3 purchases on purchasing
-  Nights. Individual decorative nest growth shows score; score cannot unlock
-  exclusive purchase capacity for the leader. Use a readable exact Twig total.
-- **Original, readable encounters.** Seven helpful token types and five white
-  designs retain the approved shapes. Default movement 1 is unprinted; arrows
-  state total movement; Reeds quantities state bundle count/Twig yield.
-  Starting bag remains eight whites plus five helpful chips. Goose joins once
-  on Day 5. Mud now reduces the active flock, including later movement and its
-  Night comparison. Splash protects just
-  the next chip's nuisance, not its Exhaustion, and supplies no rescue.
-- **Respond during the adventure.** Days 1–9 resolve each duck's Draw/Settle
-  immediately, with completed actions visible for others to react to. Only Day 10
-  uses hidden simultaneous decision beats. Signpost previews remain private.
-- **One shared world.** Shuffle the ten event cards once and reveal one per
-  Day without replacement. Their effects expire that Day. Future deck expansion
-  can add cards; the approved ten-card deck mixes four helpful events, three
-  collective goals and three mild setbacks. Collective rewards wait until all
-  players finish and include the AI. Full-match testing remains outstanding.
+## Accepted M3 presentation
 
-## The short build sequence
+The board is an illustrated tabletop with an incomplete nest at upper-left,
+cool wetlands, warm meadow, harsh wasteland and the oasis at upper-right. Dense
+foliage and terrain explain why the duck follows the route. Shelter entrances
+stay visible; both bridges are clear of tiles and connect naturally to the path.
+The wasteland bridge is the dramatic timber-and-rope crossing over a cleft.
 
-1. **M2 is complete.** Rules, rewards, prices, events, settings, Night tie-break
-   and local autosave/resume are approved.
-2. **M3 refinement is open.** Compare the provisional 40-space fixture and its
-   108 × 79.2 wells with the pending 45-space alternatives. See
-   [m3-refinement/README.md](m3-refinement/README.md). The earlier proof and
-   revised-M3 captures are historical/rejected. The candidate validation passes
-   actual 1133 × 744 and 2732 × 2048 audits, 40/40 center raycasts and
-   PointerClick inspections; see [validation](m3-refinement/validation.md).
-   Route-count selection and M3 approval remain open.
-3. **Evolve Core with the CLI alongside it.** Keep the engine/API boundary;
-   refactor duck identity, state and phases. Build a complete Day/Night slice,
-   then all ten Days, the Normal AI and local autosave/resume.
-4. **Connect the Unity game.** Reuse the measured layout and existing UI
-   infrastructure, bind the committed Core build, and play a complete match.
-5. **Balance and finish.** Inspect recovery, haven/purchase choices, event effects,
-   touch/readability, restart/resume and export. Review before changing numbers.
+The route divides into **14 wetlands / 14 meadow / 15 wasteland** spaces. The
+42 normal/haven tiles sit along the painted paths, aligned to the seven on-board
+shelters; space 43 uses the native oasis painting. Keep the approved centres,
+spacing and clearance around trees, logs, shores and shelter entrances.
 
-The detailed [implementation plan](IMPLEMENTATION_PLAN.md) splits these into
-reviewable checkpoints. M3 refinement remains the visual gate and M4 the
-Core/CLI build; this deliberately brings the highest visual risk forward. Stop
-for feedback at each milestone. M4 starts only on the user's command.
+- Tiles are distinguishable, playful painted shapes with biome colours and
+  richer leafy haven edges. Their 108 × 84 board-pixel footprint is the accepted
+  reference; do not return to faint ground decals or external reward strips.
+- Fifteen tile-art variants contain the correct scattered twig counts. Twigs
+  are floor decoration and may be covered by a chip. The exact live Twig number
+  stays at right-middle; the live Sleep number sits beside the bottom moon.
+  There are no top-of-tile index labels or penny/T0 notation.
+- Larger, bright haven Feathers occupy the lower-left tile pocket. The oasis has
+  two slightly smaller Feathers in front of the pool, with winnings below.
+- All chips and the resting duck use the shared 64-pixel frame, offset (16, -11)
+  within a tile. The landing is more central and no longer shifts left to avoid
+  twig artwork. Larger candidates covered rewards; preserve the tested fit.
+- Fredoka SemiBold with black outlines is used throughout. The 86 board reward
+  labels have a stronger dedicated outline and slightly fuller face; Twig
+  numerals are 22 units. Sleep numerals are raised 0.84 board pixels to contain
+  the stroke. The footer explains rest-where-you-land scoring and reward icons.
+- Board taps open inspections. The full-screen Dream fixture has room for all
+  11 offers and View adventure navigation. Its live purchases, nest growth and
+  final Concept-B presentation are M5 work, driven by Core state.
 
-## Art and token philosophy
+The accepted source is `Assets/Art/DuckLayout/board.png` at **1536 × 1024**.
+`board-layout.json`, `tile-art.json`, `tile-crops.json` and the scene builder
+reproduce the layout. Native sprite outlines isolate approved art; mipmapped
+filtering keeps the painted tile sheets clean at tablet scale. The detailed
+3072 × 2048 painted master remains explicitly deferred, with a 4096 import cap
+and resolution-independent UI. A larger render is not a higher-detail painting.
 
-The board remains a physical illustrated tabletop: cool wetlands, warm meadow
-and harsh wasteland, with an incomplete upper-left nest and upper-right oasis.
-Dense natural barriers explain the route; keep clear shelter entries and similar
-usable widths across all biomes. Bridges meet the route naturally; the dramatic
-wasteland crossing remains a timber-and-rope bridge over a cleft.
+M3 evidence includes actual 1133 × 744 and 2732 × 2048 renders, 43 centre
+interactions, all 16 chips checked at all 42 placement spaces, 19 rendered-mesh
+comparisons, 150 labels without overflow and zero final compilation/Console
+errors. These checks validate the fixed layout, not the new game's rules or
+complete match. Earlier visual studies and rejected proofs remain historical.
 
-Layer precise wells, reward strips, rest markers and movable tokens over the
-approved base art. The current refinement compares a provisional 40-space
-centerline with 108 × 79.2 wells against the unresolved 45-space alternatives.
-Every candidate center must follow painted path art, including wasteland curves;
-bridges have no tiles. Haven entry alignment, same-biome tile colour, green
-leafy nest borders and large integrated Feather 1/2 treatments remain visual
-requirements. Do not promote this fixture into rules data until the user picks
-the route count. Use the playful
-[V5 painted components](concepts/2026-09-11-v5/painted-kit.png)
-as style references, not their rejected coordinates. Each shelter visibly belongs
-to one well. Replace the old coin treatment with a Moon/Sleep icon, and use
-twigs + score and any Feather yield in readable
-reward strips. Omit zero-Twig clutter. Update the footer to explain scoring
-**where the duck rests**; remove the old next-empty-space instruction.
+## Token and future-art philosophy
 
-Each token category has a consistent silhouette across variants, a strong
-face/rim colour and an identifiable illustration. Different categories can
-have different shapes but must fit a common well footprint. Keep rounded sturdy
-edges, matte cardboard depth and playful original illustrations. Omit default
-‘1’ movement badges. Meaningful quantities such as reed bundles x1/x2/x3 are
-allowed beside their category symbol, with their effect explained on the shared
-rule reference. Keep them visually distinct from explicit movement arrows.
-Production instructions, quantities and changing state remain precise overlays.
-Colour alone must not be required to recognize a category.
+Keep the approved [player ducks](concepts/2026-09-11/duck-player-tiles-v2.png),
+[16 encounter designs](concepts/2026-09-13-agreed-token-set/README.md),
+[zzz marker](concepts/2026-09-14-most-rested/README.md) and
+[Dream Concept B](concepts/2026-09-13-dream-study/concept-b-nest-mat.png) as the
+visual vocabulary. Dream concept prices and Feather-spending controls are obsolete.
 
-| Identity | Encounter name |
+Player ducks are goofy, distinct-coloured tabletop tokens. Each encounter type
+keeps one recognizable silhouette across variants, a strong face/rim colour,
+rounded sturdy edges and original illustration. Different types can use different
+shapes but must fit the common landing and leave reward information visible.
+Colour alone must not identify a type. Default movement one is unprinted;
+movement arrows give total movement, while Reeds ×1/×2/×3 communicate Twig yield.
+Separate those meanings in both art and data. The Companion is an encounter,
+not another player marker. The zzz award reads differently from a permanent
+Feather. Exact values and changing game state remain precise overlays.
+
+Use the terms Day, Explore, Settle down, Exhaustion, Worn out, Sleep, Twigs,
+Feather trail, Dream choices, Most Rested Duck, World Event and Dawn Delivery.
+Production guidance remains in [ASSET_BRIEF.md](ASSET_BRIEF.md); current accepted
+M3 assets and closeout evidence take precedence over older art-study coordinates.
+
+## Build sequence from here
+
+**Evolve the existing Core/API/CLI.** Keep match-session ownership, immutable
+observations, deterministic randomness and the snapshot/legal-actions/execute
+boundary. Refactor the changed state and rule policies; preserve the tested
+original game as a reference profile. Do not restart the solution, copy the
+whole match loop, or put rule arithmetic into Unity.
+
+| Milestone | Status and result |
 | --- | --- |
-| White | Obstacles |
-| Orange | Seeds |
-| Red | Tailwind |
-| Blue | Signpost |
-| Yellow | Refreshing splash |
-| Green | Nesting reeds |
-| Black | Companion duck |
-| Purple | Wildflowers |
+| M0 / initial M1 | Historical original baseline and art exploration |
+| M2 — Rules sheet | Complete: rules, data, events, defaults and local save/resume scope approved |
+| M3 — Layout | Complete: final 43-space visual proof approved by the user |
+| **M4 — Core/CLI** | **Unstarted; awaiting user confirmation.** C1 foundations/data → C2 Adventure/exact draws → C3 complete Day/Night → C4 ten-Day matches → C5 Normal AI/save-resume |
+| M5 — Connected Unity | Bind the accepted board/Dream views to committed Core state/actions and complete a human/AI match |
+| M6 — Balance/export | Review seeded match outcomes, tune with approval, finish readability/performance and validate iOS export |
 
-The user approved the [token-family style](concepts/2026-09-13-token-family/README.md).
-The approved [current token set](concepts/2026-09-13-agreed-token-set/README.md) has plain
-faces, explicit movement arrows, Reeds quantities and all five white nuisances. These remain
-concept sheets, not production sprites or final effect specifications. Player ducks remain
-distinct colours/personalities and die-cut silhouettes; the Companion duck is a
-small illustrated encounter tile, not another player marker. Four duck identities
-do not expand the initial human-versus-AI scope.
+The **first proposed M4 checkpoint is C1**: establish the duck profile, import
+all approved data, separate token movement from ability quantities, and define
+saveable match state while keeping the classic regression suite passing. Update
+the CLI alongside each slice. The [detailed C1 plan](IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval)
+sets its deliverables and stopping boundary.
 
-Other display terms: Day; Explore; Settle down; Exhaustion; Worn out!; Shelter;
-Feather trail; Dream choices; Most Rested Duck; World Event; Dawn Delivery.
-Splash provides immediate-next-chip nuisance protection. No separate flask or
-rewind is included in v1, as approved.
-Production guidance is in [ASSET_BRIEF.md](ASSET_BRIEF.md).
+C1 also verifies starting-position safety for the approved shared 0–3 Feather
+setting on the shorter route. The [endpoint review](m3-closeout/endpoint-review.md)
+separates the default-zero proof from the still-unproven optional settings. Do
+not silently cap, discard or convert Feathers, or remove an approved setting.
+If reachability analysis exposes a rule choice, return it to the user before
+implementing that behaviour. Actual full-match balance remains M6 work.
 
-The [Most Rested cloud tile](concepts/2026-09-14-most-rested/README.md) is a new
-review concept. A lavender “zzz” marker covers the temporary extra start space
-beyond the nest/updated Feather trail. It must read differently from a permanent
-Feather or encounter. Tied eligible ducks receive the same gameplay advantage.
+Stop for user review at each milestone. M4 source and focused tests are small,
+separate checked commits with regular GitHub checkpoints; root owns Git and
+Unity integration. Follow [AGENTS.md](../../AGENTS.md) and
+[ARCHITECTURE.md](../ARCHITECTURE.md). M5, exports, device installation and public
+release are separate steps, not implicit consequences of approving M4.
 
-## Reuse the engine; replace the changed rules
-
-Keep Quackies.Core, MatchSession's snapshot/legal-action/execute API, deterministic
-randomness and ownership of authoritative state. Keep CLI as a rapid client of
-the same engine and Normal AI as a consumer of legal actions. Refactor changed
-phases, scoring and effects in focused policies instead of restarting or
-spreading rule arithmetic into Unity. Preserve the original tested game as a
-reference profile, not a mandatory user-facing mode or content template.
-
-Read [ARCHITECTURE.md](../ARCHITECTURE.md) before boundary changes and
-[ENGINE_EVOLUTION.md](ENGINE_EVOLUTION.md) for implementation rationale.
-Preserve serialized identities until deliberately migrated. Old and new rules
-need distinct validation; this planning audit is not a runtime test.
-
-## Milestone status
-
-| Milestone | Work and evidence |
-| --- | --- |
-| M0 / initial M1 | Historical baseline and art exploration; recorded in PROGRESS |
-| **M2 — Complete** | Rules, all data, events, defaults and local save/resume approved; final-Day-only simultaneous drawing and Night Sleep tiebreak recorded |
-| **M3 — Refinement open** | Provisional 40-space visual fixture with 108 × 79.2 wells; candidate compilation, Console, rebuild, texture, dual-viewport and 40/40 pointer evidence pass in [m3-refinement/validation.md](m3-refinement/validation.md). Compare 40 vs unresolved 45 alternatives; no completion or approval claim. |
-| M4 — Core/CLI (unstarted) | New profile/state, exact private previews, complete Day/Night and ten-Day matches, Normal AI and local save/resume; starts only on the user's command |
-| M5 — Connected Unity game | Committed Core handoff, complete human/AI play, all phases, restart and local match restoration |
-| M6 — Balance/export | Match evidence, approved tuning, readability/performance and iOS export |
-
-The three-Feather Dawn cap bounds the default ten-Day start to 46. The approved
-shared starting setting of 0–3 bounds the latest start to 49. First draw,
-empty-bag and overshoot rules are fixed, as are shop limits, Sleep expiry,
-recovery exclusion, worn-out payouts and final ranking. There are no remaining
-M2 rule decisions. Production polish and actual balance are later milestone work.
-
-The 40-space `board-layout.json` is a provisional visual fixture for review;
-canonical v1 data remains 50 rows with havens 3, 11, 19, 27, 29, 37, 44 and 50
-and endpoint 21 Sleep / 9 Twigs / 2 Feathers. The detailed 3072 × 2048 painted
-master remains explicitly deferred; retain the higher-resolution authoring plan
-and 4096 import cap. UI remains resolution-independent and production sprites
-use native assets. Candidate validation is recorded in
-[m3-refinement/validation.md](m3-refinement/validation.md), while route-count
-selection and M3 approval remain open. The earlier 1536 × 1024 proof and revised-M3 captures remain
-historical/rejected evidence.
-
-Short-match settings, alternate rule cards, test tubes, a separate AI-history
-pane and device installation remain deferred. Four player duck identities do
-not expand the initial human-versus-AI scope. Keep source identifiers as Quackies;
-release title remains undecided.
-
-Follow [AGENTS.md](../../AGENTS.md): root owns Git/integration and the Unity
-Editor mutation for this milestone; workers have bounded disjoint files. Push coherent checkpoints
-on `codex/duck-game-milestone-0`, preserving unrelated changes. No automatic
-merge, physical-device install or release. Editor success, iOS export and device
-testing are separate evidence. Historical M3 target-size verification, two
-rebuilds, Console check and captures remain in [the old review evidence](m3/validation.md);
-the revision needs its own evidence checklist in [m3-revision/README.md](m3-revision/README.md).
+Shorter matches, alternate rule cards, more World Events/AI levels, networking,
+test tubes, a separate AI-history pane and physical-device installation remain
+deferred. Four duck identities do not expand the first human-versus-AI scope.
+Release title remains undecided.

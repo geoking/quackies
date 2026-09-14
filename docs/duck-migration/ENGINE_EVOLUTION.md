@@ -2,7 +2,8 @@
 
 14 September 2026. Architecture recommendation for the accepted Day/Dream
 direction in [PLAN.md](PLAN.md), now ten Days with original encounter powers
-and World Events. This document changes no implementation.
+and World Events. M3 is now approved; M4 remains unstarted pending user confirmation. This
+document changes no implementation.
 
 ## Decision
 
@@ -41,7 +42,7 @@ be one authoritative match engine.
 
 | Area | Required change |
 | --- | --- |
-| [BoardTrack](../../src/Quackies.Core/Rules/BoardTrack.cs) | Explicit playable endpoint and reward lookup policy; the duck profile has nest 0 and occupiable/scorable 1–50. Store authoritative biome, Sleep, Twigs, Feather yield and shelter identity. Remove the assumption that every profile scores position+1. |
+| [BoardTrack](../../src/Quackies.Core/Rules/BoardTrack.cs) | Explicit playable endpoint and reward lookup policy; the duck profile has nest 0 and occupiable/scorable 1–43. Store authoritative biome, Sleep, Twigs, Feather yield and shelter identity. Remove the assumption that every profile scores position+1. |
 | [Player state](../../src/Quackies.Core/Match/PlayerRoundState.cs) | Separate persistent Twigs, frozen Sleep earned, Sleep remaining, permanent trail, next-Day temporary advantage, effective start and frozen rest position. |
 | Encounter identity and effects | Separate category, obstacle subtype, explicit movement instruction and ability parameters. Default movement one is not a universal printed strength. Add session-owned next-chip protection, per-placement nuisance suppression, pending Log, preview and active-flock state after the contract is approved. |
 | Feather awards | Route all duck-profile Feather sources through one capability that advances the permanent start exactly once and records the source for display/history. No spendable Feather balance or Feather-spending action. |
@@ -93,7 +94,8 @@ private Signpost previews (current sampling does not reserve the next draw) and
 separate token type/movement/ability quantities (current colour/value cannot
 represent the agreed obstacles and Reeds faithfully).
 
-M2 is complete: the 50 rows, all prices/events, endpoint/empty-bag, shop,
+M2 and the visual M3 gate are complete. The synchronized 43 rows (first haven
+at 4), all prices/events, endpoint/empty-bag, shop,
 starting settings and worn-out rules are approved. Days 1–9 actions resolve
 independently and publicly so players can react. Only Day 10 uses hidden
 simultaneous commitments; adapt the old round-nine pattern through a final-Day
@@ -113,8 +115,9 @@ bonuses and worn-out halving; do not reuse a distance or safe-eligibility tiebre
 
 ## Build and verification order
 
-The implementation plan now puts an isolated **M3 layout proof before M4 Core**.
-It needs only fixed sample data and must not bind a changing Core DLL. Within M4:
+The isolated **M3 layout proof is complete and approved**. It uses fixed sample
+data and remains separate from the changing Core DLL until M5. After explicit
+M4 approval, begin with the [C1 foundation checkpoint](IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval). Within M4:
 
 1. Establish duck profile/data/identity/state, preserving original regressions.
 2. Implement Adventure, exact private previews and the selected decision rhythm.
@@ -127,7 +130,7 @@ the end. Bind the committed DLL to Unity only after the complete CLI contract
 works. [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) lists the expected evidence.
 
 Keep focused source/test checkpoints separate and push each. Retain meaningful
-classic regression tests; add duck tests against the same engine for all 50
+classic regression tests; add duck tests against the same engine for all 43
 positions, frozen versus spent Sleep, every Feather source, Dawn thresholds,
 tied Most Rested, purchase tiers, endpoint/rewind cases, each new encounter/event
 and final Day 10. Verify independent Days 1–9 actions, hidden Day 10 decisions,

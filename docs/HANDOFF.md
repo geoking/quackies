@@ -1,85 +1,37 @@
 # Quackies handoff
 
-## Current task: M3 refinement open; route count unresolved
+## Current task: M3 closed; await M4 approval
 
-14 September 2026: the user explicitly closed M2 and approved the remaining
-rules/defaults and local autosave/Continue scope, with two corrections:
+14 September 2026: the user approved the final visual result and explicitly
+closed M3. M2 remains complete. **M4/Core/CLI is unstarted and waits for the
+user's confirmation of the next plan. Do not begin implementation from this
+handoff alone.** See [PLAN.md](duck-migration/PLAN.md) and the detailed
+[C1 first checkpoint](duck-migration/IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval).
 
-- **Days 1–9:** independent visible Draw/Settle actions; reacting to other ducks'
-  completed progress is intended. **Day 10 only:** hidden simultaneous choices
-  and atomic reveal after all active ducks commit. Previews remain private.
-- **Final rank:** total Twigs including Dream Twigs, then frozen retained Night 10
-  Sleep before conversion, then a draw if still equal. Include eligible bonuses
-  and worn-out halving; do not add a safe-only filter or distance tiebreak.
+The accepted proof has 43 spaces split 14/14/15, with havens at 4, 10, 16, 21,
+26, 32, 36 and 43. The full first-haven payload moved from 3 to 4; the canonical
+JSON/CSV now match all Unity reward rows. Endpoint 43 gives 21 Sleep / 9 Twigs /
+2 Feathers. Shop prices, event catalogue and encounter powers remain unchanged.
 
-The [plan](duck-migration/PLAN.md), [implementation plan](duck-migration/IMPLEMENTATION_PLAN.md),
-[recap](duck-migration/RULES_AT_A_GLANCE.md) and [timing](duck-migration/ENCOUNTER_RULES.md)
-now form an approved contract. Starting Feathers are a shared 0–3 setting,
-default 0. First draw is required; empty-bag/space-50 finishes resolve the full
-final chip and Exhaustion. Unlimited shop stock, one purchase per token type
-within 1/2/3 nest capacity, Sleep expiry, no separate recovery, and safe/worn
-payout details are approved. Night 10 conversion and Most Rested are unchanged.
+Visual checkpoints: `3bd9ce1` route/outlined typography; `d068229` scattered
+twigs, central chips and clearer Feathers; `2c7cd6a` stronger reward numerals.
+The [M3 closeout](duck-migration/m3-closeout/README.md) records approval, accepted
+assets, data agreement and final checks. The fixed-data `DuckLayoutProof` scene
+rebuilds with **Quackies → Build Duck Layout Proof**; it has no duck Core binding.
+The earlier **Build and Play Initial Scene** command belongs to the classic
+reference game described below.
 
-All [50 rewards and 11 prices](duck-migration/v1/BOARD_AND_SHOP.md), encounter
-powers and [ten World Events](duck-migration/v1/WORLD_EVENTS.md) remain approved.
-Havens are 3/11/19/27/29/37/44/50; endpoint is 21 Sleep/9 Twigs/2 Feathers.
-Dawn gifts cap at 3; default start bounds to 46, or 49 with starting setting 3.
-Numeric data, event effects and the bounded math audit have not changed.
+Preserve the accepted path centres, 108 × 84 tiles, 64-pixel chip frame, native
+1536 × 1024 board and existing art/metadata. The detailed 3072 × 2048 painting is
+explicitly deferred. M5 will connect Core and finish runtime Dream/nest/event
+presentation using the accepted visual direction.
 
-There is no persistent save implementation yet. M4 must preserve authoritative
-bag/deck/random continuation, exact previews, final-Day commitment state,
-action freshness, frozen rewards and purchase counts across local restore.
-Keep Core free of Unity/filesystem dependencies and retain the original engine
-profile as a regression reference while substantially refactoring duck rules.
-
-**M3 is reopened for refinement. M4 is unstarted and waits for the user's
-command.** The prior fixed-data scene and previous revised-M3 captures are
-historical/rejected. The current `board-layout.json` is a provisional 40-space
-visual fixture, not the current rules handoff. The user is deciding between 40
-larger, 45 smaller and 45 with an extended painted route; canonical v1 data
-remains 50 spaces until that choice.
-
-[Historical M3 evidence](duck-migration/m3/README.md) records 1133 × 744
-Adventure, occupied, Dream and inspection captures, two rebuilds, pointer
-navigation and a zero-error Console query. It remains useful history but is not
-evidence that the revision is complete. The new requirements and evidence
-checklist and [validation record](duck-migration/m3-revision/validation.md) are
-historical for the rejected presentation. The current refinement brief and
-[candidate validation](duck-migration/m3-refinement/validation.md) are in
-[m3-refinement/README.md](duck-migration/m3-refinement/README.md). Candidate
-compilation, Console, rebuild, texture, dual-viewport and 40/40 pointer checks
-pass. The route-count decision and M3 approval remain open. There is no live
-Core binding or duck gameplay. M4 is Core/CLI, M5
-connects the Unity game, and M6 covers balance/export; stop for review between
-milestones.
-
-The current refinement uses a provisional 40-space fixture at the approved
-board source size. The detailed 3072 × 2048 master is explicitly deferred;
-retain the higher-resolution authoring plan and 4096 import cap,
-resolution-independent UI and native production sprites. Candidate validation
-passes actual 1133 × 744 and 2732 × 2048 audits, 40/40 center raycasts and
-PointerClick inspections. Compare 108
-× 79.2 wells with 90 × 66 and compare the current 40 candidate with the user-
-question 45 alternatives; they are not promised generated deliverables.
-Candidate centers must follow painted paths through wasteland curves, bridges
-must remain tile-free, leaving approach/deck gaps between spaces 13/14 and
-26/27. Future duck animation needs explicit bridge waypoints rather than
-straight center interpolation. Proposed haven IDs are
-3/10/15/20/24/29/33/40 with bottom entries aligned at 20/33. Canonical v1
-data remains 50 spaces with endpoint 21 Sleep / 9 Twigs / 2 Feathers.
-Same-biome tile colour, green leafy nest borders and integrated Feather 1/2
-treatments are covered by candidate evidence. Candidate reward labels are
-visual-only remappings; canonical v1 reward data is unchanged. Dream
-Concept-B likeness and fun, engaging typography are minor M5 implementation
-follow-ups when the Dream view is built. Root owns any Sleep/Twig/haven row
-reassignment needed by geometry.
-
-Preserve the unrelated ProjectSettings preload removal and other pre-existing
-changes.
-
-No Core/CLI changes, runtime tests, Unity calls/imports, scene building or art
-generation occurred in the M2 closure. Root owns the regular Git checkpoint/push;
-no merge, release or device install is authorized.
+C1 verifies the approved 0–3 starting-Feather settings against the shorter route;
+[endpoint-review.md](duck-migration/m3-closeout/endpoint-review.md) records the
+current bound and its limits. Do not invent a Feather clamp, conversion or an
+unapproved reduction in settings. No new gameplay, Unity build or device export
+is part of this documentation closure. Preserve the unrelated ProjectSettings
+draft outside its commit.
 
 ## Completed playable baseline
 
@@ -163,7 +115,9 @@ before UI automation. The reusable validation harness is tracked at
 `tools/validation/evidence/2026-09-10/`. Do not describe the recorded GameView
 captures as physical-device evidence.
 
-Shell push authentication fails; GitHub connector publishing works. The lead
-publishes committed checkpoints without force-pushing and verifies that local
-and remote trees match. Temporary publishing helpers are session conveniences;
-do not rely on ignored Temp files surviving a reboot or cleanup.
+Shell push authentication currently fails. The GitHub connector can read the
+repository; the remote migration branch was verified at `c82f7d0` during M3
+closeout, behind the three local visual checkpoints above. Do not describe
+those checkpoints as pushed until remote publication is verified. Preserve local
+history, never force-push or merge main without a request. Temporary publishing
+helpers are session conveniences, not durable workflow dependencies.
