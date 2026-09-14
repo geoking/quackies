@@ -986,3 +986,20 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   review requirements. Historical m3-revision captures remain unchanged and
   rejected for this refinement. M4 is unstarted and the 3072 × 2048 master
   remains deferred.
+
+### 44. M3 43-space revision WIP (14 September 2026)
+
+- Superseded the 40/45 route-count question with the user's current 43-space
+  target: 14 wetlands, 14 meadow and 15 wasteland. Canonical v1 remains the
+  50-row rules board until root freezes the final 43 reward rows and haven IDs.
+- Source/art work supports the 43-space route, independent Feather treatments,
+  the new leafy haven rim and larger reward/token presentation. Root's source/art
+  checkpoint is available and compilation passes with no errors; route
+  token/reward packing remains in progress. No layout pass or runtime success is
+  claimed.
+- Preserve the selected 1536 × 1024 base painting and defer the detailed
+  3072 × 2048 master. Sizes remain adjustable, with no final WHTR promise yet.
+  M4/Core remains unstarted. Numeric migration is deferred until the final
+  43-row data freeze.
+- Added the bounded [M3 43-space revision brief](duck-migration/m3-43/README.md).
+  Historical 40-space and prior M3 evidence remains unchanged.

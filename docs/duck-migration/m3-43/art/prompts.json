@@ -1,0 +1,5 @@
+{
+  "mode": "built-in image_gen",
+  "rim": "Use case: precise-object-edit / background-extraction. Edit the supplied green leaf game-token frame: remove the white feather entirely and complete the same leafy rim naturally along the right edge. Keep the same rounded rectangle proportions, thick illustrated green leaves, thin twigs, rich colours and crisp cartoon finish. Preserve the transparent empty center and transparent exterior. This is a reusable Unity UI frame; no feather, no text, no numbers, no tile fill, no checkerboard pixels, no shadow outside the rim. Output a genuine RGBA transparent cutout of ONLY the leafy rounded rectangular border, matching the original frame proportions and bounds as closely as possible.",
+  "alpha": "Remove the checkerboard background from this leaf border. Return only the green leafy frame as a clean transparent PNG cutout with a real alpha channel. The entire inside hole and all the area outside the leaves must be transparent. Preserve the artwork and dimensions."
+}

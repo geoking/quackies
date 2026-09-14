@@ -15,6 +15,7 @@ namespace Quackies.Unity.DuckLayout
         public float wellWidth = 90f;
         public float wellHeight = 66f;
         public float rewardHeight = 22f;
+        public float tokenSize = 86f;
         public DuckLayoutNestAnchor nest;
         public DuckLayoutBoardRow[] rows;
 
@@ -23,13 +24,17 @@ namespace Quackies.Unity.DuckLayout
             data = JsonUtility.FromJson<DuckLayoutBoardData>(json);
             if (data == null) { issue = "The JSON could not be read."; return false; }
             if (data.version != 1) { issue = "Expected board-layout version 1."; return false; }
-            if (data.boardSpaceCount != 40 && data.boardSpaceCount != 45 && data.boardSpaceCount != 50)
+            if (data.boardSpaceCount != 40 && data.boardSpaceCount != 43 && data.boardSpaceCount != 45 && data.boardSpaceCount != 50)
             {
-                issue = "Board space count must be 40, 45, or 50.";
+                issue = "Board space count must be 40, 43, 45, or 50.";
                 return false;
             }
             if (data.boardWidth <= 0 || data.boardHeight <= 0) { issue = "Board dimensions must be positive."; return false; }
-            if (data.wellWidth <= 0 || data.wellHeight <= 0 || data.rewardHeight <= 0) { issue = "Well and reward dimensions must be positive."; return false; }
+            if (data.wellWidth <= 0 || data.wellHeight <= 0 || data.rewardHeight <= 0 || data.tokenSize <= 0)
+            {
+                issue = "Well, reward, and token dimensions must be positive.";
+                return false;
+            }
             if (data.rows == null || data.rows.Length != data.boardSpaceCount) { issue = "Expected exactly " + data.boardSpaceCount + " board rows."; return false; }
             var spaces = new HashSet<int>();
             foreach (var row in data.rows)
