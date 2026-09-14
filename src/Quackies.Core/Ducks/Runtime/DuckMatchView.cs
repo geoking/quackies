@@ -98,7 +98,11 @@ namespace Quackies.Core.Ducks.Runtime
             IEnumerable<DuckPlacedChipView> placedChips,
             IEnumerable<string> purchasedEncounterDefinitionIds,
             IEnumerable<DuckEncounterType> purchasedShopTypes,
-            DuckNightOutcome? lastNightOutcome)
+            DuckNightOutcome? lastNightOutcome,
+            bool hasFinishedDream = false,
+            int dawnTwigDeficit = 0,
+            int dawnFeathersAwarded = 0,
+            int purchaseLimit = 0)
         {
             Id = id;
             Name = name;
@@ -129,6 +133,10 @@ namespace Quackies.Core.Ducks.Runtime
             PurchasedEncounterDefinitionIds = DuckMatchView.Freeze(purchasedEncounterDefinitionIds);
             PurchasedShopTypes = DuckMatchView.Freeze(purchasedShopTypes);
             LastNightOutcome = lastNightOutcome;
+            HasFinishedDream = hasFinishedDream;
+            DawnTwigDeficit = dawnTwigDeficit;
+            DawnFeathersAwarded = dawnFeathersAwarded;
+            PurchaseLimit = purchaseLimit;
         }
 
         public string Id { get; }
@@ -160,6 +168,10 @@ namespace Quackies.Core.Ducks.Runtime
         public IReadOnlyList<string> PurchasedEncounterDefinitionIds { get; }
         public IReadOnlyList<DuckEncounterType> PurchasedShopTypes { get; }
         public DuckNightOutcome? LastNightOutcome { get; }
+        public bool HasFinishedDream { get; }
+        public int DawnTwigDeficit { get; }
+        public int DawnFeathersAwarded { get; }
+        public int PurchaseLimit { get; }
     }
 
     public sealed class DuckPhysicalChipView

@@ -63,6 +63,7 @@ namespace Quackies.Core.Ducks.Runtime
         public bool SplashProtectionArmed { get; set; }
         public bool LogSlowdownPending { get; set; }
         public bool GuideProtectionAvailable { get; set; }
+        public bool PocketDriftwoodAwarded { get; set; }
         public int FlowersPlaced { get; set; }
         public int FrozenSleep { get; set; }
         public bool IsSleepFrozen { get; set; }
@@ -71,7 +72,10 @@ namespace Quackies.Core.Ducks.Runtime
         public bool ActiveMostRestedStep { get; set; }
         public int EffectiveStart { get; set; }
         public bool HasFinishedDay { get; set; }
+        public bool HasFinishedDream { get; set; }
         public bool IsWornOut { get; set; }
+        public int DawnTwigDeficit { get; set; }
+        public int DawnFeathersAwarded { get; set; }
         public List<DuckPhysicalChipState> Inventory { get; } = new List<DuckPhysicalChipState>();
         public List<int> BagPhysicalChipIds { get; } = new List<int>();
         public List<int> KnownNextPhysicalChipIds { get; } = new List<int>();

@@ -19,9 +19,9 @@ namespace Quackies.Core.Ducks.Runtime
             State = new DuckMatchState(settings)
             {
                 Day = 1,
-                Phase = DuckPhase.Preparation,
+                Phase = DuckPhase.Adventure,
                 CurrentEventIndex = 0,
-                FinalDayDecisionBeat = 0,
+                FinalDayDecisionBeat = 1,
                 NextPhysicalChipId = 1
             };
             _random = new ResumableRandomSource(seed);
@@ -30,6 +30,8 @@ namespace Quackies.Core.Ducks.Runtime
             ShuffleInPlace(State.WorldEventDeckDefinitionIds);
             State.Players.Add(CreatePlayer("human", "Human"));
             State.Players.Add(CreatePlayer("ai", "AI"));
+            if (CurrentEvent.EventType == DuckWorldEventType.FriendlyGuide)
+                foreach (var player in State.Players) player.GuideProtectionAvailable = true;
             State.RandomState = _random.CaptureState();
         }
 
@@ -78,7 +80,11 @@ namespace Quackies.Core.Ducks.Runtime
                 player.PlacedChips.Select(chip => PlacedChipView(player, chip)),
                 player.PurchasedEncounterDefinitionIds,
                 player.PurchasedShopTypes.OrderBy(item => item),
-                player.LastNightOutcome));
+                player.LastNightOutcome,
+                player.HasFinishedDream,
+                player.DawnTwigDeficit,
+                player.DawnFeathersAwarded,
+                DuckDreamHandler.PurchaseLimitForDay(State.Day)));
 
             var ownBag = viewer.BagPhysicalChipIds
                 .OrderBy(id => id)
@@ -111,15 +117,26 @@ namespace Quackies.Core.Ducks.Runtime
 
         public IReadOnlyList<GameAction> GetLegalActions(string playerId)
         {
-            Player(playerId);
-            return new ReadOnlyCollection<GameAction>(Array.Empty<GameAction>());
+            var player = Player(playerId);
+            return State.Phase == DuckPhase.Adventure
+                ? DuckAdventureHandler.GetLegalActions(this, player)
+                : new ReadOnlyCollection<GameAction>(Array.Empty<GameAction>());
         }
 
         public DuckMatchView Execute(string playerId, GameAction action)
         {
-            Player(playerId);
+            var player = Player(playerId);
             if (action == null) throw new ArgumentNullException(nameof(action));
-            throw new InvalidOperationException("Duck Adventure actions begin in checkpoint C2.");
+            var legal = GetLegalActions(playerId).SingleOrDefault(candidate =>
+                string.Equals(candidate.Id, action.Id, StringComparison.Ordinal));
+            if (legal == null)
+                throw new InvalidOperationException("Action '" + action.Id + "' is not legal for " + playerId + " in " + State.Phase + ".");
+            if (State.Phase == DuckPhase.Adventure)
+            {
+                DuckAdventureHandler.Execute(this, player, legal);
+                return GetSnapshot(playerId);
+            }
+            throw new InvalidOperationException("No Duck action can be executed during " + State.Phase + ".");
         }
 
         internal DuckPlayerState Player(string playerId)
