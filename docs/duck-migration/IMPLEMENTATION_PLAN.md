@@ -3,9 +3,9 @@
 14 September 2026. **M2 is complete.** The user approved the rules, settings,
 shop policy, local autosave/resume and this implementation scope, with final-Day
 only simultaneous drawing and final-Night Sleep breaking equal total Twigs.
-M2 changed documentation only. **M3's earlier fixed-data layout proof is
-historical and M3 is reopened for revision; M4 Core/CLI implementation waits
-for the user's command.** The short product direction is in
+M2 changed documentation only. **The revised M3 layout is ready for user
+visual review; M4 Core/CLI implementation remains unstarted and waits for the
+user's command.** The short product direction is in
 [PLAN.md](PLAN.md).
 
 ## Decision: evolve Core; rebuild the changed game presentation
@@ -152,28 +152,31 @@ future work.
 
 Closed by the user on 14 September 2026. Rules, defaults, exact rewards/prices,
 events and persistence scope are approved, including the two corrections above.
-Keep this contract stable for the first complete playtest. **M3 revision is
-open; M4 awaits the user's command.**
+Keep this contract stable for the first complete playtest. **M3 revised layout
+is ready for visual review; M4 is unstarted and awaits the user's command.**
 
-### M3 — Board and presentation revision open
+### M3 — Revised layout ready for visual review
 
 The earlier `DuckLayoutProof` and its [review evidence](m3/README.md) remain
-historical validation only. They do not satisfy the rejected board concept or
-close M3. The revision is pending the checklist in
-[m3-revision/README.md](m3-revision/README.md), including geometry, artwork,
-tile sizing, resolution-independent layout and dual-viewport evidence. The
+historical validation only. The revised fixed-data layout is ready for user
+visual review. Its geometry, artwork, tile sizing, resolution-independent
+layout and dual-viewport runtime audits are described in
+[m3-revision/README.md](m3-revision/README.md) and [validation](m3-revision/validation.md).
+Two stable rebuilds, unchanged texture metadata and zero Console errors are
+recorded in the revised validation. The
 higher-resolution master is deferred, and Dream likeness/typography are M5
-implementation follow-ups. Stop for user feedback after the revised evidence
-review before M4.
+implementation follow-ups. No Core gameplay work has begun.
 
 Create a separate reproducible layout scene using fixed sample data, without a
 live rules session or Core binding. Preserve the playable baseline scene.
 Finish layout at the approved board source size; the detailed 3072 × 2048
 production master is explicitly deferred. Keep the higher-resolution authoring
 plan and 4096 import cap, resolution-independent UI and native production
-sprites. The 1133 × 744 viewport is only a preview/check; verify the result at
-1133 × 744 and at a larger iPad/Mac viewport. Root owns the Editor mutation and
-scene verification.
+sprites. Runtime audits pass at 1133 × 744 and 2732 × 2048. The revised board
+uses native-alpha haven wells beside shelters at 3, 11, 19, 27, 29, 37, 44 and
+50, with endpoint 21 Sleep / 9 Twigs / 2 Feathers; wells are 90 × 66 design
+units and token faces are 66 units (previously 74 × 58 and 54). Root owns the
+Editor mutation and scene verification.
 
 Place exactly 50 stable-ID spaces as one centered route on the painted path,
 with near-even arclength spacing across wetlands, meadow and wasteland. Do not

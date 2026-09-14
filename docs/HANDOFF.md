@@ -22,7 +22,7 @@ payout details are approved. Night 10 conversion and Most Rested are unchanged.
 
 All [50 rewards and 11 prices](duck-migration/v1/BOARD_AND_SHOP.md), encounter
 powers and [ten World Events](duck-migration/v1/WORLD_EVENTS.md) remain approved.
-Havens are 7/13/21/27/32/38/44/50; endpoint is 21 Sleep/9 Twigs/2 Feathers.
+Havens are 3/11/19/27/29/37/44/50; endpoint is 21 Sleep/9 Twigs/2 Feathers.
 Dawn gifts cap at 3; default start bounds to 46, or 49 with starting setting 3.
 Numeric data, event effects and the bounded math audit have not changed.
 
@@ -32,30 +32,36 @@ action freshness, frozen rewards and purchase counts across local restore.
 Keep Core free of Unity/filesystem dependencies and retain the original engine
 profile as a regression reference while substantially refactoring duck rules.
 
-**M3 is reopened for revision. M4 waits for the user's command.** The prior
-fixed-data scene and its captures are historical validation only; the user
-rejected that board concept and its asset-resolution framing. Do not treat the
-old scene as the current board handoff.
+**The revised M3 layout is ready for user visual review. M4 is unstarted and
+waits for the user's command.** The prior fixed-data scene and its captures are
+historical validation only; the user rejected that board concept and its
+asset-resolution framing. Do not treat the old scene as the current board
+handoff.
 
 [Historical M3 evidence](duck-migration/m3/README.md) records 1133 × 744
 Adventure, occupied, Dream and inspection captures, two rebuilds, pointer
 navigation and a zero-error Console query. It remains useful history but is not
 evidence that the revision is complete. The new requirements and evidence
-checklist are in [m3-revision/README.md](duck-migration/m3-revision/README.md).
-There is no live Core binding or duck gameplay. M4 is Core/CLI, M5 connects the
-Unity game, and M6 covers balance/export; stop for review between milestones.
+checklist and [validation record](duck-migration/m3-revision/validation.md) are
+in [m3-revision/README.md](duck-migration/m3-revision/README.md). Runtime
+audits pass at 1133 × 744 and 2732 × 2048. Two stable rebuilds, unchanged texture metadata and zero Console errors
+are recorded in the revised validation. There is no live Core binding or duck
+gameplay. M4 is Core/CLI, M5 connects the Unity game, and M6 covers
+balance/export; stop for review between milestones.
 
 The current revision finishes layout at the approved board source size. The
 detailed 3072 × 2048 master is explicitly deferred production work; retain the
 higher-resolution authoring plan and 4096 import cap, resolution-independent UI
-and native production sprites. The 1133 × 744 iPad mini viewport is only a
-preview/check; also verify a larger iPad/Mac viewport. The 50 spaces must form
+and native production sprites. Runtime audits pass at 1133 × 744 and 2732 ×
+2048. The 50 spaces must form
 one centered route with near-even arclength spacing, including approximately
 even counts on the descending/ascending wetland arms. Seven haven tiles sit on
 the path beside, never over, painted shelters; space 50 is the oasis itself
 with no tile. Integrate one-Feather haven art and two-Feather wasteland art;
-remove floating Feather decorations. Use larger tiles/token faces and retain
-final oasis 21 Sleep / 9 Twigs / 2 Feathers unless root changes the data. Dream
+remove floating Feather decorations. Use 90 × 66 wells and 66-unit token faces
+(previously 74 × 58 and 54), with native alpha on the seven nonendpoint haven
+wells beside shelters; space 50 uses the oasis. Retain final oasis 21 Sleep / 9
+Twigs / 2 Feathers unless root changes the data. Dream
 Concept-B likeness and fun, engaging typography are minor M5 implementation
 follow-ups when the Dream view is built. Root owns any Sleep/Twig/haven row
 reassignment needed by geometry.

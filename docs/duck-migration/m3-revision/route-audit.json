@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "spaces": 50,
+  "wells": 49,
+  "havens": [
+    3,
+    11,
+    19,
+    27,
+    29,
+    37,
+    44,
+    50
+  ],
+  "armSpaces": {
+    "wetlands": {
+      "descending": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "ascending": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "meadow": {
+      "descending": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "ascending": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    "wasteland": {
+      "descending": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "ascending": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ]
+    }
+  },
+  "arclengthSpacingDesignPixels": {
+    "min": 88.50330372543021,
+    "mean": 96.56061637130084,
+    "max": 124.600238787134,
+    "standardDeviation": 9.081388445994277
+  },
+  "maximumCenterlineDeviation": 1.1368683772161603e-13,
+  "minimumWellRewardClearanceDesignPixels": 0.9985337226546562,
+  "scope": "Numerical geometry and data consistency. Visual captures establish alignment with painted art; this is not gameplay or balance validation."
+}

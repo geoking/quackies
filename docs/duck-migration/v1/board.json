@@ -27,11 +27,11 @@
     {
       "space": 3,
       "biome": "wetlands",
-      "sleep": 4,
+      "sleep": 6,
       "twigs": 1,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
+      "haven": true,
+      "feathers": 1,
+      "haven_name": "Reed hammock"
     },
     {
       "space": 4,
@@ -63,11 +63,11 @@
     {
       "space": 7,
       "biome": "wetlands",
-      "sleep": 8,
+      "sleep": 6,
       "twigs": 2,
-      "haven": true,
-      "feathers": 1,
-      "haven_name": "Reed hammock"
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
     },
     {
       "space": 8,
@@ -91,7 +91,7 @@
       "space": 10,
       "biome": "wetlands",
       "sleep": 7,
-      "twigs": 2,
+      "twigs": 3,
       "haven": false,
       "feathers": 0,
       "haven_name": ""
@@ -99,11 +99,11 @@
     {
       "space": 11,
       "biome": "wetlands",
-      "sleep": 7,
+      "sleep": 10,
       "twigs": 3,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
+      "haven": true,
+      "feathers": 1,
+      "haven_name": "Willow nest"
     },
     {
       "space": 12,
@@ -117,11 +117,11 @@
     {
       "space": 13,
       "biome": "wetlands",
-      "sleep": 10,
+      "sleep": 8,
       "twigs": 3,
-      "haven": true,
-      "feathers": 1,
-      "haven_name": "Willow nest"
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
     },
     {
       "space": 14,
@@ -163,7 +163,7 @@
       "space": 18,
       "biome": "meadow",
       "sleep": 10,
-      "twigs": 3,
+      "twigs": 4,
       "haven": false,
       "feathers": 0,
       "haven_name": ""
@@ -171,11 +171,11 @@
     {
       "space": 19,
       "biome": "meadow",
-      "sleep": 11,
+      "sleep": 13,
       "twigs": 4,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
+      "haven": true,
+      "feathers": 1,
+      "haven_name": "Clover hollow"
     },
     {
       "space": 20,
@@ -189,11 +189,11 @@
     {
       "space": 21,
       "biome": "meadow",
-      "sleep": 13,
+      "sleep": 11,
       "twigs": 4,
-      "haven": true,
-      "feathers": 1,
-      "haven_name": "Clover hollow"
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
     },
     {
       "space": 22,
@@ -261,17 +261,17 @@
     {
       "space": 29,
       "biome": "meadow",
-      "sleep": 14,
+      "sleep": 16,
       "twigs": 5,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
+      "haven": true,
+      "feathers": 1,
+      "haven_name": "Hayloft hideaway"
     },
     {
       "space": 30,
       "biome": "meadow",
       "sleep": 14,
-      "twigs": 6,
+      "twigs": 5,
       "haven": false,
       "feathers": 0,
       "haven_name": ""
@@ -288,11 +288,11 @@
     {
       "space": 32,
       "biome": "meadow",
-      "sleep": 16,
+      "sleep": 14,
       "twigs": 6,
-      "haven": true,
-      "feathers": 1,
-      "haven_name": "Hayloft hideaway"
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
     },
     {
       "space": 33,
@@ -333,20 +333,20 @@
     {
       "space": 37,
       "biome": "wasteland",
-      "sleep": 10,
-      "twigs": 7,
-      "haven": false,
-      "feathers": 0,
-      "haven_name": ""
-    },
-    {
-      "space": 38,
-      "biome": "wasteland",
       "sleep": 18,
       "twigs": 7,
       "haven": true,
       "feathers": 2,
       "haven_name": "Shaded rock nook"
+    },
+    {
+      "space": 38,
+      "biome": "wasteland",
+      "sleep": 10,
+      "twigs": 7,
+      "haven": false,
+      "feathers": 0,
+      "haven_name": ""
     },
     {
       "space": 39,

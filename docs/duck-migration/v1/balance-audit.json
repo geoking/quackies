@@ -5,12 +5,12 @@
     "days": 10,
     "trail_spaces": 50,
     "havens": [
-      7,
-      13,
-      21,
+      3,
+      11,
+      19,
       27,
-      32,
-      38,
+      29,
+      37,
       44,
       50
     ],
@@ -54,6 +54,11 @@
     "minimum": 5,
     "maximum": 12,
     "probability_reach_or_pass_position": {
+      "3": {
+        "fraction": "1/1",
+        "decimal": 1.0,
+        "percent": 100.0
+      },
       "6": {
         "fraction": "1231/1287",
         "decimal": 0.956488,
@@ -74,6 +79,11 @@
         "decimal": 0.343473,
         "percent": 34.347
       },
+      "11": {
+        "fraction": "181/1001",
+        "decimal": 0.180819,
+        "percent": 18.082
+      },
       "12": {
         "fraction": "205/3003",
         "decimal": 0.068265,
@@ -86,6 +96,11 @@
       }
     },
     "probability_land_exactly_on_position": {
+      "3": {
+        "fraction": "0/1",
+        "decimal": 0.0,
+        "percent": 0.0
+      },
       "6": {
         "fraction": "15/143",
         "decimal": 0.104895,
@@ -101,6 +116,11 @@
         "decimal": 0.176684,
         "percent": 17.668
       },
+      "11": {
+        "fraction": "26/231",
+        "decimal": 0.112554,
+        "percent": 11.255
+      },
       "13": {
         "fraction": "0/1",
         "decimal": 0.0,
@@ -108,22 +128,22 @@
       }
     },
     "haven_readout": {
-      "first_haven": 7,
+      "first_haven": 3,
       "probability_reach_or_pass": {
-        "fraction": "1096/1287",
-        "decimal": 0.851593,
-        "percent": 85.159
+        "fraction": "1/1",
+        "decimal": 1.0,
+        "percent": 100.0
       },
       "probability_land_exactly": {
-        "fraction": "235/1638",
-        "decimal": 0.143468,
-        "percent": 14.347
-      },
-      "second_haven": 13,
-      "probability_reach_or_pass_second_haven": {
         "fraction": "0/1",
         "decimal": 0.0,
         "percent": 0.0
+      },
+      "second_haven": 11,
+      "probability_reach_or_pass_second_haven": {
+        "fraction": "181/1001",
+        "decimal": 0.180819,
+        "percent": 18.082
       },
       "note": "Only an exact landing receives that space's rest reward; reach-or-pass is a travel-depth measure."
     },
@@ -135,8 +155,8 @@
       },
       {
         "space": 7,
-        "kind": "haven",
-        "sleep": 8
+        "kind": "ordinary",
+        "sleep": 6
       },
       {
         "space": 8,
@@ -146,21 +166,21 @@
     ],
     "haven_rewards_reference": [
       {
-        "space": 7,
-        "sleep": 8,
-        "twigs": 2,
+        "space": 3,
+        "sleep": 6,
+        "twigs": 1,
         "feathers": 1,
         "name": "Reed hammock"
       },
       {
-        "space": 13,
+        "space": 11,
         "sleep": 10,
         "twigs": 3,
         "feathers": 1,
         "name": "Willow nest"
       },
       {
-        "space": 21,
+        "space": 19,
         "sleep": 13,
         "twigs": 4,
         "feathers": 1,
@@ -174,14 +194,14 @@
         "name": "Orchard shelter"
       },
       {
-        "space": 32,
+        "space": 29,
         "sleep": 16,
-        "twigs": 6,
+        "twigs": 5,
         "feathers": 1,
         "name": "Hayloft hideaway"
       },
       {
-        "space": 38,
+        "space": 37,
         "sleep": 18,
         "twigs": 7,
         "feathers": 2,
@@ -379,9 +399,9 @@
       "Tailwind 4": {
         "price": 10,
         "probability_affordable_from_opening_safe_rest": {
-          "fraction": "0/1",
-          "decimal": 0.0,
-          "percent": 0.0
+          "fraction": "26/231",
+          "decimal": 0.112554,
+          "percent": 11.255
         }
       },
       "Tailwind 6": {
@@ -395,9 +415,9 @@
       "Signpost": {
         "price": 7,
         "probability_affordable_from_opening_safe_rest": {
-          "fraction": "6749/13860",
-          "decimal": 0.486941,
-          "percent": 48.694
+          "fraction": "2947/8580",
+          "decimal": 0.343473,
+          "percent": 34.347
         }
       },
       "Refreshing Splash": {
@@ -435,9 +455,9 @@
       "Companion": {
         "price": 7,
         "probability_affordable_from_opening_safe_rest": {
-          "fraction": "6749/13860",
-          "decimal": 0.486941,
-          "percent": 48.694
+          "fraction": "2947/8580",
+          "decimal": 0.343473,
+          "percent": 34.347
         }
       },
       "Wildflowers": {
@@ -450,7 +470,7 @@
       }
     },
     "method": "Map each exact opening rest-position probability to that row's Sleep, before encounter, flock, Most Rested or World Event changes.",
-    "readout": "Prices 3\u20135 are affordable after every modelled safe opening rest; price 6 is affordable 85.159% of the time, price 7 is affordable 48.694%, and price 10 or more is not reached in this opening model."
+    "readout": "Prices 3\u20135 are affordable after every modelled safe opening rest; price 6 is affordable 85.159% of the time, price 7 is affordable 34.347%, and price 10 or more is not reached in this opening model."
   },
   "purchase_cap_comparisons": {
     "two_purchase_tier_equal_budget_10": [
@@ -631,13 +651,13 @@
       },
       {
         "position": 7,
-        "kind": "haven",
-        "safe_sleep": 8,
-        "worn_out_sleep": 4,
-        "sleep_lost": 4,
+        "kind": "ordinary",
+        "safe_sleep": 6,
+        "worn_out_sleep": 3,
+        "sleep_lost": 3,
         "safe_branch_sleep_gain_needed_to_break_even": {
-          "fraction": "32/5",
-          "decimal": 6.4
+          "fraction": "24/5",
+          "decimal": 4.8
         }
       },
       {

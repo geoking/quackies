@@ -925,3 +925,20 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   1133 × 744 visual review shows clear reward rows and an uncovered oasis.
 - This is a compiling checkpoint. Two-size occupied/pointer verification and
   canonical reward-data synchronization remain in progress; M4 has not begun.
+
+### 41. Revised M3 ready for visual review (14 September 2026)
+
+- Finished the single centered route with six spaces on each straight arm of
+  every biome. Larger wells/tokens, integrated haven Feather seals and the
+  uncovered oasis are shown in the [revised evidence](duck-migration/m3-revision/README.md).
+- Synced all 50 reward rows and moved havens to 3/11/19/27/29/37/44/50 under
+  the user's layout-adjustment authorization. Preserved prices, local Twig
+  plateaus and final oasis 21/9/2. Refreshed the bounded arithmetic audit;
+  opening affordability changes are documented, not claimed fully balanced.
+- Actual 1133 × 744 and 2732 × 2048 Game view checks pass. Two rebuilds have
+  the same hierarchy digest and identical 17 texture metadata hashes; final
+  Console query reports zero errors. Pointer navigation/inspection checks pass.
+- The 3072 × 2048 painted master remains explicitly deferred. Dream Concept-B
+  likeness and typography remain M5 follow-ups. M4 is unstarted; stop here for
+  user review. This completes the revised layout work, not user approval or
+  a playable duck rules implementation.

@@ -1,0 +1,44 @@
+[
+  {
+    "asset": "well-haven-grass.png",
+    "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-b39d2a2d-935d-4cc2-a151-c09bde47fa7e.png",
+    "size": [
+      1385,
+      1136
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "3364c9ad4f43988d7ce6e617105690aa771d27bd12159ca1b231a94893566c8c"
+  },
+  {
+    "asset": "well-haven-wasteland.png",
+    "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-744e47a7-c85b-4dd2-8f82-344246612e8a.png",
+    "size": [
+      1385,
+      1136
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "f9db23bae70d2a0a157dce3b44d7a8f225cc81a973e373bc2ecdf3c05e51d139"
+  },
+  {
+    "asset": "endpoint-feathers.png",
+    "source": "/Users/george/.codex/generated_images/01a08046-4f79-7510-8ec7-8077ec3057b5/exec-8507b832-98f6-4fa8-a7b0-6b45d64315c9.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "20f685b327c6cf1934417848ea981142794b879a4c9a401e26d674afd7ae9531"
+  }
+]

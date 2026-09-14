@@ -1,25 +1,25 @@
 space,biome,sleep,twigs,haven,feathers,haven_name
 1,wetlands,3,1,False,0,
 2,wetlands,3,1,False,0,
-3,wetlands,4,1,False,0,
+3,wetlands,6,1,True,1,Reed hammock
 4,wetlands,4,1,False,0,
 5,wetlands,5,1,False,0,
 6,wetlands,5,2,False,0,
-7,wetlands,8,2,True,1,Reed hammock
+7,wetlands,6,2,False,0,
 8,wetlands,6,2,False,0,
 9,wetlands,6,2,False,0,
-10,wetlands,7,2,False,0,
-11,wetlands,7,3,False,0,
+10,wetlands,7,3,False,0,
+11,wetlands,10,3,True,1,Willow nest
 12,wetlands,8,3,False,0,
-13,wetlands,10,3,True,1,Willow nest
+13,wetlands,8,3,False,0,
 14,wetlands,8,3,False,0,
 15,wetlands,9,3,False,0,
 16,wetlands,9,3,False,0,
 17,meadow,10,3,False,0,
-18,meadow,10,3,False,0,
-19,meadow,11,4,False,0,
+18,meadow,10,4,False,0,
+19,meadow,13,4,True,1,Clover hollow
 20,meadow,11,4,False,0,
-21,meadow,13,4,True,1,Clover hollow
+21,meadow,11,4,False,0,
 22,meadow,11,4,False,0,
 23,meadow,12,4,False,0,
 24,meadow,12,4,False,0,
@@ -27,16 +27,16 @@ space,biome,sleep,twigs,haven,feathers,haven_name
 26,meadow,13,5,False,0,
 27,meadow,15,5,True,1,Orchard shelter
 28,meadow,13,5,False,0,
-29,meadow,14,5,False,0,
-30,meadow,14,6,False,0,
+29,meadow,16,5,True,1,Hayloft hideaway
+30,meadow,14,5,False,0,
 31,meadow,14,6,False,0,
-32,meadow,16,6,True,1,Hayloft hideaway
+32,meadow,14,6,False,0,
 33,meadow,14,6,False,0,
 34,wasteland,11,6,False,0,
 35,wasteland,11,6,False,0,
 36,wasteland,10,7,False,0,
-37,wasteland,10,7,False,0,
-38,wasteland,18,7,True,2,Shaded rock nook
+37,wasteland,18,7,True,2,Shaded rock nook
+38,wasteland,10,7,False,0,
 39,wasteland,10,7,False,0,
 40,wasteland,11,7,False,0,
 41,wasteland,11,7,False,0,

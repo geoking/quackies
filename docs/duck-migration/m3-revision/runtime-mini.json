@@ -1,0 +1,13 @@
+{
+  "output": null,
+  "diagnostics": [],
+  "success": true,
+  "result": {
+    "width": 1133,
+    "height": 744,
+    "spaces": 50,
+    "tokens": 16,
+    "offers": 11,
+    "audit": "# Duck Layout Audit\n\nScene: Assets/Scenes/DuckLayoutProof.unity\nHierarchy digest: `2fcb270bf84f4061c6c1535e980c9f184600a159baacfdb099d59124fe099606`\nStatus: PASS\n"
+  }
+}

@@ -1,9 +1,9 @@
 # Duck migration status
 
-Updated 14 September 2026. **M2 is complete; M3 is reopened for revision.**
-The earlier separate iPad layout proof uses fixed sample data and remains
-historical validation. Gameplay and persistence implementation remain M4 work
-and wait for the user's command.
+Updated 14 September 2026. **M2 is complete; the revised M3 layout is ready
+for user visual review.** The earlier separate iPad layout proof uses fixed
+sample data and remains historical validation. M4 is unstarted and waits for
+the user's command; no Core gameplay work has begun.
 
 ## Approved M2 contract
 
@@ -40,15 +40,16 @@ Console errors. This evidence is retained for history, but the user rejected
 that board concept and its 1133 × 744/native-art framing; it does not close the
 reopened M3 revision.
 
-## Open: M3 revision
+## M3 revision ready for visual review
 
 The revision checklist and evidence contract are in
-[m3-revision/README.md](m3-revision/README.md). Current completion covers the
-board layout at the approved source size, resolution-independent UI and native
-production sprites, using 1133 × 744 only as a preview/check and also verifying
-a larger iPad/Mac viewport. The detailed 3072 × 2048 production master is
-explicitly deferred; retain the higher-resolution authoring plan and 4096 import
-cap. All 50 spaces must be one centered route with near-even
+[m3-revision/README.md](m3-revision/README.md), with the current
+[validation record](m3-revision/validation.md). The revised board layout is
+ready for user visual review: runtime audits pass at 1133 × 744 and 2732 ×
+2048. It uses resolution-independent UI and native production sprites; the
+detailed 3072 × 2048 production master is explicitly deferred, while the
+higher-resolution authoring plan and 4096 import cap remain. All 50 spaces must
+be one centered route with near-even
 arclength spacing across biomes; the wetland arms must have approximately even
 counts. Seven haven tiles must sit on path beside painted shelters without
 covering them, while space 50 uses the oasis itself. Haven Feather art must be
@@ -56,24 +57,27 @@ integrated (one Feather for the single-Feather haven treatment and two for the
 wasteland treatment), with no floating Feather decorations. Larger tiles/token
 faces remain explicit review items. Dream Concept-B likeness and fun engaging
 typography are minor M5 implementation follow-ups, not current M3 completion
-gates. Sleep/Twig/haven row adjustments are root-owned and pending; the final
-oasis remains 21 Sleep / 9 Twigs / 2 Feathers unless root changes it.
+gates. The revised wells are 90 × 66 design units and token faces are 66 units
+(previously 74 × 58 and 54); seven haven wells use native alpha beside shelters
+at 3, 11, 19, 27, 29, 37 and 44, with space 50 using the oasis. The endpoint
+remains 21 Sleep / 9 Twigs / 2 Feathers. Two stable rebuilds and zero Console errors are recorded
+and is not claimed here.
 
 M4 Core/CLI and persistence, M5 connected Unity, and M6 balance/export remain
-after M3 revision. The existing engine/API/CLI will be refactored, not
-restarted.
+after visual review of M3. M4 is unstarted and waits for the user's command.
+The existing engine/API/CLI will be refactored, not restarted.
 
 ## Art and historical evidence
 
 The [approved board](concepts/2026-09-12-approved/board-art-approved.png) and
 historical proof remain available for reference. The requested detailed
 3072 × 2048 master is deferred production work; native production sprites and
-revised geometry remain open for this revision. The approved
+the revised geometry are ready for visual review. The approved
 [16 encounter designs](concepts/2026-09-13-agreed-token-set/README.md) are opaque
 concept sheets are isolated with Unity sprite rectangles and outlines for this
 proof, preserving their source bytes. Dream Concept B, V2 player ducks and
-the [zzz marker concept](concepts/2026-09-14-most-rested/README.md) are available
-in the completed layout proof.
+the [zzz marker concept](concepts/2026-09-14-most-rested/README.md) remain
+available for the revised layout review.
 
 M0's build/129 tests/CLI results in [BASELINE.md](BASELINE.md) are historical.
 M2 closure is specification approval, not a completed or playtested duck game.

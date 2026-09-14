@@ -25,7 +25,7 @@ BOARD_PATH = Path(__file__).with_name("board.csv")
 SHOP_PATH = Path(__file__).with_name("shop.json")
 SAFE_EXHAUSTION = 5
 FIXED_RISK_DRAWS = 8
-HAVENS = (7, 13, 21, 27, 32, 38, 44, 50)
+HAVENS = (3, 11, 19, 27, 29, 37, 44, 50)
 
 # name, count, white, Log, Mud, fixed movement; movement None is Companion.
 STARTING_TOKENS = (
@@ -80,11 +80,11 @@ def load_reference_data() -> tuple[dict[int, dict[str, object]], dict[str, int]]
     }
     assert tuple(space for space, row in board.items() if row["haven"]) == HAVENS
     assert [(board[space]["sleep"], board[space]["twigs"]) for space in HAVENS] == [
-        (8, 2),
+        (6, 1),
         (10, 3),
         (13, 4),
         (15, 5),
-        (16, 6),
+        (16, 5),
         (18, 7),
         (20, 8),
         (21, 9),
@@ -395,14 +395,14 @@ def build_report() -> dict[str, object]:
     assert base_mean == Fraction(389198, 45045)
     assert min(base) == 5 and max(base) == 12
 
-    reach_positions = (6, 7, 8, 10, 12, 13)
+    reach_positions = (3, 6, 7, 8, 10, 11, 12, 13)
     reach = {
         str(position): measure(probability_at_least(base, position), percent=True)
         for position in reach_positions
     }
     exact_landings = {
         str(position): measure(base.get(position, Fraction(0)), percent=True)
-        for position in (6, 7, 8, 13)
+        for position in (3, 6, 7, 8, 11, 13)
     }
 
     purchase_rows = {
@@ -441,7 +441,7 @@ def build_report() -> dict[str, object]:
     ]["fraction"] == "1096/1287"
     assert opening_affordability["Signpost"][
         "probability_affordable_from_opening_safe_rest"
-    ]["fraction"] == "6749/13860"
+    ]["fraction"] == "2947/8580"
 
     # Stable exact results used in the written design review.
     assert purchase_rows["Seed"]["expected_next_day_distance"]["fraction"] == "581615/63063"
@@ -627,7 +627,7 @@ def build_report() -> dict[str, object]:
         "opening_night_affordability": {
             "rows": opening_affordability,
             "method": "Map each exact opening rest-position probability to that row's Sleep, before encounter, flock, Most Rested or World Event changes.",
-            "readout": "Prices 3–5 are affordable after every modelled safe opening rest; price 6 is affordable 85.159% of the time, price 7 is affordable 48.694%, and price 10 or more is not reached in this opening model.",
+            "readout": "Prices 3–5 are affordable after every modelled safe opening rest; price 6 is affordable 85.159% of the time, price 7 is affordable 34.347%, and price 10 or more is not reached in this opening model.",
         },
         "purchase_cap_comparisons": {
             "two_purchase_tier_equal_budget_10": list(cap_two),

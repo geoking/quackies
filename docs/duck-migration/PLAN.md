@@ -26,11 +26,11 @@ Use the selected [board](concepts/2026-09-12-approved/board-art-approved.png),
 chosen full-screen layout with **View adventure** navigation and room for the
 whole shop. Its illustrative prices and Feather-spending controls are obsolete.
 
-**M2 is complete. M3 is reopened for revision.** The earlier fixed-data proof
-and its [historical review evidence](m3/README.md) remain available, but the
-user rejected its board concept and asset-resolution assumption. The M3
-revision must be completed before Core/CLI gameplay work; M4 waits for the
-user's command after that review.
+**M2 is complete. The revised M3 layout is ready for user visual review.** The
+earlier fixed-data proof and its [historical review evidence](m3/README.md)
+remain available, but the user rejected its board concept and asset-resolution
+assumption. M4 remains unstarted and waits for the user's command; no Core
+gameplay work has begun.
 
 ## Current rule references
 
@@ -51,7 +51,8 @@ Keep a single source for each kind of detail instead of duplicating long lists:
 - **Rest where the duck lands.** Fifty scorable spaces follow the separate,
   incomplete nest. No numbered-zero graphic or next-empty-space scoring.
   The approved table divides them 1–16 / 17–33 / 34–50, with havens at
-  7, 13, 21, 27, 32, 38, 44 and 50. Haven names/indices need later art fit.
+  3, 11, 19, 27, 29, 37, 44 and 50. Seven nonendpoint haven tiles sit beside
+  painted shelters; space 50 uses the oasis itself.
 - **Comfort is not monotonic distance.** A haven improves Sleep over nearby
   spaces while keeping their Twigs. Exposed wasteland is less restful than late
   meadow, but its havens are especially comfortable. Endpoint printed values
@@ -101,11 +102,11 @@ Keep a single source for each kind of detail instead of duplicating long lists:
 
 1. **M2 is complete.** Rules, rewards, prices, events, settings, Night tie-break
    and local autosave/resume are approved.
-2. **M3 revision is open.** Finish the board geometry, haven treatment, tile
-   sizing and dual-viewport checks against the pending checklist in
-   [m3-revision/README.md](m3-revision/README.md). The earlier proof is
-   historical validation only; the higher-resolution master and Dream polish
-   follow later.
+2. **M3 revised layout is ready for visual review.** The board geometry, haven
+   treatment, tile sizing and dual-viewport runtime audit are recorded in
+   [m3-revision/README.md](m3-revision/README.md) and its
+   [validation record](m3-revision/validation.md). The earlier proof is
+   historical validation only; the revised two-rebuild and Console checks pass.
 3. **Evolve Core with the CLI alongside it.** Keep the engine/API boundary;
    refactor duck identity, state and phases. Build a complete Day/Night slice,
    then all ten Days, the Normal AI and local autosave/resume.
@@ -205,8 +206,8 @@ need distinct validation; this planning audit is not a runtime test.
 | --- | --- |
 | M0 / initial M1 | Historical baseline and art exploration; recorded in PROGRESS |
 | **M2 — Complete** | Rules, all data, events, defaults and local save/resume approved; final-Day-only simultaneous drawing and Night Sleep tiebreak recorded |
-| **M3 — Revision open** | Rejected prior board proof retained as history; current centered 50-space route, haven adjacency/art integration, larger tiles, endpoint planning and iPad/Mac viewport review are pending in [m3-revision/README.md](m3-revision/README.md). The higher-resolution master and Dream polish follow later. |
-| M4 — Core/CLI | New profile/state, exact private previews, complete Day/Night and ten-Day matches, Normal AI and local save/resume; source/test checkpoints |
+| **M3 — Ready for visual review** | Revised centered 50-space route, seven adjacent haven wells, larger tiles/tokens, endpoint data and passing 1133 × 744 / 2732 × 2048 runtime audits; two stable rebuilds and zero Console errors recorded in [m3-revision/README.md](m3-revision/README.md) and [validation](m3-revision/validation.md) |
+| M4 — Core/CLI (unstarted) | New profile/state, exact private previews, complete Day/Night and ten-Day matches, Normal AI and local save/resume; starts only on the user's command |
 | M5 — Connected Unity game | Committed Core handoff, complete human/AI play, all phases, restart and local match restoration |
 | M6 — Balance/export | Match evidence, approved tuning, readability/performance and iOS export |
 
@@ -218,12 +219,14 @@ M2 rule decisions. Production polish and actual balance are later milestone work
 
 The current M3 revision finishes layout at the approved board source size. The
 detailed 3072 × 2048 production master is explicitly deferred; retain the
-higher-resolution authoring plan and 4096 import cap. UI must remain
-resolution-independent and production sprites must be native assets at their
-intended scale; 1133 × 744 iPad mini landscape is a preview/check viewport, not
-an asset-resolution cap. Verify the revision at that iPad size and at a larger
-iPad/Mac viewport. The earlier 1536 × 1024 board proof and its 1133 × 744
-captures remain historical validation only.
+higher-resolution authoring plan and 4096 import cap. UI remains
+resolution-independent and production sprites use native assets at their
+intended scale. The revised layout passes runtime audits at 1133 × 744 and
+2732 × 2048. The board uses seven native-alpha haven wells beside shelters,
+larger 90 × 66 wells and 66-unit token faces (previously 74 × 58 and 54), with
+havens at 3, 11, 19, 27, 29, 37, 44 and 50; endpoint remains 21 Sleep / 9
+Twigs / 2 Feathers. The earlier 1536 × 1024 proof and its captures remain
+historical validation only.
 
 Short-match settings, alternate rule cards, test tubes, a separate AI-history
 pane and device installation remain deferred. Four player duck identities do

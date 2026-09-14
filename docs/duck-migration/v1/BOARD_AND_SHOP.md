@@ -6,16 +6,25 @@ matches**. The [overview](../RULES_AT_A_GLANCE.md) records the current mechanics
 M2 shop/housekeeping policies and payout timing are now approved. [Detailed encounters](../ENCOUNTER_RULES.md) and the
 [ten approved World Events](WORLD_EVENTS.md) define the associated effects.
 
+The board rows now follow the approved `board-layout.json` geometry authority.
+Compared with the previous starting table, the changed rows are 3, 7, 10, 11,
+13, 18, 19, 21, 29, 30, 32, 37 and 38; the exact synchronized values are in
+the JSON and CSV below. The policy is 2/3/3 havens by biome, seven
+nonendpoint haven rows whose Twig value matches both neighbours, haven Sleep
+peaks at each shelter, and the endpoint exception of 21 Sleep / 9 Twigs / 2
+Feathers. Shop prices and policies are unchanged.
+
 ## Board philosophy
 
 Sleep measures comfort. Twigs reward travel and remain unchanged when a haven
-interrupts a local Twig plateau. Thus a duck safely resting at haven 13 gets
-10 Sleep/3 Twigs, while space 14 gives 8 Sleep/3 Twigs: the earlier duck wins
+interrupts a local Twig plateau. Thus a duck safely resting at haven 11 gets
+10 Sleep/3 Twigs, while space 12 gives 8 Sleep/3 Twigs: the earlier duck wins
 Most Rested if neither has other modifiers. Passed spaces never pay.
 
 Wetlands occupy 1–16, meadow 17–33 and wasteland 34–50. Eight havens are split
-2/3/3 across them. Haven names below are provisional visual names, not new art
-or verified coordinates. Fit these semantic spaces to the approved board later.
+2/3/3 across them at 3, 11, 19, 27, 29, 37, 44 and 50. Haven names below are
+the semantic labels for the approved layout; the seven nonendpoint haven tiles
+sit beside painted shelters and space 50 uses the oasis itself.
 
 Ordinary wasteland spaces give 10–13 Sleep versus the later meadow's 13–14.
 Wasteland havens jump to 18/20/21, making a comfortable destination valuable.
@@ -37,25 +46,25 @@ labels. Production reward strips use moon/Sleep, Twig and Feather icons.
 | --- | --- | ---: | ---: | ---: | --- |
 | 1 | Wetlands | 3 | 1 | 0 | — |
 | 2 | Wetlands | 3 | 1 | 0 | — |
-| 3 | Wetlands | 4 | 1 | 0 | — |
+| 3 | Wetlands | 6 | 1 | 1 | Reed hammock |
 | 4 | Wetlands | 4 | 1 | 0 | — |
 | 5 | Wetlands | 5 | 1 | 0 | — |
 | 6 | Wetlands | 5 | 2 | 0 | — |
-| 7 | Wetlands | 8 | 2 | 1 | Reed hammock |
+| 7 | Wetlands | 6 | 2 | 0 | — |
 | 8 | Wetlands | 6 | 2 | 0 | — |
 | 9 | Wetlands | 6 | 2 | 0 | — |
-| 10 | Wetlands | 7 | 2 | 0 | — |
-| 11 | Wetlands | 7 | 3 | 0 | — |
+| 10 | Wetlands | 7 | 3 | 0 | — |
+| 11 | Wetlands | 10 | 3 | 1 | Willow nest |
 | 12 | Wetlands | 8 | 3 | 0 | — |
-| 13 | Wetlands | 10 | 3 | 1 | Willow nest |
+| 13 | Wetlands | 8 | 3 | 0 | — |
 | 14 | Wetlands | 8 | 3 | 0 | — |
 | 15 | Wetlands | 9 | 3 | 0 | — |
 | 16 | Wetlands | 9 | 3 | 0 | — |
 | 17 | Meadow | 10 | 3 | 0 | — |
-| 18 | Meadow | 10 | 3 | 0 | — |
-| 19 | Meadow | 11 | 4 | 0 | — |
+| 18 | Meadow | 10 | 4 | 0 | — |
+| 19 | Meadow | 13 | 4 | 1 | Clover hollow |
 | 20 | Meadow | 11 | 4 | 0 | — |
-| 21 | Meadow | 13 | 4 | 1 | Clover hollow |
+| 21 | Meadow | 11 | 4 | 0 | — |
 | 22 | Meadow | 11 | 4 | 0 | — |
 | 23 | Meadow | 12 | 4 | 0 | — |
 | 24 | Meadow | 12 | 4 | 0 | — |
@@ -63,16 +72,16 @@ labels. Production reward strips use moon/Sleep, Twig and Feather icons.
 | 26 | Meadow | 13 | 5 | 0 | — |
 | 27 | Meadow | 15 | 5 | 1 | Orchard shelter |
 | 28 | Meadow | 13 | 5 | 0 | — |
-| 29 | Meadow | 14 | 5 | 0 | — |
-| 30 | Meadow | 14 | 6 | 0 | — |
+| 29 | Meadow | 16 | 5 | 1 | Hayloft hideaway |
+| 30 | Meadow | 14 | 5 | 0 | — |
 | 31 | Meadow | 14 | 6 | 0 | — |
-| 32 | Meadow | 16 | 6 | 1 | Hayloft hideaway |
+| 32 | Meadow | 14 | 6 | 0 | — |
 | 33 | Meadow | 14 | 6 | 0 | — |
 | 34 | Wasteland | 11 | 6 | 0 | — |
 | 35 | Wasteland | 11 | 6 | 0 | — |
 | 36 | Wasteland | 10 | 7 | 0 | — |
-| 37 | Wasteland | 10 | 7 | 0 | — |
-| 38 | Wasteland | 18 | 7 | 2 | Shaded rock nook |
+| 37 | Wasteland | 18 | 7 | 2 | Shaded rock nook |
+| 38 | Wasteland | 10 | 7 | 0 | — |
 | 39 | Wasteland | 10 | 7 | 0 | — |
 | 40 | Wasteland | 11 | 7 | 0 | — |
 | 41 | Wasteland | 11 | 7 | 0 | — |
@@ -152,8 +161,8 @@ Wildflowers are inexpensive but require an exact safe haven finish.
 
 Examples without unrelated encounter/event modifiers:
 
-- Safe haven 13: 10 Sleep, 3 Twigs, 1 Feather. Safe space 14: 8 Sleep, 3 Twigs.
-  Haven 13 wins Most Rested. If 13 had been worn out, it keeps 5 Sleep/3 Twigs,
+- Safe haven 11: 10 Sleep, 3 Twigs, 1 Feather. Safe space 12: 8 Sleep, 3 Twigs.
+  Haven 11 wins Most Rested. If 11 had been worn out, it keeps 5 Sleep/3 Twigs,
   gets no Feather and cannot win that award.
 - Worn out at 48: `floor(13/2) = 6` Sleep and 8 Twigs. If a placed Reeds ×2
   also earned 2 Twigs, retain 10 Twigs. A final unsuppressed Brambles instead
@@ -176,10 +185,12 @@ movement comparison; Signpost information does not change the stopping decision.
 Splash/Goose protection is included in the separate wear-out pressure comparison.
 
 Under that policy, printed board Sleep makes offers costing 3–5 affordable at
-every modelled opening finish, 6 affordable about 85% and 7 about 49%.
+every modelled opening finish, 6 affordable about 85% and 7 about 34.347%.
 These are **printed-reward comparisons**, not promises after Pebbles or an
-actual human stopping choice. The first haven is reachable at 7, but the
-model's exact final landing there is only about 14%; crossing it does not pay.
+actual human stopping choice. The first haven is at 3 and is always crossed by
+this fixed stop model, but no modeled opening finish lands there (0%). That is
+a limitation of the audit's minimum-distance stopping assumption; gameplay can
+still settle at space 3 under other stopping or preview choices.
 
 The controlled eight-draw wear-out comparison rises from about 25% with the
 opening bag to about 56% with an added Goose and no purchased chips. Adding

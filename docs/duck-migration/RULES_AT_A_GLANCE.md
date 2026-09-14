@@ -16,8 +16,8 @@ full-screen Dream/nest view at Night; View adventure returns to the board.
 
 The incomplete nest is separate from **50 playable spaces** across wetlands,
 meadow and wasteland. Score the duck's final occupied space, never the next
-space or all spaces passed. Eight havens are at **7, 13, 21, 27, 32,
-38, 44 and 50**. They improve Sleep without increasing the local Twig plateau;
+space or all spaces passed. Eight havens are at **3, 11, 19, 27, 29,
+37, 44 and 50**. They improve Sleep without increasing the local Twig plateau;
 endpoint 50 is the exception, with the highest printed Sleep and Twigs by one.
 
 ## Dawn and adventure
