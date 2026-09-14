@@ -475,7 +475,8 @@ public sealed class DuckAdventureTests
         Assert.Equal(3, runtime.State.FinalDayDecisionBeat);
 
         Execute(match, "ai", GameActionKind.Settle);
-        Assert.Equal(DuckPhase.Night, runtime.State.Phase);
+        Assert.Equal(DuckPhase.Finished, runtime.State.Phase);
+        Assert.NotNull(runtime.State.FinalResult);
     }
 
     [Fact]

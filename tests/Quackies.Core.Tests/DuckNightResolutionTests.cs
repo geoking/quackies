@@ -247,10 +247,11 @@ public sealed class DuckNightResolutionTests
 
         DuckNightResolver.Resolve(state, Rules);
 
-        Assert.Equal(29, endpoint.TotalTwigs);
+        Assert.Equal(35, endpoint.TotalTwigs);
         Assert.Equal(2, endpoint.PermanentFeatherTrail);
         Assert.False(endpoint.PendingMostRestedStep);
-        Assert.Equal(DuckPhase.Night, state.Phase);
+        Assert.Equal(DuckPhase.Finished, state.Phase);
+        Assert.Equal("worn", Assert.Single(state.FinalResult!.WinnerIds));
     }
 
     [Fact]
