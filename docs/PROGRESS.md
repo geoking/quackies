@@ -864,6 +864,7 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   `127.0.0.1:7800`; the Editor was ready, stopped, and returned zero captured
   errors. No imports, Git operations, Core/CLI changes, Unity scene changes or
   runtime tests occurred in this documentation kickoff.
+
 ### 37. M3 scene and asset checkpoint — review in progress
 
 - Added the isolated, fixed-data `DuckLayoutProof` scene and reproducible Editor
@@ -879,3 +880,23 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 - Native 1133 × 744 Adventure capture is available in `duck-migration/m3/`.
   Visual polish, endpoint Feather emphasis and interaction review remain in
   progress. This is a scene checkpoint, not M3 completion or a live duck game.
+
+### 38. M3 layout polish and verification (14 September 2026)
+
+- Refined the normalized board anchors and retained native painted resting
+  places at 21, 38 and 50. Feather badges have a readable backing; the final
+  oasis has two Feathers and its 21 Sleep / 9 Twigs beneath it.
+- Added enlarged encounter/offer inspections with separate Moon, Twig and
+  Feather values. All 16 approved token variants fit the common footprint;
+  all 11 priced offers fit the full-screen Dream view.
+- Final Editor compilation passes with no errors. Two rebuilds produce the
+  same hierarchy digest and identical metadata for all 14 textures. The audit
+  passes 50 unique spaces, eight havens, crop bindings, reward bounds and text.
+- Verified actual Game view target 1133 × 744; native empty, occupied, Dream,
+  oasis and offer captures are recorded in [M3 evidence](duck-migration/m3/README.md).
+  Pointer checks passed Dream, offer inspection, Close, View adventure, oasis
+  inspection and Encounter fit. Final Console query reports zero errors.
+- This completes the bounded fixed-data layout proof. No duck gameplay,
+  Core/CLI work, production 3072 master, iOS export or device test is claimed.
+  M4 waits for the user's command after review. Preserved the approved source
+  artwork, original playable scenes/Core DLL and unrelated ProjectSettings.

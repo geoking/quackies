@@ -35,6 +35,13 @@ namespace Quackies.Unity.DuckLayout
         [SerializeField] private GameObject inspectionShade;
         [SerializeField] private TMP_Text inspectionTitle;
         [SerializeField] private TMP_Text inspectionDetail;
+        [SerializeField] private TMP_Text inspectionSleepValue;
+        [SerializeField] private TMP_Text inspectionTwigValue;
+        [SerializeField] private TMP_Text inspectionFeatherValue;
+        [SerializeField] private Image inspectionArt;
+        [SerializeField] private Image inspectionSleepIcon;
+        [SerializeField] private Image inspectionTwigIcon;
+        [SerializeField] private Image inspectionFeatherIcon;
         [SerializeField] private Button closeInspectionButton;
 
         private bool showingOccupied;
@@ -46,7 +53,9 @@ namespace Quackies.Unity.DuckLayout
         public void Configure(GameObject adventure, GameObject dream, Button adventureButton, Button dreamButton,
             Button emptyButton, Button occupiedButton, TMP_Text status, DuckLayoutSpaceView[] boardSpaces,
             DuckLayoutOfferView[] shopOffers, TokenPresentation[] tokens, GameObject duckRest, GameObject zzz,
-            GameObject featherTrail, GameObject shade, TMP_Text title, TMP_Text detail, Button close)
+            GameObject featherTrail, GameObject shade, TMP_Text title, TMP_Text detail, TMP_Text sleepValue, TMP_Text twigValue,
+            TMP_Text featherValue, Image art,
+            Image sleepIcon, Image twigIcon, Image featherIcon, Button close)
         {
             adventureRoot = adventure;
             dreamRoot = dream;
@@ -64,6 +73,13 @@ namespace Quackies.Unity.DuckLayout
             inspectionShade = shade;
             inspectionTitle = title;
             inspectionDetail = detail;
+            inspectionSleepValue = sleepValue;
+            inspectionTwigValue = twigValue;
+            inspectionFeatherValue = featherValue;
+            inspectionArt = art;
+            inspectionSleepIcon = sleepIcon;
+            inspectionTwigIcon = twigIcon;
+            inspectionFeatherIcon = featherIcon;
             closeInspectionButton = close;
             ApplyAdventure(true);
             ApplyOccupied(false);
@@ -164,10 +180,12 @@ namespace Quackies.Unity.DuckLayout
             if (inspectionTitle != null) inspectionTitle.text = space.IsHaven ? space.HavenName : "Rest space " + space.Space;
             if (inspectionDetail != null)
             {
-                var feather = space.Feathers > 0 ? " • " + space.Feathers + " Feather" + (space.Feathers == 1 ? string.Empty : "s") : string.Empty;
-                inspectionDetail.text = "Space " + space.Space + "\nMoon Sleep " + space.Sleep + " • Twigs " + space.Twigs + feather
-                    + "\n\nPreview only: inspect this fixed rest reward and encounter fit. It does not resolve a game action.";
+                inspectionDetail.text = space.IsHaven ? "Shelter reward preview. This fixed layout does not resolve a game action."
+                    : "Rest reward preview. This fixed layout does not resolve a game action.";
             }
+            SetRewardPreview(space.Sleep, space.Twigs, space.Feathers);
+            var token = showingOccupied ? FindToken(space.Space) : null;
+            SetInspectionArt(token == null ? space.WellSprite : token.sprite, space.Space == 50 && token == null);
         }
 
         private void InspectOffer(DuckLayoutOfferView offer)
@@ -177,6 +195,47 @@ namespace Quackies.Unity.DuckLayout
             if (inspectionTitle != null) inspectionTitle.text = offer.Family;
             if (inspectionDetail != null)
                 inspectionDetail.text = offer.Detail + "\n\nPrice: " + offer.SleepPrice + " Sleep\n\nFixed Dream catalogue sample; the card is inspectable only.";
+            SetValue(inspectionSleepValue, offer.SleepPrice.ToString(), true);
+            SetValue(inspectionTwigValue, string.Empty, false);
+            SetValue(inspectionFeatherValue, string.Empty, false);
+            if (inspectionSleepIcon != null) inspectionSleepIcon.gameObject.SetActive(true);
+            if (inspectionTwigIcon != null) inspectionTwigIcon.gameObject.SetActive(false);
+            if (inspectionFeatherIcon != null) inspectionFeatherIcon.gameObject.SetActive(false);
+            SetInspectionArt(offer.PreviewSprite, false);
+        }
+
+        private void SetRewardPreview(int sleep, int twigs, int feathers)
+        {
+            SetValue(inspectionSleepValue, sleep.ToString(), true);
+            SetValue(inspectionTwigValue, twigs.ToString(), twigs > 0);
+            SetValue(inspectionFeatherValue, feathers.ToString(), feathers > 0);
+            if (inspectionSleepIcon != null) inspectionSleepIcon.gameObject.SetActive(true);
+            if (inspectionTwigIcon != null) inspectionTwigIcon.gameObject.SetActive(twigs > 0);
+            if (inspectionFeatherIcon != null) inspectionFeatherIcon.gameObject.SetActive(feathers > 0);
+        }
+
+        private static void SetValue(TMP_Text value, string text, bool visible)
+        {
+            if (value == null) return;
+            value.text = text;
+            value.gameObject.SetActive(visible);
+        }
+
+        private void SetInspectionArt(Sprite sprite, bool endpointFallback)
+        {
+            if (inspectionArt == null) return;
+            inspectionArt.sprite = sprite ?? (endpointFallback && inspectionFeatherIcon != null ? inspectionFeatherIcon.sprite : null);
+            inspectionArt.color = inspectionArt.sprite == null ? Color.clear : Color.white;
+            inspectionArt.useSpriteMesh = inspectionArt.sprite != null;
+            inspectionArt.gameObject.SetActive(inspectionArt.sprite != null);
+        }
+
+        private TokenPresentation FindToken(int space)
+        {
+            if (tokenPresentations == null) return null;
+            foreach (var token in tokenPresentations)
+                if (token != null && token.space == space) return token;
+            return null;
         }
 
         private DuckLayoutSpaceView FindSpace(int number)

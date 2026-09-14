@@ -10,6 +10,7 @@ namespace Quackies.Unity.DuckLayout
         [SerializeField] private string stableId;
         [SerializeField] private int space;
         [SerializeField] private bool haven;
+        [SerializeField] private bool useBoardArt;
         [SerializeField] private string havenName;
         [SerializeField] private int sleep;
         [SerializeField] private int twigs;
@@ -17,11 +18,13 @@ namespace Quackies.Unity.DuckLayout
         [SerializeField] private RectTransform wellRect;
         [SerializeField] private RectTransform rewardRect;
         [SerializeField] private Button inspectButton;
+        [SerializeField] private Image wellImage;
         [SerializeField] private Image tokenImage;
 
         public string StableId => stableId;
         public int Space => space;
         public bool IsHaven => haven;
+        public bool UsesBoardArt => useBoardArt;
         public string HavenName => havenName;
         public int Sleep => sleep;
         public int Twigs => twigs;
@@ -29,13 +32,16 @@ namespace Quackies.Unity.DuckLayout
         public RectTransform WellRect => wellRect;
         public RectTransform RewardRect => rewardRect;
         public Button InspectButton => inspectButton;
+        public Sprite WellSprite => wellImage == null ? null : wellImage.sprite;
+        public Sprite EncounterSprite => tokenImage == null ? null : tokenImage.sprite;
 
-        public void Configure(string id, int number, bool isHaven, string shelterName, int sleepReward, int twigReward,
-            int featherReward, RectTransform well, RectTransform reward, Button button, Image token)
+        public void Configure(string id, int number, bool isHaven, bool usesBoardArt, string shelterName, int sleepReward, int twigReward,
+            int featherReward, RectTransform well, RectTransform reward, Button button, Image wellArtwork, Image token)
         {
             stableId = id;
             space = number;
             haven = isHaven;
+            useBoardArt = usesBoardArt;
             havenName = shelterName ?? string.Empty;
             sleep = sleepReward;
             twigs = twigReward;
@@ -43,6 +49,7 @@ namespace Quackies.Unity.DuckLayout
             wellRect = well;
             rewardRect = reward;
             inspectButton = button;
+            wellImage = wellArtwork;
             tokenImage = token;
         }
 

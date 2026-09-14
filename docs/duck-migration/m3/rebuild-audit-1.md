@@ -1,5 +1,5 @@
 # Duck Layout Audit
 
 Scene: Assets/Scenes/DuckLayoutProof.unity
-Hierarchy digest: `b1ee3acefd47abce1c1721b0d449192a49de458d635664e5da4bd53a517189b3`
+Hierarchy digest: `8ce8868b8c0cfd35b0bc6cd0900b6f6a2fdfb8ac42cb913f8911e2a9d60065d1`
 Status: PASS

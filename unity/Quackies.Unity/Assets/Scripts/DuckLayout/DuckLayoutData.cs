@@ -54,6 +54,7 @@ namespace Quackies.Unity.DuckLayout
         public int twigs;
         public int feathers;
         public bool haven;
+        public bool useBoardArt;
         public string havenName;
         public float havenX;
         public float havenY;

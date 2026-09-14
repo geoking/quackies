@@ -13,6 +13,7 @@ namespace Quackies.Unity.DuckLayout
         [SerializeField] private int sleepPrice;
         [SerializeField] private string detail;
         [SerializeField] private Button inspectButton;
+        [SerializeField] private Image artImage;
 
         public string OfferId => offerId;
         public string Family => family;
@@ -20,8 +21,9 @@ namespace Quackies.Unity.DuckLayout
         public int SleepPrice => sleepPrice;
         public string Detail => detail;
         public Button InspectButton => inspectButton;
+        public Sprite PreviewSprite => artImage == null ? null : artImage.sprite;
 
-        public void Configure(DuckLayoutOfferFixture fixture, Button button)
+        public void Configure(DuckLayoutOfferFixture fixture, Button button, Image art)
         {
             offerId = fixture.id;
             family = fixture.family;
@@ -29,6 +31,7 @@ namespace Quackies.Unity.DuckLayout
             sleepPrice = fixture.sleepPrice;
             detail = fixture.detail;
             inspectButton = button;
+            artImage = art;
         }
     }
 }

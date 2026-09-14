@@ -22,7 +22,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.0546875,
-      "havenY": 0.2001953
+      "havenY": 0.2001953,
+      "useBoardArt": false
     },
     {
       "id": "space-02",
@@ -36,7 +37,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.1074219,
-      "havenY": 0.2431641
+      "havenY": 0.2431641,
+      "useBoardArt": false
     },
     {
       "id": "space-03",
@@ -50,7 +52,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.0533854,
-      "havenY": 0.2910156
+      "havenY": 0.2910156,
+      "useBoardArt": false
     },
     {
       "id": "space-04",
@@ -64,7 +67,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.1080729,
-      "havenY": 0.3369141
+      "havenY": 0.3369141,
+      "useBoardArt": false
     },
     {
       "id": "space-05",
@@ -78,7 +82,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.0533854,
-      "havenY": 0.3828125
+      "havenY": 0.3828125,
+      "useBoardArt": false
     },
     {
       "id": "space-06",
@@ -92,7 +97,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.061849,
-      "havenY": 0.4667969
+      "havenY": 0.4667969,
+      "useBoardArt": false
     },
     {
       "id": "space-07",
@@ -106,7 +112,8 @@
       "haven": true,
       "havenName": "Reed hammock",
       "havenX": 0.1490885,
-      "havenY": 0.4414062
+      "havenY": 0.4414062,
+      "useBoardArt": false
     },
     {
       "id": "space-08",
@@ -120,7 +127,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.0657552,
-      "havenY": 0.5722656
+      "havenY": 0.5722656,
+      "useBoardArt": false
     },
     {
       "id": "space-09",
@@ -134,7 +142,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.0703125,
-      "havenY": 0.6806641
+      "havenY": 0.6806641,
+      "useBoardArt": false
     },
     {
       "id": "space-10",
@@ -148,7 +157,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.1035156,
-      "havenY": 0.7734375
+      "havenY": 0.7734375,
+      "useBoardArt": false
     },
     {
       "id": "space-11",
@@ -162,7 +172,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.1744792,
-      "havenY": 0.7861328
+      "havenY": 0.7861328,
+      "useBoardArt": false
     },
     {
       "id": "space-12",
@@ -176,7 +187,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.2486979,
-      "havenY": 0.7568359
+      "havenY": 0.7568359,
+      "useBoardArt": false
     },
     {
       "id": "space-13",
@@ -190,7 +202,8 @@
       "haven": true,
       "havenName": "Willow nest",
       "havenX": 0.2200521,
-      "havenY": 0.5791016
+      "havenY": 0.5791016,
+      "useBoardArt": false
     },
     {
       "id": "space-14",
@@ -204,7 +217,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.2871094,
-      "havenY": 0.4804688
+      "havenY": 0.4804688,
+      "useBoardArt": false
     },
     {
       "id": "space-15",
@@ -218,7 +232,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.2799479,
-      "havenY": 0.3466797
+      "havenY": 0.3466797,
+      "useBoardArt": false
     },
     {
       "id": "space-16",
@@ -232,13 +247,14 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.2890625,
-      "havenY": 0.2265625
+      "havenY": 0.2265625,
+      "useBoardArt": false
     },
     {
       "id": "space-17",
       "space": 17,
       "x": 0.3854166666666667,
-      "y": 0.1787109375,
+      "y": 0.154296875,
       "biome": "meadow",
       "sleep": 10,
       "twigs": 3,
@@ -246,13 +262,14 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.3951823,
-      "havenY": 0.2001953
+      "havenY": 0.2001953,
+      "useBoardArt": false
     },
     {
       "id": "space-18",
       "space": 18,
       "x": 0.3951822916666667,
-      "y": 0.2666015625,
+      "y": 0.2431640625,
       "biome": "meadow",
       "sleep": 10,
       "twigs": 3,
@@ -260,13 +277,14 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.3938802,
-      "havenY": 0.2929688
+      "havenY": 0.2929688,
+      "useBoardArt": false
     },
     {
       "id": "space-19",
       "space": 19,
-      "x": 0.3821614583333333,
-      "y": 0.3544921875,
+      "x": 0.3834635416666667,
+      "y": 0.33203125,
       "biome": "meadow",
       "sleep": 11,
       "twigs": 4,
@@ -274,13 +292,14 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.3919271,
-      "havenY": 0.3857422
+      "havenY": 0.3857422,
+      "useBoardArt": false
     },
     {
       "id": "space-20",
       "space": 20,
-      "x": 0.435546875,
-      "y": 0.3935546875,
+      "x": 0.390625,
+      "y": 0.4208984375,
       "biome": "meadow",
       "sleep": 11,
       "twigs": 4,
@@ -288,7 +307,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.390625,
-      "havenY": 0.4785156
+      "havenY": 0.4785156,
+      "useBoardArt": false
     },
     {
       "id": "space-21",
@@ -302,13 +322,14 @@
       "haven": true,
       "havenName": "Clover hollow",
       "havenX": 0.4915365,
-      "havenY": 0.3222656
+      "havenY": 0.3222656,
+      "useBoardArt": true
     },
     {
       "id": "space-22",
       "space": 22,
       "x": 0.3938802083333333,
-      "y": 0.4892578125,
+      "y": 0.5126953125,
       "biome": "meadow",
       "sleep": 11,
       "twigs": 4,
@@ -316,13 +337,14 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.389974,
-      "havenY": 0.6591797
+      "havenY": 0.6591797,
+      "useBoardArt": false
     },
     {
       "id": "space-23",
       "space": 23,
       "x": 0.390625,
-      "y": 0.5908203125,
+      "y": 0.60546875,
       "biome": "meadow",
       "sleep": 12,
       "twigs": 4,
@@ -330,13 +352,14 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.4179688,
-      "havenY": 0.7519531
+      "havenY": 0.7519531,
+      "useBoardArt": false
     },
     {
       "id": "space-24",
       "space": 24,
       "x": 0.404296875,
-      "y": 0.697265625,
+      "y": 0.6982421875,
       "biome": "meadow",
       "sleep": 12,
       "twigs": 4,
@@ -344,7 +367,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.485026,
-      "havenY": 0.78125
+      "havenY": 0.78125,
+      "useBoardArt": false
     },
     {
       "id": "space-25",
@@ -358,7 +382,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.5546875,
-      "havenY": 0.7714844
+      "havenY": 0.7714844,
+      "useBoardArt": false
     },
     {
       "id": "space-26",
@@ -372,7 +397,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.609375,
-      "havenY": 0.7236328
+      "havenY": 0.7236328,
+      "useBoardArt": false
     },
     {
       "id": "space-27",
@@ -386,7 +412,8 @@
       "haven": true,
       "havenName": "Orchard shelter",
       "havenX": 0.5117188,
-      "havenY": 0.640625
+      "havenY": 0.640625,
+      "useBoardArt": false
     },
     {
       "id": "space-28",
@@ -400,7 +427,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.6158854,
-      "havenY": 0.5371094
+      "havenY": 0.5371094,
+      "useBoardArt": false
     },
     {
       "id": "space-29",
@@ -414,7 +442,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.6165365,
-      "havenY": 0.4404297
+      "havenY": 0.4404297,
+      "useBoardArt": false
     },
     {
       "id": "space-30",
@@ -428,7 +457,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.6126302,
-      "havenY": 0.34375
+      "havenY": 0.34375,
+      "useBoardArt": false
     },
     {
       "id": "space-31",
@@ -442,7 +472,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.608724,
-      "havenY": 0.25
+      "havenY": 0.25,
+      "useBoardArt": false
     },
     {
       "id": "space-32",
@@ -456,7 +487,8 @@
       "haven": true,
       "havenName": "Hayloft hideaway",
       "havenX": 0.5292969,
-      "havenY": 0.4462891
+      "havenY": 0.4462891,
+      "useBoardArt": false
     },
     {
       "id": "space-33",
@@ -470,7 +502,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.608724,
-      "havenY": 0.1757812
+      "havenY": 0.1757812,
+      "useBoardArt": false
     },
     {
       "id": "space-34",
@@ -484,7 +517,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.7565104,
-      "havenY": 0.234375
+      "havenY": 0.234375,
+      "useBoardArt": false
     },
     {
       "id": "space-35",
@@ -498,7 +532,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.7161458,
-      "havenY": 0.3144531
+      "havenY": 0.3144531,
+      "useBoardArt": false
     },
     {
       "id": "space-36",
@@ -512,7 +547,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.7070312,
-      "havenY": 0.4023438
+      "havenY": 0.4023438,
+      "useBoardArt": false
     },
     {
       "id": "space-37",
@@ -526,7 +562,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.702474,
-      "havenY": 0.4931641
+      "havenY": 0.4931641,
+      "useBoardArt": false
     },
     {
       "id": "space-38",
@@ -540,7 +577,8 @@
       "haven": true,
       "havenName": "Shaded rock nook",
       "havenX": 0.7825521,
-      "havenY": 0.4443359
+      "havenY": 0.4443359,
+      "useBoardArt": true
     },
     {
       "id": "space-39",
@@ -554,7 +592,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.7096354,
-      "havenY": 0.6328125
+      "havenY": 0.6328125,
+      "useBoardArt": false
     },
     {
       "id": "space-40",
@@ -568,7 +607,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.7148438,
-      "havenY": 0.7373047
+      "havenY": 0.7373047,
+      "useBoardArt": false
     },
     {
       "id": "space-41",
@@ -582,7 +622,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.7558594,
-      "havenY": 0.8095703
+      "havenY": 0.8095703,
+      "useBoardArt": false
     },
     {
       "id": "space-42",
@@ -596,7 +637,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.8235677,
-      "havenY": 0.8349609
+      "havenY": 0.8349609,
+      "useBoardArt": false
     },
     {
       "id": "space-43",
@@ -610,7 +652,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.8919271,
-      "havenY": 0.8173828
+      "havenY": 0.8173828,
+      "useBoardArt": false
     },
     {
       "id": "space-44",
@@ -624,7 +667,8 @@
       "haven": true,
       "havenName": "Spring-fed refuge",
       "havenX": 0.844401,
-      "havenY": 0.7050781
+      "havenY": 0.7050781,
+      "useBoardArt": false
     },
     {
       "id": "space-45",
@@ -638,7 +682,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.9459635,
-      "havenY": 0.6416016
+      "havenY": 0.6416016,
+      "useBoardArt": false
     },
     {
       "id": "space-46",
@@ -652,7 +697,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.9446615,
-      "havenY": 0.5429688
+      "havenY": 0.5429688,
+      "useBoardArt": false
     },
     {
       "id": "space-47",
@@ -666,7 +712,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.9401042,
-      "havenY": 0.4423828
+      "havenY": 0.4423828,
+      "useBoardArt": false
     },
     {
       "id": "space-48",
@@ -680,7 +727,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.9316406,
-      "havenY": 0.3427734
+      "havenY": 0.3427734,
+      "useBoardArt": false
     },
     {
       "id": "space-49",
@@ -694,7 +742,8 @@
       "haven": false,
       "havenName": "",
       "havenX": 0.8860677,
-      "havenY": 0.2802734
+      "havenY": 0.2802734,
+      "useBoardArt": false
     },
     {
       "id": "space-50",
@@ -708,7 +757,8 @@
       "haven": true,
       "havenName": "Oasis sanctuary",
       "havenX": 0.922526,
-      "havenY": 0.1865234
+      "havenY": 0.1865234,
+      "useBoardArt": true
     }
   ]
 }

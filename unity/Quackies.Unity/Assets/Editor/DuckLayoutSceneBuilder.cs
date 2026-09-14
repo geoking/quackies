@@ -95,11 +95,14 @@ namespace Quackies.Unity.Editor
                 out var dreamButton, out var emptyButton, out var occupiedButton, out var status,
                 out var duckRest, out var zzz, out var featherTrail);
             var dream = BuildDream(viewport, art, out var offers, out var dreamAdventureButton);
-            var inspection = BuildInspection(viewport, out var inspectionTitle, out var inspectionDetail, out var closeInspection);
+            var inspection = BuildInspection(viewport, art, out var inspectionTitle, out var inspectionDetail, out var inspectionSleepValue,
+                out var inspectionTwigValue, out var inspectionFeatherValue,
+                out var inspectionArt, out var inspectionSleep, out var inspectionTwig, out var inspectionFeather, out var closeInspection);
             dream.gameObject.SetActive(false);
             proof.Configure(adventure.gameObject, dream.gameObject, dreamAdventureButton, dreamButton, emptyButton, occupiedButton,
                 status, spaces, offers, tokens, duckRest, zzz, featherTrail, inspection, inspectionTitle, inspectionDetail,
-                closeInspection);
+                inspectionSleepValue, inspectionTwigValue, inspectionFeatherValue, inspectionArt, inspectionSleep, inspectionTwig,
+                inspectionFeather, closeInspection);
             proof.transform.SetAsLastSibling();
             inspection.transform.SetAsLastSibling();
 
@@ -272,7 +275,8 @@ namespace Quackies.Unity.Editor
             button.navigation = new Navigation { mode = Navigation.Mode.None };
 
             RectTransform wellRect = null;
-            if (row.space != 50)
+            Image wellArtwork = null;
+            if (!row.useBoardArt && row.space != 50)
             {
                 var wellSprite = string.Equals(row.biome, "wasteland", StringComparison.OrdinalIgnoreCase) ? art.wastelandWell : art.grassWell;
                 var tint = string.Equals(row.biome, "wasteland", StringComparison.OrdinalIgnoreCase) ? WastelandTint
@@ -282,13 +286,15 @@ namespace Quackies.Unity.Editor
                 TableUi.Place(well.rectTransform, 0, 0, wellWidth, wellHeight);
                 well.raycastTarget = false;
                 wellRect = well.rectTransform;
+                wellArtwork = well;
             }
             else
             {
-                // The approved board's oasis is the endpoint artwork itself. Deliberately do not place a regular well over it.
-                var oasis = Label("Oasis endpoint", root, "", 1, Color.clear, false, TextAlignmentOptions.Center);
-                TableUi.Place(oasis.rectTransform, 0, 0, wellWidth, wellHeight);
-                wellRect = oasis.rectTransform;
+                // Native haven/oasis artwork remains visible; this transparent footprint keeps its shared tap and reward binding.
+                var footprintName = row.space == 50 ? "Oasis endpoint" : "Native board art footprint";
+                var footprint = Label(footprintName, root, "", 1, Color.clear, false, TextAlignmentOptions.Center);
+                TableUi.Place(footprint.rectTransform, 0, 0, wellWidth, wellHeight);
+                wellRect = footprint.rectTransform;
             }
 
             var reward = Panel("Reward Row", root, 0, wellHeight + 3f, wellWidth, rewardHeight, new Color(.12f, .12f, .22f, .88f));
@@ -309,9 +315,13 @@ namespace Quackies.Unity.Editor
             TableUi.Place(twigNumber.rectTransform, 38f * rewardScale, 0, 8f * rewardScale, rewardHeight);
             if (row.feathers > 0)
             {
-                var feather = Image("Feather badge", root, Color.white, row.feathers > 1 ? art.feathers : art.feather);
+                var badgeWidth = row.feathers > 1 ? 30f : 24f;
+                var badgeX = row.space == 50 ? wellWidth + 2f : wellWidth - 7f;
+                var badgeY = row.space == 50 ? wellHeight + 1f : -12f;
+                var backing = Panel("Feather badge backing", root, badgeX, badgeY, badgeWidth, 24f, Navy);
+                var feather = Image("Feather badge", backing, Color.white, row.feathers > 1 ? art.feathers : art.feather);
                 feather.preserveAspect = true;
-                TableUi.Place(feather.rectTransform, wellWidth - 7f, -12f, 22f, 22f);
+                TableUi.Place(feather.rectTransform, 3f, 2f, badgeWidth - 6f, 20f);
             }
             var token = Image("Encounter overlay", root, new Color(.25f, .12f, .38f, .95f));
             token.preserveAspect = true;
@@ -319,8 +329,8 @@ namespace Quackies.Unity.Editor
             TableUi.Place(token.rectTransform, (wellWidth - tokenSize) * .5f, 1f, tokenSize, tokenSize);
             token.gameObject.SetActive(false);
             var view = root.gameObject.AddComponent<DuckLayoutSpaceView>();
-            view.Configure(row.id, row.space, row.haven, row.havenName, row.sleep, row.twigs, row.feathers, wellRect,
-                reward, button, token);
+            view.Configure(row.id, row.space, row.haven, row.useBoardArt || row.space == 50, row.havenName, row.sleep, row.twigs, row.feathers, wellRect,
+                reward, button, wellArtwork, token);
             return view;
         }
 
@@ -498,22 +508,46 @@ namespace Quackies.Unity.Editor
             var priceText = Label("Price", price, fixture.sleepPrice.ToString(), 16, Cream, true, TextAlignmentOptions.MidlineLeft);
             TableUi.Place(priceText.rectTransform, 61, 1, 45, 27);
             var view = card.gameObject.AddComponent<DuckLayoutOfferView>();
-            view.Configure(fixture, button);
+            view.Configure(fixture, button, token);
             return view;
         }
 
-        private static GameObject BuildInspection(RectTransform root, out TMP_Text title, out TMP_Text detail, out Button close)
+        private static GameObject BuildInspection(RectTransform root, DuckLayoutArt art, out TMP_Text title, out TMP_Text detail,
+            out TMP_Text sleepValue, out TMP_Text twigValue, out TMP_Text featherValue, out Image previewArt, out Image sleepIcon,
+            out Image twigIcon, out Image featherIcon, out Button close)
         {
             var shade = Image("Inspection Shade", root, new Color(.02f, .02f, .08f, .86f));
             TableUi.Fill(shade.rectTransform);
             shade.raycastTarget = true;
-            var card = Panel("Large Inspection Card", shade.rectTransform, 278, 150, 577, 436, Cream);
+            var card = Panel("Large Inspection Card", shade.rectTransform, 278, 132, 577, 480, Cream);
             title = Label("Inspection title", card, "", 29, Navy, true, TextAlignmentOptions.Center);
-            TableUi.Place(title.rectTransform, 35, 37, 507, 48);
-            detail = Label("Inspection detail", card, "", 20, Ink, false, TextAlignmentOptions.Center);
-            TableUi.Place(detail.rectTransform, 57, 108, 463, 205);
+            TableUi.Place(title.rectTransform, 35, 23, 507, 48);
+            previewArt = Image("Inspection artwork", card, Color.white);
+            previewArt.preserveAspect = true;
+            TableUi.Place(previewArt.rectTransform, 46, 91, 184, 150);
+            var rewardPanel = Panel("Inspection rewards", card, 251, 96, 278, 92, new Color(.76f, .70f, .87f));
+            sleepIcon = Image("Inspection moon", rewardPanel, Color.white, art.sleep);
+            sleepIcon.preserveAspect = true;
+            TableUi.Place(sleepIcon.rectTransform, 20, 14, 24, 24);
+            twigIcon = Image("Inspection twig", rewardPanel, Color.white, art.twig);
+            twigIcon.preserveAspect = true;
+            TableUi.Place(twigIcon.rectTransform, 104, 14, 24, 24);
+            featherIcon = Image("Inspection feather", rewardPanel, Color.white, art.feathers);
+            featherIcon.preserveAspect = true;
+            TableUi.Place(featherIcon.rectTransform, 193, 10, 34, 30);
+            sleepValue = Label("Inspection Sleep value", rewardPanel, "", 18, Navy, true, TextAlignmentOptions.Center);
+            sleepValue.textWrappingMode = TextWrappingModes.NoWrap;
+            TableUi.Place(sleepValue.rectTransform, 15, 48, 34, 30);
+            twigValue = Label("Inspection Twig value", rewardPanel, "", 18, Navy, true, TextAlignmentOptions.Center);
+            twigValue.textWrappingMode = TextWrappingModes.NoWrap;
+            TableUi.Place(twigValue.rectTransform, 99, 48, 34, 30);
+            featherValue = Label("Inspection Feather value", rewardPanel, "", 18, Navy, true, TextAlignmentOptions.Center);
+            featherValue.textWrappingMode = TextWrappingModes.NoWrap;
+            TableUi.Place(featherValue.rectTransform, 192, 48, 40, 30);
+            detail = Label("Inspection detail", card, "", 16, Ink, false, TextAlignmentOptions.Center);
+            TableUi.Place(detail.rectTransform, 43, 268, 491, 82);
             close = TableUi.Button("Close inspection", card, "Close", Navy, Cream);
-            TableUi.Place(close.GetComponent<RectTransform>(), 202, 347, 173, 48);
+            TableUi.Place(close.GetComponent<RectTransform>(), 202, 401, 173, 48);
             return shade.gameObject;
         }
 
@@ -632,8 +666,8 @@ namespace Quackies.Unity.Editor
                     if (space.IsHaven) havens.Add(space.Space);
                     if (space.WellRect != null) wellBounds.Add(WorldRect(space.WellRect));
                     if (space.RewardRect != null) rewardBounds.Add(WorldRect(space.RewardRect));
-                    if (space.Space == 50 && space.transform.Find("Rest Well") != null)
-                        issues.Add("Endpoint 50 has a regular well over the oasis.");
+                    if (space.UsesBoardArt && space.transform.Find("Rest Well") != null)
+                        issues.Add("A native-art haven has a regular well over its illustration.");
                 }
                 for (var well = 0; well < wellBounds.Count; well++)
                     for (var reward = 0; reward < rewardBounds.Count; reward++)
@@ -645,9 +679,11 @@ namespace Quackies.Unity.Editor
                 if (havenLinks != 8) issues.Add("Expected 8 haven links, found " + havenLinks + ".");
                 var wells = UnityEngine.Object.FindObjectsOfType<Image>(true).Count(image => image.name == "Rest Well");
                 var oasisBindings = UnityEngine.Object.FindObjectsOfType<TMP_Text>(true).Count(text => text.name == "Oasis endpoint");
+                var nativeBindings = UnityEngine.Object.FindObjectsOfType<TMP_Text>(true).Count(text => text.name == "Native board art footprint");
                 var rewardRows = UnityEngine.Object.FindObjectsOfType<Image>(true).Count(image => image.name == "Reward Row");
-                if (wells != 49 || oasisBindings != 1 || rewardRows != 50)
-                    issues.Add("Scene well bindings must be 49 regular wells, one oasis endpoint, and 50 reward rows.");
+                var nativeCount = spaces.Count(space => space != null && space.UsesBoardArt);
+                if (wells != spaces.Length - nativeCount || oasisBindings != 1 || nativeBindings != nativeCount - 1 || rewardRows != 50)
+                    issues.Add("Scene well bindings must match serialized native-art havens and 50 reward rows.");
                 var offers = controller.Offers ?? Array.Empty<DuckLayoutOfferView>();
                 if (offers.Length != 11) issues.Add("Expected 11 serialized offers.");
                 var expectedOfferIds = new HashSet<string>(DuckLayoutFixtures.Offers.Select(offer => offer.id));
