@@ -5,7 +5,8 @@ namespace Quackies.Core.Match
     public enum GameActionKind
     {
         Draw, Stop, UseFlask, Choose, BuyIngredient, FinishShopping,
-        MoveDroplet, RefillFlask, ConvertRubies, FinishRubySpending, NextRound
+        MoveDroplet, RefillFlask, ConvertRubies, FinishRubySpending, NextRound,
+        Explore, Settle, BuyEncounter, FinishDream, NextDay
     }
 
     /// <summary>A command offered by the current state. Execute validates its ID again; stale actions are rejected.</summary>
@@ -18,7 +19,7 @@ namespace Quackies.Core.Match
 
         internal GameAction Issue(object scope, string playerId, long revision, string window)
         {
-            var issued = new GameAction(Id, Kind, Label, ChoiceTitle, Color, Value, Cost);
+            var issued = new GameAction(Id, Kind, Label, ChoiceTitle, Color, Value, Cost, DefinitionId);
             issued._scope = scope;
             issued._playerId = playerId;
             issued._revision = revision;
@@ -29,8 +30,8 @@ namespace Quackies.Core.Match
         internal bool WasIssued(object scope, string playerId, long revision, string window) =>
             ReferenceEquals(_scope, scope) && _playerId == playerId && _revision == revision && _window == window;
 
-        internal GameAction(string id, GameActionKind kind, string label, string choiceTitle = "", TokenColor? color = null, int value = 0, int cost = 0)
-        { Id = id; Kind = kind; Label = label; ChoiceTitle = choiceTitle; Color = color; Value = value; Cost = cost; }
+        internal GameAction(string id, GameActionKind kind, string label, string choiceTitle = "", TokenColor? color = null, int value = 0, int cost = 0, string definitionId = "")
+        { Id = id; Kind = kind; Label = label; ChoiceTitle = choiceTitle; Color = color; Value = value; Cost = cost; DefinitionId = definitionId; }
         public string Id { get; }
         public GameActionKind Kind { get; }
         public string Label { get; }
@@ -38,5 +39,6 @@ namespace Quackies.Core.Match
         public TokenColor? Color { get; }
         public int Value { get; }
         public int Cost { get; }
+        public string DefinitionId { get; }
     }
 }

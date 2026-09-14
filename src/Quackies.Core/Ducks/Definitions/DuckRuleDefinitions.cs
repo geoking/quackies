@@ -35,6 +35,7 @@ namespace Quackies.Core.Ducks.Definitions
         }
 
         public const int NestPosition = 0;
+        public string ProfileId => "quackies.duck.v1";
         public IReadOnlyList<DuckBoardSpace> BoardSpaces { get; }
         public IReadOnlyList<DuckEncounterDefinition> EncounterDefinitions { get; }
         public IReadOnlyList<DuckShopOffer> ShopOffers { get; }

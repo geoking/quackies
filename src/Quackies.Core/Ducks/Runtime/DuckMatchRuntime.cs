@@ -1,0 +1,186 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using Quackies.Core.Ducks.Definitions;
+using Quackies.Core.Match;
+using Quackies.Core.Randomness;
+
+namespace Quackies.Core.Ducks.Runtime
+{
+    /// <summary>Authoritative Duck profile state behind the shared issued-command boundary.</summary>
+    internal sealed partial class DuckMatchRuntime : IMatchRuntime<DuckMatchView>
+    {
+        private readonly ResumableRandomSource _random;
+
+        private DuckMatchRuntime(int seed, DuckMatchSettings settings)
+        {
+            Rules = DuckRules.V1;
+            State = new DuckMatchState(settings)
+            {
+                Day = 1,
+                Phase = DuckPhase.Preparation,
+                CurrentEventIndex = 0,
+                FinalDayDecisionBeat = 0,
+                NextPhysicalChipId = 1
+            };
+            _random = new ResumableRandomSource(seed);
+
+            State.WorldEventDeckDefinitionIds.AddRange(Rules.WorldEvents.Select(item => item.DefinitionId));
+            ShuffleInPlace(State.WorldEventDeckDefinitionIds);
+            State.Players.Add(CreatePlayer("human", "Human"));
+            State.Players.Add(CreatePlayer("ai", "AI"));
+            State.RandomState = _random.CaptureState();
+        }
+
+        internal static DuckMatchRuntime Create(int seed, DuckMatchSettings? settings = null)
+        {
+            return new DuckMatchRuntime(seed, settings ?? DuckMatchSettings.Standard);
+        }
+
+        public string ActionWindow => $"duck:{State.Day}:{State.Phase}:{State.FinalDayDecisionBeat}";
+        internal DuckRuleDefinitions Rules { get; }
+        internal DuckMatchState State { get; }
+        internal DuckWorldEventDefinition CurrentEvent =>
+            Rules.WorldEvent(State.WorldEventDeckDefinitionIds[State.CurrentEventIndex]);
+
+        public DuckMatchView GetSnapshot(string playerId)
+        {
+            var viewer = Player(playerId);
+            var ownInventoryById = viewer.Inventory.ToDictionary(chip => chip.PhysicalChipId);
+
+            var players = State.Players.Select(player => new DuckPlayerView(
+                player.Id,
+                player.Name,
+                player.TotalTwigs,
+                player.PermanentFeatherTrail,
+                player.DayReedsTwigs,
+                player.DayEventTwigs,
+                player.Position,
+                player.Exhaustion,
+                player.SafeExhaustionMaximum,
+                player.ActiveFlock,
+                player.SplashProtectionArmed,
+                player.LogSlowdownPending,
+                player.GuideProtectionAvailable,
+                player.FlowersPlaced,
+                player.FrozenSleep,
+                player.IsSleepFrozen,
+                player.RemainingSleep,
+                player.PendingMostRestedStep,
+                player.ActiveMostRestedStep,
+                player.EffectiveStart,
+                player.HasFinishedDay,
+                player.IsWornOut,
+                player.BagPhysicalChipIds.Count,
+                player.Inventory.Count,
+                player.PlacedHelpfulTypes.OrderBy(item => item),
+                player.PlacedChips.Select(chip => PlacedChipView(player, chip)),
+                player.PurchasedEncounterDefinitionIds,
+                player.PurchasedShopTypes.OrderBy(item => item),
+                player.LastNightOutcome));
+
+            var ownBag = viewer.BagPhysicalChipIds
+                .OrderBy(id => id)
+                .Select(id => PhysicalChipView(ownInventoryById[id]));
+            var ownInventory = viewer.Inventory
+                .OrderBy(chip => chip.PhysicalChipId)
+                .Select(PhysicalChipView);
+            var knownNext = viewer.KnownNextPhysicalChipIds
+                .Select(id => PhysicalChipView(ownInventoryById[id]));
+            var history = State.History.Select(entry => new DuckHistoryEntry(entry.Day, entry.ActorId, entry.Message));
+            var awards = State.PublicAwards.Select(award => new DuckPublicAwardView(
+                award.Day, award.DefinitionId, award.PlayerIds, award.Sleep, award.Twigs, award.Feathers));
+
+            return new DuckMatchView(
+                State.Settings,
+                State.Day,
+                State.Phase,
+                viewer.Id,
+                CurrentEvent,
+                players,
+                ownBag,
+                ownInventory,
+                knownNext,
+                Rules.ShopOffers,
+                history,
+                awards,
+                State.FinalDayDecisionBeat,
+                State.FinalDayCommits.Count > 0);
+        }
+
+        public IReadOnlyList<GameAction> GetLegalActions(string playerId)
+        {
+            Player(playerId);
+            return new ReadOnlyCollection<GameAction>(Array.Empty<GameAction>());
+        }
+
+        public DuckMatchView Execute(string playerId, GameAction action)
+        {
+            Player(playerId);
+            if (action == null) throw new ArgumentNullException(nameof(action));
+            throw new InvalidOperationException("Duck Adventure actions begin in checkpoint C2.");
+        }
+
+        internal DuckPlayerState Player(string playerId)
+        {
+            if (playerId == null) throw new ArgumentNullException(nameof(playerId));
+            return State.Players.SingleOrDefault(player => string.Equals(player.Id, playerId, StringComparison.Ordinal))
+                ?? throw new ArgumentException("Unknown player ID '" + playerId + "'.", nameof(playerId));
+        }
+
+        internal int NextRandomInt(int exclusiveMax)
+        {
+            var result = _random.NextInt(exclusiveMax);
+            State.RandomState = _random.CaptureState();
+            return result;
+        }
+
+        internal void ShuffleInPlace<T>(IList<T> values)
+        {
+            if (values == null) throw new ArgumentNullException(nameof(values));
+            for (var index = values.Count - 1; index > 0; index--)
+            {
+                var swapIndex = _random.NextInt(index + 1);
+                var value = values[index];
+                values[index] = values[swapIndex];
+                values[swapIndex] = value;
+            }
+            State.RandomState = _random.CaptureState();
+        }
+
+        internal void AddHistory(string actorId, string message)
+        {
+            State.History.Add(new DuckHistoryState(State.Day, actorId, message));
+        }
+
+        internal void AddPublicAward(DuckPublicAwardState award)
+        {
+            State.PublicAwards.Add(award ?? throw new ArgumentNullException(nameof(award)));
+        }
+
+        private DuckPlayerState CreatePlayer(string id, string name)
+        {
+            var player = new DuckPlayerState(id, name, State.Settings.StartingFeathers);
+            foreach (var definition in Rules.OpeningBag)
+            {
+                var chip = new DuckPhysicalChipState(State.NextPhysicalChipId++, definition.DefinitionId);
+                player.Inventory.Add(chip);
+                player.BagPhysicalChipIds.Add(chip.PhysicalChipId);
+            }
+            ShuffleInPlace(player.BagPhysicalChipIds);
+            return player;
+        }
+
+        private static DuckPhysicalChipView PhysicalChipView(DuckPhysicalChipState chip)
+        {
+            return new DuckPhysicalChipView(chip.PhysicalChipId, chip.DefinitionId);
+        }
+
+        private static DuckPlacedChipView PlacedChipView(DuckPlayerState player, DuckPlacedChipState placed)
+        {
+            var chip = player.Inventory.Single(candidate => candidate.PhysicalChipId == placed.PhysicalChipId);
+            return new DuckPlacedChipView(chip.PhysicalChipId, chip.DefinitionId, placed.Position, placed.NuisanceSuppressed);
+        }
+    }
+}
