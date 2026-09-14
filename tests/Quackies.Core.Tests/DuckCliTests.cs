@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Quackies.Core.Tests;
 
-public sealed class DuckCliTests
+public sealed partial class DuckCliTests
 {
     [Fact]
     public void Daily_demo_runs_real_issued_actions_through_Night_purchases_and_next_Dawn()
