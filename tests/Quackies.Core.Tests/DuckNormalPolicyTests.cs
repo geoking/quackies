@@ -69,7 +69,10 @@ public sealed class DuckNormalPolicyTests
             bag: new[] { "seeds" }, knownDefinitionId: "seeds");
 
         Assert.Equal(GameActionKind.Settle, Choose(atHaven).Kind);
-        Assert.Equal(GameActionKind.Explore, Choose(beforeHaven).Kind);
+        var explore = Choose(beforeHaven);
+        Assert.Equal(GameActionKind.Explore, explore.Kind);
+        beforeHaven.Match.Execute("human", explore);
+        Assert.Equal(4, beforeHaven.Runtime.Player("human").Position);
     }
 
     [Fact]
@@ -82,6 +85,27 @@ public sealed class DuckNormalPolicyTests
 
         Assert.Equal(GameActionKind.Explore, decision.Action.Kind);
         Assert.Contains("improves", decision.Reason, StringComparison.Ordinal);
+        plateau.Match.Execute("human", decision.Action);
+        Assert.Equal(2, plateau.Runtime.Player("human").Position);
+    }
+
+    [Fact]
+    public void Finished_opponents_public_rest_can_change_the_Most_Rested_decision()
+    {
+        var defendLead = AdventureScenario(position: 3, exhaustion: 4,
+            bag: new[] { "seeds", "grumpy_goose" });
+        var cannotLead = AdventureScenario(position: 3, exhaustion: 4,
+            bag: new[] { "seeds", "grumpy_goose" });
+        SetFinishedOpponent(defendLead.Runtime, position: 1);
+        SetFinishedOpponent(cannotLead.Runtime, position: 9);
+
+        var defendDecision = Evaluate(defendLead);
+        var chaseDecision = Evaluate(cannotLead);
+
+        Assert.Equal(GameActionKind.Settle, defendDecision.Action.Kind);
+        Assert.Equal(GameActionKind.Explore, chaseDecision.Action.Kind);
+        Assert.Contains("Keeping", defendDecision.Reason, StringComparison.Ordinal);
+        Assert.Contains("improves", chaseDecision.Reason, StringComparison.Ordinal);
     }
 
     [Fact]
@@ -189,7 +213,7 @@ public sealed class DuckNormalPolicyTests
         string? knownDefinitionId = null)
     {
         var runtime = DuckMatchRuntime.Create(seed: 211);
-        runtime.State.WorldEventDeckDefinitionIds[runtime.State.CurrentEventIndex] = "rain_softened_seeds";
+        runtime.State.WorldEventDeckDefinitionIds[runtime.State.CurrentEventIndex] = "home_before_dark";
         runtime.Player("human").GuideProtectionAvailable = false;
         PrepareAdventurePlayer(runtime, "human", position, exhaustion, bag);
         var player = runtime.Player("human");
@@ -234,6 +258,15 @@ public sealed class DuckNormalPolicyTests
         }
     }
 
+    private static void SetFinishedOpponent(DuckMatchRuntime runtime, int position)
+    {
+        var opponent = runtime.Player("ai");
+        opponent.Position = position;
+        opponent.HasFinishedDay = true;
+        opponent.IsWornOut = false;
+        opponent.PlacedChips.Clear();
+    }
+
     private static DreamTestScenario DreamScenario(int day, int sleep)
     {
         var runtime = DuckMatchRuntime.Create(seed: 227);
@@ -268,7 +301,7 @@ public sealed class DuckNormalPolicyTests
         {
             var view = match.GetSnapshot("human");
             if (view.Phase == DuckPhase.Finished)
-                return new NormalGameResult(view, step, kinds, purchases);
+                return new NormalGameResult(view, kinds.Values.Sum(), kinds, purchases);
             var acted = false;
             foreach (var playerId in new[] { "human", "ai" })
             {
