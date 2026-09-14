@@ -96,6 +96,7 @@ public sealed partial class DuckCliTests
         Assert.Equal(0, result.ExitCode);
         Assert.Contains("Complete ten-Day match finished.", result.Output);
         Assert.Contains("Final standings", result.Output);
+        Assert.Contains("Day 10/10 · Finished · Nest level 3", result.Output);
         Assert.DoesNotContain("Day 11/10", result.Output);
         var saved = files.Read();
         Assert.Equal(DuckPhase.Finished, saved.Phase);
