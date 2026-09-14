@@ -127,8 +127,7 @@ autosave/Continue scope are approved for the rules sheet. Each Day requires at
 least one draw before settling. An empty bag ends exploration only after its
 final chip fully resolves. Reaching or overshooting space 43 places at 43,
 fully resolves that chip including Exhaustion, then finishes with no further
-placements. Local autosave/Continue is approved but unimplemented.
+placements. Local autosave/Continue is implemented in Core/CLI.
 
-M2 and M3 are complete. C1–C3 are complete for the bounded Day 1 → Night 1 →
-Day 2 slice; C4/C5 and Unity remain later work. No ten-Day game, Normal AI or
-save/resume implementation is claimed here.
+M2, M3 and M4 are complete. M5 Unity integration remains unstarted. M6 balance
+evidence remains future work.

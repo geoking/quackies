@@ -220,6 +220,6 @@ resolves the full chip and Exhaustion, then ends that duck's Day. No extra
 placements or overshoot rewards. The empty bag also finishes after the last chip
 fully resolves. Equal final Twigs use Night 10 retained Sleep, then a draw if
 still equal. These rules are specified in the [implementation plan](../IMPLEMENTATION_PLAN.md).
-M2 and M3 are complete; C1/C2 are checked and C3 Night/Dream/Dawn/CLI
-integration is in progress. C4/C5 and Unity remain later work. No complete game
-or Normal AI is claimed here.
+M2, M3 and M4 are complete; M5 Unity integration and M6 balance/export remain
+later work. The approved numeric data and policies are unchanged by the M4
+implementation.

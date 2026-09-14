@@ -2,7 +2,7 @@
 
 14 September 2026. Architecture recommendation for the accepted Day/Dream
 direction in [PLAN.md](PLAN.md), now ten Days with original encounter powers
-and World Events. M3 is approved; M4 is now authorized through C3. The implementation record is
+and World Events. M3 and M4 C1–C5 are complete. The implementation record is
 in [m4/README.md](m4/README.md).
 
 ## Decision
@@ -118,8 +118,8 @@ bonuses and worn-out halving; do not reuse a distance or safe-eligibility tiebre
 ## Build and verification order
 
 The isolated **M3 layout proof is complete and approved**. It uses fixed sample
-data and remains separate from the changing Core DLL until M5. M4 is active
-through C3; the [C1 foundation checkpoint](IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval) is checked. Within M4:
+data and remains separate from the changing Core DLL until M5. M4 C1–C5 is
+complete. Within M4:
 
 1. Establish duck profile/data/identity/state, preserving original regressions.
 2. Implement Adventure, exact private previews and the selected decision rhythm.

@@ -3,9 +3,8 @@
 14 September 2026. **M2 is complete.** The user approved the rules, settings,
 shop policy, local autosave/resume and this implementation scope, with final-Day
 only simultaneous drawing and final-Night Sleep breaking equal total Twigs.
-M2 changed documentation only. **M3 is complete and approved by the user. M4
-Core/CLI C1–C3 are complete. The user has approved continuing through C4/C5
-and closing M4 before returning for review.**
+M2 changed documentation only. **M3 is complete and approved. M4 is complete
+and ready for the user's milestone review; M5 awaits their next command.**
 The accepted visual result is recorded in [M3 closeout](m3-closeout/README.md);
 the short product direction is in [PLAN.md](PLAN.md).
 
@@ -34,7 +33,7 @@ The ten events in [WORLD_EVENTS.md](v1/WORLD_EVENTS.md) are now accepted initial
 rules, alongside the existing [encounters](ENCOUNTER_RULES.md) and numerical
 [board/shop data](v1/BOARD_AND_SHOP.md). Approval is not full-match balance proof.
 The following defaults are approved. This closes the rules-sheet milestone;
-implementation and full-match balance validation remain future work.
+Core/CLI implementation is now complete; full-match balance remains M6 work.
 
 | Topic | Approved v1 default |
 | --- | --- |
@@ -84,10 +83,10 @@ needed.
 
 ## Original implementation gaps and their resolution
 
-This audit describes the classic code before C1. C1–C3 have implemented the
-duck identity, private draws, state, Night resolution and command authorization
-items below; their source boundaries and validation are recorded in
-[M4](m4/README.md). Normal AI remains C5 work. Classic references below remain
+This audit describes the classic code before C1. C1–C5 have implemented the
+duck identity, private draws, state, Night resolution, Normal AI, persistence
+and command authorization items below; their source boundaries and validation
+are recorded in [M4](m4/README.md). Classic references below remain
 as context for the migration, not a claim that duck logic still uses them.
 
 - **Separate token identity and quantities.** Current
@@ -126,10 +125,10 @@ as context for the migration, not a claim that duck logic still uses them.
 
 ## Save and resume: approved v1 requirement
 
-There is currently no persistent match save/load. Restart creates a fresh match;
-Unity scene reconstruction and the old fortune rewind do not provide resume.
-**Local autosave and Continue game are approved v1 scope.** They remain to be
-implemented; this is local persistence with no cloud-account requirement.
+The duck profile now has local persistent match save/load. Restart creates a
+fresh match when explicitly selected; Unity scene reconstruction and the old
+fortune rewind do not provide resume. Local autosave and Continue use the
+serializer-neutral DuckSaves API and host-owned atomic JSON storage.
 
 Plan serializable state from the foundation even if the persistence adapter is
 built later: stable rule/encounter IDs, ordered bags/deck, random continuation
@@ -154,9 +153,8 @@ Keep classic randomness/tests stable while adding a resumable duck source.
 
 M0 and earlier M1 experiments remain history. The deliberate order was to resolve
 the visual risk in M3 before implementing the duck rules. That visual gate is now
-closed. The C1–C3 progress report is accepted. C4/C5 are now authorized;
-complete M4 and stop for review before M5. Keep compiling checkpoints within
-the run.
+closed. The C1–C3 progress report is accepted. C4/C5 implementation and the
+final suite result are complete; stop for review before M5.
 
 ### M2 — Rules sheet complete
 
@@ -197,8 +195,8 @@ studies remain in their evidence directories and do not prescribe current layout
 | C1: profile/data/state foundation | Complete: preserve classic SetOne; introduce duck definitions, ten-Day settings and 43 occupied reward rows. Validate stable IDs, movement versus ability quantities, exact data and saveable state/profile lifecycle. Every duck starts at nest 0 with zero Feathers. |
 | C2: adventure and exact draws | Opening bag, movement, Explore/Settle, Exhaustion, Log/Mud/Splash/Goose and all helpful tokens; ordered private previews, independent Days 1–9 drawing, final-Day commitment support and endpoint/empty-bag behavior. CLI can expose each new action as it lands. |
 | C3: one complete Day and Night | Complete for the bounded slice: Night/Dream/Dawn/CLI integration, event fixtures and the Day 1 → Night 1 → Day 2 CLI cycle with authoritative breakdowns. |
-| C4: complete ten-Day match | Unstarted: extend the working daily cycle across all ten Days, Day 5 Goose, shared deck, repeated Dawn awards, nest tiers, Day 10 decisions, final conversion and winners. |
-| C5: Normal AI and resume | Unstarted: add the new Normal policy, versioned local save/continue and exact continuation tests. |
+| C4: complete ten-Day match | Complete implementation: full calendar, Day 5 Goose, shared deck, repeated Dawn awards, nest tiers, Day 10 decisions, final conversion and winners. |
+| C5: Normal AI and resume | Complete: Normal policy, versioned local save/continue and exact continuation tests; the final isolated Release build and all 286 tests pass. |
 
 ### C1 — The first work after M4 approval
 
@@ -228,8 +226,8 @@ studies remain in their evidence directories and do not prescribe current layout
    and original-profile regressions. The bounded CLI checks are:
    dotnet run --project src/Quackies.Cli -- --profile ducks --seed 42 --demo-day
    and dotnet run --project src/Quackies.Cli -- --profile ducks --seed 42 --inspect.
-   C1–C3 now establish the bounded Day/Night slice; they do not claim the full
-   ten-Day game, Normal AI or working save/resume.
+   C1–C5 establish the full Core/CLI implementation; the Release build and
+   286-test suite validate the committed result. Unity remains M5.
 
 Keep the existing snapshot/legal-actions/execute API shape and one authoritative
 match engine. Use focused profile policies/adapters where behaviour differs;

@@ -2,8 +2,8 @@
 
 Updated 14 September 2026. **M2 and M3 are complete and approved by the user.**
 M3 closes with the 43-space board and reward typography at `2c7cd6a`.
-**M4 C1–C3 are complete. The user approved continuing through C4/C5 to close
-M4; full-calendar play, Normal AI and save/Continue are now in progress.**
+**M4 C1–C5 is complete and closed.** The completion audit records the evidence
+and remaining limits; M5 Unity work awaits the user's next command.
 Historical decisions and checks remain in [PROGRESS.md](../PROGRESS.md).
 
 ## What we are building
@@ -126,7 +126,7 @@ whole match loop, or put rule arithmetic into Unity.
 | M0 / initial M1 | Historical original baseline and art exploration |
 | M2 — Rules sheet | Complete: rules, data, events, defaults and local save/resume scope approved |
 | M3 — Layout | Complete: final 43-space visual proof approved by the user |
-| **M4 — Core/CLI** | **C1–C3 complete for this slice; C4/C5 unstarted.** C4 ten-Day matches → C5 Normal AI/save-resume |
+| **M4 — Core/CLI** | **Complete: C1–C5 source, tests, CLI and persistence validated.** |
 | M5 — Connected Unity | Bind the accepted board/Dream views to committed Core state/actions and complete a human/AI match |
 | M6 — Balance/export | Review seeded match outcomes, tune with approval, finish readability/performance and validate iOS export |
 
@@ -145,8 +145,10 @@ pre-Day-10 bound is at most 42, so no effective-start cap is needed. The
 setting-3 witness remains historical evidence for an excluded configuration;
 its proof JSON/script are retained unchanged. C1 foundations and C2 source/test
 checkpoints are committed; C3 Night/Dream/Dawn/CLI integration is complete for
-the bounded Day 1 → Night 1 → Day 2 slice. C4/C5 remain unstarted. Actual
-full-match balance remains M6 work.
+the bounded Day 1 → Night 1 → Day 2 slice. C4/C5 complete the ten-Day game,
+Normal AI and exact Continue; the isolated Release build and all 286 tests
+pass. M4 is closed, with evidence in the [completion audit](m4/COMPLETION_AUDIT.md).
+Actual full-match balance remains M6 work.
 
 Stop for user review at each milestone. M4 source and focused tests are small,
 separate checked commits with regular GitHub checkpoints; root owns Git and

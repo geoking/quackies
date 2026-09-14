@@ -1,0 +1,2337 @@
+Quackies ducks · 10 Days · seed 42 · all ducks start at the nest
+Day 1/10 · Adventure · Nest level 1 · World Event: Thick Morning Mist
+Human: 0 Twigs · space 0 · Exhaustion 0/5 · bag 13
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 0 · Exhaustion 0/5 · bag 13
+  Feather trail 0 · today's start 0 · active flock 0
+
+Autosave: /Users/george/Repos/quackies/docs/duck-migration/m4/full-game-save.json
+Ten-Day demonstration: Normal policy controls both ducks using their own observations.
+human: Explore
+Day 1/10 · Adventure · Nest level 1 · World Event: Thick Morning Mist
+Human: 0 Twigs · space 1 · Exhaustion 0/5 · bag 12
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 0 · Exhaustion 0/5 · bag 13
+  Feather trail 0 · today's start 0 · active flock 0
+  D1 human: Human placed Seeds at space 1.
+
+ai: Explore
+Day 1/10 · Adventure · Nest level 1 · World Event: Thick Morning Mist
+Human: 0 Twigs · space 1 · Exhaustion 0/5 · bag 12
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 1 · Exhaustion 0/5 · bag 12
+  Feather trail 0 · today's start 0 · active flock 0
+  D1 human: Human placed Seeds at space 1.
+  D1 ai: AI placed Seeds at space 1.
+
+human: Settle down
+Day 1/10 · Adventure · Nest level 1 · World Event: Thick Morning Mist
+Human: 0 Twigs · space 1 · Exhaustion 0/5 · bag 12 · resting
+  Feather trail 0 · today's start 0 · active flock 0
+AI: 0 Twigs · space 1 · Exhaustion 0/5 · bag 12
+  Feather trail 0 · today's start 0 · active flock 0
+  D1 human: Human placed Seeds at space 1.
+  D1 ai: AI placed Seeds at space 1.
+  D1 human: Human settled down at space 1.
+
+ai: Settle down
+Day 1/10 · Night · Nest level 1 · World Event: Thick Morning Mist
+Human: 1 Twigs · space 1 · Exhaustion 0/5 · bag 12 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 3 frozen Sleep; 3 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 1 · Exhaustion 0/5 · bag 12 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 3 frozen Sleep; 3 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D1 human: Human rests at 1: 1 Twigs today, 3 Sleep.
+  D1 human: Human is a Most Rested Duck.
+  D1 ai: AI rests at 1: 1 Twigs today, 3 Sleep.
+  D1 ai: AI is a Most Rested Duck.
+
+human: Buy Seeds for 3 Sleep
+Day 1/10 · Night · Nest level 1 · World Event: Thick Morning Mist
+Human: 1 Twigs · space 1 · Exhaustion 0/5 · bag 12 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 1 · Exhaustion 0/5 · bag 12 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 3 frozen Sleep; 3 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D1 human: Human is a Most Rested Duck.
+  D1 ai: AI rests at 1: 1 Twigs today, 3 Sleep.
+  D1 ai: AI is a Most Rested Duck.
+  D1 human: Human buys Seeds for 3 Sleep; it enters tomorrow's bag.
+
+ai: Buy Seeds for 3 Sleep
+Day 1/10 · Night · Nest level 1 · World Event: Thick Morning Mist
+Human: 1 Twigs · space 1 · Exhaustion 0/5 · bag 12 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 1 · Exhaustion 0/5 · bag 12 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D1 ai: AI rests at 1: 1 Twigs today, 3 Sleep.
+  D1 ai: AI is a Most Rested Duck.
+  D1 human: Human buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D1 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+
+human: Finish Dream choices
+Day 1/10 · Night · Nest level 1 · World Event: Thick Morning Mist
+Human: 1 Twigs · space 1 · Exhaustion 0/5 · bag 12 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 1 · Exhaustion 0/5 · bag 12 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D1 ai: AI is a Most Rested Duck.
+  D1 human: Human buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D1 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D1 human: Human finishes Dream choices; unspent Sleep expires.
+
+ai: Finish Dream choices
+Day 1/10 · DayComplete · Nest level 1 · World Event: Thick Morning Mist
+Human: 1 Twigs · space 1 · Exhaustion 0/5 · bag 12 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 1 · Exhaustion 0/5 · bag 12 · resting
+  Feather trail 0 · today's start 0 · active flock 0 · zzz for tomorrow
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D1 human: Human buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D1 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D1 human: Human finishes Dream choices; unspent Sleep expires.
+  D1 ai: AI finishes Dream choices; unspent Sleep expires.
+
+human: Start Day 2
+Day 2/10 · Adventure · Nest level 1 · World Event: A Friendly Guide
+Human: 1 Twigs · space 1 · Exhaustion 0/5 · bag 14
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 1 · Exhaustion 0/5 · bag 14
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D1 ai: AI finishes Dream choices; unspent Sleep expires.
+  D2 human: Human starts Day 2 at 1: trail 0, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D2 ai: AI starts Day 2 at 1: trail 0, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D2 : World Event: A Friendly Guide.
+
+ai: Explore
+Day 2/10 · Adventure · Nest level 1 · World Event: A Friendly Guide
+Human: 1 Twigs · space 1 · Exhaustion 0/5 · bag 14
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 2 · Exhaustion 1/5 · bag 13
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D2 human: Human starts Day 2 at 1: trail 0, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D2 ai: AI starts Day 2 at 1: trail 0, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D2 : World Event: A Friendly Guide.
+  D2 ai: AI placed Loose pebbles at space 2.
+
+human: Explore
+Day 2/10 · Adventure · Nest level 1 · World Event: A Friendly Guide
+Human: 1 Twigs · space 2 · Exhaustion 1/5 · bag 13
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 2 · Exhaustion 1/5 · bag 13
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D2 ai: AI starts Day 2 at 1: trail 0, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D2 : World Event: A Friendly Guide.
+  D2 ai: AI placed Loose pebbles at space 2.
+  D2 human: Human placed Mud puddle at space 2.
+
+ai: Explore
+Day 2/10 · Adventure · Nest level 1 · World Event: A Friendly Guide
+Human: 1 Twigs · space 2 · Exhaustion 1/5 · bag 13
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 3 · Exhaustion 2/5 · bag 12
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D2 : World Event: A Friendly Guide.
+  D2 ai: AI placed Loose pebbles at space 2.
+  D2 human: Human placed Mud puddle at space 2.
+  D2 ai: AI placed Fallen log at space 3.
+
+human: Explore
+Day 2/10 · Adventure · Nest level 1 · World Event: A Friendly Guide
+Human: 1 Twigs · space 4 · Exhaustion 1/5 · bag 12
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 3 · Exhaustion 2/5 · bag 12
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D2 ai: AI placed Loose pebbles at space 2.
+  D2 human: Human placed Mud puddle at space 2.
+  D2 ai: AI placed Fallen log at space 3.
+  D2 human: Human placed Tailwind 2 at space 4.
+
+ai: Explore
+Day 2/10 · Adventure · Nest level 1 · World Event: A Friendly Guide
+Human: 1 Twigs · space 4 · Exhaustion 1/5 · bag 12
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 4 · Exhaustion 2/5 · bag 11
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D2 human: Human placed Mud puddle at space 2.
+  D2 ai: AI placed Fallen log at space 3.
+  D2 human: Human placed Tailwind 2 at space 4.
+  D2 ai: AI placed Seeds at space 4.
+
+human: Settle down
+Day 2/10 · Adventure · Nest level 1 · World Event: A Friendly Guide
+Human: 1 Twigs · space 4 · Exhaustion 1/5 · bag 12 · resting
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 1 Twigs · space 4 · Exhaustion 2/5 · bag 11
+  Feather trail 0 · today's start 1 · active flock 0 · active zzz +1
+  Night 1: 3 frozen Sleep; 0 available now. Twigs earned 1; Feathers 0 · Most Rested
+  Sleep: printed 3, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 3.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D2 ai: AI placed Fallen log at space 3.
+  D2 human: Human placed Tailwind 2 at space 4.
+  D2 ai: AI placed Seeds at space 4.
+  D2 human: Human settled down at space 4.
+
+ai: Settle down
+Day 2/10 · Night · Nest level 1 · World Event: A Friendly Guide
+Human: 2 Twigs · space 4 · Exhaustion 1/5 · bag 12 · resting
+  Feather trail 1 · today's start 1 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 2: 6 frozen Sleep; 6 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 2/5 · bag 11 · resting
+  Feather trail 1 · today's start 1 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 2: 6 frozen Sleep; 6 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D2 human: Human is a Most Rested Duck.
+  D2 ai: AI gains 1 Feather(s) from haven.
+  D2 ai: AI rests at 4: 1 Twigs today, 6 Sleep.
+  D2 ai: AI is a Most Rested Duck.
+
+human: Buy Nesting reeds 1 for 6 Sleep
+Day 2/10 · Night · Nest level 1 · World Event: A Friendly Guide
+Human: 2 Twigs · space 4 · Exhaustion 1/5 · bag 12 · resting
+  Feather trail 1 · today's start 1 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 2/5 · bag 11 · resting
+  Feather trail 1 · today's start 1 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 2: 6 frozen Sleep; 6 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D2 ai: AI gains 1 Feather(s) from haven.
+  D2 ai: AI rests at 4: 1 Twigs today, 6 Sleep.
+  D2 ai: AI is a Most Rested Duck.
+  D2 human: Human buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+
+ai: Buy Nesting reeds 1 for 6 Sleep
+Day 2/10 · Night · Nest level 1 · World Event: A Friendly Guide
+Human: 2 Twigs · space 4 · Exhaustion 1/5 · bag 12 · resting
+  Feather trail 1 · today's start 1 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 2/5 · bag 11 · resting
+  Feather trail 1 · today's start 1 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D2 ai: AI rests at 4: 1 Twigs today, 6 Sleep.
+  D2 ai: AI is a Most Rested Duck.
+  D2 human: Human buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D2 ai: AI buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+
+human: Finish Dream choices
+Day 2/10 · Night · Nest level 1 · World Event: A Friendly Guide
+Human: 2 Twigs · space 4 · Exhaustion 1/5 · bag 12 · resting
+  Feather trail 1 · today's start 1 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 2/5 · bag 11 · resting
+  Feather trail 1 · today's start 1 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D2 ai: AI is a Most Rested Duck.
+  D2 human: Human buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D2 ai: AI buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D2 human: Human finishes Dream choices; unspent Sleep expires.
+
+ai: Finish Dream choices
+Day 2/10 · DayComplete · Nest level 1 · World Event: A Friendly Guide
+Human: 2 Twigs · space 4 · Exhaustion 1/5 · bag 12 · resting
+  Feather trail 1 · today's start 1 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 2/5 · bag 11 · resting
+  Feather trail 1 · today's start 1 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D2 human: Human buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D2 ai: AI buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D2 human: Human finishes Dream choices; unspent Sleep expires.
+  D2 ai: AI finishes Dream choices; unspent Sleep expires.
+
+human: Start Day 3
+Day 3/10 · Adventure · Nest level 1 · World Event: Shared Supper
+Human: 2 Twigs · space 2 · Exhaustion 0/5 · bag 15
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 2 · Exhaustion 0/5 · bag 15
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D2 ai: AI finishes Dream choices; unspent Sleep expires.
+  D3 human: Human starts Day 3 at 2: trail 1, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D3 ai: AI starts Day 3 at 2: trail 1, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D3 : World Event: Shared Supper.
+
+ai: Explore
+Day 3/10 · Adventure · Nest level 1 · World Event: Shared Supper
+Human: 2 Twigs · space 2 · Exhaustion 0/5 · bag 15
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 0/5 · bag 14
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 human: Human starts Day 3 at 2: trail 1, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D3 ai: AI starts Day 3 at 2: trail 1, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D3 : World Event: Shared Supper.
+  D3 ai: AI placed Tailwind 2 at space 4.
+
+human: Explore
+Day 3/10 · Adventure · Nest level 1 · World Event: Shared Supper
+Human: 2 Twigs · space 3 · Exhaustion 1/5 · bag 14
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 0/5 · bag 14
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 ai: AI starts Day 3 at 2: trail 1, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D3 : World Event: Shared Supper.
+  D3 ai: AI placed Tailwind 2 at space 4.
+  D3 human: Human placed Brambles at space 3.
+
+ai: Settle down
+Day 3/10 · Adventure · Nest level 1 · World Event: Shared Supper
+Human: 2 Twigs · space 3 · Exhaustion 1/5 · bag 14
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 : World Event: Shared Supper.
+  D3 ai: AI placed Tailwind 2 at space 4.
+  D3 human: Human placed Brambles at space 3.
+  D3 ai: AI settled down at space 4.
+
+human: Explore
+Day 3/10 · Adventure · Nest level 1 · World Event: Shared Supper
+Human: 2 Twigs · space 5 · Exhaustion 1/5 · bag 13
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 ai: AI placed Tailwind 2 at space 4.
+  D3 human: Human placed Brambles at space 3.
+  D3 ai: AI settled down at space 4.
+  D3 human: Human placed Tailwind 2 at space 5.
+
+human: Explore
+Day 3/10 · Adventure · Nest level 1 · World Event: Shared Supper
+Human: 2 Twigs · space 6 · Exhaustion 2/5 · bag 12
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 human: Human placed Brambles at space 3.
+  D3 ai: AI settled down at space 4.
+  D3 human: Human placed Tailwind 2 at space 5.
+  D3 human: Human placed Mud puddle at space 6.
+
+human: Explore
+Day 3/10 · Adventure · Nest level 1 · World Event: Shared Supper
+Human: 2 Twigs · space 7 · Exhaustion 3/5 · bag 11
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 ai: AI settled down at space 4.
+  D3 human: Human placed Tailwind 2 at space 5.
+  D3 human: Human placed Mud puddle at space 6.
+  D3 human: Human placed Mud puddle at space 7.
+
+human: Explore
+Day 3/10 · Adventure · Nest level 1 · World Event: Shared Supper
+Human: 2 Twigs · space 8 · Exhaustion 4/5 · bag 10
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 human: Human placed Tailwind 2 at space 5.
+  D3 human: Human placed Mud puddle at space 6.
+  D3 human: Human placed Mud puddle at space 7.
+  D3 human: Human placed Loose pebbles at space 8.
+
+human: Explore
+Day 3/10 · Adventure · Nest level 1 · World Event: Shared Supper
+Human: 2 Twigs · space 9 · Exhaustion 5/5 · bag 9
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 human: Human placed Mud puddle at space 6.
+  D3 human: Human placed Mud puddle at space 7.
+  D3 human: Human placed Loose pebbles at space 8.
+  D3 human: Human placed Brambles at space 9.
+
+human: Explore
+Day 3/10 · Adventure · Nest level 1 · World Event: Shared Supper
+Human: 2 Twigs · space 11 · Exhaustion 5/5 · bag 8
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+Private preview for human, in order: splash
+  D3 human: Human placed Mud puddle at space 7.
+  D3 human: Human placed Loose pebbles at space 8.
+  D3 human: Human placed Brambles at space 9.
+  D3 human: Human placed Signpost at space 11.
+
+human: Explore
+Day 3/10 · Adventure · Nest level 1 · World Event: Shared Supper
+Human: 2 Twigs · space 12 · Exhaustion 5/5 · bag 7
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 2 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 2: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 human: Human placed Loose pebbles at space 8.
+  D3 human: Human placed Brambles at space 9.
+  D3 human: Human placed Signpost at space 11.
+  D3 human: Human placed Refreshing splash at space 12.
+
+human: Settle down
+Day 3/10 · Night · Nest level 1 · World Event: Shared Supper
+Human: 5 Twigs · space 12 · Exhaustion 5/5 · bag 7 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 3: 8 frozen Sleep; 8 available now. Twigs earned 3; Feathers 0 · Most Rested
+  Sleep: printed 8, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 3 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 2 · today's start 2 · active flock 0 · active zzz +1
+  Night 3: 6 frozen Sleep; 6 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 human: Human rests at 12: 3 Twigs today, 8 Sleep.
+  D3 human: Human is a Most Rested Duck.
+  D3 ai: AI gains 1 Feather(s) from haven.
+  D3 ai: AI rests at 4: 1 Twigs today, 6 Sleep.
+
+ai: Buy Refreshing splash for 4 Sleep
+Day 3/10 · Night · Nest level 1 · World Event: Shared Supper
+Human: 5 Twigs · space 12 · Exhaustion 5/5 · bag 7 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 3: 8 frozen Sleep; 8 available now. Twigs earned 3; Feathers 0 · Most Rested
+  Sleep: printed 8, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 3 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 2 · today's start 2 · active flock 0 · active zzz +1
+  Night 3: 6 frozen Sleep; 2 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 human: Human is a Most Rested Duck.
+  D3 ai: AI gains 1 Feather(s) from haven.
+  D3 ai: AI rests at 4: 1 Twigs today, 6 Sleep.
+  D3 ai: AI buys Refreshing splash for 4 Sleep; it enters tomorrow's bag.
+
+human: Buy Companion duck for 7 Sleep
+Day 3/10 · Night · Nest level 1 · World Event: Shared Supper
+Human: 5 Twigs · space 12 · Exhaustion 5/5 · bag 7 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 3: 8 frozen Sleep; 1 available now. Twigs earned 3; Feathers 0 · Most Rested
+  Sleep: printed 8, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 3 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 2 · today's start 2 · active flock 0 · active zzz +1
+  Night 3: 6 frozen Sleep; 2 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 ai: AI gains 1 Feather(s) from haven.
+  D3 ai: AI rests at 4: 1 Twigs today, 6 Sleep.
+  D3 ai: AI buys Refreshing splash for 4 Sleep; it enters tomorrow's bag.
+  D3 human: Human buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+
+ai: Finish Dream choices
+Day 3/10 · Night · Nest level 1 · World Event: Shared Supper
+Human: 5 Twigs · space 12 · Exhaustion 5/5 · bag 7 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 3: 8 frozen Sleep; 1 available now. Twigs earned 3; Feathers 0 · Most Rested
+  Sleep: printed 8, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 3 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 2 · today's start 2 · active flock 0 · active zzz +1
+  Night 3: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 ai: AI rests at 4: 1 Twigs today, 6 Sleep.
+  D3 ai: AI buys Refreshing splash for 4 Sleep; it enters tomorrow's bag.
+  D3 human: Human buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D3 ai: AI finishes Dream choices; unspent Sleep expires.
+
+human: Finish Dream choices
+Day 3/10 · DayComplete · Nest level 1 · World Event: Shared Supper
+Human: 5 Twigs · space 12 · Exhaustion 5/5 · bag 7 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 3: 8 frozen Sleep; 0 available now. Twigs earned 3; Feathers 0 · Most Rested
+  Sleep: printed 8, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 3 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 2 · today's start 2 · active flock 0 · active zzz +1
+  Night 3: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 ai: AI buys Refreshing splash for 4 Sleep; it enters tomorrow's bag.
+  D3 human: Human buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D3 ai: AI finishes Dream choices; unspent Sleep expires.
+  D3 human: Human finishes Dream choices; unspent Sleep expires.
+
+ai: Start Day 4
+Day 4/10 · Adventure · Nest level 2 · World Event: All Tucked In
+Human: 5 Twigs · space 2 · Exhaustion 0/5 · bag 16
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 3: 8 frozen Sleep; 0 available now. Twigs earned 3; Feathers 0 · Most Rested
+  Sleep: printed 8, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 3 Twigs · space 2 · Exhaustion 0/5 · bag 16
+  Feather trail 2 · today's start 2 · active flock 0
+  Night 3: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D3 human: Human finishes Dream choices; unspent Sleep expires.
+  D4 human: Human starts Day 4 at 2: trail 1, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D4 ai: AI starts Day 4 at 2: trail 2, temporary Most Rested 0; Dawn deficit 2 gave 0 Feather(s).
+  D4 : World Event: All Tucked In.
+
+human: Explore
+Day 4/10 · Adventure · Nest level 2 · World Event: All Tucked In
+Human: 5 Twigs · space 3 · Exhaustion 1/5 · bag 15
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 3: 8 frozen Sleep; 0 available now. Twigs earned 3; Feathers 0 · Most Rested
+  Sleep: printed 8, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 3 Twigs · space 2 · Exhaustion 0/5 · bag 16
+  Feather trail 2 · today's start 2 · active flock 0
+  Night 3: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D4 human: Human starts Day 4 at 2: trail 1, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D4 ai: AI starts Day 4 at 2: trail 2, temporary Most Rested 0; Dawn deficit 2 gave 0 Feather(s).
+  D4 : World Event: All Tucked In.
+  D4 human: Human placed Fallen log at space 3.
+
+ai: Explore
+Day 4/10 · Adventure · Nest level 2 · World Event: All Tucked In
+Human: 5 Twigs · space 3 · Exhaustion 1/5 · bag 15
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 3: 8 frozen Sleep; 0 available now. Twigs earned 3; Feathers 0 · Most Rested
+  Sleep: printed 8, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 3 Twigs · space 3 · Exhaustion 0/5 · bag 15
+  Feather trail 2 · today's start 2 · active flock 0
+  Night 3: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D4 ai: AI starts Day 4 at 2: trail 2, temporary Most Rested 0; Dawn deficit 2 gave 0 Feather(s).
+  D4 : World Event: All Tucked In.
+  D4 human: Human placed Fallen log at space 3.
+  D4 ai: AI placed Refreshing splash at space 3.
+
+human: Explore
+Day 4/10 · Adventure · Nest level 2 · World Event: All Tucked In
+Human: 5 Twigs · space 4 · Exhaustion 1/5 · bag 14
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 3: 8 frozen Sleep; 0 available now. Twigs earned 3; Feathers 0 · Most Rested
+  Sleep: printed 8, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 3 Twigs · space 3 · Exhaustion 0/5 · bag 15
+  Feather trail 2 · today's start 2 · active flock 0
+  Night 3: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D4 : World Event: All Tucked In.
+  D4 human: Human placed Fallen log at space 3.
+  D4 ai: AI placed Refreshing splash at space 3.
+  D4 human: Human placed Seeds at space 4.
+
+ai: Explore
+Day 4/10 · Adventure · Nest level 2 · World Event: All Tucked In
+Human: 5 Twigs · space 4 · Exhaustion 1/5 · bag 14
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 3: 8 frozen Sleep; 0 available now. Twigs earned 3; Feathers 0 · Most Rested
+  Sleep: printed 8, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 3 Twigs · space 4 · Exhaustion 0/5 · bag 14
+  Feather trail 2 · today's start 2 · active flock 0
+  Night 3: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D4 human: Human placed Fallen log at space 3.
+  D4 ai: AI placed Refreshing splash at space 3.
+  D4 human: Human placed Seeds at space 4.
+  D4 ai: AI placed Refreshing splash at space 4.
+
+human: Settle down
+Day 4/10 · Adventure · Nest level 2 · World Event: All Tucked In
+Human: 5 Twigs · space 4 · Exhaustion 1/5 · bag 14 · resting
+  Feather trail 1 · today's start 2 · active flock 0 · active zzz +1
+  Night 3: 8 frozen Sleep; 0 available now. Twigs earned 3; Feathers 0 · Most Rested
+  Sleep: printed 8, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 3 Twigs · space 4 · Exhaustion 0/5 · bag 14
+  Feather trail 2 · today's start 2 · active flock 0
+  Night 3: 6 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 6.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D4 ai: AI placed Refreshing splash at space 3.
+  D4 human: Human placed Seeds at space 4.
+  D4 ai: AI placed Refreshing splash at space 4.
+  D4 human: Human settled down at space 4.
+
+ai: Settle down
+Day 4/10 · Night · Nest level 2 · World Event: All Tucked In
+Human: 6 Twigs · space 4 · Exhaustion 1/5 · bag 14 · resting
+  Feather trail 2 · today's start 2 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 4: 8 frozen Sleep; 8 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 4 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 3 · today's start 2 · active flock 0 · zzz for tomorrow
+  Night 4: 8 frozen Sleep; 8 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D4 human: Human is a Most Rested Duck.
+  D4 ai: AI gains 1 Feather(s) from haven.
+  D4 ai: AI rests at 4: 1 Twigs today, 8 Sleep.
+  D4 ai: AI is a Most Rested Duck.
+
+human: Buy Companion duck for 7 Sleep
+Day 4/10 · Night · Nest level 2 · World Event: All Tucked In
+Human: 6 Twigs · space 4 · Exhaustion 1/5 · bag 14 · resting
+  Feather trail 2 · today's start 2 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 4: 8 frozen Sleep; 1 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 4 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 3 · today's start 2 · active flock 0 · zzz for tomorrow
+  Night 4: 8 frozen Sleep; 8 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D4 ai: AI gains 1 Feather(s) from haven.
+  D4 ai: AI rests at 4: 1 Twigs today, 8 Sleep.
+  D4 ai: AI is a Most Rested Duck.
+  D4 human: Human buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+
+ai: Buy Companion duck for 7 Sleep
+Day 4/10 · Night · Nest level 2 · World Event: All Tucked In
+Human: 6 Twigs · space 4 · Exhaustion 1/5 · bag 14 · resting
+  Feather trail 2 · today's start 2 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 4: 8 frozen Sleep; 1 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 4 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 3 · today's start 2 · active flock 0 · zzz for tomorrow
+  Night 4: 8 frozen Sleep; 1 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D4 ai: AI rests at 4: 1 Twigs today, 8 Sleep.
+  D4 ai: AI is a Most Rested Duck.
+  D4 human: Human buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D4 ai: AI buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+
+human: Finish Dream choices
+Day 4/10 · Night · Nest level 2 · World Event: All Tucked In
+Human: 6 Twigs · space 4 · Exhaustion 1/5 · bag 14 · resting
+  Feather trail 2 · today's start 2 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 4 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 3 · today's start 2 · active flock 0 · zzz for tomorrow
+  Night 4: 8 frozen Sleep; 1 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D4 ai: AI is a Most Rested Duck.
+  D4 human: Human buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D4 ai: AI buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D4 human: Human finishes Dream choices; unspent Sleep expires.
+
+ai: Finish Dream choices
+Day 4/10 · DayComplete · Nest level 2 · World Event: All Tucked In
+Human: 6 Twigs · space 4 · Exhaustion 1/5 · bag 14 · resting
+  Feather trail 2 · today's start 2 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 4 Twigs · space 4 · Exhaustion 0/5 · bag 14 · resting
+  Feather trail 3 · today's start 2 · active flock 0 · zzz for tomorrow
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D4 human: Human buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D4 ai: AI buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D4 human: Human finishes Dream choices; unspent Sleep expires.
+  D4 ai: AI finishes Dream choices; unspent Sleep expires.
+
+human: Start Day 5
+Day 5/10 · Adventure · Nest level 2 · World Event: Home Before Dark
+Human: 6 Twigs · space 3 · Exhaustion 0/5 · bag 18
+  Feather trail 2 · today's start 3 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 4 Twigs · space 4 · Exhaustion 0/5 · bag 18
+  Feather trail 3 · today's start 4 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D4 ai: AI finishes Dream choices; unspent Sleep expires.
+  D5 human: Human starts Day 5 at 3: trail 2, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D5 ai: AI starts Day 5 at 4: trail 3, temporary Most Rested 1; Dawn deficit 2 gave 0 Feather(s).
+  D5 : World Event: Home Before Dark.
+
+ai: Explore
+Day 5/10 · Adventure · Nest level 2 · World Event: Home Before Dark
+Human: 6 Twigs · space 3 · Exhaustion 0/5 · bag 18
+  Feather trail 2 · today's start 3 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 5 Twigs · space 5 · Exhaustion 0/5 · bag 17
+  Feather trail 3 · today's start 4 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D5 human: Human starts Day 5 at 3: trail 2, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D5 ai: AI starts Day 5 at 4: trail 3, temporary Most Rested 1; Dawn deficit 2 gave 0 Feather(s).
+  D5 : World Event: Home Before Dark.
+  D5 ai: AI placed Nesting reeds 1 at space 5.
+
+human: Explore
+Day 5/10 · Adventure · Nest level 2 · World Event: Home Before Dark
+Human: 6 Twigs · space 4 · Exhaustion 1/5 · bag 17
+  Feather trail 2 · today's start 3 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 5 Twigs · space 5 · Exhaustion 0/5 · bag 17
+  Feather trail 3 · today's start 4 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D5 ai: AI starts Day 5 at 4: trail 3, temporary Most Rested 1; Dawn deficit 2 gave 0 Feather(s).
+  D5 : World Event: Home Before Dark.
+  D5 ai: AI placed Nesting reeds 1 at space 5.
+  D5 human: Human placed Fallen log at space 4.
+
+ai: Explore
+Day 5/10 · Adventure · Nest level 2 · World Event: Home Before Dark
+Human: 6 Twigs · space 4 · Exhaustion 1/5 · bag 17
+  Feather trail 2 · today's start 3 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 5 Twigs · space 6 · Exhaustion 1/4 · bag 16
+  Feather trail 3 · today's start 4 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D5 : World Event: Home Before Dark.
+  D5 ai: AI placed Nesting reeds 1 at space 5.
+  D5 human: Human placed Fallen log at space 4.
+  D5 ai: AI placed Grumpy Goose at space 6.
+
+human: Settle down
+Day 5/10 · Adventure · Nest level 2 · World Event: Home Before Dark
+Human: 6 Twigs · space 4 · Exhaustion 1/5 · bag 17 · resting
+  Feather trail 2 · today's start 3 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 5 Twigs · space 6 · Exhaustion 1/4 · bag 16
+  Feather trail 3 · today's start 4 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D5 ai: AI placed Nesting reeds 1 at space 5.
+  D5 human: Human placed Fallen log at space 4.
+  D5 ai: AI placed Grumpy Goose at space 6.
+  D5 human: Human settled down at space 4.
+
+ai: Explore
+Day 5/10 · Adventure · Nest level 2 · World Event: Home Before Dark
+Human: 6 Twigs · space 4 · Exhaustion 1/5 · bag 17 · resting
+  Feather trail 2 · today's start 3 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 5 Twigs · space 7 · Exhaustion 1/4 · bag 15
+  Feather trail 3 · today's start 4 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D5 human: Human placed Fallen log at space 4.
+  D5 ai: AI placed Grumpy Goose at space 6.
+  D5 human: Human settled down at space 4.
+  D5 ai: AI placed Seeds at space 7.
+
+ai: Explore
+Day 5/10 · Adventure · Nest level 2 · World Event: Home Before Dark
+Human: 6 Twigs · space 4 · Exhaustion 1/5 · bag 17 · resting
+  Feather trail 2 · today's start 3 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 5 Twigs · space 8 · Exhaustion 2/4 · bag 14
+  Feather trail 3 · today's start 4 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D5 ai: AI placed Grumpy Goose at space 6.
+  D5 human: Human settled down at space 4.
+  D5 ai: AI placed Seeds at space 7.
+  D5 ai: AI placed Brambles at space 8.
+
+ai: Explore
+Day 5/10 · Adventure · Nest level 2 · World Event: Home Before Dark
+Human: 6 Twigs · space 4 · Exhaustion 1/5 · bag 17 · resting
+  Feather trail 2 · today's start 3 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 5 Twigs · space 10 · Exhaustion 2/4 · bag 13
+  Feather trail 3 · today's start 4 · active flock 0 · active zzz +1
+  Night 4: 8 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1 · Most Rested
+  Sleep: printed 6, Flowers +0, final haven +0, event +2, flock +0, Restless Night -0, Pebbles -0; before wear 8.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+  D5 human: Human settled down at space 4.
+  D5 ai: AI placed Seeds at space 7.
+  D5 ai: AI placed Brambles at space 8.
+  D5 ai: AI placed Tailwind 2 at space 10.
+
+ai: Settle down
+Day 5/10 · Night · Nest level 2 · World Event: Home Before Dark
+Human: 7 Twigs · space 4 · Exhaustion 1/5 · bag 17 · resting
+  Feather trail 3 · today's start 3 · active flock 0 · active zzz +1
+  Night 5: 7 frozen Sleep; 7 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 2/4 · bag 13 · resting
+  Feather trail 4 · today's start 4 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 5: 11 frozen Sleep; 11 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D5 human: Human rests at 4: 1 Twigs today, 7 Sleep.
+  D5 ai: AI gains 1 Feather(s) from haven.
+  D5 ai: AI rests at 10: 4 Twigs today, 11 Sleep.
+  D5 ai: AI is a Most Rested Duck.
+
+human: Buy Companion duck for 7 Sleep
+Day 5/10 · Night · Nest level 2 · World Event: Home Before Dark
+Human: 7 Twigs · space 4 · Exhaustion 1/5 · bag 17 · resting
+  Feather trail 3 · today's start 3 · active flock 0 · active zzz +1
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 2/4 · bag 13 · resting
+  Feather trail 4 · today's start 4 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 5: 11 frozen Sleep; 11 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D5 ai: AI gains 1 Feather(s) from haven.
+  D5 ai: AI rests at 10: 4 Twigs today, 11 Sleep.
+  D5 ai: AI is a Most Rested Duck.
+  D5 human: Human buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+
+ai: Buy Tailwind 4 for 10 Sleep
+Day 5/10 · Night · Nest level 2 · World Event: Home Before Dark
+Human: 7 Twigs · space 4 · Exhaustion 1/5 · bag 17 · resting
+  Feather trail 3 · today's start 3 · active flock 0 · active zzz +1
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 2/4 · bag 13 · resting
+  Feather trail 4 · today's start 4 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 5: 11 frozen Sleep; 1 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D5 ai: AI rests at 10: 4 Twigs today, 11 Sleep.
+  D5 ai: AI is a Most Rested Duck.
+  D5 human: Human buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D5 ai: AI buys Tailwind 4 for 10 Sleep; it enters tomorrow's bag.
+
+human: Finish Dream choices
+Day 5/10 · Night · Nest level 2 · World Event: Home Before Dark
+Human: 7 Twigs · space 4 · Exhaustion 1/5 · bag 17 · resting
+  Feather trail 3 · today's start 3 · active flock 0 · active zzz +1
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 2/4 · bag 13 · resting
+  Feather trail 4 · today's start 4 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 5: 11 frozen Sleep; 1 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D5 ai: AI is a Most Rested Duck.
+  D5 human: Human buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D5 ai: AI buys Tailwind 4 for 10 Sleep; it enters tomorrow's bag.
+  D5 human: Human finishes Dream choices; unspent Sleep expires.
+
+ai: Finish Dream choices
+Day 5/10 · DayComplete · Nest level 2 · World Event: Home Before Dark
+Human: 7 Twigs · space 4 · Exhaustion 1/5 · bag 17 · resting
+  Feather trail 3 · today's start 3 · active flock 0 · active zzz +1
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 2/4 · bag 13 · resting
+  Feather trail 4 · today's start 4 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 5: 11 frozen Sleep; 0 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D5 human: Human buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D5 ai: AI buys Tailwind 4 for 10 Sleep; it enters tomorrow's bag.
+  D5 human: Human finishes Dream choices; unspent Sleep expires.
+  D5 ai: AI finishes Dream choices; unspent Sleep expires.
+
+human: Start Day 6
+Day 6/10 · Adventure · Nest level 2 · World Event: Sunlit Signboards
+Human: 7 Twigs · space 3 · Exhaustion 0/5 · bag 19
+  Feather trail 3 · today's start 3 · active flock 0
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 5 · Exhaustion 0/5 · bag 19
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 5: 11 frozen Sleep; 0 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D5 ai: AI finishes Dream choices; unspent Sleep expires.
+  D6 human: Human starts Day 6 at 3: trail 3, temporary Most Rested 0; Dawn deficit 1 gave 0 Feather(s).
+  D6 ai: AI starts Day 6 at 5: trail 4, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D6 : World Event: Sunlit Signboards.
+
+ai: Explore
+Day 6/10 · Adventure · Nest level 2 · World Event: Sunlit Signboards
+Human: 7 Twigs · space 3 · Exhaustion 0/5 · bag 19
+  Feather trail 3 · today's start 3 · active flock 0
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 6 · Exhaustion 0/5 · bag 18
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 5: 11 frozen Sleep; 0 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D6 human: Human starts Day 6 at 3: trail 3, temporary Most Rested 0; Dawn deficit 1 gave 0 Feather(s).
+  D6 ai: AI starts Day 6 at 5: trail 4, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D6 : World Event: Sunlit Signboards.
+  D6 ai: AI placed Seeds at space 6.
+
+human: Explore
+Day 6/10 · Adventure · Nest level 2 · World Event: Sunlit Signboards
+Human: 7 Twigs · space 4 · Exhaustion 1/5 · bag 18
+  Feather trail 3 · today's start 3 · active flock 0
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 6 · Exhaustion 0/5 · bag 18
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 5: 11 frozen Sleep; 0 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D6 ai: AI starts Day 6 at 5: trail 4, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D6 : World Event: Sunlit Signboards.
+  D6 ai: AI placed Seeds at space 6.
+  D6 human: Human placed Loose pebbles at space 4.
+
+ai: Explore
+Day 6/10 · Adventure · Nest level 2 · World Event: Sunlit Signboards
+Human: 7 Twigs · space 4 · Exhaustion 1/5 · bag 18
+  Feather trail 3 · today's start 3 · active flock 0
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 0/5 · bag 17
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 5: 11 frozen Sleep; 0 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D6 : World Event: Sunlit Signboards.
+  D6 ai: AI placed Seeds at space 6.
+  D6 human: Human placed Loose pebbles at space 4.
+  D6 ai: AI placed Tailwind 4 at space 10.
+
+human: Explore
+Day 6/10 · Adventure · Nest level 2 · World Event: Sunlit Signboards
+Human: 7 Twigs · space 5 · Exhaustion 2/5 · bag 17
+  Feather trail 3 · today's start 3 · active flock 0
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 0/5 · bag 17
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 5: 11 frozen Sleep; 0 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D6 ai: AI placed Seeds at space 6.
+  D6 human: Human placed Loose pebbles at space 4.
+  D6 ai: AI placed Tailwind 4 at space 10.
+  D6 human: Human placed Loose pebbles at space 5.
+
+ai: Settle down
+Day 6/10 · Adventure · Nest level 2 · World Event: Sunlit Signboards
+Human: 7 Twigs · space 5 · Exhaustion 2/5 · bag 17
+  Feather trail 3 · today's start 3 · active flock 0
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 0/5 · bag 17 · resting
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 5: 11 frozen Sleep; 0 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D6 human: Human placed Loose pebbles at space 4.
+  D6 ai: AI placed Tailwind 4 at space 10.
+  D6 human: Human placed Loose pebbles at space 5.
+  D6 ai: AI settled down at space 10.
+
+human: Explore
+Day 6/10 · Adventure · Nest level 2 · World Event: Sunlit Signboards
+Human: 7 Twigs · space 6 · Exhaustion 3/5 · bag 16
+  Feather trail 3 · today's start 3 · active flock 0
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 0/5 · bag 17 · resting
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 5: 11 frozen Sleep; 0 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D6 ai: AI placed Tailwind 4 at space 10.
+  D6 human: Human placed Loose pebbles at space 5.
+  D6 ai: AI settled down at space 10.
+  D6 human: Human placed Mud puddle at space 6.
+
+human: Explore
+Day 6/10 · Adventure · Nest level 2 · World Event: Sunlit Signboards
+Human: 7 Twigs · space 7 · Exhaustion 3/5 · bag 15
+  Feather trail 3 · today's start 3 · active flock 0
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 0/5 · bag 17 · resting
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 5: 11 frozen Sleep; 0 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D6 human: Human placed Loose pebbles at space 5.
+  D6 ai: AI settled down at space 10.
+  D6 human: Human placed Mud puddle at space 6.
+  D6 human: Human placed Seeds at space 7.
+
+human: Explore
+Day 6/10 · Adventure · Nest level 2 · World Event: Sunlit Signboards
+Human: 7 Twigs · space 8 · Exhaustion 4/5 · bag 14
+  Feather trail 3 · today's start 3 · active flock 0
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 0/5 · bag 17 · resting
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 5: 11 frozen Sleep; 0 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D6 ai: AI settled down at space 10.
+  D6 human: Human placed Mud puddle at space 6.
+  D6 human: Human placed Seeds at space 7.
+  D6 human: Human placed Fallen log at space 8.
+
+human: Explore
+Day 6/10 · Adventure · Nest level 2 · World Event: Sunlit Signboards
+Human: 7 Twigs · space 9 · Exhaustion 4/5 · bag 13
+  Feather trail 3 · today's start 3 · active flock 1
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 0/5 · bag 17 · resting
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 5: 11 frozen Sleep; 0 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D6 human: Human placed Mud puddle at space 6.
+  D6 human: Human placed Seeds at space 7.
+  D6 human: Human placed Fallen log at space 8.
+  D6 human: Human placed Companion duck at space 9.
+
+human: Explore
+Day 6/10 · Adventure · Nest level 2 · World Event: Sunlit Signboards
+Human: 7 Twigs · space 10 · Exhaustion 5/5 · bag 12
+  Feather trail 3 · today's start 3 · active flock 1
+  Night 5: 7 frozen Sleep; 0 available now. Twigs earned 1; Feathers 1
+  Sleep: printed 6, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 7.
+  Twigs: printed 1, Reeds +0, event +0, Brambles -0.
+AI: 8 Twigs · space 10 · Exhaustion 0/5 · bag 17 · resting
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 5: 11 frozen Sleep; 0 available now. Twigs earned 4; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +1, flock +0, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +1, event +0, Brambles -0.
+  D6 human: Human placed Seeds at space 7.
+  D6 human: Human placed Fallen log at space 8.
+  D6 human: Human placed Companion duck at space 9.
+  D6 human: Human placed Brambles at space 10.
+
+human: Settle down
+Day 6/10 · Night · Nest level 2 · World Event: Sunlit Signboards
+Human: 9 Twigs · space 10 · Exhaustion 5/5 · bag 12 · resting
+  Feather trail 4 · today's start 3 · active flock 1 · zzz for tomorrow
+  Night 6: 11 frozen Sleep; 11 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 10 · Exhaustion 0/5 · bag 17 · resting
+  Feather trail 5 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 10 frozen Sleep; 10 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D6 human: Human rests at 10: 2 Twigs today, 11 Sleep.
+  D6 human: Human is a Most Rested Duck.
+  D6 ai: AI gains 1 Feather(s) from haven.
+  D6 ai: AI rests at 10: 3 Twigs today, 10 Sleep.
+
+ai: Buy Companion duck for 7 Sleep
+Day 6/10 · Night · Nest level 2 · World Event: Sunlit Signboards
+Human: 9 Twigs · space 10 · Exhaustion 5/5 · bag 12 · resting
+  Feather trail 4 · today's start 3 · active flock 1 · zzz for tomorrow
+  Night 6: 11 frozen Sleep; 11 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 10 · Exhaustion 0/5 · bag 17 · resting
+  Feather trail 5 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 10 frozen Sleep; 3 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D6 human: Human is a Most Rested Duck.
+  D6 ai: AI gains 1 Feather(s) from haven.
+  D6 ai: AI rests at 10: 3 Twigs today, 10 Sleep.
+  D6 ai: AI buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+
+human: Buy Tailwind 4 for 10 Sleep
+Day 6/10 · Night · Nest level 2 · World Event: Sunlit Signboards
+Human: 9 Twigs · space 10 · Exhaustion 5/5 · bag 12 · resting
+  Feather trail 4 · today's start 3 · active flock 1 · zzz for tomorrow
+  Night 6: 11 frozen Sleep; 1 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 10 · Exhaustion 0/5 · bag 17 · resting
+  Feather trail 5 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 10 frozen Sleep; 3 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D6 ai: AI gains 1 Feather(s) from haven.
+  D6 ai: AI rests at 10: 3 Twigs today, 10 Sleep.
+  D6 ai: AI buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D6 human: Human buys Tailwind 4 for 10 Sleep; it enters tomorrow's bag.
+
+ai: Buy Seeds for 3 Sleep
+Day 6/10 · Night · Nest level 2 · World Event: Sunlit Signboards
+Human: 9 Twigs · space 10 · Exhaustion 5/5 · bag 12 · resting
+  Feather trail 4 · today's start 3 · active flock 1 · zzz for tomorrow
+  Night 6: 11 frozen Sleep; 1 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 10 · Exhaustion 0/5 · bag 17 · resting
+  Feather trail 5 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D6 ai: AI rests at 10: 3 Twigs today, 10 Sleep.
+  D6 ai: AI buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D6 human: Human buys Tailwind 4 for 10 Sleep; it enters tomorrow's bag.
+  D6 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+
+human: Finish Dream choices
+Day 6/10 · Night · Nest level 2 · World Event: Sunlit Signboards
+Human: 9 Twigs · space 10 · Exhaustion 5/5 · bag 12 · resting
+  Feather trail 4 · today's start 3 · active flock 1 · zzz for tomorrow
+  Night 6: 11 frozen Sleep; 0 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 10 · Exhaustion 0/5 · bag 17 · resting
+  Feather trail 5 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D6 ai: AI buys Companion duck for 7 Sleep; it enters tomorrow's bag.
+  D6 human: Human buys Tailwind 4 for 10 Sleep; it enters tomorrow's bag.
+  D6 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D6 human: Human finishes Dream choices; unspent Sleep expires.
+
+ai: Finish Dream choices
+Day 6/10 · DayComplete · Nest level 2 · World Event: Sunlit Signboards
+Human: 9 Twigs · space 10 · Exhaustion 5/5 · bag 12 · resting
+  Feather trail 4 · today's start 3 · active flock 1 · zzz for tomorrow
+  Night 6: 11 frozen Sleep; 0 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 10 · Exhaustion 0/5 · bag 17 · resting
+  Feather trail 5 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D6 human: Human buys Tailwind 4 for 10 Sleep; it enters tomorrow's bag.
+  D6 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D6 human: Human finishes Dream choices; unspent Sleep expires.
+  D6 ai: AI finishes Dream choices; unspent Sleep expires.
+
+human: Start Day 7
+Day 7/10 · Adventure · Nest level 3 · World Event: Still Air
+Human: 9 Twigs · space 5 · Exhaustion 0/5 · bag 20
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 11 frozen Sleep; 0 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 5 · Exhaustion 0/5 · bag 21
+  Feather trail 5 · today's start 5 · active flock 0
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D6 ai: AI finishes Dream choices; unspent Sleep expires.
+  D7 human: Human starts Day 7 at 5: trail 4, temporary Most Rested 1; Dawn deficit 2 gave 0 Feather(s).
+  D7 ai: AI starts Day 7 at 5: trail 5, temporary Most Rested 0; Dawn deficit 0 gave 0 Feather(s).
+  D7 : World Event: Still Air.
+
+ai: Explore
+Day 7/10 · Adventure · Nest level 3 · World Event: Still Air
+Human: 9 Twigs · space 5 · Exhaustion 0/5 · bag 20
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 11 frozen Sleep; 0 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 6 · Exhaustion 1/4 · bag 20
+  Feather trail 5 · today's start 5 · active flock 0
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 human: Human starts Day 7 at 5: trail 4, temporary Most Rested 1; Dawn deficit 2 gave 0 Feather(s).
+  D7 ai: AI starts Day 7 at 5: trail 5, temporary Most Rested 0; Dawn deficit 0 gave 0 Feather(s).
+  D7 : World Event: Still Air.
+  D7 ai: AI placed Grumpy Goose at space 6.
+
+human: Explore
+Day 7/10 · Adventure · Nest level 3 · World Event: Still Air
+Human: 9 Twigs · space 6 · Exhaustion 0/5 · bag 19
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 11 frozen Sleep; 0 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 6 · Exhaustion 1/4 · bag 20
+  Feather trail 5 · today's start 5 · active flock 0
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 ai: AI starts Day 7 at 5: trail 5, temporary Most Rested 0; Dawn deficit 0 gave 0 Feather(s).
+  D7 : World Event: Still Air.
+  D7 ai: AI placed Grumpy Goose at space 6.
+  D7 human: Human placed Seeds at space 6.
+
+ai: Explore
+Day 7/10 · Adventure · Nest level 3 · World Event: Still Air
+Human: 9 Twigs · space 6 · Exhaustion 0/5 · bag 19
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 11 frozen Sleep; 0 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 8 · Exhaustion 1/4 · bag 19
+  Feather trail 5 · today's start 5 · active flock 0
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 : World Event: Still Air.
+  D7 ai: AI placed Grumpy Goose at space 6.
+  D7 human: Human placed Seeds at space 6.
+  D7 ai: AI placed Tailwind 4 at space 8.
+
+human: Explore
+Day 7/10 · Adventure · Nest level 3 · World Event: Still Air
+Human: 9 Twigs · space 7 · Exhaustion 0/5 · bag 18
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 11 frozen Sleep; 0 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 8 · Exhaustion 1/4 · bag 19
+  Feather trail 5 · today's start 5 · active flock 0
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 ai: AI placed Grumpy Goose at space 6.
+  D7 human: Human placed Seeds at space 6.
+  D7 ai: AI placed Tailwind 4 at space 8.
+  D7 human: Human placed Tailwind 2 at space 7.
+
+ai: Explore
+Day 7/10 · Adventure · Nest level 3 · World Event: Still Air
+Human: 9 Twigs · space 7 · Exhaustion 0/5 · bag 18
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 11 frozen Sleep; 0 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 9 · Exhaustion 2/4 · bag 18
+  Feather trail 5 · today's start 5 · active flock 0
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 human: Human placed Seeds at space 6.
+  D7 ai: AI placed Tailwind 4 at space 8.
+  D7 human: Human placed Tailwind 2 at space 7.
+  D7 ai: AI placed Mud puddle at space 9.
+
+human: Explore
+Day 7/10 · Adventure · Nest level 3 · World Event: Still Air
+Human: 9 Twigs · space 8 · Exhaustion 1/5 · bag 17
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 11 frozen Sleep; 0 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 9 · Exhaustion 2/4 · bag 18
+  Feather trail 5 · today's start 5 · active flock 0
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 ai: AI placed Tailwind 4 at space 8.
+  D7 human: Human placed Tailwind 2 at space 7.
+  D7 ai: AI placed Mud puddle at space 9.
+  D7 human: Human placed Brambles at space 8.
+
+ai: Explore
+Day 7/10 · Adventure · Nest level 3 · World Event: Still Air
+Human: 9 Twigs · space 8 · Exhaustion 1/5 · bag 17
+  Feather trail 4 · today's start 5 · active flock 0 · active zzz +1
+  Night 6: 11 frozen Sleep; 0 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 10 · Exhaustion 2/4 · bag 17
+  Feather trail 5 · today's start 5 · active flock 0
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 human: Human placed Tailwind 2 at space 7.
+  D7 ai: AI placed Mud puddle at space 9.
+  D7 human: Human placed Brambles at space 8.
+  D7 ai: AI placed Refreshing splash at space 10.
+
+human: Explore
+Day 7/10 · Adventure · Nest level 3 · World Event: Still Air
+Human: 9 Twigs · space 10 · Exhaustion 1/5 · bag 16
+  Feather trail 4 · today's start 5 · active flock 1 · active zzz +1
+  Night 6: 11 frozen Sleep; 0 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 10 · Exhaustion 2/4 · bag 17
+  Feather trail 5 · today's start 5 · active flock 0
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 ai: AI placed Mud puddle at space 9.
+  D7 human: Human placed Brambles at space 8.
+  D7 ai: AI placed Refreshing splash at space 10.
+  D7 human: Human placed Companion duck at space 10.
+
+ai: Settle down
+Day 7/10 · Adventure · Nest level 3 · World Event: Still Air
+Human: 9 Twigs · space 10 · Exhaustion 1/5 · bag 16
+  Feather trail 4 · today's start 5 · active flock 1 · active zzz +1
+  Night 6: 11 frozen Sleep; 0 available now. Twigs earned 2; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -1.
+AI: 11 Twigs · space 10 · Exhaustion 2/4 · bag 17 · resting
+  Feather trail 5 · today's start 5 · active flock 0
+  Night 6: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 human: Human placed Brambles at space 8.
+  D7 ai: AI placed Refreshing splash at space 10.
+  D7 human: Human placed Companion duck at space 10.
+  D7 ai: AI settled down at space 10.
+
+human: Settle down
+Day 7/10 · Night · Nest level 3 · World Event: Still Air
+Human: 12 Twigs · space 10 · Exhaustion 1/5 · bag 16 · resting
+  Feather trail 5 · today's start 5 · active flock 1 · active zzz +1 · zzz for tomorrow
+  Night 7: 11 frozen Sleep; 11 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 10 · Exhaustion 2/4 · bag 17 · resting
+  Feather trail 6 · today's start 5 · active flock 0
+  Night 7: 10 frozen Sleep; 10 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 human: Human rests at 10: 3 Twigs today, 11 Sleep.
+  D7 human: Human is a Most Rested Duck.
+  D7 ai: AI gains 1 Feather(s) from haven.
+  D7 ai: AI rests at 10: 3 Twigs today, 10 Sleep.
+
+ai: Buy Nesting reeds 1 for 6 Sleep
+Day 7/10 · Night · Nest level 3 · World Event: Still Air
+Human: 12 Twigs · space 10 · Exhaustion 1/5 · bag 16 · resting
+  Feather trail 5 · today's start 5 · active flock 1 · active zzz +1 · zzz for tomorrow
+  Night 7: 11 frozen Sleep; 11 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 10 · Exhaustion 2/4 · bag 17 · resting
+  Feather trail 6 · today's start 5 · active flock 0
+  Night 7: 10 frozen Sleep; 4 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 human: Human is a Most Rested Duck.
+  D7 ai: AI gains 1 Feather(s) from haven.
+  D7 ai: AI rests at 10: 3 Twigs today, 10 Sleep.
+  D7 ai: AI buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+
+human: Buy Nesting reeds 2 for 11 Sleep
+Day 7/10 · Night · Nest level 3 · World Event: Still Air
+Human: 12 Twigs · space 10 · Exhaustion 1/5 · bag 16 · resting
+  Feather trail 5 · today's start 5 · active flock 1 · active zzz +1 · zzz for tomorrow
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 10 · Exhaustion 2/4 · bag 17 · resting
+  Feather trail 6 · today's start 5 · active flock 0
+  Night 7: 10 frozen Sleep; 4 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 ai: AI gains 1 Feather(s) from haven.
+  D7 ai: AI rests at 10: 3 Twigs today, 10 Sleep.
+  D7 ai: AI buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D7 human: Human buys Nesting reeds 2 for 11 Sleep; it enters tomorrow's bag.
+
+ai: Buy Refreshing splash for 4 Sleep
+Day 7/10 · Night · Nest level 3 · World Event: Still Air
+Human: 12 Twigs · space 10 · Exhaustion 1/5 · bag 16 · resting
+  Feather trail 5 · today's start 5 · active flock 1 · active zzz +1 · zzz for tomorrow
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 10 · Exhaustion 2/4 · bag 17 · resting
+  Feather trail 6 · today's start 5 · active flock 0
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 ai: AI rests at 10: 3 Twigs today, 10 Sleep.
+  D7 ai: AI buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D7 human: Human buys Nesting reeds 2 for 11 Sleep; it enters tomorrow's bag.
+  D7 ai: AI buys Refreshing splash for 4 Sleep; it enters tomorrow's bag.
+
+human: Finish Dream choices
+Day 7/10 · Night · Nest level 3 · World Event: Still Air
+Human: 12 Twigs · space 10 · Exhaustion 1/5 · bag 16 · resting
+  Feather trail 5 · today's start 5 · active flock 1 · active zzz +1 · zzz for tomorrow
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 10 · Exhaustion 2/4 · bag 17 · resting
+  Feather trail 6 · today's start 5 · active flock 0
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 ai: AI buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D7 human: Human buys Nesting reeds 2 for 11 Sleep; it enters tomorrow's bag.
+  D7 ai: AI buys Refreshing splash for 4 Sleep; it enters tomorrow's bag.
+  D7 human: Human finishes Dream choices; unspent Sleep expires.
+
+ai: Finish Dream choices
+Day 7/10 · DayComplete · Nest level 3 · World Event: Still Air
+Human: 12 Twigs · space 10 · Exhaustion 1/5 · bag 16 · resting
+  Feather trail 5 · today's start 5 · active flock 1 · active zzz +1 · zzz for tomorrow
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 10 · Exhaustion 2/4 · bag 17 · resting
+  Feather trail 6 · today's start 5 · active flock 0
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 human: Human buys Nesting reeds 2 for 11 Sleep; it enters tomorrow's bag.
+  D7 ai: AI buys Refreshing splash for 4 Sleep; it enters tomorrow's bag.
+  D7 human: Human finishes Dream choices; unspent Sleep expires.
+  D7 ai: AI finishes Dream choices; unspent Sleep expires.
+
+human: Start Day 8
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 12 Twigs · space 6 · Exhaustion 0/5 · bag 21
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 6 · Exhaustion 0/5 · bag 23
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D7 ai: AI finishes Dream choices; unspent Sleep expires.
+  D8 human: Human starts Day 8 at 6: trail 5, temporary Most Rested 1; Dawn deficit 2 gave 0 Feather(s).
+  D8 ai: AI starts Day 8 at 6: trail 6, temporary Most Rested 0; Dawn deficit 0 gave 0 Feather(s).
+  D8 : World Event: Rain-Softened Seeds.
+
+ai: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 12 Twigs · space 6 · Exhaustion 0/5 · bag 21
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 7 · Exhaustion 0/5 · bag 22
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 human: Human starts Day 8 at 6: trail 5, temporary Most Rested 1; Dawn deficit 2 gave 0 Feather(s).
+  D8 ai: AI starts Day 8 at 6: trail 6, temporary Most Rested 0; Dawn deficit 0 gave 0 Feather(s).
+  D8 : World Event: Rain-Softened Seeds.
+  D8 ai: AI placed Refreshing splash at space 7.
+
+human: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 12 Twigs · space 8 · Exhaustion 0/5 · bag 20
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 7 · Exhaustion 0/5 · bag 22
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 ai: AI starts Day 8 at 6: trail 6, temporary Most Rested 0; Dawn deficit 0 gave 0 Feather(s).
+  D8 : World Event: Rain-Softened Seeds.
+  D8 ai: AI placed Refreshing splash at space 7.
+  D8 human: Human placed Seeds at space 8.
+
+ai: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 12 Twigs · space 8 · Exhaustion 0/5 · bag 20
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 11 · Exhaustion 0/5 · bag 21
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 : World Event: Rain-Softened Seeds.
+  D8 ai: AI placed Refreshing splash at space 7.
+  D8 human: Human placed Seeds at space 8.
+  D8 ai: AI placed Tailwind 4 at space 11.
+
+human: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 12 Twigs · space 9 · Exhaustion 1/5 · bag 19
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 11 · Exhaustion 0/5 · bag 21
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 ai: AI placed Refreshing splash at space 7.
+  D8 human: Human placed Seeds at space 8.
+  D8 ai: AI placed Tailwind 4 at space 11.
+  D8 human: Human placed Loose pebbles at space 9.
+
+ai: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 12 Twigs · space 9 · Exhaustion 1/5 · bag 19
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 13 · Exhaustion 0/5 · bag 20
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 human: Human placed Seeds at space 8.
+  D8 ai: AI placed Tailwind 4 at space 11.
+  D8 human: Human placed Loose pebbles at space 9.
+  D8 ai: AI placed Seeds at space 13.
+
+human: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 12 Twigs · space 10 · Exhaustion 2/5 · bag 18
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 13 · Exhaustion 0/5 · bag 20
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 ai: AI placed Tailwind 4 at space 11.
+  D8 human: Human placed Loose pebbles at space 9.
+  D8 ai: AI placed Seeds at space 13.
+  D8 human: Human placed Brambles at space 10.
+
+ai: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 12 Twigs · space 10 · Exhaustion 2/5 · bag 18
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 15 · Exhaustion 0/5 · bag 19
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 human: Human placed Loose pebbles at space 9.
+  D8 ai: AI placed Seeds at space 13.
+  D8 human: Human placed Brambles at space 10.
+  D8 ai: AI placed Tailwind 2 at space 15.
+
+human: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 13 Twigs · space 11 · Exhaustion 2/5 · bag 17
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 15 · Exhaustion 0/5 · bag 19
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 ai: AI placed Seeds at space 13.
+  D8 human: Human placed Brambles at space 10.
+  D8 ai: AI placed Tailwind 2 at space 15.
+  D8 human: Human placed Nesting reeds 1 at space 11.
+
+ai: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 13 Twigs · space 11 · Exhaustion 2/5 · bag 17
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 17 · Exhaustion 0/5 · bag 18
+  Feather trail 6 · today's start 6 · active flock 1
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 human: Human placed Brambles at space 10.
+  D8 ai: AI placed Tailwind 2 at space 15.
+  D8 human: Human placed Nesting reeds 1 at space 11.
+  D8 ai: AI placed Companion duck at space 17.
+
+human: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 13 Twigs · space 12 · Exhaustion 3/5 · bag 16
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 17 · Exhaustion 0/5 · bag 18
+  Feather trail 6 · today's start 6 · active flock 1
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 ai: AI placed Tailwind 2 at space 15.
+  D8 human: Human placed Nesting reeds 1 at space 11.
+  D8 ai: AI placed Companion duck at space 17.
+  D8 human: Human placed Loose pebbles at space 12.
+
+ai: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 13 Twigs · space 12 · Exhaustion 3/5 · bag 16
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 18 · Exhaustion 1/5 · bag 17
+  Feather trail 6 · today's start 6 · active flock 1
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 human: Human placed Nesting reeds 1 at space 11.
+  D8 ai: AI placed Companion duck at space 17.
+  D8 human: Human placed Loose pebbles at space 12.
+  D8 ai: AI placed Brambles at space 18.
+
+human: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 13 Twigs · space 13 · Exhaustion 4/5 · bag 15
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 18 · Exhaustion 1/5 · bag 17
+  Feather trail 6 · today's start 6 · active flock 1
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 ai: AI placed Companion duck at space 17.
+  D8 human: Human placed Loose pebbles at space 12.
+  D8 ai: AI placed Brambles at space 18.
+  D8 human: Human placed Mud puddle at space 13.
+
+ai: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 13 Twigs · space 13 · Exhaustion 4/5 · bag 15
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 19 · Exhaustion 2/5 · bag 16
+  Feather trail 6 · today's start 6 · active flock 1
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 human: Human placed Loose pebbles at space 12.
+  D8 ai: AI placed Brambles at space 18.
+  D8 human: Human placed Mud puddle at space 13.
+  D8 ai: AI placed Loose pebbles at space 19.
+
+human: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 13 Twigs · space 14 · Exhaustion 5/5 · bag 14
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 19 · Exhaustion 2/5 · bag 16
+  Feather trail 6 · today's start 6 · active flock 1
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 ai: AI placed Brambles at space 18.
+  D8 human: Human placed Mud puddle at space 13.
+  D8 ai: AI placed Loose pebbles at space 19.
+  D8 human: Human placed Brambles at space 14.
+
+ai: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 13 Twigs · space 14 · Exhaustion 5/5 · bag 14
+  Feather trail 5 · today's start 6 · active flock 0 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 21 · Exhaustion 2/5 · bag 15
+  Feather trail 6 · today's start 6 · active flock 1
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 human: Human placed Mud puddle at space 13.
+  D8 ai: AI placed Loose pebbles at space 19.
+  D8 human: Human placed Brambles at space 14.
+  D8 ai: AI placed Signpost at space 21.
+
+human: Explore
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 13 Twigs · space 16 · Exhaustion 5/5 · bag 13
+  Feather trail 5 · today's start 6 · active flock 1 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 21 · Exhaustion 2/5 · bag 15
+  Feather trail 6 · today's start 6 · active flock 1
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 ai: AI placed Loose pebbles at space 19.
+  D8 human: Human placed Brambles at space 14.
+  D8 ai: AI placed Signpost at space 21.
+  D8 human: Human placed Companion duck at space 16.
+
+ai: Settle down
+Day 8/10 · Adventure · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 13 Twigs · space 16 · Exhaustion 5/5 · bag 13
+  Feather trail 5 · today's start 6 · active flock 1 · active zzz +1
+  Night 7: 11 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 11.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 14 Twigs · space 21 · Exhaustion 2/5 · bag 15 · resting
+  Feather trail 6 · today's start 6 · active flock 1
+  Night 7: 10 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 10.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D8 human: Human placed Brambles at space 14.
+  D8 ai: AI placed Signpost at space 21.
+  D8 human: Human placed Companion duck at space 16.
+  D8 ai: AI settled down at space 21.
+
+human: Settle down
+Day 8/10 · Night · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 17 Twigs · space 16 · Exhaustion 5/5 · bag 13 · resting
+  Feather trail 6 · today's start 6 · active flock 1 · active zzz +1
+  Night 8: 14 frozen Sleep; 14 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 21 · Exhaustion 2/5 · bag 15 · resting
+  Feather trail 7 · today's start 6 · active flock 1 · zzz for tomorrow
+  Night 8: 16 frozen Sleep; 16 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D8 human: Human rests at 16: 5 Twigs today, 14 Sleep.
+  D8 ai: AI gains 1 Feather(s) from haven.
+  D8 ai: AI rests at 21: 5 Twigs today, 16 Sleep.
+  D8 ai: AI is a Most Rested Duck.
+
+ai: Buy Nesting reeds 3 for 16 Sleep
+Day 8/10 · Night · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 17 Twigs · space 16 · Exhaustion 5/5 · bag 13 · resting
+  Feather trail 6 · today's start 6 · active flock 1 · active zzz +1
+  Night 8: 14 frozen Sleep; 14 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 21 · Exhaustion 2/5 · bag 15 · resting
+  Feather trail 7 · today's start 6 · active flock 1 · zzz for tomorrow
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D8 ai: AI gains 1 Feather(s) from haven.
+  D8 ai: AI rests at 21: 5 Twigs today, 16 Sleep.
+  D8 ai: AI is a Most Rested Duck.
+  D8 ai: AI buys Nesting reeds 3 for 16 Sleep; it enters tomorrow's bag.
+
+human: Buy Nesting reeds 2 for 11 Sleep
+Day 8/10 · Night · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 17 Twigs · space 16 · Exhaustion 5/5 · bag 13 · resting
+  Feather trail 6 · today's start 6 · active flock 1 · active zzz +1
+  Night 8: 14 frozen Sleep; 3 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 21 · Exhaustion 2/5 · bag 15 · resting
+  Feather trail 7 · today's start 6 · active flock 1 · zzz for tomorrow
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D8 ai: AI rests at 21: 5 Twigs today, 16 Sleep.
+  D8 ai: AI is a Most Rested Duck.
+  D8 ai: AI buys Nesting reeds 3 for 16 Sleep; it enters tomorrow's bag.
+  D8 human: Human buys Nesting reeds 2 for 11 Sleep; it enters tomorrow's bag.
+
+ai: Finish Dream choices
+Day 8/10 · Night · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 17 Twigs · space 16 · Exhaustion 5/5 · bag 13 · resting
+  Feather trail 6 · today's start 6 · active flock 1 · active zzz +1
+  Night 8: 14 frozen Sleep; 3 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 21 · Exhaustion 2/5 · bag 15 · resting
+  Feather trail 7 · today's start 6 · active flock 1 · zzz for tomorrow
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D8 ai: AI is a Most Rested Duck.
+  D8 ai: AI buys Nesting reeds 3 for 16 Sleep; it enters tomorrow's bag.
+  D8 human: Human buys Nesting reeds 2 for 11 Sleep; it enters tomorrow's bag.
+  D8 ai: AI finishes Dream choices; unspent Sleep expires.
+
+human: Buy Seeds for 3 Sleep
+Day 8/10 · Night · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 17 Twigs · space 16 · Exhaustion 5/5 · bag 13 · resting
+  Feather trail 6 · today's start 6 · active flock 1 · active zzz +1
+  Night 8: 14 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 21 · Exhaustion 2/5 · bag 15 · resting
+  Feather trail 7 · today's start 6 · active flock 1 · zzz for tomorrow
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D8 ai: AI buys Nesting reeds 3 for 16 Sleep; it enters tomorrow's bag.
+  D8 human: Human buys Nesting reeds 2 for 11 Sleep; it enters tomorrow's bag.
+  D8 ai: AI finishes Dream choices; unspent Sleep expires.
+  D8 human: Human buys Seeds for 3 Sleep; it enters tomorrow's bag.
+
+human: Finish Dream choices
+Day 8/10 · DayComplete · Nest level 3 · World Event: Rain-Softened Seeds
+Human: 17 Twigs · space 16 · Exhaustion 5/5 · bag 13 · resting
+  Feather trail 6 · today's start 6 · active flock 1 · active zzz +1
+  Night 8: 14 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 21 · Exhaustion 2/5 · bag 15 · resting
+  Feather trail 7 · today's start 6 · active flock 1 · zzz for tomorrow
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D8 human: Human buys Nesting reeds 2 for 11 Sleep; it enters tomorrow's bag.
+  D8 ai: AI finishes Dream choices; unspent Sleep expires.
+  D8 human: Human buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D8 human: Human finishes Dream choices; unspent Sleep expires.
+
+ai: Start Day 9
+Day 9/10 · Adventure · Nest level 3 · World Event: Restless Night
+Human: 17 Twigs · space 6 · Exhaustion 0/5 · bag 23
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 8: 14 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 8 · Exhaustion 0/5 · bag 24
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D8 human: Human finishes Dream choices; unspent Sleep expires.
+  D9 human: Human starts Day 9 at 6: trail 6, temporary Most Rested 0; Dawn deficit 2 gave 0 Feather(s).
+  D9 ai: AI starts Day 9 at 8: trail 7, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D9 : World Event: Restless Night.
+
+human: Explore
+Day 9/10 · Adventure · Nest level 3 · World Event: Restless Night
+Human: 17 Twigs · space 7 · Exhaustion 1/5 · bag 22
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 8: 14 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 8 · Exhaustion 0/5 · bag 24
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D9 human: Human starts Day 9 at 6: trail 6, temporary Most Rested 0; Dawn deficit 2 gave 0 Feather(s).
+  D9 ai: AI starts Day 9 at 8: trail 7, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D9 : World Event: Restless Night.
+  D9 human: Human placed Mud puddle at space 7.
+
+ai: Explore
+Day 9/10 · Adventure · Nest level 3 · World Event: Restless Night
+Human: 17 Twigs · space 7 · Exhaustion 1/5 · bag 22
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 8: 14 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 9 · Exhaustion 0/5 · bag 23
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D9 ai: AI starts Day 9 at 8: trail 7, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D9 : World Event: Restless Night.
+  D9 human: Human placed Mud puddle at space 7.
+  D9 ai: AI placed Seeds at space 9.
+
+human: Explore
+Day 9/10 · Adventure · Nest level 3 · World Event: Restless Night
+Human: 17 Twigs · space 8 · Exhaustion 2/5 · bag 21
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 8: 14 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 9 · Exhaustion 0/5 · bag 23
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D9 : World Event: Restless Night.
+  D9 human: Human placed Mud puddle at space 7.
+  D9 ai: AI placed Seeds at space 9.
+  D9 human: Human placed Brambles at space 8.
+
+ai: Explore
+Day 9/10 · Adventure · Nest level 3 · World Event: Restless Night
+Human: 17 Twigs · space 8 · Exhaustion 2/5 · bag 21
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 8: 14 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 10 · Exhaustion 0/5 · bag 22
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D9 human: Human placed Mud puddle at space 7.
+  D9 ai: AI placed Seeds at space 9.
+  D9 human: Human placed Brambles at space 8.
+  D9 ai: AI placed Refreshing splash at space 10.
+
+human: Explore
+Day 9/10 · Adventure · Nest level 3 · World Event: Restless Night
+Human: 17 Twigs · space 9 · Exhaustion 2/5 · bag 20
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 8: 14 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 10 · Exhaustion 0/5 · bag 22
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D9 ai: AI placed Seeds at space 9.
+  D9 human: Human placed Brambles at space 8.
+  D9 ai: AI placed Refreshing splash at space 10.
+  D9 human: Human placed Refreshing splash at space 9.
+
+ai: Settle down
+Day 9/10 · Adventure · Nest level 3 · World Event: Restless Night
+Human: 17 Twigs · space 9 · Exhaustion 2/5 · bag 20
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 8: 14 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 10 · Exhaustion 0/5 · bag 22 · resting
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D9 human: Human placed Brambles at space 8.
+  D9 ai: AI placed Refreshing splash at space 10.
+  D9 human: Human placed Refreshing splash at space 9.
+  D9 ai: AI settled down at space 10.
+
+human: Explore
+Day 9/10 · Adventure · Nest level 3 · World Event: Restless Night
+Human: 17 Twigs · space 10 · Exhaustion 2/5 · bag 19
+  Feather trail 6 · today's start 6 · active flock 0
+  Night 8: 14 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1
+  Sleep: printed 13, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 14.
+  Twigs: printed 4, Reeds +1, event +0, Brambles -0.
+AI: 19 Twigs · space 10 · Exhaustion 0/5 · bag 22 · resting
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 8: 16 frozen Sleep; 0 available now. Twigs earned 5; Feathers 1 · Most Rested
+  Sleep: printed 15, Flowers +0, final haven +0, event +0, flock +1, Restless Night -0, Pebbles -0; before wear 16.
+  Twigs: printed 5, Reeds +0, event +0, Brambles -0.
+  D9 ai: AI placed Refreshing splash at space 10.
+  D9 human: Human placed Refreshing splash at space 9.
+  D9 ai: AI settled down at space 10.
+  D9 human: Human placed Seeds at space 10.
+
+human: Settle down
+Day 9/10 · Night · Nest level 3 · World Event: Restless Night
+Human: 20 Twigs · space 10 · Exhaustion 2/5 · bag 19 · resting
+  Feather trail 7 · today's start 6 · active flock 0 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 9 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 22 Twigs · space 10 · Exhaustion 0/5 · bag 22 · resting
+  Feather trail 8 · today's start 8 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 9 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D9 human: Human is a Most Rested Duck.
+  D9 ai: AI gains 1 Feather(s) from haven.
+  D9 ai: AI rests at 10: 3 Twigs today, 9 Sleep.
+  D9 ai: AI is a Most Rested Duck.
+
+ai: Buy Nesting reeds 1 for 6 Sleep
+Day 9/10 · Night · Nest level 3 · World Event: Restless Night
+Human: 20 Twigs · space 10 · Exhaustion 2/5 · bag 19 · resting
+  Feather trail 7 · today's start 6 · active flock 0 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 9 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 22 Twigs · space 10 · Exhaustion 0/5 · bag 22 · resting
+  Feather trail 8 · today's start 8 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 3 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D9 ai: AI gains 1 Feather(s) from haven.
+  D9 ai: AI rests at 10: 3 Twigs today, 9 Sleep.
+  D9 ai: AI is a Most Rested Duck.
+  D9 ai: AI buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+
+human: Buy Nesting reeds 1 for 6 Sleep
+Day 9/10 · Night · Nest level 3 · World Event: Restless Night
+Human: 20 Twigs · space 10 · Exhaustion 2/5 · bag 19 · resting
+  Feather trail 7 · today's start 6 · active flock 0 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 3 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 22 Twigs · space 10 · Exhaustion 0/5 · bag 22 · resting
+  Feather trail 8 · today's start 8 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 3 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D9 ai: AI rests at 10: 3 Twigs today, 9 Sleep.
+  D9 ai: AI is a Most Rested Duck.
+  D9 ai: AI buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D9 human: Human buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+
+ai: Buy Seeds for 3 Sleep
+Day 9/10 · Night · Nest level 3 · World Event: Restless Night
+Human: 20 Twigs · space 10 · Exhaustion 2/5 · bag 19 · resting
+  Feather trail 7 · today's start 6 · active flock 0 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 3 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 22 Twigs · space 10 · Exhaustion 0/5 · bag 22 · resting
+  Feather trail 8 · today's start 8 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D9 ai: AI is a Most Rested Duck.
+  D9 ai: AI buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D9 human: Human buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D9 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+
+human: Buy Seeds for 3 Sleep
+Day 9/10 · Night · Nest level 3 · World Event: Restless Night
+Human: 20 Twigs · space 10 · Exhaustion 2/5 · bag 19 · resting
+  Feather trail 7 · today's start 6 · active flock 0 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 22 Twigs · space 10 · Exhaustion 0/5 · bag 22 · resting
+  Feather trail 8 · today's start 8 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D9 ai: AI buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D9 human: Human buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D9 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D9 human: Human buys Seeds for 3 Sleep; it enters tomorrow's bag.
+
+ai: Finish Dream choices
+Day 9/10 · Night · Nest level 3 · World Event: Restless Night
+Human: 20 Twigs · space 10 · Exhaustion 2/5 · bag 19 · resting
+  Feather trail 7 · today's start 6 · active flock 0 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 22 Twigs · space 10 · Exhaustion 0/5 · bag 22 · resting
+  Feather trail 8 · today's start 8 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D9 human: Human buys Nesting reeds 1 for 6 Sleep; it enters tomorrow's bag.
+  D9 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D9 human: Human buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D9 ai: AI finishes Dream choices; unspent Sleep expires.
+
+human: Finish Dream choices
+Day 9/10 · DayComplete · Nest level 3 · World Event: Restless Night
+Human: 20 Twigs · space 10 · Exhaustion 2/5 · bag 19 · resting
+  Feather trail 7 · today's start 6 · active flock 0 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 22 Twigs · space 10 · Exhaustion 0/5 · bag 22 · resting
+  Feather trail 8 · today's start 8 · active flock 0 · active zzz +1 · zzz for tomorrow
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D9 ai: AI buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D9 human: Human buys Seeds for 3 Sleep; it enters tomorrow's bag.
+  D9 ai: AI finishes Dream choices; unspent Sleep expires.
+  D9 human: Human finishes Dream choices; unspent Sleep expires.
+
+ai: Start Day 10
+Day 10/10 · Adventure · Nest level 3 · World Event: A Pocket of Driftwood
+Human: 20 Twigs · space 8 · Exhaustion 0/5 · bag 25
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 22 Twigs · space 9 · Exhaustion 0/5 · bag 26
+  Feather trail 8 · today's start 9 · active flock 0 · active zzz +1
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D9 human: Human finishes Dream choices; unspent Sleep expires.
+  D10 human: Human starts Day 10 at 8: trail 7, temporary Most Rested 1; Dawn deficit 2 gave 0 Feather(s).
+  D10 ai: AI starts Day 10 at 9: trail 8, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D10 : World Event: A Pocket of Driftwood.
+
+human committed a hidden final-Day decision.
+Day 10/10 · Adventure · Nest level 3 · World Event: A Pocket of Driftwood
+Human: 20 Twigs · space 8 · Exhaustion 0/5 · bag 25
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 22 Twigs · space 9 · Exhaustion 0/5 · bag 26
+  Feather trail 8 · today's start 9 · active flock 0 · active zzz +1
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D9 human: Human finishes Dream choices; unspent Sleep expires.
+  D10 human: Human starts Day 10 at 8: trail 7, temporary Most Rested 1; Dawn deficit 2 gave 0 Feather(s).
+  D10 ai: AI starts Day 10 at 9: trail 8, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D10 : World Event: A Pocket of Driftwood.
+
+ai: Explore
+Day 10/10 · Adventure · Nest level 3 · World Event: A Pocket of Driftwood
+Human: 20 Twigs · space 9 · Exhaustion 1/5 · bag 24
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 22 Twigs · space 10 · Exhaustion 0/5 · bag 25
+  Feather trail 8 · today's start 9 · active flock 0 · active zzz +1
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D10 ai: AI starts Day 10 at 9: trail 8, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D10 : World Event: A Pocket of Driftwood.
+  D10 human: Human placed Brambles at space 9.
+  D10 ai: AI placed Refreshing splash at space 10.
+
+human committed a hidden final-Day decision.
+Day 10/10 · Adventure · Nest level 3 · World Event: A Pocket of Driftwood
+Human: 20 Twigs · space 9 · Exhaustion 1/5 · bag 24
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 22 Twigs · space 10 · Exhaustion 0/5 · bag 25
+  Feather trail 8 · today's start 9 · active flock 0 · active zzz +1
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D10 ai: AI starts Day 10 at 9: trail 8, temporary Most Rested 1; Dawn deficit 0 gave 0 Feather(s).
+  D10 : World Event: A Pocket of Driftwood.
+  D10 human: Human placed Brambles at space 9.
+  D10 ai: AI placed Refreshing splash at space 10.
+
+ai: Settle down
+Day 10/10 · Adventure · Nest level 3 · World Event: A Pocket of Driftwood
+Human: 20 Twigs · space 10 · Exhaustion 2/4 · bag 23
+  Feather trail 7 · today's start 8 · active flock 0 · active zzz +1
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 22 Twigs · space 10 · Exhaustion 0/5 · bag 25 · resting
+  Feather trail 8 · today's start 9 · active flock 0 · active zzz +1
+  Night 9: 9 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +0, event +0, flock +0, Restless Night -1, Pebbles -0; before wear 9.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D10 human: Human placed Brambles at space 9.
+  D10 ai: AI placed Refreshing splash at space 10.
+  D10 human: Human placed Grumpy Goose at space 10.
+  D10 ai: AI settled down at space 10.
+
+human: Settle down
+Day 10/10 · Finished · Nest level 3 · World Event: A Pocket of Driftwood
+Human: 27 Twigs · space 10 · Exhaustion 2/4 · bag 23 · resting
+  Feather trail 8 · today's start 8 · active flock 0 · active zzz +1
+  Night 10: 12 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +2, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 12.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+AI: 29 Twigs · space 10 · Exhaustion 0/5 · bag 25 · resting
+  Feather trail 9 · today's start 9 · active flock 0 · active zzz +1
+  Night 10: 12 frozen Sleep; 0 available now. Twigs earned 3; Feathers 1 · Most Rested
+  Sleep: printed 10, Flowers +0, final haven +2, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 12.
+  Twigs: printed 3, Reeds +0, event +0, Brambles -0.
+  D10 ai: AI gains 1 Feather(s) from haven.
+  D10 ai: AI rests at 10: 3 Twigs today, 12 Sleep.
+  D10 ai: AI is a Most Rested Duck.
+  D10 : Final result: AI 29 Twigs / 12 Sleep, Human 27 Twigs / 12 Sleep.
+Final standings · total Twigs, then Night 10 retained Sleep:
+  1. AI: 29 Twigs (including 4 Dream Twigs), 12 Sleep
+  2. Human: 27 Twigs (including 4 Dream Twigs), 12 Sleep
+Winner: AI
+
+Complete ten-Day match finished.

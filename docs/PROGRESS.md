@@ -1166,3 +1166,41 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   `codex/duck-game-milestone-0`; no remote publication is claimed. Unity and its
   Core DLL were not changed, and the unrelated ProjectSettings draft remains
   outside all checkpoints.
+
+### 53. M4 complete: ten-Day Core/CLI, Normal and exact Continue (14 September 2026)
+
+- The user accepted C1–C3 and authorized completing M4. C4 now runs the full
+  ten-Day calendar, adds each Goose once on Day 5, exposes nest levels 1/2/3,
+  closes the final shop and banks Dream Twigs once. Final standings compare
+  total Twigs, then frozen Night 10 retained Sleep, including worn-out ducks.
+- C5 adds a deterministic Normal policy using only its observation and issued
+  actions. The CLI defaults to human versus Normal and supports complete games,
+  restart, local autosave and Continue. Core capture/restore is versioned and
+  serializer-neutral; the host owns atomic JSON writes and backup recovery.
+  Exact previews, inventory, RNG state and pending final-Day commitments survive
+  restoration without rerolls, duplicate awards or reused command scopes.
+- Source/test checkpoints include calendar `9eba093` / `48f1dca`, persistence
+  `71d731e` / `70be133`, Normal `c723812` / `7e5ca37`, CLI `6bad090` /
+  `129b2ba`, and every-action restore integration `cf295d7`. Final review added
+  authoritative nest boundaries and corrected Normal's Most Rested estimate to
+  exclude worn-out rivals (`5ff6996` / `cc4c11a`).
+- An isolated archive of committed Core/CLI/tests at `cc4c11a` builds in Release
+  with **zero warnings/errors and all 286 tests passing**, including the classic
+  regressions. Three full games match uninterrupted play through **427 JSON
+  restores**, covering 72 purchases, 11 private preview choices, six pending
+  final-Day commitments, Day 5 insertion and final scoring.
+- A complete seed-42 CLI game from that same committed snapshot exits
+  successfully and saves the finished result: AI 29 Twigs, Human 27; each has
+  12 frozen final Sleep and four Dream Twigs. The [completion audit and durable
+  evidence](duck-migration/m4/COMPLETION_AUDIT.md) record the checks. Normal
+  remains conservative; this run does not establish late-biome exploration or
+  full-match balance. M6 owns that assessment before changing approved values.
+- Every duck starts at nest 0 with zero Feathers. Revised Dawn bands remain
+  0–2 → 0, 3–6 → 1, 7–10 → 2 and 11+ → 3. Safe havens and Dawn are the only
+  permanent Feather sources; Most Rested is temporary. The conservative
+  pre-Day-10 effective-start bound is 42, with no cap introduced.
+- M4 is closed. Stop before M5 Unity integration for the user's milestone
+  review and next command. Unity and its Core DLL are unchanged; the unrelated
+  ProjectSettings draft is preserved. Checkpoints are committed locally on
+  `codex/duck-game-milestone-0`; push attempts remain blocked by unavailable
+  shell GitHub credentials, so no remote publication is claimed.

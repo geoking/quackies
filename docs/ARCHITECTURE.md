@@ -31,7 +31,7 @@ PCG state for later exact save/Continue; the classic random sequence is unchange
 The M4 implementation record and checkpoint evidence are in
 [duck-migration/m4/README.md](duck-migration/m4/README.md).
 
-### Duck daily cycle (C1–C3)
+### Duck daily cycle and calendar (C1–C4)
 
 `MatchSession.CreateDuck(seed)` creates the same session boundary with a
 `DuckMatchView`. `DuckMatchRuntime` owns typed state, the shuffled event deck,
@@ -54,12 +54,48 @@ Dawn Feathers using the 3/7/11 thresholds, activates the temporary Most Rested
 step and rebuilds/shuffles each inventory into its next bag. Permanent trail
 and temporary movement remain separate. No effective-start cap is applied.
 
-The current runnable boundary is Day 1 → Night 1 → Day 2. Later-Day handlers
-have focused fixtures, but calendar continuation and final results are C4;
-Normal AI and public save/restore are C5. The CLI selects this profile with
-`--profile ducks`, supports `--inspect`, and runs the scripted cycle with
-`--demo-day`. Unity still uses its previous compiled Core DLL; M5 owns the
-eventual runtime binding and DLL update.
+The calendar now continues through all ten Days, adds the Goose once on Day 5
+and changes the nest purchase allowance at the approved Day boundaries.
+Night 10 applies Dream Twigs once and exposes immutable final standings ranked
+by total Twigs and then frozen retained Sleep. It offers no further shop or
+Dawn. Full-game tests preserve the original classic regressions.
+
+### Duck policy and persistence (C5)
+
+`IDuckPlayerPolicy` accepts only a `DuckMatchView` and issued legal actions.
+`DuckNormalPolicy` is deterministic and stateless. Its bounded estimates use
+private previews available to that duck or remaining bag composition, public
+opponent progress, haven rewards, nuisances, Most Rested and remaining Days.
+Its purchase heuristic weighs movement, direct Twigs and portfolio composition.
+These are decision heuristics; Core phase handlers remain the authority on
+outcomes. Policy explanations are available for developer review and never
+expose the opponent's private previews in the normal CLI.
+
+`DuckSaves.Capture` returns a detached, serializer-neutral `DuckSaveData`.
+It includes format/profile/rules versions, exact bag/deck order, PCG state,
+physical identities, all counters and protections, purchases, Night outcomes,
+awards/history, Day 5 insertion, pending final-Day commitments, final standings
+and per-player command revisions. `Restore` validates supported data and its
+cross-field invariants, deep-copies it, and creates a fresh command scope.
+Restoration neither replays actions nor generates new random draws. Local
+saves contain private state for the host and must never become policy inputs.
+
+The CLI owns JSON and storage. `DuckSaveStore` writes and flushes a temporary
+file beside the destination before replacement, retaining a validated previous
+action in `.bak`. Continue reports backup recovery when the primary file is
+unreadable. A failed write stops play and preserves the preceding save.
+Save after each completed command, including a pending final-Day commitment;
+the synchronous session never exposes an intermediate cohort resolution.
+
+The CLI selects the duck profile with `--profile ducks`; human versus Normal
+is the default, and `--two-player` enables explicit developer controls.
+`--demo-game` runs both ducks under Normal; `--demo-day` retains the short
+scripted slice. `--inspect` reads the catalogue, `--continue` restores a local
+game, and `--save path` selects a save file. Interactive play saves by default;
+demos save only when requested with `--save`, or when continuing a saved game.
+Unity still uses its previous compiled Core DLL; M5 owns runtime binding and
+the DLL update. M4 closeout evidence is recorded in the linked implementation
+record.
 
 Quackies has one rules engine with two front ends: Unity and a command-line
 debugging client. Neither front end decides whether a move is legal or awards

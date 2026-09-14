@@ -1,10 +1,10 @@
 # Quackies handoff
 
-## Current task: M4 through C3
+## Current task: M4 complete; stop before M5
 
 14 September 2026: the user approved the final visual result and explicitly
-closed M3. M2 remains complete. **The user subsequently authorized M4 C1–C3,
-then a progress report. Do not proceed into C4/C5 or Unity integration.** See [PLAN.md](duck-migration/PLAN.md) and the detailed
+closed M3. M2 remains complete. **C1–C5 and M4 are complete. Stop before M5
+Unity integration.** See [PLAN.md](duck-migration/PLAN.md) and the detailed
 [C1 first checkpoint](duck-migration/IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval).
 
 The accepted proof has 43 spaces split 14/14/15, with havens at 4, 10, 16, 21,
@@ -30,13 +30,12 @@ Feathers. Safe haven rewards and Dawn thresholds (0–2 → 0, 3–6 → 1, 7–
 11+ → 3) are the permanent sources; Most Rested is a temporary +1. The
 pre-Day-10 bound is at most 42, so no effective-start cap is needed. The
 setting-3 witness is historical evidence for an excluded configuration; its
-proof artifacts remain unchanged. Core/CLI implementation is active through
-C3; C1–C3 are complete for the bounded Day 1 → Night 1 → Day 2 slice. Runnable
-checks are dotnet run --project src/Quackies.Cli -- --profile ducks --seed 42
---demo-day and dotnet run --project src/Quackies.Cli -- --profile ducks --seed
-42 --inspect; outputs are saved in [the M4 record](duck-migration/m4/README.md).
-C4/C5 remain unstarted; no Unity build or device export
-is authorized. Preserve the unrelated ProjectSettings draft outside commits.
+proof artifacts remain unchanged. CLI defaults to human versus Normal; --two-player is developer-only,
+--demo-game runs a full Normal-versus-Normal match, --demo-day is the Day 1 →
+Night 1 → Day 2 script, and --inspect prints the catalogue. Interactive saves
+use autosave by default; --save, --continue, --new-game, r and q control
+persistence and restart/quit. No Unity build or device export is authorized.
+Preserve the unrelated ProjectSettings draft outside commits.
 Current evidence and source decisions:
 [M4](duck-migration/m4/README.md).
 
