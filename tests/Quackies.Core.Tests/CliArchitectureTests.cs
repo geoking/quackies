@@ -9,15 +9,20 @@ public sealed class CliArchitectureTests
     [Fact]
     public void CliUsesMatchSessionInsteadOfOwningRuleOrchestration()
     {
-        var programText = File.ReadAllText(Path.Combine(FindRepositoryRoot(), "src", "Quackies.Cli", "Program.cs"));
+        var cliDirectory = Path.Combine(FindRepositoryRoot(), "src", "Quackies.Cli");
+        var sources = Directory.GetFiles(cliDirectory, "*.cs")
+            .ToDictionary(path => Path.GetFileName(path)!, File.ReadAllText, StringComparer.Ordinal);
+        var allText = string.Join("\n", sources.Values);
 
-        Assert.Contains("MatchSession.Create", programText, StringComparison.Ordinal);
-        Assert.DoesNotContain("QuackiesGame.CreateSinglePlayer", programText, StringComparison.Ordinal);
-        Assert.DoesNotContain("DefaultBagFactory", programText, StringComparison.Ordinal);
-        Assert.DoesNotContain("new PlayerState", programText, StringComparison.Ordinal);
-        Assert.DoesNotContain("CauldronRewardResolver", programText, StringComparison.Ordinal);
-        Assert.DoesNotContain("ApplyEndRoundReward", programText, StringComparison.Ordinal);
-        Assert.DoesNotContain("StopRound();", programText.Replace("game.StopRound();", string.Empty, StringComparison.Ordinal), StringComparison.Ordinal);
+        Assert.Contains("CliEntry.Run(args)", sources["Program.cs"], StringComparison.Ordinal);
+        Assert.Contains("MatchSession.CreateDuck", sources["DuckCli.cs"], StringComparison.Ordinal);
+        Assert.Contains("MatchSession.Create", sources["ClassicCli.cs"], StringComparison.Ordinal);
+        Assert.DoesNotContain("QuackiesGame.CreateSinglePlayer", allText, StringComparison.Ordinal);
+        Assert.DoesNotContain("DefaultBagFactory", allText, StringComparison.Ordinal);
+        Assert.DoesNotContain("new PlayerState", allText, StringComparison.Ordinal);
+        Assert.DoesNotContain("CauldronRewardResolver", allText, StringComparison.Ordinal);
+        Assert.DoesNotContain("ApplyEndRoundReward", allText, StringComparison.Ordinal);
+        Assert.DoesNotContain("StopRound();", allText.Replace("game.StopRound();", string.Empty, StringComparison.Ordinal), StringComparison.Ordinal);
     }
 
     private static string FindRepositoryRoot()

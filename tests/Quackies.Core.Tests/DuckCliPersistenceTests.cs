@@ -11,6 +11,30 @@ public sealed partial class DuckCliTests
     private static readonly JsonSerializerOptions SaveJson = new() { IncludeFields = true };
 
     [Fact]
+    public void Informational_and_invalid_input_do_not_change_state_or_advance_Normal_again()
+    {
+        using var controlFiles = new SaveFiles();
+        using var reviewFiles = new SaveFiles();
+        var initial = DuckSaves.Capture(MatchSession.CreateDuck(42));
+        controlFiles.Write(initial);
+        reviewFiles.Write(initial);
+
+        var control = Run("q\n", "--continue", "--save", controlFiles.Path);
+        var review = Run("help\nstatus\nview:human\nboard 4\nbag\ntokens\nshop\nevent\nnight\nhistory\nnot-a-command\n\nq\n",
+            "--continue", "--save", reviewFiles.Path);
+
+        Assert.Equal(0, control.ExitCode);
+        Assert.Equal(0, review.ExitCode);
+        Assert.Equal(JsonSerializer.Serialize(controlFiles.Read(), SaveJson), JsonSerializer.Serialize(reviewFiles.Read(), SaveJson));
+        Assert.Equal(File.ReadAllBytes(controlFiles.Path), File.ReadAllBytes(reviewFiles.Path));
+        Assert.Equal(File.ReadAllBytes(controlFiles.Path + ".bak"), File.ReadAllBytes(reviewFiles.Path + ".bak"));
+        Assert.Equal(1, Count(control.Output, "AI: Explore"));
+        Assert.Equal(1, Count(review.Output, "AI: Explore"));
+        Assert.Single(reviewFiles.Read().Players.Single(player => player.Id == "ai").PlacedChips);
+        Assert.Empty(reviewFiles.Read().Players.Single(player => player.Id == "human").PlacedChips);
+    }
+
+    [Fact]
     public void Default_duck_game_runs_Normal_AI_and_does_not_allow_its_private_view()
     {
         var result = Run("view:ai\nq\n", "--profile", "ducks", "--seed", "42", "--no-save");
@@ -186,6 +210,13 @@ public sealed partial class DuckCliTests
 
     private static void ExecuteKind(MatchSession<DuckMatchView> match, string id, GameActionKind kind) =>
         match.Execute(id, match.GetLegalActions(id).Single(action => action.Kind == kind));
+
+    private static int Count(string text, string value)
+    {
+        var count = 0;
+        for (var index = 0; (index = text.IndexOf(value, index, StringComparison.Ordinal)) >= 0; index += value.Length) count++;
+        return count;
+    }
 
     private sealed class SaveFiles : IDisposable
     {

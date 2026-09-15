@@ -101,7 +101,7 @@ public sealed class MatchSettingsTests
         var result = RunCli(string.Empty, arguments);
 
         Assert.Equal(2, result.ExitCode);
-        Assert.Contains("Usage: Quackies.Cli [--starting-rubies 0|1]", result.StandardError, StringComparison.Ordinal);
+        Assert.Contains("Usage: Quackies.Cli --profile classic [--starting-rubies 0|1]", result.StandardError, StringComparison.Ordinal);
     }
 
     public static IEnumerable<object[]> InvalidCliArguments()
@@ -136,6 +136,8 @@ public sealed class MatchSettingsTests
         start.ArgumentList.Add("--verbosity");
         start.ArgumentList.Add("quiet");
         start.ArgumentList.Add("--");
+        start.ArgumentList.Add("--profile");
+        start.ArgumentList.Add("classic");
         foreach (var argument in arguments) start.ArgumentList.Add(argument);
 
         using var process = Process.Start(start) ?? throw new InvalidOperationException("Could not start the Quackies CLI.");
