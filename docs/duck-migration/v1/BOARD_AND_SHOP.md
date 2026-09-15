@@ -1,8 +1,10 @@
 # Quackies v1 board and Dream shop
 
-14 September 2026. The user approved all 43 reward rows and 11 shop prices as
-starting values. They are **implemented in M4, with full-match balance still
-to be assessed in M4.5**. The [overview](../RULES_AT_A_GLANCE.md) records the current mechanics;
+Updated 15 September 2026. The 43 reward rows were approved at M2 and implemented
+in M4. The user approved the M4.5 Tailwind/Reeds price adjustment below after
+[full-match comparisons](../m4-5/REPORT.md). New games use rules revision 2;
+revision 1 saves retain the original prices. The user accepted the M4.5 review, with hands-on gameplay feel testing
+explicitly deferred to Unity. The [overview](../RULES_AT_A_GLANCE.md) records the current mechanics;
 M2 shop/housekeeping policies and payout timing are now approved. [Detailed encounters](../ENCOUNTER_RULES.md) and the
 [ten approved World Events](WORLD_EVENTS.md) define the associated effects.
 
@@ -12,7 +14,8 @@ The exact synchronized values are in the JSON and CSV below. The policy is
 neighbours, and the first haven at space 4 sitting at the end of the 1-Twig
 plateau before space 5 begins the 2-Twig plateau. Haven Sleep peaks at each
 shelter, with the endpoint exception of 21 Sleep / 9 Twigs / 2 Feathers.
-Shop prices and policies are unchanged.
+Board rewards and shop policies are unchanged; the six Tailwind/Reeds prices
+below supersede the original M2 starting values.
 
 ## Board philosophy
 
@@ -100,14 +103,14 @@ Twig yield; it never changes movement or how many chips are purchased.
 | Offer | Sleep price |
 | --- | ---: |
 | Seeds | 3 |
-| Tailwind →2 | 5 |
-| Tailwind →4 | 10 |
-| Tailwind →6 | 15 |
+| Tailwind →2 | 4 |
+| Tailwind →4 | 8 |
+| Tailwind →6 | 12 |
 | Signpost →2 / preview 1 | 7 |
 | Refreshing splash | 4 |
-| Nesting reeds ×1 | 6 |
-| Nesting reeds ×2 | 11 |
-| Nesting reeds ×3 | 16 |
+| Nesting reeds ×1 | 8 |
+| Nesting reeds ×2 | 14 |
+| Nesting reeds ×3 | 20 |
 | Companion duck | 7 |
 | Wildflowers | 5 |
 
@@ -120,8 +123,10 @@ These approved policies replace the earlier finite-stock suggestion. White obsta
 are not shop offers. Reeds are not retroactively upgraded: each variant is a
 separate owned chip and pays only when placed on a later Day.
 
-Cheap Seeds support early bag improvement. Tailwind's 5/10/15 prices keep the
-measured movement gained per Sleep similar. Signpost's extra cost buys private
+Cheap Seeds support early bag improvement. Tailwind's 4/8/12 prices make
+movement investment more affordable; Reeds at 8/14/20 temper their recurring
+direct-Twig advantage. Fresh tests brought movement/Reeds win scores to roughly
+47/53, with a modest Reeds edge. Signpost's extra cost buys private
 information. Companion costs 7 because Mud reduces its active flock and Night
 award; Splash costs 4 for its narrow immediate-next-chip protection. Reeds cost
 more because their Twigs directly contribute to victory and now survive wear-out.
@@ -181,7 +186,7 @@ Splash/Goose protection is included in the separate wear-out pressure comparison
 
 The audit has been regenerated against the approved 43-space table and haven-4
 placement. Under this fixed policy, Seed affordability is 100%, Reeds ×1 is
-95.649%, and Signpost is 53.144%; all offer calculations are in the JSON.
+34.347% at its updated price of 8, and Signpost is 53.144%; all offer calculations are in the JSON.
 Exact landing on haven 4 is 0% in this model because it always draws through the
 fifth white. Actual players can settle earlier or use previews, so this is not
 a claim that the haven is unreachable in gameplay. Exact landing on haven 10
@@ -198,7 +203,9 @@ The data does not simulate ten-Day purchasing, opponents, safe haven targeting,
 Most Rested, World Event order or permanent Feather feedback. Full retained
 Twigs can make risky travel especially attractive; safe-only Feathers, Flowers,
 flock bonuses and Most Rested must be assessed alongside half-Sleep. Large
-wasteland Sleep jumps and Reeds investment also need complete-match comparison.
+wasteland Sleep jumps and Reeds investment require complete-match comparison;
+those comparisons are now recorded in [M4.5](../m4-5/REPORT.md), separately from
+this simplified arithmetic audit.
 
 Dawn Delivery is now capped at **three Feathers per duck per dawn**:
 0–2 Twig deficit gives 0; 3–6 gives 1; 7–10 gives 2; **11+ gives 3**.

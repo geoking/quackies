@@ -1,13 +1,16 @@
 # M4.5 — AI quality, balance and playability review
 
-Authorized 15 September 2026 at the user's request, **before M5 Unity integration**.
-M4 remains a completed Core/CLI implementation milestone. This new gate addresses
-the quality of play and the balance evidence that its correctness tests did not
-establish. Implementation is now active; [the working record](README.md) tracks
-actual changes, checks and remaining evidence separately from the plan.
-B1/B2 implementation is complete. B3 automated analysis and a readable
-[review report](REPORT.md) are complete; human play feedback remains pending.
-B4 awaits review of the exact isolated price proposal before promotion.
+Authorized and completed 15 September 2026, **before M5 Unity integration**.
+M4 remains the completed Core/CLI implementation baseline. B1–B4 implementation,
+analysis and the approved price correction are complete. The user accepted the
+results and game examples and explicitly chose **“Happy to close M4.5; test feel
+in Unity.”** Hands-on playability assessment therefore moves to the connected
+Unity game by user direction. No human-play or device validation is claimed here.
+[Completion audit](COMPLETION_AUDIT.md), [review report](REPORT.md),
+[promotion checks](PROMOTION.md). M5 waits for a separate command.
+
+The following is the original review scope and its rationale; the completion
+audit records how each requirement was satisfied or explicitly deferred.
 
 Use the existing ten-Day, 43-space game and approved rules as the baseline.
 Improve and assess play through Core/CLI first, then review any proposed balance

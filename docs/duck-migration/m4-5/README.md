@@ -1,8 +1,11 @@
 # M4.5 working record
 
-15 September 2026. M4.5 is authorized and active; follow [the plan](PLAN.md).
-M5 Unity work remains outside this milestone. Rules, prices and board rewards
-remain unchanged while AI quality and balance are assessed.
+15 September 2026. **M4.5 is complete and accepted by the user**; see the [completion audit](COMPLETION_AUDIT.md).
+M5 Unity work remains outside this milestone. The user-approved price adjustment
+is now implemented; other rules and board rewards are unchanged. See the
+[promotion record](PROMOTION.md) for the current revision 2 baseline and legacy
+save compatibility. The user accepted the results and game examples, explicitly deferring hands-on
+gameplay feel testing to Unity. M5 waits for a separate command.
 
 ## Committed engineering checkpoints
 
@@ -22,7 +25,8 @@ choose a draw. Saves are optional review artifacts.
 
 GitHub pushes are authenticated and working. Three pre-existing Unity font and
 ProjectSettings modifications remain outside these checkpoints. No Unity
-mutation, DLL sync, rule-data retuning or device test has occurred in M4.5.
+mutation, DLL sync or device test has occurred in M4.5. Approved price changes
+were applied only after user review.
 
 ## Evaluation state
 
@@ -77,14 +81,18 @@ Normal/movement 47.75%, movement/Reeds 46.75%, counting ties as half. It was
 selected **before reading fresh E results** for 300-seed validation of all three
 pairs. That validation completed 1,800 matches: movement/Reeds 46.6%,
 Normal/movement 46.7%, Normal/Reeds 44.4%. The [review report](REPORT.md)
-recommends the exact E prices for user approval. These remain isolated diagnostic
-copies; approved prices are unchanged.
+records the recommendation. These experiment copies remain frozen evidence.
+The user approved E: Core checkpoint `c636390` and tests
+`a60ec91` apply its exact prices. The final suite passes **332/332**, and all
+144 matched integration games reproduce E outcomes. Legacy saves keep their
+original prices; new games use rules revision 2.
 
 The user confirmed that Reeds and movement should be fairly evenly balanced,
 with neither an automatic winning choice and the oasis optional. The lead owns
 all integration, evidence, final review and Git. No Unity work is authorized.
 
-The [review report](REPORT.md) now contains comeback/oasis/purchase/event/pace
-findings, uncertainty and representative game stories. Remaining gates: user
-review of exact prices and human playability evidence; apply only agreed changes;
-then final checks and milestone review. **M4.5 is not complete.**
+The [review report](REPORT.md) contains comeback/oasis/purchase/event/pace
+findings, uncertainty and representative game stories. The user approved the
+exact prices and subsequently accepted closure of M4.5, with hands-on gameplay
+feel testing deferred to Unity. **M4.5 is complete.** M5 remains unstarted until
+the user's command. [Completion audit](COMPLETION_AUDIT.md).

@@ -4,8 +4,9 @@ Updated 15 September 2026. **M2 is complete.** The user approved the rules, sett
 shop policy, local autosave/resume and this implementation scope, with final-Day
 only simultaneous drawing and final-Night Sleep breaking equal total Twigs.
 M2 changed documentation only. **M3 is complete and approved. M4 is complete
-as Core/CLI implementation. M4.5 AI, balance and playability review now precedes
-M5 Unity integration at the user's request.**
+as Core/CLI implementation. M4.5 AI, balance and playability review is complete and accepted, with the
+approved price correction applied. Hands-on gameplay feel is deferred to Unity
+by the user. M5 Unity integration awaits a separate command.**
 The accepted visual result is recorded in [M3 closeout](m3-closeout/README.md);
 the short product direction is in [PLAN.md](PLAN.md).
 
@@ -156,8 +157,10 @@ Keep classic randomness/tests stable while adding a resumable duck source.
 M0 and earlier M1 experiments remain history. The deliberate order was to resolve
 the visual risk in M3 before implementing the duck rules. That visual gate is now
 closed. The C1–C3 progress report is accepted. C4/C5 implementation and the
-final suite result are complete. The next gate is M4.5: improve and assess play
-before M5, then review the evidence and any proposed adjustments with the user.
+final suite result are complete. M4.5 subsequently improved and assessed play, applied the approved prices and
+passed 332 tests. Its [completion audit](m4-5/COMPLETION_AUDIT.md) records user
+acceptance and the explicit deferral of hands-on gameplay feel to Unity.
+M5 awaits the user's command.
 
 ### M2 — Rules sheet complete
 
@@ -245,25 +248,25 @@ regressions at meaningful boundaries and full duck checks at the milestone.
 Do not wait until the end to adapt the CLI: it is the first runnable client for
 each slice. No extra debug-only rule engine or unvalidated prototype shortcut.
 
-### M4.5 — AI quality, balance and playability before Unity
+### M4.5 — AI quality, balance and playability before Unity — complete
 
-Follow the [M4.5 review plan](m4-5/PLAN.md) as the detailed authority. Establish
-repeatable baseline metrics through actual Core actions; improve Normal's
-multi-draw decisions and purchase combinations; compare multiple strategies,
-seeds and seat assignments; then review comeback potential, oasis frequency,
-pace, token/event balance and human play feedback. Passing rule tests alone is
-not this milestone's acceptance criterion.
+The [M4.5 review plan](m4-5/PLAN.md) records the agreed scope. Normal's multi-draw
+decisions and complete shopping bundles were improved and tested through actual
+Core actions across strategies, seeds and seats. Comeback potential, oasis
+frequency, pace and token/event observations informed the approved price change:
+Tailwind 4/8/12 and Reeds 8/14/20. Canonical data and versioned saves are aligned;
+332 tests and the final game comparisons pass. See the
+[completion audit](m4-5/COMPLETION_AUDIT.md).
 
-Keep current rules/data as the baseline. Present proposed balance adjustments
-with exact changes and evidence before adopting them. Validate agreed fixes,
-update canonical specifications and record save/data/presentation implications.
-Stop for review at M4.5 completion. M5 depends on that reviewed result; no Unity
-work is part of the current planning update.
+The user reviewed the results and accepted closure, explicitly deferring
+hands-on gameplay feel to Unity. Automated results do not establish fun.
+M5 remains unstarted and requires a separate command.
 
 ### M5 — Connect the Unity game
 
-Begin after M4.5 review. Bind its committed rules/data baseline and reconcile
-any approved changes with the accepted M3 artwork and layout.
+Begin only on the user's M5 command; M4.5 review is complete. Bind its committed
+rules/data baseline and reconcile approved changes with the accepted M3 artwork
+and layout. Assess hands-on gameplay feel through the connected game.
 
 Adapt the layout proof into Adventure/Dream views driven exclusively by Core
 observations and issued actions. Keep the presenter/view/editor split, safe-area

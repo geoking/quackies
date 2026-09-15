@@ -1,15 +1,17 @@
 # Quackies handoff
 
-## Current task: M4.5 active before Unity
+## Current task: M4.5 closed; await the M5 command
 
 Updated 15 September 2026. M2 and M3 remain approved and complete; **C1–C5 and
 M4 are complete as Core/CLI implementation.** The user requested M4.5 AI,
 balance and playability review before M5 Unity integration, then authorized
 starting it. Follow the [M4.5 working record](duck-migration/m4-5/README.md)
-for current ownership, checkpoints and outstanding evidence. The
+for completed checkpoints and evidence. The
 [review report](duck-migration/m4-5/REPORT.md) records completed AI corrections,
-328 passing tests and fresh balance evidence. Candidate E prices were proposed
-for approval; no price changes are active. Human feedback remains pending. See
+332 passing tests and fresh balance evidence. Candidate E prices are approved
+and applied for new games; legacy saves retain their original prices. The
+[promotion record](duck-migration/m4-5/PROMOTION.md) records exact checks. The user accepted closure and deferred hands-on gameplay feel to Unity.
+M5 is unstarted; wait for the user's separate command. See
 [PLAN.md](duck-migration/PLAN.md), the
 [M4.5 plan](duck-migration/m4-5/PLAN.md) and the detailed
 [C1 first checkpoint](duck-migration/IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval).
@@ -17,7 +19,8 @@ for approval; no price changes are active. Human feedback remains pending. See
 The accepted proof has 43 spaces split 14/14/15, with havens at 4, 10, 16, 21,
 26, 32, 36 and 43. The full first-haven payload moved from 3 to 4; the canonical
 JSON/CSV now match all Unity reward rows. Endpoint 43 gives 21 Sleep / 9 Twigs /
-2 Feathers. Shop prices, event catalogue and encounter powers remain unchanged.
+2 Feathers. M4.5 changes only Tailwind prices to 4/8/12 and Reeds prices to
+8/14/20 for new games; the event catalogue and encounter powers are unchanged.
 
 Visual checkpoints: `3bd9ce1` route/outlined typography; `d068229` scattered
 twigs, central chips and clearer Feathers; `2c7cd6a` stronger reward numerals.
@@ -29,11 +32,12 @@ reference game described below.
 
 Preserve the accepted path centres, 108 × 84 tiles, 64-pixel chip frame, native
 1536 × 1024 board and existing art/metadata. The detailed 3072 × 2048 painting is
-explicitly deferred. M4.5 will assess AI quality, balance and playability from
-actual Core legal games, with brief user/observer playtests. M5 will then connect
-Core and finish runtime Dream/nest/event presentation using the accepted visual
-direction; M6 will confirm balance in connected Unity and handle readability,
-performance and export.
+explicitly deferred. M4.5 assessed AI quality and balance through actual Core
+legal games and user review of the results. The user accepted deferring hands-on
+gameplay feel to Unity. On a separate command, M5 will connect Core and finish
+runtime Dream/nest/event presentation using the accepted visual direction;
+M6 will confirm balance in connected Unity and handle readability, performance
+and export.
 
 C1 resolved the starting contract: every duck starts at nest 0 with zero
 Feathers. Safe haven rewards and Dawn thresholds (0–2 → 0, 3–6 → 1, 7–10 → 2,

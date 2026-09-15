@@ -45,14 +45,14 @@ STARTING_TOKENS = (
 
 EXPECTED_OFFERS = {
     "seeds": ("Seed", 3, 1, None),
-    "tailwind_2": ("Tailwind 2", 5, 2, None),
-    "tailwind_4": ("Tailwind 4", 10, 4, None),
-    "tailwind_6": ("Tailwind 6", 15, 6, None),
+    "tailwind_2": ("Tailwind 2", 4, 2, None),
+    "tailwind_4": ("Tailwind 4", 8, 4, None),
+    "tailwind_6": ("Tailwind 6", 12, 6, None),
     "signpost": ("Signpost", 7, 2, None),
     "splash": ("Refreshing Splash", 4, 1, None),
-    "reeds_1": ("Reeds 1", 6, 1, 1),
-    "reeds_2": ("Reeds 2", 11, 1, 2),
-    "reeds_3": ("Reeds 3", 16, 1, 3),
+    "reeds_1": ("Reeds 1", 8, 1, 1),
+    "reeds_2": ("Reeds 2", 14, 1, 2),
+    "reeds_3": ("Reeds 3", 20, 1, 3),
     "companion": ("Companion", 7, None, None),
     "wildflowers": ("Wildflowers", 5, 1, None),
 }
@@ -494,13 +494,13 @@ def build_report() -> dict[str, object]:
     ]["fraction"] == "1/1"
     assert opening_affordability["Reeds 1"][
         "probability_affordable_from_opening_safe_rest"
-    ]["fraction"] == "1231/1287"
+    ]["fraction"] == "2947/8580"
     assert opening_affordability["Signpost"][
         "probability_affordable_from_opening_safe_rest"
     ]["fraction"] == "1741/3276"
     assert opening_affordability["Tailwind 4"][
         "probability_affordable_from_opening_safe_rest"
-    ]["fraction"] == "9769/60060"
+    ]["fraction"] == "2947/8580"
 
     # Stable exact results used in the written design review.
     assert purchase_rows["Seed"]["expected_next_day_distance"]["fraction"] == "581615/63063"
@@ -727,14 +727,14 @@ def build_report() -> dict[str, object]:
     }
 
     cap_two = (
-        package_result("Tailwind 4", 10, (("Tailwind 4", 4),)),
-        package_result("Seed + Signpost", 10, (("Seed", 1), ("Signpost", 2))),
+        package_result("Tailwind 4", shop_prices["tailwind_4"], (("Tailwind 4", 4),)),
+        package_result("Seed + Signpost", shop_prices["seeds"] + shop_prices["signpost"], (("Seed", 1), ("Signpost", 2))),
     )
     cap_three = (
-        package_result("Tailwind 6", 15, (("Tailwind 6", 6),)),
+        package_result("Tailwind 6", shop_prices["tailwind_6"], (("Tailwind 6", 6),)),
         package_result(
             "Seed + Tailwind 2 + Signpost",
-            15,
+            shop_prices["seeds"] + shop_prices["tailwind_2"] + shop_prices["signpost"],
             (("Seed", 1), ("Tailwind 2", 2), ("Signpost", 2)),
         ),
     )
@@ -836,7 +836,7 @@ def build_report() -> dict[str, object]:
         "purchase_cap_comparisons": {
             "two_purchase_tier_equal_budget_10": list(cap_two),
             "three_purchase_tier_equal_budget_15": list(cap_three),
-            "note": "These compare only the listed, actually priced purchases and their counter-limited movement; utility effects are not valued.",
+            "note": "These compare the listed purchases under the same budget ceiling; actual Sleep spent can differ. Counter-limited movement is measured, but utility effects and unspent Sleep are not valued.",
         },
         "draw_8_wear_out_pressure": {
             "rows": pressure_rows,

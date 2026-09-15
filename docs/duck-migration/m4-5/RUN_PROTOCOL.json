@@ -154,6 +154,25 @@
       ]
     ],
     "selectionReason": "Selected solely from development seeds1000-1099 before reading fresh E outputs. Closest worst-pair result across triangle and movement/Reeds interval included parity. C and D not advanced; no further variants planned.",
-    "status": "Complete: 1800 fresh matches. No retuning after reading outputs. Exact E proposal submitted for user review; no approved-price changes."
-  }
+    "status": "Complete and approved by user on 15 September 2026. Exact E prices promoted as rules revision 2; original datasets remain frozen evidence."
+  },
+  "promotion": {
+    "sourceCommit": "c636390",
+    "testCommit": "a60ec91",
+    "rulesRevision": 2,
+    "legacyRulesRevisionsPreserved": [
+      1
+    ],
+    "fullTestsPassed": 332,
+    "matchedGamesIdenticalToE": 144,
+    "matchedSeedStart": 10000,
+    "matchedSeedCount": 24,
+    "record": "PROMOTION.md",
+    "remainingGate": "None for M4.5: user accepted closure and explicitly deferred hands-on gameplay feel to Unity. M5 requires a separate command.",
+    "finalQualityAndCatchupMatches": 1800,
+    "finalQualityAndCatchupSummary": "evidence/promotion/final-summary.json",
+    "finalNormalVsBaselineWinScore": 0.7841666666666667,
+    "finalWeakOpeningWinScore": 0.37583333333333335
+  },
+  "milestoneStatus": "complete; accepted by user on 15 September 2026"
 }

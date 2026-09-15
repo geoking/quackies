@@ -1,0 +1,9 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Quackies.Core -> $REPO/src/Quackies.Core/bin/Release/netstandard2.1/Quackies.Core.dll
+  Quackies.Evaluation -> $REPO/tools/Quackies.Evaluation/bin/Release/net10.0/Quackies.Evaluation.dll
+  Quackies.Core.Tests -> $REPO/tests/Quackies.Core.Tests/bin/Release/net10.0/Quackies.Core.Tests.dll
+Test run for $REPO/tests/Quackies.Core.Tests/bin/Release/net10.0/Quackies.Core.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:    84, Skipped:     0, Total:    84, Duration: 2 s - Quackies.Core.Tests.dll (net10.0)

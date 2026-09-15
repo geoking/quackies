@@ -1301,3 +1301,29 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
 - The proposal was presented for approval. Core/canonical prices remain unchanged
   and no Unity work occurred. M4.5 stays open for user review, any agreed price
   promotion and final checks before M5.
+
+### 58. M4.5 approved prices applied and milestone closed
+
+- User approved the exact Tailwind 4/8/12 and Reeds 8/14/20 prices, then accepted
+  M4.5 closure with hands-on gameplay feel testing explicitly deferred to Unity.
+- Source `c636390` applies prices as rules revision 2 for new matches. Revision 1
+  saves retain their original economics, paid Sleep and purchases; Normal uses
+  observed match prices for its bundles. Save format 1 is unchanged. The source
+  checkpoint documents that old-price test expectations are updated immediately
+  in the separate `a60ec91` test checkpoint. Both were pushed.
+- Focused checks pass 84/84. The full Release suite passes 332/332; build has zero
+  warnings/errors. An actual legacy seed 20 snapshot preserves the final-Day
+  recovery regression despite new prices changing future seeded bags.
+- All 144 promoted integration games exactly match the frozen E proposal's
+  deterministic game telemetry and final results. New CLI seed 42 finishes 41–40;
+  Continue preserves it. Legacy seed 42 Continue retains 56–46 and revision 1.
+- The final audit ran another 1,800 applied-price games for selfplay, weak opening
+  and old-AI comparisons. Improved Normal scores 78.4% against the M4 algorithm;
+  deliberate weak openings score 37.6% against Normal. Retain Dawn thresholds.
+  The regenerated numerical audit still proves the effective-start bound 42.
+- [Completion audit](duck-migration/m4-5/COMPLETION_AUDIT.md),
+  [price promotion](duck-migration/m4-5/PROMOTION.md) and
+  [review report](duck-migration/m4-5/REPORT.md) preserve evidence and limitations.
+  **M4.5 is complete and accepted. M5 remains unstarted pending a separate user
+  command.** No Unity mutation, DLL sync, export or device test occurred; the
+  three pre-existing Unity modifications remain outside the checkpoints.

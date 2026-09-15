@@ -253,7 +253,7 @@
         }
       },
       "Tailwind 2": {
-        "price": 5,
+        "price": 4,
         "expected_next_day_distance": {
           "fraction": "67740/7007",
           "decimal": 9.667475
@@ -264,7 +264,7 @@
         }
       },
       "Tailwind 4": {
-        "price": 10,
+        "price": 8,
         "expected_next_day_distance": {
           "fraction": "672740/63063",
           "decimal": 10.667745
@@ -275,7 +275,7 @@
         }
       },
       "Tailwind 6": {
-        "price": 15,
+        "price": 12,
         "expected_next_day_distance": {
           "fraction": "735820/63063",
           "decimal": 11.668015
@@ -308,7 +308,7 @@
         }
       },
       "Reeds 1": {
-        "price": 6,
+        "price": 8,
         "expected_next_day_distance": {
           "fraction": "581615/63063",
           "decimal": 9.222761
@@ -323,7 +323,7 @@
         }
       },
       "Reeds 2": {
-        "price": 11,
+        "price": 14,
         "expected_next_day_distance": {
           "fraction": "581615/63063",
           "decimal": 9.222761
@@ -338,7 +338,7 @@
         }
       },
       "Reeds 3": {
-        "price": 16,
+        "price": 20,
         "expected_next_day_distance": {
           "fraction": "581615/63063",
           "decimal": 9.222761
@@ -403,7 +403,7 @@
         }
       },
       "Tailwind 2": {
-        "price": 5,
+        "price": 4,
         "probability_affordable_from_opening_safe_rest": {
           "fraction": "1/1",
           "decimal": 1.0,
@@ -411,15 +411,15 @@
         }
       },
       "Tailwind 4": {
-        "price": 10,
+        "price": 8,
         "probability_affordable_from_opening_safe_rest": {
-          "fraction": "9769/60060",
-          "decimal": 0.162654,
-          "percent": 16.265
+          "fraction": "2947/8580",
+          "decimal": 0.343473,
+          "percent": 34.347
         }
       },
       "Tailwind 6": {
-        "price": 15,
+        "price": 12,
         "probability_affordable_from_opening_safe_rest": {
           "fraction": "0/1",
           "decimal": 0.0,
@@ -443,15 +443,15 @@
         }
       },
       "Reeds 1": {
-        "price": 6,
+        "price": 8,
         "probability_affordable_from_opening_safe_rest": {
-          "fraction": "1231/1287",
-          "decimal": 0.956488,
-          "percent": 95.649
+          "fraction": "2947/8580",
+          "decimal": 0.343473,
+          "percent": 34.347
         }
       },
       "Reeds 2": {
-        "price": 11,
+        "price": 14,
         "probability_affordable_from_opening_safe_rest": {
           "fraction": "0/1",
           "decimal": 0.0,
@@ -459,7 +459,7 @@
         }
       },
       "Reeds 3": {
-        "price": 16,
+        "price": 20,
         "probability_affordable_from_opening_safe_rest": {
           "fraction": "0/1",
           "decimal": 0.0,
@@ -484,13 +484,13 @@
       }
     },
     "method": "Map each exact opening rest-position probability to that row's Sleep, before encounter, flock, Most Rested or World Event changes.",
-    "computed_readout": "Computed from the current board rows: Seed at 3 Sleep: 100.000%; Tailwind 2 at 5 Sleep: 100.000%; Tailwind 4 at 10 Sleep: 16.265%; Tailwind 6 at 15 Sleep: 0.000%; Signpost at 7 Sleep: 53.144%; Refreshing Splash at 4 Sleep: 100.000%; Reeds 1 at 6 Sleep: 95.649%; Reeds 2 at 11 Sleep: 0.000%; Reeds 3 at 16 Sleep: 0.000%; Companion at 7 Sleep: 53.144%; Wildflowers at 5 Sleep: 100.000%."
+    "computed_readout": "Computed from the current board rows: Seed at 3 Sleep: 100.000%; Tailwind 2 at 4 Sleep: 100.000%; Tailwind 4 at 8 Sleep: 34.347%; Tailwind 6 at 12 Sleep: 0.000%; Signpost at 7 Sleep: 53.144%; Refreshing Splash at 4 Sleep: 100.000%; Reeds 1 at 8 Sleep: 34.347%; Reeds 2 at 14 Sleep: 0.000%; Reeds 3 at 20 Sleep: 0.000%; Companion at 7 Sleep: 53.144%; Wildflowers at 5 Sleep: 100.000%."
   },
   "purchase_cap_comparisons": {
     "two_purchase_tier_equal_budget_10": [
       {
         "label": "Tailwind 4",
-        "total_price": 10,
+        "total_price": 8,
         "expected_next_day_distance": {
           "fraction": "672740/63063",
           "decimal": 10.667745
@@ -508,7 +508,7 @@
     "three_purchase_tier_equal_budget_15": [
       {
         "label": "Tailwind 6",
-        "total_price": 15,
+        "total_price": 12,
         "expected_next_day_distance": {
           "fraction": "735820/63063",
           "decimal": 11.668015
@@ -516,14 +516,14 @@
       },
       {
         "label": "Seed + Tailwind 2 + Signpost",
-        "total_price": 15,
+        "total_price": 14,
         "expected_next_day_distance": {
           "fraction": "20571/1820",
           "decimal": 11.302747
         }
       }
     ],
-    "note": "These compare only the listed, actually priced purchases and their counter-limited movement; utility effects are not valued."
+    "note": "These compare the listed purchases under the same budget ceiling; actual Sleep spent can differ. Counter-limited movement is measured, but utility effects and unspent Sleep are not valued."
   },
   "draw_8_wear_out_pressure": {
     "rows": [

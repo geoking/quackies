@@ -1,0 +1,108 @@
+{
+  "sourceCommit": "a60ec91ca33e7d856f695575e473e28db0801917",
+  "rulesRevision": 2,
+  "purpose": "Promotion equivalence, not another independent balance sample. Compare complete deterministic game telemetry against frozen E on the same24 seeds and both seats.",
+  "seedStart": 10000,
+  "seedCount": 24,
+  "comparisons": [
+    {
+      "pair": [
+        "normal",
+        "reeds-heavy"
+      ],
+      "command": [
+        "dotnet",
+        "/Users/george/Repos/quackies/tools/Quackies.Evaluation/bin/Release/net10.0/Quackies.Evaluation.dll",
+        "--source-label",
+        "a60ec91ca33e7d856f695575e473e28db0801917;Release;promoted-revision2",
+        "--seed-start",
+        "10000",
+        "--seed-count",
+        "24",
+        "--policy-a",
+        "normal",
+        "--policy-b",
+        "reeds-heavy",
+        "--seat-mode",
+        "both",
+        "--schedule",
+        "cli",
+        "--output",
+        "/tmp/promoted-normal-vs-reeds-heavy-10000-10023.jsonl",
+        "--progress-every",
+        "200"
+      ],
+      "matches": 48,
+      "allDeterministicTelemetryMatchesE": true,
+      "rawSha256": "72d4325118da8cfcd8215827f6accdbf7abacaf12bdd4fa111da984a05d9bf7e",
+      "compressedFile": "promoted-normal-vs-reeds-heavy-10000-10023.jsonl.gz",
+      "elapsedSeconds": 9.19
+    },
+    {
+      "pair": [
+        "normal",
+        "movement-heavy"
+      ],
+      "command": [
+        "dotnet",
+        "/Users/george/Repos/quackies/tools/Quackies.Evaluation/bin/Release/net10.0/Quackies.Evaluation.dll",
+        "--source-label",
+        "a60ec91ca33e7d856f695575e473e28db0801917;Release;promoted-revision2",
+        "--seed-start",
+        "10000",
+        "--seed-count",
+        "24",
+        "--policy-a",
+        "normal",
+        "--policy-b",
+        "movement-heavy",
+        "--seat-mode",
+        "both",
+        "--schedule",
+        "cli",
+        "--output",
+        "/tmp/promoted-normal-vs-movement-heavy-10000-10023.jsonl",
+        "--progress-every",
+        "200"
+      ],
+      "matches": 48,
+      "allDeterministicTelemetryMatchesE": true,
+      "rawSha256": "caac29a72fc21d6030d104cef06fc0e3037411b2b36eefd850184dace9857387",
+      "compressedFile": "promoted-normal-vs-movement-heavy-10000-10023.jsonl.gz",
+      "elapsedSeconds": 9.51
+    },
+    {
+      "pair": [
+        "movement-heavy",
+        "reeds-heavy"
+      ],
+      "command": [
+        "dotnet",
+        "/Users/george/Repos/quackies/tools/Quackies.Evaluation/bin/Release/net10.0/Quackies.Evaluation.dll",
+        "--source-label",
+        "a60ec91ca33e7d856f695575e473e28db0801917;Release;promoted-revision2",
+        "--seed-start",
+        "10000",
+        "--seed-count",
+        "24",
+        "--policy-a",
+        "movement-heavy",
+        "--policy-b",
+        "reeds-heavy",
+        "--seat-mode",
+        "both",
+        "--schedule",
+        "cli",
+        "--output",
+        "/tmp/promoted-movement-heavy-vs-reeds-heavy-10000-10023.jsonl",
+        "--progress-every",
+        "200"
+      ],
+      "matches": 48,
+      "allDeterministicTelemetryMatchesE": true,
+      "rawSha256": "d29eaa0373796491d5dbdf806bea23af72947fd25b3e74e9672576472cf62415",
+      "compressedFile": "promoted-movement-heavy-vs-reeds-heavy-10000-10023.jsonl.gz",
+      "elapsedSeconds": 8.59
+    }
+  ]
+}

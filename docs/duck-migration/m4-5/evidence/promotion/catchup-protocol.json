@@ -1,0 +1,86 @@
+{
+  "sourceCommit": "a60ec91ca33e7d856f695575e473e28db0801917",
+  "rulesRevision": 2,
+  "reason": "Final completion audit: shop changes can alter Normal selfplay and incentives for deliberate weak openings. Recheck both before retaining the original-price comeback and Dawn disposition. No retuning or new variant is authorized.",
+  "seedStart": 10000,
+  "seedCount": 300,
+  "seatMode": "both",
+  "schedule": "cli",
+  "matchups": [
+    [
+      "normal",
+      "normal"
+    ],
+    [
+      "sandbag-day3",
+      "normal"
+    ]
+  ],
+  "status": "complete; no source or price retuning",
+  "completed": [
+    {
+      "pair": [
+        "normal",
+        "normal"
+      ],
+      "command": [
+        "dotnet",
+        "/Users/george/Repos/quackies/tools/Quackies.Evaluation/bin/Release/net10.0/Quackies.Evaluation.dll",
+        "--source-label",
+        "a60ec91ca33e7d856f695575e473e28db0801917;Release;promoted-revision2-catchup",
+        "--seed-start",
+        "10000",
+        "--seed-count",
+        "300",
+        "--policy-a",
+        "normal",
+        "--policy-b",
+        "normal",
+        "--seat-mode",
+        "both",
+        "--schedule",
+        "cli",
+        "--output",
+        "/tmp/promoted-normal-vs-normal-10000-10299.jsonl",
+        "--progress-every",
+        "200"
+      ],
+      "matches": 600,
+      "rawSha256": "12466830def04189fb1dce8cdf1ebeba3f862d11853b4b7a7c6ccd9c114a75a9",
+      "file": "promoted-normal-vs-normal-10000-10299.jsonl.gz",
+      "elapsedSeconds": 99.84
+    },
+    {
+      "pair": [
+        "sandbag-day3",
+        "normal"
+      ],
+      "command": [
+        "dotnet",
+        "/Users/george/Repos/quackies/tools/Quackies.Evaluation/bin/Release/net10.0/Quackies.Evaluation.dll",
+        "--source-label",
+        "a60ec91ca33e7d856f695575e473e28db0801917;Release;promoted-revision2-catchup",
+        "--seed-start",
+        "10000",
+        "--seed-count",
+        "300",
+        "--policy-a",
+        "sandbag-day3",
+        "--policy-b",
+        "normal",
+        "--seat-mode",
+        "both",
+        "--schedule",
+        "cli",
+        "--output",
+        "/tmp/promoted-sandbag-day3-vs-normal-10000-10299.jsonl",
+        "--progress-every",
+        "200"
+      ],
+      "matches": 600,
+      "rawSha256": "7fcaf0714607e29745ea6aefd01333bc58610848df8da94621a07eff26fc7795",
+      "file": "promoted-sandbag-day3-vs-normal-10000-10299.jsonl.gz",
+      "elapsedSeconds": 86.59
+    }
+  ]
+}

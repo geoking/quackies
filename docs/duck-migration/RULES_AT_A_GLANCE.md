@@ -1,11 +1,15 @@
 # Quackies rules at a glance
 
-Updated 14 September 2026. The user's latest mechanic changes are incorporated
+Updated 15 September 2026. The user's latest mechanic changes are incorporated
 below. The user approved the [43-space rewards and shop prices](v1/BOARD_AND_SHOP.md),
 the three-Feather Dawn cap, the [ten-card World Event deck](v1/WORLD_EVENTS.md),
 the remaining M2 defaults, and local autosave/Continue, now implemented in M4. This
 rules sheet is closed for M2; it is a specification, not evidence of implementation
 or full-match balance.
+
+M4.5 price update approved 15 September 2026: Tailwind →2/→4/→6 costs 4/8/12
+Sleep; Reeds ×1/×2/×3 costs 8/14/20. New games use rules revision 2; older saves
+keep their original prices. All movement and powers below are unchanged.
 
 ## The game
 

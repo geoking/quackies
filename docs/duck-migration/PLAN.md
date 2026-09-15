@@ -3,11 +3,12 @@
 Updated 15 September 2026. **M2 and M3 are complete and approved by the user.**
 M3 closes with the 43-space board and reward typography at `2c7cd6a`.
 **M4 C1–C5 is complete and closed.** The completion audit records the evidence
-and remaining limits. **M4.5 is active: AI quality, balance and playability
+and remaining limits. **M4.5 is complete and accepted: AI quality, balance and playability
 review before M5 Unity work.** The user authorized this gate to reduce rework;
-AI corrections and fresh comparisons are complete; the [review report](m4-5/REPORT.md)
-proposes exact prices. User review, any approved promotion and human playability
-feedback remain pending.
+AI corrections, fresh comparisons and the user-approved price promotion are
+complete. The [review report](m4-5/REPORT.md) and [promotion record](m4-5/PROMOTION.md)
+record 332 passing tests and legacy save compatibility. The user accepted closure and explicitly deferred hands-on gameplay feel to
+Unity. M5 awaits a separate command.
 Historical decisions and checks remain in [PROGRESS.md](../PROGRESS.md).
 
 ## What we are building
@@ -132,8 +133,8 @@ whole match loop, or put rule arithmetic into Unity.
 | M2 — Rules sheet | Complete: rules, data, events, defaults and local save/resume scope approved |
 | M3 — Layout | Complete: final 43-space visual proof approved by the user |
 | **M4 — Core/CLI** | **Complete: C1–C5 source, tests, CLI and persistence validated.** |
-| **M4.5 — AI, balance and playability** | **Active:** AI and fresh comparisons complete; review proposed prices and playability, then validate agreed adjustments before Unity |
-| M5 — Connected Unity | After M4.5 review, bind the accepted board/Dream views to the resulting committed Core state/actions and complete a human/AI match |
+| **M4.5 — AI, balance and playability** | **Complete and accepted:** AI improvements, approved prices, 332 tests and matched-game verification; hands-on feel deferred to Unity by the user |
+| M5 — Connected Unity | Unstarted; await the user's command. Bind the accepted board/Dream views to committed Core state/actions and complete a human/AI match |
 | M6 — Connected-game validation/export | Confirm balance and playability in Unity, finish readability/performance and validate iOS export |
 
 The bounded C1–C3 slice established the duck profile, exact catalogue, state,

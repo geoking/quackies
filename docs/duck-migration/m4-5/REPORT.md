@@ -1,10 +1,12 @@
-# M4.5 review — AI corrected; price decision and human feedback pending
+# M4.5 review — complete and accepted
 
-15 September 2026. The improved AI is committed and validated. **The approved
-prices do not yet meet the user's balanced-strategy target.** Reeds beats both
-Normal and movement-focused buying consistently. The selected isolated price
-proposal substantially closes the gap on fresh games; no new prices are active
-in Core.
+15 September 2026. The improved AI and user-approved price adjustment are
+committed and validated. **New games use Tailwind 4/8/12 and Reeds 8/14/20**;
+existing revision 1 saves retain their original prices. The [promotion record](PROMOTION.md)
+contains 332 passing tests, exact integration comparisons and CLI/Continue
+checks. The following study preserves the evidence that informed the decision.
+The user accepted this review and M4.5 closure, explicitly deferring hands-on
+gameplay feel testing to Unity.
 
 ## What improved
 
@@ -19,12 +21,13 @@ lose. Conservative score bounds and an optimistic remaining-bag recovery bound
 now keep a possible recovery open beyond the search horizon. That particular
 replay still loses 36–50 after wearing out. The fix improves the choice, not luck.
 
-Final gameplay source is `32b5233`; focused regressions are `feebf2c`.
+The original-price AI evaluation used `32b5233`; its focused regressions are
+`feebf2c`.
 **328 tests pass**, the Release build has zero warnings/errors, and a complete
 CLI match plus finished-save Continue agree at AI 56–46 Human for seed 42.
 Both seats in that demonstration use Normal. [Validation and transcripts](evidence/final-ai-validation.md).
 
-## Fresh games on the approved prices
+## Fresh games on the original prices
 
 Each comparison has 300 fresh seeds (10000–10299), played in both seats: 600
 match records. Uncertainty resamples whole seeds so the paired seats stay
@@ -141,15 +144,15 @@ Unity integration must pace decisions and measure on the target device later.
 | --- | --- | --- |
 | Early-stop bias and greedy individual purchases | Confirmed AI limitations / high | Corrected; retained cautious-stop and bundle regressions, and fresh win comparison. |
 | Final-Day certain-loss rest, seed 20 | Confirmed policy fault / high | Corrected and covered by actual full-match regression. |
-| Reeds wins too consistently under approved prices | Balance concern / high for tested policies | Selected price proposal passed fresh comparison; user decision pending. |
-| Limited late-bag horizon and purchase heuristics | Remaining AI limitation / high | Explicit bounded design; no optimality claim. Review against human play before closure. |
+| Reeds wins too consistently under original prices | Balance concern / high for tested policies | Exact prices approved and promoted; 332 tests and matched-game integration checks pass. |
+| Limited late-bag horizon and purchase heuristics | Remaining AI limitation / high | Explicit bounded design; no optimality claim. Review against human play in Unity. |
 | Dawn gift farming | Potential balance concern / moderate | Tested one deliberate weak-opening strategy; no demonstrated winning exploit. Retain thresholds provisionally. |
-| Oasis rare in mixed bags | Design observation / high for tested policies | Movement can reach it; reassess with proposed prices. User wants optional oasis. |
-| Tension, clarity, desire to replay | Human-play feedback / missing | Still pending; automated scores do not certify fun. |
+| Oasis rare in mixed bags | Design observation / high for tested policies | Approved prices improve movement competitiveness; the oasis remains optional. |
+| Tension, clarity, desire to replay | Human-play feedback / missing | User accepts deferring hands-on assessment to Unity; automated scores do not certify fun. |
 
-## Recommended price adjustment
+## Approved price adjustment
 
-| Token | Current Sleep price | Proposed Sleep price |
+| Token | Original Sleep price | Approved Sleep price |
 | --- | ---: | ---: |
 | Tailwind, move 2 | 5 | 4 |
 | Tailwind, move 4 | 10 | 8 |
@@ -164,7 +167,7 @@ from development results before its fresh validation outputs were read; no
 further variants were tuned. Earlier experiments and their weaker results are
 preserved rather than discarded.
 
-| Comparison | Current first-strategy score | Proposed first-strategy score, 95% interval | Proposed wins–losses–draws |
+| Comparison | Original first-strategy score | Approved first-strategy score, 95% interval | Approved wins–losses–draws |
 | --- | ---: | ---: | ---: |
 | Movement-focused vs Reeds-focused | 10.6% | **46.6% [42.9%, 50.3%]** | 277–318–5 |
 | Normal vs movement-focused | 64.4% | **46.7% [42.9%, 50.6%]** | 278–318–4 |
@@ -173,7 +176,7 @@ preserved rather than discarded.
 This is another 1,800 complete matches, the same fresh 300 seeds and both seats
 for each comparison, on a copy of frozen source `32b5233` with only the six
 price literals changed. These are held-out seeds relative to candidate selection;
-they are deliberately shared with approved-price controls for comparison.
+they are deliberately shared with original-price controls for comparison.
 
 Reeds retains a modest edge, particularly against mixed Normal buying. The
 results support **both focused strategies being credible**, not perfect parity
@@ -196,20 +199,49 @@ bundles, not just individual purchases. Normal still buys about 1.4 chips per
 Night and leaves about 0.9 Sleep unspent. No new event or reward power is needed.
 
 [Exact experiments, commands, source patches and complete results](price-probe-final/REPORT.md)
-provide the reviewable proposal. All 1,800 proposed-price records passed the
-analyzer's structural checks. They do not substitute for canonical-data and
-save-version tests after an approved promotion.
+preserve the approved proposal and its selection evidence. All 1,800 proposed-price records passed the
+analyzer's structural checks. Subsequent canonical-data, save-version and
+integration checks passed in the [promotion record](PROMOTION.md).
 
-## Remaining review
+## Final checks with the applied prices
 
-The exact proposal has been presented for user approval. If accepted, apply it
-as a small Core checkpoint, reconcile canonical shop data and save rules-version
-behavior, run relevant price and persistence checks, and recheck the existing
-effective-start bound. The observed maximum start in proposed-price validation
-is 26; that is an observation, not a proof of the legal maximum.
+The final audit repeated selfplay, deliberate weak openings and the old AI
+comparison under revision 2, 300 seeds each and both seats. Together with the
+validated strategy triangle, all six important comparisons now have evidence
+for the approved price set. These repeats address price-sensitive behavior;
+there was no further tuning.
 
-Human feedback on tension, clarity and purchase choices remains pending. The
-representative games above are available for review; a user-played CLI match
-would provide stronger feedback than reading outcomes. M4.5 remains open until
-that review and any agreed corrections are complete. M5 Unity work waits for
-the milestone review and the user's command.
+| Check | Result on applied prices |
+| --- | --- |
+| Improved Normal versus frozen M4 algorithm | 467 wins, 126 losses, 7 draws; 78.4% win score [75.1%, 81.8%] |
+| Deliberately weak first three Days versus Normal | 222 wins, 371 losses, 7 draws; 37.6% win score [34.3%, 41.3%] |
+| Normal selfplay, 3–6 Twigs behind after Day 5 | 54.9% recovery [44.0%, 64.8%], 91 distinct seed games |
+| Normal selfplay, 3–6 Twigs behind after Day 9 | 29.3% recovery [21.1%, 36.6%], 123 distinct seed games |
+| Normal selfplay pace | 7.2 draws/Day, 3.0% one-draw Days, 10.2% worn-out Days |
+| Normal selfplay safe oasis | 2.5% of duck-matches |
+
+The physical selfplay seats score 45.2% and 54.8%; both seed-cluster intervals
+include parity. A 7–10-Twig Day 9 comeback cohort has only 33 distinct seeds;
+11+ has only 7, so those estimates remain weak. Deliberate weak play earns more
+Dawn gifts but still loses more often. Retain the approved Dawn thresholds and
+carry human interaction/order and gift incentives into Unity playtesting.
+[Full final summaries and protocols](PROMOTION.md).
+
+## Accepted milestone disposition
+
+The exact prices were approved and promoted in `c636390`, with regression tests
+in `a60ec91`. The complete suite passes 332/332; 144 integration games reproduce
+the validated proposal's deterministic outcomes exactly. Save revision 1 retains
+old economics and revision 2 uses the new prices. The bounded starting-position
+audit still proves 42. [Full promotion record](PROMOTION.md).
+
+The user reviewed the results and game examples and answered **“Happy to close
+M4.5; test feel in Unity.”** This explicitly accepts deferring hands-on gameplay
+feel testing. The examples above show the original-price baseline; the promoted
+seed 42 CLI demonstration ends 41–40 and is linked in the promotion record.
+These are observed AI games, not user-played matches. A human-versus-Normal
+Unity playtest must assess tension, clarity, buying choices and desire to replay.
+
+M4.5 is complete with its known heuristic, sampling and device-performance limits
+recorded. M5 Unity work remains unstarted and awaits the user's separate command.
+[Completion audit](COMPLETION_AUDIT.md).

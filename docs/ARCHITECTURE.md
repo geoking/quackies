@@ -4,8 +4,8 @@ The implementation described below is the completed original rules baseline.
 On 13 September 2026 the user accepted a distinct Day/Dream rules direction.
 The planned evolution is in [duck-migration/ENGINE_EVOLUTION.md](duck-migration/ENGINE_EVOLUTION.md)
 and the current [plan](duck-migration/PLAN.md). M4 has now implemented the full
-ten-Day duck Core/CLI baseline described below. M4.5 is the active shared
-planning and evaluation transition before M5 binds this boundary to Unity. The
+ten-Day duck Core/CLI baseline described below. M4.5 completed the shared planning and evaluation transition, including
+user-approved price tuning, before M5 binds this boundary to Unity. The
 later classic sections document the retained reference profile; its currencies
 and phase rules do not prescribe the duck game.
 
@@ -114,6 +114,14 @@ evaluation runner drives real issued legal actions and records reproducible
 JSONL telemetry for baseline, candidate and diagnostic policies; its current
 pilot and declared development/holdout limits are recorded in the [M4.5
 working record](duck-migration/m4-5/README.md) and [run protocol](duck-migration/m4-5/RUN_PROTOCOL.json).
+
+The approved M4.5 prices are rules revision 2 for new games. `DuckMatchState`
+retains an immutable rules revision; restoration selects the matching catalogue,
+so revision 1 saves keep their original shop prices. Save format 1 and the duck-v1
+product profile remain unchanged. Normal's Night bundle pricing comes from
+`DuckMatchView.ShopOffers`, matching both the legal actions and the running
+match's prices. The implementation and 332-test validation are recorded in the
+[promotion review](duck-migration/m4-5/PROMOTION.md).
 
 Quackies has one rules engine with two front ends: Unity and a command-line
 debugging client. Neither front end decides whether a move is legal or awards
