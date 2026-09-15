@@ -133,5 +133,6 @@ final chip fully resolves. Reaching or overshooting space 43 places at 43,
 fully resolves that chip including Exhaustion, then finishes with no further
 placements. Local autosave/Continue is implemented in Core/CLI.
 
-M2, M3 and M4 are complete. [M4.5](m4-5/PLAN.md) now assesses AI, balance and
-playability before M5 Unity integration. M6 confirms the connected experience.
+M2, M3, M4 and [M4.5](m4-5/REPORT.md) are complete. The approved duck game is
+playable through the [CLI](../CLI_GUIDE.md). M5 connects Unity and checks hands-on
+feel; M6 confirms the connected experience.

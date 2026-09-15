@@ -1,86 +1,82 @@
 # Quackies
 
-The active duck-game migration is on `codex/duck-game-milestone-0`.
-Its ten-Day rules, 50-space rewards, encounter prices and ten World Events are
-approved. See the [product plan](docs/duck-migration/PLAN.md),
-[implementation plan](docs/duck-migration/IMPLEMENTATION_PLAN.md) and
-[status](docs/duck-migration/STATUS.md). **M2 is complete**, including approved
-local autosave/resume. Days 1–9 draw independently; only Day 10 is simultaneous.
-Equal final Twigs use Night 10 retained Sleep, then a draw. No new gameplay is
-implemented. **M3's iPad layout proof is complete** in a separate fixed-data
-scene with no Core binding. Open **Quackies → Build and Play Duck Layout Proof**
-to review it, or see the [screenshots and checks](docs/duck-migration/m3/README.md).
-M4 waits for the user's command.
-The playable scene and commands below describe the **completed original rules
-baseline**, which remains a regression reference during the migration.
+A tabletop duck adventure for one human versus Normal AI. Explore by Day,
+rest and shop in your dreams by Night, and finish ten Days with the most Twigs.
+The current game has 43 spaces across wetlands, meadow and wasteland.
 
-A Unity tabletop game for one human and one AI, targeting iPad mini landscape.
-The complete base-game Set 1 fortune deck, Normal AI, board inspection, match
-settings and dice results are implemented. The initial playable milestone is
-complete, with a full nine-round Unity interaction check, native iPad-aspect
-review and successful iOS export. See
-[progress](docs/PROGRESS.md) and [next milestones](docs/NEXT_MILESTONES.md).
-For the latest completed work, work in progress and known gaps, read the
-[handoff](docs/HANDOFF.md).
+**The complete duck game is playable in the CLI.** M4 and the M4.5 AI/balance
+review are complete. New games use the approved Tailwind prices of 4/8/12 Sleep
+and Reeds prices of 8/14/20. Existing saves keep their original prices.
+The accepted Unity board is still a visual proof; connecting it to the duck
+rules is M5, which has not started.
 
-## Open the playable scene
+## Play now
 
-Open `unity/Quackies.Unity` with Unity **6000.6.0f1**. From Edit mode, invoke:
-
-**Quackies → Build and Play Initial Scene**
-
-That menu rebuilds and saves `Assets/Scenes/QuackiesInitialScene.unity`, then
-enters Play mode. Stop Play mode before rebuilding. Draw or stop using the bottom
-buttons; use the available actions to resolve choices, buy chips and continue.
-Ingredient buttons open the supplied book artwork; the active fortune opens its
-full card. Scoreboard and the rival pot open larger inspection views. Dice reopens
-the current round’s results. Settings shows Normal AI and the starting-ruby option
-(off by default in Unity); Apply & restart begins a match with that setup.
-Restart begins a fresh match. Final-round coins convert at five per victory point.
-
-## Projects
-
-- `src/Quackies.Core`: platform-independent core library targeting `netstandard2.1`
-- `src/Quackies.Cli`: command-line debug/test front end targeting `net10.0`
-- `tests/Quackies.Core.Tests`: xUnit tests for the core library targeting `net10.0`
-- `unity/Quackies.Unity`: saved scene, art catalogue, Unity views and scene builder
-
-## Commands
-
-Build the solution:
+Install the **.NET 10 SDK**, open a terminal in this repository, and run:
 
 ```sh
-dotnet build Quackies.sln
+dotnet run --project src/Quackies.Cli --configuration Release
 ```
 
-Run tests:
+Choose a listed action number to Explore, Settle down or buy a chip. Type `help`
+for commands. `board`, `tokens`, `event`, `bag` and `shop` let you inspect the
+information you need without advancing play. `q` quits; actions are autosaved.
+If a save exists, the next launch offers Continue or a new game.
+
+[How to play the CLI](docs/CLI_GUIDE.md) covers the Day/Night loop, commands,
+rewards, saves and developer options. The CLI runs without Unity.
+
+## Build and check
 
 ```sh
-dotnet test Quackies.sln
+dotnet build Quackies.sln --configuration Release
+dotnet test Quackies.sln --configuration Release
 ```
 
-Run the CLI:
+For a reproducible Normal-versus-Normal demonstration:
 
 ```sh
-dotnet run --project src/Quackies.Cli/Quackies.Cli.csproj
+dotnet run --project src/Quackies.Cli --configuration Release -- --seed 42 --demo-game
 ```
 
-Add `-- --starting-rubies 0` to use the no-starting-ruby house rule. The CLI
-defaults to the official one ruby, uses Normal AI, shows recent action history
-and waits for the human to advance each round. Add `--seed 0` for a repeatable
-fortune sequence. All 24 fortune cards are enabled in standard Core and CLI games.
+Demonstrations do not autosave unless requested. Use `--help` for launch options.
 
-After changing Core code, update the DLL used by Unity:
+## Find your way around
 
-```sh
-./tools/sync-unity-core.sh
-```
+| Location | Responsibility |
+| --- | --- |
+| `src/Quackies.Core` | Unity-independent rules, state, observations, AI and save data |
+| `src/Quackies.Cli` | Terminal input, presentation and local save files |
+| `tests/Quackies.Core.Tests` | Duck and classic rules, AI, persistence and CLI integration tests |
+| `tools/Quackies.Evaluation` | Reproducible full games driven through the real Core API |
+| `unity/Quackies.Unity` | Accepted duck artwork/layout proof and retained classic playable scene |
+| `docs` | Player guide, code map, specifications, plans and validation evidence |
 
-Let Unity finish importing before using Play mode. Original artwork under
-`Assets/Art/raw` is preserved; sprite cropping is stored in import metadata.
+Start with the [codebase map](docs/CODEBASE_MAP.md) for the folder structure and
+how commands, rules, AI and saves fit together. The
+[architecture](docs/ARCHITECTURE.md) records the boundaries and extension rules.
 
-The project targets iPad in landscape. The live GameView render target and
-Canvas were verified at 1133×744 (the same aspect as 2266×1488); see the
-[recorded evidence](tools/validation/evidence/2026-09-10/README.md). The iOS export
-succeeded with 0 errors and 5 warnings. Xcode compilation, signing, installation
-and physical-device testing remain separate work.
+The [current plan](docs/duck-migration/PLAN.md),
+[handoff](docs/HANDOFF.md) and [progress log](docs/PROGRESS.md) track the work.
+The [rules recap](docs/duck-migration/RULES_AT_A_GLANCE.md),
+[board and shop](docs/duck-migration/v1/BOARD_AND_SHOP.md) and
+[World Events](docs/duck-migration/v1/WORLD_EVENTS.md) define gameplay.
+
+## Unity and the classic reference
+
+The target is iPad mini in landscape. The Unity project uses **6000.6.0f1**.
+The accepted `DuckLayoutProof` is a fixed-data visual scene, documented in the
+[M3 closeout](docs/duck-migration/m3-closeout/README.md). It is not yet bound to
+the new duck Core. M5 will connect Adventure and Dream views, then test the
+human-versus-AI experience.
+
+The original nine-round Quacks-inspired game remains a tested reference. Run it
+with `--profile classic`, or open Unity's **Quackies → Build and Play Initial
+Scene**. Its original rules, Unity checks and iOS export are recorded in the
+[completed baseline](docs/IMPLEMENTATION_GOAL.md). They do not establish a
+connected duck-game build or physical-device test.
+
+Updating the Unity Core DLL is an explicit integration step using
+`tools/sync-unity-core.sh`, outside Play mode; see the architecture guide. A CLI
+build does not sync or rebuild Unity. Original art under `Assets/Art/raw` is
+preserved.

@@ -4,6 +4,12 @@ Updated 15 September 2026. **M2 and M3 are complete and approved by the user.**
 The accepted visual checkpoint is 2c7cd6a. **M4 C1–C5 is complete and closed.** No
 duck Core session is bound to Unity.
 
+The user-requested CLI usability checkpoint after M4.5 is also complete:
+339 tests pass, the interactive ten-Day flow and Continue were exercised,
+and current [play instructions](../CLI_GUIDE.md) and a
+[codebase map](../CODEBASE_MAP.md) are saved. See the
+[validation record](../cli-validation/README.md). M5 awaits a separate command.
+
 ## Closed milestones
 
 M2 approved the ten-Day game, complete encounter/event catalogues, rewards and

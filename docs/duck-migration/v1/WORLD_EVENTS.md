@@ -1,8 +1,9 @@
 # Quackies v1 World Events
 
 14 September 2026. The user approved this ten-card deck as the initial v1
-ruleset, alongside the board rewards and shop prices. Implementation and
-full-match balance testing remain outstanding.
+ruleset, alongside the board rewards and shop prices. Core/CLI implementation
+and the M4.5 automated balance review are complete; these event rules are
+unchanged. Hands-on gameplay feel remains for connected Unity playtesting.
 
 ## Shared deck and timing
 

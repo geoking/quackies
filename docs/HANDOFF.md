@@ -1,6 +1,15 @@
 # Quackies handoff
 
-## Current task: M4.5 closed; await the M5 command
+## Current task: CLI checkpoint complete; await the M5 command
+
+The requested CLI usability and documentation checkpoint is complete. See the
+[CLI guide](CLI_GUIDE.md), [codebase map](CODEBASE_MAP.md) and
+[validation record](cli-validation/README.md). Source `b175e78` and tests
+`c3525b4` are pushed; 339 tests pass with zero build warnings/errors. The default
+command now runs ducks; `--profile classic` retains the original game.
+Information/invalid input no longer advances Normal. A scripted interactive
+ten-Day run and finished-save Continue pass. Approved rules, prices and saves
+are preserved; M5 remains unstarted.
 
 Updated 15 September 2026. M2 and M3 remain approved and complete; **C1–C5 and
 M4 are complete as Core/CLI implementation.** The user requested M4.5 AI,
@@ -66,7 +75,8 @@ The completed baseline was developed on codex/initial-playable-scene;
 current migration work uses codex/duck-game-milestone-0. GitHub: geoking/quackies.
 Open unity/Quackies.Unity in Unity6000.6.0f1. From Edit mode choose
 **Quackies → Build and Play Initial Scene**. Run Core checks with
-`dotnet test Quackies.sln`; CLI supports `--starting-rubies 0`.
+`dotnet test Quackies.sln`; the classic CLI is selected with `--profile classic`
+and supports `--starting-rubies 0`.
 Root owns Git: small Core source, separate tests, separate compiling Unity
 checkpoints; push each, preserve unrelated files, no merge/force push.
 

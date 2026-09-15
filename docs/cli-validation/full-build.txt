@@ -1,0 +1,12 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Quackies.Core -> $REPO/src/Quackies.Core/bin/Release/netstandard2.1/Quackies.Core.dll
+  Quackies.Cli -> $REPO/src/Quackies.Cli/bin/Release/net10.0/Quackies.Cli.dll
+  Quackies.Evaluation -> $REPO/tools/Quackies.Evaluation/bin/Release/net10.0/Quackies.Evaluation.dll
+  Quackies.Core.Tests -> $REPO/tests/Quackies.Core.Tests/bin/Release/net10.0/Quackies.Core.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.64

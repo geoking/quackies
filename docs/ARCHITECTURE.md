@@ -1,13 +1,15 @@
 # Quackies Architecture
 
-The implementation described below is the completed original rules baseline.
-On 13 September 2026 the user accepted a distinct Day/Dream rules direction.
-The planned evolution is in [duck-migration/ENGINE_EVOLUTION.md](duck-migration/ENGINE_EVOLUTION.md)
-and the current [plan](duck-migration/PLAN.md). M4 has now implemented the full
-ten-Day duck Core/CLI baseline described below. M4.5 completed the shared planning and evaluation transition, including
-user-approved price tuning, before M5 binds this boundary to Unity. The
-later classic sections document the retained reference profile; its currencies
-and phase rules do not prescribe the duck game.
+Quackies has a complete ten-Day duck Core/CLI game and a retained original
+nine-round reference profile. M4.5 completed the AI and balance review, including
+user-approved price tuning. M5 will bind the new duck game to Unity.
+
+Start with [the codebase map](CODEBASE_MAP.md) for folders, ownership and the
+action/save flow, or [the CLI guide](CLI_GUIDE.md) to play. This document explains
+the contracts. The [current plan](duck-migration/PLAN.md) records accepted scope;
+[engine evolution](duck-migration/ENGINE_EVOLUTION.md) preserves migration
+rationale. The classic sections below describe the reference profile, whose
+currencies and phase rules do not prescribe the duck game.
 
 ## M4 shared boundary
 
@@ -88,8 +90,9 @@ unreadable. A failed write stops play and preserves the preceding save.
 Save after each completed command, including a pending final-Day commitment;
 the synchronous session never exposes an intermediate cohort resolution.
 
-The CLI selects the duck profile with `--profile ducks`; human versus Normal
-is the default, and `--two-player` enables explicit developer controls.
+The CLI defaults to the duck profile and also accepts `--profile ducks`;
+`--profile classic` selects the retained reference. Human versus Normal is the
+duck default, and `--two-player` enables explicit developer controls.
 `--demo-game` runs both ducks under Normal; `--demo-day` retains the short
 scripted slice. `--inspect` reads the catalogue, `--continue` restores a local
 game, and `--save path` selects a save file. Interactive play saves by default;
@@ -127,11 +130,17 @@ Quackies has one rules engine with two front ends: Unity and a command-line
 debugging client. Neither front end decides whether a move is legal or awards
 game resources. Both submit actions issued by the same match session.
 
-## Core
+## Shared platform constraint
 
 `Quackies.Core` targets `netstandard2.1`. It must never reference `UnityEngine`,
 Unity packages, asset APIs, MonoBehaviours or ScriptableObjects. Rules and policy
 tests run without opening Unity.
+
+## Classic reference implementation
+
+The following state, phases, ingredients and fortune rules belong to the
+retained original game. The duck implementation uses the boundary described
+above with its own typed state and handlers.
 
 ### State, observations and actions
 
@@ -223,9 +232,16 @@ instead; a published Unity checkpoint must identify the Core version it contains
 
 ## CLI
 
-`Quackies.Cli` displays match observations, lists legal actions and runs the same
-Normal opponent. It lets the human advance the round after reviewing rewards.
-Keep new match settings and player choices accessible here as they reach Unity.
+`Quackies.Cli` owns profile selection, terminal input/output, AI pacing and local
+JSON storage. It renders observations and submits exact issued actions; it does
+not reproduce scoring or movement rules. Read-only reference commands remain
+inside the input prompt and cannot advance the AI or saved state. The human
+controls the next-Day action after reviewing Night results and purchases.
+
+Keep CLI orchestration, rendering/reference text, demonstrations and persistence
+separate. Match-specific shop prices come from the observation, including legacy
+saves. The classic client remains available through explicit profile selection.
+The [CLI guide](CLI_GUIDE.md) documents the player-facing contract.
 
 ## Verification and remaining migration
 

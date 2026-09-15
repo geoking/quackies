@@ -215,9 +215,9 @@ may buy at most one chip per token type per Night, within the Night 1/2/3
 purchase cap; variants share a type and unspent Sleep expires. Night 10 has no
 shopping. There is no flask, rewind or redraw in this ruleset.
 
-Local autosave and Continue are implemented in Core/CLI. M2, M3 and M4 are
-complete. [M4.5](m4-5/PLAN.md) now assesses AI, balance and playability before
-M5 Unity integration; M6 confirms the connected experience.
+Local autosave and Continue are implemented in Core/CLI. M2, M3, M4 and
+[M4.5](m4-5/REPORT.md) are complete. The approved duck game is playable through
+the [CLI](../CLI_GUIDE.md); M5 connects Unity and M6 confirms the experience.
 
 Exact space rewards, haven Feather values, encounter prices and shop policies
 belong to [v1/BOARD_AND_SHOP.md](v1/BOARD_AND_SHOP.md). The full World Event deck

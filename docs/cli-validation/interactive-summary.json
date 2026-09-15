@@ -1,0 +1,29 @@
+{
+  "seed": 42,
+  "transcript": "interactive.txt.gz",
+  "referenceCommandsWithoutMutation": 13,
+  "interactiveGameplayActions": 78,
+  "purchases": 12,
+  "settles": 10,
+  "days": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "hiddenFinalDayObserved": true,
+  "finalStandings": [
+    "  1. AI: 41 Twigs (including 5 Dream Twigs), 17 Sleep",
+    "  2. Human: 35 Twigs (including 5 Dream Twigs), 17 Sleep"
+  ],
+  "finishedContinueUnchanged": true,
+  "sourceCommit": "b175e78",
+  "testCommit": "c3525b4",
+  "method": "Scripted numbered menu choices against Normal; a CLI flow smoke check, not human gameplay-feel or balance evidence."
+}

@@ -8,7 +8,12 @@ review before M5 Unity work.** The user authorized this gate to reduce rework;
 AI corrections, fresh comparisons and the user-approved price promotion are
 complete. The [review report](m4-5/REPORT.md) and [promotion record](m4-5/PROMOTION.md)
 record 332 passing tests and legacy save compatibility. The user accepted closure and explicitly deferred hands-on gameplay feel to
-Unity. M5 awaits a separate command.
+Unity. M5 awaits a separate command. The subsequent user-requested CLI usability
+and documentation checkpoint is complete: interactive references, corrected AI
+pacing, a refreshed README, [play instructions](../CLI_GUIDE.md) and a
+[codebase map](../CODEBASE_MAP.md). Its [validation](../cli-validation/README.md)
+records 339 passing tests and a complete interactive ten-Day smoke run. This
+does not change the approved rules or authorize Unity integration.
 Historical decisions and checks remain in [PROGRESS.md](../PROGRESS.md).
 
 ## What we are building

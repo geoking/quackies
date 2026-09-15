@@ -1327,3 +1327,33 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   **M4.5 is complete and accepted. M5 remains unstarted pending a separate user
   command.** No Unity mutation, DLL sync, export or device test occurred; the
   three pre-existing Unity modifications remain outside the checkpoints.
+
+### 59. Playable CLI and code-structure documentation before M5
+
+- User requested a CLI/README update and saved explanation of the code before
+  M5. New launches now select the ten-Day duck game; `--profile classic` keeps
+  the original nine-round reference available. Fresh games use fresh seeds
+  unless `--seed` is supplied; exact saved-game restoration is unchanged.
+- Source `b175e78` separates profile routing, launch options, interactive
+  scheduling, rendering, rule reference text, demos and save storage. Board,
+  bag, token, shop, event, Night and history commands read observations without
+  advancing the AI, consuming randomness or writing a save. Active nuisance
+  protections and public placements are visible; opponent previews stay private.
+  Shop prices come from the match observation, including revision 1 saves.
+- Tests `c3525b4` verify routing/help, exact inspection-state isolation, live
+  legacy shop prices and fixed-seed output. Four old classic CLI tests were
+  updated to use explicit profile selection while retaining their gameplay
+  assertions. The full Release suite passes **339/339** and the solution build
+  has **zero warnings or errors**. Source and tests were pushed separately.
+- A scripted interactive seed-42 run exercised all ten Days through 78 numbered
+  gameplay commands, 12 purchases and 10 settlements. Thirteen reference/invalid
+  commands left save bytes unchanged; hidden final-Day decisions and finished
+  Continue worked. The AI won 41–35 Twigs. This is flow validation, not human
+  gameplay-feel or new balance evidence. The [validation record](cli-validation/README.md)
+  preserves the transcript, results and build/test logs.
+- Refreshed the [README](../README.md), added the [CLI guide](CLI_GUIDE.md) and
+  [codebase map](CODEBASE_MAP.md), and aligned architecture/handoff/status docs.
+  The map records data/action/save flows, file responsibilities, extension points
+  and deferred shared/classic boundary cleanup. Core rules and Unity are unchanged.
+- This requested checkpoint is complete. M4.5 remains closed and M5 remains
+  unstarted pending the user's separate command.
