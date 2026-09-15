@@ -22,5 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Quackies.Core\Quackies.Core.csproj" />
+    <ProjectReference Include="..\..\tools\Quackies.Evaluation\Quackies.Evaluation.csproj" />
   </ItemGroup>
 </Project>
