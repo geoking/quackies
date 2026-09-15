@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "status": "exploratory-development-diagnostic-not-final-recommendation",
+  "createdDate": "2026-09-15",
+  "baseCommit": "3a2315f9c64b99fde32f33b117e4991c5dcddde3",
+  "baseDuckRulesSha256": "0b281e4cb8800b7d2bfe386a4797be0906e18ecdb2e33ce71d3b8cd0b1f141ae",
+  "sourceArchive": {
+    "path": "source-3a2315f.tar.gz",
+    "sha256": "1a735ef34108c84475a7a1aaa532abd7fc56d71cea3d0316ba25c8aeb6dc2fcc",
+    "gitPaths": [
+      "src/Quackies.Core",
+      "tools/Quackies.Evaluation"
+    ]
+  },
+  "analyzer": {
+    "path": "/Users/george/Repos/quackies/tools/analyze-duck-evaluation.py",
+    "sha256": "727819d3a95847430abf5c9a87e188aba03e5d6d989cc30430a0149300f9e96c"
+  },
+  "design": {
+    "seeds": {
+      "start": 1000,
+      "count": 100,
+      "endInclusive": 1099
+    },
+    "seatMode": "both",
+    "schedule": "cli",
+    "matchesPerMatchup": 200,
+    "matchups": [
+      [
+        "normal",
+        "reeds-heavy"
+      ],
+      [
+        "movement-heavy",
+        "reeds-heavy"
+      ]
+    ],
+    "savesGenerated": false,
+    "savesUsedAsPolicyInput": false
+  },
+  "controls": [
+    {
+      "path": "controls/dev-followup-normal-vs-reeds-heavy-1000-1099.jsonl.gz",
+      "sha256": "7b4f77a018b333235cf0b06cc6d75ef1849b00ac1b5708500d8da0dc77c274ea",
+      "records": 200,
+      "sourceLabel": "3a2315f9c64b99fde32f33b117e4991c5dcddde3;Release;development-followup",
+      "coreAssemblyVersion": "1.0.0+3a2315f9c64b99fde32f33b117e4991c5dcddde3"
+    },
+    {
+      "path": "controls/dev-movement-heavy-vs-reeds-heavy-1000-1099.jsonl.gz",
+      "sha256": "b5957b65d110b10bfc6f456eb379ea17f8dc7b0859d5a3223ab12fb90a0b4820",
+      "records": 200,
+      "sourceLabel": "3a2315f9c64b99fde32f33b117e4991c5dcddde3;Release;development",
+      "coreAssemblyVersion": "1.0.0+3a2315f9c64b99fde32f33b117e4991c5dcddde3"
+    }
+  ],
+  "variants": [
+    {
+      "id": "A",
+      "label": "Tailwind 4/8/12",
+      "sourceLabel": "diagnostic-A;source=3a2315f9c64b99fde32f33b117e4991c5dcddde3;prices=tailwind_2:4,tailwind_4:8,tailwind_6:12;all-else-unchanged",
+      "exactEdits": [
+        "Offer(\"tailwind_2\", 5) -> Offer(\"tailwind_2\", 4)",
+        "Offer(\"tailwind_4\", 10) -> Offer(\"tailwind_4\", 8)",
+        "Offer(\"tailwind_6\", 15) -> Offer(\"tailwind_6\", 12)"
+      ],
+      "patch": {
+        "path": "candidate-a-tailwind-4-8-12.patch",
+        "sha256": "137f69994cedb98940e901b87749419e9e42fd73e2803d5f132d9da6ba33fd80"
+      },
+      "sourceArchive": {
+        "path": "candidate-a-tailwind-4-8-12-source.tar.gz",
+        "sha256": "4b477261c5304fba8c908e7bae4935a74f1c0fca3f155a82ec47deb5af405d08"
+      },
+      "outputs": [
+        {
+          "path": "results/a-normal-vs-reeds-heavy-1000-1099.jsonl.gz",
+          "sha256": "1a5df5bf15051ad79e32db3341aa30ca45277f40e485706dd2b70ec90deeeb8f",
+          "records": 200
+        },
+        {
+          "path": "results/a-movement-heavy-vs-reeds-heavy-1000-1099.jsonl.gz",
+          "sha256": "3b1c87f73f14e02da7a126003f8861e5e5ffca07095090888f30268013442dcc",
+          "records": 200
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "label": "Reeds 7/12/17",
+      "sourceLabel": "diagnostic-B;source=3a2315f9c64b99fde32f33b117e4991c5dcddde3;prices=reeds_1:7,reeds_2:12,reeds_3:17;all-else-unchanged",
+      "exactEdits": [
+        "Offer(\"reeds_1\", 6) -> Offer(\"reeds_1\", 7)",
+        "Offer(\"reeds_2\", 11) -> Offer(\"reeds_2\", 12)",
+        "Offer(\"reeds_3\", 16) -> Offer(\"reeds_3\", 17)"
+      ],
+      "patch": {
+        "path": "candidate-b-reeds-7-12-17.patch",
+        "sha256": "b9c0e2d883dcc250b689bcdf3b3cb51901936a91aae844e23445048cb782ca34"
+      },
+      "sourceArchive": {
+        "path": "candidate-b-reeds-7-12-17-source.tar.gz",
+        "sha256": "6aaebec3dfb10103403cd0df776a0384e67e99694e7daf45e6c1638d429339e0"
+      },
+      "outputs": [
+        {
+          "path": "results/b-normal-vs-reeds-heavy-1000-1099.jsonl.gz",
+          "sha256": "94676c5ee12bc3e339d45ce11698bb050b6e2de02d69703cc1c006fd625e73ea",
+          "records": 200
+        },
+        {
+          "path": "results/b-movement-heavy-vs-reeds-heavy-1000-1099.jsonl.gz",
+          "sha256": "0898b657c28687c334adae45af3cc9e3b395294a72b14ab50accfe45989c0887",
+          "records": 200
+        }
+      ]
+    }
+  ],
+  "instrumentation": [
+    {
+      "record": "results/check-a-normal-vs-reeds-heavy-seed1000.jsonl",
+      "recordSha256": "c189e708eb4a4f71679ded5dd13c28ee873e5bb1ead9e8bd1fcc6a9bcacf2534",
+      "trace": "results/check-a-normal-vs-reeds-heavy-seed1000-trace.json",
+      "traceSha256": "6011cddddb925c6d5f47a8cc565b65ec67fa96cb9874b2d6c6d75f69e127b0a2",
+      "actions": 208
+    },
+    {
+      "record": "results/check-b-movement-heavy-vs-reeds-heavy-seed1000.jsonl",
+      "recordSha256": "e57bc31019a0d9d527bc26eb6be735e30455960bd6a0ff45766ef8b8a3391747",
+      "trace": "results/check-b-movement-heavy-vs-reeds-heavy-seed1000-trace.json",
+      "traceSha256": "0a4248f39be117ab0b69673b8a414348cfd14eca0100cad1d5096d401f16a0cd",
+      "actions": 227
+    }
+  ],
+  "analysis": {
+    "json": {
+      "path": "results/aggregate-summary.json",
+      "sha256": "e192317dd121b6b60941db921bf64019dedd1ab54d7ec4f3d8d6123f4c782965"
+    },
+    "markdown": {
+      "path": "results/aggregate-summary.md",
+      "sha256": "d85790e29418afdbb678efa133c3e9a5c4f4e00ec354f5a017d2059d0f6932a6"
+    },
+    "matches": 1200,
+    "comparisons": 6
+  },
+  "documentation": [
+    {
+      "path": "REPORT.md",
+      "sha256": "44c7fcc4aa8789c530e5a630abab40854e76ba0e36847fe1bc12e8c289eb3f7a"
+    },
+    {
+      "path": "SPEC.md",
+      "sha256": "0382b0ce40f58b016831be0ddd50f647f117fc4cae66cbc9934a43111294ddd9"
+    },
+    {
+      "path": "COMMANDS.md",
+      "sha256": "1aeb3e05af75c9b40c573070e95085f034343f9d9a4d309430323b49aa6d83fb"
+    }
+  ],
+  "validation": {
+    "candidateBuilds": "both succeeded; 0 warnings; 0 errors",
+    "candidateDiffs": "exactly 3 removed and 3 added Offer lines each; all other source files identical",
+    "batchShape": "each output has 200 complete ten-Day matches, seeds 1000-1099, 100 original and 100 swapped, CLI schedule",
+    "purchasePrices": "observed offer-price pairs match each candidate",
+    "sourceOnlyArchives": "no bin or obj entries",
+    "repositoryModified": false,
+    "unityUsed": false
+  },
+  "packagingNote": "Lead removed one extra final blank line from aggregate-summary.md; updated that artifact hash only."
+}

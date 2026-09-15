@@ -24,6 +24,13 @@ credible recovery from a poor start and an oasis that feels worth pursuing.
 Leads should matter without making the outcome feel settled too early. The AI
 should pursue winning decisions; travelling furthest is not itself its objective.
 
+The user clarified the balance target during B3: **Reeds-focused and
+movement-focused bags should both be credible ways to win; reaching the oasis
+is optional.** The two approaches should be fairly evenly balanced, with neither
+becoming an automatic winning choice. Assess comparable strategic strength
+across opponents and builds, rather than forcing one isolated matchup to exactly
+50/50. This target does not by itself approve any specific price or rule change.
+
 ## Ordered checkpoints
 
 | Checkpoint | Work and reviewable result |

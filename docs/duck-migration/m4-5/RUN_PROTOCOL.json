@@ -79,9 +79,23 @@
       [
         "sandbag-day3",
         "normal"
+      ],
+      [
+        "normal",
+        "reeds-heavy"
+      ],
+      [
+        "normal",
+        "movement-heavy"
+      ],
+      [
+        "movement-heavy",
+        "reeds-heavy"
       ]
     ],
-    "additionalComparisons": "Only for an observed unresolved concern; declare before reading those fresh seeds."
+    "additionalComparisons": "Only for an observed unresolved concern; declare before reading those fresh seeds.",
+    "selectionReason": "Original three comparisons plus the full Normal/movement/Reeds triangle, selected before any holdout run because development showed Reeds winning68%againstNormal and86.5%against movement while the user requested comparable strategy strength.",
+    "candidateStatus": "Awaiting committed final-Day policy correction; no10000-10299 runs have occurred."
   },
   "interpretation": [
     "Pair seat swaps by seed for uncertainty.",
@@ -105,5 +119,6 @@
         "reeds-heavy"
       ]
     ]
-  }
+  },
+  "userBalanceTarget": "Both Reeds-focused and movement-focused bags should be fairly evenly balanced and credible ways to win; neither should automatically win and oasis remains optional. Confirmed during B3; no numeric changes approved."
 }

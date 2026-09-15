@@ -38,8 +38,8 @@ to 11.0%; no oasis arrivals occurred. These are pilot results, not a balance or
 fun certification. [Raw compressed records](evidence/pilot-baseline-normal-0-23.jsonl.gz)
 and [summary](evidence/pilot-summary.md) preserve the observations.
 
-The first declared development set completed 1200 games across six matchups.
-Additional declared scheduler and movement/Reeds comparisons are being checked.
+The first development set and declared follow-ups completed 2400 games across
+eight strategy pairings and four additional scheduler checks.
 No fresh holdout has run yet. Complete Night bundles execute consistently;
 remaining concerns include search horizon in large bags, final-Day score
 pressure, late movement valuation and the relative strength of Reeds.
@@ -54,7 +54,12 @@ validation set; it is not evidence to change the game's rewards.
 The AI worker owns a bounded follow-up in `DuckNormalPolicy` and focused tests:
 avoid repeated hypothetical states and improve provably losing final-Day
 settlements. The lead owns evidence, analysis, review, documentation and Git.
-The initial evaluation runner is stable. No worker may change canonical rules.
+The initial evaluation runner is stable. An independent worker is testing two
+price hypotheses only in isolated archives of the initial candidate: Tailwind
+5/10/15 → 4/8/12 and Reeds 6/11/16 → 7/12/17. Each uses the declared development
+seeds against matched controls. These are diagnostic experiments, not changes
+to approved prices, and will need reassessment after the AI follow-up. No
+worker may change canonical rules in the working project.
 
 Remaining gates: finish AI follow-up and focused comparisons; validate important
 matchups on fresh seeds; report comeback/oasis/purchase/event/pace findings with
