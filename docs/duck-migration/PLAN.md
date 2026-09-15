@@ -1,9 +1,10 @@
 # Quackies overall plan
 
-Updated 14 September 2026. **M2 and M3 are complete and approved by the user.**
+Updated 15 September 2026. **M2 and M3 are complete and approved by the user.**
 M3 closes with the 43-space board and reward typography at `2c7cd6a`.
 **M4 C1–C5 is complete and closed.** The completion audit records the evidence
-and remaining limits; M5 Unity work awaits the user's next command.
+and remaining limits. **M4.5 now comes next: AI quality, balance and playability
+review before M5 Unity work.** The user requested this gate to reduce rework.
 Historical decisions and checks remain in [PROGRESS.md](../PROGRESS.md).
 
 ## What we are building
@@ -33,7 +34,8 @@ Keep each detailed rule in its own reference rather than duplicating full lists:
 | [Board and shop](v1/BOARD_AND_SHOP.md) | All 43 rewards, 11 prices, payout examples and balance limits |
 | [World Events](v1/WORLD_EVENTS.md) | Ten approved cards, triggers, collective conditions and timing |
 | [Implementation plan](IMPLEMENTATION_PLAN.md) | M2 defaults, M4 checkpoints, persistence and acceptance checks |
-| [Board JSON](v1/board.json), [CSV](v1/board.csv), [shop JSON](v1/shop.json) | Exact numeric data for the future duck profile |
+| [M4.5 review plan](m4-5/PLAN.md) | AI improvement, full-game evaluation, comeback/oasis evidence and the review gate before Unity |
+| [Board JSON](v1/board.json), [CSV](v1/board.csv), [shop JSON](v1/shop.json) | Exact numeric data for the implemented duck profile |
 | [Bounded audit](v1/balance-audit.json) | Scoped arithmetic and explicit assumptions, not full-match balance |
 | [M3 closeout](m3-closeout/README.md) | Approved visual state, data reconciliation and evidence |
 
@@ -127,8 +129,9 @@ whole match loop, or put rule arithmetic into Unity.
 | M2 — Rules sheet | Complete: rules, data, events, defaults and local save/resume scope approved |
 | M3 — Layout | Complete: final 43-space visual proof approved by the user |
 | **M4 — Core/CLI** | **Complete: C1–C5 source, tests, CLI and persistence validated.** |
-| M5 — Connected Unity | Bind the accepted board/Dream views to committed Core state/actions and complete a human/AI match |
-| M6 — Balance/export | Review seeded match outcomes, tune with approval, finish readability/performance and validate iOS export |
+| **M4.5 — AI, balance and playability** | **Next:** improve Normal, compare strategies and complete games, assess recovery/pace/oasis reach, then review and validate any agreed adjustments before Unity |
+| M5 — Connected Unity | After M4.5 review, bind the accepted board/Dream views to the resulting committed Core state/actions and complete a human/AI match |
+| M6 — Connected-game validation/export | Confirm balance and playability in Unity, finish readability/performance and validate iOS export |
 
 The bounded C1–C3 slice established the duck profile, exact catalogue, state,
 Adventure, Night/Dream/Dawn integration and the Day 1 → Night 1 → Day 2 CLI
@@ -148,7 +151,12 @@ checkpoints are committed; C3 Night/Dream/Dawn/CLI integration is complete for
 the bounded Day 1 → Night 1 → Day 2 slice. C4/C5 complete the ten-Day game,
 Normal AI and exact Continue; the isolated Release build and all 286 tests
 pass. M4 is closed, with evidence in the [completion audit](m4/COMPLETION_AUDIT.md).
-Actual full-match balance remains M6 work.
+The [M4.5 plan](m4-5/PLAN.md) now moves substantive AI and full-match balance
+assessment ahead of Unity. It separates legal/correct play from convincing AI,
+simulated outcomes from human feedback, and oasis reachability from its realistic
+frequency. Leaders should retain a meaningful advantage while trailing ducks
+have credible recovery opportunities. Proposed rule or numeric changes require
+review; M6 later checks the resulting game in its actual Unity presentation.
 
 Stop for user review at each milestone. M4 source and focused tests are small,
 separate checked commits with regular GitHub checkpoints; root owns Git and

@@ -1,6 +1,6 @@
 # Duck migration status
 
-Updated 14 September 2026. **M2 and M3 are complete and approved by the user.**
+Updated 15 September 2026. **M2 and M3 are complete and approved by the user.**
 The accepted visual checkpoint is 2c7cd6a. **M4 C1–C5 is complete and closed.** No
 duck Core session is bound to Unity.
 
@@ -58,10 +58,15 @@ C4 calendar source/tests are 9eba093 / 48f1dca; C5 persistence is 71d731e /
 committed-tree Release build passed with zero warnings/errors and 286/286 tests;
 see [M4 completion audit](m4/COMPLETION_AUDIT.md).
 
-M5 connects the accepted Unity board/Dream views to committed Core actions/state,
-finishes runtime nest/award/event presentation, and verifies a complete human/AI
-match. M6 covers actual balance evidence and iOS export. Device installation,
-networking, shorter games, alternate rules and additional content remain deferred.
+M4.5 is the next milestone: review AI quality, balance and playability using
+actual Core legal games before Unity work. Its authority is the detailed
+[M4.5 plan](m4-5/PLAN.md); this status page records only the milestone boundary.
+M4 remains complete as Core/CLI implementation, without a claim of balanced
+play or convincing AI. M5 then connects the accepted Unity board/Dream views to
+committed Core actions/state and finishes runtime nest/award/event presentation.
+M6 confirms the balance in connected Unity and handles readability, performance
+and iOS export. Device installation, networking, shorter games, alternate rules
+and additional content remain deferred.
 
 The [overall plan](PLAN.md), [implementation plan](IMPLEMENTATION_PLAN.md),
 [rule recap](RULES_AT_A_GLANCE.md), [encounters](ENCOUNTER_RULES.md),

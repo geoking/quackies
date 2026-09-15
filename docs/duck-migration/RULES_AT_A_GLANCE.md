@@ -3,7 +3,7 @@
 Updated 14 September 2026. The user's latest mechanic changes are incorporated
 below. The user approved the [43-space rewards and shop prices](v1/BOARD_AND_SHOP.md),
 the three-Feather Dawn cap, the [ten-card World Event deck](v1/WORLD_EVENTS.md),
-the remaining M2 defaults, and local autosave/Continue as a future feature. This
+the remaining M2 defaults, and local autosave/Continue, now implemented in M4. This
 rules sheet is closed for M2; it is a specification, not evidence of implementation
 or full-match balance.
 
@@ -129,5 +129,5 @@ final chip fully resolves. Reaching or overshooting space 43 places at 43,
 fully resolves that chip including Exhaustion, then finishes with no further
 placements. Local autosave/Continue is implemented in Core/CLI.
 
-M2, M3 and M4 are complete. M5 Unity integration remains unstarted. M6 balance
-evidence remains future work.
+M2, M3 and M4 are complete. [M4.5](m4-5/PLAN.md) now assesses AI, balance and
+playability before M5 Unity integration. M6 confirms the connected experience.

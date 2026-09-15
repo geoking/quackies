@@ -59,3 +59,14 @@ The [full CLI game](cli-full-game.txt), [saved result](full-game-save.json) and
 [milestone validation](m4-final-validation.txt) provide the reproducible run.
 The existing short Day-1 demonstration remains a scripted command-path smoke
 test, not a Normal-policy demonstration.
+
+## Follow-up evidence — 15 September 2026
+
+The existing [full-game-save.json](full-game-save.json) was reviewed for the
+next-milestone handoff; no new simulations were run. Both seats used Normal.
+In the saved seed-42 game, each duck took one Seed and settled on Day 1.
+Of 20 daily rests, 18 were in wetlands, 2 in grassland and 0 in wasteland;
+15 of 20 rests were at haven 4 or 10. These observations reinforce the need
+for the planned [M4.5 AI, balance and playability review](../m4-5/PLAN.md),
+which now precedes Unity and takes on the substantive study previously in M6. They are
+diagnostic evidence only and do not claim tuning, fun or a completed M4.5.

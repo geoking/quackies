@@ -34,7 +34,9 @@ limitations. Earlier C3 outputs remain historical evidence in
 [the short day cycle](cli-day-cycle.txt) and [catalogue inspection](cli-inspection.txt).
 
 This audit does not claim complete-game balance, M5 Unity binding, device
-validation, iOS export, or public release. M6 still owns seeded balance review,
-readability/performance work and export validation. The implemented Dawn bands
+validation, iOS export, or public release. The 15 September plan now assigns
+AI and seeded balance/playability review to [M4.5](../m4-5/PLAN.md), before Unity;
+M6 confirms the connected game and owns readability/performance and export.
+The implemented Dawn bands
 remain 0–2 → 0, 3–6 → 1, 7–10 → 2 and 11+ → 3; this is a recorded product
 choice, not a balance conclusion.

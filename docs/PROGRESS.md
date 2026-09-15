@@ -1204,3 +1204,30 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   ProjectSettings draft is preserved. Checkpoints are committed locally on
   `codex/duck-game-milestone-0`; push attempts remain blocked by unavailable
   shell GitHub credentials, so no remote publication is claimed.
+
+### 54. Plan M4.5 AI and balance review before Unity (15 September 2026)
+
+- The user requested a dedicated review of AI quality, fun, leader recovery and
+  realistic oasis reach before further Unity work, to reduce repeated changes.
+  Added [M4.5](duck-migration/m4-5/PLAN.md) between completed M4 and future M5.
+  M4 remains the Core/CLI correctness milestone; its passing tests do not
+  establish convincing AI or a balanced, enjoyable game.
+- The new order is baseline measurement, better multi-draw and Night-shopping
+  decisions, cross-strategy game evaluation and human feedback, then review and
+  validate any agreed balance adjustments. Test pilots, declared seeds, swapped
+  seats and held-out validation keep findings reproducible. Leads should matter
+  while recovery remains credible; safe/worn oasis arrivals and realistic
+  frequency are distinct from theoretical reachability.
+- Re-inspection of the existing seed-42 save found one-chip Day 1 settlements
+  for both Normal-controlled seats, 18 of 20 daily finishes in wetlands, two in
+  grassland, none in wasteland and 15 at havens 4/10. These are observations from
+  existing evidence, not results of a new simulation or completed AI tuning.
+- Updated the overall plan, implementation order, status, handoff and current
+  reference links. M6 now confirms balance in connected Unity and handles
+  readability, performance and export. No rule values, Core code, art or Unity
+  files changed; the existing Unity font and ProjectSettings drafts remain
+  outside this checkpoint. Only documentation/link checks are appropriate here.
+- GitHub authentication was repaired and a noninteractive push succeeded;
+  local and remote M4 commit `9b4ea2e` were verified equal. Regular small commits
+  and pushes remain the workflow. This checkpoint records the plan; M4.5
+  implementation and new simulations have not started.

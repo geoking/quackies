@@ -1,8 +1,8 @@
 # Quackies v1 board and Dream shop
 
 14 September 2026. The user approved all 43 reward rows and 11 shop prices as
-starting values. They are **not yet implemented or balanced through complete
-matches**. The [overview](../RULES_AT_A_GLANCE.md) records the current mechanics;
+starting values. They are **implemented in M4, with full-match balance still
+to be assessed in M4.5**. The [overview](../RULES_AT_A_GLANCE.md) records the current mechanics;
 M2 shop/housekeeping policies and payout timing are now approved. [Detailed encounters](../ENCOUNTER_RULES.md) and the
 [ten approved World Events](WORLD_EVENTS.md) define the associated effects.
 
@@ -220,6 +220,6 @@ resolves the full chip and Exhaustion, then ends that duck's Day. No extra
 placements or overshoot rewards. The empty bag also finishes after the last chip
 fully resolves. Equal final Twigs use Night 10 retained Sleep, then a draw if
 still equal. These rules are specified in the [implementation plan](../IMPLEMENTATION_PLAN.md).
-M2, M3 and M4 are complete; M5 Unity integration and M6 balance/export remain
-later work. The approved numeric data and policies are unchanged by the M4
-implementation.
+M2, M3 and M4 are complete; [M4.5](../m4-5/PLAN.md) assesses balance before
+M5 Unity integration, followed by M6 connected-game confirmation/export.
+The approved numeric data and policies are unchanged by this plan update.

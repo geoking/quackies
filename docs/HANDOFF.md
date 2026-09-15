@@ -1,10 +1,13 @@
 # Quackies handoff
 
-## Current task: M4 complete; stop before M5
+## Current task: M4.5 planned before Unity
 
-14 September 2026: the user approved the final visual result and explicitly
-closed M3. M2 remains complete. **C1–C5 and M4 are complete. Stop before M5
-Unity integration.** See [PLAN.md](duck-migration/PLAN.md) and the detailed
+Updated 15 September 2026. M2 and M3 remain approved and complete; **C1–C5 and
+M4 are complete as Core/CLI implementation.** The user requested M4.5 AI,
+balance and playability review before M5 Unity integration. This update records
+the plan; M4.5 implementation and new simulations have not started. See
+[PLAN.md](duck-migration/PLAN.md), the
+[M4.5 plan](duck-migration/m4-5/PLAN.md) and the detailed
 [C1 first checkpoint](duck-migration/IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval).
 
 The accepted proof has 43 spaces split 14/14/15, with havens at 4, 10, 16, 21,
@@ -22,8 +25,11 @@ reference game described below.
 
 Preserve the accepted path centres, 108 × 84 tiles, 64-pixel chip frame, native
 1536 × 1024 board and existing art/metadata. The detailed 3072 × 2048 painting is
-explicitly deferred. M5 will connect Core and finish runtime Dream/nest/event
-presentation using the accepted visual direction.
+explicitly deferred. M4.5 will assess AI quality, balance and playability from
+actual Core legal games, with brief user/observer playtests. M5 will then connect
+Core and finish runtime Dream/nest/event presentation using the accepted visual
+direction; M6 will confirm balance in connected Unity and handle readability,
+performance and export.
 
 C1 resolved the starting contract: every duck starts at nest 0 with zero
 Feathers. Safe haven rewards and Dawn thresholds (0–2 → 0, 3–6 → 1, 7–10 → 2,
@@ -121,9 +127,8 @@ before UI automation. The reusable validation harness is tracked at
 `tools/validation/evidence/2026-09-10/`. Do not describe the recorded GameView
 captures as physical-device evidence.
 
-Shell push authentication currently fails. The GitHub connector can read the
-repository; the remote migration branch was verified at `c82f7d0` during M3
-closeout, behind the three local visual checkpoints above. Do not describe
-those checkpoints as pushed until remote publication is verified. Preserve local
-history, never force-push or merge main without a request. Temporary publishing
-helpers are session conveniences, not durable workflow dependencies.
+On 15 September 2026, a noninteractive push succeeded: local and remote
+`codex/duck-game-milestone-0` match at `9b4ea2e`, and regular pushes work.
+Preserve local history, never force-push or merge main without a request.
+Temporary publishing helpers are session conveniences, not durable workflow
+dependencies.

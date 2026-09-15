@@ -130,6 +130,9 @@ complete. Within M4:
 Update CLI observations/actions with every slice rather than leaving it until
 the end. Bind the committed DLL to Unity only after the complete CLI contract
 works. [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) lists the expected evidence.
+The 15 September plan adds [M4.5](m4-5/PLAN.md) as a further gate before that
+binding: improve AI and assess complete-game balance/playability in Core/CLI,
+then review any proposed rule/data adjustments before proceeding into Unity.
 
 Keep focused source/test checkpoints separate and push each. Retain meaningful
 classic regression tests; add duck tests against the same engine for all 43

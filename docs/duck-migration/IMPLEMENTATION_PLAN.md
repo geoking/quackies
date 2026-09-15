@@ -1,10 +1,11 @@
 # Quackies v1 implementation plan
 
-14 September 2026. **M2 is complete.** The user approved the rules, settings,
+Updated 15 September 2026. **M2 is complete.** The user approved the rules, settings,
 shop policy, local autosave/resume and this implementation scope, with final-Day
 only simultaneous drawing and final-Night Sleep breaking equal total Twigs.
 M2 changed documentation only. **M3 is complete and approved. M4 is complete
-and ready for the user's milestone review; M5 awaits their next command.**
+as Core/CLI implementation. M4.5 AI, balance and playability review now precedes
+M5 Unity integration at the user's request.**
 The accepted visual result is recorded in [M3 closeout](m3-closeout/README.md);
 the short product direction is in [PLAN.md](PLAN.md).
 
@@ -33,7 +34,8 @@ The ten events in [WORLD_EVENTS.md](v1/WORLD_EVENTS.md) are now accepted initial
 rules, alongside the existing [encounters](ENCOUNTER_RULES.md) and numerical
 [board/shop data](v1/BOARD_AND_SHOP.md). Approval is not full-match balance proof.
 The following defaults are approved. This closes the rules-sheet milestone;
-Core/CLI implementation is now complete; full-match balance remains M6 work.
+Core/CLI implementation is complete; M4.5 assesses full-match balance before
+Unity, with connected-game confirmation in M6.
 
 | Topic | Approved v1 default |
 | --- | --- |
@@ -154,7 +156,8 @@ Keep classic randomness/tests stable while adding a resumable duck source.
 M0 and earlier M1 experiments remain history. The deliberate order was to resolve
 the visual risk in M3 before implementing the duck rules. That visual gate is now
 closed. The C1–C3 progress report is accepted. C4/C5 implementation and the
-final suite result are complete; stop for review before M5.
+final suite result are complete. The next gate is M4.5: improve and assess play
+before M5, then review the evidence and any proposed adjustments with the user.
 
 ### M2 — Rules sheet complete
 
@@ -185,7 +188,8 @@ completed original playable scene as the reference game.
 The detailed 3072 × 2048 painted master remains deferred. M5 will bind actual
 state/actions and finish Dream Concept-B presentation, nest growth and runtime
 overlays. It should build on the approved board rather than reopen its design.
-Full-match balance and iOS export remain M6 work. Historical/rejected visual
+M4.5 now assesses full-match balance before Unity; M6 confirms the connected
+experience and iOS export. Historical/rejected visual
 studies remain in their evidence directories and do not prescribe current layout.
 
 ### M4 — Core and CLI, in small compiling checkpoints
@@ -241,7 +245,25 @@ regressions at meaningful boundaries and full duck checks at the milestone.
 Do not wait until the end to adapt the CLI: it is the first runnable client for
 each slice. No extra debug-only rule engine or unvalidated prototype shortcut.
 
+### M4.5 — AI quality, balance and playability before Unity
+
+Follow the [M4.5 review plan](m4-5/PLAN.md) as the detailed authority. Establish
+repeatable baseline metrics through actual Core actions; improve Normal's
+multi-draw decisions and purchase combinations; compare multiple strategies,
+seeds and seat assignments; then review comeback potential, oasis frequency,
+pace, token/event balance and human play feedback. Passing rule tests alone is
+not this milestone's acceptance criterion.
+
+Keep current rules/data as the baseline. Present proposed balance adjustments
+with exact changes and evidence before adopting them. Validate agreed fixes,
+update canonical specifications and record save/data/presentation implications.
+Stop for review at M4.5 completion. M5 depends on that reviewed result; no Unity
+work is part of the current planning update.
+
 ### M5 — Connect the Unity game
+
+Begin after M4.5 review. Bind its committed rules/data baseline and reconcile
+any approved changes with the accepted M3 artwork and layout.
 
 Adapt the layout proof into Adventure/Dream views driven exclusively by Core
 observations and issued actions. Keep the presenter/view/editor split, safe-area
@@ -255,14 +277,15 @@ validate bindings, run a full human/AI match and verify the final score/restart.
 Exercise app pause, closure and restoration independently
 of scene-builder reconstruction. One agent owns Editor mutations at a time.
 
-### M6 — Balance, readability and export
+### M6 — Connected-game confirmation, readability and export
 
-Record haven landing frequency, wear-outs, purchase variety, lead changes,
-Dawn recovery, Companion/Reeds value, event effects and endpoint frequency.
-Use multiple deterministic policies/scenarios so agreement between identical
-AIs is not mistaken for balance. First tune AI decisions and identify problems;
-ask before changing approved rule/reward numbers. Inspect touch targets, colour
-and silhouette recognition, overlays, frame/memory behaviour and help text.
+Confirm M4.5's balance and playability findings through the connected human/AI
+experience. Check whether visibility, timing, controls or presentation change
+decisions and pacing; rerun affected comparisons if new concerns arise. Review
+any further rule/reward changes before adopting them. Inspect touch targets,
+colour and silhouette recognition, overlays, frame/memory behaviour and help
+text. Use M4.5's recorded baseline rather than repeating the entire study by
+default.
 
 Run milestone checks and verify iOS export. Editor success, export and a physical
 install are distinct evidence. No device install, release or merge is authorized.
