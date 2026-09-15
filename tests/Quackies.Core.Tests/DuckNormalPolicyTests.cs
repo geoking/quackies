@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Quackies.Core.Ducks.AI;
 using Quackies.Core.Ducks.Definitions;
+using Quackies.Core.Ducks.Persistence;
 using Quackies.Core.Ducks.Runtime;
 using Quackies.Core.Match;
 using Xunit;
@@ -248,8 +249,10 @@ public sealed class DuckNormalPolicyTests
         var player = scenario.Runtime.Player("human");
         Assert.Equal(2, player.PurchasedEncounterDefinitionIds.Count);
         Assert.Equal(2, player.PurchasedShopTypes.Count);
+        var observedPrices = scenario.Match.GetSnapshot("human").ShopOffers
+            .ToDictionary(offer => offer.DefinitionId, offer => offer.SleepPrice);
         Assert.True(player.PurchasedEncounterDefinitionIds
-            .Select(id => DuckRules.V1.ShopOffer(id).SleepPrice)
+            .Select(id => observedPrices[id])
             .Sum() <= 15);
     }
 
@@ -287,9 +290,18 @@ public sealed class DuckNormalPolicyTests
         var player = scenario.Runtime.Player("human");
         Assert.InRange(player.PurchasedEncounterDefinitionIds.Count, 1, 3);
         Assert.Equal(player.PurchasedEncounterDefinitionIds.Count, player.PurchasedShopTypes.Count);
+        var observedPrices = scenario.Match.GetSnapshot("human").ShopOffers
+            .ToDictionary(offer => offer.DefinitionId, offer => offer.SleepPrice);
         Assert.True(player.PurchasedEncounterDefinitionIds
-            .Select(id => DuckRules.V1.ShopOffer(id).SleepPrice)
+            .Select(id => observedPrices[id])
             .Sum() <= initialSleep);
+    }
+
+    [Fact]
+    public void Dream_bundle_affordability_uses_each_matches_observed_price_revision()
+    {
+        AssertBundleUsesObservedPrices(DreamScenario(day: 4, sleep: 20));
+        AssertBundleUsesObservedPrices(LegacyDreamScenario(day: 4, sleep: 20));
     }
 
     [Fact]
@@ -626,6 +638,87 @@ public sealed class DuckNormalPolicyTests
             player.HasFinishedDream = false;
         }
         return new DreamTestScenario(runtime, new MatchSession<DuckMatchView>(runtime));
+    }
+
+    private static DreamTestScenario LegacyDreamScenario(int day, int sleep)
+    {
+        var match = MatchSession.CreateDuck(seed: 228);
+        while (match.GetSnapshot("human").Day < day)
+        {
+            FinishAdventure(match);
+            foreach (var playerId in new[] { "human", "ai" })
+                ExecuteFirst(match, playerId, GameActionKind.FinishDream);
+            ExecuteFirst(match, "human", GameActionKind.NextDay);
+        }
+        FinishAdventure(match);
+
+        var save = DuckSaves.Capture(match);
+        save.RulesVersion = 1;
+        foreach (var player in save.Players)
+        {
+            player.FrozenSleep = sleep;
+            player.RemainingSleep = sleep;
+            player.LastNightOutcome!.FrozenSleep = sleep;
+        }
+        var restored = DuckSaves.Restore(save);
+        return new DreamTestScenario(restored.DuckRuntime(), restored);
+    }
+
+    private void AssertBundleUsesObservedPrices(DreamTestScenario scenario)
+    {
+        var initialView = scenario.Match.GetSnapshot("human");
+        var initialSleep = initialView.Players.Single(player => player.Id == "human").RemainingSleep;
+        var observedPrices = initialView.ShopOffers
+            .ToDictionary(offer => offer.DefinitionId, offer => offer.SleepPrice);
+
+        var plan = _policy.Evaluate(initialView, scenario.Match.GetLegalActions("human"));
+        Assert.Equal(GameActionKind.BuyEncounter, plan.Action.Kind);
+        var plannedSpend = Regex.Match(plan.Reason, @"(?<spend>[0-9]+) remaining Sleep spend");
+        var plannedCount = Regex.Match(plan.Reason, @"(?<count>[0-9]+)-chip Night bundle");
+        Assert.True(plannedSpend.Success);
+        Assert.True(plannedCount.Success);
+
+        while (true)
+        {
+            var action = _policy.Choose(
+                scenario.Match.GetSnapshot("human"),
+                scenario.Match.GetLegalActions("human"));
+            if (action.Kind == GameActionKind.FinishDream) break;
+            Assert.Equal(observedPrices[action.DefinitionId], action.Cost);
+            scenario.Match.Execute("human", action);
+        }
+
+        var player = scenario.Runtime.Player("human");
+        var paid = player.PurchasedEncounterDefinitionIds.Sum(id => observedPrices[id]);
+        Assert.Equal(initialSleep - paid, player.RemainingSleep);
+        Assert.Equal(int.Parse(plannedSpend.Groups["spend"].Value), paid);
+        Assert.Equal(int.Parse(plannedCount.Groups["count"].Value), player.PurchasedEncounterDefinitionIds.Count);
+        Assert.True(paid <= initialSleep);
+    }
+
+    private static void FinishAdventure(MatchSession<DuckMatchView> match)
+    {
+        foreach (var playerId in new[] { "human", "ai" })
+        {
+            if (match.GetLegalActions(playerId).Any(action => action.Kind == GameActionKind.Explore))
+                ExecuteFirst(match, playerId, GameActionKind.Explore);
+        }
+        while (match.GetSnapshot("human").Phase == DuckPhase.Adventure)
+        {
+            foreach (var playerId in new[] { "human", "ai" })
+            {
+                if (match.GetLegalActions(playerId).Any(action => action.Kind == GameActionKind.Settle))
+                    ExecuteFirst(match, playerId, GameActionKind.Settle);
+            }
+        }
+    }
+
+    private static void ExecuteFirst(
+        MatchSession<DuckMatchView> match,
+        string playerId,
+        GameActionKind kind)
+    {
+        match.Execute(playerId, match.GetLegalActions(playerId).First(action => action.Kind == kind));
     }
 
     private static IReadOnlyList<GameAction> PurchaseComparisonActions(

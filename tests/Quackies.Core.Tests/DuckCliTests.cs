@@ -32,7 +32,7 @@ public sealed partial class DuckCliTests
         Assert.Equal(0, result.ExitCode);
         Assert.Contains("43 rewards · 8 havens · 16 encounter variants · 11 shop offers · 10 World Events", result.Output);
         Assert.Contains("bag 13", result.Output);
-        Assert.Contains("reeds_3: 16 Sleep · movement 1 · Twig yield 3", result.Output);
+        Assert.Contains("reeds_3: 20 Sleep · movement 1 · Twig yield 3", result.Output);
         Assert.DoesNotContain("rubies", result.Output);
         Assert.DoesNotContain("coins", result.Output);
         Assert.DoesNotContain("Private preview", result.Output);

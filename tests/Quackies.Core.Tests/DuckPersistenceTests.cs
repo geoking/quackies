@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Quackies.Core.Ducks.Definitions;
 using Quackies.Core.Ducks.Persistence;
 using Quackies.Core.Ducks.Runtime;
 using Quackies.Core.Match;
@@ -181,11 +182,79 @@ public sealed class DuckPersistenceTests
     }
 
     [Fact]
+    public void New_matches_capture_and_round_trip_with_rules_revision_two_prices()
+    {
+        var match = MatchSession.CreateDuck(seed: 809);
+        var save = DuckSaves.Capture(match);
+
+        Assert.Equal(1, save.FormatVersion);
+        Assert.Equal(DuckRules.CurrentRulesRevision, save.RulesVersion);
+        Assert.Equal("quackies.duck.v1", save.ProfileId);
+
+        var restored = DuckSaves.Restore(save);
+
+        Assert.Equal(2, DuckSaves.Capture(restored).RulesVersion);
+        Assert.Equal(4, restored.GetSnapshot("human").ShopOffers.Single(offer => offer.DefinitionId == "tailwind_2").SleepPrice);
+        Assert.Equal(20, restored.GetSnapshot("human").ShopOffers.Single(offer => offer.DefinitionId == "reeds_3").SleepPrice);
+        AssertEquivalent(save, DuckSaves.Capture(restored));
+    }
+
+    [Fact]
+    public void Legacy_mid_Dream_restore_keeps_paid_Sleep_purchases_and_revision_one_prices()
+    {
+        var atNight = MatchSession.CreateDuck(seed: 810);
+        AdvanceToDay(atNight, 4);
+        FinishAdventureAfterOneDraw(atNight);
+        var legacy = DuckSaves.Capture(atNight);
+        legacy.RulesVersion = 1;
+        var human = legacy.Players.Single(player => player.Id == "human");
+        human.FrozenSleep = 20;
+        human.RemainingSleep = 20;
+        human.LastNightOutcome!.FrozenSleep = 20;
+
+        var restored = DuckSaves.Restore(legacy);
+        var legacyPrices = restored.GetSnapshot("human").ShopOffers
+            .ToDictionary(offer => offer.DefinitionId, offer => offer.SleepPrice);
+        Assert.Equal(new Dictionary<string, int>
+        {
+            ["seeds"] = 3,
+            ["tailwind_2"] = 5,
+            ["tailwind_4"] = 10,
+            ["tailwind_6"] = 15,
+            ["signpost"] = 7,
+            ["splash"] = 4,
+            ["reeds_1"] = 6,
+            ["reeds_2"] = 11,
+            ["reeds_3"] = 16,
+            ["companion"] = 7,
+            ["wildflowers"] = 5
+        }, legacyPrices);
+
+        var buy = Action(restored, "human", GameActionKind.BuyEncounter, "tailwind_2");
+        Assert.Equal(5, buy.Cost);
+        restored.Execute("human", buy);
+        var midDream = DuckSaves.Capture(restored);
+        Assert.Equal(1, midDream.RulesVersion);
+        Assert.Equal(15, midDream.Players.Single(player => player.Id == "human").RemainingSleep);
+        Assert.Equal(new[] { "tailwind_2" },
+            midDream.Players.Single(player => player.Id == "human").PurchasedEncounterDefinitionIds);
+
+        var restoredAgain = DuckSaves.Restore(midDream);
+        var recaptured = DuckSaves.Capture(restoredAgain);
+        AssertEquivalent(midDream, recaptured);
+        Assert.Equal(1, recaptured.RulesVersion);
+        Assert.Equal(15, recaptured.Players.Single(player => player.Id == "human").RemainingSleep);
+        Assert.Equal(6, restoredAgain.GetLegalActions("human")
+            .Single(action => action.DefinitionId == "reeds_1").Cost);
+    }
+
+    [Fact]
     public void Restore_rejects_missing_versions_and_inconsistent_authoritative_data()
     {
         AssertInvalid(save => save.FormatVersion = 0);
         AssertInvalid(save => save.ProfileId = string.Empty);
         AssertInvalid(save => save.RulesVersion = 0);
+        AssertInvalid(save => save.RulesVersion = 3);
         AssertInvalid(save => save.Settings = null!);
         AssertInvalid(save => save.Random.Algorithm = string.Empty);
         AssertInvalid(save => save.CommandRevisions.Clear());

@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Fixtures/Duck/*.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\src\Quackies.Core\Quackies.Core.csproj" />
     <ProjectReference Include="..\..\tools\Quackies.Evaluation\Quackies.Evaluation.csproj" />
   </ItemGroup>

@@ -1,6 +1,8 @@
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using Quackies.Core.Ducks.Runtime;
+using Quackies.Core.Ducks.AI;
+using Quackies.Core.Ducks.Persistence;
 using Quackies.Core.Match;
 using Quackies.Evaluation;
 using Quackies.Evaluation.Policies;
@@ -13,15 +15,23 @@ public sealed class DuckEvaluationTests
     [Fact]
     public void Seed_20_trailer_keeps_a_final_Day_recovery_open_instead_of_banking_haven_ten()
     {
-        var result = Run(20, "baseline", "normal", includeActions: true).Result;
-        var decisions = result.Actions!.Where(action => action.Day == 10
-            && action.PolicyId == "normal" && action.Phase == DuckPhase.Adventure).ToArray();
+        var json = File.ReadAllText(Path.Combine(AppContext.BaseDirectory,
+            "Fixtures", "Duck", "seed20-day10-revision1.json"));
+        var save = JsonSerializer.Deserialize<DuckSaveData>(json,
+            new JsonSerializerOptions { IncludeFields = true })!;
+        var match = DuckSaves.Restore(save);
+        var observation = match.GetSnapshot("ai");
+        var player = observation.Players.Single(candidate => candidate.Id == "ai");
+        Assert.Equal(1, save.RulesVersion);
+        Assert.Equal(10, observation.Day);
+        Assert.Equal(10, player.Position);
+        Assert.Equal(32, player.TotalTwigs);
+        Assert.Single(player.PlacedChips);
+        Assert.Equal(40, observation.Players.Single(candidate => candidate.Id == "human").TotalTwigs);
 
-        Assert.Contains(decisions, decision => decision.Kind == GameActionKind.Explore
-            && decision.Reason.Contains("keeps a possible recovery open", StringComparison.Ordinal));
-        Assert.DoesNotContain(decisions, decision => decision.Kind == GameActionKind.Settle
-            && decision.Reason.Contains("safe haven 10", StringComparison.Ordinal));
-        Assert.True(result.Days[9].Players.Single(player => player.PolicyId == "normal").Adventure.DrawCount > 1);
+        var decision = new DuckNormalPolicy().Evaluate(observation, match.GetLegalActions("ai"));
+        Assert.Equal(GameActionKind.Explore, decision.Action.Kind);
+        Assert.Contains("keeps a possible recovery open", decision.Reason, StringComparison.Ordinal);
     }
 
     [Fact]
@@ -65,7 +75,7 @@ public sealed class DuckEvaluationTests
     [Fact]
     public void Pre_night_standings_keep_adventure_twigs_and_remove_final_dream_twigs()
     {
-        var result = Run(0, "baseline", "cautious").Result;
+        var result = Run(0, "normal", "reeds-heavy").Result;
         var playerDays = result.Days.SelectMany(day => day.Players).ToArray();
 
         Assert.Contains(playerDays, player => player.Night.ReedsTwigs > 0);

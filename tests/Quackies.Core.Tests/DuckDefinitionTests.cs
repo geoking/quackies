@@ -76,6 +76,26 @@ public sealed class DuckDefinitionTests
     }
 
     [Fact]
+    public void V1_shop_uses_the_approved_revision_two_price_promotion()
+    {
+        Assert.Equal(2, DuckRules.CurrentRulesRevision);
+        Assert.Equal(new Dictionary<string, int>
+        {
+            ["seeds"] = 3,
+            ["tailwind_2"] = 4,
+            ["tailwind_4"] = 8,
+            ["tailwind_6"] = 12,
+            ["signpost"] = 7,
+            ["splash"] = 4,
+            ["reeds_1"] = 8,
+            ["reeds_2"] = 14,
+            ["reeds_3"] = 20,
+            ["companion"] = 7,
+            ["wildflowers"] = 5
+        }, DuckRules.V1.ShopOffers.ToDictionary(offer => offer.DefinitionId, offer => offer.SleepPrice));
+    }
+
+    [Fact]
     public void V1_encounters_have_exact_canonical_identity_and_separate_quantities()
     {
         var actual = DuckRules.V1.EncounterDefinitions

@@ -42,7 +42,7 @@ public sealed class DuckDayCycleTests
         var nightOne = DreamRuntime(day: 1, sleep: 7);
         var first = nightOne.Player("human");
         var affordableIds = BuyActions(nightOne.State, first).Select(action => action.DefinitionId).OrderBy(id => id);
-        Assert.Equal(new[] { "companion", "reeds_1", "seeds", "signpost", "splash", "tailwind_2", "wildflowers" },
+        Assert.Equal(new[] { "companion", "seeds", "signpost", "splash", "tailwind_2", "wildflowers" },
             affordableIds);
 
         DuckDreamHandler.Execute(nightOne.State, first, Rules, BuyAction(nightOne.State, first, "seeds"));
@@ -111,7 +111,7 @@ public sealed class DuckDayCycleTests
 
         DuckDreamHandler.Execute(runtime.State, human, Rules, BuyAction(runtime.State, human, "tailwind_2"));
         Assert.Equal(10, human.FrozenSleep);
-        Assert.Equal(5, human.RemainingSleep);
+        Assert.Equal(6, human.RemainingSleep);
         Assert.True(human.PendingMostRestedStep);
 
         DuckDreamHandler.Execute(runtime.State, human, Rules, FinishAction(runtime.State, human));
