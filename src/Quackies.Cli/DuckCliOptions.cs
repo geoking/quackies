@@ -3,7 +3,7 @@ namespace Quackies.Cli;
 internal sealed class DuckCliOptions
 {
     internal const string Usage = "Usage: Quackies.Cli --profile ducks [--seed integer] [--inspect | --demo-day | --demo-game] [--save path | --no-save] [--continue | --new-game] [--two-player]";
-    internal int Seed { get; private set; } = 42;
+    internal int? FixedSeed { get; private set; }
     internal bool InspectOnly { get; private set; }
     internal bool DemoDay { get; private set; }
     internal bool DemoGame { get; private set; }
@@ -19,8 +19,13 @@ internal sealed class DuckCliOptions
     internal string EffectiveSavePath => SavePath ?? Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Quackies", "ducks-save.json");
 
-    internal static bool Requested(string[] arguments) => arguments.Any(argument =>
-        argument == "--profile" || argument.StartsWith("--profile=", StringComparison.Ordinal));
+    internal int CreateSeed(int? differentFrom = null)
+    {
+        if (FixedSeed.HasValue) return FixedSeed.Value;
+        int seed;
+        do { seed = Random.Shared.Next(); } while (seed == differentFrom);
+        return seed;
+    }
 
     internal static DuckCliOptions Parse(string[] arguments)
     {
@@ -39,12 +44,9 @@ internal sealed class DuckCliOptions
 
             switch (name)
             {
-                case "--profile":
-                    if (Value() != "ducks") throw new ArgumentException("Use --profile ducks, or omit --profile for the classic reference.");
-                    break;
                 case "--seed":
                     if (!int.TryParse(Value(), out var seed)) throw new ArgumentException("--seed requires an integer.");
-                    options.Seed = seed;
+                    options.FixedSeed = seed;
                     break;
                 case "--inspect" when parts.Length == 1: options.InspectOnly = true; break;
                 case "--demo-day" when parts.Length == 1: options.DemoDay = true; break;
