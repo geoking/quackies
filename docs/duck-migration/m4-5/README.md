@@ -40,7 +40,7 @@ and [summary](evidence/pilot-summary.md) preserve the observations.
 
 The first development set and declared follow-ups completed 2400 games across
 eight strategy pairings and four additional scheduler checks.
-No fresh holdout has run yet. Complete Night bundles execute consistently;
+These initial results precede the final AI correction below. Complete Night bundles execute consistently;
 remaining concerns include search horizon in large bags, final-Day score
 pressure, late movement valuation and the relative strength of Reeds.
 
@@ -51,18 +51,38 @@ validation set; it is not evidence to change the game's rewards.
 
 ## Current ownership and remaining work
 
-The AI worker owns a bounded follow-up in `DuckNormalPolicy` and focused tests:
-avoid repeated hypothetical states and improve provably losing final-Day
-settlements. The lead owns evidence, analysis, review, documentation and Git.
-The initial evaluation runner is stable. An independent worker is testing two
-price hypotheses only in isolated archives of the initial candidate: Tailwind
-5/10/15 → 4/8/12 and Reeds 6/11/16 → 7/12/17. Each uses the declared development
-seeds against matched controls. These are diagnostic experiments, not changes
-to approved prices, and will need reassessment after the AI follow-up. No
-worker may change canonical rules in the working project.
+The final-Day correction is committed in `32b5233`, with focused regressions in
+`feebf2c`. The final native Release suite passes **328/328**, with zero build
+warnings/errors; [test log](evidence/final-ai-suite.txt), [build log](evidence/final-ai-build.txt). It compares conservative final score bounds and keeps an optimistic
+remaining-bag recovery open beyond the completed search horizon only when the
+current rest is certain to lose. Exact lethal previews still stop. The seed 20
+replay now continues, wears out and loses 36–50: better decision purpose does
+not promise a favorable random outcome. Transposition caching was rejected
+because it increased runtime without improving completed depth.
 
-Remaining gates: finish AI follow-up and focused comparisons; validate important
-matchups on fresh seeds; report comeback/oasis/purchase/event/pace findings with
-uncertainty; preserve representative game stories; collect human playability
-feedback; review any exact balance proposals and apply only agreed changes;
-then final checks and milestone review. **M4.5 is not complete.**
+Fresh approved-price validation completed **3,600 matches**, six strategy pairs,
+300 seeds per pair, both seats. [Summary](evidence/holdout-summary.md) and
+[manifest](evidence/holdout-manifest.json) preserve results and commands.
+Normal beats the frozen M4 baseline 505–92 with three draws, but unchanged prices
+still strongly favor Reeds: movement loses 536 of 600 focused matchups, and
+Normal loses 404 of 600 against Reeds. No holdout result was used to retune AI.
+[Final checks and full CLI/Continue evidence](evidence/final-ai-validation.md)
+include the seed-42 result, AI 56–46 Human, both controlled by Normal.
+
+The [initial price probes](price-probe-initial/REPORT.md) were insufficient.
+Final-source development then compared C (Tailwind 4/8/12, Reeds 7/12/17), D
+(only Reeds 8/14/20), and E (Tailwind 4/8/12, Reeds 8/14/20). E gave the closest
+worst-pair result across the three-policy triangle: Normal/Reeds 40.5%,
+Normal/movement 47.75%, movement/Reeds 46.75%, counting ties as half. It was
+selected **before reading fresh E results** for 300-seed validation of all three
+pairs. These are isolated diagnostic copies; approved prices remain unchanged.
+
+The user confirmed that Reeds and movement should be fairly evenly balanced,
+with neither an automatic winning choice and the oasis optional. The lead owns
+all integration, evidence, final review and Git. No Unity work is authorized.
+
+Remaining gates: finish fresh validation and isolated price assessment; report
+comeback/oasis/purchase/event/pace findings with uncertainty; preserve
+representative game stories; collect human playability feedback; review exact
+balance proposals and apply only agreed changes; then final checks and milestone
+review. **M4.5 is not complete.**

@@ -94,8 +94,9 @@
       ]
     ],
     "additionalComparisons": "Only for an observed unresolved concern; declare before reading those fresh seeds.",
-    "selectionReason": "Original three comparisons plus the full Normal/movement/Reeds triangle, selected before any holdout run because development showed Reeds winning68%againstNormal and86.5%against movement while the user requested comparable strategy strength.",
-    "candidateStatus": "Awaiting committed final-Day policy correction; no10000-10299 runs have occurred."
+    "selectionReason": "Original three comparisons plus the full Normal/movement/Reeds triangle, selected before any holdout run because development showed Reeds winning 68% against Normal and 86.5% against movement while the user requested comparable strategy strength.",
+    "candidateStatus": "Complete: 3600 matches, six comparisons, frozen source unchanged; no validation result used to retune AI.",
+    "candidateSource": "32b52333d49d99ecbce56dc25b91d490e30a74bc"
   },
   "interpretation": [
     "Pair seat swaps by seed for uncertainty.",
@@ -120,5 +121,39 @@
       ]
     ]
   },
-  "userBalanceTarget": "Both Reeds-focused and movement-focused bags should be fairly evenly balanced and credible ways to win; neither should automatically win and oasis remains optional. Confirmed during B3; no numeric changes approved."
+  "userBalanceTarget": "Both Reeds-focused and movement-focused bags should be fairly evenly balanced and credible ways to win; neither should automatically win and oasis remains optional. Confirmed during B3; no numeric changes approved.",
+  "priceValidation": {
+    "variant": "E",
+    "sourceCommit": "32b52333d49d99ecbce56dc25b91d490e30a74bc",
+    "tailwind": [
+      4,
+      8,
+      12
+    ],
+    "reeds": [
+      8,
+      14,
+      20
+    ],
+    "seedStart": 10000,
+    "seedCount": 300,
+    "seatMode": "both",
+    "schedule": "cli",
+    "matchups": [
+      [
+        "normal",
+        "reeds-heavy"
+      ],
+      [
+        "normal",
+        "movement-heavy"
+      ],
+      [
+        "movement-heavy",
+        "reeds-heavy"
+      ]
+    ],
+    "selectionReason": "Selected solely from development seeds1000-1099 before reading fresh E outputs. Closest worst-pair result across triangle and movement/Reeds interval included parity. C and D not advanced; no further variants planned.",
+    "status": "declared before E fresh validation; diagnostic only, not approved prices"
+  }
 }

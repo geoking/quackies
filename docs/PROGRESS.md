@@ -1256,3 +1256,30 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   balance disposition and any M4.5 completion claim remain pending; see the
   [M4.5 plan](duck-migration/m4-5/PLAN.md), [working record](duck-migration/m4-5/README.md)
   and [run protocol](duck-migration/m4-5/RUN_PROTOCOL.json) for scope and limits.
+
+### 56. M4.5 final-Day decision correction and approved-price validation
+
+- Committed `32b5233` and regressions `feebf2c`: conservative final-score bounds
+  prevent voluntary certain-loss banking when the observable remaining bag has
+  optimistic recovery potential beyond the bounded search horizon. An exact
+  lethal preview still stops; a hopeless upper bound permits settlement.
+- Reproduced the full seed 20 case in an evaluation regression. It now takes the
+  uncertain continuation and loses 36–50 on that particular order. No guaranteed
+  win is claimed. Removed experimental transposition caching after it increased
+  runtime without improving completed search depth.
+- Focused policy/placement/evaluation checks pass 54/54. The final native Release
+  suite passes 328/328 and the solution builds with zero warnings/errors.
+  A prior out-of-repository artifacts invocation could not locate fixture data
+  or the solution for 22 file-dependent tests; the normal repository-layout run
+  resolves those invocation failures without code changes.
+- Fresh approved-price validation uses 300 new seeds per declared comparison.
+  All 3,600 declared matches completed. Normal/baseline returned 505/92 wins
+  and three draws; unchanged prices still favor Reeds strongly. Full CLI seed
+  42 and finished-save Continue agree at AI56–46 Human, both using Normal.
+  Isolated E prices were selected from development results for fresh validation
+  before reading their outputs; no price change is approved.
+- User clarified that Reeds and movement should be fairly evenly balanced,
+  neither should be an automatic winning choice, and the oasis is optional.
+  Small initial price probes did not meet that target; no rule-price changes
+  have been promoted and no Unity work has occurred. M4.5 remains active; its
+  [working record](duck-migration/m4-5/README.md) identifies remaining review gates.
