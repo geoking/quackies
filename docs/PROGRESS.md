@@ -1231,3 +1231,28 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   local and remote M4 commit `9b4ea2e` were verified equal. Regular small commits
   and pushes remain the workflow. This checkpoint records the plan; M4.5
   implementation and new simulations have not started.
+
+### 55. M4.5 shared planning boundary and evaluation pilot (15 September 2026)
+
+- Extracted pure `DuckAdventureRules` transitions and integrated them with the
+  live Adventure handler, preserving private previews, history and phase
+  responsibilities. The shared placement source checkpoint is `a0be5f4`,
+  following isolated original Adventure/Day/Night validation at 82 focused
+  tests. New Normal planning (`17363b6`) and its tests (`674ae8f`) use
+  contingent draws, current and future Signpost previews, completed planning
+  depths up to 6 within an 8,000-node budget, optional stopping after each
+  future draw and complete Night bundles including `FinishDream`.
+- Added the real-Core evaluation runner (`3922aeb`) and tests (`3a2315f`) with
+  frozen M4 baseline, candidate Normal, cautious, adventurous, movement-heavy,
+  Reeds-heavy and Day-3 sandbag policies. Release validation passed 322/322
+  tests, including 39 focused AI and 9 evaluation tests. The runner records
+  seat, scheduler and JSONL telemetry for reproducible comparisons.
+- The 24-seed pilot (seeds 0–23, 48 paired matches, Debug candidate) produced
+  42 candidate wins; one-draw Days were 2.3% versus 22.3% for the baseline,
+  wear-outs 11% versus 2.5%, and no oasis arrivals. These pilot observations
+  are evidence for follow-up only and do not establish balance or fun.
+- The declared 100-seed development set (1000–1099) is currently running.
+  The fresh 300-seed holdout (10000–10299) has not run. Human fun feedback,
+  balance disposition and any M4.5 completion claim remain pending; see the
+  [M4.5 plan](duck-migration/m4-5/PLAN.md), [working record](duck-migration/m4-5/README.md)
+  and [run protocol](duck-migration/m4-5/RUN_PROTOCOL.json) for scope and limits.

@@ -1,0 +1,2581 @@
+{
+  "inputs": [
+    "docs/duck-migration/m4-5/evidence/pilot-baseline-normal-0-23.jsonl.gz"
+  ],
+  "matchups": [
+    {
+      "comebacks": [
+        {
+          "day": 3,
+          "finalDraws": 0,
+          "gapBand": "1-2",
+          "leaderOutrightWin": {
+            "count": 1,
+            "interval95": null,
+            "rate": 0.0,
+            "seeds": 1
+          },
+          "leaderPolicy": "baseline",
+          "matches": 1,
+          "trailerOutrightWin": {
+            "count": 1,
+            "interval95": null,
+            "rate": 1.0,
+            "seeds": 1
+          }
+        },
+        {
+          "day": 3,
+          "finalDraws": 0,
+          "gapBand": "1-2",
+          "leaderOutrightWin": {
+            "count": 9,
+            "interval95": [
+              0.6069622310029172,
+              1
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 1.0,
+            "seeds": 6
+          },
+          "leaderPolicy": "normal",
+          "matches": 9,
+          "trailerOutrightWin": {
+            "count": 9,
+            "interval95": [
+              0,
+              0.39303776899708276
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 0.0,
+            "seeds": 6
+          }
+        },
+        {
+          "day": 3,
+          "finalDraws": 0,
+          "gapBand": "3-6",
+          "leaderOutrightWin": {
+            "count": 36,
+            "interval95": [
+              0.7352941176470589,
+              0.972972972972973
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.8611111111111112,
+            "seeds": 21
+          },
+          "leaderPolicy": "normal",
+          "matches": 36,
+          "trailerOutrightWin": {
+            "count": 36,
+            "interval95": [
+              0.02702702702702703,
+              0.2647058823529412
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.1388888888888889,
+            "seeds": 21
+          }
+        },
+        {
+          "day": 3,
+          "finalDraws": 0,
+          "gapBand": "7-10",
+          "leaderOutrightWin": {
+            "count": 1,
+            "interval95": null,
+            "rate": 0.0,
+            "seeds": 1
+          },
+          "leaderPolicy": "normal",
+          "matches": 1,
+          "trailerOutrightWin": {
+            "count": 1,
+            "interval95": null,
+            "rate": 1.0,
+            "seeds": 1
+          }
+        },
+        {
+          "day": 3,
+          "finalDraws": 0,
+          "gapBand": "tied",
+          "leaderOutrightWin": {
+            "count": 0,
+            "interval95": null,
+            "rate": null,
+            "seeds": 0
+          },
+          "leaderPolicy": "tied",
+          "matches": 1,
+          "trailerOutrightWin": {
+            "count": 0,
+            "interval95": null,
+            "rate": null,
+            "seeds": 0
+          }
+        },
+        {
+          "day": 5,
+          "finalDraws": 0,
+          "gapBand": "1-2",
+          "leaderOutrightWin": {
+            "count": 5,
+            "interval95": [
+              0.5492802716530588,
+              1
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 1.0,
+            "seeds": 5
+          },
+          "leaderPolicy": "normal",
+          "matches": 5,
+          "trailerOutrightWin": {
+            "count": 5,
+            "interval95": [
+              0,
+              0.4507197283469412
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 0.0,
+            "seeds": 5
+          }
+        },
+        {
+          "day": 5,
+          "finalDraws": 0,
+          "gapBand": "3-6",
+          "leaderOutrightWin": {
+            "count": 1,
+            "interval95": null,
+            "rate": 0.0,
+            "seeds": 1
+          },
+          "leaderPolicy": "baseline",
+          "matches": 1,
+          "trailerOutrightWin": {
+            "count": 1,
+            "interval95": null,
+            "rate": 1.0,
+            "seeds": 1
+          }
+        },
+        {
+          "day": 5,
+          "finalDraws": 0,
+          "gapBand": "3-6",
+          "leaderOutrightWin": {
+            "count": 30,
+            "interval95": [
+              0.7878787878787878,
+              1.0
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.9,
+            "seeds": 19
+          },
+          "leaderPolicy": "normal",
+          "matches": 30,
+          "trailerOutrightWin": {
+            "count": 30,
+            "interval95": [
+              0.0,
+              0.21212121212121213
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.1,
+            "seeds": 19
+          }
+        },
+        {
+          "day": 5,
+          "finalDraws": 0,
+          "gapBand": "7-10",
+          "leaderOutrightWin": {
+            "count": 12,
+            "interval95": [
+              0.5333333333333333,
+              1.0
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.75,
+            "seeds": 11
+          },
+          "leaderPolicy": "normal",
+          "matches": 12,
+          "trailerOutrightWin": {
+            "count": 12,
+            "interval95": [
+              0.0,
+              0.4666666666666667
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.25,
+            "seeds": 11
+          }
+        },
+        {
+          "day": 7,
+          "finalDraws": 0,
+          "gapBand": "1-2",
+          "leaderOutrightWin": {
+            "count": 2,
+            "interval95": [
+              0.0,
+              1.0
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.5,
+            "seeds": 2
+          },
+          "leaderPolicy": "baseline",
+          "matches": 2,
+          "trailerOutrightWin": {
+            "count": 2,
+            "interval95": [
+              0.0,
+              1.0
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.5,
+            "seeds": 2
+          }
+        },
+        {
+          "day": 7,
+          "finalDraws": 0,
+          "gapBand": "1-2",
+          "leaderOutrightWin": {
+            "count": 3,
+            "interval95": [
+              0.0,
+              1.0
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.6666666666666666,
+            "seeds": 3
+          },
+          "leaderPolicy": "normal",
+          "matches": 3,
+          "trailerOutrightWin": {
+            "count": 3,
+            "interval95": [
+              0.0,
+              1.0
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.3333333333333333,
+            "seeds": 3
+          }
+        },
+        {
+          "day": 7,
+          "finalDraws": 0,
+          "gapBand": "11+",
+          "leaderOutrightWin": {
+            "count": 3,
+            "interval95": [
+              0.36840314986403877,
+              1
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 1.0,
+            "seeds": 3
+          },
+          "leaderPolicy": "normal",
+          "matches": 3,
+          "trailerOutrightWin": {
+            "count": 3,
+            "interval95": [
+              0,
+              0.6315968501359612
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 0.0,
+            "seeds": 3
+          }
+        },
+        {
+          "day": 7,
+          "finalDraws": 0,
+          "gapBand": "3-6",
+          "leaderOutrightWin": {
+            "count": 25,
+            "interval95": [
+              0.6956521739130435,
+              0.9615384615384616
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.84,
+            "seeds": 19
+          },
+          "leaderPolicy": "normal",
+          "matches": 25,
+          "trailerOutrightWin": {
+            "count": 25,
+            "interval95": [
+              0.038461538461538464,
+              0.30434782608695654
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.16,
+            "seeds": 19
+          }
+        },
+        {
+          "day": 7,
+          "finalDraws": 0,
+          "gapBand": "7-10",
+          "leaderOutrightWin": {
+            "count": 13,
+            "interval95": [
+              0.7790778080544442,
+              1
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 1.0,
+            "seeds": 12
+          },
+          "leaderPolicy": "normal",
+          "matches": 13,
+          "trailerOutrightWin": {
+            "count": 13,
+            "interval95": [
+              0,
+              0.22092219194555585
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 0.0,
+            "seeds": 12
+          }
+        },
+        {
+          "day": 7,
+          "finalDraws": 0,
+          "gapBand": "tied",
+          "leaderOutrightWin": {
+            "count": 0,
+            "interval95": null,
+            "rate": null,
+            "seeds": 0
+          },
+          "leaderPolicy": "tied",
+          "matches": 2,
+          "trailerOutrightWin": {
+            "count": 0,
+            "interval95": null,
+            "rate": null,
+            "seeds": 0
+          }
+        },
+        {
+          "day": 9,
+          "finalDraws": 0,
+          "gapBand": "1-2",
+          "leaderOutrightWin": {
+            "count": 3,
+            "interval95": [
+              0.0,
+              1.0
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.6666666666666666,
+            "seeds": 3
+          },
+          "leaderPolicy": "normal",
+          "matches": 3,
+          "trailerOutrightWin": {
+            "count": 3,
+            "interval95": [
+              0.0,
+              1.0
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.3333333333333333,
+            "seeds": 3
+          }
+        },
+        {
+          "day": 9,
+          "finalDraws": 0,
+          "gapBand": "11+",
+          "leaderOutrightWin": {
+            "count": 6,
+            "interval95": [
+              0.5492802716530588,
+              1
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 1.0,
+            "seeds": 5
+          },
+          "leaderPolicy": "normal",
+          "matches": 6,
+          "trailerOutrightWin": {
+            "count": 6,
+            "interval95": [
+              0,
+              0.4507197283469412
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 0.0,
+            "seeds": 5
+          }
+        },
+        {
+          "day": 9,
+          "finalDraws": 0,
+          "gapBand": "3-6",
+          "leaderOutrightWin": {
+            "count": 1,
+            "interval95": null,
+            "rate": 0.0,
+            "seeds": 1
+          },
+          "leaderPolicy": "baseline",
+          "matches": 1,
+          "trailerOutrightWin": {
+            "count": 1,
+            "interval95": null,
+            "rate": 1.0,
+            "seeds": 1
+          }
+        },
+        {
+          "day": 9,
+          "finalDraws": 0,
+          "gapBand": "3-6",
+          "leaderOutrightWin": {
+            "count": 14,
+            "interval95": [
+              0.6666666666666666,
+              1.0
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.8571428571428571,
+            "seeds": 10
+          },
+          "leaderPolicy": "normal",
+          "matches": 14,
+          "trailerOutrightWin": {
+            "count": 14,
+            "interval95": [
+              0.0,
+              0.3333333333333333
+            ],
+            "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+            "rate": 0.14285714285714285,
+            "seeds": 10
+          }
+        },
+        {
+          "day": 9,
+          "finalDraws": 0,
+          "gapBand": "7-10",
+          "leaderOutrightWin": {
+            "count": 1,
+            "interval95": null,
+            "rate": 1.0,
+            "seeds": 1
+          },
+          "leaderPolicy": "baseline",
+          "matches": 1,
+          "trailerOutrightWin": {
+            "count": 1,
+            "interval95": null,
+            "rate": 0.0,
+            "seeds": 1
+          }
+        },
+        {
+          "day": 9,
+          "finalDraws": 0,
+          "gapBand": "7-10",
+          "leaderOutrightWin": {
+            "count": 21,
+            "interval95": [
+              0.8292502770175191,
+              1
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 1.0,
+            "seeds": 16
+          },
+          "leaderPolicy": "normal",
+          "matches": 21,
+          "trailerOutrightWin": {
+            "count": 21,
+            "interval95": [
+              0,
+              0.17074972298248092
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 0.0,
+            "seeds": 16
+          }
+        },
+        {
+          "day": 9,
+          "finalDraws": 0,
+          "gapBand": "tied",
+          "leaderOutrightWin": {
+            "count": 0,
+            "interval95": null,
+            "rate": null,
+            "seeds": 0
+          },
+          "leaderPolicy": "tied",
+          "matches": 2,
+          "trailerOutrightWin": {
+            "count": 0,
+            "interval95": null,
+            "rate": null,
+            "seeds": 0
+          }
+        }
+      ],
+      "finalTwigMargin": {
+        "count": 48,
+        "max": 26,
+        "mean": 8.416666666666666,
+        "median": 7.5,
+        "min": 0,
+        "p10": 1.0,
+        "p90": 17.0
+      },
+      "leadChanges": {
+        "count": 48,
+        "max": 2,
+        "mean": 0.16666666666666666,
+        "median": 0.0,
+        "min": 0,
+        "p10": 0.0,
+        "p90": 1.0
+      },
+      "matches": 48,
+      "outcomes": {
+        "policyA": 6,
+        "policyB": 42
+      },
+      "players": [
+        {
+          "anyOasisPlayerMatches": {
+            "count": 48,
+            "interval95": [
+              0,
+              0.11734615615494881
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 0.0,
+            "seeds": 24
+          },
+          "atHaven4Or10": 229,
+          "biomes": {
+            "meadow": 182,
+            "wasteland": 16,
+            "wetlands": 282
+          },
+          "byDay": [
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 0,
+                "mean": 0,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "day": 1,
+              "draws": {
+                "count": 48,
+                "max": 6,
+                "mean": 2.1041666666666665,
+                "median": 1.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 4.0
+              },
+              "oneDraw": 27,
+              "permanentTrail": {
+                "count": 48,
+                "max": 0,
+                "mean": 0,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 7,
+                "mean": 2.5,
+                "median": 1.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 4.300000000000004
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 8,
+                "mean": 4.4375,
+                "median": 3.5,
+                "min": 3,
+                "p10": 3.0,
+                "p90": 6.300000000000004
+              },
+              "start": {
+                "count": 48,
+                "max": 0,
+                "mean": 0,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 2,
+                "mean": 1.1041666666666667,
+                "median": 1.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 1.3000000000000043
+              },
+              "wornOasis": 0,
+              "wornOut": 0
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 0,
+                "mean": 0,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "day": 2,
+              "draws": {
+                "count": 48,
+                "max": 9,
+                "mean": 3.1666666666666665,
+                "median": 3.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 5.300000000000004
+              },
+              "oneDraw": 11,
+              "permanentTrail": {
+                "count": 48,
+                "max": 1,
+                "mean": 0.3333333333333333,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 1.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 10,
+                "mean": 4.145833333333333,
+                "median": 4.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 6.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 10,
+                "mean": 5.895833333333333,
+                "median": 6.0,
+                "min": 3,
+                "p10": 3.0,
+                "p90": 7.300000000000004
+              },
+              "start": {
+                "count": 48,
+                "max": 2,
+                "mean": 0.625,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 2.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 4,
+                "mean": 1.3541666666666667,
+                "median": 1.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 2.3000000000000043
+              },
+              "wornOasis": 0,
+              "wornOut": 0
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 1,
+                "mean": 0.4791666666666667,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 1.0
+              },
+              "day": 3,
+              "draws": {
+                "count": 48,
+                "max": 8,
+                "mean": 2.7916666666666665,
+                "median": 2.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 6.0
+              },
+              "oneDraw": 15,
+              "permanentTrail": {
+                "count": 48,
+                "max": 3,
+                "mean": 1.4583333333333333,
+                "median": 2.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 3.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 10,
+                "mean": 4.979166666666667,
+                "median": 4.0,
+                "min": 1,
+                "p10": 4.0,
+                "p90": 10.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 13,
+                "mean": 6.458333333333333,
+                "median": 6.0,
+                "min": 3,
+                "p10": 5.0,
+                "p90": 9.300000000000004
+              },
+              "start": {
+                "count": 48,
+                "max": 4,
+                "mean": 1.7916666666666667,
+                "median": 2.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 3.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 4,
+                "mean": 1.4583333333333333,
+                "median": 1.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 3.0
+              },
+              "wornOasis": 0,
+              "wornOut": 1
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 2,
+                "mean": 0.7916666666666666,
+                "median": 1.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 1.0
+              },
+              "day": 4,
+              "draws": {
+                "count": 48,
+                "max": 10,
+                "mean": 5.166666666666667,
+                "median": 5.0,
+                "min": 1,
+                "p10": 1.7000000000000002,
+                "p90": 9.0
+              },
+              "oneDraw": 5,
+              "permanentTrail": {
+                "count": 48,
+                "max": 5,
+                "mean": 3.1875,
+                "median": 3.0,
+                "min": 0,
+                "p10": 1.7000000000000002,
+                "p90": 5.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 17,
+                "mean": 9.6875,
+                "median": 10.0,
+                "min": 4,
+                "p10": 4.0,
+                "p90": 16.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 14,
+                "mean": 9.854166666666666,
+                "median": 10.0,
+                "min": 6,
+                "p10": 6.0,
+                "p90": 12.300000000000004
+              },
+              "start": {
+                "count": 48,
+                "max": 6,
+                "mean": 3.5,
+                "median": 4.0,
+                "min": 0,
+                "p10": 2.0,
+                "p90": 5.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 5,
+                "mean": 3.0208333333333335,
+                "median": 3.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 4.0
+              },
+              "wornOasis": 0,
+              "wornOut": 1
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 2,
+                "mean": 0.9583333333333334,
+                "median": 1.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 1.3000000000000043
+              },
+              "day": 5,
+              "draws": {
+                "count": 48,
+                "max": 10,
+                "mean": 4.166666666666667,
+                "median": 4.0,
+                "min": 1,
+                "p10": 2.0,
+                "p90": 7.0
+              },
+              "oneDraw": 3,
+              "permanentTrail": {
+                "count": 48,
+                "max": 8,
+                "mean": 5.083333333333333,
+                "median": 5.0,
+                "min": 2,
+                "p10": 3.0,
+                "p90": 6.300000000000004
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 18,
+                "mean": 10.479166666666666,
+                "median": 10.0,
+                "min": 4,
+                "p10": 10.0,
+                "p90": 16.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 15,
+                "mean": 10.458333333333334,
+                "median": 10.0,
+                "min": 6,
+                "p10": 9.7,
+                "p90": 13.0
+              },
+              "start": {
+                "count": 48,
+                "max": 8,
+                "mean": 5.5625,
+                "median": 6.0,
+                "min": 2,
+                "p10": 3.0,
+                "p90": 7.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 5,
+                "mean": 3.0416666666666665,
+                "median": 3.0,
+                "min": 1,
+                "p10": 2.0,
+                "p90": 4.0
+              },
+              "wornOasis": 0,
+              "wornOut": 0
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 2,
+                "mean": 1.125,
+                "median": 1.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 2.0
+              },
+              "day": 6,
+              "draws": {
+                "count": 48,
+                "max": 12,
+                "mean": 3.7083333333333335,
+                "median": 3.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 8.300000000000004
+              },
+              "oneDraw": 13,
+              "permanentTrail": {
+                "count": 48,
+                "max": 11,
+                "mean": 7.166666666666667,
+                "median": 8.0,
+                "min": 3,
+                "p10": 4.7,
+                "p90": 9.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 26,
+                "mean": 12.395833333333334,
+                "median": 10.0,
+                "min": 10,
+                "p10": 10.0,
+                "p90": 20.300000000000004
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 21,
+                "mean": 11.291666666666666,
+                "median": 11.0,
+                "min": 4,
+                "p10": 9.0,
+                "p90": 15.0
+              },
+              "start": {
+                "count": 48,
+                "max": 12,
+                "mean": 7.708333333333333,
+                "median": 8.0,
+                "min": 4,
+                "p10": 5.0,
+                "p90": 9.300000000000004
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 6,
+                "mean": 3.5833333333333335,
+                "median": 3.0,
+                "min": 3,
+                "p10": 3.0,
+                "p90": 5.0
+              },
+              "wornOasis": 0,
+              "wornOut": 1
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 2,
+                "mean": 1.2291666666666667,
+                "median": 1.0,
+                "min": 0,
+                "p10": 0.7000000000000002,
+                "p90": 2.0
+              },
+              "day": 7,
+              "draws": {
+                "count": 48,
+                "max": 11,
+                "mean": 4.416666666666667,
+                "median": 4.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 8.300000000000004
+              },
+              "oneDraw": 8,
+              "permanentTrail": {
+                "count": 48,
+                "max": 13,
+                "mean": 9.333333333333334,
+                "median": 10.0,
+                "min": 4,
+                "p10": 6.0,
+                "p90": 12.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 26,
+                "mean": 15.958333333333334,
+                "median": 16.0,
+                "min": 10,
+                "p10": 10.0,
+                "p90": 21.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 18,
+                "mean": 12.833333333333334,
+                "median": 13.0,
+                "min": 6,
+                "p10": 10.0,
+                "p90": 16.300000000000004
+              },
+              "start": {
+                "count": 48,
+                "max": 14,
+                "mean": 9.791666666666666,
+                "median": 10.0,
+                "min": 4,
+                "p10": 7.0,
+                "p90": 12.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 6,
+                "mean": 4.3125,
+                "median": 4.0,
+                "min": 3,
+                "p10": 3.0,
+                "p90": 6.0
+              },
+              "wornOasis": 0,
+              "wornOut": 2
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 3,
+                "mean": 1.25,
+                "median": 1.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 2.0
+              },
+              "day": 8,
+              "draws": {
+                "count": 48,
+                "max": 14,
+                "mean": 4.4375,
+                "median": 3.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 9.300000000000004
+              },
+              "oneDraw": 7,
+              "permanentTrail": {
+                "count": 48,
+                "max": 16,
+                "mean": 11.520833333333334,
+                "median": 12.0,
+                "min": 6,
+                "p10": 8.0,
+                "p90": 15.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 36,
+                "mean": 18.166666666666668,
+                "median": 16.0,
+                "min": 10,
+                "p10": 10.0,
+                "p90": 26.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 21,
+                "mean": 13.604166666666666,
+                "median": 14.0,
+                "min": 5,
+                "p10": 10.0,
+                "p90": 16.60000000000001
+              },
+              "start": {
+                "count": 48,
+                "max": 17,
+                "mean": 12.125,
+                "median": 12.0,
+                "min": 7,
+                "p10": 8.7,
+                "p90": 15.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 10,
+                "mean": 5.083333333333333,
+                "median": 5.0,
+                "min": 3,
+                "p10": 3.7,
+                "p90": 7.300000000000004
+              },
+              "wornOasis": 0,
+              "wornOut": 2
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 3,
+                "mean": 1.375,
+                "median": 1.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 3.0
+              },
+              "day": 9,
+              "draws": {
+                "count": 48,
+                "max": 13,
+                "mean": 5.645833333333333,
+                "median": 5.0,
+                "min": 1,
+                "p10": 1.7000000000000002,
+                "p90": 11.300000000000004
+              },
+              "oneDraw": 5,
+              "permanentTrail": {
+                "count": 48,
+                "max": 19,
+                "mean": 13.875,
+                "median": 14.0,
+                "min": 7,
+                "p10": 9.7,
+                "p90": 18.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 36,
+                "mean": 21.6875,
+                "median": 21.0,
+                "min": 10,
+                "p10": 16.0,
+                "p90": 32.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 23,
+                "mean": 14.875,
+                "median": 15.0,
+                "min": 5,
+                "p10": 10.0,
+                "p90": 20.0
+              },
+              "start": {
+                "count": 48,
+                "max": 20,
+                "mean": 14.375,
+                "median": 14.0,
+                "min": 7,
+                "p10": 10.0,
+                "p90": 19.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 13,
+                "mean": 6.458333333333333,
+                "median": 6.0,
+                "min": 3,
+                "p10": 4.0,
+                "p90": 11.0
+              },
+              "wornOasis": 0,
+              "wornOut": 3
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 3,
+                "mean": 1.5416666666666667,
+                "median": 2.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 3.0
+              },
+              "day": 10,
+              "draws": {
+                "count": 48,
+                "max": 12,
+                "mean": 4.1875,
+                "median": 3.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 9.0
+              },
+              "oneDraw": 13,
+              "permanentTrail": {
+                "count": 48,
+                "max": 23,
+                "mean": 16.5,
+                "median": 16.0,
+                "min": 10,
+                "p10": 12.0,
+                "p90": 21.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 32,
+                "mean": 22.520833333333332,
+                "median": 21.0,
+                "min": 16,
+                "p10": 16.0,
+                "p90": 28.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 23,
+                "mean": 17.270833333333332,
+                "median": 18.0,
+                "min": 7,
+                "p10": 15.0,
+                "p90": 20.300000000000004
+              },
+              "start": {
+                "count": 48,
+                "max": 24,
+                "mean": 17.083333333333332,
+                "median": 17.0,
+                "min": 10,
+                "p10": 12.7,
+                "p90": 21.300000000000004
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 13,
+                "mean": 5.958333333333333,
+                "median": 5.0,
+                "min": 4,
+                "p10": 4.0,
+                "p90": 9.0
+              },
+              "wornOasis": 0,
+              "wornOut": 2
+            }
+          ],
+          "byEvent": [
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 0,
+              "event": "a_friendly_guide",
+              "meanDraws": 3.7083333333333335,
+              "meanRest": 12.3125,
+              "meanSleep": 10.583333333333334,
+              "meanTwigsEarned": 3.5625,
+              "playerDays": 48,
+              "wornOut": 2
+            },
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 14,
+              "event": "a_pocket_of_driftwood",
+              "meanDraws": 3.9166666666666665,
+              "meanRest": 12.458333333333334,
+              "meanSleep": 10.6875,
+              "meanTwigsEarned": 3.6666666666666665,
+              "playerDays": 48,
+              "wornOut": 2
+            },
+            {
+              "collectiveBonusSleep": 66,
+              "directEventTwigs": 0,
+              "event": "all_tucked_in",
+              "meanDraws": 3.9375,
+              "meanRest": 10.791666666666666,
+              "meanSleep": 11.333333333333334,
+              "meanTwigsEarned": 3.2291666666666665,
+              "playerDays": 48,
+              "wornOut": 1
+            },
+            {
+              "collectiveBonusSleep": 41,
+              "directEventTwigs": 0,
+              "event": "home_before_dark",
+              "meanDraws": 4.041666666666667,
+              "meanRest": 10.395833333333334,
+              "meanSleep": 9.875,
+              "meanTwigsEarned": 3.1041666666666665,
+              "playerDays": 48,
+              "wornOut": 2
+            },
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 0,
+              "event": "rain_softened_seeds",
+              "meanDraws": 4.104166666666667,
+              "meanRest": 13.541666666666666,
+              "meanSleep": 11.375,
+              "meanTwigsEarned": 3.6875,
+              "playerDays": 48,
+              "wornOut": 1
+            },
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 0,
+              "event": "restless_night",
+              "meanDraws": 4.104166666666667,
+              "meanRest": 11.375,
+              "meanSleep": 9.208333333333334,
+              "meanTwigsEarned": 3.2708333333333335,
+              "playerDays": 48,
+              "wornOut": 0
+            },
+            {
+              "collectiveBonusSleep": 17,
+              "directEventTwigs": 0,
+              "event": "shared_supper",
+              "meanDraws": 4.083333333333333,
+              "meanRest": 13.395833333333334,
+              "meanSleep": 11.645833333333334,
+              "meanTwigsEarned": 3.8333333333333335,
+              "playerDays": 48,
+              "wornOut": 1
+            },
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 0,
+              "event": "still_air",
+              "meanDraws": 3.0833333333333335,
+              "meanRest": 10.583333333333334,
+              "meanSleep": 10.083333333333334,
+              "meanTwigsEarned": 3.1458333333333335,
+              "playerDays": 48,
+              "wornOut": 0
+            },
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 0,
+              "event": "sunlit_signboards",
+              "meanDraws": 4.020833333333333,
+              "meanRest": 13.520833333333334,
+              "meanSleep": 10.791666666666666,
+              "meanTwigsEarned": 3.8541666666666665,
+              "playerDays": 48,
+              "wornOut": 2
+            },
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 0,
+              "event": "thick_morning_mist",
+              "meanDraws": 4.791666666666667,
+              "meanRest": 14.145833333333334,
+              "meanSleep": 11.395833333333334,
+              "meanTwigsEarned": 4.020833333333333,
+              "playerDays": 48,
+              "wornOut": 1
+            }
+          ],
+          "dawnFeathers": 420,
+          "draws": {
+            "count": 480,
+            "max": 14,
+            "mean": 3.9791666666666665,
+            "median": 3.0,
+            "min": 1,
+            "p10": 1.0,
+            "p90": 8.0
+          },
+          "eventTwigs": 14,
+          "finalTwigs": {
+            "count": 48,
+            "max": 51,
+            "mean": 39.854166666666664,
+            "median": 40.5,
+            "min": 30,
+            "p10": 33.0,
+            "p90": 46.300000000000004
+          },
+          "firstSafeOasisDay": {
+            "count": 0
+          },
+          "flockSleep": 88,
+          "flowerSleep": 48,
+          "havenFeathers": 421,
+          "mostRestedDays": 226,
+          "nextStartAfterWear": {
+            "count": 10,
+            "max": 20,
+            "mean": 11.4,
+            "median": 12.0,
+            "min": 1,
+            "p10": 3.7,
+            "p90": 18.2
+          },
+          "nightBundlesByType": {
+            "companion": 38,
+            "companion + reeds": 2,
+            "companion + seeds": 41,
+            "companion + signpost": 1,
+            "companion + splash": 19,
+            "companion + wildflowers": 8,
+            "reeds": 114,
+            "reeds + seeds": 26,
+            "reeds + splash": 42,
+            "reeds + tailwind": 1,
+            "reeds + wildflowers": 1,
+            "seeds": 32,
+            "seeds + tailwind": 3,
+            "splash": 42,
+            "splash + tailwind": 2,
+            "tailwind": 46,
+            "wildflowers": 14
+          },
+          "oneDraw": 107,
+          "playerDays": 480,
+          "playerMatches": 48,
+          "policyId": "baseline",
+          "purchasesByOffer": {
+            "companion": 109,
+            "reeds_1": 64,
+            "reeds_2": 89,
+            "reeds_3": 33,
+            "seeds": 102,
+            "signpost": 1,
+            "splash": 105,
+            "tailwind_4": 44,
+            "tailwind_6": 8,
+            "wildflowers": 23
+          },
+          "purchasesByType": {
+            "companion": 109,
+            "reeds": 186,
+            "seeds": 102,
+            "signpost": 1,
+            "splash": 105,
+            "tailwind": 52,
+            "wildflowers": 23
+          },
+          "purchasesPerShoppingNight": {
+            "count": 432,
+            "max": 2,
+            "mean": 1.337962962962963,
+            "median": 1.0,
+            "min": 1,
+            "p10": 1.0,
+            "p90": 2.0
+          },
+          "reedsTwigs": 199,
+          "rest": {
+            "count": 480,
+            "max": 36,
+            "mean": 12.252083333333333,
+            "median": 10.0,
+            "min": 1,
+            "p10": 4.0,
+            "p90": 24.0
+          },
+          "safeOasisPlayerMatches": {
+            "count": 48,
+            "interval95": [
+              0,
+              0.11734615615494881
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 0.0,
+            "seeds": 24
+          },
+          "sleepSpentPerShoppingNight": {
+            "count": 432,
+            "max": 23,
+            "mean": 9.402777777777779,
+            "median": 10.0,
+            "min": 3,
+            "p10": 4.0,
+            "p90": 15.0
+          },
+          "timing": {
+            "decisions": 3701,
+            "maxPolicyMicroseconds": 1840,
+            "meanPolicyMicroseconds": 6.276952175087814
+          },
+          "unspentSleep": 244,
+          "unspentSleepPerShoppingNight": {
+            "count": 432,
+            "max": 3,
+            "mean": 0.5648148148148148,
+            "median": 0.0,
+            "min": 0,
+            "p10": 0.0,
+            "p90": 2.0
+          },
+          "wornOasisPlayerMatches": {
+            "count": 48,
+            "interval95": [
+              0,
+              0.11734615615494881
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 0.0,
+            "seeds": 24
+          },
+          "wornOut": 12
+        },
+        {
+          "anyOasisPlayerMatches": {
+            "count": 48,
+            "interval95": [
+              0,
+              0.11734615615494881
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 0.0,
+            "seeds": 24
+          },
+          "atHaven4Or10": 230,
+          "biomes": {
+            "meadow": 182,
+            "wasteland": 26,
+            "wetlands": 272
+          },
+          "byDay": [
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 0,
+                "mean": 0,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "day": 1,
+              "draws": {
+                "count": 48,
+                "max": 9,
+                "mean": 6.458333333333333,
+                "median": 7.5,
+                "min": 2,
+                "p10": 3.0,
+                "p90": 9.0
+              },
+              "oneDraw": 0,
+              "permanentTrail": {
+                "count": 48,
+                "max": 0,
+                "mean": 0,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 10,
+                "mean": 7.291666666666667,
+                "median": 8.0,
+                "min": 4,
+                "p10": 4.0,
+                "p90": 10.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 11,
+                "mean": 7.0625,
+                "median": 7.0,
+                "min": 3,
+                "p10": 5.0,
+                "p90": 10.0
+              },
+              "start": {
+                "count": 48,
+                "max": 0,
+                "mean": 0,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 3,
+                "mean": 2.1458333333333335,
+                "median": 2.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 3.0
+              },
+              "wornOasis": 0,
+              "wornOut": 4
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 0,
+                "mean": 0,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "day": 2,
+              "draws": {
+                "count": 48,
+                "max": 9,
+                "mean": 5.875,
+                "median": 7.0,
+                "min": 2,
+                "p10": 2.0,
+                "p90": 8.0
+              },
+              "oneDraw": 0,
+              "permanentTrail": {
+                "count": 48,
+                "max": 1,
+                "mean": 0.5833333333333334,
+                "median": 1.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 1.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 10,
+                "mean": 8.0625,
+                "median": 10.0,
+                "min": 4,
+                "p10": 4.0,
+                "p90": 10.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 12,
+                "mean": 8.3125,
+                "median": 9.0,
+                "min": 3,
+                "p10": 5.7,
+                "p90": 11.0
+              },
+              "start": {
+                "count": 48,
+                "max": 2,
+                "mean": 1.4583333333333333,
+                "median": 2.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 2.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 4,
+                "mean": 2.6041666666666665,
+                "median": 3.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 4.0
+              },
+              "wornOasis": 0,
+              "wornOut": 4
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 0,
+                "mean": 0,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "day": 3,
+              "draws": {
+                "count": 48,
+                "max": 10,
+                "mean": 6.020833333333333,
+                "median": 6.0,
+                "min": 1,
+                "p10": 1.7000000000000002,
+                "p90": 9.0
+              },
+              "oneDraw": 5,
+              "permanentTrail": {
+                "count": 48,
+                "max": 2,
+                "mean": 1.4583333333333333,
+                "median": 2.0,
+                "min": 0,
+                "p10": 1.0,
+                "p90": 2.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 17,
+                "mean": 9.395833333333334,
+                "median": 10.0,
+                "min": 4,
+                "p10": 4.0,
+                "p90": 12.300000000000004
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 13,
+                "mean": 9.104166666666666,
+                "median": 9.5,
+                "min": 5,
+                "p10": 6.0,
+                "p90": 12.0
+              },
+              "start": {
+                "count": 48,
+                "max": 3,
+                "mean": 2.2916666666666665,
+                "median": 2.0,
+                "min": 0,
+                "p10": 1.0,
+                "p90": 3.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 5,
+                "mean": 2.875,
+                "median": 3.0,
+                "min": 1,
+                "p10": 1.0,
+                "p90": 4.0
+              },
+              "wornOasis": 0,
+              "wornOut": 2
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 0,
+                "mean": 0,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "day": 4,
+              "draws": {
+                "count": 48,
+                "max": 12,
+                "mean": 7.145833333333333,
+                "median": 7.0,
+                "min": 3,
+                "p10": 4.0,
+                "p90": 10.300000000000004
+              },
+              "oneDraw": 0,
+              "permanentTrail": {
+                "count": 48,
+                "max": 3,
+                "mean": 2.25,
+                "median": 2.0,
+                "min": 0,
+                "p10": 1.0,
+                "p90": 3.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 24,
+                "mean": 12.645833333333334,
+                "median": 10.0,
+                "min": 10,
+                "p10": 10.0,
+                "p90": 16.300000000000004
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 16,
+                "mean": 10.833333333333334,
+                "median": 11.0,
+                "min": 4,
+                "p10": 10.0,
+                "p90": 13.0
+              },
+              "start": {
+                "count": 48,
+                "max": 4,
+                "mean": 3.1666666666666665,
+                "median": 3.0,
+                "min": 1,
+                "p10": 2.0,
+                "p90": 4.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 6,
+                "mean": 3.6875,
+                "median": 3.5,
+                "min": 3,
+                "p10": 3.0,
+                "p90": 5.0
+              },
+              "wornOasis": 0,
+              "wornOut": 3
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 0,
+                "mean": 0,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "day": 5,
+              "draws": {
+                "count": 48,
+                "max": 12,
+                "mean": 6.708333333333333,
+                "median": 6.0,
+                "min": 3,
+                "p10": 4.0,
+                "p90": 10.0
+              },
+              "oneDraw": 0,
+              "permanentTrail": {
+                "count": 48,
+                "max": 4,
+                "mean": 2.9791666666666665,
+                "median": 3.0,
+                "min": 0,
+                "p10": 2.0,
+                "p90": 4.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 21,
+                "mean": 12.5625,
+                "median": 10.0,
+                "min": 9,
+                "p10": 10.0,
+                "p90": 16.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 16,
+                "mean": 10.979166666666666,
+                "median": 11.0,
+                "min": 3,
+                "p10": 8.0,
+                "p90": 15.0
+              },
+              "start": {
+                "count": 48,
+                "max": 5,
+                "mean": 3.75,
+                "median": 4.0,
+                "min": 1,
+                "p10": 2.7,
+                "p90": 5.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 6,
+                "mean": 3.6458333333333335,
+                "median": 3.0,
+                "min": 3,
+                "p10": 3.0,
+                "p90": 5.0
+              },
+              "wornOasis": 0,
+              "wornOut": 4
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 1,
+                "mean": 0.020833333333333332,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "day": 6,
+              "draws": {
+                "count": 48,
+                "max": 13,
+                "mean": 7.229166666666667,
+                "median": 7.5,
+                "min": 3,
+                "p10": 4.0,
+                "p90": 11.0
+              },
+              "oneDraw": 0,
+              "permanentTrail": {
+                "count": 48,
+                "max": 5,
+                "mean": 3.7708333333333335,
+                "median": 4.0,
+                "min": 1,
+                "p10": 2.0,
+                "p90": 5.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 28,
+                "mean": 14.666666666666666,
+                "median": 15.5,
+                "min": 10,
+                "p10": 10.0,
+                "p90": 21.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 19,
+                "mean": 11.9375,
+                "median": 11.5,
+                "min": 4,
+                "p10": 6.4,
+                "p90": 17.0
+              },
+              "start": {
+                "count": 48,
+                "max": 6,
+                "mean": 4.458333333333333,
+                "median": 5.0,
+                "min": 1,
+                "p10": 2.0,
+                "p90": 6.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 6,
+                "mean": 4.104166666666667,
+                "median": 4.0,
+                "min": 3,
+                "p10": 3.0,
+                "p90": 6.0
+              },
+              "wornOasis": 0,
+              "wornOut": 7
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 1,
+                "mean": 0.020833333333333332,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "day": 7,
+              "draws": {
+                "count": 48,
+                "max": 16,
+                "mean": 7.083333333333333,
+                "median": 7.0,
+                "min": 1,
+                "p10": 3.0,
+                "p90": 11.600000000000009
+              },
+              "oneDraw": 1,
+              "permanentTrail": {
+                "count": 48,
+                "max": 7,
+                "mean": 4.583333333333333,
+                "median": 5.0,
+                "min": 1,
+                "p10": 3.0,
+                "p90": 6.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 34,
+                "mean": 15.770833333333334,
+                "median": 15.0,
+                "min": 10,
+                "p10": 10.0,
+                "p90": 25.200000000000017
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 17,
+                "mean": 11.729166666666666,
+                "median": 11.0,
+                "min": 4,
+                "p10": 5.7,
+                "p90": 16.0
+              },
+              "start": {
+                "count": 48,
+                "max": 8,
+                "mean": 5.291666666666667,
+                "median": 5.5,
+                "min": 1,
+                "p10": 3.0,
+                "p90": 7.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 8,
+                "mean": 4.25,
+                "median": 4.0,
+                "min": 3,
+                "p10": 3.0,
+                "p90": 6.0
+              },
+              "wornOasis": 0,
+              "wornOut": 6
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 0,
+                "mean": 0,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "day": 8,
+              "draws": {
+                "count": 48,
+                "max": 17,
+                "mean": 9.0625,
+                "median": 9.0,
+                "min": 1,
+                "p10": 3.7,
+                "p90": 14.600000000000009
+              },
+              "oneDraw": 1,
+              "permanentTrail": {
+                "count": 48,
+                "max": 8,
+                "mean": 5.3125,
+                "median": 5.5,
+                "min": 2,
+                "p10": 4.0,
+                "p90": 7.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 36,
+                "mean": 18.958333333333332,
+                "median": 20.5,
+                "min": 10,
+                "p10": 10.0,
+                "p90": 28.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 24,
+                "mean": 13.416666666666666,
+                "median": 14.0,
+                "min": 5,
+                "p10": 6.0,
+                "p90": 18.0
+              },
+              "start": {
+                "count": 48,
+                "max": 9,
+                "mean": 5.8125,
+                "median": 6.0,
+                "min": 2,
+                "p10": 4.0,
+                "p90": 7.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 11,
+                "mean": 5.395833333333333,
+                "median": 5.0,
+                "min": 3,
+                "p10": 3.0,
+                "p90": 8.0
+              },
+              "wornOasis": 0,
+              "wornOut": 8
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 1,
+                "mean": 0.020833333333333332,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "day": 9,
+              "draws": {
+                "count": 48,
+                "max": 18,
+                "mean": 10.208333333333334,
+                "median": 10.0,
+                "min": 2,
+                "p10": 5.0,
+                "p90": 14.600000000000009
+              },
+              "oneDraw": 0,
+              "permanentTrail": {
+                "count": 48,
+                "max": 9,
+                "mean": 6.145833333333333,
+                "median": 6.0,
+                "min": 2,
+                "p10": 4.7,
+                "p90": 8.0
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 39,
+                "mean": 21.6875,
+                "median": 21.0,
+                "min": 10,
+                "p10": 15.4,
+                "p90": 30.60000000000001
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 24,
+                "mean": 13.520833333333334,
+                "median": 15.0,
+                "min": 4,
+                "p10": 6.0,
+                "p90": 17.300000000000004
+              },
+              "start": {
+                "count": 48,
+                "max": 10,
+                "mean": 6.708333333333333,
+                "median": 7.0,
+                "min": 2,
+                "p10": 4.7,
+                "p90": 9.0
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 13,
+                "mean": 7.229166666666667,
+                "median": 7.5,
+                "min": 3,
+                "p10": 5.0,
+                "p90": 9.0
+              },
+              "wornOasis": 0,
+              "wornOut": 9
+            },
+            {
+              "dawnFeathers": {
+                "count": 48,
+                "max": 2,
+                "mean": 0.0625,
+                "median": 0.0,
+                "min": 0,
+                "p10": 0.0,
+                "p90": 0.0
+              },
+              "day": 10,
+              "draws": {
+                "count": 48,
+                "max": 19,
+                "mean": 9.416666666666666,
+                "median": 9.0,
+                "min": 1,
+                "p10": 2.7,
+                "p90": 16.300000000000004
+              },
+              "oneDraw": 4,
+              "permanentTrail": {
+                "count": 48,
+                "max": 10,
+                "mean": 6.895833333333333,
+                "median": 7.0,
+                "min": 2,
+                "p10": 5.0,
+                "p90": 9.300000000000004
+              },
+              "playerDays": 48,
+              "rest": {
+                "count": 48,
+                "max": 37,
+                "mean": 20.4375,
+                "median": 18.5,
+                "min": 10,
+                "p10": 10.0,
+                "p90": 32.0
+              },
+              "safeOasis": 0,
+              "sleep": {
+                "count": 48,
+                "max": 26,
+                "mean": 15.895833333333334,
+                "median": 17.0,
+                "min": 5,
+                "p10": 7.7,
+                "p90": 21.300000000000004
+              },
+              "start": {
+                "count": 48,
+                "max": 11,
+                "mean": 7.333333333333333,
+                "median": 7.0,
+                "min": 3,
+                "p10": 5.0,
+                "p90": 9.300000000000004
+              },
+              "twigsEarned": {
+                "count": 48,
+                "max": 17,
+                "mean": 7.333333333333333,
+                "median": 6.5,
+                "min": 3,
+                "p10": 4.0,
+                "p90": 11.300000000000004
+              },
+              "wornOasis": 0,
+              "wornOut": 6
+            }
+          ],
+          "byEvent": [
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 0,
+              "event": "a_friendly_guide",
+              "meanDraws": 7.520833333333333,
+              "meanRest": 14.270833333333334,
+              "meanSleep": 11.625,
+              "meanTwigsEarned": 4.375,
+              "playerDays": 48,
+              "wornOut": 3
+            },
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 38,
+              "event": "a_pocket_of_driftwood",
+              "meanDraws": 8.208333333333334,
+              "meanRest": 15.375,
+              "meanSleep": 12.041666666666666,
+              "meanTwigsEarned": 5.3125,
+              "playerDays": 48,
+              "wornOut": 7
+            },
+            {
+              "collectiveBonusSleep": 66,
+              "directEventTwigs": 0,
+              "event": "all_tucked_in",
+              "meanDraws": 6.958333333333333,
+              "meanRest": 12.666666666666666,
+              "meanSleep": 12.020833333333334,
+              "meanTwigsEarned": 3.7916666666666665,
+              "playerDays": 48,
+              "wornOut": 4
+            },
+            {
+              "collectiveBonusSleep": 41,
+              "directEventTwigs": 0,
+              "event": "home_before_dark",
+              "meanDraws": 6.791666666666667,
+              "meanRest": 12.4375,
+              "meanSleep": 10.75,
+              "meanTwigsEarned": 3.7291666666666665,
+              "playerDays": 48,
+              "wornOut": 6
+            },
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 0,
+              "event": "rain_softened_seeds",
+              "meanDraws": 8.125,
+              "meanRest": 16.270833333333332,
+              "meanSleep": 12.041666666666666,
+              "meanTwigsEarned": 4.8125,
+              "playerDays": 48,
+              "wornOut": 6
+            },
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 0,
+              "event": "restless_night",
+              "meanDraws": 7.666666666666667,
+              "meanRest": 13,
+              "meanSleep": 9.583333333333334,
+              "meanTwigsEarned": 3.7291666666666665,
+              "playerDays": 48,
+              "wornOut": 5
+            },
+            {
+              "collectiveBonusSleep": 17,
+              "directEventTwigs": 0,
+              "event": "shared_supper",
+              "meanDraws": 8.333333333333334,
+              "meanRest": 15.9375,
+              "meanSleep": 12.020833333333334,
+              "meanTwigsEarned": 4.666666666666667,
+              "playerDays": 48,
+              "wornOut": 3
+            },
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 0,
+              "event": "still_air",
+              "meanDraws": 6.583333333333333,
+              "meanRest": 12.020833333333334,
+              "meanSleep": 10.333333333333334,
+              "meanTwigsEarned": 3.8125,
+              "playerDays": 48,
+              "wornOut": 6
+            },
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 0,
+              "event": "sunlit_signboards",
+              "meanDraws": 6.3125,
+              "meanRest": 12.895833333333334,
+              "meanSleep": 10.645833333333334,
+              "meanTwigsEarned": 3.9166666666666665,
+              "playerDays": 48,
+              "wornOut": 6
+            },
+            {
+              "collectiveBonusSleep": 0,
+              "directEventTwigs": 0,
+              "event": "thick_morning_mist",
+              "meanDraws": 8.708333333333334,
+              "meanRest": 16.604166666666668,
+              "meanSleep": 11.729166666666666,
+              "meanTwigsEarned": 5.125,
+              "playerDays": 48,
+              "wornOut": 7
+            }
+          ],
+          "dawnFeathers": 6,
+          "draws": {
+            "count": 480,
+            "max": 19,
+            "mean": 7.520833333333333,
+            "median": 8.0,
+            "min": 1,
+            "p10": 3.0,
+            "p90": 12.0
+          },
+          "eventTwigs": 38,
+          "finalTwigs": {
+            "count": 48,
+            "max": 64,
+            "mean": 47.354166666666664,
+            "median": 45.5,
+            "min": 36,
+            "p10": 39.0,
+            "p90": 58.0
+          },
+          "firstSafeOasisDay": {
+            "count": 0
+          },
+          "flockSleep": 226,
+          "flowerSleep": 82,
+          "havenFeathers": 373,
+          "mostRestedDays": 326,
+          "nextStartAfterWear": {
+            "count": 47,
+            "max": 9,
+            "mean": 3.6808510638297873,
+            "median": 4.0,
+            "min": 0,
+            "p10": 0.6000000000000005,
+            "p90": 7.0
+          },
+          "nightBundlesByType": {
+            "companion": 63,
+            "companion + reeds": 13,
+            "companion + seeds": 24,
+            "companion + signpost": 13,
+            "companion + splash": 35,
+            "companion + tailwind": 4,
+            "companion + wildflowers": 14,
+            "reeds": 103,
+            "reeds + seeds": 11,
+            "reeds + seeds + splash": 2,
+            "reeds + splash": 50,
+            "seeds": 7,
+            "seeds + splash": 1,
+            "seeds + tailwind": 2,
+            "seeds + wildflowers": 2,
+            "splash": 28,
+            "splash + tailwind": 6,
+            "splash + wildflowers": 8,
+            "tailwind": 36,
+            "tailwind + wildflowers": 3,
+            "wildflowers": 7
+          },
+          "oneDraw": 11,
+          "playerDays": 480,
+          "playerMatches": 48,
+          "policyId": "normal",
+          "purchasesByOffer": {
+            "companion": 166,
+            "reeds_1": 81,
+            "reeds_2": 54,
+            "reeds_3": 44,
+            "seeds": 49,
+            "signpost": 13,
+            "splash": 130,
+            "tailwind_2": 2,
+            "tailwind_4": 45,
+            "tailwind_6": 4,
+            "wildflowers": 34
+          },
+          "purchasesByType": {
+            "companion": 166,
+            "reeds": 179,
+            "seeds": 49,
+            "signpost": 13,
+            "splash": 130,
+            "tailwind": 51,
+            "wildflowers": 34
+          },
+          "purchasesPerShoppingNight": {
+            "count": 432,
+            "max": 3,
+            "mean": 1.4398148148148149,
+            "median": 1.0,
+            "min": 1,
+            "p10": 1.0,
+            "p90": 2.0
+          },
+          "reedsTwigs": 322,
+          "rest": {
+            "count": 480,
+            "max": 39,
+            "mean": 14.147916666666667,
+            "median": 10.0,
+            "min": 4,
+            "p10": 7.900000000000006,
+            "p90": 22.0
+          },
+          "safeOasisPlayerMatches": {
+            "count": 48,
+            "interval95": [
+              0,
+              0.11734615615494881
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 0.0,
+            "seeds": 24
+          },
+          "sleepSpentPerShoppingNight": {
+            "count": 432,
+            "max": 23,
+            "mean": 10.171296296296296,
+            "median": 10.0,
+            "min": 3,
+            "p10": 6.0,
+            "p90": 16.0
+          },
+          "timing": {
+            "decisions": 5210,
+            "maxPolicyMicroseconds": 20323,
+            "meanPolicyMicroseconds": 1622.1692898272552
+          },
+          "unspentSleep": 257,
+          "unspentSleepPerShoppingNight": {
+            "count": 432,
+            "max": 4,
+            "mean": 0.5949074074074074,
+            "median": 0.0,
+            "min": 0,
+            "p10": 0.0,
+            "p90": 2.0
+          },
+          "wornOasisPlayerMatches": {
+            "count": 48,
+            "interval95": [
+              0,
+              0.11734615615494881
+            ],
+            "intervalMethod": "one-sided 95% no-event bound over seeds",
+            "rate": 0.0,
+            "seeds": 24
+          },
+          "wornOut": 53
+        }
+      ],
+      "policyA": "baseline",
+      "policyAScore": {
+        "count": 48,
+        "interval95": [
+          0.041666666666666664,
+          0.20885416666666384
+        ],
+        "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+        "rate": 0.125,
+        "seeds": 24
+      },
+      "policyAScoreBySeat": {
+        "ai": {
+          "count": 24,
+          "interval95": [
+            0.0,
+            0.25
+          ],
+          "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+          "rate": 0.125,
+          "seeds": 24
+        },
+        "human": {
+          "count": 24,
+          "interval95": [
+            0.0,
+            0.2916666666666667
+          ],
+          "intervalMethod": "paired-seed percentile bootstrap, 1200 resamples",
+          "rate": 0.125,
+          "seeds": 24
+        }
+      },
+      "policyB": "normal",
+      "schedule": "cli",
+      "seeds": 24,
+      "sourceLabel": "a0be5f4+working-duck-normal-b2-20260915"
+    }
+  ],
+  "schemaVersion": 1
+}

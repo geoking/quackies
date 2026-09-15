@@ -1,0 +1,24 @@
+Quackies ducks · 10 Days · continuing saved game
+Day 10/10 · Finished · Nest level 3 · World Event: A Pocket of Driftwood
+Human: 48 Twigs · space 21 · Exhaustion 3/4 · bag 17 · resting
+  Feather trail 9 · today's start 8 · active flock 1
+  Night 10: 17 frozen Sleep; 0 available now. Twigs earned 11; Feathers 1
+  Sleep: printed 15, Flowers +0, final haven +2, event +0, flock +0, Restless Night -0, Pebbles -0; before wear 17.
+  Twigs: printed 5, Reeds +5, event +1, Brambles -0.
+AI: 55 Twigs · space 26 · Exhaustion 3/5 · bag 13 · resting
+  Feather trail 7 · today's start 7 · active flock 3 · active zzz +1
+  Night 10: 20 frozen Sleep; 0 available now. Twigs earned 10; Feathers 1 · Most Rested
+  Sleep: printed 16, Flowers +0, final haven +2, event +0, flock +2, Restless Night -0, Pebbles -0; before wear 20.
+  Twigs: printed 5, Reeds +4, event +1, Brambles -0.
+  D10 ai: AI gains 1 Feather(s) from haven.
+  D10 ai: AI rests at 26: 10 Twigs today, 20 Sleep.
+  D10 ai: AI is a Most Rested Duck.
+  D10 : Final result: AI 55 Twigs / 20 Sleep, Human 48 Twigs / 17 Sleep.
+Final standings · total Twigs, then Night 10 retained Sleep:
+  1. AI: 55 Twigs (including 6 Dream Twigs), 20 Sleep
+  2. Human: 48 Twigs (including 4 Dream Twigs), 17 Sleep
+Winner: AI
+
+Autosave: /tmp/quackies-m45-seed42-save.json
+Ten-Day demonstration: Normal policy controls both ducks using their own observations.
+Complete ten-Day match finished.

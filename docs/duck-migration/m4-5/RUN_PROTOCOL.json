@@ -1,0 +1,109 @@
+{
+  "status": "declared before development and holdout runs",
+  "rules": "unchanged duck v1, ten Days, 43 spaces",
+  "sourceCommit": "3a2315f9c64b99fde32f33b117e4991c5dcddde3",
+  "configuration": "Release; pilot used Debug",
+  "pilot": {
+    "seeds": "0-23",
+    "matches": 48,
+    "sourceLabel": "a0be5f4+working-duck-normal-b2-20260915",
+    "policySourceCommit": "17363b6",
+    "policySha256": "c8b1bbd811c38c44d7352ce32e5184d498342177d94448fd63c271515b297225",
+    "rawJsonlSha256": "495557fdf394f20b0f22bded3e701ea6207cd957e59e152c50946e391811c64a"
+  },
+  "development": {
+    "seedStart": 1000,
+    "seedCount": 100,
+    "seatMode": "both",
+    "schedule": "cli",
+    "matchups": [
+      [
+        "normal",
+        "baseline"
+      ],
+      [
+        "normal",
+        "normal"
+      ],
+      [
+        "normal",
+        "cautious"
+      ],
+      [
+        "normal",
+        "adventurous"
+      ],
+      [
+        "movement-heavy",
+        "reeds-heavy"
+      ],
+      [
+        "sandbag-day3",
+        "normal"
+      ]
+    ]
+  },
+  "scheduleSensitivity": {
+    "seedStart": 1000,
+    "seedCount": 100,
+    "seatMode": "both",
+    "schedules": [
+      "reversed",
+      "alternating-day"
+    ],
+    "matchups": [
+      [
+        "normal",
+        "baseline"
+      ],
+      [
+        "normal",
+        "normal"
+      ]
+    ]
+  },
+  "holdout": {
+    "seedStart": 10000,
+    "seedCount": 300,
+    "seatMode": "both",
+    "schedule": "cli",
+    "matchups": [
+      [
+        "normal",
+        "baseline"
+      ],
+      [
+        "normal",
+        "normal"
+      ],
+      [
+        "sandbag-day3",
+        "normal"
+      ]
+    ],
+    "additionalComparisons": "Only for an observed unresolved concern; declare before reading those fresh seeds."
+  },
+  "interpretation": [
+    "Pair seat swaps by seed for uncertainty.",
+    "Separate empirical outcomes from human fun feedback.",
+    "Keep diagnostic policies separate; they are not different rules profiles.",
+    "No numeric gameplay changes without reviewed evidence and user agreement."
+  ],
+  "followUpDevelopment": {
+    "reason": "Movement-heavy reached the oasis in 40.5% of player-matches but lost 86.5% against Reeds-heavy on100development seeds. Compare each against Normal to distinguish a pair-specific weakness from broader strategy strength.",
+    "seedStart": 1000,
+    "seedCount": 100,
+    "seatMode": "both",
+    "schedule": "cli",
+    "matchups": [
+      [
+        "normal",
+        "movement-heavy"
+      ],
+      [
+        "normal",
+        "reeds-heavy"
+      ]
+    ]
+  }
+}

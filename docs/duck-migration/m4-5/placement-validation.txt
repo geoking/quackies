@@ -1,0 +1,15 @@
+Isolated placement extraction over 66dc823dede358c08a1ca0e7a0f62e6e69750d8e
+src/Quackies.Core/Ducks/Runtime/DuckAdventureRules.cs sha256 b3a698c5cfac193969108aa6c9a7c3f1a2d16c753abdaaa5030dce9a409db1d9
+src/Quackies.Core/Ducks/Runtime/DuckAdventureHandler.cs sha256 56537e25af9a2ea212d0ab528e22dac6947799acd638965e80d400fa51ed0f3c
+
+$ dotnet test Quackies.sln --configuration Release --nologo --filter FullyQualifiedName~DuckAdventureTests|FullyQualifiedName~DuckDayCycleTests|FullyQualifiedName~DuckNightResolutionTests
+  Determining projects to restore...
+  Restored /private<isolated-checkout>/src/Quackies.Cli/Quackies.Cli.csproj (in 31 ms).
+  Restored /private<isolated-checkout>/src/Quackies.Core/Quackies.Core.csproj (in 66 ms).
+  Restored /private<isolated-checkout>/tests/Quackies.Core.Tests/Quackies.Core.Tests.csproj (in 79 ms).
+  Quackies.Core -> /private<isolated-checkout>/src/Quackies.Core/bin/Release/netstandard2.1/Quackies.Core.dll
+  Quackies.Core.Tests -> /private<isolated-checkout>/tests/Quackies.Core.Tests/bin/Release/net10.0/Quackies.Core.Tests.dll
+Test run for /private<isolated-checkout>/tests/Quackies.Core.Tests/bin/Release/net10.0/Quackies.Core.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:    82, Skipped:     0, Total:    82, Duration: 26 ms - Quackies.Core.Tests.dll (net10.0)

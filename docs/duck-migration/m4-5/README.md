@@ -1,43 +1,63 @@
 # M4.5 working record
 
-15 September 2026. The user authorized M4.5. Follow [the plan](PLAN.md);
-M5 Unity work remains outside this milestone. Current rules and numeric data
-stay unchanged while AI quality is improved and measured.
+15 September 2026. M4.5 is authorized and active; follow [the plan](PLAN.md).
+M5 Unity work remains outside this milestone. Rules, prices and board rewards
+remain unchanged while AI quality and balance are assessed.
 
-## Starting checkpoint
+## Committed engineering checkpoints
 
-- Repository: `codex/duck-game-milestone-0`, plan checkpoint `327f751`.
-- M4 Core/CLI source: `cc4c11a`, isolated Release build with 286 passing tests
-  as recorded in [M4 evidence](../m4/COMPLETION_AUDIT.md).
-- Baseline policy: exact `DuckNormalPolicy.cs` from `327f751`, retained under
-  a distinct evaluation-only name before comparisons with the candidate.
-- GitHub pushes are authenticated and working. Existing Unity font asset and
-  ProjectSettings changes are unrelated and must remain outside checkpoints.
+| Checkpoint | Evidence |
+| --- | --- |
+| `a0be5f4`: shared authoritative encounter transition | Isolated original AI/runtime checkout passed 82 Adventure/Day/Night regressions; [log](placement-validation.txt). |
+| `17363b6`: contingent Normal planning and complete Night bundles | Current/future Signpost observations, optional future settlement, completed depths up to 6 under one 8000-node total budget. |
+| `674ae8f`: planning regressions | 39 focused policy/placement cases, including good continuations, prudent stops, information value and whole-bundle/skip choices. |
+| `3922aeb`, `3a2315f`: real-Core evaluation runner and tests | Nine tests cover accounting, privacy, exact issued actions, seat assignments and schedules. |
+| `dd71992`, `ec28b20`: paired statistical analysis and tests | Seven independent analysis tests; duplicate/incomplete records rejected. |
 
-## Current work
+Root Release validation passed all **322 tests** at `3a2315f`. The frozen M4
+baseline algorithm was checked exactly against `327f751` after only its
+documented namespace/class/decision-DTO adaptations. The evaluation runner
+and policies receive observations and issued actions; they never use saves to
+choose a draw. Saves are optional review artifacts.
 
-| Owner | Files / responsibility | State |
-| --- | --- | --- |
-| AI worker (Sol high) | Core `Ducks/AI`, shared pure `DuckAdventureRules` extraction and its handler integration; focused planning/policy tests | In progress |
-| Evaluation worker (Sol high) | `tools/Quackies.Evaluation`, solution/project references and focused evaluation tests | In progress |
-| Lead | Architecture review, aggregate analysis, evidence/report, integration, documentation and Git | In progress |
+GitHub pushes are authenticated and working. Three pre-existing Unity font and
+ProjectSettings modifications remain outside these checkpoints. No Unity
+mutation, DLL sync, rule-data retuning or device test has occurred in M4.5.
 
-The approved implementation approach shares authoritative encounter transitions
-between gameplay and planning, preserving the handler's private previews,
-history and phase/commitment responsibilities. Planning branches only over
-observable composition and known previews, with bounded deterministic work and
-the choice to settle after future draws. Shopping compares complete affordable
-Night bundles within Core's type/budget/capacity restrictions.
+## Evaluation state
 
-The evaluation tool runs real Core legal actions. It will retain the baseline,
-candidate and reference strategies separately and export per-Day/per-match
-observations, timing and reproducible traces. Planned 24-seed pilot, 100-seed
-development comparisons and fresh 300-seed validation remain unrun.
+[Run protocol](RUN_PROTOCOL.json) declares pilot seeds 0–23, development 1000–1099
+and fresh holdout 10000–10299. Each selected pair plays both seat assignments.
+Equal-policy swaps duplicate the same seeded gameplay and are treated as one
+seed cluster, never as independent statistical evidence. Source labels identify
+the pinned gameplay/evaluation revision; source assembly metadata is also saved.
 
-## Completion evidence still required
+The preserved Debug pilot contains 48 complete games: new Normal won 42, with
+2.3% one-draw Days versus 22.3% for the frozen baseline. Wear-outs rose from 2.5%
+to 11.0%; no oasis arrivals occurred. These are pilot results, not a balance or
+fun certification. [Raw compressed records](evidence/pilot-baseline-normal-0-23.jsonl.gz)
+and [summary](evidence/pilot-summary.md) preserve the observations.
 
-AI decision regressions and runtime parity; verified telemetry; baseline and
-candidate comparisons; comeback/oasis/purchase/event/pace analysis; representative
-game stories and human feedback; reviewed disposition of balance concerns; any
-agreed corrections and final full-suite/continuation checks. Do not close the
-milestone based only on compiling code or a stronger win rate.
+The first declared development set completed 1200 games across six matchups.
+Additional declared scheduler and movement/Reeds comparisons are being checked.
+No fresh holdout has run yet. Complete Night bundles execute consistently;
+remaining concerns include search horizon in large bags, final-Day score
+pressure, late movement valuation and the relative strength of Reeds.
+
+A concrete pilot replay (seed 20, original seats) had Normal trail 32–40 Twigs,
+reach haven 10 with its first Day 10 draw, and settle after a capped three-draw
+search. The final score was 38–50. This warrants further AI work before the
+validation set; it is not evidence to change the game's rewards.
+
+## Current ownership and remaining work
+
+The AI worker owns a bounded follow-up in `DuckNormalPolicy` and focused tests:
+avoid repeated hypothetical states and improve provably losing final-Day
+settlements. The lead owns evidence, analysis, review, documentation and Git.
+The initial evaluation runner is stable. No worker may change canonical rules.
+
+Remaining gates: finish AI follow-up and focused comparisons; validate important
+matchups on fresh seeds; report comeback/oasis/purchase/event/pace findings with
+uncertainty; preserve representative game stories; collect human playability
+feedback; review any exact balance proposals and apply only agreed changes;
+then final checks and milestone review. **M4.5 is not complete.**

@@ -1,0 +1,58 @@
+[
+  {
+    "file": "docs/duck-migration/m4-5/evidence/dev-followup-normal-vs-movement-heavy-1000-1099.jsonl.gz",
+    "command": [
+      "dotnet",
+      "tools/Quackies.Evaluation/bin/Release/net10.0/Quackies.Evaluation.dll",
+      "--source-label",
+      "3a2315f9c64b99fde32f33b117e4991c5dcddde3;Release;development-followup",
+      "--seed-start",
+      "1000",
+      "--seed-count",
+      "100",
+      "--policy-a",
+      "normal",
+      "--policy-b",
+      "movement-heavy",
+      "--seat-mode",
+      "both",
+      "--schedule",
+      "cli",
+      "--output",
+      "/tmp/dev-followup-normal-vs-movement-heavy-1000-1099.jsonl",
+      "--progress-every",
+      "100"
+    ],
+    "rawSha256": "43f501540117cd5b7649640fe38f7f83a422a9e6535e541f3699a8eee1bc8ce5",
+    "seconds": 27.527,
+    "matches": 200
+  },
+  {
+    "file": "docs/duck-migration/m4-5/evidence/dev-followup-normal-vs-reeds-heavy-1000-1099.jsonl.gz",
+    "command": [
+      "dotnet",
+      "tools/Quackies.Evaluation/bin/Release/net10.0/Quackies.Evaluation.dll",
+      "--source-label",
+      "3a2315f9c64b99fde32f33b117e4991c5dcddde3;Release;development-followup",
+      "--seed-start",
+      "1000",
+      "--seed-count",
+      "100",
+      "--policy-a",
+      "normal",
+      "--policy-b",
+      "reeds-heavy",
+      "--seat-mode",
+      "both",
+      "--schedule",
+      "cli",
+      "--output",
+      "/tmp/dev-followup-normal-vs-reeds-heavy-1000-1099.jsonl",
+      "--progress-every",
+      "100"
+    ],
+    "rawSha256": "7800e4d93045ba23d6cb930245033d12ef2c9d0f25af0c85b9892bc9b535c7c4",
+    "seconds": 27.877,
+    "matches": 200
+  }
+]

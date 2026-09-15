@@ -3,10 +3,11 @@
 The implementation described below is the completed original rules baseline.
 On 13 September 2026 the user accepted a distinct Day/Dream rules direction.
 The planned evolution is in [duck-migration/ENGINE_EVOLUTION.md](duck-migration/ENGINE_EVOLUTION.md)
-and the current [plan](duck-migration/PLAN.md). M4 has now implemented the duck
-foundation and first complete daily cycle described below. The later classic
-sections document the retained reference profile; its currencies and phase
-rules do not prescribe the duck game.
+and the current [plan](duck-migration/PLAN.md). M4 has now implemented the full
+ten-Day duck Core/CLI baseline described below. M4.5 is the active shared
+planning and evaluation transition before M5 binds this boundary to Unity. The
+later classic sections document the retained reference profile; its currencies
+and phase rules do not prescribe the duck game.
 
 ## M4 shared boundary
 
@@ -96,6 +97,19 @@ demos save only when requested with `--save`, or when continuing a saved game.
 Unity still uses its previous compiled Core DLL; M5 owns runtime binding and
 the DLL update. M4 closeout evidence is recorded in the linked implementation
 record.
+
+### M4.5 shared planning and evaluation boundary
+
+M4.5 keeps the approved ten-Day, 43-space rules and data authoritative in Core.
+`DuckAdventureRules` is the pure shared transition used by the live adventure
+handler and bounded Normal planning, so evaluation cannot grow a second rules
+engine. Planning branches over observable contingent draws and current/future
+Signpost previews, permits stopping after each future draw, and considers whole
+Night shopping bundles including `FinishDream` within bounded work. The
+evaluation runner drives real issued legal actions and records reproducible
+JSONL telemetry for baseline, candidate and diagnostic policies; its current
+pilot and declared development/holdout limits are recorded in the [M4.5
+working record](duck-migration/m4-5/README.md) and [run protocol](duck-migration/m4-5/RUN_PROTOCOL.json).
 
 Quackies has one rules engine with two front ends: Unity and a command-line
 debugging client. Neither front end decides whether a move is legal or awards
