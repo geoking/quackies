@@ -58,9 +58,9 @@ C4 calendar source/tests are 9eba093 / 48f1dca; C5 persistence is 71d731e /
 committed-tree Release build passed with zero warnings/errors and 286/286 tests;
 see [M4 completion audit](m4/COMPLETION_AUDIT.md).
 
-M4.5 is the next milestone: review AI quality, balance and playability using
+M4.5 is authorized and active: review AI quality, balance and playability using
 actual Core legal games before Unity work. Its authority is the detailed
-[M4.5 plan](m4-5/PLAN.md); this status page records only the milestone boundary.
+[M4.5 plan](m4-5/PLAN.md); [the working record](m4-5/README.md) tracks evidence.
 M4 remains complete as Core/CLI implementation, without a claim of balanced
 play or convincing AI. M5 then connects the accepted Unity board/Dream views to
 committed Core actions/state and finishes runtime nest/award/event presentation.

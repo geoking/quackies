@@ -1,9 +1,10 @@
 # M4.5 — AI quality, balance and playability review
 
-Planned 15 September 2026 at the user's request, **before M5 Unity integration**.
+Authorized 15 September 2026 at the user's request, **before M5 Unity integration**.
 M4 remains a completed Core/CLI implementation milestone. This new gate addresses
 the quality of play and the balance evidence that its correctness tests did not
-establish. This planning checkpoint does not claim new simulations or AI changes.
+establish. Implementation is now active; [the working record](README.md) tracks
+actual changes, checks and remaining evidence separately from the plan.
 
 Use the existing ten-Day, 43-space game and approved rules as the baseline.
 Improve and assess play through Core/CLI first, then review any proposed balance
@@ -103,4 +104,4 @@ explicitly pending; automated wins and passing tests cannot certify fun.
 Keep small source/test checkpoints and regular GitHub pushes. M5 then binds
 the resulting committed profile and reconciles any approved data changes with
 the accepted art/layout. No Unity changes, DLL sync or new artwork occur in
-this planning checkpoint.
+this milestone.

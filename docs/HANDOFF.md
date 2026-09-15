@@ -1,11 +1,12 @@
 # Quackies handoff
 
-## Current task: M4.5 planned before Unity
+## Current task: M4.5 active before Unity
 
 Updated 15 September 2026. M2 and M3 remain approved and complete; **C1–C5 and
 M4 are complete as Core/CLI implementation.** The user requested M4.5 AI,
-balance and playability review before M5 Unity integration. This update records
-the plan; M4.5 implementation and new simulations have not started. See
+balance and playability review before M5 Unity integration, then authorized
+starting it. Follow the [M4.5 working record](duck-migration/m4-5/README.md)
+for current ownership, checkpoints and outstanding evidence. See
 [PLAN.md](duck-migration/PLAN.md), the
 [M4.5 plan](duck-migration/m4-5/PLAN.md) and the detailed
 [C1 first checkpoint](duck-migration/IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval).
