@@ -1283,3 +1283,21 @@ Full scope and acceptance criteria: [implementation goal](IMPLEMENTATION_GOAL.md
   Small initial price probes did not meet that target; no rule-price changes
   have been promoted and no Unity work has occurred. M4.5 remains active; its
   [working record](duck-migration/m4-5/README.md) identifies remaining review gates.
+
+### 57. M4.5 price proposal and playability review prepared
+
+- User's target is comparable movement/Reeds strength, with neither an automatic
+  win and oasis optional. After smaller probes failed, candidate E was selected
+  solely from development: Tailwind costs 4/8/12 Sleep; Reeds costs 8/14/20.
+- Frozen-source fresh validation completed 1,800 candidate matches on 300 seeds
+  per pair, both seats. Win scores (draws count half): movement/Reeds 46.6%,
+  Normal/movement 46.7%, Normal/Reeds 44.4%. Approved-price counterparts were
+  10.6%, 64.4%, 32.5%. Reeds retains a modest edge; perfect parity is not claimed.
+- The [review report](duck-migration/m4-5/REPORT.md) records the exact proposal,
+  uncertainty, comeback and oasis distributions, purchase/event observations,
+  representative games and remaining AI limits. Deliberate weak opening play
+  was not a winning gift-farming strategy in the tested comparison; provisionally
+  retain Dawn thresholds. Human playability feedback remains pending.
+- The proposal was presented for approval. Core/canonical prices remain unchanged
+  and no Unity work occurred. M4.5 stays open for user review, any agreed price
+  promotion and final checks before M5.

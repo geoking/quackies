@@ -75,14 +75,16 @@ Final-source development then compared C (Tailwind 4/8/12, Reeds 7/12/17), D
 worst-pair result across the three-policy triangle: Normal/Reeds 40.5%,
 Normal/movement 47.75%, movement/Reeds 46.75%, counting ties as half. It was
 selected **before reading fresh E results** for 300-seed validation of all three
-pairs. These are isolated diagnostic copies; approved prices remain unchanged.
+pairs. That validation completed 1,800 matches: movement/Reeds 46.6%,
+Normal/movement 46.7%, Normal/Reeds 44.4%. The [review report](REPORT.md)
+recommends the exact E prices for user approval. These remain isolated diagnostic
+copies; approved prices are unchanged.
 
 The user confirmed that Reeds and movement should be fairly evenly balanced,
 with neither an automatic winning choice and the oasis optional. The lead owns
 all integration, evidence, final review and Git. No Unity work is authorized.
 
-Remaining gates: finish fresh validation and isolated price assessment; report
-comeback/oasis/purchase/event/pace findings with uncertainty; preserve
-representative game stories; collect human playability feedback; review exact
-balance proposals and apply only agreed changes; then final checks and milestone
-review. **M4.5 is not complete.**
+The [review report](REPORT.md) now contains comeback/oasis/purchase/event/pace
+findings, uncertainty and representative game stories. Remaining gates: user
+review of exact prices and human playability evidence; apply only agreed changes;
+then final checks and milestone review. **M4.5 is not complete.**

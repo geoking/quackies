@@ -105,7 +105,11 @@ M4.5 keeps the approved ten-Day, 43-space rules and data authoritative in Core.
 handler and bounded Normal planning, so evaluation cannot grow a second rules
 engine. Planning branches over observable contingent draws and current/future
 Signpost previews, permits stopping after each future draw, and considers whole
-Night shopping bundles including `FinishDream` within bounded work. The
+Night shopping bundles including `FinishDream` within bounded work. Final-Day
+choices compare conservative final-score bounds; when a current rest certainly
+loses, an optimistic bound over the observable remaining bag can preserve a
+possible recovery beyond the completed search horizon. This is a policy
+estimate, never an alternative scoring rule or access to hidden order. The
 evaluation runner drives real issued legal actions and records reproducible
 JSONL telemetry for baseline, candidate and diagnostic policies; its current
 pilot and declared development/holdout limits are recorded in the [M4.5

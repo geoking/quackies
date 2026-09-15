@@ -1,0 +1,23 @@
+--- src/Quackies.Core/Ducks/Definitions/DuckRules.cs (32b5233 control)
++++ src/Quackies.Core/Ducks/Definitions/DuckRules.cs (diagnostic C)
+@@ -34,14 +34,14 @@
+             var shopOffers = new[]
+             {
+                 Offer("seeds", 3),
+-                Offer("tailwind_2", 5),
+-                Offer("tailwind_4", 10),
+-                Offer("tailwind_6", 15),
++                Offer("tailwind_2", 4),
++                Offer("tailwind_4", 8),
++                Offer("tailwind_6", 12),
+                 Offer("signpost", 7),
+                 Offer("splash", 4),
+-                Offer("reeds_1", 6),
+-                Offer("reeds_2", 11),
+-                Offer("reeds_3", 16),
++                Offer("reeds_1", 7),
++                Offer("reeds_2", 12),
++                Offer("reeds_3", 17),
+                 Offer("companion", 7),
+                 Offer("wildflowers", 5)
+             };

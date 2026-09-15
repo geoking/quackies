@@ -6,7 +6,10 @@ Updated 15 September 2026. M2 and M3 remain approved and complete; **C1–C5 and
 M4 are complete as Core/CLI implementation.** The user requested M4.5 AI,
 balance and playability review before M5 Unity integration, then authorized
 starting it. Follow the [M4.5 working record](duck-migration/m4-5/README.md)
-for current ownership, checkpoints and outstanding evidence. See
+for current ownership, checkpoints and outstanding evidence. The
+[review report](duck-migration/m4-5/REPORT.md) records completed AI corrections,
+328 passing tests and fresh balance evidence. Candidate E prices were proposed
+for approval; no price changes are active. Human feedback remains pending. See
 [PLAN.md](duck-migration/PLAN.md), the
 [M4.5 plan](duck-migration/m4-5/PLAN.md) and the detailed
 [C1 first checkpoint](duck-migration/IMPLEMENTATION_PLAN.md#c1--the-first-work-after-m4-approval).

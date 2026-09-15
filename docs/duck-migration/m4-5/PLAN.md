@@ -5,6 +5,9 @@ M4 remains a completed Core/CLI implementation milestone. This new gate addresse
 the quality of play and the balance evidence that its correctness tests did not
 establish. Implementation is now active; [the working record](README.md) tracks
 actual changes, checks and remaining evidence separately from the plan.
+B1/B2 implementation is complete. B3 automated analysis and a readable
+[review report](REPORT.md) are complete; human play feedback remains pending.
+B4 awaits review of the exact isolated price proposal before promotion.
 
 Use the existing ten-Day, 43-space game and approved rules as the baseline.
 Improve and assess play through Core/CLI first, then review any proposed balance

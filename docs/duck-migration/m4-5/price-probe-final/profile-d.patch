@@ -1,0 +1,15 @@
+--- src/Quackies.Core/Ducks/Definitions/DuckRules.cs (32b5233 control)
++++ src/Quackies.Core/Ducks/Definitions/DuckRules.cs (diagnostic D)
+@@ -39,9 +39,9 @@
+                 Offer("tailwind_6", 15),
+                 Offer("signpost", 7),
+                 Offer("splash", 4),
+-                Offer("reeds_1", 6),
+-                Offer("reeds_2", 11),
+-                Offer("reeds_3", 16),
++                Offer("reeds_1", 8),
++                Offer("reeds_2", 14),
++                Offer("reeds_3", 20),
+                 Offer("companion", 7),
+                 Offer("wildflowers", 5)
+             };

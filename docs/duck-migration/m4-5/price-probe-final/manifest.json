@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "status": "complete-frozen-E-development-and-fresh-validation",
+  "baseCommit": "32b52333d49d99ecbce56dc25b91d490e30a74bc",
+  "baseDuckRulesSha256": "0b281e4cb8800b7d2bfe386a4797be0906e18ecdb2e33ce71d3b8cd0b1f141ae",
+  "eDuckRulesSha256": "be31cff905906b2546e3ab75d4992f04f71283998ff49e0a78d4d79ce9322066",
+  "analyzerSha256": "727819d3a95847430abf5c9a87e188aba03e5d6d989cc30430a0149300f9e96c",
+  "hashInventory": "SHA256SUMS",
+  "source": {
+    "gitArchive": "source-32b5233.tar.gz",
+    "gitArchiveSha256": "8436197a3f949841fda04312e0cf55f109fea44f5e9abe3844d8c6db61e25abc",
+    "paths": [
+      "src/Quackies.Core",
+      "tools/Quackies.Evaluation"
+    ],
+    "unityIncluded": false
+  },
+  "profiles": {
+    "control": {
+      "tailwindPrices": [5, 10, 15],
+      "reedsPrices": [6, 11, 16],
+      "sourceArchive": "profile-control-approved-source.tar.gz",
+      "sourceArchiveSha256": "3f3b3221bdfe7b2bf0357e1a9607ff347d67320f8b735abd1ea4a80b8c161a4a"
+    },
+    "C": {
+      "tailwindPrices": [4, 8, 12],
+      "reedsPrices": [7, 12, 17],
+      "patch": "profile-c.patch",
+      "patchSha256": "d74860cc94f1403686d9f0adf5b9ee7c00aee700a7996c2d70de68fbb6a6bcd2",
+      "sourceArchive": "profile-c-tailwind-4-8-12-reeds-7-12-17-source.tar.gz",
+      "sourceArchiveSha256": "f65a4982255572e12849944a28dfa401ed6a6d98d8a148e66837b5dd29fb8387"
+    },
+    "D": {
+      "tailwindPrices": [5, 10, 15],
+      "reedsPrices": [8, 14, 20],
+      "patch": "profile-d.patch",
+      "patchSha256": "844525e7b66d3469840e2b3d4f49348f7154059a900f0a72a31607a7e6d8f480",
+      "sourceArchive": "profile-d-reeds-8-14-20-source.tar.gz",
+      "sourceArchiveSha256": "aec053a0b57569c44609fcd994ae38c49f090fb788ed488f06f96c4849a2149b"
+    },
+    "E": {
+      "selectedPrimaryBeforeFreshOutput": true,
+      "tailwindPrices": [4, 8, 12],
+      "reedsPrices": [8, 14, 20],
+      "patch": "profile-e.patch",
+      "patchSha256": "76662f3dc6b240c6293580e05957d489e9b08ad37048d8a5bdfcc72a2fd68838",
+      "sourceArchive": "profile-e-tailwind-4-8-12-reeds-8-14-20-source.tar.gz",
+      "sourceArchiveSha256": "6e36a0b766fa1e166ba2cf74716aebeb1d4d1a33ed81f0a0b73d7ff85fd31f30",
+      "sourceLabelDevelopment": "diagnostic-E;source=32b52333d49d99ecbce56dc25b91d490e30a74bc;prices=tailwind_2:4,tailwind_4:8,tailwind_6:12,reeds_1:8,reeds_2:14,reeds_3:20;all-else-unchanged",
+      "sourceLabelValidation": "validation-E-selected-before-output;source=32b52333d49d99ecbce56dc25b91d490e30a74bc;prices=tailwind_2:4,tailwind_4:8,tailwind_6:12,reeds_1:8,reeds_2:14,reeds_3:20;all-else-unchanged"
+    }
+  },
+  "development": {
+    "seedStart": 1000,
+    "seedCount": 100,
+    "seatMode": "both",
+    "schedule": "cli",
+    "matchesPerProfilePair": 200,
+    "profiles": ["control", "C", "D", "E"],
+    "pairs": [
+      ["normal", "reeds-heavy"],
+      ["normal", "movement-heavy"],
+      ["movement-heavy", "reeds-heavy"]
+    ],
+    "totalMatches": 2400,
+    "combinedSummary": "results/all-profiles-summary.json",
+    "combinedSummarySha256": "c393d5bd339c6be8b7efa4002c57caf01049746804368faab6bcad6831145e52"
+  },
+  "selection": {
+    "path": "SELECTION.md",
+    "sha256BeforeFreshOutput": "e9a28a52d374fca81a190371bec557023f609be8a4a598a4aef78c74b60100c3",
+    "profile": "E",
+    "frozen": true,
+    "additionalVariantsAllowed": false
+  },
+  "freshValidation": {
+    "seedStart": 10000,
+    "seedCount": 300,
+    "seatMode": "both",
+    "schedule": "cli",
+    "matchesPerPair": 600,
+    "totalEMatches": 1800,
+    "approvedControlMatches": 1800,
+    "approvedControlSummary": "results/approved-holdout-summary.json",
+    "approvedControlSummarySha256": "82f3621d06de876de2916c856bd84b90ddee0672891ed418de2fe80108aa30f0",
+    "eSummary": "results/e-validation-summary.json",
+    "eSummarySha256": "78b28c7133e3332af122f1b78f8442f262e56e43e483be4c0e1207a3b9ace8f9",
+    "comparisonSummary": "results/holdout-comparison-summary.json",
+    "comparisonSummarySha256": "7c382780d33fa2a5802faa6217bee2babd82b9e28b8a76a52b19d10dfe53febe",
+    "outcomes": [
+      {
+        "pair": "normal vs reeds-heavy",
+        "policyAWins": 264,
+        "policyBWins": 331,
+        "ties": 5,
+        "policyAScore": 0.44416666666666665,
+        "interval95SeedCluster": [0.40831249999999997, 0.4808541666666666]
+      },
+      {
+        "pair": "normal vs movement-heavy",
+        "policyAWins": 278,
+        "policyBWins": 318,
+        "ties": 4,
+        "policyAScore": 0.4666666666666667,
+        "interval95SeedCluster": [0.4291458333333333, 0.5058333333333334]
+      },
+      {
+        "pair": "movement-heavy vs reeds-heavy",
+        "policyAWins": 277,
+        "policyBWins": 318,
+        "ties": 5,
+        "policyAScore": 0.4658333333333333,
+        "interval95SeedCluster": [0.42916666666666664, 0.5033333333333333]
+      }
+    ]
+  },
+  "validation": {
+    "specDeclaredBeforeRuns": true,
+    "eSelectionRecordedBeforeFreshOutputs": true,
+    "cleanReleaseBuilds": "4 passed, 0 warnings, 0 errors",
+    "instrumentedMatches": "4 complete ten-Day matches with action traces",
+    "priceDiffs": "control 0; C exactly 6; D exactly 3; E exactly 6 Offer numeric literals; all other source files identical",
+    "batchShape": "all batches have exact seeds, balanced seats, CLI schedule, ten Days, expected policy pair and source label",
+    "observedPurchasePrices": "match profile prices",
+    "gzipAndJsonIntegrity": "passed",
+    "savesGenerated": false,
+    "savesUsedAsPolicyInputs": false,
+    "repositoryModifiedByProbe": false,
+    "unityUsed": false,
+    "additionalVariantsRunAfterE": false
+  }
+}

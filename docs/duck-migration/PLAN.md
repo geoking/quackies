@@ -3,9 +3,11 @@
 Updated 15 September 2026. **M2 and M3 are complete and approved by the user.**
 M3 closes with the 43-space board and reward typography at `2c7cd6a`.
 **M4 C1–C5 is complete and closed.** The completion audit records the evidence
-and remaining limits. **M4.5 now comes next: AI quality, balance and playability
+and remaining limits. **M4.5 is active: AI quality, balance and playability
 review before M5 Unity work.** The user authorized this gate to reduce rework;
-[implementation and evidence](m4-5/README.md) are now in progress.
+AI corrections and fresh comparisons are complete; the [review report](m4-5/REPORT.md)
+proposes exact prices. User review, any approved promotion and human playability
+feedback remain pending.
 Historical decisions and checks remain in [PROGRESS.md](../PROGRESS.md).
 
 ## What we are building
@@ -130,7 +132,7 @@ whole match loop, or put rule arithmetic into Unity.
 | M2 — Rules sheet | Complete: rules, data, events, defaults and local save/resume scope approved |
 | M3 — Layout | Complete: final 43-space visual proof approved by the user |
 | **M4 — Core/CLI** | **Complete: C1–C5 source, tests, CLI and persistence validated.** |
-| **M4.5 — AI, balance and playability** | **Active:** improve Normal, compare strategies and complete games, assess recovery/pace/oasis reach, then review and validate any agreed adjustments before Unity |
+| **M4.5 — AI, balance and playability** | **Active:** AI and fresh comparisons complete; review proposed prices and playability, then validate agreed adjustments before Unity |
 | M5 — Connected Unity | After M4.5 review, bind the accepted board/Dream views to the resulting committed Core state/actions and complete a human/AI match |
 | M6 — Connected-game validation/export | Confirm balance and playability in Unity, finish readability/performance and validate iOS export |
 

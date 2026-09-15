@@ -61,6 +61,10 @@ see [M4 completion audit](m4/COMPLETION_AUDIT.md).
 M4.5 is authorized and active: review AI quality, balance and playability using
 actual Core legal games before Unity work. Its authority is the detailed
 [M4.5 plan](m4-5/PLAN.md); [the working record](m4-5/README.md) tracks evidence.
+AI corrections pass 328 tests. The [review report](m4-5/REPORT.md) preserves
+3,600 fresh approved-price matches and 1,800 isolated proposed-price matches.
+Exact price approval and human playability review remain pending; current Core
+prices are unchanged.
 M4 remains complete as Core/CLI implementation, without a claim of balanced
 play or convincing AI. M5 then connects the accepted Unity board/Dream views to
 committed Core actions/state and finishes runtime nest/award/event presentation.
