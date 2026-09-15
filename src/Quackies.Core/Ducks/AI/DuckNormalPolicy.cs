@@ -17,6 +17,7 @@ namespace Quackies.Core.Ducks.AI
     {
         private const int MaximumPlanningDepth = 6;
         private const int MaximumPlanningNodes = 8000;
+        private const double ProvableFinalLossPenalty = 1000.0;
         private static readonly DuckRuleDefinitions Rules = DuckRules.V1;
 
         public GameAction Choose(DuckMatchView observation, IReadOnlyList<GameAction> legalActions) =>
@@ -67,6 +68,10 @@ namespace Quackies.Core.Ducks.AI
             if (plan.KnownFirstWearsOut)
                 return new DuckPolicyDecision(settle,
                     $"The Signpost preview is {plan.KnownFirstName}, which would exceed Exhaustion {plan.KnownFirstSafeMaximum}.");
+            if (plan.CurrentRestProvablyLoses && plan.OptimisticRecoveryPossible)
+                return new DuckPolicyDecision(explore,
+                    $"The current final score is provably behind; continuing keeps a possible recovery open beyond the " +
+                    $"completed {plan.CompletedDepth}-draw horizon ({plan.TotalNodes} total nodes).");
 
             var leaderTwigs = observation.Players.Max(candidate => candidate.TotalTwigs);
             var deficit = Math.Max(0, leaderTwigs - player.TotalTwigs);
@@ -76,9 +81,11 @@ namespace Quackies.Core.Ducks.AI
             var improvement = plan.ExploreValue - plan.CurrentValue + catchUp + lowRiskOnwardTravel;
             if (improvement > 0.35)
             {
-                var knowledge = observation.KnownNextChips.Count > 0
-                    ? $"The known {plan.KnownFirstName}"
-                    : $"The remaining bag has {plan.ImmediateWearChance:P0} immediate wear-out risk and";
+                var knowledge = plan.CurrentRestProvablyLoses
+                    ? "The current final score is provably behind; uncertain continuation"
+                    : observation.KnownNextChips.Count > 0
+                        ? $"The known {plan.KnownFirstName}"
+                        : $"The remaining bag has {plan.ImmediateWearChance:P0} immediate wear-out risk and";
                 return new DuckPolicyDecision(explore,
                     $"{knowledge} improves the {plan.CompletedDepth}-draw plan by {improvement:0.0}; " +
                     $"the search used {plan.TotalNodes} nodes ({plan.CompletedNodes} at that depth) and may settle after each revealed draw.");
@@ -110,8 +117,8 @@ namespace Quackies.Core.Ducks.AI
                         && player.DayEventTwigs > 0,
                     player.FlowersPlaced,
                     DuckAdventureRules.HelpfulTypes(player.PlacedHelpfulTypes)),
-                CurrentFinalType(player),
-                CurrentFinalSuppressed(player),
+                ScoringFinalType(CurrentFinalType(player)),
+                ScoringFinalType(CurrentFinalType(player)).HasValue && CurrentFinalSuppressed(player),
                 futureTwigs: 0,
                 wornOut: player.IsWornOut);
 
@@ -119,24 +126,20 @@ namespace Quackies.Core.Ducks.AI
             var acceptedValue = currentValue;
             var acceptedDepth = 0;
             var acceptedNodes = 0;
-            var totalNodes = 0;
             var maximumDepth = Math.Min(MaximumPlanningDepth, observation.OwnBag.Count);
+            var search = new AdventureSearch(observation, player, MaximumPlanningNodes);
             for (var depth = 1; depth <= maximumDepth; depth++)
             {
-                var remainingNodeBudget = MaximumPlanningNodes - totalNodes;
-                if (remainingNodeBudget <= 0) break;
-                var search = new AdventureSearch(observation, player, remainingNodeBudget);
+                var nodesBeforeDepth = search.Nodes;
                 try
                 {
                     var value = search.DrawValue(state, counts, known, depth);
-                    totalNodes += search.Nodes;
                     acceptedValue = value;
                     acceptedDepth = depth;
-                    acceptedNodes = search.Nodes;
+                    acceptedNodes = search.Nodes - nodesBeforeDepth;
                 }
                 catch (PlanningLimitExceededException)
                 {
-                    totalNodes += search.Nodes;
                     break;
                 }
             }
@@ -160,13 +163,16 @@ namespace Quackies.Core.Ducks.AI
             var knownFirst = known.Length == 0
                 ? (DuckAdventurePlacement?)null
                 : DuckAdventureRules.ApplyEncounter(state.State, definitions[known[0]], observation.CurrentEvent.EventType);
+            var currentRestProvablyLoses = IsProvablyLosingFinalRest(observation, player, state);
             return new AdventurePlan(
                 currentValue,
                 acceptedValue,
                 firstWeight == 0 ? 0 : firstWearWeight / (double)firstWeight,
                 acceptedDepth,
                 acceptedNodes,
-                totalNodes,
+                search.Nodes,
+                currentRestProvablyLoses,
+                currentRestProvablyLoses && OptimisticFinalRecoveryPossible(observation, player, state, counts),
                 knownFirst?.WearsOut ?? false,
                 known.Length == 0 ? string.Empty : definitions[known[0]].Name,
                 knownFirst?.State.SafeExhaustionMaximum ?? state.State.SafeExhaustionMaximum);
@@ -201,7 +207,185 @@ namespace Quackies.Core.Ducks.AI
                 var remainingDays = DuckMatchSettings.StandardDays - observation.Day;
                 value -= 2.6 + remainingDays * 0.18;
             }
+            if (IsProvablyLosingFinalRest(observation, player, state))
+                value -= ProvableFinalLossPenalty;
             return value;
+        }
+
+        private static bool IsProvablyLosingFinalRest(
+            DuckMatchView observation,
+            DuckPlayerView player,
+            PlannedAdventureState state)
+        {
+            if (observation.Day != DuckMatchSettings.StandardDays) return false;
+            var ownUpper = OwnFinalUpperBound(observation, player, state);
+            return observation.Players
+                .Where(opponent => opponent.Id != player.Id)
+                .Select(opponent => OpponentFinalLowerBound(observation, opponent))
+                .Any(opponentLower => opponentLower.Twigs > ownUpper.Twigs
+                    || opponentLower.Twigs == ownUpper.Twigs && opponentLower.Sleep > ownUpper.Sleep);
+        }
+
+        private static bool OptimisticFinalRecoveryPossible(
+            DuckMatchView observation,
+            DuckPlayerView player,
+            PlannedAdventureState current,
+            IReadOnlyList<int> counts)
+        {
+            if (observation.Day != DuckMatchSettings.StandardDays) return false;
+
+            // This is an upper bound, not a feasible route or a second simulation.
+            // Ignore nuisances/exhaustion and credit every remaining helpful chip;
+            // it is used only when the current rest is already certain to lose.
+            // A positive result keeps an uncertain recovery open beyond the search
+            // horizon; it never promises that the required draw order is possible.
+            var movement = 0;
+            var reedsTwigs = 0;
+            var flowers = current.State.FlowersPlaced;
+            var flock = current.State.ActiveFlock;
+            var helpfulTypes = player.PlacedHelpfulTypes.ToList();
+            for (var index = 0; index < counts.Count; index++)
+            {
+                var definition = Rules.EncounterDefinitions[index];
+                var count = counts[index];
+                if (count == 0) continue;
+                movement += count * (definition.EncounterType == DuckEncounterType.Companion
+                    ? 4
+                    : definition.BaseMovement!.Value);
+                if (observation.CurrentEvent.EventType == DuckWorldEventType.RainSoftenedSeeds
+                    && definition.EncounterType == DuckEncounterType.Seeds)
+                    movement += count;
+                reedsTwigs += count * definition.TwigYield;
+                if (definition.EncounterType == DuckEncounterType.Wildflowers) flowers += count;
+                if (definition.EncounterType == DuckEncounterType.Companion) flock += count;
+                if (definition.IsHelpful) helpfulTypes.Add(definition.EncounterType);
+            }
+
+            var futureTwigs = current.FutureTwigs + reedsTwigs;
+            if (observation.CurrentEvent.EventType == DuckWorldEventType.PocketOfDriftwood
+                && !current.State.PocketDriftwoodAwarded)
+                futureTwigs++;
+            var maximumPosition = Math.Min(43, current.State.Position + movement);
+            var opponentBounds = observation.Players
+                .Where(opponent => opponent.Id != player.Id)
+                .Select(opponent => OpponentFinalLowerBound(observation, opponent))
+                .ToArray();
+
+            return Rules.BoardSpaces
+                .Where(space => space.Space >= current.State.Position && space.Space <= maximumPosition)
+                .Select(space => new PlannedAdventureState(
+                    new DuckAdventureState(
+                        space.Space,
+                        current.State.Exhaustion,
+                        current.State.SafeExhaustionMaximum,
+                        flock,
+                        splashProtectionArmed: true,
+                        logSlowdownPending: false,
+                        current.State.GuideProtectionAvailable,
+                        pocketDriftwoodAwarded: true,
+                        flowers,
+                        DuckAdventureRules.HelpfulTypes(helpfulTypes)),
+                    finalType: null,
+                    finalSuppressed: false,
+                    futureTwigs,
+                    wornOut: false))
+                .Select(state => OwnFinalUpperBound(observation, player, state))
+                .Any(ownUpper => opponentBounds.All(opponentLower =>
+                    ownUpper.Twigs > opponentLower.Twigs
+                    || ownUpper.Twigs == opponentLower.Twigs && ownUpper.Sleep >= opponentLower.Sleep));
+        }
+
+        private static FinalScoreBound OwnFinalUpperBound(
+            DuckMatchView observation,
+            DuckPlayerView player,
+            PlannedAdventureState state)
+        {
+            var space = Rules.BoardSpaceAt(state.State.Position);
+            var brambles = state.FinalType == DuckEncounterType.Brambles && !state.FinalSuppressed ? 1 : 0;
+            var sleep = FinalSleepUpperBound(observation, player, state, space);
+            var mostRestedTwig = state.WornOut ? 0 : 1;
+            var twigs = player.TotalTwigs + state.FutureTwigs + space.Twigs - brambles
+                + sleep / 4 + mostRestedTwig;
+            return new FinalScoreBound(twigs, sleep);
+        }
+
+        private static int FinalSleepUpperBound(
+            DuckMatchView observation,
+            DuckPlayerView player,
+            PlannedAdventureState state,
+            DuckBoardSpace space)
+        {
+            var safeHaven = space.IsHaven && !state.WornOut;
+            var sleep = space.Sleep;
+            if (safeHaven) sleep += state.State.FlowersPlaced * 2 + 2;
+            if (safeHaven && observation.CurrentEvent.EventType == DuckWorldEventType.RestlessNight)
+                sleep = Math.Max(0, sleep - 1);
+            sleep += CollectiveSleepUpperBound(observation, player, state, safeHaven);
+            if (!state.WornOut && state.State.ActiveFlock > 0
+                && observation.Players.Where(opponent => opponent.Id != player.Id && opponent.HasFinishedDay && !opponent.IsWornOut)
+                    .All(opponent => state.State.ActiveFlock >= opponent.ActiveFlock))
+                sleep += Math.Min(2, state.State.ActiveFlock);
+            if (state.FinalType == DuckEncounterType.LoosePebbles && !state.FinalSuppressed)
+                sleep = Math.Max(0, sleep - 1);
+            return state.WornOut ? sleep / 2 : sleep;
+        }
+
+        private static int CollectiveSleepUpperBound(
+            DuckMatchView observation,
+            DuckPlayerView player,
+            PlannedAdventureState state,
+            bool safeHaven)
+        {
+            var opponents = observation.Players.Where(opponent => opponent.Id != player.Id).ToArray();
+            switch (observation.CurrentEvent.EventType)
+            {
+                case DuckWorldEventType.AllTuckedIn:
+                    return safeHaven && opponents.All(opponent => !opponent.HasFinishedDay
+                        || !opponent.IsWornOut && Rules.BoardSpaceAt(opponent.Position).IsHaven) ? 2 : 0;
+                case DuckWorldEventType.HomeBeforeDark:
+                    return !state.WornOut && opponents.All(opponent => !opponent.HasFinishedDay || !opponent.IsWornOut) ? 1 : 0;
+                case DuckWorldEventType.SharedSupper:
+                    return DuckAdventureRules.ContainsHelpfulType(state.State.HelpfulTypeMask, DuckEncounterType.Seeds)
+                        && opponents.All(opponent => !opponent.HasFinishedDay
+                            || opponent.PlacedHelpfulTypes.Contains(DuckEncounterType.Seeds)) ? 1 : 0;
+                default:
+                    return 0;
+            }
+        }
+
+        private static FinalScoreBound OpponentFinalLowerBound(
+            DuckMatchView observation,
+            DuckPlayerView opponent)
+        {
+            if (opponent.Position < 1)
+                return new FinalScoreBound(Math.Max(0, opponent.TotalTwigs - 1), 0);
+
+            var fixedRest = opponent.HasFinishedDay;
+            var printedTwigs = fixedRest
+                ? Rules.BoardSpaceAt(opponent.Position).Twigs
+                : Rules.BoardSpaces.Where(space => space.Space >= opponent.Position).Min(space => space.Twigs);
+            var finalType = CurrentFinalType(opponent);
+            var brambles = fixedRest
+                ? finalType == DuckEncounterType.Brambles && !CurrentFinalSuppressed(opponent) ? 1 : 0
+                : 1;
+            var sleep = fixedRest ? FinishedOpponentSleepLowerBound(observation, opponent) : 0;
+            var twigs = Math.Max(0, opponent.TotalTwigs + printedTwigs - brambles) + sleep / 4;
+            return new FinalScoreBound(twigs, sleep);
+        }
+
+        private static int FinishedOpponentSleepLowerBound(
+            DuckMatchView observation,
+            DuckPlayerView opponent)
+        {
+            var space = Rules.BoardSpaceAt(opponent.Position);
+            var safeHaven = space.IsHaven && !opponent.IsWornOut;
+            var sleep = space.Sleep;
+            if (safeHaven) sleep += opponent.FlowersPlaced * 2 + 2;
+            if (safeHaven && observation.CurrentEvent.EventType == DuckWorldEventType.RestlessNight)
+                sleep = Math.Max(0, sleep - 1);
+            if (CurrentFinalType(opponent) == DuckEncounterType.LoosePebbles && !CurrentFinalSuppressed(opponent))
+                sleep = Math.Max(0, sleep - 1);
+            return opponent.IsWornOut ? sleep / 2 : sleep;
         }
 
         private static double RestValue(
@@ -339,6 +523,9 @@ namespace Quackies.Core.Ducks.AI
 
         private static bool CurrentFinalSuppressed(DuckPlayerView player) =>
             player.PlacedChips.LastOrDefault()?.NuisanceSuppressed ?? false;
+
+        private static DuckEncounterType? ScoringFinalType(DuckEncounterType? type) =>
+            type == DuckEncounterType.Brambles || type == DuckEncounterType.LoosePebbles ? type : null;
 
         private static DuckPolicyDecision ChoosePurchase(
             DuckMatchView observation,
@@ -544,8 +731,8 @@ namespace Quackies.Core.Ducks.AI
                     _observation.CurrentEvent.EventType);
                 var after = new PlannedAdventureState(
                     placement.State,
-                    placement.EncounterType,
-                    placement.NuisanceSuppressed,
+                    ScoringFinalType(placement.EncounterType),
+                    ScoringFinalType(placement.EncounterType).HasValue && placement.NuisanceSuppressed,
                     state.FutureTwigs + placement.ReedsTwigsAwarded + placement.EventTwigsAwarded,
                     placement.WearsOut);
                 var nextKnown = known.Length <= 1 ? NoKnownChips : known.Skip(1).ToArray();
@@ -662,6 +849,8 @@ namespace Quackies.Core.Ducks.AI
                 int completedDepth,
                 int completedNodes,
                 int totalNodes,
+                bool currentRestProvablyLoses,
+                bool optimisticRecoveryPossible,
                 bool knownFirstWearsOut,
                 string knownFirstName,
                 int knownFirstSafeMaximum)
@@ -672,6 +861,8 @@ namespace Quackies.Core.Ducks.AI
                 CompletedDepth = completedDepth;
                 CompletedNodes = completedNodes;
                 TotalNodes = totalNodes;
+                CurrentRestProvablyLoses = currentRestProvablyLoses;
+                OptimisticRecoveryPossible = optimisticRecoveryPossible;
                 KnownFirstWearsOut = knownFirstWearsOut;
                 KnownFirstName = knownFirstName;
                 KnownFirstSafeMaximum = knownFirstSafeMaximum;
@@ -683,6 +874,8 @@ namespace Quackies.Core.Ducks.AI
             internal int CompletedDepth { get; }
             internal int CompletedNodes { get; }
             internal int TotalNodes { get; }
+            internal bool CurrentRestProvablyLoses { get; }
+            internal bool OptimisticRecoveryPossible { get; }
             internal bool KnownFirstWearsOut { get; }
             internal string KnownFirstName { get; }
             internal int KnownFirstSafeMaximum { get; }
@@ -690,6 +883,18 @@ namespace Quackies.Core.Ducks.AI
 
         private sealed class PlanningLimitExceededException : Exception
         {
+        }
+
+        private readonly struct FinalScoreBound
+        {
+            internal FinalScoreBound(int twigs, int sleep)
+            {
+                Twigs = twigs;
+                Sleep = sleep;
+            }
+
+            internal int Twigs { get; }
+            internal int Sleep { get; }
         }
 
         private sealed class PurchaseBundle
