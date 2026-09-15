@@ -8,7 +8,7 @@ namespace Quackies.Core.Ducks.Runtime
         private DuckMatchRuntime(DuckMatchState state)
         {
             State = state ?? throw new ArgumentNullException(nameof(state));
-            Rules = Definitions.DuckRules.V1;
+            Rules = Definitions.DuckRules.ForRulesRevision(state.RulesRevision);
             _random = ResumableRandomSource.Restore(state.RandomState);
         }
 

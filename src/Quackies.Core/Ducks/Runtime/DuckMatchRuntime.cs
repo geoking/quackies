@@ -15,7 +15,6 @@ namespace Quackies.Core.Ducks.Runtime
 
         private DuckMatchRuntime(int seed, DuckMatchSettings settings)
         {
-            Rules = DuckRules.V1;
             State = new DuckMatchState(settings)
             {
                 Day = 1,
@@ -24,6 +23,7 @@ namespace Quackies.Core.Ducks.Runtime
                 FinalDayDecisionBeat = 0,
                 NextPhysicalChipId = 1
             };
+            Rules = DuckRules.ForRulesRevision(State.RulesRevision);
             _random = new ResumableRandomSource(seed);
 
             State.WorldEventDeckDefinitionIds.AddRange(Rules.WorldEvents.Select(item => item.DefinitionId));

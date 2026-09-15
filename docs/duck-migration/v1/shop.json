@@ -1,5 +1,5 @@
 {
-  "status": "User-approved v1 starting values, 14 September 2026; not yet implemented or fully playtested",
+  "status": "M4.5 price adjustment approved 15 September 2026; rules revision 2 for new games, revision 1 saves retain their original prices.",
   "offers": [
     {
       "id": "seeds",
@@ -13,21 +13,21 @@
       "family": "Tailwind",
       "intrinsic_movement": 2,
       "bundle_quantity": null,
-      "sleep_price": 5
+      "sleep_price": 4
     },
     {
       "id": "tailwind_4",
       "family": "Tailwind",
       "intrinsic_movement": 4,
       "bundle_quantity": null,
-      "sleep_price": 10
+      "sleep_price": 8
     },
     {
       "id": "tailwind_6",
       "family": "Tailwind",
       "intrinsic_movement": 6,
       "bundle_quantity": null,
-      "sleep_price": 15
+      "sleep_price": 12
     },
     {
       "id": "signpost",
@@ -48,21 +48,21 @@
       "family": "Nesting reeds",
       "intrinsic_movement": 1,
       "bundle_quantity": 1,
-      "sleep_price": 6
+      "sleep_price": 8
     },
     {
       "id": "reeds_2",
       "family": "Nesting reeds",
       "intrinsic_movement": 1,
       "bundle_quantity": 2,
-      "sleep_price": 11
+      "sleep_price": 14
     },
     {
       "id": "reeds_3",
       "family": "Nesting reeds",
       "intrinsic_movement": 1,
       "bundle_quantity": 3,
-      "sleep_price": 16
+      "sleep_price": 20
     },
     {
       "id": "companion",
@@ -96,5 +96,6 @@
     "remaining_sleep_carries_to_next_day": false,
     "night_10": "no purchases; convert retained Sleep to Dream Twigs"
   },
-  "purchase_policy_status": "Approved at M2 closure, 14 September 2026"
+  "purchase_policy_status": "Approved at M2 closure, 14 September 2026",
+  "rules_revision": 2
 }

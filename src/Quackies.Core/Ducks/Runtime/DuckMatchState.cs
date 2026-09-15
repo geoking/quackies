@@ -12,14 +12,18 @@ namespace Quackies.Core.Ducks.Runtime
     /// </summary>
     internal sealed class DuckMatchState
     {
-        internal DuckMatchState(DuckMatchSettings settings)
+        internal DuckMatchState(
+            DuckMatchSettings settings,
+            int rulesRevision = DuckRules.CurrentRulesRevision)
         {
             Settings = settings ?? throw new ArgumentNullException(nameof(settings));
+            DuckRules.ForRulesRevision(rulesRevision);
+            RulesRevision = rulesRevision;
         }
 
         public DuckMatchSettings Settings { get; }
         public string ProfileId => DuckRules.V1.ProfileId;
-        public int StateVersion => 1;
+        public int RulesRevision { get; }
         public int Day { get; set; }
         public DuckPhase Phase { get; set; }
         public int CurrentEventIndex { get; set; }

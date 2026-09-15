@@ -533,15 +533,17 @@ namespace Quackies.Core.Ducks.AI
             IReadOnlyList<GameAction> buys,
             GameAction finishDream)
         {
+            var observedOffers = observation.ShopOffers.ToDictionary(
+                offer => offer.DefinitionId, StringComparer.Ordinal);
             var purchased = player.PurchasedEncounterDefinitionIds
-                .Select(Rules.ShopOffer)
+                .Select(id => observedOffers[id])
                 .ToArray();
             var remainingSlots = Math.Max(0, player.PurchaseLimit - purchased.Length);
             if (remainingSlots == 0)
                 return new DuckPolicyDecision(finishDream, "The Nest has no open purchase slot, so Dream choices are complete.");
 
             var actionsByDefinition = buys.ToDictionary(action => action.DefinitionId, StringComparer.Ordinal);
-            var candidates = buys.Select(action => Rules.ShopOffer(action.DefinitionId))
+            var candidates = buys.Select(action => observedOffers[action.DefinitionId])
                 .OrderBy(offer => offer.DefinitionId, StringComparer.Ordinal)
                 .ToArray();
             var completions = EnumerateBundles(candidates, player.RemainingSleep, remainingSlots)

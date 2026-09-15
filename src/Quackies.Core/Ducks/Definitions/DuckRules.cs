@@ -6,9 +6,25 @@ namespace Quackies.Core.Ducks.Definitions
     /// <summary>Authoritative, Unity-independent Duck rules catalogues.</summary>
     public static class DuckRules
     {
-        public static DuckRuleDefinitions V1 { get; } = CreateV1();
+        public const int CurrentRulesRevision = 2;
 
-        private static DuckRuleDefinitions CreateV1()
+        private static readonly DuckRuleDefinitions Revision1 = CreateV1(rulesRevision: 1);
+
+        /// <summary>The current catalogue for the Duck v1 product profile.</summary>
+        public static DuckRuleDefinitions V1 { get; } = CreateV1(CurrentRulesRevision);
+
+        internal static DuckRuleDefinitions ForRulesRevision(int rulesRevision)
+        {
+            return rulesRevision switch
+            {
+                1 => Revision1,
+                CurrentRulesRevision => V1,
+                _ => throw new System.ArgumentOutOfRangeException(nameof(rulesRevision),
+                    "Unsupported Duck rules revision.")
+            };
+        }
+
+        private static DuckRuleDefinitions CreateV1(int rulesRevision)
         {
             var encounters = new[]
             {
@@ -31,17 +47,18 @@ namespace Quackies.Core.Ducks.Definitions
             };
 
             var byId = encounters.ToDictionary(item => item.DefinitionId);
+            var useCurrentPrices = rulesRevision == CurrentRulesRevision;
             var shopOffers = new[]
             {
                 Offer("seeds", 3),
-                Offer("tailwind_2", 5),
-                Offer("tailwind_4", 10),
-                Offer("tailwind_6", 15),
+                Offer("tailwind_2", useCurrentPrices ? 4 : 5),
+                Offer("tailwind_4", useCurrentPrices ? 8 : 10),
+                Offer("tailwind_6", useCurrentPrices ? 12 : 15),
                 Offer("signpost", 7),
                 Offer("splash", 4),
-                Offer("reeds_1", 6),
-                Offer("reeds_2", 11),
-                Offer("reeds_3", 16),
+                Offer("reeds_1", useCurrentPrices ? 8 : 6),
+                Offer("reeds_2", useCurrentPrices ? 14 : 11),
+                Offer("reeds_3", useCurrentPrices ? 20 : 16),
                 Offer("companion", 7),
                 Offer("wildflowers", 5)
             };

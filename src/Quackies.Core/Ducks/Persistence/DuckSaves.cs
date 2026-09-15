@@ -13,7 +13,7 @@ namespace Quackies.Core.Ducks.Persistence
     public static class DuckSaves
     {
         public const int CurrentFormatVersion = 1;
-        public const int CurrentRulesVersion = 1;
+        public const int CurrentRulesVersion = DuckRules.CurrentRulesRevision;
 
         public static DuckSaveData Capture(MatchSession<DuckMatchView> session)
         {
@@ -25,7 +25,7 @@ namespace Quackies.Core.Ducks.Persistence
             {
                 FormatVersion = CurrentFormatVersion,
                 ProfileId = state.ProfileId,
-                RulesVersion = state.StateVersion,
+                RulesVersion = state.RulesRevision,
                 Settings = new DuckSaveSettingsData
                 {
                     Days = state.Settings.Days,
@@ -80,7 +80,7 @@ namespace Quackies.Core.Ducks.Persistence
         public static MatchSession<DuckMatchView> Restore(DuckSaveData save)
         {
             Validate(save);
-            var state = new DuckMatchState(DuckMatchSettings.Standard)
+            var state = new DuckMatchState(DuckMatchSettings.Standard, save.RulesVersion)
             {
                 Day = save.Day,
                 Phase = save.Phase,
@@ -113,8 +113,9 @@ namespace Quackies.Core.Ducks.Persistence
                 "FormatVersion must identify Duck save format version 1.");
             Require(string.Equals(save.ProfileId, DuckRules.V1.ProfileId, StringComparison.Ordinal),
                 "ProfileId must identify the Duck v1 rules profile.");
-            Require(save.RulesVersion == CurrentRulesVersion,
-                "RulesVersion must identify Duck rules state version 1.");
+            Require(save.RulesVersion == 1 || save.RulesVersion == CurrentRulesVersion,
+                "RulesVersion must identify supported Duck rules revision 1 or 2.");
+            var rules = DuckRules.ForRulesRevision(save.RulesVersion);
             Require(save.Settings != null, "Settings are required.");
             Require(save.Settings.Days == DuckMatchSettings.StandardDays,
                 "Settings.Days must match the ten-Day rules profile.");
@@ -130,7 +131,7 @@ namespace Quackies.Core.Ducks.Persistence
             Require((save.Random.Increment & 1UL) == 1UL, "Random.Increment must be an odd PCG stream value.");
 
             Require(save.WorldEventDeckDefinitionIds != null, "WorldEventDeckDefinitionIds are required.");
-            var eventIds = DuckRules.V1.WorldEvents.Select(item => item.DefinitionId).ToHashSet(StringComparer.Ordinal);
+            var eventIds = rules.WorldEvents.Select(item => item.DefinitionId).ToHashSet(StringComparer.Ordinal);
             Require(save.WorldEventDeckDefinitionIds.Count == eventIds.Count
                     && save.WorldEventDeckDefinitionIds.Distinct(StringComparer.Ordinal).Count() == eventIds.Count
                     && save.WorldEventDeckDefinitionIds.All(eventIds.Contains),
@@ -145,7 +146,7 @@ namespace Quackies.Core.Ducks.Persistence
 
             var physicalIds = new HashSet<int>();
             foreach (var player in save.Players)
-                ValidatePlayer(save, player, physicalIds);
+                ValidatePlayer(save, player, physicalIds, rules);
             Require(save.NextPhysicalChipId > 0 && physicalIds.All(id => id < save.NextPhysicalChipId),
                 "NextPhysicalChipId must be greater than every existing physical chip ID.");
 
@@ -316,7 +317,11 @@ namespace Quackies.Core.Ducks.Persistence
                 standing.FrozenNightTenSleep, standing.DreamTwigs, standing.IsWinner)));
         }
 
-        private static void ValidatePlayer(DuckSaveData save, DuckPlayerSaveData player, ISet<int> allPhysicalIds)
+        private static void ValidatePlayer(
+            DuckSaveData save,
+            DuckPlayerSaveData player,
+            ISet<int> allPhysicalIds,
+            DuckRuleDefinitions rules)
         {
             Require(!string.IsNullOrWhiteSpace(player.Name), $"Players[{player.Id}].Name is required.");
             NonNegative(player.PermanentFeatherTrail, $"Players[{player.Id}].PermanentFeatherTrail");
@@ -361,11 +366,11 @@ namespace Quackies.Core.Ducks.Persistence
                 Require(chip.PhysicalChipId > 0 && inventoryIds.Add(chip.PhysicalChipId)
                         && allPhysicalIds.Add(chip.PhysicalChipId),
                     $"Physical chip ID {chip.PhysicalChipId} is invalid or duplicated.");
-                Require(DuckRules.V1.EncounterDefinitions.Any(definition => definition.DefinitionId == chip.DefinitionId),
+                Require(rules.EncounterDefinitions.Any(definition => definition.DefinitionId == chip.DefinitionId),
                     $"Physical chip {chip.PhysicalChipId} has an unknown encounter definition.");
                 inventoryById.Add(chip.PhysicalChipId, chip.DefinitionId);
             }
-            Require(inventoryIds.Count >= DuckRules.V1.OpeningBag.Count,
+            Require(inventoryIds.Count >= rules.OpeningBag.Count,
                 $"Players[{player.Id}].Inventory is smaller than the opening bag.");
             Require(player.Inventory.Select(chip => chip.PhysicalChipId)
                     .SequenceEqual(player.Inventory.Select(chip => chip.PhysicalChipId).OrderBy(id => id)),
@@ -399,7 +404,7 @@ namespace Quackies.Core.Ducks.Persistence
                     $"Players[{player.Id}].Position must equal the last occupied space.");
 
             var helpfulTypes = player.PlacedChips
-                .Select(chip => DuckRules.V1.Encounter(inventoryById[chip.PhysicalChipId]))
+                .Select(chip => rules.Encounter(inventoryById[chip.PhysicalChipId]))
                 .Where(definition => definition.IsHelpful)
                 .Select(definition => definition.EncounterType)
                 .ToHashSet();
@@ -410,10 +415,10 @@ namespace Quackies.Core.Ducks.Persistence
 
             Require(player.PurchasedEncounterDefinitionIds.Count <= DuckDreamHandler.PurchaseLimitForDay(save.Day)
                     && player.PurchasedEncounterDefinitionIds.All(id =>
-                        DuckRules.V1.ShopOffers.Any(offer => offer.DefinitionId == id)),
+                        rules.ShopOffers.Any(offer => offer.DefinitionId == id)),
                 $"Players[{player.Id}] has invalid current-Dream purchases.");
             var expectedPurchasedTypes = player.PurchasedEncounterDefinitionIds
-                .Select(id => DuckRules.V1.ShopOffer(id).ShopType).ToHashSet();
+                .Select(id => rules.ShopOffer(id).ShopType).ToHashSet();
             Require(expectedPurchasedTypes.Count == player.PurchasedEncounterDefinitionIds.Count
                     && player.PurchasedShopTypes.Count == player.PurchasedShopTypes.Distinct().Count()
                     && expectedPurchasedTypes.SetEquals(player.PurchasedShopTypes),
