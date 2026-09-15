@@ -8,13 +8,15 @@ using Quackies.Core.Match;
 namespace Quackies.Core.Ducks.AI
 {
     /// <summary>
-    /// A deterministic, bounded v1 opponent. It compares the current rest with one
-    /// possible placement, using an exact Signpost preview when present and otherwise
-    /// the visible remaining composition. It is intentionally a readable heuristic,
-    /// not a second rules engine or a claim of optimal play.
+    /// A deterministic, bounded v1 opponent. It compares the current rest with
+    /// contingent multi-draw plans, using exact Signpost previews when present and
+    /// otherwise only the visible remaining composition. It is intentionally a
+    /// readable heuristic, not a claim of optimal play.
     /// </summary>
     public sealed class DuckNormalPolicy : IDuckPlayerPolicy
     {
+        private const int MaximumPlanningDepth = 6;
+        private const int MaximumPlanningNodes = 8000;
         private static readonly DuckRuleDefinitions Rules = DuckRules.V1;
 
         public GameAction Choose(DuckMatchView observation, IReadOnlyList<GameAction> legalActions) =>
@@ -39,10 +41,10 @@ namespace Quackies.Core.Ducks.AI
                 return new DuckPolicyDecision(settle, "No further exploration action is available.");
 
             var buys = legalActions.Where(action => action.Kind == GameActionKind.BuyEncounter).ToArray();
-            if (buys.Length > 0)
-                return ChoosePurchase(observation, player, buys);
-
             var finishDream = legalActions.FirstOrDefault(action => action.Kind == GameActionKind.FinishDream);
+            if (buys.Length > 0)
+                return ChoosePurchase(observation, player, buys, finishDream!);
+
             if (finishDream != null)
                 return new DuckPolicyDecision(finishDream, "No worthwhile affordable Dream purchase remains.");
             var nextDay = legalActions.FirstOrDefault(action => action.Kind == GameActionKind.NextDay);
@@ -58,91 +60,148 @@ namespace Quackies.Core.Ducks.AI
             GameAction explore,
             GameAction settle)
         {
-            var candidates = observation.KnownNextChips.Count > 0
-                ? new[] { observation.KnownNextChips[0] }
-                : observation.OwnBag.ToArray();
-            if (candidates.Length == 0)
+            if (observation.OwnBag.Count == 0)
                 return new DuckPolicyDecision(settle, "The bag is empty, so the current occupied space is final.");
 
-            var estimates = candidates.Select(chip => EstimatePlacement(observation, player, chip)).ToArray();
-            if (observation.KnownNextChips.Count > 0 && estimates[0].WearsOut)
+            var plan = PlanAdventure(observation, player);
+            if (plan.KnownFirstWearsOut)
                 return new DuckPolicyDecision(settle,
-                    $"The Signpost preview is {estimates[0].Name}, which would exceed Exhaustion {estimates[0].SafeMaximum}.");
+                    $"The Signpost preview is {plan.KnownFirstName}, which would exceed Exhaustion {plan.KnownFirstSafeMaximum}.");
 
-            var currentValue = RestValue(observation, player, player.Position, player.ActiveFlock,
-                player.FlowersPlaced, player.IsWornOut, CurrentFinalType(player), CurrentFinalSuppressed(player));
-            var expectedValue = estimates.Average(estimate => estimate.RestValue);
-            var wearChance = estimates.Count(estimate => estimate.WearsOut) / (double)estimates.Length;
             var leaderTwigs = observation.Players.Max(candidate => candidate.TotalTwigs);
             var deficit = Math.Max(0, leaderTwigs - player.TotalTwigs);
-            var remainingDays = DuckMatchSettings.StandardDays - observation.Day;
-
-            // A leader protects a good rest; a trailing duck accepts somewhat more
-            // variance, especially late. Wear-out already loses safe-only rewards and
-            // halves Sleep in each candidate estimate, so this is a modest extra cost.
-            var caution = wearChance * (2.6 + remainingDays * 0.18);
             var catchUp = Math.Min(2.5, deficit * (observation.Day >= 7 ? 0.22 : 0.12));
             var currentSpace = Rules.BoardSpaceAt(player.Position);
-            var continuation = wearChance == 0 && !currentSpace.IsHaven ? 0.55 : 0;
-            var improvement = expectedValue - currentValue - caution + catchUp + continuation;
+            var lowRiskOnwardTravel = plan.ImmediateWearChance == 0 && !currentSpace.IsHaven ? 0.45 : 0;
+            var improvement = plan.ExploreValue - plan.CurrentValue + catchUp + lowRiskOnwardTravel;
             if (improvement > 0.35)
             {
                 var knowledge = observation.KnownNextChips.Count > 0
-                    ? $"The known {estimates[0].Name}"
-                    : $"The remaining bag averages {wearChance:P0} wear-out risk and";
+                    ? $"The known {plan.KnownFirstName}"
+                    : $"The remaining bag has {plan.ImmediateWearChance:P0} immediate wear-out risk and";
                 return new DuckPolicyDecision(explore,
-                    $"{knowledge} improves the estimated rest value by {improvement:0.0} after risk and standings pressure.");
+                    $"{knowledge} improves the {plan.CompletedDepth}-draw plan by {improvement:0.0}; " +
+                    $"the search used {plan.TotalNodes} nodes ({plan.CompletedNodes} at that depth) and may settle after each revealed draw.");
             }
 
             var haven = currentSpace.IsHaven ? " safe haven" : " space";
             return new DuckPolicyDecision(settle,
-                $"Keeping{haven} {player.Position} is worth more than the estimated next placement after {wearChance:P0} wear-out risk.");
+                $"Keeping{haven} {player.Position} is worth more than the completed {plan.CompletedDepth}-draw plan " +
+                $"after {plan.ImmediateWearChance:P0} immediate wear-out risk ({plan.TotalNodes} total nodes).");
         }
 
-        private static PlacementEstimate EstimatePlacement(
+        private static AdventurePlan PlanAdventure(DuckMatchView observation, DuckPlayerView player)
+        {
+            var definitions = Rules.EncounterDefinitions;
+            var counts = new int[definitions.Count];
+            foreach (var chip in observation.OwnBag)
+                counts[DefinitionIndex(chip.DefinitionId)]++;
+            var known = observation.KnownNextChips.Select(chip => DefinitionIndex(chip.DefinitionId)).ToArray();
+            var state = new PlannedAdventureState(
+                new DuckAdventureState(
+                    player.Position,
+                    player.Exhaustion,
+                    player.SafeExhaustionMaximum,
+                    player.ActiveFlock,
+                    player.SplashProtectionArmed,
+                    player.LogSlowdownPending,
+                    player.GuideProtectionAvailable,
+                    observation.CurrentEvent.EventType == DuckWorldEventType.PocketOfDriftwood
+                        && player.DayEventTwigs > 0,
+                    player.FlowersPlaced,
+                    DuckAdventureRules.HelpfulTypes(player.PlacedHelpfulTypes)),
+                CurrentFinalType(player),
+                CurrentFinalSuppressed(player),
+                futureTwigs: 0,
+                wornOut: player.IsWornOut);
+
+            var currentValue = PlannedRestValue(observation, player, state);
+            var acceptedValue = currentValue;
+            var acceptedDepth = 0;
+            var acceptedNodes = 0;
+            var totalNodes = 0;
+            var maximumDepth = Math.Min(MaximumPlanningDepth, observation.OwnBag.Count);
+            for (var depth = 1; depth <= maximumDepth; depth++)
+            {
+                var remainingNodeBudget = MaximumPlanningNodes - totalNodes;
+                if (remainingNodeBudget <= 0) break;
+                var search = new AdventureSearch(observation, player, remainingNodeBudget);
+                try
+                {
+                    var value = search.DrawValue(state, counts, known, depth);
+                    totalNodes += search.Nodes;
+                    acceptedValue = value;
+                    acceptedDepth = depth;
+                    acceptedNodes = search.Nodes;
+                }
+                catch (PlanningLimitExceededException)
+                {
+                    totalNodes += search.Nodes;
+                    break;
+                }
+            }
+
+            var firstCandidates = known.Length > 0
+                ? new[] { known[0] }
+                : Enumerable.Range(0, counts.Length).Where(index => counts[index] > 0).ToArray();
+            var firstWearWeight = 0;
+            var firstWeight = 0;
+            foreach (var index in firstCandidates)
+            {
+                var weight = known.Length > 0 ? 1 : counts[index];
+                var placement = DuckAdventureRules.ApplyEncounter(
+                    state.State,
+                    definitions[index],
+                    observation.CurrentEvent.EventType);
+                firstWeight += weight;
+                if (placement.WearsOut) firstWearWeight += weight;
+            }
+
+            var knownFirst = known.Length == 0
+                ? (DuckAdventurePlacement?)null
+                : DuckAdventureRules.ApplyEncounter(state.State, definitions[known[0]], observation.CurrentEvent.EventType);
+            return new AdventurePlan(
+                currentValue,
+                acceptedValue,
+                firstWeight == 0 ? 0 : firstWearWeight / (double)firstWeight,
+                acceptedDepth,
+                acceptedNodes,
+                totalNodes,
+                knownFirst?.WearsOut ?? false,
+                known.Length == 0 ? string.Empty : definitions[known[0]].Name,
+                knownFirst?.State.SafeExhaustionMaximum ?? state.State.SafeExhaustionMaximum);
+        }
+
+        private static int DefinitionIndex(string definitionId)
+        {
+            for (var index = 0; index < Rules.EncounterDefinitions.Count; index++)
+                if (string.Equals(Rules.EncounterDefinitions[index].DefinitionId, definitionId, StringComparison.Ordinal))
+                    return index;
+            throw new InvalidOperationException("The observed bag contains an unknown encounter definition: " + definitionId);
+        }
+
+        private static double PlannedRestValue(
             DuckMatchView observation,
             DuckPlayerView player,
-            DuckPhysicalChipView chip)
+            PlannedAdventureState state)
         {
-            var definition = Rules.Encounter(chip.DefinitionId);
-            var movement = definition.EncounterType == DuckEncounterType.Companion
-                ? Math.Min(player.ActiveFlock + 2, 4)
-                : definition.BaseMovement!.Value;
-            if (observation.CurrentEvent.EventType == DuckWorldEventType.RainSoftenedSeeds
-                && definition.EncounterType == DuckEncounterType.Seeds)
-                movement++;
-            var stillAir = observation.CurrentEvent.EventType == DuckWorldEventType.StillAir
-                && definition.EncounterType == DuckEncounterType.Tailwind;
-            if (stillAir) movement = Halve(movement);
-            if (definition.IsHelpful && player.LogSlowdownPending && !stillAir) movement = Halve(movement);
-
-            var suppression = definition.IsObstacle
-                && (player.SplashProtectionArmed || player.GuideProtectionAvailable);
-            var exhaustion = player.Exhaustion + definition.ExhaustionValue;
-            var safeMaximum = player.SafeExhaustionMaximum;
-            if (definition.EncounterType == DuckEncounterType.GrumpyGoose && !suppression)
-                safeMaximum = 4;
-            var wearsOut = exhaustion > safeMaximum;
-            var position = Math.Min(43, player.Position + movement);
-            var flock = player.ActiveFlock;
-            if (definition.EncounterType == DuckEncounterType.Companion) flock++;
-            if (definition.EncounterType == DuckEncounterType.MudPuddle && !suppression)
-                flock = Math.Max(0, flock - 1);
-            var flowers = player.FlowersPlaced + (definition.EncounterType == DuckEncounterType.Wildflowers ? 1 : 0);
-            var value = RestValue(observation, player, position, flock, flowers, wearsOut,
-                definition.EncounterType, suppression);
-            value += definition.TwigYield * 4.0;
-            if (definition.EncounterType == DuckEncounterType.Splash)
-                value += FutureObstacleFraction(observation) * 1.8;
-            if (definition.EncounterType == DuckEncounterType.Signpost
-                && observation.CurrentEvent.EventType != DuckWorldEventType.ThickMorningMist)
-                value += 0.8;
-            if (observation.CurrentEvent.EventType == DuckWorldEventType.PocketOfDriftwood
-                && definition.IsHelpful
-                && !player.PlacedHelpfulTypes.Contains(definition.EncounterType)
-                && player.PlacedHelpfulTypes.Count == 2)
-                value += 4.0;
-            return new PlacementEstimate(definition.Name, safeMaximum, wearsOut, value);
+            var value = RestValue(
+                observation,
+                player,
+                state.State.Position,
+                state.State.ActiveFlock,
+                state.State.FlowersPlaced,
+                state.WornOut,
+                state.FinalType,
+                state.FinalSuppressed,
+                state.State.HelpfulTypeMask);
+            value += state.FutureTwigs * 4.0;
+            if (state.WornOut)
+            {
+                var remainingDays = DuckMatchSettings.StandardDays - observation.Day;
+                value -= 2.6 + remainingDays * 0.18;
+            }
+            return value;
         }
 
         private static double RestValue(
@@ -153,7 +212,8 @@ namespace Quackies.Core.Ducks.AI
             int flowers,
             bool wornOut,
             DuckEncounterType? finalType,
-            bool finalSuppressed)
+            bool finalSuppressed,
+            int helpfulTypeMask)
         {
             var space = Rules.BoardSpaceAt(position);
             var safeHaven = space.IsHaven && !wornOut;
@@ -164,7 +224,7 @@ namespace Quackies.Core.Ducks.AI
                 sleep = Math.Max(0, sleep - 1);
             if (!wornOut && activeFlock > 0 && LeadsSafeFlock(observation, player.Id, activeFlock))
                 sleep += Math.Min(2, activeFlock);
-            sleep += CollectiveSleep(observation, player, position, wornOut, finalType);
+            sleep += CollectiveSleep(observation, player, position, wornOut, finalType, helpfulTypeMask);
             if (finalType == DuckEncounterType.LoosePebbles && !finalSuppressed)
                 sleep = Math.Max(0, sleep - 1);
             if (wornOut) sleep /= 2;
@@ -219,7 +279,13 @@ namespace Quackies.Core.Ducks.AI
             if (!player.IsWornOut && player.ActiveFlock > 0
                 && LeadsSafeFlock(observation, player.Id, player.ActiveFlock))
                 sleep += Math.Min(2, player.ActiveFlock);
-            sleep += CollectiveSleep(observation, player, player.Position, player.IsWornOut, CurrentFinalType(player));
+            sleep += CollectiveSleep(
+                observation,
+                player,
+                player.Position,
+                player.IsWornOut,
+                CurrentFinalType(player),
+                DuckAdventureRules.HelpfulTypes(player.PlacedHelpfulTypes));
             if (CurrentFinalType(player) == DuckEncounterType.LoosePebbles && !CurrentFinalSuppressed(player))
                 sleep = Math.Max(0, sleep - 1);
             return player.IsWornOut ? sleep / 2 : sleep;
@@ -230,7 +296,8 @@ namespace Quackies.Core.Ducks.AI
             DuckPlayerView player,
             int position,
             bool wornOut,
-            DuckEncounterType? finalType)
+            DuckEncounterType? finalType,
+            int helpfulTypeMask)
         {
             switch (observation.CurrentEvent.EventType)
             {
@@ -241,8 +308,7 @@ namespace Quackies.Core.Ducks.AI
                 case DuckWorldEventType.HomeBeforeDark:
                     return !wornOut && OthersFinished(observation, player.Id, other => !other.IsWornOut) ? 1 : 0;
                 case DuckWorldEventType.SharedSupper:
-                    return (player.PlacedHelpfulTypes.Contains(DuckEncounterType.Seeds)
-                            || finalType == DuckEncounterType.Seeds)
+                    return DuckAdventureRules.ContainsHelpfulType(helpfulTypeMask, DuckEncounterType.Seeds)
                         && OthersFinished(observation, player.Id,
                             other => other.PlacedHelpfulTypes.Contains(DuckEncounterType.Seeds)) ? 1 : 0;
                 default:
@@ -274,35 +340,118 @@ namespace Quackies.Core.Ducks.AI
         private static bool CurrentFinalSuppressed(DuckPlayerView player) =>
             player.PlacedChips.LastOrDefault()?.NuisanceSuppressed ?? false;
 
-        private static double FutureObstacleFraction(DuckMatchView observation)
-        {
-            if (observation.OwnBag.Count == 0) return 0;
-            return observation.OwnBag.Count(chip => Rules.Encounter(chip.DefinitionId).IsObstacle)
-                / (double)observation.OwnBag.Count;
-        }
-
         private static DuckPolicyDecision ChoosePurchase(
             DuckMatchView observation,
             DuckPlayerView player,
-            IReadOnlyList<GameAction> buys)
+            IReadOnlyList<GameAction> buys,
+            GameAction finishDream)
         {
-            var scored = buys.Select(action =>
+            var purchased = player.PurchasedEncounterDefinitionIds
+                .Select(Rules.ShopOffer)
+                .ToArray();
+            var remainingSlots = Math.Max(0, player.PurchaseLimit - purchased.Length);
+            if (remainingSlots == 0)
+                return new DuckPolicyDecision(finishDream, "The Nest has no open purchase slot, so Dream choices are complete.");
+
+            var actionsByDefinition = buys.ToDictionary(action => action.DefinitionId, StringComparer.Ordinal);
+            var candidates = buys.Select(action => Rules.ShopOffer(action.DefinitionId))
+                .OrderBy(offer => offer.DefinitionId, StringComparer.Ordinal)
+                .ToArray();
+            var completions = EnumerateBundles(candidates, player.RemainingSleep, remainingSlots)
+                .Select(extension =>
+                {
+                    var complete = purchased.Concat(extension).ToArray();
+                    return new PurchaseBundle(
+                        extension,
+                        complete,
+                        PurchaseBundleValue(observation, player, complete));
+                })
+                .OrderByDescending(bundle => bundle.Value)
+                .ThenByDescending(bundle => bundle.Extension.Count)
+                .ThenBy(bundle => bundle.Extension.Sum(offer => offer.SleepPrice))
+                .ThenBy(bundle => BundleKey(bundle.Extension), StringComparer.Ordinal)
+                .ToArray();
+
+            var best = completions[0];
+            if (best.Extension.Count == 0)
+                return new DuckPolicyDecision(finishDream,
+                    $"The complete {best.Complete.Count}-chip Night bundle is strongest without another purchase ({best.Value:0.0} value).");
+
+            var next = best.Extension
+                .OrderByDescending(offer => PurchaseValue(observation, player, offer, best.Complete))
+                .ThenBy(offer => offer.SleepPrice)
+                .ThenBy(offer => offer.DefinitionId, StringComparer.Ordinal)
+                .First();
+            return new DuckPolicyDecision(actionsByDefinition[next.DefinitionId],
+                $"{next.Encounter.Name} starts the best affordable {best.Complete.Count}-chip Night bundle " +
+                $"({best.Value:0.0} value, {best.Extension.Sum(offer => offer.SleepPrice)} remaining Sleep spend).");
+        }
+
+        private static IEnumerable<IReadOnlyList<DuckShopOffer>> EnumerateBundles(
+            IReadOnlyList<DuckShopOffer> candidates,
+            int budget,
+            int maximumCount)
+        {
+            var bundle = new List<DuckShopOffer>();
+            foreach (var result in EnumerateFrom(0, budget)) yield return result;
+
+            IEnumerable<IReadOnlyList<DuckShopOffer>> EnumerateFrom(int index, int remainingBudget)
             {
-                var offer = Rules.ShopOffer(action.DefinitionId);
-                return new { Action = action, Offer = offer, Score = PurchaseValue(observation, player, offer) };
-            }).OrderByDescending(choice => choice.Score)
-              .ThenBy(choice => choice.Offer.SleepPrice)
-              .ThenBy(choice => choice.Offer.DefinitionId, StringComparer.Ordinal)
-              .ToArray();
-            var best = scored[0];
-            return new DuckPolicyDecision(best.Action,
-                $"{best.Offer.Encounter.Name} gives the best remaining-Day value ({best.Score:0.0}) for {best.Offer.SleepPrice} Sleep.");
+                yield return bundle.ToArray();
+                if (bundle.Count == maximumCount) yield break;
+
+                for (var candidateIndex = index; candidateIndex < candidates.Count; candidateIndex++)
+                {
+                    var candidate = candidates[candidateIndex];
+                    if (candidate.SleepPrice > remainingBudget
+                        || bundle.Any(offer => offer.ShopType == candidate.ShopType))
+                        continue;
+
+                    bundle.Add(candidate);
+                    foreach (var result in EnumerateFrom(candidateIndex + 1, remainingBudget - candidate.SleepPrice))
+                        yield return result;
+                    bundle.RemoveAt(bundle.Count - 1);
+                }
+            }
+        }
+
+        private static double PurchaseBundleValue(
+            DuckMatchView observation,
+            DuckPlayerView player,
+            IReadOnlyList<DuckShopOffer> completeBundle)
+        {
+            // OwnInventory already contains purchases made earlier this Dream. Remove
+            // those copies before scoring the complete Night bundle so each call sees
+            // the same portfolio and does not value earlier choices twice.
+            var beforeDream = observation.OwnInventory
+                .Select(chip => chip.DefinitionId)
+                .ToList();
+            foreach (var purchased in player.PurchasedEncounterDefinitionIds)
+                beforeDream.Remove(purchased);
+
+            return completeBundle.Sum(offer => PurchaseValue(observation, player, offer, completeBundle, beforeDream));
         }
 
         private static double PurchaseValue(
             DuckMatchView observation,
             DuckPlayerView player,
-            DuckShopOffer offer)
+            DuckShopOffer offer,
+            IReadOnlyList<DuckShopOffer> completeBundle)
+        {
+            var beforeDream = observation.OwnInventory
+                .Select(chip => chip.DefinitionId)
+                .ToList();
+            foreach (var purchased in player.PurchasedEncounterDefinitionIds)
+                beforeDream.Remove(purchased);
+            return PurchaseValue(observation, player, offer, completeBundle, beforeDream);
+        }
+
+        private static double PurchaseValue(
+            DuckMatchView observation,
+            DuckPlayerView player,
+            DuckShopOffer offer,
+            IReadOnlyList<DuckShopOffer> completeBundle,
+            IReadOnlyList<string> beforeDreamInventory)
         {
             var definition = offer.Encounter;
             var usableDays = DuckMatchSettings.StandardDays - observation.Day;
@@ -320,28 +469,244 @@ namespace Quackies.Core.Ducks.AI
                 DuckEncounterType.Seeds => 1.0,
                 _ => 0.0
             };
-            var ownedTypeCount = observation.OwnInventory.Count(chip =>
-                Rules.Encounter(chip.DefinitionId).EncounterType == definition.EncounterType);
+            var ownedTypeCount = beforeDreamInventory.Count(definitionId =>
+                Rules.Encounter(definitionId).EncounterType == definition.EncounterType);
             var diversityAdjustment = ownedTypeCount == 0 ? 0.7 : -0.25 * ownedTypeCount;
-            return movementValue + twigValue + abilityValue + diversityAdjustment - offer.SleepPrice * 0.18;
+            var synergy = definition.EncounterType == DuckEncounterType.Splash
+                && completeBundle.Any(item => item.ShopType == DuckEncounterType.Signpost)
+                ? 0.25
+                : 0;
+            return movementValue + twigValue + abilityValue + diversityAdjustment + synergy - offer.SleepPrice * 0.18;
         }
 
-        private static int Halve(int movement) => Math.Max(1, (movement + 1) / 2);
+        private static string BundleKey(IEnumerable<DuckShopOffer> bundle) =>
+            string.Join("|", bundle.Select(offer => offer.DefinitionId).OrderBy(id => id, StringComparer.Ordinal));
 
-        private sealed class PlacementEstimate
+        private sealed class AdventureSearch
         {
-            internal PlacementEstimate(string name, int safeMaximum, bool wearsOut, double restValue)
+            private static readonly int[] NoKnownChips = Array.Empty<int>();
+            private readonly DuckMatchView _observation;
+            private readonly DuckPlayerView _player;
+            private readonly int _maximumNodes;
+
+            internal AdventureSearch(DuckMatchView observation, DuckPlayerView player, int maximumNodes)
             {
-                Name = name;
-                SafeMaximum = safeMaximum;
-                WearsOut = wearsOut;
-                RestValue = restValue;
+                _observation = observation;
+                _player = player;
+                _maximumNodes = maximumNodes;
             }
 
-            internal string Name { get; }
-            internal int SafeMaximum { get; }
-            internal bool WearsOut { get; }
-            internal double RestValue { get; }
+            internal int Nodes { get; private set; }
+
+            internal double DrawValue(
+                PlannedAdventureState state,
+                int[] counts,
+                int[] known,
+                int depth)
+            {
+                CountNode();
+                if (depth <= 0) return PlannedRestValue(_observation, _player, state);
+
+                var remainingCount = counts.Sum();
+                if (remainingCount == 0) return PlannedRestValue(_observation, _player, state);
+                if (known.Length > 0)
+                {
+                    var index = known[0];
+                    if (counts[index] <= 0)
+                        throw new InvalidOperationException("A Signpost preview is absent from the observed remaining bag.");
+                    return CandidateValue(state, counts, known, depth, index);
+                }
+
+                var total = 0.0;
+                for (var index = 0; index < counts.Length; index++)
+                {
+                    if (counts[index] == 0) continue;
+                    total += counts[index] / (double)remainingCount
+                        * CandidateValue(state, counts, NoKnownChips, depth, index);
+                }
+                return total;
+            }
+
+            private double CandidateValue(
+                PlannedAdventureState state,
+                int[] counts,
+                int[] known,
+                int depth,
+                int definitionIndex)
+            {
+                CountNode();
+                var remaining = (int[])counts.Clone();
+                remaining[definitionIndex]--;
+                var definition = Rules.EncounterDefinitions[definitionIndex];
+                var placement = DuckAdventureRules.ApplyEncounter(
+                    state.State,
+                    definition,
+                    _observation.CurrentEvent.EventType);
+                var after = new PlannedAdventureState(
+                    placement.State,
+                    placement.EncounterType,
+                    placement.NuisanceSuppressed,
+                    state.FutureTwigs + placement.ReedsTwigsAwarded + placement.EventTwigsAwarded,
+                    placement.WearsOut);
+                var nextKnown = known.Length <= 1 ? NoKnownChips : known.Skip(1).ToArray();
+                if (placement.WearsOut || placement.State.Position == 43 || remaining.Sum() == 0 || depth == 1)
+                    return PlannedRestValue(_observation, _player, after);
+
+                if (placement.EncounterType == DuckEncounterType.Signpost)
+                {
+                    var previewCount = _observation.CurrentEvent.EventType switch
+                    {
+                        DuckWorldEventType.SunlitSignboards => 2,
+                        DuckWorldEventType.ThickMorningMist => 0,
+                        _ => 1
+                    };
+                    return RevealedDecisionValue(after, remaining, nextKnown, depth - 1, previewCount);
+                }
+                return DecisionValue(after, remaining, nextKnown, depth - 1);
+            }
+
+            private double DecisionValue(
+                PlannedAdventureState state,
+                int[] counts,
+                int[] known,
+                int depth)
+            {
+                CountNode();
+                var settleValue = PlannedRestValue(_observation, _player, state);
+                var continueValue = DrawValue(state, counts, known, depth);
+                return Math.Max(settleValue, continueValue);
+            }
+
+            private double RevealedDecisionValue(
+                PlannedAdventureState state,
+                int[] counts,
+                int[] alreadyKnown,
+                int depth,
+                int previewCount)
+            {
+                CountNode();
+                if (previewCount == 0)
+                    return DecisionValue(state, counts, NoKnownChips, depth);
+
+                var targetCount = Math.Min(previewCount, counts.Sum());
+                var prefix = alreadyKnown.Take(targetCount).ToList();
+                var unseenCounts = (int[])counts.Clone();
+                foreach (var known in prefix)
+                {
+                    if (unseenCounts[known] <= 0)
+                        throw new InvalidOperationException("A Signpost preview is absent from the observed remaining bag.");
+                    unseenCounts[known]--;
+                }
+                return RevealAdditional();
+
+                double RevealAdditional()
+                {
+                    CountNode();
+                    if (prefix.Count == targetCount)
+                        return DecisionValue(state, counts, prefix.ToArray(), depth);
+
+                    var unseenTotal = unseenCounts.Sum();
+                    if (unseenTotal == 0)
+                        return DecisionValue(state, counts, prefix.ToArray(), depth);
+                    var expected = 0.0;
+                    for (var index = 0; index < unseenCounts.Length; index++)
+                    {
+                        if (unseenCounts[index] == 0) continue;
+                        var weight = unseenCounts[index] / (double)unseenTotal;
+                        unseenCounts[index]--;
+                        prefix.Add(index);
+                        expected += weight * RevealAdditional();
+                        prefix.RemoveAt(prefix.Count - 1);
+                        unseenCounts[index]++;
+                    }
+                    return expected;
+                }
+            }
+
+            private void CountNode()
+            {
+                if (Nodes >= _maximumNodes) throw new PlanningLimitExceededException();
+                Nodes++;
+            }
+        }
+
+        private readonly struct PlannedAdventureState
+        {
+            internal PlannedAdventureState(
+                DuckAdventureState state,
+                DuckEncounterType? finalType,
+                bool finalSuppressed,
+                int futureTwigs,
+                bool wornOut)
+            {
+                State = state;
+                FinalType = finalType;
+                FinalSuppressed = finalSuppressed;
+                FutureTwigs = futureTwigs;
+                WornOut = wornOut;
+            }
+
+            internal DuckAdventureState State { get; }
+            internal DuckEncounterType? FinalType { get; }
+            internal bool FinalSuppressed { get; }
+            internal int FutureTwigs { get; }
+            internal bool WornOut { get; }
+        }
+
+        private sealed class AdventurePlan
+        {
+            internal AdventurePlan(
+                double currentValue,
+                double exploreValue,
+                double immediateWearChance,
+                int completedDepth,
+                int completedNodes,
+                int totalNodes,
+                bool knownFirstWearsOut,
+                string knownFirstName,
+                int knownFirstSafeMaximum)
+            {
+                CurrentValue = currentValue;
+                ExploreValue = exploreValue;
+                ImmediateWearChance = immediateWearChance;
+                CompletedDepth = completedDepth;
+                CompletedNodes = completedNodes;
+                TotalNodes = totalNodes;
+                KnownFirstWearsOut = knownFirstWearsOut;
+                KnownFirstName = knownFirstName;
+                KnownFirstSafeMaximum = knownFirstSafeMaximum;
+            }
+
+            internal double CurrentValue { get; }
+            internal double ExploreValue { get; }
+            internal double ImmediateWearChance { get; }
+            internal int CompletedDepth { get; }
+            internal int CompletedNodes { get; }
+            internal int TotalNodes { get; }
+            internal bool KnownFirstWearsOut { get; }
+            internal string KnownFirstName { get; }
+            internal int KnownFirstSafeMaximum { get; }
+        }
+
+        private sealed class PlanningLimitExceededException : Exception
+        {
+        }
+
+        private sealed class PurchaseBundle
+        {
+            internal PurchaseBundle(
+                IReadOnlyList<DuckShopOffer> extension,
+                IReadOnlyList<DuckShopOffer> complete,
+                double value)
+            {
+                Extension = extension;
+                Complete = complete;
+                Value = value;
+            }
+
+            internal IReadOnlyList<DuckShopOffer> Extension { get; }
+            internal IReadOnlyList<DuckShopOffer> Complete { get; }
+            internal double Value { get; }
         }
     }
 }
