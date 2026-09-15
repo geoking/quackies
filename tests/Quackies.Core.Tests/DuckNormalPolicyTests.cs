@@ -328,6 +328,123 @@ public sealed class DuckNormalPolicyTests
     }
 
     [Fact]
+    public void Late_large_bag_search_is_bounded_and_deterministic()
+    {
+        var bag = new[]
+        {
+            "brambles", "brambles", "companion", "companion", "companion",
+            "fallen_log", "fallen_log", "grumpy_goose", "loose_pebbles", "loose_pebbles",
+            "mud_puddle", "mud_puddle", "reeds_1", "reeds_1", "reeds_2",
+            "seeds", "seeds", "signpost", "splash", "splash", "splash", "splash",
+            "tailwind_2", "tailwind_4", "wildflowers"
+        };
+        var scenario = AdventureScenario(position: 10, exhaustion: 0, bag: bag, day: 10);
+        var view = scenario.Match.GetSnapshot("human");
+        var actions = scenario.Match.GetLegalActions("human");
+        var timer = Stopwatch.StartNew();
+
+        var first = _policy.Evaluate(view, actions);
+        var repeat = _policy.Evaluate(view, actions);
+
+        timer.Stop();
+        Assert.Same(first.Action, repeat.Action);
+        Assert.Equal(first.Reason, repeat.Reason);
+        var nodeMatch = Regex.Match(first.Reason, @"(?:used |\()(?<nodes>[0-9]+) (?:total )?nodes");
+        Assert.True(nodeMatch.Success, first.Reason);
+        Assert.InRange(int.Parse(nodeMatch.Groups["nodes"].Value), 1, 8000);
+        Assert.Matches(@"[3-6]-draw plan", first.Reason);
+        _output.WriteLine("two deterministic late-bag decisions: {0:0.000} ms; {1}",
+            timer.Elapsed.TotalMilliseconds, first.Reason);
+    }
+
+    [Fact]
+    public void Final_Day_continues_when_settling_provably_loses_but_an_unknown_draw_can_recover()
+    {
+        var recoveryChance = AdventureScenario(
+            position: 10,
+            exhaustion: 4,
+            bag: new[] { "reeds_3", "grumpy_goose" },
+            day: 10);
+        recoveryChance.Runtime.Player("human").TotalTwigs = 10;
+        SetPublicOpponentScore(recoveryChance.Runtime, totalTwigs: 16, position: 10);
+
+        var noRecovery = AdventureScenario(
+            position: 10,
+            exhaustion: 4,
+            bag: new[] { "seeds", "grumpy_goose" },
+            day: 10);
+        noRecovery.Runtime.Player("human").TotalTwigs = 10;
+        SetPublicOpponentScore(noRecovery.Runtime, totalTwigs: 16, position: 10);
+
+        var recoveryDecision = Evaluate(recoveryChance);
+        var noRecoveryDecision = Evaluate(noRecovery);
+
+        Assert.Equal(GameActionKind.Explore, recoveryDecision.Action.Kind);
+        Assert.Contains("current final score is provably behind", recoveryDecision.Reason, StringComparison.Ordinal);
+        Assert.Equal(GameActionKind.Settle, noRecoveryDecision.Action.Kind);
+    }
+
+    [Fact]
+    public void Final_Day_visible_bag_upper_bound_keeps_a_recovery_open_beyond_the_search_horizon()
+    {
+        var scenario = AdventureScenario(
+            position: 10,
+            exhaustion: 0,
+            bag: new[]
+            {
+                "brambles", "brambles", "companion", "companion", "companion",
+                "fallen_log", "fallen_log", "grumpy_goose", "loose_pebbles", "loose_pebbles",
+                "mud_puddle", "mud_puddle", "reeds_1", "reeds_1", "reeds_2",
+                "seeds", "signpost", "splash", "splash", "splash", "splash",
+                "tailwind_2", "tailwind_4", "wildflowers"
+            },
+            day: 10);
+        scenario.Runtime.State.WorldEventDeckDefinitionIds[scenario.Runtime.State.CurrentEventIndex] = "still_air";
+        scenario.Runtime.Player("human").TotalTwigs = 32;
+        SetPublicOpponentScore(scenario.Runtime, totalTwigs: 40, position: 20);
+
+        var decision = Evaluate(scenario);
+
+        Assert.Equal(GameActionKind.Explore, decision.Action.Kind);
+        Assert.Contains("keeps a possible recovery open", decision.Reason, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public void Final_Day_provable_loss_does_not_override_an_exact_lethal_preview()
+    {
+        var scenario = AdventureScenario(
+            position: 10,
+            exhaustion: 4,
+            bag: new[] { "grumpy_goose", "reeds_3" },
+            knownDefinitionId: "grumpy_goose",
+            day: 10);
+        scenario.Runtime.Player("human").TotalTwigs = 10;
+        SetPublicOpponentScore(scenario.Runtime, totalTwigs: 16, position: 10);
+
+        var decision = Evaluate(scenario);
+
+        Assert.Equal(GameActionKind.Settle, decision.Action.Kind);
+        Assert.Contains("Signpost preview is Grumpy Goose", decision.Reason, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public void Final_Day_possible_sleep_tiebreak_prevents_a_false_provable_loss()
+    {
+        var scenario = AdventureScenario(
+            position: 10,
+            exhaustion: 4,
+            bag: new[] { "seeds", "grumpy_goose" },
+            day: 10);
+        scenario.Runtime.Player("human").TotalTwigs = 10;
+        SetPublicOpponentScore(scenario.Runtime, totalTwigs: 15, position: 10);
+
+        var decision = Evaluate(scenario);
+
+        Assert.Equal(GameActionKind.Settle, decision.Action.Kind);
+        Assert.DoesNotContain("provably behind", decision.Reason, StringComparison.Ordinal);
+    }
+
+    [Fact]
     public void Purchase_choice_respects_issued_legal_types_and_available_budget()
     {
         var scenario = DreamScenario(day: 4, sleep: 7);
@@ -482,6 +599,20 @@ public sealed class DuckNormalPolicyTests
         opponent.PlacedChips.Clear();
     }
 
+    private static void SetPublicOpponentScore(DuckMatchRuntime runtime, int totalTwigs, int position)
+    {
+        var opponent = runtime.Player("ai");
+        opponent.TotalTwigs = totalTwigs;
+        opponent.Position = position;
+        opponent.HasFinishedDay = false;
+        opponent.IsWornOut = false;
+        opponent.PlacedChips.Clear();
+        var physicalId = runtime.State.NextPhysicalChipId++;
+        opponent.Inventory.Add(new DuckPhysicalChipState(physicalId, "seeds"));
+        opponent.PlacedChips.Add(new DuckPlacedChipState(physicalId, position, nuisanceSuppressed: false));
+        opponent.PlacedHelpfulTypes.Add(DuckEncounterType.Seeds);
+    }
+
     private static DreamTestScenario DreamScenario(int day, int sleep)
     {
         var runtime = DuckMatchRuntime.Create(seed: 227);
@@ -550,4 +681,5 @@ public sealed class DuckNormalPolicyTests
         int ActionCount,
         IReadOnlyDictionary<GameActionKind, int> ActionKinds,
         IReadOnlyList<string> PurchaseDefinitionIds);
+
 }

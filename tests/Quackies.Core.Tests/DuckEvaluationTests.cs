@@ -11,6 +11,20 @@ namespace Quackies.Core.Tests;
 public sealed class DuckEvaluationTests
 {
     [Fact]
+    public void Seed_20_trailer_keeps_a_final_Day_recovery_open_instead_of_banking_haven_ten()
+    {
+        var result = Run(20, "baseline", "normal", includeActions: true).Result;
+        var decisions = result.Actions!.Where(action => action.Day == 10
+            && action.PolicyId == "normal" && action.Phase == DuckPhase.Adventure).ToArray();
+
+        Assert.Contains(decisions, decision => decision.Kind == GameActionKind.Explore
+            && decision.Reason.Contains("keeps a possible recovery open", StringComparison.Ordinal));
+        Assert.DoesNotContain(decisions, decision => decision.Kind == GameActionKind.Settle
+            && decision.Reason.Contains("safe haven 10", StringComparison.Ordinal));
+        Assert.True(result.Days[9].Players.Single(player => player.PolicyId == "normal").Adventure.DrawCount > 1);
+    }
+
+    [Fact]
     public void Telemetry_accounts_for_every_authoritative_night_and_inventory_change()
     {
         var result = Run(seed: 17, "baseline", "cautious").Result;
