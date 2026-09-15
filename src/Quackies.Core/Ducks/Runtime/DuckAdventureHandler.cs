@@ -104,33 +104,42 @@ namespace Quackies.Core.Ducks.Runtime
 
             var physicalChip = player.Inventory.Single(chip => chip.PhysicalChipId == physicalChipId);
             var definition = runtime.Rules.Encounter(physicalChip.DefinitionId);
-            var type = definition.EncounterType;
-            var wasSplashArmed = player.SplashProtectionArmed;
-            player.SplashProtectionArmed = false;
-            var splashSuppression = wasSplashArmed && definition.IsObstacle;
-            var guideSuppression = definition.IsObstacle && player.GuideProtectionAvailable;
-            if (definition.IsObstacle && player.GuideProtectionAvailable)
-                player.GuideProtectionAvailable = false;
-            var nuisanceSuppressed = splashSuppression || guideSuppression;
-
-            var movement = DetermineMovement(runtime, player, definition);
-            player.Position = Math.Min(43, player.Position + movement);
-            player.PlacedChips.Add(new DuckPlacedChipState(physicalChipId, player.Position, nuisanceSuppressed));
+            var before = new DuckAdventureState(
+                player.Position,
+                player.Exhaustion,
+                player.SafeExhaustionMaximum,
+                player.ActiveFlock,
+                player.SplashProtectionArmed,
+                player.LogSlowdownPending,
+                player.GuideProtectionAvailable,
+                player.PocketDriftwoodAwarded,
+                player.FlowersPlaced,
+                DuckAdventureRules.HelpfulTypes(player.PlacedHelpfulTypes));
+            var placement = DuckAdventureRules.ApplyEncounter(before, definition, runtime.CurrentEvent.EventType);
+            var after = placement.State;
+            player.Position = after.Position;
+            player.Exhaustion = after.Exhaustion;
+            player.SafeExhaustionMaximum = after.SafeExhaustionMaximum;
+            player.ActiveFlock = after.ActiveFlock;
+            player.SplashProtectionArmed = after.SplashProtectionArmed;
+            player.LogSlowdownPending = after.LogSlowdownPending;
+            player.GuideProtectionAvailable = after.GuideProtectionAvailable;
+            player.PocketDriftwoodAwarded = after.PocketDriftwoodAwarded;
+            player.FlowersPlaced = after.FlowersPlaced;
+            player.PlacedChips.Add(new DuckPlacedChipState(physicalChipId, player.Position, placement.NuisanceSuppressed));
 
             if (definition.IsHelpful)
-            {
-                player.PlacedHelpfulTypes.Add(type);
-                ResolveHelpfulAbility(runtime, player, definition);
-            }
-            else
-            {
-                ResolveObstacle(player, type, nuisanceSuppressed);
-            }
-
-            AwardPocketDriftwood(runtime, player);
+                player.PlacedHelpfulTypes.Add(placement.EncounterType);
+            player.DayReedsTwigs += placement.ReedsTwigsAwarded;
+            player.DayEventTwigs += placement.EventTwigsAwarded;
+            player.TotalTwigs += placement.ReedsTwigsAwarded + placement.EventTwigsAwarded;
+            if (placement.EncounterType == DuckEncounterType.Signpost)
+                RefreshSignpostPreview(runtime, player);
+            if (placement.EventTwigsAwarded > 0)
+                runtime.AddHistory(player.Id, player.Name + " gained 1 Twig from A Pocket of Driftwood.");
             runtime.AddHistory(player.Id, player.Name + " placed " + definition.Name + " at space " + player.Position + ".");
 
-            if (player.Exhaustion > player.SafeExhaustionMaximum)
+            if (placement.WearsOut)
             {
                 FinishAdventure(runtime, player, wornOut: true, "became worn out");
                 return;
@@ -144,71 +153,6 @@ namespace Quackies.Core.Ducks.Runtime
                 FinishAdventure(runtime, player, wornOut: false, "emptied the bag");
         }
 
-        private static int DetermineMovement(
-            DuckMatchRuntime runtime,
-            DuckPlayerState player,
-            DuckEncounterDefinition definition)
-        {
-            var type = definition.EncounterType;
-            int movement;
-            if (type == DuckEncounterType.Companion)
-            {
-                player.ActiveFlock++;
-                movement = Math.Min(player.ActiveFlock + 1, 4);
-            }
-            else
-            {
-                movement = definition.BaseMovement!.Value;
-            }
-
-            var eventType = runtime.CurrentEvent.EventType;
-            if (eventType == DuckWorldEventType.RainSoftenedSeeds && type == DuckEncounterType.Seeds)
-                movement++;
-
-            var alreadyHalved = false;
-            if (eventType == DuckWorldEventType.StillAir && type == DuckEncounterType.Tailwind)
-            {
-                movement = HalveMovement(movement);
-                alreadyHalved = true;
-            }
-
-            if (definition.IsHelpful && player.LogSlowdownPending)
-            {
-                if (!alreadyHalved) movement = HalveMovement(movement);
-                player.LogSlowdownPending = false;
-            }
-
-            return Math.Max(1, movement);
-        }
-
-        private static int HalveMovement(int movement)
-        {
-            return Math.Max(1, (movement + 1) / 2);
-        }
-
-        private static void ResolveHelpfulAbility(
-            DuckMatchRuntime runtime,
-            DuckPlayerState player,
-            DuckEncounterDefinition definition)
-        {
-            switch (definition.EncounterType)
-            {
-                case DuckEncounterType.Reeds:
-                    player.DayReedsTwigs += definition.TwigYield;
-                    player.TotalTwigs += definition.TwigYield;
-                    break;
-                case DuckEncounterType.Signpost:
-                    RefreshSignpostPreview(runtime, player);
-                    break;
-                case DuckEncounterType.Splash:
-                    player.SplashProtectionArmed = true;
-                    break;
-                case DuckEncounterType.Wildflowers:
-                    player.FlowersPlaced++;
-                    break;
-            }
-        }
-
         private static void RefreshSignpostPreview(DuckMatchRuntime runtime, DuckPlayerState player)
         {
             var count = runtime.CurrentEvent.EventType switch
@@ -219,41 +163,6 @@ namespace Quackies.Core.Ducks.Runtime
             };
             player.KnownNextPhysicalChipIds.Clear();
             player.KnownNextPhysicalChipIds.AddRange(player.BagPhysicalChipIds.Take(count));
-        }
-
-        private static void ResolveObstacle(
-            DuckPlayerState player,
-            DuckEncounterType type,
-            bool nuisanceSuppressed)
-        {
-            player.Exhaustion++;
-            if (nuisanceSuppressed) return;
-
-            switch (type)
-            {
-                case DuckEncounterType.FallenLog:
-                    player.LogSlowdownPending = true;
-                    break;
-                case DuckEncounterType.MudPuddle:
-                    player.ActiveFlock = Math.Max(0, player.ActiveFlock - 1);
-                    break;
-                case DuckEncounterType.GrumpyGoose:
-                    player.SafeExhaustionMaximum = 4;
-                    break;
-            }
-        }
-
-        private static void AwardPocketDriftwood(DuckMatchRuntime runtime, DuckPlayerState player)
-        {
-            if (runtime.CurrentEvent.EventType != DuckWorldEventType.PocketOfDriftwood
-                || player.PocketDriftwoodAwarded
-                || player.PlacedHelpfulTypes.Count < 3)
-                return;
-
-            player.PocketDriftwoodAwarded = true;
-            player.DayEventTwigs++;
-            player.TotalTwigs++;
-            runtime.AddHistory(player.Id, player.Name + " gained 1 Twig from A Pocket of Driftwood.");
         }
 
         private static void FinishAdventure(
