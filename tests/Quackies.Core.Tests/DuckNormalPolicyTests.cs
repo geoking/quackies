@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Quackies.Core.Ducks.AI;
 using Quackies.Core.Ducks.Definitions;
 using Quackies.Core.Ducks.Runtime;
@@ -48,6 +50,57 @@ public sealed class DuckNormalPolicyTests
     }
 
     [Fact]
+    public void Two_exact_previews_support_a_safe_draw_then_a_stop_without_peeking_beyond_them()
+    {
+        var scenario = AdventureScenario(
+            position: 3,
+            exhaustion: 4,
+            bag: new[] { "seeds", "grumpy_goose", "tailwind_2" },
+            knownDefinitionId: "seeds");
+        scenario.Runtime.State.WorldEventDeckDefinitionIds[scenario.Runtime.State.CurrentEventIndex] =
+            "sunlit_signboards";
+        var player = scenario.Runtime.Player("human");
+        var goose = player.BagPhysicalChipIds.First(id =>
+            player.Inventory.Single(chip => chip.PhysicalChipId == id).DefinitionId == "grumpy_goose");
+        player.KnownNextPhysicalChipIds.Add(goose);
+
+        var first = Evaluate(scenario);
+        Assert.Equal(GameActionKind.Explore, first.Action.Kind);
+        scenario.Match.Execute("human", first.Action);
+
+        var second = Evaluate(scenario);
+        Assert.Equal(GameActionKind.Settle, second.Action.Kind);
+        Assert.Contains("Signpost preview is Grumpy Goose", second.Reason, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public void Future_Signpost_information_adds_value_only_when_the_event_will_reveal_a_chip()
+    {
+        var remaining = new[] { "tailwind_4", "grumpy_goose", "grumpy_goose", "grumpy_goose" };
+        var signpost = AdventureScenario(
+            position: 4,
+            exhaustion: 4,
+            bag: new[] { "signpost" }.Concat(remaining).ToArray(),
+            knownDefinitionId: "signpost");
+        var sameMovementWithoutPreview = AdventureScenario(
+            position: 4,
+            exhaustion: 4,
+            bag: new[] { "tailwind_2" }.Concat(remaining).ToArray(),
+            knownDefinitionId: "tailwind_2");
+        var mistedSignpost = AdventureScenario(
+            position: 4,
+            exhaustion: 4,
+            bag: new[] { "signpost" }.Concat(remaining).ToArray(),
+            knownDefinitionId: "signpost");
+        mistedSignpost.Runtime.State.WorldEventDeckDefinitionIds[
+            mistedSignpost.Runtime.State.CurrentEventIndex] = "thick_morning_mist";
+
+        Assert.Equal(GameActionKind.Explore, Choose(signpost).Kind);
+        Assert.Equal(GameActionKind.Settle, Choose(sameMovementWithoutPreview).Kind);
+        Assert.Equal(GameActionKind.Settle, Choose(mistedSignpost).Kind);
+    }
+
+    [Fact]
     public void Protected_Goose_still_wears_out_when_its_Exhaustion_exceeds_five()
     {
         var scenario = AdventureScenario(position: 3, exhaustion: 5,
@@ -73,6 +126,39 @@ public sealed class DuckNormalPolicyTests
         Assert.Equal(GameActionKind.Explore, explore.Kind);
         beforeHaven.Match.Execute("human", explore);
         Assert.Equal(4, beforeHaven.Runtime.Player("human").Position);
+    }
+
+    [Fact]
+    public void Multi_draw_plan_leaves_an_early_haven_to_cross_a_temporary_reward_dip()
+    {
+        var scenario = AdventureScenario(
+            position: 4,
+            exhaustion: 0,
+            bag: new[] { "seeds", "tailwind_4", "seeds" },
+            knownDefinitionId: "seeds");
+
+        var decision = Evaluate(scenario);
+
+        Assert.Equal(GameActionKind.Explore, decision.Action.Kind);
+        Assert.Contains("3-draw plan", decision.Reason, StringComparison.Ordinal);
+        scenario.Match.Execute("human", decision.Action);
+        Assert.Equal(5, scenario.Runtime.Player("human").Position);
+        Assert.False(DuckRules.V1.BoardSpaceAt(5).IsHaven);
+    }
+
+    [Fact]
+    public void Multi_draw_plan_continues_from_an_early_ordinary_space_toward_a_better_rest()
+    {
+        var scenario = AdventureScenario(
+            position: 5,
+            exhaustion: 0,
+            bag: new[] { "seeds", "tailwind_4" },
+            knownDefinitionId: "seeds");
+
+        var decision = Evaluate(scenario);
+
+        Assert.Equal(GameActionKind.Explore, decision.Action.Kind);
+        Assert.Contains("2-draw plan", decision.Reason, StringComparison.Ordinal);
     }
 
     [Fact]
@@ -138,6 +224,107 @@ public sealed class DuckNormalPolicyTests
 
         Assert.Equal("tailwind_4", _policy.Choose(early.Match.GetSnapshot("human"), earlyActions).DefinitionId);
         Assert.Equal("reeds_1", _policy.Choose(late.Match.GetSnapshot("human"), lateActions).DefinitionId);
+    }
+
+    [Fact]
+    public void Complete_bundle_beats_the_best_individual_purchase_that_would_consume_the_budget()
+    {
+        var scenario = DreamScenario(day: 4, sleep: 15);
+        var first = _policy.Evaluate(
+            scenario.Match.GetSnapshot("human"),
+            scenario.Match.GetLegalActions("human"));
+
+        Assert.Equal(GameActionKind.BuyEncounter, first.Action.Kind);
+        Assert.NotEqual("tailwind_6", first.Action.DefinitionId);
+        Assert.Contains("2-chip Night bundle", first.Reason, StringComparison.Ordinal);
+
+        scenario.Match.Execute("human", first.Action);
+        var second = _policy.Choose(
+            scenario.Match.GetSnapshot("human"),
+            scenario.Match.GetLegalActions("human"));
+        Assert.Equal(GameActionKind.BuyEncounter, second.Kind);
+        scenario.Match.Execute("human", second);
+
+        var player = scenario.Runtime.Player("human");
+        Assert.Equal(2, player.PurchasedEncounterDefinitionIds.Count);
+        Assert.Equal(2, player.PurchasedShopTypes.Count);
+        Assert.True(player.PurchasedEncounterDefinitionIds
+            .Select(id => DuckRules.V1.ShopOffer(id).SleepPrice)
+            .Sum() <= 15);
+    }
+
+    [Fact]
+    public void Dream_finishes_when_the_only_affordable_purchase_would_worsen_a_saturated_bag()
+    {
+        var scenario = DreamScenario(day: 9, sleep: 3);
+        var player = scenario.Runtime.Player("human");
+        for (var count = 0; count < 12; count++)
+            player.Inventory.Add(new DuckPhysicalChipState(scenario.Runtime.State.NextPhysicalChipId++, "seeds"));
+
+        var actions = scenario.Match.GetLegalActions("human");
+        Assert.Contains(actions, action => action.DefinitionId == "seeds");
+
+        var decision = _policy.Evaluate(scenario.Match.GetSnapshot("human"), actions);
+
+        Assert.Equal(GameActionKind.FinishDream, decision.Action.Kind);
+        Assert.Contains("without another purchase", decision.Reason, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public void Three_slot_bundle_respects_budget_and_one_purchase_per_type()
+    {
+        var scenario = DreamScenario(day: 7, sleep: 18);
+        var initialSleep = scenario.Runtime.Player("human").RemainingSleep;
+        while (true)
+        {
+            var action = _policy.Choose(
+                scenario.Match.GetSnapshot("human"),
+                scenario.Match.GetLegalActions("human"));
+            if (action.Kind == GameActionKind.FinishDream) break;
+            scenario.Match.Execute("human", action);
+        }
+
+        var player = scenario.Runtime.Player("human");
+        Assert.InRange(player.PurchasedEncounterDefinitionIds.Count, 1, 3);
+        Assert.Equal(player.PurchasedEncounterDefinitionIds.Count, player.PurchasedShopTypes.Count);
+        Assert.True(player.PurchasedEncounterDefinitionIds
+            .Select(id => DuckRules.V1.ShopOffer(id).SleepPrice)
+            .Sum() <= initialSleep);
+    }
+
+    [Fact]
+    public void Final_Day_plan_takes_a_known_safe_step_into_a_high_value_haven()
+    {
+        var scenario = AdventureScenario(
+            position: 14,
+            exhaustion: 0,
+            bag: new[] { "tailwind_2" },
+            knownDefinitionId: "tailwind_2",
+            day: 10);
+
+        var decision = Evaluate(scenario);
+
+        Assert.Equal(GameActionKind.Explore, decision.Action.Kind);
+        Assert.Contains("known Tailwind 2", decision.Reason, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public void Iterative_search_reports_its_complete_depth_and_stays_within_the_node_budget()
+    {
+        var scenario = AdventureScenario(
+            position: 1,
+            exhaustion: 0,
+            bag: DuckRules.V1.OpeningBag.Select(definition => definition.DefinitionId).ToArray());
+        var timer = Stopwatch.StartNew();
+
+        var decision = Evaluate(scenario);
+
+        timer.Stop();
+        var nodeMatch = Regex.Match(decision.Reason, @"(?:used |\()(?<nodes>[0-9]+) (?:total )?nodes");
+        Assert.True(nodeMatch.Success, decision.Reason);
+        Assert.InRange(int.Parse(nodeMatch.Groups["nodes"].Value), 1, 8000);
+        Assert.Matches(@"[1-6]-draw plan", decision.Reason);
+        _output.WriteLine("bounded planning decision: {0:0.000} ms; {1}", timer.Elapsed.TotalMilliseconds, decision.Reason);
     }
 
     [Fact]
@@ -229,16 +416,19 @@ public sealed class DuckNormalPolicyTests
         int position,
         int exhaustion,
         string[] bag,
-        string? knownDefinitionId = null)
+        string? knownDefinitionId = null,
+        int day = 1)
     {
         var runtime = DuckMatchRuntime.Create(seed: 211);
+        runtime.State.Day = day;
+        runtime.State.FinalDayDecisionBeat = day == DuckMatchSettings.StandardDays ? 1 : 0;
         runtime.State.WorldEventDeckDefinitionIds[runtime.State.CurrentEventIndex] = "home_before_dark";
         runtime.Player("human").GuideProtectionAvailable = false;
         PrepareAdventurePlayer(runtime, "human", position, exhaustion, bag);
         var player = runtime.Player("human");
         if (knownDefinitionId != null)
         {
-            var known = player.BagPhysicalChipIds.Single(id =>
+            var known = player.BagPhysicalChipIds.First(id =>
                 player.Inventory.Single(chip => chip.PhysicalChipId == id).DefinitionId == knownDefinitionId);
             player.BagPhysicalChipIds.Remove(known);
             player.BagPhysicalChipIds.Insert(0, known);
